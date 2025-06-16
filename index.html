@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pirai AI - Transform Surveys Like the Crescent Moon Brings New Beginnings</title>
+    <meta name="description" content="Pirai (பிறை) - meaning crescent moon - transforms Word documents into Qualtrics surveys with elegant AI automation. New beginnings in survey creation, built by Qualtrics experts.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: #ffffff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e5e7eb;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #3b82f6;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo::before {
+            content: "🌙";
+            font-size: 1.3rem;
+        }
+        
+        .nav-cta {
+            background: #3b82f6;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .nav-cta:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Problem Section */
+        .problem {
+            padding: 80px 0;
+            background: #f9fafb;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #1f2937;
+        }
+        
+        .pain-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .pain-point {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pain-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .pain-point h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #dc2626;
+        }
+        
+        /* Solution Section */
+        .solution {
+            padding: 80px 0;
+        }
+        
+        .solution-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+        
+        .workflow {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+        }
+        
+        .workflow-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+        }
+        
+        .step-number {
+            background: rgba(255, 255, 255, 0.2);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-right: 1rem;
+        }
+        
+        .benefits {
+            list-style: none;
+        }
+        
+        .benefits li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .benefits li::before {
+            content: "✅";
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        /* Social Proof */
+        .social-proof {
+            padding: 80px 0;
+            background: #f9fafb;
+            text-align: center;
+        }
+        
+        .credentials {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .credential {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+        }
+        
+        .credential-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+            color: white;
+        }
+        
+        .cta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-content p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .consultation-benefits {
+            list-style: none;
+        }
+        
+        .consultation-benefits li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+        
+        .consultation-benefits li::before {
+            content: "🚀";
+            margin-right: 1rem;
+        }
+        
+        /* Form Styles */
+        .lead-form {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+        }
+        
+        .form-group select {
+            cursor: pointer;
+        }
+        
+        .form-group select option {
+            background: #1f2937;
+            color: white;
+            padding: 0.5rem;
+        }
+        
+        .form-group select:invalid {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #60a5fa;
+            box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.3);
+        }
+        
+        .submit-btn {
+            width: 100%;
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .submit-btn:hover {
+            background: #059669;
+            transform: translateY(-2px);
+        }
+        
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-stats,
+            .credentials {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .solution-grid,
+            .cta-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .footer-links {
+                justify-content: center;
+            }
+        }
+        
+        /* Loading state */
+        .loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        
+        .success-message {
+            background: #10b981;
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+        
+        .error-message {
+            background: #dc2626;
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="logo">Pirai AI</a>
+            <a href="#contact" class="nav-cta">Get Free Consultation</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div style="font-size: 5rem; margin-bottom: 1rem; opacity: 0.9;">🌙</div>
+            <h1>Transform Word Documents into Live Qualtrics Surveys</h1>
+            <p class="subtitle">Like the crescent moon brings new beginnings, Pirai AI transforms your survey creation process – turning manual hours into automated minutes with elegant grace.</p>
+            
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">95%</span>
+                    <span class="stat-label">Time Saved</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">24hrs</span>
+                    <span class="stat-label">Onboarding Time</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Qualtrics Compatible</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Story Section -->
+    <section style="padding: 80px 0; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <div style="font-size: 4rem; margin-bottom: 2rem;">🌙</div>
+                <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem; color: #1f2937;">
+                    "Pirai" – Inspired by the Crescent Moon
+                </h2>
+                <p style="font-size: 1.2rem; line-height: 1.8; color: #4b5563; margin-bottom: 3rem;">
+                    In Tamil, "Pirai" (பிறை) means the crescent moon – a symbol of <strong>new beginnings</strong>, 
+                    <strong>graceful growth</strong>, and <strong>elegant transformation</strong>. Just like the crescent moon 
+                    brings calm brilliance to darkness, Pirai AI illuminates your survey creation process, 
+                    transforming manual workflows into automated excellence.
+                </p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                    <div style="padding: 1.5rem; background: white; border-radius: 1rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                        <div style="font-size: 2rem; margin-bottom: 1rem;">✨</div>
+                        <h3 style="font-weight: 600; margin-bottom: 0.5rem;">New Beginnings</h3>
+                        <p style="color: #6b7280; font-size: 0.9rem;">Transform how you create surveys</p>
+                    </div>
+                    
+                    <div style="padding: 1.5rem; background: white; border-radius: 1rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                        <div style="font-size: 2rem; margin-bottom: 1rem;">📈</div>
+                        <h3 style="font-weight: 600; margin-bottom: 0.5rem;">Ongoing Growth</h3>
+                        <p style="color: #6b7280; font-size: 0.9rem;">Scale your research operations</p>
+                    </div>
+                    
+                    <div style="padding: 1.5rem; background: white; border-radius: 1rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                        <div style="font-size: 2rem; margin-bottom: 1rem;">🎯</div>
+                        <h3 style="font-weight: 600; margin-bottom: 0.5rem;">Elegant Transformation</h3>
+                        <p style="color: #6b7280; font-size: 0.9rem;">Seamless AI-powered automation</p>
+                    </div>
+                    
+                    <div style="padding: 1.5rem; background: white; border-radius: 1rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                        <div style="font-size: 2rem; margin-bottom: 1rem;">🌟</div>
+                        <h3 style="font-weight: 600; margin-bottom: 0.5rem;">Brilliant Clarity</h3>
+                        <p style="color: #6b7280; font-size: 0.9rem;">Light through complex processes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <h2 class="section-title">Survey Creation Shouldn't Take Days</h2>
+            <p style="text-align: center; font-size: 1.1rem; max-width: 800px; margin: 0 auto;">Market research professionals and survey teams waste countless hours manually recreating surveys from Word documents into Qualtrics.</p>
+            
+            <div class="pain-points">
+                <div class="pain-point">
+                    <div class="pain-icon">⏰</div>
+                    <h3>Time-Consuming Manual Work</h3>
+                    <p>Converting a complex survey from Word to Qualtrics takes 4-8 hours of tedious copying, pasting, and formatting.</p>
+                </div>
+                
+                <div class="pain-point">
+                    <div class="pain-icon">❌</div>
+                    <h3>Error-Prone Process</h3>
+                    <p>Manual transcription leads to missed questions, wrong logic, and formatting errors that delay project launches.</p>
+                </div>
+                
+                <div class="pain-point">
+                    <div class="pain-icon">💸</div>
+                    <h3>Expensive Resource Allocation</h3>
+                    <p>Senior researchers spend valuable time on data entry instead of analysis and strategy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution">
+        <div class="container">
+            <h2 class="section-title">The Complete Survey Automation Solution</h2>
+            
+            <div class="solution-grid">
+                <div class="workflow">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 2rem;">Our Proven Process</h3>
+                    
+                    <div class="workflow-step">
+                        <div class="step-number">1</div>
+                        <div>
+                            <strong>Upload Word Document</strong><br>
+                            Send us your survey draft in any Word format
+                        </div>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="step-number">2</div>
+                        <div>
+                            <strong>AI Processing & Review</strong><br>
+                            Our AI extracts questions, our team validates accuracy
+                        </div>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="step-number">3</div>
+                        <div>
+                            <strong>Qualtrics-Ready Import</strong><br>
+                            Receive a file ready for direct Qualtrics import
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 2rem;">What You Get</h3>
+                    <ul class="benefits">
+                        <li>Complete survey logic preserved</li>
+                        <li>All question types supported (Matrix, MC, Text)</li>
+                        <li>Custom recode values maintained</li>
+                        <li>Page breaks and flow logic included</li>
+                        <li>Quality review by Qualtrics experts</li>
+                        <li>24-hour turnaround guaranteed</li>
+                        <li>Unlimited revisions included</li>
+                        <li>Direct Qualtrics import format</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof">
+        <div class="container">
+            <h2 class="section-title">Built by Qualtrics Experts</h2>
+            <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto 3rem;">Our team includes certified Qualtrics XM Solution Architects with years of enterprise survey experience.</p>
+            
+            <div class="credentials">
+                <div class="credential">
+                    <div class="credential-icon">🏆</div>
+                    <h3>Qualtrics XM Solution Architect</h3>
+                    <p>Certified professionals who understand enterprise survey requirements</p>
+                </div>
+                
+                <div class="credential">
+                    <div class="credential-icon">🚀</div>
+                    <h3>Market Research Veterans</h3>
+                    <p>Years of experience with complex survey logic and advanced question types</p>
+                </div>
+                
+                <div class="credential">
+                    <div class="credential-icon">⚡</div>
+                    <h3>AI Innovation Leaders</h3>
+                    <p>Cutting-edge AI technology combined with survey domain expertise</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-grid">
+                <div class="cta-content">
+                    <h2>Ready to Begin Your Survey Transformation?</h2>
+                    <p>Like the crescent moon that marks new beginnings, let Pirai AI transform your survey creation process. Get started with a free consultation and discover the elegant automation that's waiting for you.</p>
+                    
+                    <ul class="consultation-benefits">
+                        <li>Free workflow analysis</li>
+                        <li>Custom automation demo</li>
+                        <li>ROI calculation for your team</li>
+                        <li>Onboarding within 24 hours</li>
+                        <li>No long-term contracts required</li>
+                    </ul>
+                </div>
+                
+                <div class="lead-form">
+                    <h3 style="margin-bottom: 1.5rem; font-size: 1.5rem;">Get Your Free Consultation</h3>
+                    
+                    <div class="success-message" id="successMessage">
+                        🎉 Thank you! We'll contact you within 24 hours to schedule your consultation.
+                    </div>
+                    
+                    <div class="error-message" id="errorMessage">
+                        ❌ Something went wrong. Please try again or email us directly.
+                    </div>
+                    
+                    <form id="leadForm" action="https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec" method="POST">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="John Smith">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Work Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="john@company.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Company *</label>
+                            <input type="text" id="company" name="company" required placeholder="Acme Research Inc.">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="role">Your Role *</label>
+                            <select id="role" name="role" required>
+                                <option value="">Select your role</option>
+                                <option value="Market Research Manager">Market Research Manager</option>
+                                <option value="Survey Specialist">Survey Specialist</option>
+                                <option value="Research Director">Research Director</option>
+                                <option value="Data Analyst">Data Analyst</option>
+                                <option value="Consultant">Consultant</option>
+                                <option value="Academic Researcher">Academic Researcher</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="surveys">Surveys per Month</label>
+                            <select id="surveys" name="surveys">
+                                <option value="">Select volume</option>
+                                <option value="1-5">1-5 surveys</option>
+                                <option value="6-15">6-15 surveys</option>
+                                <option value="16-30">16-30 surveys</option>
+                                <option value="30+">30+ surveys</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="challenges">Current Survey Creation Challenges</label>
+                            <textarea id="challenges" name="challenges" rows="3" placeholder="What takes the most time in your current survey setup process?"></textarea>
+                        </div>
+                        
+                        <input type="hidden" name="timestamp" id="timestamp">
+                        <input type="hidden" name="source" value="landing_page">
+                        <input type="hidden" name="origin" id="origin">
+                        <input type="hidden" name="referer" id="referer">
+                        
+                        <!-- Honeypot field (hidden from users, catches bots) -->
+                        <input type="text" name="website" style="display: none;" tabindex="-1" autocomplete="off">
+                        
+                        <button type="submit" class="submit-btn" id="submitBtn">
+                            Get Free Consultation
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <p style="margin-bottom: 0.5rem;">&copy; 2025 PIRAIAI.COM - AI-Powered Survey Automation</p>
+                    <p style="font-size: 0.9rem; opacity: 0.7; font-style: italic;">
+                        🌙 "Pirai" – Inspired by the crescent moon, symbolizing new beginnings, graceful growth, and shining through every phase.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                    <a href="mailto:hello@piraiai.com">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handling
+        document.getElementById('leadForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const form = document.getElementById('leadForm');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Add security data
+            document.getElementById('timestamp').value = new Date().toISOString();
+            document.getElementById('origin').value = window.location.origin;
+            document.getElementById('referer').value = document.referrer;
+            
+            // Check honeypot field (if filled, it's likely a bot)
+            if (document.querySelector('input[name="website"]').value) {
+                console.log('Bot detected, ignoring submission');
+                successMessage.style.display = 'block'; // Show success to bot
+                form.reset();
+                return;
+            }
+            
+            // Show loading state
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+            form.classList.add('loading');
+            
+            // Hide previous messages
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            
+            try {
+                const formData = new FormData(form);
+                
+                // For Google Sheets integration, you'll need to set up a Google Apps Script
+                // Replace YOUR_SCRIPT_ID with your actual script ID
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: formData
+                });
+                
+                // Show success message
+                successMessage.style.display = 'block';
+                form.reset();
+                
+                // Track conversion (you can add Google Analytics or other tracking here)
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'conversion', {
+                        'send_to': 'YOUR_CONVERSION_ID'
+                    });
+                }
+                
+            } catch (error) {
+                console.error('Form submission error:', error);
+                errorMessage.style.display = 'block';
+            } finally {
+                // Reset button state
+                submitBtn.textContent = 'Get Free Consultation';
+                submitBtn.disabled = false;
+                form.classList.remove('loading');
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add floating header effect
+        let lastScrollY = window.scrollY;
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
