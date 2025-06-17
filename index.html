@@ -745,6 +745,201 @@
             display: none !important;
         }
     </style>
+    <style>
+    /* Roadmap Section Styles - ADD TO YOUR EXISTING CSS */
+    .roadmap-section {
+        padding: 80px 0;
+        background: linear-gradient(135deg, rgba(31, 41, 55, 0.8), rgba(17, 24, 39, 0.8));
+        position: relative;
+        overflow: hidden;
+    }
+
+    .roadmap-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(55, 65, 81, 0.5) 50%, transparent);
+    }
+
+    .roadmap-timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        max-width: 900px;
+        margin: 48px auto 0;
+        position: relative;
+    }
+
+    .roadmap-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 24px;
+        padding: 32px;
+        background: rgba(31, 41, 55, 0.5);
+        backdrop-filter: blur(10px);
+        border-radius: 16px;
+        border: 1px solid rgba(55, 65, 81, 0.5);
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .roadmap-item.current {
+        border-color: #22c55e;
+        box-shadow: 0 8px 32px rgba(34, 197, 94, 0.15);
+    }
+
+    .roadmap-item.upcoming {
+        border-color: #3b82f6;
+        box-shadow: 0 4px 20px rgba(59, 130, 246, 0.1);
+    }
+
+    .roadmap-item.future {
+        border-color: #8b5cf6;
+        box-shadow: 0 4px 20px rgba(139, 92, 246, 0.1);
+    }
+
+    .roadmap-item:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .roadmap-badge {
+        position: absolute;
+        top: -12px;
+        left: 32px;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+
+    .current-badge {
+        background: linear-gradient(135deg, #22c55e, #16a34a);
+        color: white;
+    }
+
+    .upcoming-badge {
+        background: linear-gradient(135deg, #3b82f6, #2563eb);
+        color: white;
+    }
+
+    .future-badge {
+        background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+        color: white;
+    }
+
+    .roadmap-icon {
+        font-size: 2.5rem;
+        min-width: 64px;
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(55, 65, 81, 0.5);
+        border-radius: 12px;
+        border: 1px solid rgba(75, 85, 99, 0.5);
+    }
+
+    .roadmap-content {
+        flex: 1;
+    }
+
+    .roadmap-content h3 {
+        font-size: 24px;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 12px;
+    }
+
+    .roadmap-content p {
+        color: #d1d5db;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+
+    .roadmap-features {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+
+    .feature {
+        color: #9ca3af;
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .status {
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .current-status {
+        background: rgba(34, 197, 94, 0.2);
+        color: #22c55e;
+        border: 1px solid rgba(34, 197, 94, 0.3);
+    }
+
+    .upcoming-status {
+        background: rgba(59, 130, 246, 0.2);
+        color: #3b82f6;
+        border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+
+    .future-status {
+        background: rgba(139, 92, 246, 0.2);
+        color: #8b5cf6;
+        border: 1px solid rgba(139, 92, 246, 0.3);
+    }
+
+    .roadmap-connector {
+        width: 2px;
+        height: 32px;
+        background: linear-gradient(to bottom, rgba(55, 65, 81, 0.8), rgba(75, 85, 99, 0.4));
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .roadmap-cta {
+        margin-top: 48px;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .roadmap-item {
+            flex-direction: column;
+            text-align: center;
+            padding: 24px 20px 32px;
+        }
+        
+        .roadmap-icon {
+            margin: 0 auto 20px;
+        }
+        
+        .roadmap-badge {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .roadmap-features {
+            align-items: center;
+        }
+        
+        .roadmap-connector {
+            height: 24px;
+        }
+    }
+    </style>    
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -1016,7 +1211,77 @@
             </div>
         </div>
     </section>
-
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="roadmap-section">
+        <div class="container">
+            <h2 class="section-title">The Future of Survey Automation</h2>
+            <p class="section-subtitle">
+                Starting with format conversion, evolving to complete AI workflow automation
+            </p>
+            
+            <div class="roadmap-timeline">
+                <div class="roadmap-item current">
+                    <div class="roadmap-badge current-badge">Phase 1</div>
+                    <div class="roadmap-icon">📄</div>
+                    <div class="roadmap-content">
+                        <h3>Advanced Format Conversion</h3>
+                        <p>Transform Word documents to Qualtrics advanced format text, bulk adding survey questions and setup recodes with one click</p>
+                        <div class="roadmap-features">
+                            <span class="feature">✓ Eliminates manual question entry</span>
+                            <span class="feature">✓ Bulk question & recode setup</span>
+                            <span class="feature">✓ One-click format conversion</span>
+                        </div>
+                        <span class="status current-status">🚀 Available in Early Access</span>
+                    </div>
+                </div>
+                
+                <div class="roadmap-connector"></div>
+                
+                <div class="roadmap-item upcoming">
+                    <div class="roadmap-badge upcoming-badge">Phase 2</div>
+                    <div class="roadmap-icon">⚙️</div>
+                    <div class="roadmap-content">
+                        <h3>Advanced QSF Logic Generation</h3>
+                        <p>Complete survey automation with display logic, skip logic, forced responses, and complex survey flows</p>
+                        <div class="roadmap-features">
+                            <span class="feature">• Display & skip logic automation</span>
+                            <span class="feature">• Survey flow & branch logic setup</span>
+                            <span class="feature">• Force response configuration</span>
+                        </div>
+                        <span class="status upcoming-status">📅 Coming Q4 2025</span>
+                    </div>
+                </div>
+                
+                <div class="roadmap-connector"></div>
+                
+                <div class="roadmap-item future">
+                    <div class="roadmap-badge future-badge">Phase 3</div>
+                    <div class="roadmap-icon">🤖</div>
+                    <div class="roadmap-content">
+                        <h3>Agentic AI Survey Orchestration</h3>
+                        <p>Parent agent controls end-to-end flow using MCP genetic flow from survey spec to deployment via Qualtrics API</p>
+                        <div class="roadmap-features">
+                            <span class="feature">• Autonomous survey workflow orchestration</span>
+                            <span class="feature">• MCP-driven survey specification evolution</span>
+                            <span class="feature">• Direct Qualtrics API deployment</span>
+                        </div>
+                        <span class="status future-status">🔮 Advanced AI Research</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="roadmap-cta">
+                <div class="hero-highlight" style="margin-top: 48px;">
+                    <h3>Be Part of Shaping the Future of Survey Research</h3>
+                    <p>Early access members get lifetime access to all roadmap features</p>
+                    <div class="savings">Join now and influence our development priorities</div>
+                </div>
+                <div style="text-align: center; margin-top: 24px;">
+                    <a href="#demo" class="btn-primary">Join Early Access Program</a>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
