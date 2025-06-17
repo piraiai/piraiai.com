@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Pirai AI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #0f1419 0%, #1a2332 25%, #2a3441 50%, #1e2a3a 75%, #0f1419 100%);
+            min-height: 100vh;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .back-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 60px;
+            color: white;
+        }
+
+        .page-title h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            font-weight: 700;
+        }
+
+        .page-title p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .about-card {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 25px;
+            padding: 60px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .story-intro {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 500;
+            line-height: 1.8;
+        }
+
+        .story-content {
+            font-size: 1.1rem;
+            color: #444;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        .highlight-quote {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 500;
+            line-height: 1.6;
+            box-shadow: 0 10px 30px rgba(52, 152, 219, 0.3);
+        }
+
+        .teams-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .team-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            border-left: 5px solid #3498db;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .team-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .team-description {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .closing-quote {
+            background: rgba(52, 152, 219, 0.1);
+            border-left: 5px solid #3498db;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 40px 0;
+            text-align: center;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #2c3e50;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            text-align: center;
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 40px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .cta-button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.5);
+        }
+
+        .footer {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 60px;
+            font-size: 0.95rem;
+            padding: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer p {
+            margin-bottom: 5px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 15px;
+            }
+
+            .about-card {
+                padding: 40px 25px;
+            }
+
+            .page-title h1 {
+                font-size: 2.5rem;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .teams-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .story-intro {
+                font-size: 1.1rem;
+            }
+
+            .story-content {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="index.html" class="logo">
+                🌙 Pirai AI
+            </a>
+            <nav class="nav-links">
+                <a href="index.html#demo">Early Access</a>
+                <a href="terms.html">Terms</a>
+                <a href="index.html">Home</a>
+                <a href="index.html" class="back-btn">← Back to Main Site</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="page-title">
+            <h1>🌙 About Pirai AI</h1>
+            <p>Where human expertise meets artificial intelligence to transform survey creation</p>
+        </div>
+
+        <div class="about-card">
+            <div class="story-intro">
+                Born from the collaboration of industry experts, Pirai AI represents the perfect fusion of human expertise and artificial intelligence.
+            </div>
+
+            <p class="story-content">
+                Our multidisciplinary team brings together certified Qualtrics implementation specialists, leading AI advisors, skilled development engineers, and experienced operations professionals.
+            </p>
+
+            <p class="story-content">
+                Like the crescent moon that combines light and shadow to create something beautiful, we've united diverse talents to solve a universal problem: the time-consuming, manual process of survey creation that slows down research teams worldwide.
+            </p>
+
+            <div class="teams-grid">
+                <div class="team-card">
+                    <span class="team-icon">🔧</span>
+                    <div class="team-title">Qualtrics Implementation Experts</div>
+                    <div class="team-description">Certified specialists who understand the platform's intricacies and enterprise-level deployment best practices.</div>
+                </div>
+
+                <div class="team-card">
+                    <span class="team-icon">🤖</span>
+                    <div class="team-title">AI Strategy Advisors</div>
+                    <div class="team-description">Leading artificial intelligence strategists ensuring cutting-edge automation and machine learning innovation.</div>
+                </div>
+
+                <div class="team-card">
+                    <span class="team-icon">💻</span>
+                    <div class="team-title">Development Engineers</div>
+                    <div class="team-description">Skilled developers building reliable, scalable solutions that enterprise teams can depend on daily.</div>
+                </div>
+
+                <div class="team-card">
+                    <span class="team-icon">⚙️</span>
+                    <div class="team-title">Operations Professionals</div>
+                    <div class="team-description">Experienced admin teams ensuring seamless operations, onboarding, and continuous service excellence.</div>
+                </div>
+            </div>
+
+            <div class="highlight-quote">
+                "Our Qualtrics experts understand the platform's intricacies. Our AI advisors ensure cutting-edge automation. Our developers build reliable, scalable solutions. Our admin teams ensure seamless operations."
+            </div>
+
+            <p class="story-content">
+                Together, we've created the survey automation platform that research teams have been waiting for. This unique collaboration bridges the gap between manual survey programming and intelligent automation—because we understand both the technical complexities of Qualtrics and the transformative potential of AI.
+            </p>
+
+            <div class="closing-quote">
+                "The result? A solution that saves research teams $157,500+ annually while multiplying survey output capacity—because great innovation happens when the right minds collaborate."
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Ready to Experience the Collaboration?</h2>
+            <p>Join our early access program and discover what happens when expertise meets innovation.</p>
+            <a href="index.html#demo" class="cta-button">Get Early Access</a>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 Pirai AI. All rights reserved.</p>
+            <p>Like the crescent moon that marks new beginnings, great teams illuminate the path forward.</p>
+        </div>
+    </div>
+</body>
+</html>
