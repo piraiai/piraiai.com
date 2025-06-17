@@ -1140,11 +1140,24 @@
                 successMessage.classList.add('show');
                 form.reset();
                 
-                // Track conversion (you can add Google Analytics or other tracking here)
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'conversion', {
-                        'send_to': 'YOUR_CONVERSION_ID'
+                // 🎯 NEW GTM CONVERSION TRACKING - REPLACES OLD CODE
+                if (typeof dataLayer !== 'undefined') {
+                    dataLayer.push({
+                        'event': 'form_submit',
+                        'form_id': 'leadForm',
+                        'form_name': 'consultation_request',
+                        'conversion_value': 500,
+                        'currency': 'USD',
+                        'lead_source': 'landing_page',
+                        'user_data': {
+                            'company': formData.get('company'),
+                            'role': formData.get('role'),
+                            'surveys_per_month': formData.get('surveys')
+                        }
                     });
+                    console.log('GTM conversion event sent: form_submit');
+                } else {
+                    console.warn('dataLayer not found - GTM may not be loaded');
                 }
                 
                 // Scroll to success message
@@ -1159,6 +1172,59 @@
                 submitBtn.textContent = 'Get Free Consultation';
                 submitBtn.disabled = false;
             }
+        });
+
+        // Enhanced tracking for user interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Track ROI calculator usage
+            document.getElementById('surveysPerMonth').addEventListener('change', function() {
+                if (typeof dataLayer !== 'undefined') {
+                    dataLayer.push({
+                        'event': 'roi_calculator_used',
+                        'calculator_field': 'surveys_per_month',
+                        'value': this.value
+                    });
+                }
+            });
+            
+            document.getElementById('hourlyRate').addEventListener('change', function() {
+                if (typeof dataLayer !== 'undefined') {
+                    dataLayer.push({
+                        'event': 'roi_calculator_used',
+                        'calculator_field': 'hourly_rate',
+                        'value': this.value
+                    });
+                }
+            });
+            
+            // Track demo button clicks
+            document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
+                button.addEventListener('click', function() {
+                    if (typeof dataLayer !== 'undefined') {
+                        dataLayer.push({
+                            'event': 'cta_click',
+                            'button_text': this.textContent.trim(),
+                            'button_location': this.closest('section')?.id || 'unknown'
+                        });
+                    }
+                });
+            });
+            
+            // Track scroll depth
+            let maxScroll = 0;
+            window.addEventListener('scroll', function() {
+                const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+                if (scrollPercent > maxScroll && scrollPercent % 25 === 0) {
+                    maxScroll = scrollPercent;
+                    if (typeof dataLayer !== 'undefined') {
+                        dataLayer.push({
+                            'event': 'scroll_depth',
+                            'scroll_percentage': scrollPercent
+                        });
+                    }
+                }
+            });
         });
 
         // Smooth scrolling for navigation links
