@@ -939,6 +939,307 @@
             height: 24px;
         }
     }
+    </style> 
+    <style>
+        /* Pricing Section Styles - Matches Landing Page Aesthetic */
+        .pricing-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+            position: relative;
+        }
+
+        .pricing-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .pricing-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .pricing-subtitle {
+            font-size: 1.2rem;
+            color: #718096;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        .pricing-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 3rem;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
+            position: relative;
+        }
+
+        .price-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .price-amount {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .currency {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #4a5568;
+        }
+
+        .amount {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #2d3748;
+            margin: 0 0.25rem;
+        }
+
+        .period {
+            font-size: 1.2rem;
+            color: #718096;
+            font-weight: 500;
+        }
+
+        .savings-badge {
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        .features-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #f7fafc;
+            font-size: 1.1rem;
+            color: #4a5568;
+        }
+
+        .features-list li:last-child {
+            border-bottom: none;
+        }
+
+        .features-list li.highlight-feature {
+            background: #f0fff4;
+            margin: 0 -1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #c6f6d5;
+        }
+
+        .check-icon {
+            color: #48bb78;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            min-width: 20px;
+        }
+
+        .volume-pricing {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border: 1px solid #e2e8f0;
+        }
+
+        .volume-pricing h4 {
+            color: #2d3748;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+            text-align: center;
+        }
+
+        .volume-tiers {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .tier {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .tier-range {
+            color: #4a5568;
+            font-weight: 500;
+        }
+
+        .tier-price {
+            color: #2d3748;
+            font-weight: 700;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2.5rem 0 1.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(66, 153, 225, 0.3);
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(66, 153, 225, 0.4);
+            text-decoration: none;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #4299e1;
+            padding: 1rem 2rem;
+            border: 2px solid #4299e1;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .btn-secondary:hover {
+            background: #4299e1;
+            color: white;
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        .guarantee {
+            text-align: center;
+            color: #718096;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .guarantee strong {
+            color: #4a5568;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .pricing-section {
+                padding: 60px 0;
+            }
+            
+            .pricing-header h2 {
+                font-size: 2rem;
+            }
+            
+            .pricing-card {
+                padding: 2rem 1.5rem;
+                margin: 0 15px;
+            }
+            
+            .amount {
+                font-size: 3rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-primary, .btn-secondary {
+                min-width: 100%;
+                max-width: 300px;
+            }
+            
+            .features-list li {
+                font-size: 1rem;
+                padding: 0.75rem 0;
+            }
+            
+            .volume-tiers {
+                gap: 0.5rem;
+            }
+            
+            .tier {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pricing-card {
+                padding: 1.5rem 1rem;
+            }
+            
+            .pricing-header h2 {
+                font-size: 1.75rem;
+            }
+            
+            .amount {
+                font-size: 2.5rem;
+            }
+            
+            .currency, .period {
+                font-size: 1rem;
+            }
+            
+            .savings-badge {
+                font-size: 0.8rem;
+                padding: 0.4rem 1rem;
+            }
+        }
+
+        /* Smooth scroll for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Integration with existing page styles */
+        .pricing-section * {
+            box-sizing: border-box;
+        }
     </style>    
 </head>
 <body>
@@ -1113,7 +1414,80 @@
             </div>
         </div>
     </section>
-
+    <!-- Pricing Section - Insert after "How it Works" -->
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <div class="pricing-header">
+                <h2>Simple, Transparent Pricing</h2>
+                <p class="pricing-subtitle">Start saving time and money immediately</p>
+            </div>
+            
+            <div class="pricing-card">
+                <div class="price-header">
+                    <div class="price-amount">
+                        <span class="currency">$</span>
+                        <span class="amount">50</span>
+                        <span class="period">per survey</span>
+                    </div>
+                    <div class="savings-badge">
+                        <span>Save $606 per survey</span>
+                    </div>
+                </div>
+                
+                <div class="features-list">
+                    <ul>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Transform Word docs to Qualtrics format</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>15-minute turnaround vs 12+ hours manual</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Perfect question formatting & structure</span>
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            <span>Ready-to-import Qualtrics file</span>
+                        </li>
+                        <li class="highlight-feature">
+                            <span class="check-icon">✓</span>
+                            <span><strong>First survey free for new customers</strong></span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="volume-pricing">
+                    <h4>Volume Discounts Available</h4>
+                    <div class="volume-tiers">
+                        <div class="tier">
+                            <span class="tier-range">10-49 surveys</span>
+                            <span class="tier-price">$45 each</span>
+                        </div>
+                        <div class="tier">
+                            <span class="tier-range">50+ surveys</span>
+                            <span class="tier-price">$40 each</span>
+                        </div>
+                        <div class="tier">
+                            <span class="tier-range">Enterprise</span>
+                            <span class="tier-price">Custom pricing</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cta-buttons">
+                    <a href="#demo" class="btn-primary">Start Your Free Survey</a>
+                    <a href="#consultation" class="btn-secondary">Schedule Consultation</a>
+                </div>
+                
+                <div class="guarantee">
+                    <p>🌙 <strong>Early Access Program</strong> • 100% Satisfaction Guarantee</p>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Lead Form Section -->
     <section id="demo" class="demo-section">
         <div class="container">
