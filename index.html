@@ -1174,13 +1174,13 @@
         <div class="container">
             <h1>From 12 Hours to 15 Minutes: Transform Survey Programming</h1>
             <p class="hero-subtitle">
-                Pirai AI converts Word document survey drafts into Qualtrics advanced format text instantly. Save $157,500+ annually per research team while multiplying your survey output capacity.
+                Pirai AI converts Word document survey drafts into Qualtrics advanced format text instantly. Save $121,740+ annually per research team while multiplying your survey output capacity.
             </p>
             
             <div class="hero-highlight">
                 <h3>Typical 20-minute survey programming:</h3>
                 <p>Manual Process: 12 hours → Pirai AI: 15 minutes</p>
-                <div class="savings">Save $656 per survey • $13,125 per month • $157,500 per year</div>
+                <div class="savings">Save $507 per survey • $10,145 per month • $121,740 per year</div>
             </div>
             
             <div class="hero-ctas">
@@ -1207,7 +1207,7 @@
                 <div class="feature-card">
                     <div class="feature-icon">💰</div>
                     <h3>Massive Cost Savings</h3>
-                    <p>Save $656 per survey, $13,125 per month, $157,500+ annually per research team. ROI payback in under 30 days with enterprise-level automation.</p>
+                    <p>Save $507 per survey, $10,145 per month, $121,740+ annually per research team. ROI payback in under 30 days with enterprise-level automation.</p>
                 </div>
                 
                 <div class="feature-card">
@@ -1325,9 +1325,9 @@
             <div class="pricing-card-compact">
                 <div class="price-main">
                     <div class="price-amount">
-                        <span class="amount">$50</span>
+                        <span class="amount">$149</span>
                         <span class="period">per survey</span>
-                        <span class="savings-compact">Save $606</span>
+                        <span class="savings-compact">Save $507</span>
                     </div>
                     
                     <div class="features-compact">
@@ -1339,7 +1339,7 @@
                 
                 <div class="cta-compact">
                     <a href="#demo" class="btn-primary-compact">Start Free Survey</a>
-                    <p class="volume-note">Volume discounts: 50+ surveys = $40 each</p>
+                    <p class="volume-note">Volume discounts: 50+ surveys = $119 each (20% discount)</p>
                 </div>
             </div>
         </div>
@@ -1359,7 +1359,7 @@
                     
                     <ul class="benefits-list">
                         <li>Exclusive early access pricing</li>
-                        <li>Custom ROI analysis ($18K+ savings)</li>
+                        <li>Custom ROI analysis ($120K+ annual savings)</li>
                         <li>Priority 48-hour onboarding</li>
                         <li>Beta feature preview access</li>                        
                     </ul>
@@ -1411,10 +1411,10 @@
                             <label for="surveys">Surveys per Month</label>
                             <select id="surveys" name="surveys">
                                 <option value="">Select volume</option>
-                                <option value="1-5">1-5 surveys ($50 each)</option>
-                                <option value="6-20">6-20 surveys ($45 each)</option>
-                                <option value="21-50">21-50 surveys ($40 each)</option>
-                                <option value="50+">50+ surveys (custom pricing)</option>
+                                <option value="1-10">1-10 surveys: $149 each (no discount)</option>
+                                <option value="11-25">11-25 surveys: $139 each (7% discount)</option>
+                                <option value="26-50">26-50 surveys: $129 each (13% discount)</option>
+                                <option value="50+">50+ surveys: $119 each (20% discount)</option>
                             </select>
                         </div>
                         
@@ -1522,7 +1522,7 @@
                         <span>Pirai AI</span>
                     </div>
                     <p class="footer-desc">
-                        Transforming survey programming from 12 hours to 15 minutes. Save $157,500+ annually while multiplying your research team's capacity.
+                        Transforming survey programming from 12 hours to 15 minutes. Save $121,740+ annually while multiplying your research team's capacity.
                     </p>
                     <div class="footer-note">
                         Built by Qualtrics experts for research teams worldwide
@@ -1580,188 +1580,219 @@
     </footer>
 
     <script>
-        // ROI Calculator
-        function updateROI() {
-            const surveysPerMonth = parseInt(document.getElementById('surveysPerMonth').value) || 20;
-            const hourlyRate = parseInt(document.getElementById('hourlyRate').value) || 75;
-            
-            // Manual process: 12 hours per survey
-            const manualHoursPerSurvey = 12;
-            const currentMonthlyCost = surveysPerMonth * manualHoursPerSurvey * hourlyRate;
-            
-            // Automated process: 15 minutes (0.25 hours) + 3 hours logic = 3.25 hours per survey
-            const automatedHoursPerSurvey = 3.25;
-            const automatedMonthlyCost = surveysPerMonth * automatedHoursPerSurvey * hourlyRate;
-            
-            const monthlySavings = currentMonthlyCost - automatedMonthlyCost;
-            const annualSavings = monthlySavings * 12;
-            
-            document.getElementById('currentCost').textContent = currentMonthlyCost.toLocaleString();
-            document.getElementById('automatedCost').textContent = automatedMonthlyCost.toLocaleString();
-            document.getElementById('monthlySavings').textContent = monthlySavings.toLocaleString();
-            document.getElementById('annualSavings').textContent = annualSavings.toLocaleString();
-        }
+		// Updated ROI Calculator with Platform Costs
+		function updateROI() {
+			const surveysPerMonth = parseInt(document.getElementById('surveysPerMonth').value) || 20;
+			const hourlyRate = parseInt(document.getElementById('hourlyRate').value) || 75;
+			
+			// Get platform fee based on volume
+			const platformFeePerSurvey = getPlatformFee(surveysPerMonth);
+			
+			// Manual process: 12 hours per survey
+			const manualHoursPerSurvey = 12;
+			const currentMonthlyCost = surveysPerMonth * manualHoursPerSurvey * hourlyRate;
+			
+			// Automated process: 15 minutes (0.25 hours) + 3 hours logic = 3.25 hours per survey
+			const automatedHoursPerSurvey = 3.25;
+			const automatedLaborCost = surveysPerMonth * automatedHoursPerSurvey * hourlyRate;
+			
+			// Platform costs
+			const automatedPlatformCost = surveysPerMonth * platformFeePerSurvey;
+			
+			// Total automated cost = labor + platform
+			const totalAutomatedCost = automatedLaborCost + automatedPlatformCost;
+			
+			const monthlySavings = currentMonthlyCost - totalAutomatedCost;
+			const annualSavings = monthlySavings * 12;
+			
+			// Per-survey savings for verification
+			const savingsPerSurvey = monthlySavings / surveysPerMonth;
+			
+			document.getElementById('currentCost').textContent = currentMonthlyCost.toLocaleString();
+			document.getElementById('automatedCost').textContent = totalAutomatedCost.toLocaleString();
+			document.getElementById('monthlySavings').textContent = monthlySavings.toLocaleString();
+			document.getElementById('annualSavings').textContent = annualSavings.toLocaleString();
+			
+			// Optional: Update the description to show breakdown
+			const breakdownElement = document.querySelector('.roi-results .result-label');
+			if (breakdownElement && breakdownElement.textContent.includes('With Pirai AI')) {
+				breakdownElement.innerHTML = `With Pirai AI: Labor $${automatedLaborCost.toLocaleString()} + Platform $${automatedPlatformCost.toLocaleString()} (${platformFeePerSurvey}/survey)`;
+			}
+		}
 
-        // Initialize ROI calculator
-        document.getElementById('surveysPerMonth').addEventListener('input', updateROI);
-        document.getElementById('hourlyRate').addEventListener('input', updateROI);
-        updateROI(); // Initial calculation
+		// Platform fee based on volume tiers
+		function getPlatformFee(surveysPerMonth) {
+			if (surveysPerMonth <= 10) {
+				return 149; // 1-10 surveys: $149 each
+			} else if (surveysPerMonth <= 25) {
+				return 139; // 11-25 surveys: $139 each (7% discount)
+			} else if (surveysPerMonth <= 50) {
+				return 129; // 26-50 surveys: $129 each (13% discount)
+			} else {
+				return 119; // 50+ surveys: $119 each (20% discount)
+			}
+		}
 
-        // Lead Form submission handling
-        document.getElementById('leadForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const submitBtn = document.getElementById('submitBtn');
-            const form = document.getElementById('leadForm');
-            const successMessage = document.getElementById('successMessage');
-            const errorMessage = document.getElementById('errorMessage');
-            
-            // Add security data
-            document.getElementById('timestamp').value = new Date().toISOString();
-            document.getElementById('origin').value = window.location.origin;
-            document.getElementById('referer').value = document.referrer;
-            
-            // Check honeypot field (if filled, it's likely a bot)
-            if (document.querySelector('input[name="website"]').value) {
-                console.log('Bot detected, ignoring submission');
-                successMessage.classList.add('show');
-                form.reset();
-                return;
-            }
-            
-            // Show loading state
-            submitBtn.textContent = 'Submitting...';
-            submitBtn.disabled = true;
-            
-            // Hide previous messages
-            successMessage.classList.remove('show');
-            errorMessage.classList.remove('show');
-            
-            try {
-                const formData = new FormData(form);
-                
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    body: formData
-                });
-                
-                // Show success message
-                successMessage.classList.add('show');
-                form.reset();
-                
-                // 🎯 NEW GTM CONVERSION TRACKING - REPLACES OLD CODE
-                if (typeof dataLayer !== 'undefined') {
-                    dataLayer.push({
-                        'event': 'form_submit',
-                        'form_id': 'leadForm',
-                        'form_name': 'consultation_request',
-                        'conversion_value': 500,
-                        'currency': 'USD',
-                        'lead_source': 'landing_page',
-                        'user_data': {
-                            'company': formData.get('company'),
-                            'role': formData.get('role'),
-                            'surveys_per_month': formData.get('surveys')
-                        }
-                    });
-                    console.log('GTM conversion event sent: form_submit');
-                } else {
-                    console.warn('dataLayer not found - GTM may not be loaded');
-                }
-                
-                // Scroll to success message
-                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                
-            } catch (error) {
-                console.error('Form submission error:', error);
-                errorMessage.classList.add('show');
-                errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            } finally {
-                // Reset button state
-                submitBtn.textContent = 'Get Early Access';
-                submitBtn.disabled = false;
-            }
-        });
+		// Initialize ROI calculator
+		document.getElementById('surveysPerMonth').addEventListener('input', updateROI);
+		document.getElementById('hourlyRate').addEventListener('input', updateROI);
+		updateROI(); // Initial calculation
 
-        // Enhanced tracking for user interactions
-        document.addEventListener('DOMContentLoaded', function() {
-            
-            // Track ROI calculator usage
-            document.getElementById('surveysPerMonth').addEventListener('change', function() {
-                if (typeof dataLayer !== 'undefined') {
-                    dataLayer.push({
-                        'event': 'roi_calculator_used',
-                        'calculator_field': 'surveys_per_month',
-                        'value': this.value
-                    });
-                }
-            });
-            
-            document.getElementById('hourlyRate').addEventListener('change', function() {
-                if (typeof dataLayer !== 'undefined') {
-                    dataLayer.push({
-                        'event': 'roi_calculator_used',
-                        'calculator_field': 'hourly_rate',
-                        'value': this.value
-                    });
-                }
-            });
-            
-            // Track demo button clicks
-            document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
-                button.addEventListener('click', function() {
-                    if (typeof dataLayer !== 'undefined') {
-                        dataLayer.push({
-                            'event': 'cta_click',
-                            'button_text': this.textContent.trim(),
-                            'button_location': this.closest('section')?.id || 'unknown'
-                        });
-                    }
-                });
-            });
-            
-            // Track scroll depth
-            let maxScroll = 0;
-            window.addEventListener('scroll', function() {
-                const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
-                if (scrollPercent > maxScroll && scrollPercent % 25 === 0) {
-                    maxScroll = scrollPercent;
-                    if (typeof dataLayer !== 'undefined') {
-                        dataLayer.push({
-                            'event': 'scroll_depth',
-                            'scroll_percentage': scrollPercent
-                        });
-                    }
-                }
-            });
-        });
+		// Lead Form submission handling
+		document.getElementById('leadForm').addEventListener('submit', async function(e) {
+			e.preventDefault();
+			
+			const submitBtn = document.getElementById('submitBtn');
+			const form = document.getElementById('leadForm');
+			const successMessage = document.getElementById('successMessage');
+			const errorMessage = document.getElementById('errorMessage');
+			
+			// Add security data
+			document.getElementById('timestamp').value = new Date().toISOString();
+			document.getElementById('origin').value = window.location.origin;
+			document.getElementById('referer').value = document.referrer;
+			
+			// Check honeypot field (if filled, it's likely a bot)
+			if (document.querySelector('input[name="website"]').value) {
+				console.log('Bot detected, ignoring submission');
+				successMessage.classList.add('show');
+				form.reset();
+				return;
+			}
+			
+			// Show loading state
+			submitBtn.textContent = 'Submitting...';
+			submitBtn.disabled = true;
+			
+			// Hide previous messages
+			successMessage.classList.remove('show');
+			errorMessage.classList.remove('show');
+			
+			try {
+				const formData = new FormData(form);
+				
+				const response = await fetch(form.action, {
+					method: 'POST',
+					mode: 'no-cors',
+					body: formData
+				});
+				
+				// Show success message
+				successMessage.classList.add('show');
+				form.reset();
+				
+				// GTM CONVERSION TRACKING
+				if (typeof dataLayer !== 'undefined') {
+					dataLayer.push({
+						'event': 'form_submit',
+						'form_id': 'leadForm',
+						'form_name': 'consultation_request',
+						'conversion_value': 500,
+						'currency': 'USD',
+						'lead_source': 'landing_page',
+						'user_data': {
+							'company': formData.get('company'),
+							'role': formData.get('role'),
+							'surveys_per_month': formData.get('surveys')
+						}
+					});
+					console.log('GTM conversion event sent: form_submit');
+				} else {
+					console.warn('dataLayer not found - GTM may not be loaded');
+				}
+				
+				// Scroll to success message
+				successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+				
+			} catch (error) {
+				console.error('Form submission error:', error);
+				errorMessage.classList.add('show');
+				errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+			} finally {
+				// Reset button state
+				submitBtn.textContent = 'Get Early Access';
+				submitBtn.disabled = false;
+			}
+		});
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+		// Enhanced tracking for user interactions
+		document.addEventListener('DOMContentLoaded', function() {
+			
+			// Track ROI calculator usage
+			document.getElementById('surveysPerMonth').addEventListener('change', function() {
+				if (typeof dataLayer !== 'undefined') {
+					dataLayer.push({
+						'event': 'roi_calculator_used',
+						'calculator_field': 'surveys_per_month',
+						'value': this.value
+					});
+				}
+			});
+			
+			document.getElementById('hourlyRate').addEventListener('change', function() {
+				if (typeof dataLayer !== 'undefined') {
+					dataLayer.push({
+						'event': 'roi_calculator_used',
+						'calculator_field': 'hourly_rate',
+						'value': this.value
+					});
+				}
+			});
+			
+			// Track demo button clicks
+			document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
+				button.addEventListener('click', function() {
+					if (typeof dataLayer !== 'undefined') {
+						dataLayer.push({
+							'event': 'cta_click',
+							'button_text': this.textContent.trim(),
+							'button_location': this.closest('section')?.id || 'unknown'
+						});
+					}
+				});
+			});
+			
+			// Track scroll depth
+			let maxScroll = 0;
+			window.addEventListener('scroll', function() {
+				const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+				if (scrollPercent > maxScroll && scrollPercent % 25 === 0) {
+					maxScroll = scrollPercent;
+					if (typeof dataLayer !== 'undefined') {
+						dataLayer.push({
+							'event': 'scroll_depth',
+							'scroll_percentage': scrollPercent
+						});
+					}
+				}
+			});
+		});
 
-        // Add floating header effect
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('.nav');
-            if (window.scrollY > 100) {
-                nav.style.background = 'rgba(17, 24, 39, 0.95)';
-                nav.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
-            } else {
-                nav.style.background = 'rgba(17, 24, 39, 0.5)';
-                nav.style.boxShadow = 'none';
-            }
-        });
+		// Smooth scrolling for navigation links
+		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+			anchor.addEventListener('click', function (e) {
+				e.preventDefault();
+				const target = document.querySelector(this.getAttribute('href'));
+				if (target) {
+					target.scrollIntoView({
+						behavior: 'smooth',
+						block: 'start'
+					});
+				}
+			});
+		});
+
+		// Add floating header effect
+		window.addEventListener('scroll', () => {
+			const nav = document.querySelector('.nav');
+			if (window.scrollY > 100) {
+				nav.style.background = 'rgba(17, 24, 39, 0.95)';
+				nav.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+			} else {
+				nav.style.background = 'rgba(17, 24, 39, 0.5)';
+				nav.style.boxShadow = 'none';
+			}
+		});
     </script>
 </body>
 </html>
