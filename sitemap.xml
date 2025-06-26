@@ -20,4 +20,9 @@
     <priority>0.5</priority>
     <changefreq>monthly</changefreq>
   </url>
+  <url>
+    <loc>https://piraiai.com/qsf-to-excel.html</loc>
+    <priority>0.5</priority>
+    <changefreq>monthly</changefreq>
+  </url>  
 </urlset>
