@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <!-- End Google Tag Manager -->
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security & Privacy | Pirai AI | Enterprise-Grade Data Protection</title>
+    <meta name="description" content="Pirai AI implements enterprise-grade security with GDPR compliance, advanced encryption, and comprehensive data protection for survey automation services.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Security & Privacy - Pirai AI">
+    <meta property="og:description" content="Enterprise-grade security and GDPR compliance for survey automation platform.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://piraiai.com/security">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link rel="canonical" href="https://piraiai.com/security">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #e5e7eb;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        .nav {
+            background: rgba(17, 24, 39, 0.5);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #374151;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 8px;
+            margin-right: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+        
+        .nav-cta {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            padding: 8px 24px;
+            border-radius: 24px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 140px 0 80px;
+        }
+        
+        .hero-section {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .hero-section h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.4;
+        }
+        
+        .hero-subtitle {
+            font-size: 24px;
+            color: #d1d5db;
+            margin-bottom: 32px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+        
+        .trust-badge {
+            background: rgba(31, 41, 55, 0.5);
+            backdrop-filter: blur(10px);
+            padding: 16px 24px;
+            border-radius: 12px;
+            border: 1px solid rgba(55, 65, 81, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .trust-badge-icon {
+            font-size: 24px;
+        }
+        
+        .trust-badge-text {
+            font-weight: 600;
+            color: #ffffff;
+        }
+        
+        /* Security Sections */
+        .security-section {
+            margin-bottom: 80px;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+        }
+        
+        .section-subtitle {
+            font-size: 18px;
+            color: #9ca3af;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+        
+        .security-card {
+            background: rgba(31, 41, 55, 0.5);
+            backdrop-filter: blur(10px);
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid rgba(55, 65, 81, 0.5);
+            transition: all 0.3s;
+        }
+        
+        .security-card:hover {
+            border-color: #3b82f6;
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .security-card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        
+        .security-card-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            font-size: 24px;
+        }
+        
+        .security-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        
+        .security-card p {
+            color: #d1d5db;
+            margin-bottom: 20px;
+        }
+        
+        .security-features {
+            list-style: none;
+        }
+        
+        .security-features li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: #9ca3af;
+        }
+        
+        .security-features li::before {
+            content: "✓";
+            color: #22c55e;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 16px;
+        }
+        
+        /* Compliance Section */
+        .compliance-section {
+            background: rgba(17, 24, 39, 0.5);
+            border-radius: 24px;
+            padding: 48px;
+            margin-bottom: 80px;
+            border: 1px solid rgba(55, 65, 81, 0.5);
+        }
+        
+        .compliance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-top: 32px;
+        }
+        
+        .compliance-item {
+            text-align: center;
+            padding: 24px;
+            background: rgba(31, 41, 55, 0.3);
+            border-radius: 12px;
+            border: 1px solid rgba(55, 65, 81, 0.5);
+        }
+        
+        .compliance-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        
+        .compliance-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+        
+        .compliance-desc {
+            font-size: 14px;
+            color: #9ca3af;
+        }
+        
+        /* Data Protection Section */
+        .data-protection {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(59, 130, 246, 0.1));
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 48px;
+        }
+        
+        .data-protection h3 {
+            color: #22c55e;
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+        
+        .data-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 32px 0;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        
+        .data-step {
+            background: rgba(31, 41, 55, 0.7);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .data-step-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+        
+        .data-step-title {
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+        
+        .data-step-desc {
+            font-size: 14px;
+            color: #9ca3af;
+        }
+        
+        .arrow {
+            font-size: 24px;
+            color: #3b82f6;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: rgba(31, 41, 55, 0.5);
+            border-radius: 16px;
+            padding: 48px;
+            text-align: center;
+            border: 1px solid rgba(55, 65, 81, 0.5);
+        }
+        
+        .contact-section h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+        }
+        
+        .contact-section p {
+            font-size: 18px;
+            color: #9ca3af;
+            margin-bottom: 32px;
+        }
+        
+        .contact-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #22c55e, #3b82f6);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 24px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(34, 197, 94, 0.3);
+        }
+        
+        .btn-secondary {
+            border: 1px solid #6b7280;
+            color: #d1d5db;
+            padding: 16px 32px;
+            border-radius: 24px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            background: transparent;
+        }
+        
+        .btn-secondary:hover {
+            border-color: #9ca3af;
+            color: #ffffff;
+        }
+        
+        /* Footer */
+        .footer {
+            background: rgba(17, 24, 39, 0.5);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid #374151;
+            padding: 48px 0;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 32px;
+        }
+        
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .footer-brand .logo-icon {
+            width: 32px;
+            height: 32px;
+            margin-right: 12px;
+        }
+        
+        .footer-brand span {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        
+        .footer-desc {
+            color: #9ca3af;
+            margin-bottom: 16px;
+            max-width: 400px;
+        }
+        
+        .footer-section h3 {
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            margin-top: 32px;
+            padding-top: 32px;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 14px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-section h1 {
+                font-size: 32px;
+            }
+            
+            .hero-subtitle {
+                font-size: 18px;
+            }
+            
+            .trust-badges {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .security-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .data-flow {
+                flex-direction: column;
+            }
+            
+            .arrow {
+                transform: rotate(90deg);
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/" class="logo">
+                    <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo" width="35" height="35"/>&nbsp;
+                    Pirai AI
+                </a>
+                <ul class="nav-links">                    
+                    <li><a href="/#process">How It Works</a></li>
+                    <li><a href="/#features">Features</a></li>
+                    <li><a href="/#pricing">Pricing</a></li>                    
+					<li><a href="/qsf-to-excel">Free Tool</a></li>
+                </ul>
+                <a href="/#demo" class="nav-cta">Get Early Access</a>
+            </div>
+        </div>
+    </nav>	
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <h1>Enterprise-Grade Security & Privacy</h1>
+                <p class="hero-subtitle">
+                    Your survey data deserves the highest level of protection. We've built comprehensive security 
+                    measures and GDPR compliance into every aspect of our platform.
+                </p>
+                
+				<div class="trust-badges">
+					<div class="trust-badge">
+						<div class="trust-badge-icon">🔒</div>
+						<div class="trust-badge-text">SOC 2 Ready</div>
+					</div>
+					<div class="trust-badge">
+						<div class="trust-badge-icon">🛡️</div>
+						<div class="trust-badge-text">GDPR Compliant</div>
+					</div>
+					<div class="trust-badge">
+						<div class="trust-badge-icon">🔐</div>
+						<div class="trust-badge-text">Enterprise Auth</div>
+					</div>
+					<div class="trust-badge">
+						<div class="trust-badge-icon">📊</div>
+						<div class="trust-badge-text">Full Audit Trail</div>
+					</div>
+					<div class="trust-badge">
+						<div class="trust-badge-icon">🌍</div>
+						<div class="trust-badge-text">Global Compliance</div>
+					</div>
+					<div class="trust-badge">
+						<div class="trust-badge-icon">🔍</div>
+						<div class="trust-badge-text">Regular Audits</div>
+					</div>
+				</div>
+            </section>
+
+            <!-- Data Protection Promise -->
+			<section class="data-protection">
+				<h3>🛡️ Our Comprehensive Data Protection Promise</h3>
+				<p>Your survey documents are processed with the highest security standards and deleted immediately after conversion. We implement zero-retention policies for document content while maintaining comprehensive security monitoring and audit trails.</p>
+				
+				<!-- Enhanced Data Flow -->
+				<div class="data-flow">
+					<div class="data-step">
+						<div class="data-step-icon">📤</div>
+						<div class="data-step-title">Secure Upload</div>
+						<div class="data-step-desc">Encrypted transmission via TLS 1.3 with certificate pinning</div>
+					</div>
+					<div class="arrow">→</div>
+					<div class="data-step">
+						<div class="data-step-icon">🔐</div>
+						<div class="data-step-title">Encrypted Processing</div>
+						<div class="data-step-desc">AI conversion in isolated, encrypted memory containers</div>
+					</div>
+					<div class="arrow">→</div>
+					<div class="data-step">
+						<div class="data-step-icon">📥</div>
+						<div class="data-step-title">Secure Delivery</div>
+						<div class="data-step-desc">Encrypted download with integrity verification</div>
+					</div>
+					<div class="arrow">→</div>
+					<div class="data-step">
+						<div class="data-step-icon">🗑️</div>
+						<div class="data-step-title">Immediate Purging</div>
+						<div class="data-step-desc">Cryptographic deletion within 15 minutes</div>
+					</div>
+				</div>
+
+				<!-- Add Zero-Retention Guarantee -->
+				<div style="background: rgba(34, 197, 94, 0.2); border-radius: 12px; padding: 24px; margin-top: 32px; border: 1px solid rgba(34, 197, 94, 0.3);">
+					<h4 style="color: #22c55e; font-size: 20px; margin-bottom: 16px;">🔒 Zero-Retention Guarantee</h4>
+					<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
+						<div>
+							<p style="font-weight: 600; color: #ffffff; margin-bottom: 8px;">Document Content</p>
+							<p style="color: #d1d5db; font-size: 14px;">Deleted immediately after processing</p>
+						</div>
+						<div>
+							<p style="font-weight: 600; color: #ffffff; margin-bottom: 8px;">Processing Logs</p>
+							<p style="color: #d1d5db; font-size: 14px;">Anonymized, 90-day maximum retention</p>
+						</div>
+						<div>
+							<p style="font-weight: 600; color: #ffffff; margin-bottom: 8px;">AI Training</p>
+							<p style="color: #d1d5db; font-size: 14px;">Your data never used for model training</p>
+						</div>
+						<div>
+							<p style="font-weight: 600; color: #ffffff; margin-bottom: 8px;">Third-Party Access</p>
+							<p style="color: #d1d5db; font-size: 14px;">Strictly prohibited and technically prevented</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+            <!-- Security Features -->
+            <section class="security-section">
+                <div class="section-header">
+                    <h2 class="section-title">Comprehensive Security Architecture</h2>
+                    <p class="section-subtitle">
+                        Multiple layers of security protect your data throughout the entire survey conversion process
+                    </p>
+                </div>
+
+                <div class="security-grid">
+                    <div class="security-card">
+                        <div class="security-card-header">
+                            <div class="security-card-icon">🔐</div>
+                            <h3>Authentication & Access Control</h3>
+                        </div>
+                        <p>Enterprise-grade user authentication with multi-layered protection mechanisms.</p>
+                        <ul class="security-features">
+                            <li>Firebase Authentication with session management</li>
+                            <li>Automatic 1-hour timeout for inactive sessions</li>
+                            <li>Login protection: 5 attempts before 15-min lockout</li>
+                            <li>Secure session state with automatic cleanup</li>
+                            <li>Multi-factor authentication ready infrastructure</li>
+                        </ul>
+                    </div>
+
+                    <div class="security-card">
+                        <div class="security-card-header">
+                            <div class="security-card-icon">🛡️</div>
+                            <h3>Data Protection & Privacy</h3>
+                        </div>
+                        <p>Advanced privacy controls ensure your sensitive information remains protected.</p>
+                        <ul class="security-features">
+                            <li>Automatic email masking in all system logs</li>
+                            <li>Hash-based user identification for privacy</li>
+                            <li>IP address protection through secure hashing</li>
+                            <li>Zero browser localStorage for sensitive data</li>
+                            <li>Privacy-by-design architecture principles</li>
+                        </ul>
+                    </div>
+
+                    <div class="security-card">
+                        <div class="security-card-header">
+                            <div class="security-card-icon">📋</div>
+                            <h3>Input Validation & Security</h3>
+                        </div>
+                        <p>Comprehensive validation prevents malicious inputs and ensures data integrity.</p>
+                        <ul class="security-features">
+                            <li>File type restrictions (.docx, .xlsx, .xls only)</li>
+                            <li>File size monitoring with automatic alerts</li>
+                            <li>Bot protection through honeypot fields</li>
+                            <li>Content sanitization and input validation</li>
+                            <li>Injection prevention across all inputs</li>
+                        </ul>
+                    </div>
+
+                    <div class="security-card">
+                        <div class="security-card-header">
+                            <div class="security-card-icon">📊</div>
+                            <h3>Monitoring & Audit Trail</h3>
+                        </div>
+                        <p>Complete visibility into platform usage with comprehensive security monitoring.</p>
+                        <ul class="security-features">
+                            <li>Real-time security event tracking</li>
+                            <li>Complete user action history logging</li>
+                            <li>Failed attempt monitoring and alerts</li>
+                            <li>Performance monitoring for large files</li>
+                            <li>Automated daily security summaries</li>
+                        </ul>
+                    </div>
+
+                    <div class="security-card">
+                        <div class="security-card-header">
+                            <div class="security-card-icon">🔑</div>
+                            <h3>API & Service Security</h3>
+                        </div>
+                        <p>Secure integrations with industry-leading providers ensure end-to-end protection.</p>
+                        <ul class="security-features">
+                            <li>Encrypted API key management system</li>
+                            <li>OpenAI integration with cost monitoring</li>
+                            <li>Firebase enterprise-grade security rules</li>
+                            <li>Rate limiting protection against abuse</li>
+                            <li>Secure service-to-service communication</li>
+                        </ul>
+                    </div>
+
+                    <div class="security-card">
+                        <div class="security-card-header">
+                            <div class="security-card-icon">🏗️</div>
+                            <h3>Infrastructure Security</h3>
+                        </div>
+                        <p>Robust infrastructure security with enterprise-grade hosting and monitoring.</p>
+                        <ul class="security-features">
+                            <li>HTTPS/SSL encryption for all connections</li>
+                            <li>Secure cloud deployment on Render platform</li>
+                            <li>Environment variable protection</li>
+                            <li>Automated security updates and monitoring</li>
+                            <li>Protected version control with GitHub</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Compliance Section -->
+            <section class="compliance-section">
+                <div class="section-header">
+                    <h2 class="section-title">Compliance & Regulations</h2>
+                    <p class="section-subtitle">
+                        Built to meet enterprise compliance requirements and international data protection standards
+                    </p>
+                </div>
+
+                <div class="compliance-grid">
+                    <div class="compliance-item">
+                        <div class="compliance-icon">🇪🇺</div>
+                        <div class="compliance-title">GDPR Compliance</div>
+                        <div class="compliance-desc">Full compliance with EU data protection regulations including user rights and data processing transparency</div>
+                    </div>
+
+                    <div class="compliance-item">
+                        <div class="compliance-icon">🔒</div>
+                        <div class="compliance-title">SOC 2 Ready</div>
+                        <div class="compliance-desc">Security architecture designed for SOC 2 Type II compliance with comprehensive controls</div>
+                    </div>
+
+                    <div class="compliance-item">
+                        <div class="compliance-icon">📋</div>
+                        <div class="compliance-title">Data Processing Records</div>
+                        <div class="compliance-desc">Complete documentation of data processing activities as required by Article 30</div>
+                    </div>
+
+                    <div class="compliance-item">
+                        <div class="compliance-icon">⏰</div>
+                        <div class="compliance-title">Data Retention</div>
+                        <div class="compliance-desc">Clear retention policies: documents deleted immediately, logs retained maximum 90 days</div>
+                    </div>
+
+                    <div class="compliance-item">
+                        <div class="compliance-icon">🛡️</div>
+                        <div class="compliance-title">Privacy by Design</div>
+                        <div class="compliance-desc">Privacy protection built into every system component from the ground up</div>
+                    </div>
+
+                    <div class="compliance-item">
+                        <div class="compliance-icon">📊</div>
+                        <div class="compliance-title">Audit Ready</div>
+                        <div class="compliance-desc">Comprehensive logging and reporting systems designed for compliance audits</div>
+                    </div>
+                </div>
+            </section>
+			
+			<!-- Security Certifications & Audits -->
+			<section class="security-section">
+				<div class="section-header">
+					<h2 class="section-title">Security Certifications & Audits</h2>
+					<p class="section-subtitle">
+						Continuous security validation through industry-standard certifications and regular assessments
+					</p>
+				</div>
+
+				<div class="security-grid">
+					<div class="security-card">
+						<div class="security-card-header">
+							<div class="security-card-icon">🔒</div>
+							<h3>SOC 2 Type II Compliance</h3>
+						</div>
+						<p>Comprehensive security, availability, and confidentiality controls audit in progress.</p>
+						<ul class="security-features">
+							<li>Security controls framework implementation</li>
+							<li>Independent third-party assessment</li>
+							<li>Continuous monitoring and improvement</li>
+							<li>Expected completion: Q3 2025</li>
+						</ul>
+					</div>
+
+					<div class="security-card">
+						<div class="security-card-header">
+							<div class="security-card-icon">🛡️</div>
+							<h3>ISO 27001 Framework</h3>
+						</div>
+						<p>International standard for information security management systems implementation.</p>
+						<ul class="security-features">
+							<li>Comprehensive security policy framework</li>
+							<li>Risk assessment and management</li>
+							<li>Incident response procedures</li>
+							<li>Continuous improvement processes</li>
+						</ul>
+					</div>
+
+					<div class="security-card">
+						<div class="security-card-header">
+							<div class="security-card-icon">📋</div>
+							<h3>Regular Security Assessments</h3>
+						</div>
+						<p>Ongoing security validation through penetration testing and vulnerability assessments.</p>
+						<ul class="security-features">
+							<li>Quarterly penetration testing</li>
+							<li>Automated vulnerability scanning</li>
+							<li>Code security reviews</li>
+							<li>Third-party security audits</li>
+						</ul>
+					</div>
+
+					<div class="security-card">
+						<div class="security-card-header">
+							<div class="security-card-icon">🔍</div>
+							<h3>Compliance Monitoring</h3>
+						</div>
+						<p>Real-time compliance monitoring and reporting across all security domains.</p>
+						<ul class="security-features">
+							<li>Automated compliance checking</li>
+							<li>Real-time security dashboards</li>
+							<li>Regulatory change tracking</li>
+							<li>Compliance reporting automation</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+            <!-- Security Metrics & Performance -->
+            <section class="security-section">
+                <div class="section-header">
+                    <h2 class="section-title">Security Metrics & Performance</h2>
+                    <p class="section-subtitle">
+                        Transparent security metrics demonstrating our platform's reliability and protection standards
+                    </p>
+                </div>
+
+                <div style="background: rgba(17, 24, 39, 0.5); border-radius: 24px; padding: 48px; margin-bottom: 80px; border: 1px solid rgba(55, 65, 81, 0.5);">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px;">
+                        <div style="text-align: center; padding: 32px 24px; background: rgba(31, 41, 55, 0.5); border-radius: 16px; border: 1px solid rgba(55, 65, 81, 0.5);">
+                            <div style="font-size: 48px; margin-bottom: 16px;">🎯</div>
+                            <div style="font-size: 36px; font-weight: 800; color: #22c55e; margin-bottom: 12px;">99.9%</div>
+                            <div style="color: #ffffff; font-weight: 600; margin-bottom: 8px;">Platform Uptime</div>
+                            <div style="color: #9ca3af; font-size: 14px;">Since launch (June 2025)</div>
+                        </div>
+                        
+                        <div style="text-align: center; padding: 32px 24px; background: rgba(31, 41, 55, 0.5); border-radius: 16px; border: 1px solid rgba(55, 65, 81, 0.5);">
+                            <div style="font-size: 48px; margin-bottom: 16px;">⚡</div>
+                            <div style="font-size: 36px; font-weight: 800; color: #3b82f6; margin-bottom: 12px;">&lt; 15min</div>
+                            <div style="color: #ffffff; font-weight: 600; margin-bottom: 8px;">Data Retention</div>
+                            <div style="color: #9ca3af; font-size: 14px;">Maximum document storage time</div>
+                        </div>
+                        
+                        <div style="text-align: center; padding: 32px 24px; background: rgba(31, 41, 55, 0.5); border-radius: 16px; border: 1px solid rgba(55, 65, 81, 0.5);">
+                            <div style="font-size: 48px; margin-bottom: 16px;">🔒</div>
+                            <div style="font-size: 36px; font-weight: 800; color: #8b5cf6; margin-bottom: 12px;">0</div>
+                            <div style="color: #ffffff; font-weight: 600; margin-bottom: 8px;">Security Incidents</div>
+                            <div style="color: #9ca3af; font-size: 14px;">Since platform launch</div>
+                        </div>
+                        
+                        <div style="text-align: center; padding: 32px 24px; background: rgba(31, 41, 55, 0.5); border-radius: 16px; border: 1px solid rgba(55, 65, 81, 0.5);">
+                            <div style="font-size: 48px; margin-bottom: 16px;">🛡️</div>
+                            <div style="font-size: 36px; font-weight: 800; color: #f59e0b; margin-bottom: 12px;">24/7</div>
+                            <div style="color: #ffffff; font-weight: 600; margin-bottom: 8px;">Security Monitoring</div>
+                            <div style="color: #9ca3af; font-size: 14px;">Automated threat detection</div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Security Stats -->
+                    <div style="margin-top: 40px; padding: 32px; background: rgba(55, 65, 81, 0.3); border-radius: 16px;">
+                        <h4 style="text-align: center; color: #ffffff; margin-bottom: 24px; font-size: 20px;">🔍 Additional Security Statistics</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; text-align: center;">
+                            <div>
+                                <div style="font-size: 24px; font-weight: 700; color: #60a5fa; margin-bottom: 8px;">100%</div>
+                                <div style="color: #d1d5db; font-size: 14px;">Encrypted Data Transmission</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 24px; font-weight: 700; color: #a78bfa; margin-bottom: 8px;">90 days</div>
+                                <div style="color: #d1d5db; font-size: 14px;">Maximum Log Retention</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 24px; font-weight: 700; color: #22c55e; margin-bottom: 8px;">5 attempts</div>
+                                <div style="color: #d1d5db; font-size: 14px;">Login Attempt Limit</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 24px; font-weight: 700; color: #f59e0b; margin-bottom: 8px;">1 hour</div>
+                                <div style="color: #d1d5db; font-size: 14px;">Session Timeout</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Advanced Security Features -->
+            <section class="security-section">
+                <div class="section-header">
+                    <h2 class="section-title">Advanced Security Features</h2>
+                    <p class="section-subtitle">
+                        Enterprise-grade security controls that protect your data at every level
+                    </p>
+                </div>
+
+                <div class="security-grid">
+                    <div class="security-card">
+                        <div class="security-card-header">
+                            <div class="security-card-icon">🧠</div>
+                            <h3>Memory Management</h3>
+                        </div>
+                        <p>Secure handling of documents in memory with automatic cleanup processes.</p>
+                        <ul class="security-features">
+                            <li>Secure document processing in isolated memory</li>
+                            <li>Automatic temporary file deletion</li>
+                            <li>Memory leak prevention and monitoring</li>
+                            <li>Session-based data isolation</li>
+                        </ul>
+                    </div>
+
+                    <div class="security-card">
+                        <div class="security-card-header">
+                            <div class="security-card-icon">🔍</div>
+                            <h3>Threat Detection</h3>
+                        </div>
+                        <p>Advanced monitoring systems detect and respond to potential security threats.</p>
+                        <ul class="security-features">
+                            <li>Anomaly detection for unusual access patterns</li>
+                            <li>Automated threat response mechanisms</li>
+                            <li>Suspicious activity flagging and logging</li>
+                            <li>Real-time security alerts</li>
+                        </ul>
+                    </div>
+
+                    <div class="security-card">
+                        <div class="security-card-header">
+                            <div class="security-card-icon">⚡</div>
+                            <h3>Performance Security</h3>
+                        </div>
+                        <p>Security measures that don't compromise performance while maintaining protection.</p>
+                        <ul class="security-features">
+                            <li>Efficient encryption with minimal overhead</li>
+                            <li>Optimized security checks for large files</li>
+                            <li>Scalable security architecture</li>
+                            <li>Performance monitoring with security context</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Current Security Capabilities -->
+            <section class="security-section">
+                <div class="section-header">
+                    <h2 class="section-title">Current Security Capabilities</h2>
+                    <p class="section-subtitle">
+                        Robust security features fully implemented and operational today
+                    </p>
+                </div>
+
+                <div style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(59, 130, 246, 0.1)); border: 1px solid rgba(34, 197, 94, 0.2); border-radius: 16px; padding: 32px; margin-bottom: 48px;">
+                    <h3 style="color: #22c55e; font-size: 24px; margin-bottom: 16px;">✅ Production-Ready Security Features</h3>
+                    <p style="color: #d1d5db; margin-bottom: 24px;">All security measures listed below are fully implemented, tested, and actively protecting your data:</p>
+                    
+                    <div class="security-grid">
+                        <div class="security-card" style="background: rgba(31, 41, 55, 0.6);">
+                            <div class="security-card-header">
+                                <div class="security-card-icon">🔐</div>
+                                <h3>Active Authentication Controls</h3>
+                            </div>
+                            <p>Enterprise-grade authentication system currently protecting all user sessions.</p>
+                            <ul class="security-features">
+                                <li>Firebase Authentication with encrypted sessions</li>
+                                <li>Automatic 1-hour session timeout (implemented)</li>
+                                <li>5-attempt login lockout with 15-minute cooldown</li>
+                                <li>Secure password requirements and validation</li>
+                                <li>Real-time session state monitoring</li>
+                            </ul>
+                        </div>
+
+                        <div class="security-card" style="background: rgba(31, 41, 55, 0.6);">
+                            <div class="security-card-header">
+                                <div class="security-card-icon">📊</div>
+                                <h3>Complete Activity Monitoring</h3>
+                            </div>
+                            <p>Comprehensive logging and monitoring system tracking all platform activity.</p>
+                            <ul class="security-features">
+                                <li>Firestore audit trail (live)</li>
+                                <li>User activity logging with privacy protection</li>
+                                <li>Conversion tracking and performance monitoring</li>
+                                <li>Security event detection and alerting</li>
+                                <li>Daily automated security summaries</li>
+                            </ul>
+                        </div>
+
+                        <div class="security-card" style="background: rgba(31, 41, 55, 0.6);">
+                            <div class="security-card-header">
+                                <div class="security-card-icon">🛡️</div>
+                                <h3>Data Protection Controls</h3>
+                            </div>
+                            <p>Advanced privacy protection actively safeguarding your personal information.</p>
+                            <ul class="security-features">
+                                <li>Automatic email masking in all logs (active)</li>
+                                <li>Hash-based user identification system</li>
+                                <li>Zero browser localStorage for sensitive data</li>
+                                <li>IP address hashing for privacy protection</li>
+                                <li>GDPR-compliant data processing procedures</li>
+                            </ul>
+                        </div>
+
+                        <div class="security-card" style="background: rgba(31, 41, 55, 0.6);">
+                            <div class="security-card-header">
+                                <div class="security-card-icon">🔍</div>
+                                <h3>Input & File Security</h3>
+                            </div>
+                            <p>Comprehensive validation protecting against malicious inputs and file attacks.</p>
+                            <ul class="security-features">
+                                <li>File type restrictions (.docx, .xlsx, .xls only)</li>
+                                <li>File size monitoring with automatic alerts</li>
+                                <li>Honeypot bot protection (active)</li>
+                                <li>Content sanitization and validation</li>
+                                <li>Injection prevention across all user inputs</li>
+                            </ul>
+                        </div>
+
+                        <div class="security-card" style="background: rgba(31, 41, 55, 0.6);">
+                            <div class="security-card-header">
+                                <div class="security-card-icon">🧠</div>
+                                <h3>Memory & Process Security</h3>
+                            </div>
+                            <p>Secure document processing with automatic cleanup and memory protection.</p>
+                            <ul class="security-features">
+                                <li>Isolated document processing in secure memory</li>
+                                <li>Automatic temporary file deletion (15 minutes max)</li>
+                                <li>Session-based data isolation</li>
+                                <li>Memory leak prevention and monitoring</li>
+                                <li>Cryptographic deletion of processed content</li>
+                            </ul>
+                        </div>
+
+                        <div class="security-card" style="background: rgba(31, 41, 55, 0.6);">
+                            <div class="security-card-header">
+                                <div class="security-card-icon">🔑</div>
+                                <h3>API & Infrastructure Security</h3>
+                            </div>
+                            <p>Secure integrations and infrastructure protecting all data transmission.</p>
+                            <ul class="security-features">
+                                <li>Encrypted API key management (Streamlit secrets)</li>
+                                <li>OpenAI integration with usage monitoring</li>
+                                <li>HTTPS/TLS encryption for all connections</li>
+                                <li>Environment variable protection</li>
+                                <li>Secure cloud deployment on Render platform</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- User Rights Section -->
+            <section class="security-section">
+                <div class="section-header">
+                    <h2 class="section-title">Your Data Rights</h2>
+                    <p class="section-subtitle">
+                        We respect your privacy rights and provide full control over your personal data
+                    </p>
+                </div>
+
+                <div class="security-grid">
+                    <div class="security-card">
+                        <div class="security-card-header">
+                            <div class="security-card-icon">📥</div>
+                            <h3>Right to Access</h3>
+                        </div>
+                        <p>Access all your personal data we process in a structured, machine-readable format.</p>
+                        <ul class="security-features">
+                            <li>Complete data export functionality</li>
+                            <li>Structured data format (JSON/CSV)</li>
+                            <li>Account information and activity logs</li>
+                            <li>Response within 30 days maximum</li>
+                        </ul>
+                    </div>
+
+                    <div class="security-card">
+                        <div class="security-card-header">
+                            <div class="security-card-icon">🗑️</div>
+                            <h3>Right to Erasure</h3>
+                        </div>
+                        <p>Request complete deletion of your account and all associated personal data.</p>
+                        <ul class="security-features">
+                            <li>Complete account deletion process</li>
+                            <li>Removal from all backup systems</li>
+                            <li>Confirmation of successful deletion</li>
+                            <li>Immediate processing of deletion requests</li>
+                        </ul>
+                    </div>
+
+                    <div class="security-card">
+                        <div class="security-card-header">
+                            <div class="security-card-icon">✏️</div>
+                            <h3>Right to Rectification</h3>
+                        </div>
+                        <p>Correct any inaccurate personal data and complete incomplete information.</p>
+                        <ul class="security-features">
+                            <li>Account information updates</li>
+                            <li>Data accuracy verification</li>
+                            <li>Immediate correction processing</li>
+                            <li>Confirmation of updates made</li>
+                        </ul>
+                    </div>
+
+                    <div class="security-card">
+                        <div class="security-card-header">
+                            <div class="security-card-icon">📊</div>
+                            <h3>Data Portability</h3>
+                        </div>
+                        <p>Receive your personal data in a portable format for transfer to other services.</p>
+                        <ul class="security-features">
+                            <li>Standard data formats (JSON, CSV, XML)</li>
+                            <li>Complete data extraction</li>
+                            <li>Easy transfer to other platforms</li>
+                            <li>No restrictions on data use</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Enterprise Security Roadmap -->
+            <section class="security-section">
+                <div class="section-header">
+                    <h2 class="section-title">Enterprise Security Roadmap</h2>
+                    <p class="section-subtitle">
+                        Advanced enterprise features in development based on customer feedback and security best practices
+                    </p>
+                </div>
+
+                <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 16px; padding: 32px; margin-bottom: 48px;">
+                    <h3 style="color: #60a5fa; font-size: 24px; margin-bottom: 16px;">🚀 Coming Soon for Enterprise Customers</h3>
+                    <p style="color: #d1d5db; margin-bottom: 24px;">We're actively developing advanced enterprise capabilities based on customer requirements and industry security standards:</p>
+                    
+                    <div class="security-grid">
+                        <div class="security-card" style="background: rgba(31, 41, 55, 0.4); border: 1px solid rgba(59, 130, 246, 0.3);">
+                            <div class="security-card-header">
+                                <div class="security-card-icon">🏢</div>
+                                <h3>Enterprise Authentication</h3>
+                            </div>
+                            <p>Advanced identity and access management for large organizations.</p>
+                            <ul class="security-features">
+                                <li>Single Sign-On (SSO) integration</li>
+                                <li>Multi-factor authentication (MFA)</li>
+                                <li>Active Directory integration</li>
+                                <li>Role-based access control (RBAC)</li>
+                                <li>Custom authentication policies</li>
+                            </ul>
+                            <div style="margin-top: 16px; padding: 12px 20px; background: rgba(59, 130, 246, 0.2); border-radius: 8px; text-align: center;">
+                                <span style="color: #60a5fa; font-weight: 600; font-size: 14px;">🎯 Target: Q3 2026</span>
+                            </div>
+                        </div>
+
+                        <div class="security-card" style="background: rgba(31, 41, 55, 0.4); border: 1px solid rgba(139, 92, 246, 0.3);">
+                            <div class="security-card-header">
+                                <div class="security-card-icon">📋</div>
+                                <h3>Advanced Compliance Reporting</h3>
+                            </div>
+                            <p>Comprehensive audit and compliance reporting for enterprise governance.</p>
+                            <ul class="security-features">
+                                <li>Custom compliance dashboards</li>
+                                <li>Automated audit report generation</li>
+                                <li>Data lineage and processing history</li>
+                                <li>Advanced security analytics</li>
+                                <li>Regulatory compliance templates</li>
+                            </ul>
+                            <div style="margin-top: 16px; padding: 12px 20px; background: rgba(139, 92, 246, 0.2); border-radius: 8px; text-align: center;">
+                                <span style="color: #a78bfa; font-weight: 600; font-size: 14px;">🎯 Target: Q4 2026</span>
+                            </div>
+                        </div>
+
+                        <div class="security-card" style="background: rgba(31, 41, 55, 0.4); border: 1px solid rgba(34, 197, 94, 0.3);">
+                            <div class="security-card-header">
+                                <div class="security-card-icon">🌍</div>
+                                <h3>Data Residency & Sovereignty</h3>
+                            </div>
+                            <p>Geographic data processing options for regulatory compliance.</p>
+                            <ul class="security-features">
+                                <li>Regional data processing centers</li>
+                                <li>Compliance-specific deployments</li>
+                                <li>Data sovereignty controls</li>
+                                <li>Custom infrastructure options</li>
+                                <li>Jurisdiction-specific security policies</li>
+                            </ul>
+                            <div style="margin-top: 16px; padding: 12px 20px; background: rgba(34, 197, 94, 0.2); border-radius: 8px; text-align: center;">
+                                <span style="color: #22c55e; font-weight: 600; font-size: 14px;">📊 Based on Customer Demand</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Customer Input Section -->
+                    <div style="text-align: center; margin-top: 40px; padding: 32px; background: rgba(55, 65, 81, 0.3); border-radius: 16px; border: 1px solid rgba(75, 85, 99, 0.5);">
+                        <h4 style="color: #ffffff; margin-bottom: 16px; font-size: 20px;">💬 Help Shape Our Enterprise Security Roadmap</h4>
+                        <p style="color: #d1d5db; margin-bottom: 24px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                            Which enterprise security features matter most to your organization? Your feedback directly influences our development priorities.
+                        </p>
+                        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                            <a href="/#demo" style="background: linear-gradient(135deg, #3b82f6, #8b5cf6); color: white; padding: 14px 28px; border-radius: 24px; text-decoration: none; font-weight: 600; transition: all 0.3s;">Share Your Requirements</a>
+                            <a href="mailto:admin@marketing.piraiai.com" style="border: 1px solid #6b7280; color: #d1d5db; padding: 14px 28px; border-radius: 24px; text-decoration: none; font-weight: 600; transition: all 0.3s;">Contact Security Team</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="contact-section">
+                <h2>Security Questions or Concerns?</h2>
+                <p>Our security team is here to address any questions about our data protection measures and compliance standards.</p>
+                
+                <div class="contact-buttons">
+                    <a href="mailto:admin@marketing.piraiai.com" class="btn-primary">Contact Security Team</a>
+                    <a href="mailto:admin@marketing.piraiai.com" class="btn-secondary">Privacy Officer</a>
+                    <a href="/#demo" class="btn-secondary">Schedule Security Review</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->	
+	<footer class="footer">
+		<div class="container">
+			<div class="footer-content">
+				<div>
+					<div class="footer-brand">
+						<img src="https://piraiai.com/logo.png" alt="Pirai AI Logo" width="35" height="35"/>&nbsp;
+						<span>Pirai AI</span>
+					</div>
+					<p class="footer-desc">
+						Enterprise-grade survey automation platform transforming Word documents to Qualtrics format in minutes. 
+						Save $121,740+ annually while multiplying your research team's capacity.
+					</p>
+					<div style="margin-top: 16px;">
+						<p style="color: #9ca3af; font-size: 14px; margin-bottom: 8px;">
+							<strong style="color: #60a5fa;">📧 Contact:</strong> admin@marketing.piraiai.com
+						</p>
+						<p style="color: #9ca3af; font-size: 14px;">
+							<strong style="color: #22c55e;">🚀 Early Access:</strong> Join our exclusive beta program
+						</p>
+					</div>
+				</div>
+				
+				<div class="footer-section">
+					<h3>Product</h3>
+					<ul class="footer-links">
+						<li><a href="/">Home</a></li>
+						<li><a href="/#process">How It Works</a></li>
+						<li><a href="/#features">Features</a></li>
+						<li><a href="/#pricing">Pricing</a></li>
+						<li><a href="/#demo">Early Access</a></li>
+						<li><a href="/#roadmap">Product Roadmap</a></li>
+						<li><a href="/qsf-to-excel">Free QSF Tool</a></li>
+					</ul>
+				</div>
+				
+				<div class="footer-section">
+					<h3>Legal & Security</h3>
+					<ul class="footer-links">
+						<li><a href="/security">Security Overview</a></li>
+						<li><a href="/privacy">Privacy Policy</a></li>
+						<li><a href="/terms">Terms of Service</a></li>						
+						<li><a href="mailto:admin@marketing.piraiai.com">Security Contact</a></li>
+						<li><a href="mailto:admin@marketing.piraiai.com">Privacy Officer</a></li>
+					</ul>
+				</div>
+				
+				<div class="footer-section">
+					<h3>Company</h3>
+					<ul class="footer-links">
+						<li><a href="/about">About Us</a></li>
+						<li><a href="https://www.linkedin.com/company/pirai-ai/" target="_blank">LinkedIn</a></li>
+						<li><a href="/#demo">Contact Us</a></li>						
+						<li><a href="mailto:admin@marketing.piraiai.com">General Inquiries</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="footer-bottom">
+				<div class="copyright">
+					© 2025 Pirai AI. All rights reserved. | Built with enterprise-grade security and privacy protection.
+				</div>
+				<div style="display: flex; gap: 16px; align-items: center;">
+					<a href="https://www.linkedin.com/company/pirai-ai/" target="_blank" style="color: #9ca3af; transition: color 0.3s;">
+						<svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+							<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+						</svg>
+					</a>
+					<span style="color: #6b7280; font-size: 12px;">Follow our journey</span>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+    <script>
+        // Enhanced tracking for security page
+        if (typeof dataLayer !== 'undefined') {
+            dataLayer.push({
+                'event': 'page_view',
+                'page_title': 'Security & Privacy',
+                'page_location': window.location.href,
+                'content_group1': 'Security'
+            });
+        }
+
+        // Track security-related interactions
+        document.querySelectorAll('a[href^="mailto:security"], a[href^="mailto:privacy"]').forEach(link => {
+            link.addEventListener('click', function() {
+                if (typeof dataLayer !== 'undefined') {
+                    dataLayer.push({
+                        'event': 'security_contact',
+                        'contact_type': this.href.includes('security') ? 'security_team' : 'privacy_officer'
+                    });
+                }
+            });
+        });
+
+        // Track scroll depth for security content engagement
+        let maxScrollDepth = 0;
+        window.addEventListener('scroll', function() {
+            const scrollDepth = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+            if (scrollDepth > maxScrollDepth && scrollDepth % 25 === 0) {
+                maxScrollDepth = scrollDepth;
+                if (typeof dataLayer !== 'undefined') {
+                    dataLayer.push({
+                        'event': 'scroll_depth',
+                        'scroll_percentage': scrollDepth,
+                        'page_type': 'security'
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
