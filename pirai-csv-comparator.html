@@ -1097,7 +1097,7 @@
                         <div style="font-size: 2rem; margin-bottom: 10px;">📄</div>
                         <label for="file1" class="file-input-label">
                             <strong>CSV File 1 (Original)</strong><br>
-                            <span style="font-size: 16px; color: #9ca3af;">Drop file or click to browse</span>
+                            <span style="font-size: 16px; color: #9ca3af;">click to browse</span>
                         </label>
                         <input type="file" id="file1" accept=".csv,.tsv" style="display: none;">
                         <div id="file1Info" class="file-info hidden"></div>
@@ -1109,7 +1109,7 @@
                         <div style="font-size: 2rem; margin-bottom: 10px;">📋</div>
                         <label for="file2" class="file-input-label">
                             <strong>CSV File 2 (Updated)</strong><br>
-                            <span style="font-size: 16px; color: #9ca3af;">Drop file or click to browse</span>
+                            <span style="font-size: 16px; color: #9ca3af;">click to browse</span>
                         </label>
                         <input type="file" id="file2" accept=".csv,.tsv" style="display: none;">
                         <div id="file2Info" class="file-info hidden"></div>
@@ -1741,16 +1741,16 @@
             const fileInput1 = document.getElementById('file1');
             
             dropZone1.addEventListener('click', () => fileInput1.click());
-            dropZone1.addEventListener('dragover', handleDragOver);
-            dropZone1.addEventListener('drop', (e) => handleDrop(e, 1));
+            //dropZone1.addEventListener('dragover', handleDragOver);
+            //dropZone1.addEventListener('drop', (e) => handleDrop(e, 1));
             fileInput1.addEventListener('change', (e) => handleFileSelect(e, 1));
             
             const dropZone2 = document.getElementById('dropZone2');
             const fileInput2 = document.getElementById('file2');
             
             dropZone2.addEventListener('click', () => fileInput2.click());
-            dropZone2.addEventListener('dragover', handleDragOver);
-            dropZone2.addEventListener('drop', (e) => handleDrop(e, 2));
+            //dropZone2.addEventListener('dragover', handleDragOver);
+            //dropZone2.addEventListener('drop', (e) => handleDrop(e, 2));
             fileInput2.addEventListener('change', (e) => handleFileSelect(e, 2));
             
             document.getElementById('compareBtn').addEventListener('click', compareFiles);
@@ -2847,7 +2847,7 @@ Visit piraiai.com for more survey automation tools
         }
 
         setTimeout(() => {
-            enhanceDragDropExperience();
+            //enhanceDragDropExperience();
             
             const tips = [
                 "💡 Close other browser tabs for optimal performance with large files",
