@@ -268,6 +268,18 @@
         .file-input-section.active {
             border-color: #22c55e;
             background: rgba(34, 197, 94, 0.1);
+            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2);
+        }
+        
+        .file-input-section.warning {
+            border-color: #fbbf24;
+            background: rgba(251, 191, 36, 0.1);
+        }
+        
+        .file-input-section.error {
+            border-color: #f87171;
+            background: rgba(248, 113, 113, 0.1);
+            box-shadow: 0 4px 12px rgba(248, 113, 113, 0.2);
         }
         
         .file-input-label {
@@ -287,6 +299,24 @@
             color: #a7f3d0;
         }
         
+        .file-warning {
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(251, 191, 36, 0.2);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #fcd34d;
+        }
+        
+        .file-error {
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(248, 113, 113, 0.2);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #fca5a5;
+        }
+        
         .comparison-controls {
             background: rgba(55, 65, 81, 0.3);
             border-radius: 16px;
@@ -303,6 +333,12 @@
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 10px;
             margin-top: 15px;
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+            border: 1px solid rgba(55, 65, 81, 0.5);
+            border-radius: 8px;
+            background: rgba(17, 24, 39, 0.3);
         }
         
         .field-checkbox {
@@ -313,15 +349,23 @@
             border-radius: 6px;
             border: 1px solid #6b7280;
             transition: all 0.2s;
+            cursor: pointer;
         }
         
         .field-checkbox:hover {
             background: rgba(59, 130, 246, 0.1);
             border-color: #3b82f6;
+            transform: translateY(-1px);
         }
         
         .field-checkbox input[type="checkbox"] {
             margin-right: 8px;
+            cursor: pointer;
+        }
+        
+        .field-checkbox input[type="checkbox"]:checked + label {
+            color: #60a5fa !important;
+            font-weight: 600;
         }
         
         .btn-primary {
@@ -348,6 +392,7 @@
             opacity: 0.6;
             cursor: not-allowed;
             transform: none;
+            background: #6b7280;
         }
         
         .btn-secondary {
@@ -369,7 +414,134 @@
             color: #ffffff;
         }
         
-        /* Stats Grid */
+        /* Enhanced Progress Indicators */
+        .progress {
+            display: none;
+            text-align: center;
+            margin: 32px 0;
+            background: rgba(31, 41, 55, 0.5);
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid rgba(55, 65, 81, 0.5);
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: rgba(55, 65, 81, 0.5);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
+            border: 1px solid rgba(75, 85, 99, 0.5);
+        }
+        
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            width: 0%;
+            transition: width 0.3s ease;
+            border-radius: 10px;
+        }
+        
+        .progress-text {
+            color: #d1d5db;
+            font-size: 18px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .progress-details {
+            color: #9ca3af;
+            font-size: 14px;
+            margin-top: 12px;
+        }
+        
+        .progress-stage {
+            color: #60a5fa;
+            font-weight: 500;
+        }
+        
+        .progress-percentage {
+            color: #22c55e;
+            font-weight: 600;
+        }
+        
+        .loading {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top: 3px solid #3b82f6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 16px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { 
+                opacity: 1; 
+                transform: scaleX(1);
+            }
+            50% { 
+                opacity: 0.8; 
+                transform: scaleX(1.05);
+            }
+        }
+        
+        /* Performance Warning Section */
+        .performance-warning {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(59, 130, 246, 0.2));
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+            display: none;
+        }
+        
+        .performance-warning h4 {
+            color: #fbbf24;
+            margin-bottom: 12px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        
+        .performance-warning p {
+            color: #d1d5db;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .performance-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin: 16px 0;
+        }
+        
+        .performance-stat {
+            background: rgba(55, 65, 81, 0.3);
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .performance-stat .number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+        
+        .performance-stat .label {
+            font-size: 0.8rem;
+            color: #9ca3af;
+        }
+        
+        /* Stats Grid - Enhanced with Field Changes */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -406,6 +578,7 @@
         .missing { color: #f87171; }
         .new { color: #60a5fa; }
         .duplicates { color: #fbbf24; }
+        .changes { color: #a78bfa; }  /* New color for field changes */
         
         /* Results Section */
         .results-section {
@@ -451,6 +624,7 @@
             display: flex;
             border-bottom: 2px solid rgba(55, 65, 81, 0.5);
             margin-bottom: 20px;
+            flex-wrap: wrap;
         }
         
         .tab {
@@ -460,6 +634,7 @@
             transition: all 0.2s;
             font-weight: 500;
             color: #9ca3af;
+            white-space: nowrap;
         }
         
         .tab.active {
@@ -501,6 +676,77 @@
             background: rgba(55, 65, 81, 0.3);
         }
         
+        /* Enhanced table for field differences */
+        .differences-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background: rgba(17, 24, 39, 0.5);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .differences-table th,
+        .differences-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(55, 65, 81, 0.5);
+            vertical-align: top;
+        }
+        
+        .differences-table th {
+            background: rgba(55, 65, 81, 0.5);
+            font-weight: 600;
+            color: #ffffff;
+        }
+        
+        .differences-table tr:hover {
+            background: rgba(55, 65, 81, 0.3);
+        }
+        
+        .field-diff {
+            margin-bottom: 8px;
+            padding: 8px;
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: 4px;
+            border-left: 3px solid #a78bfa;
+        }
+        
+        .field-name {
+            font-weight: 600;
+            color: #a78bfa;
+            margin-bottom: 4px;
+        }
+        
+        .value-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .old-value {
+            color: #f87171;
+            padding: 4px 8px;
+            background: rgba(248, 113, 113, 0.1);
+            border-radius: 4px;
+        }
+        
+        .new-value {
+            color: #22c55e;
+            padding: 4px 8px;
+            background: rgba(34, 197, 94, 0.1);
+            border-radius: 4px;
+        }
+        
+        .value-label {
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 2px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
         .export-section {
             margin-top: 32px;
             padding: 24px;
@@ -524,28 +770,6 @@
         .export-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
-        }
-        
-        .progress {
-            display: none;
-            text-align: center;
-            margin: 32px 0;
-        }
-        
-        .loading {
-            display: inline-block;
-            width: 32px;
-            height: 32px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            border-top: 3px solid #3b82f6;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 16px;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
         
         /* Thank You Section */
@@ -611,6 +835,22 @@
             color: #9ca3af;
             margin-top: 16px;
             font-style: italic;
+        }
+
+        /* Selected fields info styling */
+        .selected-fields-info {
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         /* Footer */
@@ -768,6 +1008,19 @@
                 grid-template-columns: 1fr;
                 text-align: center;
             }
+            
+            .performance-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .details-tabs {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .value-comparison {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -802,12 +1055,12 @@
         <div class="container">
             <h1>Free CSV Comparator for Qualtrics SDS</h1>
             <p class="hero-subtitle">
-                Validate Supplemental Data Sources instantly. Compare CSV files, find duplicates, and ensure perfect data matching before Qualtrics import.
+                Validate Supplemental Data Sources instantly. Compare CSV files with up to 100,000 rows, find duplicates, track field changes, and ensure perfect data matching before Qualtrics import.
             </p>
             
             <div class="hero-highlight">
-                <h3>🎁 Completely Free Tool</h3>
-                <p>Compare CSV files with up to 100,000 rows • Validate SDS compatibility • Find missing records instantly</p>
+                <h3>🎁 Enhanced Performance - Up to 100K Rows + Field Change Tracking</h3>
+                <p>Compare massive CSV files with optimized processing • Advanced progress tracking • Memory-efficient algorithms • Track what changed between versions</p>
             </div>
             
             <!-- Privacy & Security Badge -->
@@ -848,6 +1101,8 @@
                         </label>
                         <input type="file" id="file1" accept=".csv,.tsv" style="display: none;">
                         <div id="file1Info" class="file-info hidden"></div>
+                        <div id="file1Warning" class="file-warning hidden"></div>
+                        <div id="file1Error" class="file-error hidden"></div>
                     </div>
                     
                     <div class="file-input-section" id="dropZone2">
@@ -858,7 +1113,21 @@
                         </label>
                         <input type="file" id="file2" accept=".csv,.tsv" style="display: none;">
                         <div id="file2Info" class="file-info hidden"></div>
+                        <div id="file2Warning" class="file-warning hidden"></div>
+                        <div id="file2Error" class="file-error hidden"></div>
                     </div>
+                </div>
+
+                <!-- Performance Warning Section -->
+                <div class="performance-warning" id="performanceWarning">
+                    <h4>⚡ Large Dataset Detected</h4>
+                    <p>Your files contain a significant amount of data. Processing will be optimized but may take longer.</p>
+                    <div class="performance-stats" id="performanceStats">
+                        <!-- Dynamic stats will be inserted here -->
+                    </div>
+                    <p style="color: #9ca3af; margin-top: 12px;">
+                        💡 <strong>Tip:</strong> Ensure you have sufficient RAM and consider closing other browser tabs for optimal performance.
+                    </p>
                 </div>
                 
                 <div class="comparison-controls">
@@ -877,7 +1146,14 @@
 
                 <div class="progress" id="progress">
                     <div class="loading"></div>
-                    <p style="color: #d1d5db;">Analyzing CSV files and comparing records...</p>
+                    <div class="progress-text" id="progressText">Preparing files for comparison...</div>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" id="progressBarFill"></div>
+                    </div>
+                    <div class="progress-details" id="progressDetails">
+                        <span class="progress-stage" id="progressStage">Initializing</span> - 
+                        <span class="progress-percentage" id="progressPercentage">0%</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -905,6 +1181,10 @@
                     <div class="stat-number duplicates" id="duplicateCount">0</div>
                     <div class="stat-label">Duplicates Found</div>
                 </div>
+                <div class="stat-card">
+                    <div class="stat-number changes" id="changesCount">0</div>
+                    <div class="stat-label">Field Changes</div>
+                </div>
             </div>
             
             <div class="sds-validation" id="sdsValidation">
@@ -917,6 +1197,7 @@
                     <div class="tab active" onclick="showTab('overview')">Overview</div>
                     <div class="tab" onclick="showTab('missing')">Missing Records</div>
                     <div class="tab" onclick="showTab('new')">New Records</div>
+                    <div class="tab" onclick="showTab('changes')">Field Changes</div>
                     <div class="tab" onclick="showTab('duplicates')">Duplicates</div>
                 </div>
                 
@@ -930,6 +1211,10 @@
                 
                 <div class="tab-content" id="new-tab">
                     <div id="newContent"></div>
+                </div>
+                
+                <div class="tab-content" id="changes-tab">
+                    <div id="changesContent"></div>
                 </div>
                 
                 <div class="tab-content" id="duplicates-tab">
@@ -953,7 +1238,7 @@
                     <div class="thank-you-icon">🎉</div>
                     <h2>Comparison Complete!</h2>
                     <p class="thank-you-message">
-                        Your CSV comparison has been completed successfully. We hope this tool saves you valuable time in validating your Supplemental Data Sources.
+                        Your CSV comparison has been completed successfully. We hope this enhanced tool with 100K row support and field change tracking saves you valuable time in validating your Supplemental Data Sources.
                     </p>
                     
                     <div class="thank-you-stats" id="thankYouStats">
@@ -1048,15 +1333,410 @@
 	</footer>
 
     <script>
+        // Enhanced CSV Comparator with Field Changes Tracking - v2.1
+        
         // Global variables
         let file1Data = null;
         let file2Data = null;
         let comparisonResults = null;
         let selectedFields = [];
+        let csvWorker = null;
+        let processingStartTime = null;
 
-        // File handling
+        // Configuration
+        const MAX_ROW_LIMIT = 100000;
+        const LARGE_FILE_THRESHOLD = 25000;
+        const MAX_MEMORY_MB = 400;
+        const CHUNK_SIZE = 2000;
+
+        // Initialize CSV Worker
+        function initializeWorker() {
+            const workerScript = `
+                self.importScripts('https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js');
+
+                class MemoryOptimizedComparator {
+                    constructor() {
+                        this.chunkSize = 2000;
+                        this.progressCallback = null;
+                    }
+
+                    async compareFiles(file1Text, file2Text, selectedFields) {
+                        try {
+                            this.postMessage({ type: 'progress', stage: 'parsing', progress: 10 });
+                            
+                            const csv1 = Papa.parse(file1Text, { 
+                                header: true, 
+                                skipEmptyLines: true,
+                                encoding: 'UTF-8'
+                            });
+                            this.postMessage({ type: 'progress', stage: 'parsing', progress: 30 });
+                            
+                            const csv2 = Papa.parse(file2Text, { 
+                                header: true, 
+                                skipEmptyLines: true,
+                                encoding: 'UTF-8'
+                            });
+                            this.postMessage({ type: 'progress', stage: 'parsing', progress: 50 });
+                            
+                            this.postMessage({ type: 'progress', stage: 'comparing', progress: 60 });
+                            const results = await this.performComparison(csv1.data, csv2.data, selectedFields);
+                            
+                            this.postMessage({ type: 'progress', stage: 'finalizing', progress: 90 });
+                            this.postMessage({ type: 'complete', result: results });
+                            
+                        } catch (error) {
+                            this.postMessage({ type: 'error', error: error.message });
+                        }
+                    }
+
+                    async performComparison(data1, data2, selectedFields) {
+                        const createKey = (record) => {
+                            return selectedFields.map(field => String(record[field] || '').trim().toLowerCase()).join('|');
+                        };
+                        
+                        const map1 = new Map();
+                        const map2 = new Map();
+                        const duplicates1 = [];
+                        const duplicates2 = [];
+                        
+                        for (let i = 0; i < data1.length; i += this.chunkSize) {
+                            const chunk = data1.slice(i, i + this.chunkSize);
+                            
+                            chunk.forEach((record, index) => {
+                                const key = createKey(record);
+                                if (key && key !== '|'.repeat(selectedFields.length - 1)) {
+                                    if (map1.has(key)) {
+                                        duplicates1.push({ record, key, row: i + index + 2 });
+                                    } else {
+                                        map1.set(key, { record, row: i + index + 2 });
+                                    }
+                                }
+                            });
+                            
+                            const progress = 60 + (i / data1.length) * 15;
+                            this.postMessage({ type: 'progress', stage: 'processing_file1', progress });
+                            await new Promise(resolve => setTimeout(resolve, 0));
+                        }
+                        
+                        for (let i = 0; i < data2.length; i += this.chunkSize) {
+                            const chunk = data2.slice(i, i + this.chunkSize);
+                            
+                            chunk.forEach((record, index) => {
+                                const key = createKey(record);
+                                if (key && key !== '|'.repeat(selectedFields.length - 1)) {
+                                    if (map2.has(key)) {
+                                        duplicates2.push({ record, key, row: i + index + 2 });
+                                    } else {
+                                        map2.set(key, { record, row: i + index + 2 });
+                                    }
+                                }
+                            });
+                            
+                            const progress = 75 + (i / data2.length) * 10;
+                            this.postMessage({ type: 'progress', stage: 'processing_file2', progress });
+                            await new Promise(resolve => setTimeout(resolve, 0));
+                        }
+                        
+                        const matched = [];
+                        const missingInFile2 = [];
+                        const newInFile2 = [];
+                        
+                        for (const [key, data] of map1) {
+                            if (map2.has(key)) {
+                                const differences = this.findRecordDifferences(data.record, map2.get(key).record);
+                                matched.push({
+                                    key,
+                                    file1: data,
+                                    file2: map2.get(key),
+                                    differences: differences
+                                });
+                            } else {
+                                missingInFile2.push({ key, data });
+                            }
+                        }
+                        
+                        for (const [key, data] of map2) {
+                            if (!map1.has(key)) {
+                                newInFile2.push({ key, data });
+                            }
+                        }
+                        
+                        return {
+                            matched,
+                            missingInFile2,
+                            newInFile2,
+                            duplicates: [...duplicates1, ...duplicates2],
+                            file1Stats: {
+                                totalRecords: data1.length,
+                                validRecords: map1.size,
+                                duplicates: duplicates1.length
+                            },
+                            file2Stats: {
+                                totalRecords: data2.length,
+                                validRecords: map2.size,
+                                duplicates: duplicates2.length
+                            }
+                        };
+                    }
+
+                    findRecordDifferences(record1, record2) {
+                        const differences = [];
+                        const allFields = new Set([...Object.keys(record1), ...Object.keys(record2)]);
+                        
+                        for (const field of allFields) {
+                            const val1 = String(record1[field] || '').trim();
+                            const val2 = String(record2[field] || '').trim();
+                            
+                            if (val1 !== val2) {
+                                differences.push({
+                                    field,
+                                    file1Value: val1,
+                                    file2Value: val2
+                                });
+                            }
+                        }
+                        
+                        return differences;
+                    }
+
+                    postMessage(data) {
+                        self.postMessage(data);
+                    }
+                }
+
+                self.onmessage = function(e) {
+                    const { command, data } = e.data;
+                    
+                    if (command === 'compare') {
+                        const comparator = new MemoryOptimizedComparator();
+                        comparator.compareFiles(data.file1, data.file2, data.selectedFields);
+                    }
+                };
+            `;
+            
+            const blob = new Blob([workerScript], { type: 'application/javascript' });
+            csvWorker = new Worker(URL.createObjectURL(blob));
+            
+            csvWorker.onmessage = function(e) {
+                const { type, progress, stage, result, error } = e.data;
+                
+                switch(type) {
+                    case 'progress':
+                        updateProgress(stage, progress);
+                        break;
+                    case 'complete':
+                        comparisonResults = result;
+                        displayResults();
+                        hideProgress();
+                        break;
+                    case 'error':
+                        showError(error);
+                        hideProgress();
+                        break;
+                }
+            };
+        }
+
+        // Enhanced file validation with row estimation
+        function estimateFileRows(fileSize) {
+            return Math.ceil(fileSize / 150);
+        }
+
+        function validateFile(file, fileNumber) {
+            const fileSize = file.size;
+            const estimatedRows = estimateFileRows(fileSize);
+            const estimatedMemoryMB = (fileSize * 4) / (1024 * 1024);
+            
+            const dropZone = document.getElementById(`dropZone${fileNumber}`);
+            const infoDiv = document.getElementById(`file${fileNumber}Info`);
+            const warningDiv = document.getElementById(`file${fileNumber}Warning`);
+            const errorDiv = document.getElementById(`file${fileNumber}Error`);
+            
+            [infoDiv, warningDiv, errorDiv].forEach(div => {
+                div.classList.add('hidden');
+                div.innerHTML = '';
+            });
+            dropZone.className = 'file-input-section';
+
+            if (!file.name.toLowerCase().endsWith('.csv') && !file.name.toLowerCase().endsWith('.tsv')) {
+                errorDiv.innerHTML = '<strong>❌ Invalid file type</strong><br>Please select a CSV or TSV file';
+                errorDiv.classList.remove('hidden');
+                dropZone.classList.add('error');
+                return false;
+            }
+
+            if (estimatedRows > MAX_ROW_LIMIT) {
+                errorDiv.innerHTML = `
+                    <strong>❌ File too large</strong><br>
+                    Estimated ${estimatedRows.toLocaleString()} rows<br>
+                    Maximum supported: ${MAX_ROW_LIMIT.toLocaleString()} rows
+                `;
+                errorDiv.classList.remove('hidden');
+                dropZone.classList.add('error');
+                return false;
+            }
+
+            if (estimatedMemoryMB > MAX_MEMORY_MB) {
+                errorDiv.innerHTML = `
+                    <strong>❌ Memory requirements too high</strong><br>
+                    Estimated memory: ${Math.round(estimatedMemoryMB)}MB<br>
+                    Maximum recommended: ${MAX_MEMORY_MB}MB
+                `;
+                errorDiv.classList.remove('hidden');
+                dropZone.classList.add('error');
+                return false;
+            }
+
+            return true;
+        }
+
+        function updatePerformanceWarning(rows, memoryMB, fileNumber) {
+            const warningSection = document.getElementById('performanceWarning');
+            const statsDiv = document.getElementById('performanceStats');
+            
+            let expectedTimeSeconds = 5;
+            if (rows > 50000) expectedTimeSeconds = 30;
+            if (rows > 75000) expectedTimeSeconds = 60;
+            if (rows > 90000) expectedTimeSeconds = 90;
+
+            statsDiv.innerHTML = `
+                <div class="performance-stat">
+                    <div class="number" style="color: #fbbf24;">${rows.toLocaleString()}</div>
+                    <div class="label">Estimated Rows</div>
+                </div>
+                <div class="performance-stat">
+                    <div class="number" style="color: #8b5cf6;">${Math.round(memoryMB)}MB</div>
+                    <div class="label">Memory Usage</div>
+                </div>
+                <div class="performance-stat">
+                    <div class="number" style="color: #60a5fa;">${expectedTimeSeconds}s</div>
+                    <div class="label">Expected Time</div>
+                </div>
+                <div class="performance-stat">
+                    <div class="number" style="color: #22c55e;">100%</div>
+                    <div class="label">Privacy Kept</div>
+                </div>
+            `;
+            
+            warningSection.style.display = 'block';
+        }
+
+        // Enhanced progress tracking
+        function updateProgress(stage, progress) {
+            const progressText = document.getElementById('progressText');
+            const progressBarFill = document.getElementById('progressBarFill');
+            const progressStage = document.getElementById('progressStage');
+            const progressPercentage = document.getElementById('progressPercentage');
+
+            const stageTexts = {
+                'parsing': 'Parsing CSV files...',
+                'comparing': 'Comparing records...',
+                'processing_file1': 'Processing File 1...',
+                'processing_file2': 'Processing File 2...',
+                'finalizing': 'Finalizing results...'
+            };
+
+            progressText.textContent = stageTexts[stage] || 'Processing...';
+            progressStage.textContent = stageTexts[stage] || stage;
+            progressPercentage.textContent = `${Math.round(progress)}%`;
+            progressBarFill.style.width = `${progress}%`;
+
+            if (processingStartTime) {
+                const elapsed = (Date.now() - processingStartTime) / 1000;
+                const estimated = (elapsed / progress) * 100;
+                const remaining = Math.max(0, estimated - elapsed);
+                
+                if (remaining > 5) {
+                    progressText.textContent += ` (${Math.round(remaining)}s remaining)`;
+                }
+            }
+        }
+
+        function showProgress() {
+            processingStartTime = Date.now();
+            document.getElementById('progress').style.display = 'block';
+            document.getElementById('compareBtn').textContent = '🔄 Processing...';
+            document.getElementById('compareBtn').disabled = true;
+        }
+
+        function hideProgress() {
+            document.getElementById('progress').style.display = 'none';
+            updateCompareButtonState();
+            
+            if (processingStartTime) {
+                const totalTime = (Date.now() - processingStartTime) / 1000;
+                console.log(`Total processing time: ${totalTime.toFixed(1)} seconds`);
+            }
+        }
+
+        function showError(message) {
+            alert(`Processing Error: ${message}\n\nPlease try again or contact support if the issue persists.`);
+        }
+
+        // FIXED: Show file success with actual data info
+        function showFileSuccess(fileNumber, file, parseResults) {
+            const dropZone = document.getElementById(`dropZone${fileNumber}`);
+            const infoDiv = document.getElementById(`file${fileNumber}Info`);
+            const warningDiv = document.getElementById(`file${fileNumber}Warning`);
+            const errorDiv = document.getElementById(`file${fileNumber}Error`);
+            
+            warningDiv.classList.add('hidden');
+            errorDiv.classList.add('hidden');
+            dropZone.className = 'file-input-section active';
+            
+            const actualRows = parseResults.data.length;
+            const fieldCount = Object.keys(parseResults.data[0] || {}).length;
+            const fileSize = (file.size / 1024 / 1024).toFixed(2);
+            
+            const sampleFields = Object.keys(parseResults.data[0] || {}).slice(0, 5);
+            const fieldsPreview = sampleFields.join(', ') + (fieldCount > 5 ? `, +${fieldCount - 5} more` : '');
+            
+            infoDiv.innerHTML = `
+                <strong>✅ ${file.name}</strong><br>
+                <div style="margin-top: 8px; font-size: 0.9rem;">
+                    📊 <strong>${actualRows.toLocaleString()}</strong> rows<br>
+                    📋 <strong>${fieldCount}</strong> columns<br>
+                    💾 <strong>${fileSize} MB</strong><br>
+                    <div style="margin-top: 6px; padding: 6px; background: rgba(59, 130, 246, 0.1); border-radius: 4px; font-size: 0.8rem;">
+                        <strong>Fields:</strong> ${fieldsPreview}
+                    </div>
+                </div>
+            `;
+            infoDiv.classList.remove('hidden');
+            
+            if (actualRows > LARGE_FILE_THRESHOLD) {
+                updatePerformanceWarning(actualRows, file.size / (1024 * 1024), fileNumber);
+            }
+        }
+
+        // FIXED: Show file errors clearly
+        function showFileError(fileNumber, message) {
+            const dropZone = document.getElementById(`dropZone${fileNumber}`);
+            const infoDiv = document.getElementById(`file${fileNumber}Info`);
+            const warningDiv = document.getElementById(`file${fileNumber}Warning`);
+            const errorDiv = document.getElementById(`file${fileNumber}Error`);
+            
+            infoDiv.classList.add('hidden');
+            warningDiv.classList.add('hidden');
+            dropZone.className = 'file-input-section error';
+            
+            errorDiv.innerHTML = `<strong>❌ Upload Failed</strong><br>${message}`;
+            errorDiv.classList.remove('hidden');
+            
+            if (fileNumber === 1) {
+                file1Data = null;
+            } else {
+                file2Data = null;
+            }
+            
+            updateFieldSelector();
+            updateCompareButtonState();
+        }
+
+        // File handling with enhanced validation
         function setupFileHandlers() {
-            // File 1
+            initializeWorker();
+            
             const dropZone1 = document.getElementById('dropZone1');
             const fileInput1 = document.getElementById('file1');
             
@@ -1065,7 +1745,6 @@
             dropZone1.addEventListener('drop', (e) => handleDrop(e, 1));
             fileInput1.addEventListener('change', (e) => handleFileSelect(e, 1));
             
-            // File 2
             const dropZone2 = document.getElementById('dropZone2');
             const fileInput2 = document.getElementById('file2');
             
@@ -1074,7 +1753,6 @@
             dropZone2.addEventListener('drop', (e) => handleDrop(e, 2));
             fileInput2.addEventListener('change', (e) => handleFileSelect(e, 2));
             
-            // Compare button
             document.getElementById('compareBtn').addEventListener('click', compareFiles);
         }
 
@@ -1103,110 +1781,223 @@
             }
         }
 
+        // FIXED: Enhanced file processing with proper row counting and field display
         function processFile(file, fileNumber) {
-            // Validate file
-            if (!file.name.toLowerCase().endsWith('.csv') && !file.name.toLowerCase().endsWith('.tsv')) {
-                alert('Please select a CSV or TSV file');
+            if (!validateFile(file, fileNumber)) {
                 return;
             }
             
-            if (file.size > 10 * 1024 * 1024) { // 10MB limit (Qualtrics SDS limit)
-                alert('File size exceeds 10MB limit for Qualtrics SDS');
-                return;
-            }
-            
-            // Show file info
-            const fileInfo = document.getElementById(`file${fileNumber}Info`);
-            const dropZone = document.getElementById(`dropZone${fileNumber}`);
-            
-            fileInfo.innerHTML = `
-                <strong>✅ ${file.name}</strong><br>
-                Size: ${(file.size / 1024 / 1024).toFixed(2)} MB
+            const infoDiv = document.getElementById(`file${fileNumber}Info`);
+            infoDiv.innerHTML = `
+                <strong>🔄 Parsing ${file.name}...</strong><br>
+                <div style="width: 100%; height: 4px; background: #374151; border-radius: 2px; margin-top: 8px;">
+                    <div style="width: 0%; height: 100%; background: #3b82f6; border-radius: 2px; animation: pulse 1s infinite;"></div>
+                </div>
             `;
-            fileInfo.classList.remove('hidden');
-            dropZone.classList.add('active');
             
-            // Parse CSV
             Papa.parse(file, {
                 header: true,
                 skipEmptyLines: true,
                 encoding: 'UTF-8',
+                dynamicTyping: false,
                 complete: function(results) {
+                    console.log(`File ${fileNumber} parsing complete:`, {
+                        rows: results.data.length,
+                        fields: Object.keys(results.data[0] || {}),
+                        errors: results.errors.length
+                    });
+                    
+                    if (results.errors.length > 0) {
+                        console.warn(`CSV parsing warnings for file ${fileNumber}:`, results.errors);
+                        
+                        const criticalErrors = results.errors.filter(error => 
+                            error.type === 'Delimiter' || error.type === 'Quotes'
+                        );
+                        
+                        if (criticalErrors.length > 0) {
+                            showFileError(fileNumber, `CSV parsing failed: ${criticalErrors[0].message}`);
+                            return;
+                        }
+                    }
+                    
+                    if (!results.data || results.data.length === 0) {
+                        showFileError(fileNumber, 'No data found in CSV file. Please check the file format.');
+                        return;
+                    }
+                    
+                    const firstRow = results.data[0];
+                    if (!firstRow || Object.keys(firstRow).length === 0) {
+                        showFileError(fileNumber, 'No column headers found. Please ensure your CSV has a header row.');
+                        return;
+                    }
+                    
                     if (fileNumber === 1) {
                         file1Data = results;
                     } else {
                         file2Data = results;
                     }
                     
-                    // Update field selector
+                    showFileSuccess(fileNumber, file, results);
                     updateFieldSelector();
+                    updateCompareButtonState();
                     
-                    // Enable compare button if both files loaded
-                    if (file1Data && file2Data) {
-                        document.getElementById('compareBtn').disabled = false;
-                    }
-                    
-                    // Track file upload
                     if (typeof dataLayer !== 'undefined') {
                         dataLayer.push({
                             'event': 'csv_file_uploaded',
                             'file_number': fileNumber,
-                            'file_size_mb': (file.size / 1024 / 1024).toFixed(2)
+                            'file_size_mb': (file.size / 1024 / 1024).toFixed(2),
+                            'actual_rows': results.data.length,
+                            'actual_fields': Object.keys(firstRow).length
                         });
                     }
                 },
                 error: function(error) {
-                    alert(`Error parsing file: ${error.message}`);
+                    console.error(`Papa.parse error for file ${fileNumber}:`, error);
+                    showFileError(fileNumber, `Failed to parse CSV file: ${error.message}`);
                 }
             });
         }
 
+        // FIXED: Enhanced field selector that works with one or both files
         function updateFieldSelector() {
-            if (!file1Data || !file2Data) return;
-            
-            // Get common fields
-            const fields1 = Object.keys(file1Data.data[0] || {});
-            const fields2 = Object.keys(file2Data.data[0] || {});
-            const commonFields = fields1.filter(field => fields2.includes(field));
-            
             const fieldSelector = document.getElementById('fieldSelector');
             fieldSelector.innerHTML = '';
             
-            if (commonFields.length === 0) {
-                fieldSelector.innerHTML = '<p style="color: #f87171;">No common fields found between files!</p>';
+            if (!file1Data && !file2Data) {
+                fieldSelector.innerHTML = '<p style="color: #9ca3af;">Upload CSV files to see available fields</p>';
                 return;
             }
             
-            commonFields.forEach(field => {
+            let availableFields = [];
+            let statusMessage = '';
+            
+            if (file1Data && file2Data) {
+                const fields1 = Object.keys(file1Data.data[0] || {});
+                const fields2 = Object.keys(file2Data.data[0] || {});
+                availableFields = fields1.filter(field => fields2.includes(field));
+                
+                if (availableFields.length === 0) {
+                    fieldSelector.innerHTML = `
+                        <div style="color: #f87171; padding: 16px; background: rgba(248, 113, 113, 0.1); border-radius: 8px;">
+                            <strong>❌ No common fields found!</strong><br>
+                            <div style="margin-top: 8px; font-size: 0.9rem;">
+                                <strong>File 1 fields:</strong> ${fields1.join(', ')}<br>
+                                <strong>File 2 fields:</strong> ${fields2.join(', ')}
+                            </div>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                statusMessage = `
+                    <div style="color: #22c55e; margin-bottom: 16px; padding: 12px; background: rgba(34, 197, 94, 0.1); border-radius: 8px;">
+                        <strong>✅ ${availableFields.length} common fields found</strong> between both files
+                    </div>
+                `;
+            } else {
+                const loadedFile = file1Data || file2Data;
+                const fileNumber = file1Data ? 1 : 2;
+                availableFields = Object.keys(loadedFile.data[0] || {});
+                
+                statusMessage = `
+                    <div style="color: #fbbf24; margin-bottom: 16px; padding: 12px; background: rgba(251, 191, 36, 0.1); border-radius: 8px;">
+                        <strong>⚠️ Showing fields from File ${fileNumber}</strong><br>
+                        Upload the second file to see common fields only
+                    </div>
+                `;
+            }
+            
+            fieldSelector.innerHTML = statusMessage;
+            
+            const fieldsContainer = document.createElement('div');
+            fieldsContainer.className = 'field-group';
+            
+            availableFields.forEach(field => {
                 const fieldDiv = document.createElement('div');
                 fieldDiv.className = 'field-checkbox';
+                
+                const cleanFieldName = field.replace(/[^a-zA-Z0-9]/g, '_');
+                
                 fieldDiv.innerHTML = `
-                    <input type="checkbox" id="field_${field}" value="${field}" onchange="updateSelectedFields()">
-                    <label for="field_${field}" style="color: #d1d5db; cursor: pointer;">${field}</label>
+                    <input type="checkbox" id="field_${cleanFieldName}" value="${field}" onchange="updateSelectedFields()">
+                    <label for="field_${cleanFieldName}" style="color: #d1d5db; cursor: pointer; font-size: 0.9rem;">
+                        ${field}
+                    </label>
                 `;
-                fieldSelector.appendChild(fieldDiv);
+                fieldsContainer.appendChild(fieldDiv);
             });
             
-            // Auto-select common identifier fields
-            const autoSelectFields = ['email', 'id', 'user_id', 'respondent_id', 'participant_id'];
-            commonFields.forEach(field => {
-                if (autoSelectFields.some(auto => field.toLowerCase().includes(auto))) {
-                    document.getElementById(`field_${field}`).checked = true;
+            fieldSelector.appendChild(fieldsContainer);
+            
+            const autoSelectFields = ['email', 'id', 'user_id', 'respondent_id', 'participant_id', 'userid', 'respondentid'];
+            availableFields.forEach(field => {
+                const fieldLower = field.toLowerCase();
+                if (autoSelectFields.some(auto => fieldLower.includes(auto))) {
+                    const cleanFieldName = field.replace(/[^a-zA-Z0-9]/g, '_');
+                    const checkbox = document.getElementById(`field_${cleanFieldName}`);
+                    if (checkbox) {
+                        checkbox.checked = true;
+                        console.log(`Auto-selected field: ${field}`);
+                    }
                 }
             });
             
             updateSelectedFields();
         }
 
+        // FIXED: Better compare button state management
+        function updateCompareButtonState() {
+            const compareBtn = document.getElementById('compareBtn');
+            const hasSelectedFields = selectedFields.length > 0;
+            const hasBothFiles = file1Data && file2Data;
+            
+            if (!hasBothFiles) {
+                compareBtn.disabled = true;
+                compareBtn.textContent = hasBothFiles ? '🔍 Select Fields First' : '📁 Upload Both Files First';
+            } else if (!hasSelectedFields) {
+                compareBtn.disabled = true;
+                compareBtn.textContent = '🔍 Select Identifier Fields First';
+            } else {
+                compareBtn.disabled = false;
+                compareBtn.textContent = `🔍 Compare CSV Files (${selectedFields.length} field${selectedFields.length > 1 ? 's' : ''})`;
+            }
+        }
+
+        // FIXED: Enhanced selected fields tracking
         function updateSelectedFields() {
             selectedFields = [];
-            document.querySelectorAll('#fieldSelector input[type="checkbox"]:checked').forEach(checkbox => {
+            const checkboxes = document.querySelectorAll('#fieldSelector input[type="checkbox"]:checked');
+            
+            checkboxes.forEach(checkbox => {
                 selectedFields.push(checkbox.value);
             });
             
-            // Enable compare button only if fields are selected
-            const compareBtn = document.getElementById('compareBtn');
-            compareBtn.disabled = selectedFields.length === 0 || !file1Data || !file2Data;
+            console.log('Selected fields updated:', selectedFields);
+            updateCompareButtonState();
+            
+            const fieldSelector = document.getElementById('fieldSelector');
+            let existingInfo = fieldSelector.querySelector('.selected-fields-info');
+            
+            if (existingInfo) {
+                existingInfo.remove();
+            }
+            
+            if (selectedFields.length > 0) {
+                const infoDiv = document.createElement('div');
+                infoDiv.className = 'selected-fields-info';
+                infoDiv.style.cssText = `
+                    margin-top: 16px;
+                    padding: 12px;
+                    background: rgba(59, 130, 246, 0.1);
+                    border-radius: 8px;
+                    border: 1px solid rgba(59, 130, 246, 0.3);
+                `;
+                infoDiv.innerHTML = `
+                    <strong style="color: #60a5fa;">Selected Identifiers:</strong><br>
+                    <span style="color: #d1d5db; font-size: 0.9rem;">${selectedFields.join(', ')}</span>
+                `;
+                fieldSelector.appendChild(infoDiv);
+            }
         }
 
         function compareFiles() {
@@ -1215,91 +2006,134 @@
                 return;
             }
             
-            // Show loading state
-            document.getElementById('progress').style.display = 'block';
-            document.getElementById('compareBtn').textContent = '🔄 Comparing...';
-            document.getElementById('compareBtn').disabled = true;
+            const totalRows = file1Data.data.length + file2Data.data.length;
             
-            // Track comparison start
+            if (totalRows > 10000) {
+                compareFilesWithWorker();
+            } else {
+                compareFilesMainThread();
+            }
+        }
+
+        function compareFilesWithWorker() {
+            showProgress();
+            
+            Promise.all([
+                new Promise((resolve) => {
+                    const reader = new FileReader();
+                    reader.onload = (e) => resolve(e.target.result);
+                    reader.readAsText(document.getElementById('file1').files[0]);
+                }),
+                new Promise((resolve) => {
+                    const reader = new FileReader();
+                    reader.onload = (e) => resolve(e.target.result);
+                    reader.readAsText(document.getElementById('file2').files[0]);
+                })
+            ]).then(([text1, text2]) => {
+                csvWorker.postMessage({
+                    command: 'compare',
+                    data: {
+                        file1: text1,
+                        file2: text2,
+                        selectedFields: selectedFields
+                    }
+                });
+            }).catch(error => {
+                showError(`Failed to read files: ${error.message}`);
+                hideProgress();
+            });
+        }
+
+        function compareFilesMainThread() {
+            showProgress();
+            
             if (typeof dataLayer !== 'undefined') {
                 dataLayer.push({
                     'event': 'csv_comparison_started',
                     'selected_fields': selectedFields.length,
                     'file1_rows': file1Data.data.length,
-                    'file2_rows': file2Data.data.length
+                    'file2_rows': file2Data.data.length,
+                    'processing_method': 'main_thread'
                 });
             }
             
             setTimeout(() => {
-                performComparison();
-                displayResults();
-                
-                // Reset button
-                document.getElementById('progress').style.display = 'none';
-                document.getElementById('compareBtn').textContent = '🔍 Compare CSV Files';
-                updateSelectedFields(); // This will re-enable if appropriate
-            }, 500);
+                try {
+                    performComparisonMainThread();
+                    displayResults();
+                    hideProgress();
+                } catch (error) {
+                    showError(error.message);
+                    hideProgress();
+                }
+            }, 100);
         }
 
-        function performComparison() {
+        function performComparisonMainThread() {
             const data1 = file1Data.data;
             const data2 = file2Data.data;
             
-            // Create composite keys
             const createKey = (record) => {
                 return selectedFields.map(field => String(record[field] || '').trim().toLowerCase()).join('|');
             };
             
-            // Build lookup maps
             const map1 = new Map();
             const map2 = new Map();
             const duplicates1 = [];
             const duplicates2 = [];
             
-            // Process file 1
             data1.forEach((record, index) => {
                 const key = createKey(record);
-                if (key && key !== '|'.repeat(selectedFields.length - 1)) { // Skip empty keys
+                if (key && key !== '|'.repeat(selectedFields.length - 1)) {
                     if (map1.has(key)) {
                         duplicates1.push({ record, key, row: index + 2 });
                     } else {
                         map1.set(key, { record, row: index + 2 });
                     }
                 }
+                
+                if (index % 1000 === 0) {
+                    const progress = 60 + (index / data1.length) * 15;
+                    updateProgress('processing_file1', progress);
+                }
             });
             
-            // Process file 2
             data2.forEach((record, index) => {
                 const key = createKey(record);
-                if (key && key !== '|'.repeat(selectedFields.length - 1)) { // Skip empty keys
+                if (key && key !== '|'.repeat(selectedFields.length - 1)) {
                     if (map2.has(key)) {
                         duplicates2.push({ record, key, row: index + 2 });
                     } else {
                         map2.set(key, { record, row: index + 2 });
                     }
                 }
+                
+                if (index % 1000 === 0) {
+                    const progress = 75 + (index / data2.length) * 10;
+                    updateProgress('processing_file2', progress);
+                }
             });
             
-            // Find matches and differences
+            updateProgress('comparing', 85);
+            
             const matched = [];
             const missingInFile2 = [];
             const newInFile2 = [];
             
-            // Check records in file 1
             for (const [key, data] of map1) {
                 if (map2.has(key)) {
+                    const differences = findRecordDifferences(data.record, map2.get(key).record);
                     matched.push({
                         key,
                         file1: data,
                         file2: map2.get(key),
-                        differences: findRecordDifferences(data.record, map2.get(key).record)
+                        differences: differences
                     });
                 } else {
                     missingInFile2.push({ key, data });
                 }
             }
             
-            // Check records in file 2 that aren't in file 1
             for (const [key, data] of map2) {
                 if (!map1.has(key)) {
                     newInFile2.push({ key, data });
@@ -1345,46 +2179,43 @@
         }
 
         function displayResults() {
-            // Show results section
             document.getElementById('resultsSection').classList.remove('hidden');
             
-            // Update statistics
+            // Calculate field changes count
+            const recordsWithChanges = comparisonResults.matched.filter(match => match.differences.length > 0);
+            
             document.getElementById('matchedCount').textContent = comparisonResults.matched.length;
             document.getElementById('missingCount').textContent = comparisonResults.missingInFile2.length;
             document.getElementById('newCount').textContent = comparisonResults.newInFile2.length;
             document.getElementById('duplicateCount').textContent = comparisonResults.duplicates.length;
+            document.getElementById('changesCount').textContent = recordsWithChanges.length;
             
-            // Display SDS validation
             displaySDSValidation();
-            
-            // Display detailed results
             displayOverview();
             displayMissingRecords();
             displayNewRecords();
+            displayFieldChanges(); // NEW FUNCTION
             displayDuplicates();
             
-            // Track comparison completion
             if (typeof dataLayer !== 'undefined') {
                 dataLayer.push({
                     'event': 'csv_comparison_completed',
                     'matched_records': comparisonResults.matched.length,
                     'missing_records': comparisonResults.missingInFile2.length,
                     'new_records': comparisonResults.newInFile2.length,
-                    'duplicates': comparisonResults.duplicates.length
+                    'duplicates': comparisonResults.duplicates.length,
+                    'field_changes': recordsWithChanges.length,
+                    'processing_time_seconds': processingStartTime ? (Date.now() - processingStartTime) / 1000 : 0
                 });
             }
             
-            // Show thank you section
             showThankYouMessage();
-            
-            // Scroll to results
             document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
         }
 
         function displaySDSValidation() {
             const validation = [];
             
-            // Check row count (max 100,000 for SDS)
             const maxRows = Math.max(comparisonResults.file1Stats.totalRecords, comparisonResults.file2Stats.totalRecords);
             if (maxRows <= 100000) {
                 validation.push({ status: 'pass', message: `Row count: ${maxRows.toLocaleString()} (within SDS limit)` });
@@ -1392,7 +2223,6 @@
                 validation.push({ status: 'fail', message: `Row count: ${maxRows.toLocaleString()} (exceeds SDS limit of 100,000)` });
             }
             
-            // Check column count (max 30 for SDS)
             const fields1 = Object.keys(file1Data.data[0] || {});
             const fields2 = Object.keys(file2Data.data[0] || {});
             const maxCols = Math.max(fields1.length, fields2.length);
@@ -1402,21 +2232,18 @@
                 validation.push({ status: 'fail', message: `Column count: ${maxCols} (exceeds SDS limit of 30)` });
             }
             
-            // Check searchable fields (max 5 for SDS)
             if (selectedFields.length <= 5) {
                 validation.push({ status: 'pass', message: `Searchable fields: ${selectedFields.length} (within SDS limit)` });
             } else {
                 validation.push({ status: 'warn', message: `Searchable fields: ${selectedFields.length} (SDS supports max 5)` });
             }
             
-            // Check duplicates
             if (comparisonResults.duplicates.length === 0) {
                 validation.push({ status: 'pass', message: 'No duplicate records found' });
             } else {
                 validation.push({ status: 'warn', message: `${comparisonResults.duplicates.length} duplicate records found` });
             }
             
-            // Display validation results
             const validationDiv = document.getElementById('validationResults');
             validationDiv.innerHTML = validation.map(item => `
                 <div class="validation-item validation-${item.status}">
@@ -1426,6 +2253,8 @@
         }
 
         function displayOverview() {
+            const recordsWithChanges = comparisonResults.matched.filter(match => match.differences.length > 0);
+            
             const content = `
                 <h4 style="color: #60a5fa; margin-bottom: 16px;">📋 Comparison Summary</h4>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
@@ -1451,8 +2280,16 @@
                     <li><strong class="matches">${comparisonResults.matched.length}</strong> records match between files</li>
                     <li><strong class="missing">${comparisonResults.missingInFile2.length}</strong> records from File 1 are missing in File 2</li>
                     <li><strong class="new">${comparisonResults.newInFile2.length}</strong> new records appear in File 2</li>
+                    <li><strong class="changes">${recordsWithChanges.length}</strong> records have field changes between files</li>
                     <li><strong class="duplicates">${comparisonResults.duplicates.length}</strong> duplicate records found across files</li>
                 </ul>
+                
+                ${processingStartTime ? `
+                <div style="margin-top: 20px; padding: 16px; background: rgba(34, 197, 94, 0.2); border-radius: 8px;">
+                    <h5 style="color: #22c55e; margin-bottom: 8px;">⚡ Performance Stats</h5>
+                    <p style="color: #d1d5db; margin: 0;">Processing completed in ${((Date.now() - processingStartTime) / 1000).toFixed(1)} seconds</p>
+                </div>
+                ` : ''}
             `;
             
             document.getElementById('overviewContent').innerHTML = content;
@@ -1486,6 +2323,93 @@
             document.getElementById('newContent').innerHTML = table;
         }
 
+        // NEW FUNCTION: Display field changes
+        function displayFieldChanges() {
+            const recordsWithChanges = comparisonResults.matched.filter(match => match.differences.length > 0);
+            
+            if (recordsWithChanges.length === 0) {
+                document.getElementById('changesContent').innerHTML = '<p style="color: #22c55e;">✅ No field changes found between matching records!</p>';
+                return;
+            }
+            
+            let html = `
+                <h4 style="color: #a78bfa; margin-bottom: 16px;">🔄 Field Changes Between Files</h4>
+                <p style="color: #9ca3af; margin-bottom: 16px;">
+                    Records where the unique identifiers match but other field values have changed between File 1 and File 2.
+                    Showing first 50 of ${recordsWithChanges.length} records with changes.
+                </p>
+            `;
+            
+            const limitedChanges = recordsWithChanges.slice(0, 50);
+            
+            html += `
+                <table class="differences-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 200px;">Record Identifier</th>
+                            <th>Field Changes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+            
+            limitedChanges.forEach(match => {
+                // Create identifier display
+                const identifierValues = selectedFields.map(field => 
+                    `${field}: ${match.file1.record[field] || 'N/A'}`
+                ).join(', ');
+                
+                html += `
+                    <tr>
+                        <td style="color: #60a5fa; font-weight: 600; vertical-align: top;">
+                            ${identifierValues}
+                        </td>
+                        <td>
+                `;
+                
+                // Display all field differences
+                match.differences.forEach(diff => {
+                    html += `
+                        <div class="field-diff">
+                            <div class="field-name">${diff.field}</div>
+                            <div class="value-comparison">
+                                <div>
+                                    <div class="value-label">File 1 (Original)</div>
+                                    <div class="old-value">${diff.file1Value || '(empty)'}</div>
+                                </div>
+                                <div>
+                                    <div class="value-label">File 2 (Updated)</div>
+                                    <div class="new-value">${diff.file2Value || '(empty)'}</div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                html += `
+                        </td>
+                    </tr>
+                `;
+            });
+            
+            html += `
+                    </tbody>
+                </table>
+            `;
+            
+            if (recordsWithChanges.length > 50) {
+                html += `
+                    <div style="margin-top: 16px; padding: 12px; background: rgba(139, 92, 246, 0.1); border-radius: 8px; text-align: center;">
+                        <p style="color: #a78bfa; margin: 0;">
+                            <strong>Note:</strong> Showing first 50 records. Total records with changes: ${recordsWithChanges.length}
+                        </p>
+                    </div>
+                `;
+            }
+            
+            document.getElementById('changesContent').innerHTML = html;
+        }
+
         function displayDuplicates() {
             if (comparisonResults.duplicates.length === 0) {
                 document.getElementById('duplicatesContent').innerHTML = '<p style="color: #22c55e;">✅ No duplicate records found!</p>';
@@ -1504,7 +2428,7 @@
             if (data.length === 0) return '<p style="color: #9ca3af;">No data to display</p>';
             
             const fields = Object.keys(data[0]);
-            const limitedData = data.slice(0, 100); // Limit display to first 100 records
+            const limitedData = data.slice(0, 100);
             
             let html = `<h4 style="color: #60a5fa; margin-bottom: 16px;">${title}</h4>`;
             if (data.length > 100) {
@@ -1528,20 +2452,15 @@
         }
 
         function showTab(tabName) {
-            // Hide all tab contents
             document.querySelectorAll('.tab-content').forEach(content => {
                 content.classList.remove('active');
             });
             
-            // Remove active class from all tabs
             document.querySelectorAll('.tab').forEach(tab => {
                 tab.classList.remove('active');
             });
             
-            // Show selected tab content
             document.getElementById(`${tabName}-tab`).classList.add('active');
-            
-            // Add active class to clicked tab
             event.target.classList.add('active');
         }
 
@@ -1549,7 +2468,6 @@
             const csvContent = createCSVExport();
             downloadFile(csvContent, 'pirai_csv_comparison_results.csv', 'text/csv');
             
-            // Track export
             if (typeof dataLayer !== 'undefined') {
                 dataLayer.push({
                     'event': 'csv_export_downloaded',
@@ -1562,7 +2480,6 @@
             const reportContent = createTextReport();
             downloadFile(reportContent, 'pirai_csv_comparison_report.txt', 'text/plain');
             
-            // Track export
             if (typeof dataLayer !== 'undefined') {
                 dataLayer.push({
                     'event': 'csv_export_downloaded',
@@ -1574,28 +2491,25 @@
         function createCSVExport() {
             let csv = 'Type,Status,';
             
-            // Add field headers
             const sampleRecord = comparisonResults.matched[0]?.file1.record || 
                                 comparisonResults.missingInFile2[0]?.data.record || 
                                 comparisonResults.newInFile2[0]?.data.record;
             
             if (sampleRecord) {
-                csv += Object.keys(sampleRecord).join(',') + '\n';
+                csv += Object.keys(sampleRecord).join(',') + ',Differences\n';
                 
-                // Add matched records
                 comparisonResults.matched.forEach(match => {
-                    csv += 'Matched,File1,' + Object.values(match.file1.record).join(',') + '\n';
-                    csv += 'Matched,File2,' + Object.values(match.file2.record).join(',') + '\n';
+                    const diffSummary = match.differences.map(d => `${d.field}:${d.file1Value}->${d.file2Value}`).join(';');
+                    csv += 'Matched,File1,' + Object.values(match.file1.record).join(',') + ',' + diffSummary + '\n';
+                    csv += 'Matched,File2,' + Object.values(match.file2.record).join(',') + ',' + diffSummary + '\n';
                 });
                 
-                // Add missing records
                 comparisonResults.missingInFile2.forEach(missing => {
-                    csv += 'Missing,File1,' + Object.values(missing.data.record).join(',') + '\n';
+                    csv += 'Missing,File1,' + Object.values(missing.data.record).join(',') + ',N/A\n';
                 });
                 
-                // Add new records
                 comparisonResults.newInFile2.forEach(newRecord => {
-                    csv += 'New,File2,' + Object.values(newRecord.data.record).join(',') + '\n';
+                    csv += 'New,File2,' + Object.values(newRecord.data.record).join(',') + ',N/A\n';
                 });
             }
             
@@ -1604,35 +2518,67 @@
 
         function createTextReport() {
             const now = new Date().toLocaleString();
+            const processingTime = processingStartTime ? ((Date.now() - processingStartTime) / 1000).toFixed(1) : 'Unknown';
+            const recordsWithChanges = comparisonResults.matched.filter(match => match.differences.length > 0);
             
             return `
-PIRAI AI CSV COMPARISON REPORT
+PIRAI AI CSV COMPARISON REPORT (Enhanced with Field Change Tracking)
 Generated: ${now}
+Processing Time: ${processingTime} seconds
 
 === SUMMARY ===
-Matched Records: ${comparisonResults.matched.length}
-Missing in File 2: ${comparisonResults.missingInFile2.length}
-New in File 2: ${comparisonResults.newInFile2.length}
-Duplicates Found: ${comparisonResults.duplicates.length}
+Matched Records: ${comparisonResults.matched.length.toLocaleString()}
+Missing in File 2: ${comparisonResults.missingInFile2.length.toLocaleString()}
+New in File 2: ${comparisonResults.newInFile2.length.toLocaleString()}
+Records with Field Changes: ${recordsWithChanges.length.toLocaleString()}
+Duplicates Found: ${comparisonResults.duplicates.length.toLocaleString()}
 
 === FILE STATISTICS ===
-File 1: ${comparisonResults.file1Stats.totalRecords} records (${comparisonResults.file1Stats.duplicates} duplicates)
-File 2: ${comparisonResults.file2Stats.totalRecords} records (${comparisonResults.file2Stats.duplicates} duplicates)
+File 1: ${comparisonResults.file1Stats.totalRecords.toLocaleString()} records (${comparisonResults.file1Stats.duplicates} duplicates)
+File 2: ${comparisonResults.file2Stats.totalRecords.toLocaleString()} records (${comparisonResults.file2Stats.duplicates} duplicates)
 
 === IDENTIFIER FIELDS ===
 ${selectedFields.join(', ')}
+
+=== FIELD CHANGES SUMMARY ===
+${recordsWithChanges.length > 0 ? 
+    `Total records with changes: ${recordsWithChanges.length}
+Most frequently changed fields: ${getMostChangedFields(recordsWithChanges)}` : 
+    'No field changes detected between matching records.'}
 
 === QUALTRICS SDS VALIDATION ===
 Max row count for SDS: 100,000
 Max column count for SDS: 30
 Max searchable fields for SDS: 5
 
+=== PERFORMANCE NOTES ===
+This enhanced version supports up to 100,000 rows with optimized processing.
+Large datasets are processed using web workers for better performance.
+New feature: Field change tracking shows exactly what changed between file versions.
+
 This comparison helps ensure your data is ready for Qualtrics SDS import.
 
 ---
-Generated by Pirai AI CSV Comparator
+Generated by Pirai AI Enhanced CSV Comparator v2.1
 Visit piraiai.com for more survey automation tools
             `.trim();
+        }
+
+        function getMostChangedFields(recordsWithChanges) {
+            const fieldChangeCount = {};
+            recordsWithChanges.forEach(record => {
+                record.differences.forEach(diff => {
+                    fieldChangeCount[diff.field] = (fieldChangeCount[diff.field] || 0) + 1;
+                });
+            });
+            
+            const sortedFields = Object.entries(fieldChangeCount)
+                .sort(([,a], [,b]) => b - a)
+                .slice(0, 5)
+                .map(([field, count]) => `${field} (${count} changes)`)
+                .join(', ');
+            
+            return sortedFields || 'None';
         }
 
         function downloadFile(content, filename, mimeType) {
@@ -1648,51 +2594,85 @@ Visit piraiai.com for more survey automation tools
         }
 
         function showThankYouMessage() {
-            // Show thank you section
             document.getElementById('thankYouSection').style.display = 'block';
             
-            // Add dynamic stats to thank you section
             const statsElement = document.getElementById('thankYouStats');
+            const processingTime = processingStartTime ? ((Date.now() - processingStartTime) / 1000).toFixed(1) : 'Unknown';
+            const recordsWithChanges = comparisonResults.matched.filter(match => match.differences.length > 0);
             
             statsElement.innerHTML = `
-                <h4 style="color: #22c55e; margin-bottom: 12px;">Your Comparison Results</h4>
+                <h4 style="color: #22c55e; margin-bottom: 12px;">Your Enhanced Comparison Results</h4>
                 <p style="color: #d1d5db; margin-bottom: 8px;">
-                    <strong>${comparisonResults.matched.length} matched records</strong> between your files
+                    <strong>${comparisonResults.matched.length.toLocaleString()} matched records</strong> between your files
+                </p>
+                <p style="color: #d1d5db; margin-bottom: 8px;">
+                    <strong>${recordsWithChanges.length.toLocaleString()} records with field changes</strong> detected
                 </p>
                 <p style="color: #9ca3af; font-size: 14px;">
-                    Manual comparison would have taken hours. You just did it in seconds!
+                    Processed in ${processingTime} seconds with our enhanced 100K row engine and field change tracking!
                 </p>
             `;
             
-            // Track thank you view
             if (typeof dataLayer !== 'undefined') {
                 dataLayer.push({
                     'event': 'thank_you_viewed',
-                    'tool_type': 'csv_comparator',
+                    'tool_type': 'enhanced_csv_comparator_with_changes',
+                    'processing_time': processingTime,
                     'comparison_results': {
                         'matched': comparisonResults.matched.length,
                         'missing': comparisonResults.missingInFile2.length,
                         'new': comparisonResults.newInFile2.length,
-                        'duplicates': comparisonResults.duplicates.length
+                        'duplicates': comparisonResults.duplicates.length,
+                        'field_changes': recordsWithChanges.length
                     }
                 });
             }
+        }
+
+        function cleanupMemory() {
+            file1Data = null;
+            file2Data = null;
+            comparisonResults = null;
+            
+            if (window.gc) {
+                window.gc();
+            }
+        }
+
+        // FIXED: Add debugging function
+        function debugFileData() {
+            console.log('=== FILE DATA DEBUG ===');
+            console.log('File 1 loaded:', !!file1Data);
+            if (file1Data) {
+                console.log('File 1 rows:', file1Data.data.length);
+                console.log('File 1 fields:', Object.keys(file1Data.data[0] || {}));
+                console.log('File 1 sample data:', file1Data.data.slice(0, 2));
+            }
+            
+            console.log('File 2 loaded:', !!file2Data);
+            if (file2Data) {
+                console.log('File 2 rows:', file2Data.data.length);
+                console.log('File 2 fields:', Object.keys(file2Data.data[0] || {}));
+                console.log('File 2 sample data:', file2Data.data.slice(0, 2));
+            }
+            
+            console.log('Selected fields:', selectedFields);
+            console.log('========================');
         }
 
         // Initialize the application
         document.addEventListener('DOMContentLoaded', function() {
             setupFileHandlers();
             
-            // Track page load
             if (typeof dataLayer !== 'undefined') {
                 dataLayer.push({
                     'event': 'page_view',
-                    'page_title': 'CSV Comparator Tool',
-                    'page_location': window.location.href
+                    'page_title': 'Enhanced CSV Comparator Tool (100K Support + Field Changes)',
+                    'page_location': window.location.href,
+                    'performance_features': ['100k_rows', 'web_workers', 'chunked_processing', 'memory_optimization', 'field_change_tracking']
                 });
             }
             
-            // Track scroll depth
             let maxScroll = 0;
             window.addEventListener('scroll', function() {
                 const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
@@ -1702,13 +2682,12 @@ Visit piraiai.com for more survey automation tools
                         dataLayer.push({
                             'event': 'scroll_depth',
                             'scroll_percentage': scrollPercent,
-                            'page': 'csv_comparator'
+                            'page': 'enhanced_csv_comparator'
                         });
                     }
                 }
             });
             
-            // Track CTA clicks
             document.addEventListener('click', function(e) {
                 if (e.target.textContent.includes('Learn About Survey Automation')) {
                     if (typeof dataLayer !== 'undefined') {
@@ -1716,14 +2695,69 @@ Visit piraiai.com for more survey automation tools
                             'event': 'cta_click',
                             'button_text': 'Learn About Survey Automation',
                             'button_location': 'thank_you_section',
-                            'user_type': 'csv_tool_user'
+                            'user_type': 'enhanced_csv_tool_user',
+                            'user_processed_rows': comparisonResults ? 
+                                Math.max(comparisonResults.file1Stats.totalRecords, comparisonResults.file2Stats.totalRecords) : 0
+                        });
+                    }
+                }
+                
+                if (e.target.closest('.performance-warning')) {
+                    if (typeof dataLayer !== 'undefined') {
+                        dataLayer.push({
+                            'event': 'performance_warning_viewed',
+                            'warning_type': 'large_dataset'
                         });
                     }
                 }
             });
+            
+            if ('performance' in window) {
+                window.addEventListener('beforeunload', function() {
+                    const navigation = performance.getEntriesByType('navigation')[0];
+                    if (navigation && typeof dataLayer !== 'undefined') {
+                        dataLayer.push({
+                            'event': 'performance_metrics',
+                            'page_load_time': navigation.loadEventEnd - navigation.loadEventStart,
+                            'dom_content_loaded': navigation.domContentLoadedEventEnd - navigation.domContentLoadedEventStart,
+                            'memory_used': navigator.deviceMemory || 'unknown'
+                        });
+                    }
+                });
+            }
+            
+            window.addEventListener('error', function(e) {
+                if (typeof dataLayer !== 'undefined') {
+                    dataLayer.push({
+                        'event': 'javascript_error',
+                        'error_message': e.message,
+                        'error_filename': e.filename,
+                        'error_line': e.lineno,
+                        'user_agent': navigator.userAgent
+                    });
+                }
+            });
+            
+            if ('memory' in performance) {
+                setInterval(function() {
+                    const memInfo = performance.memory;
+                    const memUsedMB = memInfo.usedJSHeapSize / (1024 * 1024);
+                    
+                    if (memUsedMB > 300) {
+                        console.warn('High memory usage detected:', Math.round(memUsedMB), 'MB');
+                        
+                        if (typeof dataLayer !== 'undefined') {
+                            dataLayer.push({
+                                'event': 'memory_warning',
+                                'memory_used_mb': Math.round(memUsedMB),
+                                'memory_limit_mb': memInfo.jsHeapSizeLimit / (1024 * 1024)
+                            });
+                        }
+                    }
+                }, 5000);
+            }
         });
 
-        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1733,11 +2767,18 @@ Visit piraiai.com for more survey automation tools
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    
+                    if (typeof dataLayer !== 'undefined') {
+                        dataLayer.push({
+                            'event': 'internal_navigation',
+                            'link_target': this.getAttribute('href'),
+                            'link_text': this.textContent.trim()
+                        });
+                    }
                 }
             });
         });
 
-        // Add floating header effect
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('.nav');
             if (window.scrollY > 100) {
@@ -1748,6 +2789,277 @@ Visit piraiai.com for more survey automation tools
                 nav.style.boxShadow = 'none';
             }
         });
+
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'u') {
+                e.preventDefault();
+                if (!file1Data) {
+                    document.getElementById('file1').click();
+                } else if (!file2Data) {
+                    document.getElementById('file2').click();
+                }
+                
+                if (typeof dataLayer !== 'undefined') {
+                    dataLayer.push({
+                        'event': 'keyboard_shortcut_used',
+                        'shortcut': 'upload_file'
+                    });
+                }
+            }
+            
+            if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                e.preventDefault();
+                const compareBtn = document.getElementById('compareBtn');
+                if (!compareBtn.disabled) {
+                    compareBtn.click();
+                    
+                    if (typeof dataLayer !== 'undefined') {
+                        dataLayer.push({
+                            'event': 'keyboard_shortcut_used',
+                            'shortcut': 'compare_files'
+                        });
+                    }
+                }
+            }
+        });
+
+        function enhanceDragDropExperience() {
+            const dropZones = document.querySelectorAll('.file-input-section');
+            
+            dropZones.forEach(zone => {
+                zone.addEventListener('dragenter', function(e) {
+                    e.preventDefault();
+                    this.style.transform = 'scale(1.02)';
+                    this.style.transition = 'all 0.2s ease';
+                });
+                
+                zone.addEventListener('dragleave', function(e) {
+                    e.preventDefault();
+                    if (!this.contains(e.relatedTarget)) {
+                        this.style.transform = 'scale(1)';
+                    }
+                });
+                
+                zone.addEventListener('drop', function(e) {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        }
+
+        setTimeout(() => {
+            enhanceDragDropExperience();
+            
+            const tips = [
+                "💡 Close other browser tabs for optimal performance with large files",
+                "⚡ Files over 25K rows use our optimized web worker processing",
+                "🔒 Your data never leaves your browser - 100% private processing",
+                "📊 Support for up to 100,000 rows with advanced chunking",
+                "🔄 NEW: Track field changes between file versions",
+                "🚀 Keyboard shortcuts: Ctrl+U (upload), Ctrl+Enter (compare)"
+            ];
+            
+            let tipIndex = 0;
+            const showTip = () => {
+                if (!comparisonResults && !document.getElementById('progress').style.display.includes('block')) {
+                    const tipElement = document.createElement('div');
+                    tipElement.style.cssText = `
+                        position: fixed;
+                        bottom: 20px;
+                        right: 20px;
+                        background: linear-gradient(135deg, rgba(59, 130, 246, 0.9), rgba(139, 92, 246, 0.9));
+                        color: white;
+                        padding: 12px 20px;
+                        border-radius: 12px;
+                        font-size: 14px;
+                        max-width: 300px;
+                        z-index: 1001;
+                        backdrop-filter: blur(10px);
+                        border: 1px solid rgba(255, 255, 255, 0.2);
+                        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+                        opacity: 0;
+                        transform: translateY(20px);
+                        transition: all 0.3s ease;
+                    `;
+                    tipElement.textContent = tips[tipIndex % tips.length];
+                    document.body.appendChild(tipElement);
+                    
+                    setTimeout(() => {
+                        tipElement.style.opacity = '1';
+                        tipElement.style.transform = 'translateY(0)';
+                    }, 100);
+                    
+                    setTimeout(() => {
+                        tipElement.style.opacity = '0';
+                        tipElement.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            if (tipElement.parentNode) {
+                                tipElement.parentNode.removeChild(tipElement);
+                            }
+                        }, 300);
+                    }, 4000);
+                    
+                    tipIndex++;
+                }
+            };
+            
+            setTimeout(showTip, 3000);
+            setInterval(showTip, 15000);
+            
+        }, 1000);
+
+        function addAccessibilityEnhancements() {
+            document.getElementById('file1').setAttribute('aria-label', 'Upload first CSV file for comparison');
+            document.getElementById('file2').setAttribute('aria-label', 'Upload second CSV file for comparison');
+            document.getElementById('compareBtn').setAttribute('aria-label', 'Start comparing the uploaded CSV files');
+            
+            document.querySelectorAll('.field-checkbox').forEach(checkbox => {
+                checkbox.setAttribute('tabindex', '0');
+                checkbox.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        const input = this.querySelector('input[type="checkbox"]');
+                        input.checked = !input.checked;
+                        input.dispatchEvent(new Event('change'));
+                    }
+                });
+            });
+            
+            document.querySelectorAll('button, input, .field-checkbox').forEach(element => {
+                element.addEventListener('focus', function() {
+                    this.style.outline = '2px solid #3b82f6';
+                    this.style.outlineOffset = '2px';
+                });
+                
+                element.addEventListener('blur', function() {
+                    this.style.outline = 'none';
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            addAccessibilityEnhancements();
+        });
+
+        class PerformanceMonitor {
+            constructor() {
+                this.metrics = {
+                    fileLoadTime: 0,
+                    processingTime: 0,
+                    memoryUsage: 0,
+                    rowsPerSecond: 0
+                };
+            }
+            
+            startFileLoad() {
+                this.fileLoadStart = performance.now();
+            }
+            
+            endFileLoad() {
+                this.metrics.fileLoadTime = performance.now() - this.fileLoadStart;
+            }
+            
+            calculatePerformanceStats(totalRows, processingTime) {
+                this.metrics.processingTime = processingTime;
+                this.metrics.rowsPerSecond = Math.round(totalRows / (processingTime / 1000));
+                
+                if ('memory' in performance) {
+                    this.metrics.memoryUsage = Math.round(performance.memory.usedJSHeapSize / (1024 * 1024));
+                }
+                
+                console.log('Performance Metrics:', this.metrics);
+                
+                if (typeof dataLayer !== 'undefined') {
+                    dataLayer.push({
+                        'event': 'performance_benchmark',
+                        'file_load_time_ms': this.metrics.fileLoadTime,
+                        'processing_time_ms': this.metrics.processingTime,
+                        'memory_usage_mb': this.metrics.memoryUsage,
+                        'rows_per_second': this.metrics.rowsPerSecond,
+                        'total_rows_processed': totalRows
+                    });
+                }
+            }
+        }
+
+        const performanceMonitor = new PerformanceMonitor();
+
+        window.PiraiCSVComparator = {
+            estimateFileRows,
+            validateFile,
+            compareFiles,
+            exportToCSV,
+            generateReport,
+            cleanupMemory,
+            performanceMonitor,
+            debugFileData,
+            version: '2.1.0-enhanced-with-field-changes'
+        };
+
+        function checkBrowserCompatibility() {
+            const features = {
+                webWorkers: typeof Worker !== 'undefined',
+                fileReader: typeof FileReader !== 'undefined',
+                promises: typeof Promise !== 'undefined',
+                arrow: (() => { try { new Function('() => {}'); return true; } catch { return false; } })(),
+                maps: typeof Map !== 'undefined'
+            };
+            
+            const incompatible = Object.entries(features).filter(([key, supported]) => !supported);
+            
+            if (incompatible.length > 0) {
+                const message = `Your browser doesn't support some required features: ${incompatible.map(([key]) => key).join(', ')}. Please update your browser for the best experience.`;
+                console.warn(message);
+                
+                const warningDiv = document.createElement('div');
+                warningDiv.style.cssText = `
+                    position: fixed;
+                    top: 80px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: #f59e0b;
+                    color: white;
+                    padding: 12px 24px;
+                    border-radius: 8px;
+                    z-index: 1002;
+                    font-weight: 600;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                `;
+                warningDiv.textContent = '⚠️ Please update your browser for optimal performance';
+                document.body.appendChild(warningDiv);
+                
+                setTimeout(() => {
+                    if (warningDiv.parentNode) {
+                        warningDiv.parentNode.removeChild(warningDiv);
+                    }
+                }, 8000);
+            }
+            
+            return incompatible.length === 0;
+        }
+
+        checkBrowserCompatibility();
+
+        window.addEventListener('unhandledrejection', function(event) {
+            console.error('Unhandled promise rejection:', event.reason);
+            
+            if (typeof dataLayer !== 'undefined') {
+                dataLayer.push({
+                    'event': 'unhandled_promise_rejection',
+                    'error_reason': event.reason?.toString() || 'Unknown error'
+                });
+            }
+            
+            if (event.reason?.message?.includes('memory') || event.reason?.message?.includes('quota')) {
+                cleanupMemory();
+                alert('Memory limit reached. Try with smaller files or refresh the page.');
+            }
+        });
+
+        console.log('🌙 Pirai AI Enhanced CSV Comparator v2.1 loaded successfully');
+        console.log('✅ 100K row support enabled');
+        console.log('⚡ Web Worker processing available');
+        console.log('🔄 Field change tracking enabled');
+        console.log('🔒 Privacy-first client-side processing');
     </script>
 </body>
 </html>
