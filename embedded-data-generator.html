@@ -1,0 +1,2223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <!-- End Google Tag Manager -->    
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Free Embedded Data Generator for Qualtrics | Advanced Format | Pirai AI</title>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Pirai AI",
+      "url": "https://piraiai.com",
+      "logo": "https://piraiai.com/logo.png"
+    }
+    </script>    
+    
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+	<link rel="apple-touch-icon" href="https://piraiai.com/logo.png">
+	<meta name="description" content="Free embedded data generator for Qualtrics Advanced Format. Convert CSV fields to [[ED:field:value]] syntax instantly. Supports batch processing, templates, and field mapping.">
+    
+    <!-- Open Graph for social sharing -->
+    <meta property="og:title" content="Free Embedded Data Generator for Qualtrics - Pirai AI">
+    <meta property="og:description" content="Convert CSV files to Qualtrics Advanced Format embedded data instantly. Supports field/value pairs and batch processing.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://piraiai.com/embedded-data-generator">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+
+    <!-- CSV Processing Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #e5e7eb;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        .nav {
+            background: rgba(17, 24, 39, 0.5);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #374151;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+        
+        .nav-cta {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            padding: 8px 24px;
+            border-radius: 24px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 140px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.4;
+        }
+        
+        .hero-subtitle {
+            font-size: 24px;
+            color: #d1d5db;
+            margin-bottom: 32px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-highlight {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(59, 130, 246, 0.2));
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-highlight h3 {
+            font-size: 24px;
+            color: #22c55e;
+            margin-bottom: 8px;
+        }
+        
+        .hero-highlight p {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        
+        /* Privacy Section */
+        .privacy-section {
+            margin-top: 32px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .privacy-badge {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(59, 130, 246, 0.15));
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            text-align: left;
+        }
+        
+        .privacy-icon {
+            font-size: 2.5rem;
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+        
+        .privacy-content h4 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #10b981;
+            margin-bottom: 8px;
+        }
+        
+        .privacy-content p {
+            font-size: 16px;
+            color: #d1d5db;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+        
+        .privacy-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 8px;
+        }
+        
+        .privacy-features span {
+            font-size: 14px;
+            color: #a7f3d0;
+            font-weight: 500;
+        }
+        
+        /* Tool Section */
+        .tool-section {
+            padding: 60px 0;
+        }
+        
+        .tool-container {
+            background: rgba(31, 41, 55, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 48px;
+            border: 1px solid rgba(55, 65, 81, 0.5);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* File Upload Grid */
+        .upload-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+        
+        .file-input-section {
+            background: rgba(55, 65, 81, 0.3);
+            padding: 32px;
+            border-radius: 16px;
+            border: 2px dashed #6b7280;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+            position: relative;
+        }
+        
+        .file-input-section:hover {
+            border-color: #3b82f6;
+            background: rgba(59, 130, 246, 0.1);
+        }
+        
+        .file-input-section.active {
+            border-color: #22c55e;
+            background: rgba(34, 197, 94, 0.1);
+            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2);
+        }
+        
+        .file-input-section.error {
+            border-color: #f87171;
+            background: rgba(248, 113, 113, 0.1);
+        }
+        
+        .file-input-label {
+            display: block;
+            text-align: center;
+            font-size: 18px;
+            color: #d1d5db;
+            cursor: pointer;
+        }
+        
+        .file-info {
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(34, 197, 94, 0.2);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #a7f3d0;
+        }
+        
+        .file-error {
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(248, 113, 113, 0.2);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #fca5a5;
+        }
+        
+        .remove-file {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: #ef4444;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            font-size: 12px;
+            display: none;
+        }
+        
+        .file-input-section.active .remove-file {
+            display: block;
+        }
+        
+        /* Template Section */
+        .template-section {
+            background: rgba(55, 65, 81, 0.3);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 32px;
+        }
+        
+        .template-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .template-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 12px;
+        }
+        
+        .template-item {
+            background: rgba(31, 41, 55, 0.5);
+            padding: 16px;
+            border-radius: 8px;
+            border: 1px solid #6b7280;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .template-item:hover {
+            border-color: #3b82f6;
+            transform: translateY(-2px);
+        }
+        
+        .template-item.selected {
+            border-color: #22c55e;
+            background: rgba(34, 197, 94, 0.1);
+        }
+        
+        .template-name {
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+        
+        .template-description {
+            font-size: 12px;
+            color: #9ca3af;
+            margin-bottom: 8px;
+        }
+        
+        .template-fields {
+            font-size: 11px;
+            color: #60a5fa;
+        }
+        
+        .template-delete {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            background: #ef4444;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            font-size: 10px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .template-item:hover .template-delete {
+            opacity: 1;
+        }
+        
+        /* Configuration Section */
+        .config-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+        
+        .config-section {
+            background: rgba(55, 65, 81, 0.3);
+            border-radius: 16px;
+            padding: 32px;
+        }
+        
+        .config-section h4 {
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        /* CSV Format Detection */
+        .format-detector {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2));
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+        
+        .format-detector h5 {
+            color: #60a5fa;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+        
+        .format-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+        
+        .format-option {
+            background: rgba(31, 41, 55, 0.5);
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid #6b7280;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        
+        .format-option:hover {
+            border-color: #3b82f6;
+        }
+        
+        .format-option.selected {
+            border-color: #22c55e;
+            background: rgba(34, 197, 94, 0.1);
+        }
+        
+        .format-option input[type="radio"] {
+            margin-right: 8px;
+        }
+        
+        /* Field Selection */
+        .field-selector {
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid rgba(55, 65, 81, 0.5);
+            border-radius: 8px;
+            background: rgba(17, 24, 39, 0.3);
+            padding: 16px;
+        }
+        
+        .field-controls {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .field-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 12px;
+        }
+        
+        .field-item {
+            background: rgba(31, 41, 55, 0.5);
+            padding: 16px;
+            border-radius: 8px;
+            border: 1px solid #6b7280;
+            transition: all 0.3s;
+        }
+        
+        .field-item:hover {
+            border-color: #3b82f6;
+        }
+        
+        .field-item.selected {
+            border-color: #22c55e;
+            background: rgba(34, 197, 94, 0.1);
+        }
+        
+        .field-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .field-checkbox {
+            margin-right: 12px;
+            cursor: pointer;
+        }
+        
+        .field-name {
+            font-weight: 600;
+            color: #ffffff;
+            flex: 1;
+        }
+        
+        .field-inputs {
+            display: grid;
+            gap: 8px;
+        }
+        
+        .field-input-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .field-input-group label {
+            font-size: 12px;
+            color: #9ca3af;
+            min-width: 80px;
+        }
+        
+        .field-input-group input {
+            flex: 1;
+            background: rgba(55, 65, 81, 0.5);
+            border: 1px solid #6b7280;
+            border-radius: 4px;
+            padding: 6px 8px;
+            color: #ffffff;
+            font-size: 14px;
+        }
+        
+        .field-input-group input:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+        
+        /* Button Styles */
+        .btn-primary {
+            background: linear-gradient(135deg, #22c55e, #3b82f6);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 24px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            margin: 8px;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(34, 197, 94, 0.3);
+        }
+        
+        .btn-secondary {
+            border: 1px solid #6b7280;
+            color: #d1d5db;
+            padding: 12px 24px;
+            border-radius: 24px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            background: transparent;
+            cursor: pointer;
+            margin: 8px;
+        }
+        
+        .btn-secondary:hover {
+            border-color: #9ca3af;
+            color: #ffffff;
+        }
+        
+        .btn-small {
+            padding: 8px 16px;
+            font-size: 14px;
+            margin: 4px;
+        }
+        
+        /* Live Preview */
+        .preview-section {
+            background: rgba(31, 41, 55, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 32px;
+            border: 1px solid rgba(55, 65, 81, 0.5);
+            margin-bottom: 32px;
+        }
+        
+        .preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        
+        .preview-stats {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: #22c55e;
+            margin-bottom: 4px;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #9ca3af;
+        }
+        
+        .preview-content {
+            background: rgba(17, 24, 39, 0.8);
+            color: #e5e7eb;
+            padding: 24px;
+            border-radius: 12px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #374151;
+            position: relative;
+        }
+        
+        .preview-empty {
+            text-align: center;
+            color: #9ca3af;
+            font-style: italic;
+            padding: 40px;
+        }
+        
+        .copy-button {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+        
+        .copy-button:hover {
+            background: #2563eb;
+        }
+        
+        .copy-button.copied {
+            background: #22c55e;
+        }
+        
+        /* Export Section */
+        .export-section {
+            background: rgba(55, 65, 81, 0.3);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+        }
+        
+        .export-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+        
+        .export-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+        
+        .export-option {
+            background: rgba(31, 41, 55, 0.5);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #6b7280;
+            transition: all 0.3s;
+        }
+        
+        .export-option:hover {
+            border-color: #3b82f6;
+            transform: translateY(-2px);
+        }
+        
+        .export-option h5 {
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+        
+        .export-option p {
+            color: #9ca3af;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        
+        /* Integration Guide */
+        .integration-guide {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(59, 130, 246, 0.2));
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 16px;
+            padding: 32px;
+            margin-top: 32px;
+        }
+        
+        .integration-guide h4 {
+            color: #a78bfa;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        .integration-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .integration-step {
+            background: rgba(31, 41, 55, 0.5);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+        
+        .step-number {
+            background: #a78bfa;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+        
+        .integration-step h5 {
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+        
+        .integration-step p {
+            color: #d1d5db;
+            font-size: 14px;
+        }
+        
+        /* Floating elements */
+        .float-element-1 {
+            position: absolute;
+            top: 25%;
+            left: 25%;
+            width: 256px;
+            height: 256px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .float-element-2 {
+            position: absolute;
+            bottom: 25%;
+            right: 25%;
+            width: 384px;
+            height: 384px;
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: float 6s ease-in-out infinite;
+            animation-delay: -3s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        /* Footer */
+        .footer {
+            background: rgba(17, 24, 39, 0.5);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid #374151;
+            padding: 48px 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 32px;
+        }
+        
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .footer-brand span {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        
+        .footer-desc {
+            color: #9ca3af;
+            margin-bottom: 16px;
+            max-width: 400px;
+        }
+        
+        .footer-section h3 {
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            margin-top: 32px;
+            padding-top: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        
+        .footer-bottom .copyright {
+            color: #9ca3af;
+            font-size: 14px;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero-subtitle {
+                font-size: 18px;
+            }
+            
+            .upload-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .config-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tool-container {
+                padding: 24px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .privacy-badge {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+            
+            .privacy-features {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .preview-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .export-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/" class="logo">
+                    <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo" width="35" height="35"/>&nbsp;
+                    Pirai AI
+                </a>
+                <ul class="nav-links">                    
+                    <li><a href="/#process">How It Works</a></li>
+                    <li><a href="/#features">Features</a></li>
+                    <li><a href="/#pricing">Pricing</a></li>                    
+					<li><a href="/qsf-to-excel">QSF Tool</a></li>
+                    <li><a href="/pirai-csv-comparator">CSV Tool</a></li>
+                </ul>
+                <a href="/#demo" class="nav-cta">Get Early Access</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Free Embedded Data Generator for Qualtrics</h1>
+            <p class="hero-subtitle">
+                Transform CSV files into Qualtrics Advanced Format embedded data instantly. Supports field/value pairs, batch processing, templates, and intelligent field mapping. No more manual typing!
+            </p>
+            
+            <div class="hero-highlight">
+                <h3>🚀 Ready for Qualtrics Import - Includes Required Block Structure</h3>
+                <p>Generate complete TXT files • Automatic block/question structure • Guaranteed successful import • Complete with cleanup instructions</p>
+            </div>
+            
+            <!-- Privacy & Security Badge -->
+            <div class="privacy-section">
+                <div class="privacy-badge">
+                    <div class="privacy-icon">🔒</div>
+                    <div class="privacy-content">
+                        <h4>100% Private & GDPR Compliant</h4>
+                        <p>Your CSV files are processed entirely in your browser. No uploads, no storage, no data retention. We literally cannot access your files.</p>
+                        <div class="privacy-features">
+                            <span>✓ Client-side processing only</span>
+                            <span>✓ Zero server data storage</span>
+                            <span>✓ GDPR & HIPAA friendly</span>
+                            <span>✓ Enterprise security standards</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Floating Elements -->
+        <div class="float-element-1"></div>
+        <div class="float-element-2"></div>
+    </section>
+
+    <!-- Tool Section -->
+    <section class="tool-section">
+        <div class="container">
+            <div class="tool-container">
+                <!-- Template Management -->
+                <div class="template-section">
+                    <h4 style="color: #ffffff; margin-bottom: 20px;">📚 Template Management</h4>
+                    <div class="template-actions">
+                        <button class="btn-secondary btn-small" onclick="loadTemplate()">Load Template</button>
+                        <button class="btn-secondary btn-small" onclick="saveTemplate()">Save Template</button>
+                        <button class="btn-secondary btn-small" onclick="exportTemplate()">Export Template</button>
+                        <button class="btn-secondary btn-small" onclick="importTemplate()">Import Template</button>
+                        <input type="file" id="templateImport" accept=".json" style="display: none;">
+                    </div>
+                    <div class="template-grid" id="templateGrid">
+                        <!-- Templates will be populated here -->
+                    </div>
+                </div>
+
+                <!-- File Upload Section -->
+                <h3 style="color: #ffffff; text-align: center; margin-bottom: 32px; font-size: 24px;">📁 Upload CSV Files (Batch Processing)</h3>
+                
+                <div class="upload-grid" id="uploadGrid">
+                    <div class="file-input-section" onclick="addFileInput()">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">➕</div>
+                        <div class="file-input-label">
+                            <strong>Add CSV File</strong><br>
+                            <span style="font-size: 16px; color: #9ca3af;">click to browse or drop files</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CSV Format Detection -->
+                <div class="format-detector">
+                    <h5>🔍 CSV Format Detection</h5>
+                    <div class="format-options">
+                        <div class="format-option selected" onclick="selectFormat('headers')">
+                            <input type="radio" name="csvFormat" value="headers" checked>
+                            <label>Headers Only</label>
+                            <div style="font-size: 12px; color: #9ca3af; margin-top: 4px;">Column names become field names</div>
+                        </div>
+                        <div class="format-option" onclick="selectFormat('fieldvalue')">
+                            <input type="radio" name="csvFormat" value="fieldvalue">
+                            <label>Field/Value Pairs</label>
+                            <div style="font-size: 12px; color: #9ca3af; margin-top: 4px;">Two columns: field names and values</div>
+                        </div>
+                        <div class="format-option" onclick="selectFormat('auto')">
+                            <input type="radio" name="csvFormat" value="auto">
+                            <label>Auto-Detect</label>
+                            <div style="font-size: 12px; color: #9ca3af; margin-top: 4px;">Smart detection based on content</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Configuration Grid -->
+                <div class="config-grid">
+                    <!-- Field Selection -->
+                    <div class="config-section">
+                        <h4>🎯 Field Selection & Configuration</h4>
+                        <div class="field-controls">
+                            <button class="btn-secondary btn-small" onclick="selectAllFields()">Select All</button>
+                            <button class="btn-secondary btn-small" onclick="deselectAllFields()">Deselect All</button>
+                            <button class="btn-secondary btn-small" onclick="invertSelection()">Invert Selection</button>
+                            <button class="btn-secondary btn-small" onclick="applyFieldSuggestions()">Apply Suggestions</button>
+                        </div>
+                        <div class="field-selector" id="fieldSelector">
+                            <div class="preview-empty">Upload CSV files to see available fields</div>
+                        </div>
+                    </div>
+
+                    <!-- Live Preview -->
+                    <div class="config-section">
+                        <h4>👁️ Live Preview</h4>
+                        <div class="preview-content" id="previewContent">
+                            <div class="preview-empty">Select fields to see generated Advanced Format</div>
+                        </div>
+                        <button class="copy-button" id="copyButton" onclick="copyToClipboard()" style="display: none;">Copy</button>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div style="text-align: center; margin: 32px 0;">
+                    <button class="btn-primary" onclick="generateEmbeddedData()">🔄 Generate Embedded Data</button>
+                    <button class="btn-secondary" onclick="resetAll()">🔄 Reset All</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <div class="container">
+        <div class="preview-section hidden" id="resultsSection">
+            <div class="preview-header">
+                <h3 style="color: #ffffff; font-size: 28px;">📊 Generated Advanced Format</h3>
+                <div class="preview-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="totalFields">0</div>
+                        <div class="stat-label">Total Fields</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="withValues">0</div>
+                        <div class="stat-label">With Values</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="emptyFields">0</div>
+                        <div class="stat-label">Empty Fields</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="totalFiles">0</div>
+                        <div class="stat-label">Source Files</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="preview-content" id="finalResults">
+                <!-- Results will be displayed here -->
+            </div>
+            <button class="copy-button" id="finalCopyButton" onclick="copyFinalResults()">Copy All</button>
+            
+            <!-- Export Section -->
+            <div class="export-section">
+                <h4 style="color: #ffffff; margin-bottom: 20px;">📥 Export Options</h4>
+                <div class="export-actions">
+                    <button class="btn-primary" onclick="downloadAsText()">📄 Download as .txt</button>
+                    <button class="btn-secondary" onclick="copyToClipboard()">📋 Copy to Clipboard</button>
+                    <button class="btn-secondary" onclick="saveAsTemplate()">💾 Save as Template</button>
+                </div>
+                
+                <div class="export-options">
+                    <div class="export-option">
+                        <h5>📄 Download Text File</h5>
+                        <p>Save as .txt file for easy import into Qualtrics survey flow</p>
+                        <button class="btn-secondary btn-small" onclick="downloadAsText()">Download</button>
+                    </div>
+                    <div class="export-option">
+                        <h5>📋 Copy to Clipboard</h5>
+                        <p>Copy formatted text directly to paste in Qualtrics</p>
+                        <button class="btn-secondary btn-small" onclick="copyToClipboard()">Copy</button>
+                    </div>
+                    <div class="export-option">
+                        <h5>💾 Save Template</h5>
+                        <p>Save current configuration for future use</p>
+                        <button class="btn-secondary btn-small" onclick="saveAsTemplate()">Save</button>
+                    </div>
+                    <div class="export-option">
+                        <h5>🔄 Generate Report</h5>
+                        <p>Create summary report with field details</p>
+                        <button class="btn-secondary btn-small" onclick="generateReport()">Report</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Integration Guide -->
+        <div class="integration-guide">
+            <h4>🚀 Qualtrics Import Guide - TXT File Method</h4>
+            <div style="background: rgba(251, 191, 36, 0.2); border: 1px solid rgba(251, 191, 36, 0.3); border-radius: 12px; padding: 20px; margin-bottom: 24px;">
+                <h5 style="color: #fbbf24; margin-bottom: 12px;">💡 Important Notes</h5>
+                <p style="color: #d1d5db; font-size: 14px; margin-bottom: 8px;">• TXT files will add embedded data to your existing survey</p>
+                <p style="color: #d1d5db; font-size: 14px; margin-bottom: 8px;">• Save as standard TXT format (not UTF-16) for proper upload</p>
+                <p style="color: #d1d5db; font-size: 14px; margin-bottom: 8px;">• You may need to refresh your account to see the import</p>
+                <p style="color: #fbbf24; font-size: 14px; font-weight: 600;">• A temporary "ED Delete Block" will be added - delete it after confirming import</p>
+            </div>
+            <div class="integration-steps">
+                <div class="integration-step">
+                    <div class="step-number">1</div>
+                    <h5>Download Generated TXT</h5>
+                    <p>Click "Download as .txt" to save your Advanced Format embedded data to your computer</p>
+                </div>
+                <div class="integration-step">
+                    <div class="step-number">2</div>
+                    <h5>Navigate to Survey Tools</h5>
+                    <p>In Qualtrics, go to your survey and click the "Tools" button in the Survey tab</p>
+                </div>
+                <div class="integration-step">
+                    <div class="step-number">3</div>
+                    <h5>Import Survey</h5>
+                    <p>Select "Import/Export" → "Import survey" → Click "Choose File" and select your downloaded TXT file</p>
+                </div>
+                <div class="integration-step">
+                    <div class="step-number">4</div>
+                    <h5>Complete Import & Cleanup</h5>
+                    <p>Click "Import" and refresh your account. Check Survey Flow for your embedded data, then delete the temporary "ED Delete Block"</p>
+                </div>
+            </div>
+            <div style="background: rgba(34, 197, 94, 0.2); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 12px; padding: 20px; margin-top: 24px;">
+                <h5 style="color: #22c55e; margin-bottom: 12px;">✅ Post-Import Steps & Troubleshooting</h5>
+                <p style="color: #d1d5db; font-size: 14px; margin-bottom: 8px;">• <strong>Delete the temporary block:</strong> Remove "ED Delete Block" after confirming embedded data import</p>
+                <p style="color: #d1d5db; font-size: 14px; margin-bottom: 8px;">• <strong>Check Survey Flow:</strong> Your embedded data should appear at the top of Survey Flow</p>
+                <p style="color: #d1d5db; font-size: 14px; margin-bottom: 8px;">• <strong>File won't upload?</strong> Ensure it's saved as "Text Tab Delimited" format</p>
+                <p style="color: #d1d5db; font-size: 14px;">• <strong>Don't see changes?</strong> Refresh browser and check Survey Flow section</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			<div class="footer-content">
+				<div>
+					<div class="footer-brand">
+						<img src="https://piraiai.com/logo.png" alt="Pirai AI Logo" width="35" height="35"/>&nbsp;
+						<span>Pirai AI</span>
+					</div>
+					<p class="footer-desc">
+						Enterprise-grade survey automation platform transforming Word documents to Qualtrics format in minutes. 
+						Save $121,740+ annually while multiplying your research team's capacity.
+					</p>
+					<div style="margin-top: 16px;">
+						<p style="color: #9ca3af; font-size: 14px; margin-bottom: 8px;">
+							<strong style="color: #60a5fa;">📧 Contact:</strong> admin@marketing.piraiai.com
+						</p>
+						<p style="color: #9ca3af; font-size: 14px;">
+							<strong style="color: #22c55e;">🚀 Early Access:</strong> Join our exclusive beta program
+						</p>
+					</div>
+				</div>
+				
+				<div class="footer-section">
+					<h3>Product</h3>
+					<ul class="footer-links">
+						<li><a href="/">Home</a></li>
+						<li><a href="/#process">How It Works</a></li>
+						<li><a href="/#features">Features</a></li>
+						<li><a href="/#pricing">Pricing</a></li>
+						<li><a href="/#demo">Early Access</a></li>
+					</ul>
+				</div>
+				
+				<div class="footer-section">
+					<h3>Free Tools</h3>
+					<ul class="footer-links">
+						<li><a href="/qsf-to-excel">QSF to Excel</a></li>
+						<li><a href="/pirai-csv-comparator">CSV Comparator</a></li>
+						<li><a href="/embedded-data-generator">ED Generator</a></li>
+					</ul>
+				</div>
+				
+				<div class="footer-section">
+					<h3>Company</h3>
+					<ul class="footer-links">
+						<li><a href="/about">About Us</a></li>						
+						<li><a href="/#demo">Contact Us</a></li>
+						<li><a href="/privacy">Privacy Policy</a></li>
+						<li><a href="/terms">Terms of Service</a></li>
+                        <li><a href="/security">Security Overview</a></li>
+						<li><a href="https://www.linkedin.com/company/pirai-ai/" target="_blank">LinkedIn</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="footer-bottom">
+				<div class="copyright">
+					© 2025 Pirai AI. All rights reserved. | Built with enterprise-grade security and privacy protection.
+				</div>
+				<div style="display: flex; gap: 16px; align-items: center;">
+					<a href="https://www.linkedin.com/company/pirai-ai/" target="_blank" style="color: #9ca3af; transition: color 0.3s;">
+						<svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+							<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+						</svg>
+					</a>
+					<span style="color: #6b7280; font-size: 12px;">Follow our journey</span>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+    <script>
+        // Embedded Data Generator - Advanced Phase 3 Implementation
+        
+        // Global state management
+        let uploadedFiles = [];
+        let allFields = [];
+        let selectedFields = new Set();
+        let fieldValues = new Map();
+        let fieldMapping = new Map();
+        let csvFormat = 'auto';
+        let templates = [];
+        let generatedOutput = '';
+        
+        // Load templates from localStorage
+        function loadTemplatesFromStorage() {
+            const stored = localStorage.getItem('piraiEDTemplates');
+            if (stored) {
+                try {
+                    templates = JSON.parse(stored);
+                } catch (e) {
+                    console.warn('Failed to load templates:', e);
+                    templates = [];
+                }
+            }
+            
+            // Add default templates if none exist
+            if (templates.length === 0) {
+                templates = [
+                    {
+                        id: 'demographics',
+                        name: 'Demographics',
+                        description: 'Common demographic fields',
+                        fields: ['Age', 'Gender', 'Income', 'Education', 'State', 'City'],
+                        values: new Map(),
+                        created: new Date().toISOString()
+                    },
+                    {
+                        id: 'research',
+                        name: 'Research Tracking',
+                        description: 'Research study tracking fields',
+                        fields: ['ParticipantID', 'StudyGroup', 'Wave', 'Condition', 'StartDate'],
+                        values: new Map([['Wave', '1'], ['StartDate', new Date().toISOString().split('T')[0]]]),
+                        created: new Date().toISOString()
+                    }
+                ];
+                saveTemplatesToStorage();
+            }
+            updateTemplateGrid();
+        }
+        
+        function saveTemplatesToStorage() {
+            localStorage.setItem('piraiEDTemplates', JSON.stringify(templates));
+        }
+        
+        function updateTemplateGrid() {
+            const grid = document.getElementById('templateGrid');
+            if (templates.length === 0) {
+                grid.innerHTML = '<div style="color: #9ca3af; text-align: center; padding: 20px;">No templates saved yet</div>';
+                return;
+            }
+            
+            grid.innerHTML = templates.map(template => `
+                <div class="template-item" onclick="selectTemplate('${template.id}')">
+                    <button class="template-delete" onclick="deleteTemplate('${template.id}'); event.stopPropagation();">×</button>
+                    <div class="template-name">${template.name}</div>
+                    <div class="template-description">${template.description}</div>
+                    <div class="template-fields">${template.fields.length} fields</div>
+                </div>
+            `).join('');
+        }
+        
+        function selectTemplate(templateId) {
+            const template = templates.find(t => t.id === templateId);
+            if (!template) return;
+            
+            // Clear current selection
+            selectedFields.clear();
+            fieldValues.clear();
+            
+            // Apply template
+            template.fields.forEach(field => {
+                selectedFields.add(field);
+                if (template.values && template.values.has && template.values.has(field)) {
+                    fieldValues.set(field, template.values.get(field));
+                }
+            });
+            
+            // Add template fields to allFields if not present
+            template.fields.forEach(field => {
+                if (!allFields.some(f => f.name === field)) {
+                    allFields.push({
+                        name: field,
+                        originalName: field,
+                        source: 'template',
+                        type: 'text'
+                    });
+                }
+            });
+            
+            updateFieldSelector();
+            updatePreview();
+            
+            // Visual feedback
+            document.querySelectorAll('.template-item').forEach(item => item.classList.remove('selected'));
+            event.target.closest('.template-item').classList.add('selected');
+            
+            trackEvent('template_selected', { template_name: template.name, fields_count: template.fields.length });
+        }
+        
+        function deleteTemplate(templateId) {
+            templates = templates.filter(t => t.id !== templateId);
+            saveTemplatesToStorage();
+            updateTemplateGrid();
+            trackEvent('template_deleted', { template_id: templateId });
+        }
+        
+        function saveTemplate() {
+            if (selectedFields.size === 0) {
+                alert('Please select some fields before saving a template');
+                return;
+            }
+            
+            const name = prompt('Enter template name:');
+            if (!name) return;
+            
+            const description = prompt('Enter template description (optional):') || '';
+            
+            const template = {
+                id: Date.now().toString(),
+                name: name,
+                description: description,
+                fields: Array.from(selectedFields),
+                values: new Map(fieldValues),
+                created: new Date().toISOString()
+            };
+            
+            templates.push(template);
+            saveTemplatesToStorage();
+            updateTemplateGrid();
+            
+            trackEvent('template_saved', { 
+                template_name: name, 
+                fields_count: selectedFields.size,
+                has_values: fieldValues.size > 0 
+            });
+        }
+        
+        function exportTemplate() {
+            if (selectedFields.size === 0) {
+                alert('Please select some fields before exporting');
+                return;
+            }
+            
+            const template = {
+                name: prompt('Template name:') || 'Exported Template',
+                description: prompt('Description:') || '',
+                fields: Array.from(selectedFields),
+                values: Object.fromEntries(fieldValues),
+                exported: new Date().toISOString(),
+                version: '1.0'
+            };
+            
+            const blob = new Blob([JSON.stringify(template, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `pirai-ed-template-${template.name.toLowerCase().replace(/\s+/g, '-')}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            trackEvent('template_exported', { template_name: template.name });
+        }
+        
+        function importTemplate() {
+            document.getElementById('templateImport').click();
+        }
+        
+        // File handling
+        function addFileInput() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = '.csv,.tsv';
+            input.multiple = true;
+            input.onchange = (e) => handleFileSelect(e.target.files);
+            input.click();
+        }
+        
+        function handleFileSelect(files) {
+            Array.from(files).forEach(file => {
+                if (file.type === 'text/csv' || file.name.endsWith('.csv') || file.name.endsWith('.tsv')) {
+                    processFile(file);
+                } else {
+                    alert(`${file.name} is not a valid CSV file`);
+                }
+            });
+        }
+        
+        function processFile(file) {
+            const fileId = Date.now() + Math.random();
+            
+            // Add file to uploaded files
+            uploadedFiles.push({
+                id: fileId,
+                file: file,
+                data: null,
+                processed: false
+            });
+            
+            // Add file upload UI
+            addFileUploadUI(fileId, file.name);
+            
+            // Parse CSV
+            Papa.parse(file, {
+                header: true,
+                skipEmptyLines: true,
+                encoding: 'UTF-8',
+                complete: function(results) {
+                    handleFileProcessed(fileId, results, file);
+                },
+                error: function(error) {
+                    console.error('CSV parsing error:', error);
+                    showFileError(fileId, error.message);
+                }
+            });
+            
+            trackEvent('file_uploaded', { 
+                file_name: file.name, 
+                file_size: file.size,
+                total_files: uploadedFiles.length 
+            });
+        }
+        
+        function addFileUploadUI(fileId, fileName) {
+            const uploadGrid = document.getElementById('uploadGrid');
+            const fileDiv = document.createElement('div');
+            fileDiv.className = 'file-input-section';
+            fileDiv.id = `file-${fileId}`;
+            fileDiv.innerHTML = `
+                <button class="remove-file" onclick="removeFile('${fileId}')">×</button>
+                <div style="font-size: 2rem; margin-bottom: 10px;">📄</div>
+                <div class="file-input-label">
+                    <strong>Processing...</strong><br>
+                    <span style="font-size: 14px; color: #9ca3af;">${fileName}</span>
+                </div>
+                <div class="file-info" style="display: none;"></div>
+                <div class="file-error" style="display: none;"></div>
+            `;
+            
+            // Insert before the "add file" button
+            uploadGrid.insertBefore(fileDiv, uploadGrid.lastElementChild);
+        }
+        
+        function handleFileProcessed(fileId, results, file) {
+            const fileData = uploadedFiles.find(f => f.id === fileId);
+            if (!fileData) return;
+            
+            fileData.data = results;
+            fileData.processed = true;
+            
+            // Detect format and extract fields
+            const detectedFormat = detectCSVFormat(results.data);
+            const extractedFields = extractFieldsFromData(results.data, detectedFormat);
+            
+            // Add fields to global collection
+            extractedFields.forEach(field => {
+                const existing = allFields.find(f => f.name === field.name);
+                if (!existing) {
+                    allFields.push({
+                        ...field,
+                        source: file.name,
+                        fileId: fileId
+                    });
+                }
+            });
+            
+            // Update UI
+            showFileSuccess(fileId, file, results, extractedFields);
+            updateFieldSelector();
+            updatePreview();
+            
+            trackEvent('file_processed', { 
+                file_name: file.name,
+                detected_format: detectedFormat,
+                fields_count: extractedFields.length,
+                rows_count: results.data.length
+            });
+        }
+        
+        function showFileSuccess(fileId, file, results, fields) {
+            const fileDiv = document.getElementById(`file-${fileId}`);
+            if (!fileDiv) return;
+            
+            fileDiv.classList.add('active');
+            const infoDiv = fileDiv.querySelector('.file-info');
+            const labelDiv = fileDiv.querySelector('.file-input-label');
+            
+            labelDiv.innerHTML = `
+                <strong>✅ ${file.name}</strong><br>
+                <span style="font-size: 14px; color: #9ca3af;">Ready for processing</span>
+            `;
+            
+            infoDiv.innerHTML = `
+                <strong>📊 File Statistics</strong><br>
+                Rows: ${results.data.length.toLocaleString()}<br>
+                Fields: ${fields.length}<br>
+                Size: ${(file.size / 1024).toFixed(1)} KB
+            `;
+            infoDiv.style.display = 'block';
+        }
+        
+        function showFileError(fileId, error) {
+            const fileDiv = document.getElementById(`file-${fileId}`);
+            if (!fileDiv) return;
+            
+            fileDiv.classList.add('error');
+            const errorDiv = fileDiv.querySelector('.file-error');
+            const labelDiv = fileDiv.querySelector('.file-input-label');
+            
+            labelDiv.innerHTML = `
+                <strong>❌ Error</strong><br>
+                <span style="font-size: 14px; color: #fca5a5;">Failed to process</span>
+            `;
+            
+            errorDiv.innerHTML = `<strong>Error:</strong> ${error}`;
+            errorDiv.style.display = 'block';
+        }
+        
+        function removeFile(fileId) {
+            // Remove from uploaded files
+            uploadedFiles = uploadedFiles.filter(f => f.id !== fileId);
+            
+            // Remove fields from this file
+            allFields = allFields.filter(f => f.fileId !== fileId);
+            
+            // Remove from UI
+            const fileDiv = document.getElementById(`file-${fileId}`);
+            if (fileDiv) fileDiv.remove();
+            
+            // Update selectors
+            updateFieldSelector();
+            updatePreview();
+            
+            trackEvent('file_removed', { file_id: fileId, remaining_files: uploadedFiles.length });
+        }
+        
+        // CSV Format Detection
+        function detectCSVFormat(data) {
+            if (!data || data.length === 0) return 'headers';
+            
+            const headers = Object.keys(data[0]);
+            const currentFormat = document.querySelector('input[name="csvFormat"]:checked').value;
+            
+            if (currentFormat !== 'auto') {
+                return currentFormat;
+            }
+            
+            // Auto-detection logic
+            const fieldValueIndicators = ['field', 'name', 'variable', 'key'];
+            const valueIndicators = ['value', 'val', 'data', 'content'];
+            
+            const hasFieldColumn = headers.some(h => fieldValueIndicators.includes(h.toLowerCase()));
+            const hasValueColumn = headers.some(h => valueIndicators.includes(h.toLowerCase()));
+            
+            if (hasFieldColumn && hasValueColumn && headers.length === 2) {
+                return 'fieldvalue';
+            }
+            
+            return 'headers';
+        }
+        
+        function extractFieldsFromData(data, format) {
+            const fields = [];
+            
+            if (format === 'headers') {
+                // Use column headers as field names
+                const headers = Object.keys(data[0] || {});
+                headers.forEach(header => {
+                    fields.push({
+                        name: sanitizeFieldName(header),
+                        originalName: header,
+                        type: 'text',
+                        hasValues: false
+                    });
+                });
+            } else if (format === 'fieldvalue') {
+                // Use field/value pairs
+                const headers = Object.keys(data[0] || {});
+                const fieldColumn = findFieldColumn(headers);
+                const valueColumn = findValueColumn(headers);
+                
+                if (fieldColumn && valueColumn) {
+                    data.forEach(row => {
+                        const fieldName = row[fieldColumn];
+                        const fieldValue = row[valueColumn];
+                        
+                        if (fieldName && fieldName.trim()) {
+                            const cleanFieldName = sanitizeFieldName(fieldName);
+                            const existing = fields.find(f => f.name === cleanFieldName);
+                            
+                            if (!existing) {
+                                fields.push({
+                                    name: cleanFieldName,
+                                    originalName: fieldName,
+                                    type: 'text',
+                                    hasValues: true,
+                                    defaultValue: fieldValue
+                                });
+                                
+                                // Auto-set the value
+                                fieldValues.set(cleanFieldName, fieldValue || '');
+                            }
+                        }
+                    });
+                }
+            }
+            
+            return fields;
+        }
+        
+        function findFieldColumn(headers) {
+            const fieldIndicators = ['field', 'name', 'variable', 'key', 'fieldname'];
+            return headers.find(h => fieldIndicators.includes(h.toLowerCase())) || headers[0];
+        }
+        
+        function findValueColumn(headers) {
+            const valueIndicators = ['value', 'val', 'data', 'content', 'default'];
+            return headers.find(h => valueIndicators.includes(h.toLowerCase())) || headers[1];
+        }
+        
+        function sanitizeFieldName(name) {
+            // Remove special characters and spaces, keep alphanumeric and underscores
+            return name.replace(/[^a-zA-Z0-9_]/g, '').replace(/^[0-9]/, '_$&');
+        }
+        
+        // Format selection
+        function selectFormat(format) {
+            csvFormat = format;
+            document.querySelectorAll('.format-option').forEach(opt => opt.classList.remove('selected'));
+            event.target.closest('.format-option').classList.add('selected');
+            
+            // Reprocess all files with new format
+            reprocessAllFiles();
+            
+            trackEvent('format_selected', { format: format });
+        }
+        
+        function reprocessAllFiles() {
+            allFields = [];
+            selectedFields.clear();
+            fieldValues.clear();
+            
+            uploadedFiles.forEach(fileData => {
+                if (fileData.processed && fileData.data) {
+                    const detectedFormat = csvFormat === 'auto' ? detectCSVFormat(fileData.data.data) : csvFormat;
+                    const extractedFields = extractFieldsFromData(fileData.data.data, detectedFormat);
+                    
+                    extractedFields.forEach(field => {
+                        const existing = allFields.find(f => f.name === field.name);
+                        if (!existing) {
+                            allFields.push({
+                                ...field,
+                                source: fileData.file.name,
+                                fileId: fileData.id
+                            });
+                        }
+                    });
+                }
+            });
+            
+            updateFieldSelector();
+            updatePreview();
+        }
+        
+        // Field selection management
+        function updateFieldSelector() {
+            const selector = document.getElementById('fieldSelector');
+            
+            if (allFields.length === 0) {
+                selector.innerHTML = '<div class="preview-empty">Upload CSV files to see available fields</div>';
+                return;
+            }
+            
+            selector.innerHTML = `
+                <div class="field-group">
+                    ${allFields.map(field => `
+                        <div class="field-item ${selectedFields.has(field.name) ? 'selected' : ''}" id="field-${field.name}">
+                            <div class="field-header">
+                                <input type="checkbox" class="field-checkbox" 
+                                       ${selectedFields.has(field.name) ? 'checked' : ''} 
+                                       onchange="toggleField('${field.name}')">
+                                <div class="field-name">${field.name}</div>
+                            </div>
+                            <div class="field-inputs">
+                                <div class="field-input-group">
+                                    <label>Custom Name:</label>
+                                    <input type="text" placeholder="${field.name}" 
+                                           value="${fieldMapping.get(field.name) || ''}"
+                                           onchange="updateFieldMapping('${field.name}', this.value)">
+                                </div>
+                                <div class="field-input-group">
+                                    <label>Default Value:</label>
+                                    <input type="text" placeholder="Optional default value" 
+                                           value="${fieldValues.get(field.name) || ''}"
+                                           onchange="updateFieldValue('${field.name}', this.value)">
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+        
+        function toggleField(fieldName) {
+            if (selectedFields.has(fieldName)) {
+                selectedFields.delete(fieldName);
+            } else {
+                selectedFields.add(fieldName);
+            }
+            
+            updateFieldItemDisplay(fieldName);
+            updatePreview();
+            
+            trackEvent('field_toggled', { 
+                field_name: fieldName, 
+                selected: selectedFields.has(fieldName),
+                total_selected: selectedFields.size 
+            });
+        }
+        
+        function updateFieldItemDisplay(fieldName) {
+            const fieldItem = document.getElementById(`field-${fieldName}`);
+            if (fieldItem) {
+                if (selectedFields.has(fieldName)) {
+                    fieldItem.classList.add('selected');
+                } else {
+                    fieldItem.classList.remove('selected');
+                }
+            }
+        }
+        
+        function updateFieldMapping(fieldName, customName) {
+            if (customName.trim()) {
+                fieldMapping.set(fieldName, sanitizeFieldName(customName));
+            } else {
+                fieldMapping.delete(fieldName);
+            }
+            updatePreview();
+        }
+        
+        function updateFieldValue(fieldName, value) {
+            if (value.trim()) {
+                fieldValues.set(fieldName, value);
+            } else {
+                fieldValues.delete(fieldName);
+            }
+            updatePreview();
+        }
+        
+        function selectAllFields() {
+            allFields.forEach(field => selectedFields.add(field.name));
+            updateFieldSelector();
+            updatePreview();
+            trackEvent('select_all_fields', { count: allFields.length });
+        }
+        
+        function deselectAllFields() {
+            selectedFields.clear();
+            updateFieldSelector();
+            updatePreview();
+            trackEvent('deselect_all_fields');
+        }
+        
+        function invertSelection() {
+            const newSelection = new Set();
+            allFields.forEach(field => {
+                if (!selectedFields.has(field.name)) {
+                    newSelection.add(field.name);
+                }
+            });
+            selectedFields = newSelection;
+            updateFieldSelector();
+            updatePreview();
+            trackEvent('invert_selection', { new_count: selectedFields.size });
+        }
+        
+        function applyFieldSuggestions() {
+            // Common embedded data fields
+            const suggestions = [
+                'ParticipantID', 'ResponseID', 'Email', 'FirstName', 'LastName',
+                'Age', 'Gender', 'State', 'Country', 'Language',
+                'StartDate', 'EndDate', 'Duration', 'Status', 'Progress'
+            ];
+            
+            let applied = 0;
+            suggestions.forEach(suggestion => {
+                const field = allFields.find(f => 
+                    f.name.toLowerCase().includes(suggestion.toLowerCase()) ||
+                    f.originalName.toLowerCase().includes(suggestion.toLowerCase())
+                );
+                if (field && !selectedFields.has(field.name)) {
+                    selectedFields.add(field.name);
+                    applied++;
+                }
+            });
+            
+            if (applied > 0) {
+                updateFieldSelector();
+                updatePreview();
+                trackEvent('suggestions_applied', { count: applied });
+            } else {
+                alert('No suggested fields found in your data');
+            }
+        }
+        
+        // Preview and output generation
+        function updatePreview() {
+            const previewContent = document.getElementById('previewContent');
+            const copyButton = document.getElementById('copyButton');
+            
+            if (selectedFields.size === 0) {
+                previewContent.innerHTML = '<div class="preview-empty">Select fields to see generated Advanced Format</div>';
+                copyButton.style.display = 'none';
+                return;
+            }
+            
+            const output = generateAdvancedFormat();
+            previewContent.textContent = output;
+            copyButton.style.display = 'block';
+            
+            // Store for later use
+            generatedOutput = output;
+        }
+        
+        function generateAdvancedFormat() {
+            const lines = ['[[AdvancedFormat]]', ''];
+            
+            // Add all embedded data fields
+            Array.from(selectedFields).sort().forEach(fieldName => {
+                const customName = fieldMapping.get(fieldName) || fieldName;
+                const value = fieldValues.get(fieldName);
+                
+                if (value && value.trim()) {
+                    lines.push(`[[ED:${customName}:${value}]]`);
+                } else {
+                    lines.push(`[[ED:${customName}]]`);
+                }
+            });
+            
+            // Add required block and question for successful Qualtrics import
+            lines.push('');
+            lines.push('[[Block:ED Delete Block]]');
+            lines.push('');
+            lines.push('[[Question:DB]]');
+            lines.push('[[ID:INTRO]]');
+            lines.push('Please delete this block once you confirm the embedded data elements have been added to the survey flow.');
+            lines.push('');
+            lines.push('This temporary block was added by Pirai AI to ensure successful TXT import into Qualtrics.');
+            
+            return lines.join('\n');
+        }
+        
+        function generateEmbeddedData() {
+            if (selectedFields.size === 0) {
+                alert('Please select at least one field to generate embedded data');
+                return;
+            }
+            
+            const output = generateAdvancedFormat();
+            generatedOutput = output;
+            
+            // Update results section
+            document.getElementById('resultsSection').classList.remove('hidden');
+            document.getElementById('finalResults').textContent = output;
+            
+            // Update statistics
+            const withValues = Array.from(selectedFields).filter(field => fieldValues.has(field) && fieldValues.get(field)).length;
+            const emptyFields = selectedFields.size - withValues;
+            
+            document.getElementById('totalFields').textContent = selectedFields.size;
+            document.getElementById('withValues').textContent = withValues;
+            document.getElementById('emptyFields').textContent = emptyFields;
+            document.getElementById('totalFiles').textContent = uploadedFiles.length;
+            
+            // Scroll to results
+            document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
+            
+            trackEvent('embedded_data_generated', {
+                total_fields: selectedFields.size,
+                with_values: withValues,
+                empty_fields: emptyFields,
+                source_files: uploadedFiles.length,
+                output_length: output.length
+            });
+        }
+        
+        // Copy and export functions
+        function copyToClipboard() {
+            if (!generatedOutput) {
+                alert('Please generate embedded data first');
+                return;
+            }
+            
+            navigator.clipboard.writeText(generatedOutput).then(() => {
+                const button = event.target;
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+                
+                trackEvent('copied_to_clipboard', { output_length: generatedOutput.length });
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+                alert('Failed to copy to clipboard. Please select and copy manually.');
+            });
+        }
+        
+        function copyFinalResults() {
+            copyToClipboard();
+        }
+        
+        function downloadAsText() {
+            if (!generatedOutput) {
+                alert('Please generate embedded data first');
+                return;
+            }
+            
+            const blob = new Blob([generatedOutput], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `pirai-embedded-data-${new Date().toISOString().split('T')[0]}.txt`;
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            trackEvent('downloaded_as_text', { 
+                fields_count: selectedFields.size,
+                output_length: generatedOutput.length 
+            });
+        }
+        
+        function saveAsTemplate() {
+            saveTemplate();
+        }
+        
+        function generateReport() {
+            if (selectedFields.size === 0) {
+                alert('Please select fields first');
+                return;
+            }
+            
+            const report = `
+PIRAI AI EMBEDDED DATA GENERATOR REPORT
+Generated: ${new Date().toLocaleString()}
+
+=== SUMMARY ===
+Total Fields Selected: ${selectedFields.size}
+Fields with Values: ${Array.from(selectedFields).filter(f => fieldValues.has(f)).length}
+Source Files: ${uploadedFiles.length}
+Format: ${csvFormat}
+
+=== SELECTED FIELDS ===
+${Array.from(selectedFields).sort().map(field => {
+    const customName = fieldMapping.get(field) || field;
+    const value = fieldValues.get(field) || '';
+    const originalField = allFields.find(f => f.name === field);
+    return `• ${customName}${value ? ` = "${value}"` : ''} (from: ${originalField?.originalName || field})`;
+}).join('\n')}
+
+=== SOURCE FILES ===
+${uploadedFiles.map(f => `• ${f.file.name} (${(f.file.size / 1024).toFixed(1)} KB)`).join('\n')}
+
+=== GENERATED ADVANCED FORMAT ===
+${generatedOutput}
+
+=== IMPORT INSTRUCTIONS ===
+1. Save the generated text as a .txt file
+2. In Qualtrics: Survey Tab → Tools → Import/Export → Import survey
+3. Upload your .txt file and import
+4. IMPORTANT: Delete the temporary "ED Delete Block" after confirming import
+5. Check Survey Flow to verify embedded data fields were added
+
+=== TECHNICAL NOTES ===
+• A temporary block with descriptive question is included for successful import
+• This follows Qualtrics Advanced Format requirements for TXT file imports
+• The temporary block contains instructions and should be deleted post-import
+
+---
+Generated by Pirai AI Embedded Data Generator
+Visit piraiai.com for more survey automation tools
+            `.trim();
+            
+            const blob = new Blob([report], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `pirai-ed-report-${new Date().toISOString().split('T')[0]}.txt`;
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            trackEvent('report_generated', { fields_count: selectedFields.size });
+        }
+        
+        function resetAll() {
+            if (!confirm('Are you sure you want to reset everything? This will clear all uploaded files and selections.')) {
+                return;
+            }
+            
+            // Clear all data
+            uploadedFiles = [];
+            allFields = [];
+            selectedFields.clear();
+            fieldValues.clear();
+            fieldMapping.clear();
+            generatedOutput = '';
+            
+            // Reset UI
+            document.getElementById('uploadGrid').innerHTML = `
+                <div class="file-input-section" onclick="addFileInput()">
+                    <div style="font-size: 2rem; margin-bottom: 10px;">➕</div>
+                    <div class="file-input-label">
+                        <strong>Add CSV File</strong><br>
+                        <span style="font-size: 16px; color: #9ca3af;">click to browse or drop files</span>
+                    </div>
+                </div>
+            `;
+            
+            updateFieldSelector();
+            updatePreview();
+            document.getElementById('resultsSection').classList.add('hidden');
+            
+            trackEvent('reset_all');
+        }
+        
+        // Template import handler
+        document.getElementById('templateImport').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const template = JSON.parse(e.target.result);
+                    
+                    // Validate template structure
+                    if (!template.fields || !Array.isArray(template.fields)) {
+                        throw new Error('Invalid template format');
+                    }
+                    
+                    // Add imported template
+                    const newTemplate = {
+                        id: Date.now().toString(),
+                        name: template.name || 'Imported Template',
+                        description: template.description || '',
+                        fields: template.fields,
+                        values: new Map(Object.entries(template.values || {})),
+                        created: new Date().toISOString()
+                    };
+                    
+                    templates.push(newTemplate);
+                    saveTemplatesToStorage();
+                    updateTemplateGrid();
+                    
+                    alert(`Template "${newTemplate.name}" imported successfully!`);
+                    trackEvent('template_imported', { template_name: newTemplate.name });
+                    
+                } catch (error) {
+                    alert('Failed to import template: ' + error.message);
+                }
+            };
+            reader.readAsText(file);
+        });
+        
+        // Analytics tracking
+        function trackEvent(eventName, properties = {}) {
+            if (typeof dataLayer !== 'undefined') {
+                dataLayer.push({
+                    'event': 'ed_generator_action',
+                    'action': eventName,
+                    'properties': properties
+                });
+            }
+            console.log('ED Generator Event:', eventName, properties);
+        }
+        
+        // Initialize application
+        document.addEventListener('DOMContentLoaded', function() {
+            loadTemplatesFromStorage();
+            
+            // Track page load
+            trackEvent('page_loaded', {
+                user_agent: navigator.userAgent,
+                screen_resolution: `${screen.width}x${screen.height}`,
+                timestamp: new Date().toISOString()
+            });
+            
+            // Add drag and drop support
+            document.addEventListener('dragover', function(e) {
+                e.preventDefault();
+            });
+            
+            document.addEventListener('drop', function(e) {
+                e.preventDefault();
+                if (e.dataTransfer.files.length > 0) {
+                    handleFileSelect(e.dataTransfer.files);
+                }
+            });
+            
+            // Keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                if ((e.ctrlKey || e.metaKey) && e.key === 'a' && e.target.closest('.field-selector')) {
+                    e.preventDefault();
+                    selectAllFields();
+                }
+                
+                if ((e.ctrlKey || e.metaKey) && e.key === 'c' && generatedOutput) {
+                    copyToClipboard();
+                }
+                
+                if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+                    e.preventDefault();
+                    if (selectedFields.size > 0) {
+                        saveTemplate();
+                    }
+                }
+            });
+            
+            console.log('🌙 Pirai AI Embedded Data Generator loaded successfully');
+            console.log('✅ Phase 3 features enabled: Batch processing, Templates, Field mapping');
+            console.log('🔒 Privacy-first client-side processing');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add floating header effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(17, 24, 39, 0.95)';
+                nav.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+            } else {
+                nav.style.background = 'rgba(17, 24, 39, 0.5)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
