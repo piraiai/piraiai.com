@@ -30,9 +30,14 @@
     <priority>0.5</priority>
     <changefreq>monthly</changefreq>
   </url>    
-    <url>
+  <url>
     <loc>https://piraiai.com/embedded-data-generator.html</loc>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>  
+  <url>
+    <loc>https://piraiai.com/qualtrics-toolkit.html</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>    
 </urlset>
