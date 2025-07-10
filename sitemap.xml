@@ -1,43 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- HOMEPAGE - Highest priority -->
   <url>
     <loc>https://piraiai.com/</loc>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
+    <lastmod>2025-07-10</lastmod>
   </url>
+
+  <!-- MAIN TOOLS - High priority -->
   <url>
-    <loc>https://piraiai.com/terms.html</loc>
-    <priority>0.3</priority>
-    <changefreq>monthly</changefreq>
+    <loc>https://piraiai.com/qualtrics-toolkit</loc>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-07-10</lastmod>
   </url>
+
+  <!-- SPECIALIZED TOOLS - Medium-high priority -->
   <url>
-    <loc>https://piraiai.com/privacy.html</loc>
-    <priority>0.4</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://piraiai.com/about.html</loc>
-    <priority>0.5</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://piraiai.com/qsf-to-excel.html</loc>
-    <priority>0.5</priority>
-    <changefreq>monthly</changefreq>
-  </url>  
-  <url>
-    <loc>https://piraiai.com/pirai-csv-comparator.html</loc>
-    <priority>0.5</priority>
-    <changefreq>monthly</changefreq>
-  </url>    
-  <url>
-    <loc>https://piraiai.com/embedded-data-generator.html</loc>
-    <priority>0.6</priority>
-    <changefreq>monthly</changefreq>
-  </url>  
-  <url>
-    <loc>https://piraiai.com/qualtrics-toolkit.html</loc>
+    <loc>https://piraiai.com/qsf-to-excel</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
-  </url>    
+    <lastmod>2025-07-10</lastmod>
+  </url>
+
+  <url>
+    <loc>https://piraiai.com/pirai-csv-comparator</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2025-07-10</lastmod>
+  </url>
+
+  <url>
+    <loc>https://piraiai.com/embedded-data-generator</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2025-07-10</lastmod>
+  </url>
+
+  <!-- BUSINESS PAGES - Medium priority -->
+
+  <url>
+    <loc>https://piraiai.com/about</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2025-07-10</lastmod>
+  </url>
+
+  <!-- LEGAL PAGES - Low priority -->
+  <url>
+    <loc>https://piraiai.com/privacy</loc>
+    <priority>0.3</priority>
+    <changefreq>yearly</changefreq>
+    <lastmod>2025-07-10</lastmod>
+  </url>
+
+  <url>
+    <loc>https://piraiai.com/terms</loc>
+    <priority>0.3</priority>
+    <changefreq>yearly</changefreq>
+    <lastmod>2025-07-10</lastmod>
+  </url>
+
+  <url>
+    <loc>https://piraiai.com/security</loc>
+    <priority>0.3</priority>
+    <changefreq>yearly</changefreq>
+    <lastmod>2025-07-10</lastmod>
+  </url>
+
+  <!-- FUTURE CONTENT PAGES (Add when ready) -->
+  <!--
+  <url>
+    <loc>https://piraiai.com/case-studies/</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2025-07-10</lastmod>
+  </url>
+
+  <url>
+    <loc>https://piraiai.com/blog/</loc>
+    <priority>0.6</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-07-10</lastmod>
+  </url>
+
+  <url>
+    <loc>https://piraiai.com/help/</loc>
+    <priority>0.5</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2025-07-10</lastmod>
+  </url>
+  -->
+
 </urlset>
