@@ -942,257 +942,220 @@
     }
     </style> 
     <style>
-        /* Updated Dual Pricing Section */
+    /* Updated Dual Pricing Section */
+    .pricing-section {
+        padding: 60px 0;
+        background: #f8f9fa;
+        text-align: center;
+    }
+
+    .pricing-section .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .pricing-section h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #2d3748;
+        margin-bottom: 1rem;
+    }
+
+    .pricing-subtitle {
+        font-size: 1.2rem;
+        color: #718096;
+        margin-bottom: 3rem;
+    }
+
+    .pricing-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .pricing-card {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 2.5rem 2rem;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        border: 2px solid #e2e8f0;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .pricing-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    }
+
+    .pricing-card.featured {
+        border-color: #4299e1;
+        transform: scale(1.02);
+    }
+
+    .popular-badge {
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(135deg, #4299e1, #3182ce);
+        color: white;
+        padding: 0.5rem 1.5rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .price-header {
+        margin-bottom: 1.5rem;
+    }
+
+    .price-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #2d3748;
+        margin-bottom: 0.5rem;
+    }
+
+    .price-subtitle {
+        font-size: 0.9rem;
+        color: #718096;
+        margin-bottom: 1rem;
+    }
+
+    .price-amount {
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .amount {
+        font-size: 3rem;
+        font-weight: 800;
+        color: #2d3748;
+    }
+
+    .period {
+        font-size: 1rem;
+        color: #718096;
+        font-weight: 500;
+    }
+
+    .savings-badge {
+        background: #48bb78;
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin-left: 0.5rem;
+    }
+
+    .features-list {
+        list-style: none;
+        margin: 2rem 0;
+        text-align: left;
+    }
+
+    .features-list li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.75rem;
+        font-size: 0.95rem;
+        color: #4a5568;
+    }
+
+    .features-list li::before {
+        content: "✓";
+        color: #48bb78;
+        font-weight: bold;
+        margin-right: 0.75rem;
+        font-size: 1.1rem;
+    }
+
+    .cta-button {
+        width: 100%;
+        background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        display: inline-block;
+        box-shadow: 0 4px 15px rgba(66, 153, 225, 0.3);
+        border: none;
+        cursor: pointer;
+    }
+
+    .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(66, 153, 225, 0.4);
+        text-decoration: none;
+        color: white;
+    }
+
+    .cta-button.secondary {
+        background: #ffffff;
+        color: #4299e1;
+        border: 2px solid #4299e1;
+        box-shadow: none;
+    }
+
+    .cta-button.secondary:hover {
+        background: #4299e1;
+        color: white;
+    }
+
+    .volume-note {
+        font-size: 0.85rem;
+        color: #718096;
+        margin-top: 1rem;
+        font-style: italic;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
         .pricing-section {
-            padding: 60px 0;
-            background: #f8f9fa;
-            text-align: center;
+            padding: 40px 0;
         }
-
-        .pricing-section .container {
-            max-width: 1400px; /* Increased to accommodate 4 cards */
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
+        
         .pricing-section h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #2d3748;
+            font-size: 2rem;
             margin-bottom: 1rem;
         }
-
+        
         .pricing-subtitle {
-            font-size: 1.2rem;
-            color: #718096;
-            margin-bottom: 3rem;
-        }
-
-        .pricing-cards {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
-            gap: 1.5rem; /* Reduced gap for better fit */
-            max-width: 1300px; /* Increased max-width for 4 cards */
-            margin: 0 auto;
-        }
-
-        .pricing-card {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 2rem 1.5rem; /* Slightly reduced padding for narrower cards */
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-            border: 2px solid #e2e8f0;
-            transition: all 0.3s ease;
-            position: relative;
-            min-height: 580px; /* Ensure consistent heights */
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
-        }
-
-        .pricing-card.featured {
-            border-color: #4299e1;
-            transform: scale(1.02);
-        }
-
-        .popular-badge {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, #4299e1, #3182ce);
-            color: white;
-            padding: 0.5rem 1.5rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .price-header {
-            margin-bottom: 1.5rem;
-        }
-
-        .price-title {
-            font-size: 1.4rem; /* Slightly smaller for narrower cards */
-            font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 0.5rem;
-        }
-
-        .price-subtitle {
-            font-size: 0.85rem; /* Smaller subtitle */
-            color: #718096;
-            margin-bottom: 1rem;
-        }
-
-        .price-amount {
-            display: flex;
-            align-items: baseline;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .amount {
-            font-size: 2.5rem; /* Reduced from 3rem for better fit */
-            font-weight: 800;
-            color: #2d3748;
-        }
-
-        .period {
-            font-size: 0.9rem; /* Slightly smaller */
-            color: #718096;
-            font-weight: 500;
-        }
-
-        .savings-badge {
-            background: #48bb78;
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.7rem; /* Smaller for narrower cards */
-            font-weight: 600;
-            margin-left: 0.5rem;
-        }
-
-        .features-list {
-            list-style: none;
-            margin: 1.5rem 0; /* Reduced margin */
-            text-align: left;
-        }
-
-        .features-list li {
-            display: flex;
-            align-items: flex-start; /* Changed to flex-start for better text wrapping */
-            margin-bottom: 0.6rem; /* Slightly reduced spacing */
-            font-size: 0.85rem; /* Smaller text for narrower cards */
-            color: #4a5568;
-            line-height: 1.4;
-        }
-
-        .features-list li::before {
-            content: "✓";
-            color: #48bb78;
-            font-weight: bold;
-            margin-right: 0.75rem;
             font-size: 1rem;
-            margin-top: 2px; /* Align with text */
-            flex-shrink: 0;
+            margin-bottom: 2rem;
         }
-
-        .cta-button {
-            width: 100%;
-            background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
-            color: white;
-            padding: 0.9rem 1.5rem; /* Slightly reduced padding */
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1rem; /* Slightly smaller */
-            transition: all 0.3s ease;
-            display: inline-block;
-            box-shadow: 0 4px 15px rgba(66, 153, 225, 0.3);
-            border: none;
-            cursor: pointer;
+        
+        .pricing-cards {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
         }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(66, 153, 225, 0.4);
-            text-decoration: none;
-            color: white;
+        
+        .pricing-card {
+            padding: 2rem 1.5rem;
         }
-
-        .cta-button.secondary {
-            background: #ffffff;
-            color: #4299e1;
-            border: 2px solid #4299e1;
-            box-shadow: none;
+        
+        .pricing-card.featured {
+            transform: none;
         }
-
-        .cta-button.secondary:hover {
-            background: #4299e1;
-            color: white;
+        
+        .amount {
+            font-size: 2.5rem;
         }
-
-        .volume-note {
-            font-size: 0.8rem; /* Smaller for narrower cards */
-            color: #718096;
-            margin-top: 1rem;
-            font-style: italic;
-        }
-
-        /* Responsive adjustments for 4-card layout */
-        @media (max-width: 1300px) {
-            .pricing-cards {
-                grid-template-columns: repeat(2, 1fr); /* 2 cards on tablets */
-                gap: 2rem;
-            }
-            
-            .pricing-card {
-                padding: 2.5rem 2rem; /* Restore original padding */
-            }
-            
-            .price-title {
-                font-size: 1.5rem; /* Restore original size */
-            }
-            
-            .amount {
-                font-size: 3rem; /* Restore original size */
-            }
-            
-            .features-list li {
-                font-size: 0.95rem; /* Restore original size */
-            }
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .pricing-section {
-                padding: 40px 0;
-            }
-            
-            .pricing-section h2 {
-                font-size: 2rem;
-                margin-bottom: 1rem;
-            }
-            
-            .pricing-subtitle {
-                font-size: 1rem;
-                margin-bottom: 2rem;
-            }
-            
-            .pricing-cards {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .pricing-card {
-                padding: 2rem 1.5rem;
-                min-height: auto;
-            }
-            
-            .pricing-card.featured {
-                transform: none;
-            }
-            
-            .amount {
-                font-size: 2.5rem;
-            }
-            
-            .price-title {
-                font-size: 1.5rem;
-            }
-            
-            .features-list li {
-                font-size: 0.95rem;
-            }
-        }
-    </style>
+    }
+    </style> 
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -1365,129 +1328,62 @@
     <section id="pricing" class="pricing-section">
         <div class="container">
             <h2>Simple, Transparent Pricing</h2>
-            <p class="pricing-subtitle">Start free, scale as you grow - choose the plan that fits your survey automation needs</p>
+            <p class="pricing-subtitle">Choose the plan that fits your survey automation needs</p>
             
             <div class="pricing-cards">
-                <!-- Freemium Plan -->
+                <!-- Individual Plan -->
                 <div class="pricing-card">
                     <div class="price-header">
-                        <h3 class="price-title">Freemium</h3>
-                        <p class="price-subtitle">Perfect for trying survey automation</p>
+                        <h3 class="price-title">Individual</h3>
+                        <p class="price-subtitle">Perfect for solo researchers & students</p>
                         
                         <div class="price-amount">
-                            <span class="amount">Free</span>
-                            <span class="period">forever</span>
-                        </div>
-                    </div>
-                    
-                    <ul class="features-list">
-                        <li>Word → Excel → Qualtrics Advanced Format</li>
-                        <li>Up to 15 questions per survey</li>
-                        <li>25kb file size limit</li>
-                        <li>2 conversions per day</li>
-                        <li>Email support</li>
-                    </ul>
-                    
-                    <a href="#demo" class="cta-button secondary">Start Free</a>
-                    <p class="volume-note">No credit card required</p>
-                </div>
-                
-                <!-- Starter Plan -->
-                <div class="pricing-card">
-                    <div class="price-header">
-                        <h3 class="price-title">Starter</h3>
-                        <p class="price-subtitle">For regular survey creators</p>
-                        
-                        <div class="price-amount">
-                            <span class="amount">$10</span>
+                            <span class="amount">$5</span>
                             <span class="period">per survey</span>
                         </div>
                     </div>
                     
                     <ul class="features-list">
-                        <li>Everything in Freemium, plus:</li>
-                        <li>Up to 40 questions per survey</li>
-                        <li>50kb file size limit</li>
-                        <li>Unlimited daily conversions</li>
-                        <li>Excel → QSF file generation</li>
-                        <li>Multi-platform support</li>
-                        <li>Bulk question operations</li>
+                        <li>Word to Qualtrics in 15 minutes</li>
+                        <li>Standard processing speed</li>
+                        <li>Email support (24-48hr)</li>
+                        <li>Pay per use - no subscription</li>
+                        <li>Perfect for thesis & small projects</li>
                     </ul>
                     
-                    <a href="#demo" class="cta-button secondary">Get Started</a>
-                    <p class="volume-note">Pay as you go - no subscription</p>
+                    <a href="#demo" class="cta-button secondary">Start with $5</a>
+                    <p class="volume-note">Great for 1-5 surveys per month</p>
                 </div>
-
-                <!-- Pro Plan -->
+                
+                <!-- Agency Plan -->
                 <div class="pricing-card featured">
                     <div class="popular-badge">Most Popular</div>
                     <div class="price-header">
-                        <h3 class="price-title">Pro</h3>
-                        <p class="price-subtitle">For professional researchers & teams</p>
+                        <h3 class="price-title">Agency</h3>
+                        <p class="price-subtitle">For research teams & agencies</p>
                         
                         <div class="price-amount">
-                            <span class="amount">$49</span>
-                            <span class="period">conversion bundle</span>                           
+                            <span class="amount">$149</span>
+                            <span class="period">per survey</span>
+                            <span class="savings-badge">Save $507</span>
                         </div>
                     </div>
                     
                     <ul class="features-list">
-                        <li>Everything in Starter, plus:</li>
-                        <li>Unlimited questions (5MB files)</li>
-                        <li>10 conversions per purchase</li>
-                        <li>Priority processing (2-hour turnaround)</li>
-                        <li><strong>AI prompt refinement</strong></li>
-                        <li><strong>Professional spell check</strong></li>
-                        <li>Advanced quality controls</li>
+                        <li>Word to Qualtrics in 15 minutes</li>
+                        <li>Priority processing & support</li>
                         <li>Team collaboration features</li>
+                        <li>Volume discounts available</li>
+                        <li>Advanced survey logic support</li>
+                        <li><strong>First survey free</strong></li>
                     </ul>
                     
-                    <a href="#demo" class="cta-button">Get Started</a>    
-                    <p class="volume-note">~3-4 surveys per bundle • 90-day expiry</p> 
-                </div>
-                
-                <!-- Custom Plan -->
-                <div class="pricing-card">
-                    <div class="price-header">
-                        <h3 class="price-title">Custom</h3>
-                        <p class="price-subtitle">For agencies & enterprises</p>
-                        
-                        <div class="price-amount">
-                            <span class="amount">Custom</span>
-                            <span class="period">pricing</span>
-                        </div>
-                    </div>
-                    
-                    <ul class="features-list">
-                        <li>Everything in Pro, plus:</li>
-                        <li>Unlimited file size & conversions</li>
-                        <li>API extensions for Word → Excel</li>
-                        <li>Custom API integrations</li>
-                        <li>Fine-tuned models for your terminology</li>
-                        <li>Agency-specific style guides</li>
-                        <li>White-label options</li>                     
-                    </ul>
-                    
-                    <a href="#demo" class="cta-button secondary">Contact Sales</a>
-                    <p class="volume-note">Custom implementation & training included</p>
-                </div>
-            </div>
-            
-            <!-- Feature Comparison Note -->
-            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(59, 130, 246, 0.05); border-radius: 12px;">
-                <h3 style="margin-bottom: 1rem; color: #1e40af;">Ready to Transform Your Survey Workflow?</h3>
-                <p style="color: #6b7280; margin-bottom: 1.5rem;">
-                    Join thousands of researchers saving 8+ hours per survey with intelligent automation
-                </p>
-                <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; font-size: 0.9rem; color: #6b7280;">
-                    <span>⚡ 73% time reduction</span>
-                    <span>💰 $507+ savings per survey</span>
-                    <span>🎯 Professional quality output</span>
-                    <span>🔒 Enterprise-grade security</span>
+                    <a href="#demo" class="cta-button">Start Free Survey</a>
+                    <p class="volume-note">50+ surveys = $119 each (20% discount)</p>
                 </div>
             </div>
         </div>
-    </section>  
+    </section>
 
     <!-- Lead Form Section -->
     <section id="demo" class="demo-section">
