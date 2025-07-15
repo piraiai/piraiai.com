@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <!-- End Google Tag Manager -->
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qualtrics API Toolkit User Guide - Pirai AI</title>
+    <meta name="description" content="Complete user guide for the Qualtrics API Toolkit Chrome Extension. Transform complex API operations into simple CSV uploads with no coding required.">
+    <!-- Prevent indexing and following links -->
+    <meta name="robots" content="noindex, nofollow">
+    <!-- Prevent caching -->
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, nocache">
+    <!-- Prevent specific bots -->
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="bingbot" content="noindex, nofollow"> 
+    <!-- Open Graph -->
+    <meta property="og:title" content="Qualtrics API Toolkit User Guide - Pirai AI">
+    <meta property="og:description" content="Complete user guide for the Qualtrics API Toolkit Chrome Extension. Built by Pirai AI for the Qualtrics community.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://piraiai.com/qualtrics-api-toolkit-guide">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e2e8f0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #1f2937;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            padding: 8px 24px;
+            border-radius: 24px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 140px 0 80px;
+            text-align: center;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 24px;
+            padding: 8px 16px;
+            margin-bottom: 24px;
+            font-size: 0.875rem;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Content Container */
+        .content-container {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            margin: 40px auto;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-wrapper {
+            padding: 40px;
+        }
+
+        /* Navigation Menu */
+        .content-nav {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .content-nav h3 {
+            color: #1e293b;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+        }
+
+        .content-nav h3::before {
+            content: "🚀";
+            margin-right: 8px;
+        }
+
+        .content-nav ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
+        }
+
+        .content-nav a {
+            color: #3b82f6;
+            text-decoration: none;
+            padding: 12px 16px;
+            display: block;
+            border-radius: 8px;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .content-nav a:hover {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Typography */
+        h2 {
+            color: #1e293b;
+            font-size: 2.25rem;
+            margin: 60px 0 30px 0;
+            padding-bottom: 16px;
+            border-bottom: 3px solid;
+            border-image: linear-gradient(135deg, #3b82f6, #8b5cf6) 1;
+            position: relative;
+        }
+
+        h3 {
+            color: #334155;
+            font-size: 1.5rem;
+            margin: 40px 0 20px 0;
+        }
+
+        h4 {
+            color: #475569;
+            font-size: 1.25rem;
+            margin: 30px 0 15px 0;
+        }
+
+        p {
+            color: #4b5563;
+            margin-bottom: 16px;
+        }
+
+        /* Special Boxes */
+        .overview-box {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border: 1px solid #0ea5e9;
+            border-radius: 16px;
+            padding: 30px;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .overview-box::before {
+            content: "🌟";
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .overview-box h3 {
+            color: #0369a1;
+            margin-top: 0;
+        }
+
+        .checklist {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border: 1px solid #22c55e;
+            border-radius: 16px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .checklist h3 {
+            color: #15803d;
+            margin-top: 0;
+        }
+
+        .checklist ul {
+            list-style: none;
+        }
+
+        .checklist li {
+            margin: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            color: #374151;
+        }
+
+        .checklist li:before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+            font-size: 1.1rem;
+        }
+
+        /* Steps */
+        .steps-container {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 30px;
+            margin: 25px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding: 16px;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            color: #1e293b;
+            margin: 0 0 8px 0;
+            font-size: 1.1rem;
+        }
+
+        .step-content p {
+            color: #4b5563;
+            margin: 0;
+        }
+
+        /* Alert Boxes */
+        .rules-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 1px solid #f59e0b;
+            border-radius: 16px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .rules-box h4 {
+            color: #92400e;
+            margin-top: 0;
+        }
+
+        .tips-box {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border: 1px solid #0ea5e9;
+            border-radius: 16px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .tips-box h4 {
+            color: #0369a1;
+            margin-top: 0;
+        }
+
+        .warning {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 1px solid #f59e0b;
+            border-radius: 16px;
+            padding: 20px;
+            margin: 25px 0;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .warning strong {
+            color: #92400e;
+        }
+
+        .troubleshooting {
+            background: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%);
+            border: 1px solid #ef4444;
+            border-radius: 16px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .troubleshooting h4 {
+            color: #dc2626;
+            margin-top: 0;
+        }
+
+        .solution {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-left: 4px solid #22c55e;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        .solution strong {
+            color: #15803d;
+        }
+
+        /* Code */
+        code {
+            background: #f1f5f9;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            color: #3b82f6;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-top: 1px solid #e2e8f0;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding: 60px 0 40px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+            font-size: 24px;
+            font-weight: 700;
+            color: #3b82f6;
+        }
+
+        .footer-desc {
+            color: #6b7280;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .footer-section h3 {
+            color: #1f2937;
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #3b82f6;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #e2e8f0;
+            padding: 24px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .copyright {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .content-wrapper {
+                padding: 20px;
+            }
+
+            .content-nav ul {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/" class="logo">
+                   <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo" width="35" height="35"/>&nbsp;
+                    Pirai AI
+                </a>
+                <a href="/#demo" class="nav-cta">Get Early Access</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">
+                🚀 Chrome Extension Guide
+            </div>
+            <h1>Qualtrics API Toolkit<br>User Guide</h1>
+            <p class="hero-subtitle">
+                Master advanced Qualtrics operations with our comprehensive Chrome extension guide. 
+                Transform complex API calls into simple CSV uploads - no coding required.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="content-container">
+            <div class="content-wrapper">
+                
+                <!-- Navigation Menu -->
+                <div class="content-nav">
+                    <h3>Quick Navigation</h3>
+                    <ul>
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#installation">Installation</a></li>
+                        <li><a href="#setup">Initial Setup</a></li>
+                        <li><a href="#api-operations">API Operations</a></li>
+                        <li><a href="#csv-requirements">CSV Requirements</a></li>
+                        <li><a href="#troubleshooting">Troubleshooting</a></li>
+                        <li><a href="#best-practices">Best Practices</a></li>
+                        <li><a href="#help">Need Help</a></li>
+                    </ul>
+                </div>
+
+                <!-- Overview Section -->
+                <section id="overview">
+                    <h2>Overview</h2>
+                    
+                    <div class="overview-box">
+                        <h3>What is the Qualtrics API Toolkit?</h3>
+                        <p>The Qualtrics API Toolkit is a <strong>free Chrome extension</strong> that transforms complex Qualtrics API operations into simple CSV uploads. No coding, no technical setup - just upload your data and click send.</p>
+                        
+                        <ul style="margin-top: 15px; padding-left: 20px; color: #374151;">
+                            <li><strong>Bulk Response Updates</strong> - Update thousands of responses with embedded data</li>
+                            <li><strong>Progress Tracking</strong> - Real-time monitoring of bulk operations</li>
+                            <li><strong>Global Data Centers</strong> - Support for all Qualtrics regions worldwide</li>
+                            <li><strong>Secure & Private</strong> - All processing happens in your browser</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Installation Section -->
+                <section id="installation">
+                    <h2>Installation Guide</h2>
+                    
+                    <div class="steps-container">
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Visit Chrome Web Store</h4>
+                                <p>Search for "Qualtrics API Toolkit by Pirai AI" or use the direct link from our website</p>
+                            </div>
+                        </div>
+
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Click "Add to Chrome"</h4>
+                                <p>Chrome will request permissions to access Qualtrics domains (required for API calls)</p>
+                            </div>
+                        </div>
+
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Confirm Installation</h4>
+                                <p>Click "Add extension" in the popup dialog to complete installation</p>
+                            </div>
+                        </div>
+
+                        <div class="step-item">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Launch Extension</h4>
+                                <p>Click the extension icon in your Chrome toolbar to open the toolkit</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>Installation Tips</h4>
+                        <ul>
+                            <li>Pin the extension to your toolbar for easy access</li>
+                            <li>The extension works completely offline once installed</li>
+                            <li>No account creation or registration required</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Setup Section -->
+                <section id="setup">
+                    <h2>Initial Setup</h2>
+                    
+                    <div class="steps-container">
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Select Your Data Center</h4>
+                                <p>Choose your Qualtrics region from the dropdown (e.g., Canadian, Washington DC, European Union)</p>
+                            </div>
+                        </div>
+
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Generate API Token</h4>
+                                <p>In Qualtrics: Account Settings → Qualtrics IDs → Generate Token</p>
+                            </div>
+                        </div>
+
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Enter Credentials</h4>
+                                <p>Go to Authentication tab and enter your API token (automatically saved for future use)</p>
+                            </div>
+                        </div>
+
+                        <div class="step-item">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Test Connection</h4>
+                                <p>Click "Test Connection" to verify your setup is working correctly</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rules-box">
+                        <h4>🔗 Finding Your Qualtrics IDs</h4>
+                        <ul>
+                            <li><strong>API Token:</strong> <a href="https://www.qualtrics.com/support/integrations/api-integration/overview/#GeneratingAnAPIToken" target="_blank">Official Qualtrics Guide →</a></li>
+                            <li><strong>Survey ID:</strong> <a href="https://www.qualtrics.com/support/integrations/api-integration/finding-qualtrics-ids/" target="_blank">Finding Qualtrics IDs →</a></li>
+                            <li><strong>Data Center:</strong> Check your Qualtrics URL format: [datacenter].qualtrics.com</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- API Operations Section -->
+                <section id="api-operations">
+                    <h2>API Operations Guide</h2>
+
+                    <h3>📋 Get Survey Information</h3>
+                    <p><strong>Use Case:</strong> Test your connection and retrieve basic survey details</p>
+                    
+                    <div class="steps-container">
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Enter Survey ID</h4>
+                                <p>In Configuration tab, enter your Survey ID (format: SV_xyz123)</p>
+                            </div>
+                        </div>
+
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Verify Authentication</h4>
+                                <p>Ensure API token is entered in Authentication tab</p>
+                            </div>
+                        </div>
+
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Send Request</h4>
+                                <p>Click "🚀 Send Request" to retrieve survey information</p>
+                            </div>
+                        </div>
+
+                        <div class="step-item">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>View Results</h4>
+                                <p>Survey details appear in Response panel below</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>📊 Bulk Response Update</h3>
+                    <p><strong>Use Case:</strong> Update embedded data for thousands of survey responses</p>
+                    
+                    <div class="steps-container">
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Enter Survey ID</h4>
+                                <p>In Configuration tab, specify the target survey</p>
+                            </div>
+                        </div>
+
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Upload CSV File</h4>
+                                <p>Go to Data Upload tab and drag/drop your CSV file</p>
+                            </div>
+                        </div>
+
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Check Validation</h4>
+                                <p>Switch to Validation tab to verify CSV structure and data</p>
+                            </div>
+                        </div>
+
+                        <div class="step-item">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Start Processing</h4>
+                                <p>Click "🚀 Send Request" to begin bulk update operation</p>
+                            </div>
+                        </div>
+
+                        <div class="step-item">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <h4>Monitor Progress</h4>
+                                <p>Watch real-time progress and save the Progress ID for tracking</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>📈 Progress Tracking</h3>
+                    <p><strong>Use Case:</strong> Check the status of your bulk update operations</p>
+                    
+                    <div class="steps-container">
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Select Progress Tracking</h4>
+                                <p>Choose "Update Progress" from the sidebar</p>
+                            </div>
+                        </div>
+
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Enter Progress ID</h4>
+                                <p>Paste the Progress ID from your bulk update operation</p>
+                            </div>
+                        </div>
+
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Check Status</h4>
+                                <p>Click "🚀 Send Request" to get current progress details</p>
+                            </div>
+                        </div>
+
+                        <div class="step-item">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Review Results</h4>
+                                <p>View completion percentage, success counts, and error details</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CSV Requirements Section -->
+                <section id="csv-requirements">
+                    <h2>CSV File Requirements</h2>
+
+                    <div class="rules-box">
+                        <h4>📋 Mandatory CSV Structure</h4>
+                        <ul>
+                            <li><strong>Column A:</strong> Must be named "responseId" (exact spelling, case-sensitive)</li>
+                            <li><strong>Additional Columns:</strong> Become embedded data fields (must match survey flow)</li>
+                            <li><strong>Encoding:</strong> Save as UTF-8 to prevent character issues</li>
+                            <li><strong>Format:</strong> Standard CSV with comma separators</li>
+                        </ul>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>📝 Example CSV Structure</h4>
+                        <code>
+                        responseId,email,firstName,lastName,segment<br>
+                        R_1234567890,john@email.com,John,Doe,Premium<br>
+                        R_0987654321,jane@email.com,Jane,Smith,Standard
+                        </code>
+                    </div>
+
+                    <div class="checklist">
+                        <h3>✅ Pre-Upload Checklist</h3>
+                        <ul>
+                            <li>responseId column exists and is in Column A</li>
+                            <li>File saved with UTF-8 encoding</li>
+                            <li>Embedded data field names match your survey</li>
+                            <li>No empty responseId values</li>
+                            <li>File size reasonable (under 10MB recommended)</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning">
+                        <strong>⚠️ Important:</strong> The embedded data field names in your CSV must exactly match the field names configured in your Qualtrics survey flow. Mismatched names will cause the update to fail.
+                    </div>
+                </section>
+
+                <!-- Troubleshooting Section -->
+                <section id="troubleshooting">
+                    <h2>Common Issues & Solutions</h2>
+
+                    <div class="troubleshooting">
+                        <h4>❌ Problem: "Please enter API token" error</h4>
+                        <div class="solution">
+                            <strong>✅ Solution:</strong> Go to Authentication tab and enter your Qualtrics API token. Test the connection to verify it's working.
+                        </div>
+                    </div>
+
+                    <div class="troubleshooting">
+                        <h4>❌ Problem: "Survey ID not found" error</h4>
+                        <div class="solution">
+                            <strong>✅ Solution:</strong> Verify your Survey ID format (should start with SV_) and ensure you have access to this survey in Qualtrics.
+                        </div>
+                    </div>
+
+                    <div class="troubleshooting">
+                        <h4>❌ Problem: CSV validation fails</h4>
+                        <div class="solution">
+                            <strong>✅ Solution:</strong> Check that Column A is named "responseId" (exact spelling) and the file is saved as UTF-8 CSV format.
+                        </div>
+                    </div>
+
+                    <div class="troubleshooting">
+                        <h4>❌ Problem: "Connection failed" error</h4>
+                        <div class="solution">
+                            <strong>✅ Solution:</strong> Verify your Data Center selection matches your Qualtrics URL. If you use abc.qualtrics.com, select the corresponding data center.
+                        </div>
+                    </div>
+
+                    <div class="troubleshooting">
+                        <h4>❌ Problem: Bulk update fails with embedded data errors</h4>
+                        <div class="solution">
+                            <strong>✅ Solution:</strong> Ensure the embedded data field names in your CSV exactly match the field names in your Qualtrics survey flow settings.
+                        </div>
+                    </div>
+
+                    <div class="troubleshooting">
+                        <h4>❌ Problem: Extension doesn't load</h4>
+                        <div class="solution">
+                            <strong>✅ Solution:</strong> Try refreshing the page, restarting Chrome, or reinstalling the extension. Ensure you're not in incognito mode.
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Best Practices Section -->
+                <section id="best-practices">
+                    <h2>Best Practices & Tips</h2>
+
+                    <div class="tips-box">
+                        <h4>🎯 Efficiency Tips</h4>
+                        <ul>
+                            <li><strong>Test with small batches first</strong> - Try 10-50 records before processing thousands</li>
+                            <li><strong>Keep Progress IDs</strong> - Save them to track long-running operations</li>
+                            <li><strong>Use consistent naming</strong> - Match embedded data field names across surveys</li>
+                            <li><strong>Monitor API limits</strong> - Qualtrics has daily API call limits per account</li>
+                        </ul>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>🔒 Security Best Practices</h4>
+                        <ul>
+                            <li><strong>Use dedicated API tokens</strong> - Create tokens specifically for bulk operations</li>
+                            <li><strong>Regular token rotation</strong> - Update API tokens periodically for security</li>
+                            <li><strong>Limit token permissions</strong> - Only grant necessary permissions in Qualtrics</li>
+                            <li><strong>Monitor usage</strong> - Review API call logs in Qualtrics regularly</li>
+                        </ul>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>📊 Data Quality Tips</h4>
+                        <ul>
+                            <li><strong>Validate data before upload</strong> - Check for formatting issues in Excel first</li>
+                            <li><strong>Use consistent date formats</strong> - ISO 8601 format (YYYY-MM-DD) recommended</li>
+                            <li><strong>Handle special characters</strong> - Ensure UTF-8 encoding for international characters</li>
+                            <li><strong>Backup before bulk updates</strong> - Export current data before making changes</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning">
+                        <strong>💡 Pro Tip:</strong> For large datasets (10,000+ records), consider breaking them into smaller batches. This provides better progress tracking and allows you to fix issues without reprocessing everything.
+                    </div>
+                </section>
+
+                <!-- Help Section -->
+                <section id="help">
+                    <h2>Need Help? 📧 Contact: admin@piraiai.com</h2>
+                    
+                    <div class="overview-box">
+                        <h3>Additional Resources</h3>
+                        <ul style="margin-top: 15px; padding-left: 20px; color: #374151;">
+                            <li><strong>Official Qualtrics API Documentation:</strong> <a href="https://api.qualtrics.com/" target="_blank">api.qualtrics.com</a></li>
+                            <li><strong>Qualtrics Community Forums:</strong> Get help from other users</li>
+                            <li><strong>Pirai AI Free Tools:</strong> QSF to Excel, CSV Comparator, Embedded Data Generator</li>
+                            <li><strong>Video Tutorials:</strong> Coming soon on our website</li>
+                        </ul>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>🚀 What's Next?</h4>
+                        <p>This free version focuses on response management. Future updates will include:</p>
+                        <ul>
+                            <li><strong>Contact Transaction Updates</strong> - Row-by-row contact data processing</li>
+                            <li><strong>Distribution Management</strong> - Bulk email distribution operations</li>
+                            <li><strong>Survey Operations</strong> - Activate/deactivate surveys, manage quotas</li>
+                            <li><strong>Advanced Export</strong> - Custom data exports with filtering</li>
+                        </ul>
+                    </div>
+
+                    <div class="checklist">
+                        <h3>🎯 Success Checklist</h3>
+                        <ul>
+                            <li>Extension installed and accessible from Chrome toolbar</li>
+                            <li>API token generated and tested in Qualtrics</li>
+                            <li>Data center correctly selected</li>
+                            <li>CSV file follows required structure</li>
+                            <li>Small test batch processed successfully</li>
+                            <li>Ready to scale up to larger operations</li>
+                        </ul>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-brand">
+                        <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo" width="35" height="35"/>&nbsp;
+                        <span>Pirai AI</span>
+                    </div>
+                    <p class="footer-desc">
+                        Enterprise-grade survey automation platform transforming Word documents to Qualtrics format in minutes. 
+                        Save $121,740+ annually while multiplying your research team's capacity.
+                    </p>
+                    <div style="margin-top: 16px;">
+                        <p style="color: #6b7280; font-size: 14px; margin-bottom: 8px;">
+                            <strong style="color: #3b82f6;">📧 Contact:</strong> admin@piraiai.com
+                        </p>
+                        <p style="color: #6b7280; font-size: 14px;">
+                            <strong style="color: #22c55e;">🌙 New Beginnings:</strong> Transform your survey creation process
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Product</h3>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/#process">How It Works</a></li>
+                        <li><a href="/#features">Features</a></li>
+                        <li><a href="/#pricing">Pricing</a></li>
+                        <li><a href="/#demo">Early Access</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Free Tools</h3>
+                    <ul class="footer-links">
+						<li><a href="/qsf-to-excel">QSF to Excel</a></li>
+						<li><a href="/pirai-csv-comparator">CSV Comparator</a></li>
+						<li><a href="/embedded-data-generator">ED Generator</a></li>
+						<li><a href="/#roadmap">Product Roadmap</a></li>
+						<li><a href="https://chromewebstore.google.com/detail/qualtrics-embedded-data-g/fkkmlmjhiehciaaodjghecnjojendgfo" target="_blank" style="color: #34d399;">🟢 Chrome Extension</a></li>
+                        <li><a href="/qualtrics-toolkit" style="color: #3b82f6;">Command Center</a></li> 
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/#demo">Contact Us</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/terms">Terms of Service</a></li>
+                        <li><a href="/security">Security Overview</a></li>
+                        <li><a href="https://www.linkedin.com/company/pirai-ai/" target="_blank">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    © 2025 Pirai AI. All rights reserved. | Built with enterprise-grade security and privacy protection.
+                </div>
+                <div style="display: flex; gap: 16px; align-items: center;">
+                    <a href="https://www.linkedin.com/company/pirai-ai/" target="_blank" style="color: #6b7280; transition: color 0.3s;">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <span style="color: #6b7280; font-size: 12px;">Follow our journey</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add floating header effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+            } else {
+                nav.style.background = 'rgba(255, 255, 255, 0.8)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
