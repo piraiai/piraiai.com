@@ -928,6 +928,27 @@
                 align-items: center;
             }
         }
+
+        .chrome-badge-header {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, #4285f4, #1a73e8);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 16px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .chrome-badge-header:hover {
+            background: linear-gradient(135deg, #1a73e8, #1557b0);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(66, 133, 244, 0.3);
+        }
+          
     </style>
 </head>
 <body>
@@ -960,6 +981,7 @@
     <section class="hero">
         <div class="container">
             <h1>Free Embedded Data Generator for Qualtrics</h1>
+            <a href="https://chromewebstore.google.com/detail/qualtrics-embedded-data-g/fkkmlmjhiehciaaodjghecnjojendgfo" target="_blank" class="chrome-badge-header">🟢 Also available as Chrome Extension</a>
             <p class="hero-subtitle">
                 Transform CSV files into Qualtrics Advanced Format embedded data instantly. Supports field/value pairs, batch processing, templates, and intelligent field mapping. No more manual typing!
             </p>
