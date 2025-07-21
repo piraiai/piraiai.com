@@ -727,6 +727,89 @@
                         </div>
                     </div>
 
+                    <h3>📋 Insert Embedded Data Fields</h3>
+                    <p><strong>Use Case:</strong> Create new embedded data fields in your survey flow from a CSV file</p>
+                    
+                    <div class="steps-container">
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Enter Survey ID</h4>
+                                <p>In Configuration tab, enter your Survey ID (format: SV_xyz123)</p>
+                            </div>
+                        </div>
+
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Download Template (Optional)</h4>
+                                <p>Click "📥 Download Template" to get a pre-formatted CSV with example field types</p>
+                            </div>
+                        </div>
+
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Upload CSV File</h4>
+                                <p>Go to Data Upload tab and drag/drop your CSV file with embedded data field definitions</p>
+                            </div>
+                        </div>
+
+                        <div class="step-item">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Check Validation</h4>
+                                <p>Switch to Validation tab to verify CSV structure and field definitions</p>
+                            </div>
+                        </div>
+
+                        <div class="step-item">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <h4>Start Processing</h4>
+                                <p>Click "🚀 Send Request" to create the embedded data fields in your survey</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rules-box">
+                        <h4>📋 CSV Structure for Insert Embedded Data</h4>
+                        <ul>
+                            <li><strong>Required Column:</strong> "key" - The embedded data field name (case-sensitive)</li>
+                            <li><strong>Optional Column:</strong> "value" - Default value for the field (can be empty)</li>
+                            <li><strong>Optional Column:</strong> "type" - Field type (defaults to "textSet" if not specified)</li>
+                            <li><strong>Encoding:</strong> Save as UTF-8 to prevent character issues</li>
+                        </ul>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>📝 Example CSV Structure</h4>
+                        <code>
+                        key,value,type<br>
+                        source,,textSet<br>
+                        campaign,,text<br>
+                        customerType,prospect,textSet<br>
+                        customerID,,number<br>
+                        startDate,,date<br>
+                        trackingCode,,filterOnly
+                        </code>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>🔧 Supported Field Types</h4>
+                        <ul>
+                            <li><strong>textSet</strong> - Text field that can hold multiple values (default)</li>
+                            <li><strong>text</strong> - Single text field</li>
+                            <li><strong>number</strong> - Numeric values only</li>
+                            <li><strong>date</strong> - Date field with validation</li>
+                            <li><strong>filterOnly</strong> - Used for filtering/logic only, not displayed</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning">
+                        <strong>⚠️ Important:</strong> This operation creates NEW embedded data fields in your survey flow. If fields with the same names already exist, the operation may fail. Use unique field names or check your existing survey flow first.
+                    </div>                    
+
                     <h3>📊 Bulk Response Update</h3>
                     <p><strong>Use Case:</strong> Update embedded data for thousands of survey responses</p>
                     
@@ -742,13 +825,21 @@
                         <div class="step-item">
                             <div class="step-number">2</div>
                             <div class="step-content">
+                                <h4>Download Template (Optional)</h4>
+                                <p>Click "📥 Download Template" to get a pre-formatted CSV with example field types</p>
+                            </div>
+                        </div>                        
+
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
                                 <h4>Upload CSV File</h4>
                                 <p>Go to Data Upload tab and drag/drop your CSV file</p>
                             </div>
                         </div>
 
                         <div class="step-item">
-                            <div class="step-number">3</div>
+                            <div class="step-number">4</div>
                             <div class="step-content">
                                 <h4>Check Validation</h4>
                                 <p>Switch to Validation tab to verify CSV structure and data</p>
@@ -756,7 +847,7 @@
                         </div>
 
                         <div class="step-item">
-                            <div class="step-number">4</div>
+                            <div class="step-number">5</div>
                             <div class="step-content">
                                 <h4>Start Processing</h4>
                                 <p>Click "🚀 Send Request" to begin bulk update operation</p>
@@ -764,7 +855,7 @@
                         </div>
 
                         <div class="step-item">
-                            <div class="step-number">5</div>
+                            <div class="step-number">6</div>
                             <div class="step-content">
                                 <h4>Monitor Progress</h4>
                                 <p>Watch real-time progress and save the Progress ID for tracking</p>
