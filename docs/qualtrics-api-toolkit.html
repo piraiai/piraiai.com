@@ -568,7 +568,8 @@
                         <li><a href="#csv-requirements">CSV Requirements</a></li>
                         <li><a href="#troubleshooting">Troubleshooting</a></li>
                         <li><a href="#best-practices">Best Practices</a></li>
-                        <li><a href="#help">Need Help</a></li>
+                        <li><a href="#help">Need Help</a></li>                        
+                        <li><a href="#api-privacy">API Key Storage & Privacy</a></li>
                     </ul>
                 </div>
 
@@ -972,9 +973,85 @@
                     </div>
                 </section>
 
+                <!-- API Key Storage & Privacy Section -->
+                <section id="api-privacy">
+                    <h2>🔐 API Key Storage & Privacy</h2>
+                    
+                    <div class="overview-box">
+                        <h3>Zero-Trust Architecture</h3>
+                        <p>Your security and privacy are our top priorities. The Qualtrics API Toolkit is designed with a zero-trust architecture that ensures your sensitive data never leaves your device.</p>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>💾 Local Only Storage</h4>
+                        <ul>
+                            <li><strong>Browser-native storage only</strong> - API keys stored exclusively in Chrome's local storage</li>
+                            <li><strong>No external servers involved</strong> - Your credentials never leave your device</li>
+                            <li><strong>Data encrypted by Chrome</strong> - Built-in browser security protects your information</li>
+                            <li><strong>No cloud synchronization</strong> - Data stays completely local to your machine</li>
+                        </ul>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>🔗 Direct API Communication</h4>
+                        <ul>
+                            <li><strong>No proxy servers</strong> - Extension communicates directly with Qualtrics APIs</li>
+                            <li><strong>End-to-end encrypted connections</strong> - All communication uses HTTPS/TLS</li>
+                            <li><strong>No middleware processing</strong> - Your data never touches our infrastructure</li>
+                            <li><strong>Zero data interception</strong> - We can't see or access your API calls</li>
+                        </ul>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>⚡ Client-Side Processing</h4>
+                        <ul>
+                            <li><strong>In-memory processing only</strong> - CSV files processed entirely in browser memory</li>
+                            <li><strong>No temporary file storage</strong> - Files destroyed immediately after use</li>
+                            <li><strong>Automatic memory cleanup</strong> - Browser handles secure data destruction</li>
+                            <li><strong>No server uploads</strong> - Your files never leave your computer</li>
+                        </ul>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>🔧 Technical Security Details</h4>
+                        <ul>
+                            <li><strong>Manifest V3 compliance</strong> - Uses latest Chrome extension security standards</li>
+                            <li><strong>Minimal permissions</strong> - Only requests access to Qualtrics domains and local storage</li>
+                            <li><strong>No external dependencies</strong> - All processing happens locally in your browser</li>
+                            <li><strong>Open source transparency</strong> - Code available for security review</li>
+                        </ul>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>📊 Data Lifecycle</h4>
+                        <ul>
+                            <li><strong>API Keys</strong> - Stored locally, never transmitted except directly to Qualtrics</li>
+                            <li><strong>CSV Files</strong> - Loaded → Processed in memory → Immediately destroyed</li>
+                            <li><strong>API Responses</strong> - Displayed temporarily, cleared on page refresh</li>
+                            <li><strong>No tracking or analytics</strong> - Zero user behavior monitoring</li>
+                        </ul>
+                    </div>
+
+                    <div class="checklist">
+                        <h3>✅ GDPR Compliance</h3>
+                        <ul>
+                            <li>Inherently GDPR compliant - no data processing on our servers</li>
+                            <li>Privacy by design architecture prevents data collection</li>
+                            <li>No data retention policies needed - we never receive your data</li>
+                            <li>No consent management required - your browser handles everything locally</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning">
+                        <strong>🛡️ Privacy Guarantee:</strong> The Qualtrics API Toolkit is built with privacy by design principles. We can't access your data because we never receive it in the first place. Your privacy is protected by architecture, not just policy.
+                    </div>
+                </section>          
+
             </div>
         </div>
     </div>
+
+
 
     <!-- Footer -->
     <footer class="footer">
