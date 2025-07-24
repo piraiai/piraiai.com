@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <!-- End Google Tag Manager -->    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Free Text IQ JSON to Excel Converter | Pirai AI | Qualtrics Topic Analysis Tool</title>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Pirai AI",
+      "url": "https://piraiai.com",
+      "logo": "https://piraiai.com/logo.png"
+    }
+    </script>    
+    
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+	<link rel="apple-touch-icon" href="https://piraiai.com/logo.png">
+	<meta name="description" content="Free Text IQ JSON to Excel converter tool. Transform Qualtrics Text IQ topic exports into comprehensive Excel workbooks. Built by Pirai AI text analytics experts.">
+    <!-- Open Graph for social sharing -->
+    <meta property="og:title" content="Free Text IQ JSON to Excel Converter - Pirai AI">
+    <meta property="og:description" content="Convert Qualtrics Text IQ JSON exports to comprehensive Excel documentation workbooks. Free tool by Pirai AI.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://piraiai.com/textiq-to-excel">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+
+    <link rel="canonical" href="https://piraiai.com/textiq-to-excel" />
+    <!-- Excel Processing Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Footer */
+        .footer {
+            background: rgba(17, 24, 39, 0.5);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid #374151;
+            padding: 48px 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 32px;
+        }
+        
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .footer-brand span {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        
+        .footer-desc {
+            color: #9ca3af;
+            margin-bottom: 16px;
+            max-width: 400px;
+        }
+        
+        .footer-section h3 {
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            margin-top: 32px;
+            padding-top: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        
+        .footer-bottom .copyright {
+            color: #9ca3af;
+            font-size: 14px;
+        }
+        
+        .nav-cta {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            padding: 8px 24px;
+            border-radius: 24px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #e5e7eb;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        .nav {
+            background: rgba(17, 24, 39, 0.5);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #374151;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 8px;
+            margin-right: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            padding: 140px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 50px;
+            padding: 8px 16px;
+            font-size: 14px;
+            color: #60a5fa;
+            margin-bottom: 32px;
+        }
+        
+        .hero-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.4;
+        }
+        
+        .hero-subtitle {
+            font-size: 24px;
+            color: #d1d5db;
+            margin-bottom: 32px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-highlight {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(59, 130, 246, 0.2));
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-highlight h3 {
+            font-size: 24px;
+            color: #22c55e;
+            margin-bottom: 8px;
+        }
+        
+        .hero-highlight p {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        
+        /* Privacy Section */
+        .privacy-section {
+            margin-top: 32px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .privacy-badge {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(59, 130, 246, 0.15));
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+        
+        .privacy-icon {
+            font-size: 32px;
+            flex-shrink: 0;
+        }
+        
+        .privacy-content h4 {
+            font-size: 20px;
+            color: #10b981;
+            margin-bottom: 8px;
+        }
+        
+        .privacy-content p {
+            color: #d1d5db;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+        
+        .privacy-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .privacy-features span {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        
+        /* Tool Section */
+        .tool-section {
+            padding: 80px 0;
+            background: rgba(15, 23, 42, 0.5);
+        }
+        
+        .tool-container {
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid #374151;
+            border-radius: 24px;
+            padding: 48px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+        
+        .file-input-section {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .file-input-label {
+            display: inline-block;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 24px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+        }
+        
+        .file-input-label:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(34, 197, 94, 0.3);
+        }
+        
+        /* File Status Styles */
+        .file-status {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 24px;
+            border-radius: 16px;
+            border: 2px solid;
+        }
+        
+        .file-status.loading {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+        
+        .file-status.success {
+            background: rgba(34, 197, 94, 0.1);
+            border-color: rgba(34, 197, 94, 0.3);
+        }
+        
+        .file-status.error {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: rgba(239, 68, 68, 0.3);
+        }
+        
+        .file-loading, .file-success, .file-error {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .loading-spinner {
+            width: 32px;
+            height: 32px;
+            border: 3px solid rgba(59, 130, 246, 0.3);
+            border-top: 3px solid #3b82f6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        .success-icon, .error-icon {
+            font-size: 32px;
+            flex-shrink: 0;
+        }
+        
+        .file-info {
+            flex: 1;
+            text-align: left;
+        }
+        
+        .file-info h4 {
+            color: #ffffff;
+            font-size: 16px;
+            margin-bottom: 4px;
+            word-break: break-all;
+        }
+        
+        .file-info p {
+            color: #d1d5db;
+            font-size: 14px;
+            margin: 0;
+        }
+        
+        .change-file-btn {
+            background: transparent;
+            color: #9ca3af;
+            border: 1px solid #6b7280;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .change-file-btn:hover {
+            color: #ffffff;
+            border-color: #9ca3af;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 24px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s;
+            cursor: pointer;
+            margin: 10px;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(34, 197, 94, 0.3);
+        }
+        
+        .btn-secondary {
+            border: 1px solid #6b7280;
+            color: #d1d5db;
+            padding: 16px 32px;
+            border-radius: 24px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s;
+            background: transparent;
+            cursor: pointer;
+            margin: 10px;
+        }
+        
+        .btn-secondary:hover {
+            border-color: #9ca3af;
+            color: #ffffff;
+        }
+        
+        .download-btn {
+            background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+        }
+        
+        .download-btn:hover {
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+        }
+        
+        /* Progress */
+        .progress {
+            display: none;
+            text-align: center;
+            margin: 40px 0;
+            padding: 40px;
+            background: rgba(55, 65, 81, 0.3);
+            border-radius: 16px;
+        }
+        
+        .loading {
+            width: 60px;
+            height: 60px;
+            border: 4px solid #374151;
+            border-top: 4px solid #3b82f6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 24px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 32px 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2));
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: #3b82f6;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #60a5fa;
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: #d1d5db;
+        }
+        
+        /* Sheets Preview */
+        .sheets-preview {
+            background: rgba(55, 65, 81, 0.3);
+            border-radius: 16px;
+            padding: 32px;
+            margin: 32px 0;
+        }
+        
+        .sheet-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+            margin: 8px 0;
+            background: rgba(31, 41, 55, 0.5);
+            border-radius: 8px;
+            border: 1px solid #374151;
+            transition: all 0.3s;
+        }
+        
+        .sheet-item:hover {
+            background: rgba(55, 65, 81, 0.7);
+            border-color: #6b7280;
+        }
+        
+        .sheet-icon {
+            font-size: 24px;
+            margin-right: 16px;
+        }
+        
+        .sheet-info {
+            flex: 1;
+        }
+        
+        .sheet-info h4 {
+            color: #ffffff;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+        
+        .sheet-info p {
+            color: #9ca3af;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        /* Floating elements */
+        .float-element-1 {
+            position: absolute;
+            top: 25%;
+            left: 25%;
+            width: 256px;
+            height: 256px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .float-element-2 {
+            position: absolute;
+            bottom: 25%;
+            right: 25%;
+            width: 384px;
+            height: 384px;
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: float 6s ease-in-out infinite;
+            animation-delay: -3s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .hero-subtitle {
+                font-size: 18px;
+            }
+            
+            .tool-container {
+                padding: 32px 24px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .privacy-badge {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .file-status {
+                padding: 16px;
+            }
+            
+            .file-loading, .file-success, .file-error {
+                flex-direction: column;
+                text-align: center;
+                gap: 12px;
+            }
+            
+            .file-info {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/" class="logo">
+                    <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo" width="35" height="35"/>&nbsp;
+                    Pirai AI
+                </a>
+                <ul class="nav-links">
+                    <li><a href="/#process">How It Works</a></li>
+                    <!-- <li><a href="/#features">Features</a></li> -->
+                    <li><a href="/#roi">ROI</a></li>
+                    <li><a href="/#pricing">Pricing</a></li>                                        
+                    <li><a href="/qualtrics-toolkit" style="color: #3b82f6;">Command Center</a></li>
+                </ul>
+                <a href="/#demo" class="nav-cta">Get Early Access</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    🎯 Text Analytics Made Simple
+                </div>
+                
+                <h1 class="hero-title">
+                    Text IQ JSON to Excel Converter
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Transform Qualtrics Text IQ topic exports into comprehensive Excel workbooks. 
+                    Professional text analytics documentation made simple.
+                </p>
+                
+                <div class="hero-highlight">
+                    <h3>🎁 Completely Free Tool</h3>
+                    <p>Convert Text IQ JSON files to detailed Excel reports with topic hierarchy, queries, and analytics</p>
+                </div>
+                
+                <!-- Privacy & Security Badge -->
+                <div class="privacy-section">
+                    <div class="privacy-badge">
+                        <div class="privacy-icon">🔒</div>
+                        <div class="privacy-content">
+                            <h4>100% Private & GDPR Compliant</h4>
+                            <p>Your Text IQ files are processed entirely in your browser. No uploads, no storage, no data retention. We literally cannot access your files.</p>
+                            <div class="privacy-features">
+                                <span>✓ Client-side processing only</span>
+                                <span>✓ Zero server data storage</span>
+                                <span>✓ GDPR & HIPAA friendly</span>
+                                <span>✓ Enterprise security standards</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Floating Elements -->
+        <div class="float-element-1"></div>
+        <div class="float-element-2"></div>
+    </section>
+
+    <!-- Tool Section -->
+    <section class="tool-section">
+        <div class="container">
+            <div class="tool-container">
+                <div class="file-input-section" id="fileInputSection">
+                    <label for="textiqFile" class="file-input-label">
+                        📁 Select your Text IQ JSON file to convert into Excel documentation
+                    </label>
+                    <input type="file" id="textiqFile" accept=".json" style="display: none;">
+                </div>
+
+                <div style="text-align: center;">
+                    <button class="btn-primary" onclick="processTextIQ()">🔄 Generate Excel Workbook</button>
+                    <button class="btn-secondary" onclick="loadSampleData()">📋 View Sample Structure</button>
+                    <button class="btn-primary download-btn" id="downloadBtn" onclick="downloadExcel()" style="display: none;">📥 Download Excel File</button>
+                </div>
+
+                <div class="progress" id="progress">
+                    <div class="loading"></div>
+                    <p style="color: #d1d5db;">Processing Text IQ data and generating Excel workbook...</p>
+                </div>
+
+                <div id="stats" style="display: none;">
+                    <h3 style="color: #ffffff; text-align: center; margin-bottom: 24px;">📈 Analysis Results</h3>
+                    <div class="stats-grid" id="statsGrid"></div>
+                </div>
+
+                <div id="sheetsPreview" style="display: none;">
+                    <h3 style="color: #ffffff; margin-bottom: 24px;">📋 Excel Sheets Generated</h3>
+                    <div class="sheets-preview" id="sheetsList"></div>
+                </div>
+
+                <div class="sample-data" id="sampleData"></div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let textiqData = null;
+        let excelBuffer = null;
+
+        // File input handling
+        document.getElementById('textiqFile').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                // Validate file type first
+                if (!file.name.toLowerCase().endsWith('.json')) {
+                    updateFileStatus('error', '❌ Please select a .json file. Text IQ exports are in JSON format.', file.name, file.size);
+                    return;
+                }
+                
+                // Check file size (limit to 50MB to prevent browser crashes)
+                if (file.size > 50 * 1024 * 1024) {
+                    updateFileStatus('error', '❌ File too large (>50MB). Please contact support for large exports.', file.name, file.size);
+                    return;
+                }
+                
+                // Show loading state
+                updateFileStatus('loading', 'Reading and validating file...', file.name, file.size);
+                
+                const reader = new FileReader();
+                
+                reader.onerror = function() {
+                    updateFileStatus('error', '❌ Error reading file. Please try again or contact support.', file.name, file.size);
+                };
+                
+                reader.onload = function(e) {
+                    try {
+                        // Parse JSON
+                        const jsonData = JSON.parse(e.target.result);
+                        
+                        // Validate it's a Text IQ export
+                        const validationResult = validateTextIQFormat(jsonData, file.name);
+                        
+                        if (validationResult.isValid) {
+                            textiqData = jsonData;
+                            updateFileStatus('success', validationResult.message, file.name, file.size);
+                            
+                            if (typeof dataLayer !== 'undefined') {
+                                dataLayer.push({
+                                    'event': 'textiq_file_uploaded',
+                                    'file_size': Math.round(file.size / 1024) + 'KB',
+                                    'topics_count': validationResult.topicCount
+                                });
+                            }
+                        } else {
+                            updateFileStatus('error', validationResult.message, file.name, file.size);
+                        }
+                        
+                    } catch (error) {
+                        // Specific JSON parsing errors
+                        let errorMessage = '❌ Invalid JSON file. ';
+                        
+                        if (error.message.includes('Unexpected token')) {
+                            errorMessage += 'File appears to be corrupted or not in JSON format.';
+                        } else if (error.message.includes('Unexpected end')) {
+                            errorMessage += 'File seems incomplete or truncated.';
+                        } else {
+                            errorMessage += 'Please ensure this is a valid Text IQ export file.';
+                        }
+                        
+                        updateFileStatus('error', errorMessage, file.name, file.size);
+                        console.error('JSON parsing error:', error);
+                    }
+                };
+                
+                reader.readAsText(file);
+            }
+        });
+
+        function validateTextIQFormat(jsonData, fileName) {
+            // Check if it's empty
+            if (!jsonData || Object.keys(jsonData).length === 0) {
+                return {
+                    isValid: false,
+                    message: '❌ Empty JSON file. Please select a valid Text IQ export.'
+                };
+            }
+            
+            // Check for Text IQ specific structure
+            if (!jsonData.operations) {
+                // Check if it might be a different Qualtrics export
+                if (jsonData.SurveyEntry || jsonData.SurveyElements) {
+                    return {
+                        isValid: false,
+                        message: '❌ This appears to be a QSF survey file, not a Text IQ export. Use our QSF to Excel tool instead.'
+                    };
+                }
+                
+                if (jsonData.responses || jsonData.Response) {
+                    return {
+                        isValid: false,
+                        message: '❌ This appears to be survey response data, not a Text IQ topic export.'
+                    };
+                }
+                
+                return {
+                    isValid: false,
+                    message: '❌ Invalid Text IQ format. Missing "operations" array. Please export topics from Text IQ.'
+                };
+            }
+            
+            // Check if operations array is valid
+            if (!Array.isArray(jsonData.operations)) {
+                return {
+                    isValid: false,
+                    message: '❌ Invalid Text IQ format. "operations" should be an array.'
+                };
+            }
+            
+            // Check if it has any topic operations
+            const topicOps = jsonData.operations.filter(op => op.operation === 'insert_topic');
+            if (topicOps.length === 0) {
+                return {
+                    isValid: false,
+                    message: '❌ No topics found in this export. Please ensure you exported topics from Text IQ.'
+                };
+            }
+            
+            // Check version compatibility
+            if (jsonData.version && jsonData.version !== "2.0") {
+                return {
+                    isValid: false,
+                    message: `⚠️ Text IQ version ${jsonData.version} detected. This tool supports version 2.0. Results may vary.`,
+                    topicCount: topicOps.length
+                };
+            }
+            
+            // Success - valid Text IQ export
+            return {
+                isValid: true,
+                message: `✅ Valid Text IQ export! Found ${topicOps.length} topics ready for conversion.`,
+                topicCount: topicOps.length
+            };
+        }
+
+        function updateFileStatus(status, message, fileName, fileSize) {
+            const fileSection = document.getElementById('fileInputSection');
+            const sizeInKB = Math.round(fileSize / 1024);
+            
+            if (status === 'loading') {
+                fileSection.innerHTML = `
+                    <div class="file-status loading">
+                        <div class="file-loading">
+                            <div class="loading-spinner"></div>
+                            <div class="file-info">
+                                <h4>${fileName}</h4>
+                                <p>${sizeInKB}KB • ${message}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (status === 'success') {
+                fileSection.innerHTML = `
+                    <div class="file-status success">
+                        <div class="file-success">
+                            <div class="success-icon">📁</div>
+                            <div class="file-info">
+                                <h4>${fileName}</h4>
+                                <p>${sizeInKB}KB • ${message}</p>
+                            </div>
+                            <button class="change-file-btn" onclick="resetFileInput()">Change File</button>
+                        </div>
+                    </div>
+                `;
+            } else if (status === 'error') {
+                fileSection.innerHTML = `
+                    <div class="file-status error">
+                        <div class="file-error">
+                            <div class="error-icon">⚠️</div>
+                            <div class="file-info">
+                                <h4>${fileName}</h4>
+                                <p>${sizeInKB}KB • ${message}</p>
+                            </div>
+                            <button class="change-file-btn" onclick="resetFileInput()">Try Again</button>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function resetFileInput() {
+            document.getElementById('fileInputSection').innerHTML = `
+                <label for="textiqFile" class="file-input-label">
+                    📁 Select your Text IQ JSON file to convert into Excel documentation
+                </label>
+                <input type="file" id="textiqFile" accept=".json" style="display: none;">
+            `;
+            
+            // Reattach event listener
+            document.getElementById('textiqFile').addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    // Show loading state
+                    updateFileStatus('loading', 'Reading file...', file.name, file.size);
+                    
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        try {
+                            textiqData = JSON.parse(e.target.result);
+                            console.log('Text IQ data loaded successfully');
+                            
+                            // Show success state
+                            const topicCount = textiqData.operations ? textiqData.operations.filter(op => op.operation === 'insert_topic').length : 0;
+                            updateFileStatus('success', `✅ File loaded successfully! Found ${topicCount} topics`, file.name, file.size);
+                            
+                            if (typeof dataLayer !== 'undefined') {
+                                dataLayer.push({
+                                    'event': 'textiq_file_uploaded',
+                                    'file_size': Math.round(file.size / 1024) + 'KB'
+                                });
+                            }
+                        } catch (error) {
+                            updateFileStatus('error', '❌ Invalid JSON file. Please select a valid Text IQ export file.', file.name, file.size);
+                            console.error('JSON parsing error:', error);
+                        }
+                    };
+                    reader.readAsText(file);
+                }
+            });
+            textiqData = null;
+        }
+
+        function processTextIQ() {
+            if (!textiqData) {
+                // Highlight the file input area
+                const fileSection = document.getElementById('fileInputSection');
+                fileSection.style.animation = 'shake 0.5s ease-in-out';
+                setTimeout(() => {
+                    fileSection.style.animation = '';
+                }, 500);
+                
+                updateFileStatus('error', '❌ Please select a valid Text IQ JSON file first.', 'No file selected', 0);
+                return;
+            }
+
+            // Double-check data integrity before processing
+            try {
+                const topicOps = textiqData.operations.filter(op => op.operation === 'insert_topic');
+                if (topicOps.length === 0) {
+                    updateFileStatus('error', '❌ No topics found. Please check your Text IQ export.', 'Current file', 0);
+                    return;
+                }
+
+                console.log(`Processing Text IQ data with ${topicOps.length} topics...`);
+                document.getElementById('progress').style.display = 'block';
+                
+                // Track processing start
+                if (typeof dataLayer !== 'undefined') {
+                    dataLayer.push({
+                        'event': 'textiq_processing_started',
+                        'topics_count': topicOps.length
+                    });
+                }
+                
+                setTimeout(() => {
+                    generateExcelWorkbook();
+                }, 500);
+                
+            } catch (error) {
+                console.error('Error during processing:', error);
+                updateFileStatus('error', '❌ Error processing file. Please try uploading again.', 'Processing error', 0);
+            }
+        }
+
+        function generateExcelWorkbook() {
+            try {
+                // Parse Text IQ data structure
+                const insertTopicOps = textiqData.operations.filter(op => op.operation === 'insert_topic');
+                const moveTopicOps = textiqData.operations.filter(op => op.operation === 'move_topics');
+                const rootNodes = textiqData.rootNodes || [];
+
+                // Build topic map
+                const topicMap = new Map();
+                const hierarchyMap = new Map();
+
+                // Create topic entries
+                insertTopicOps.forEach(op => {
+                    try {
+                        const topic = op.topic;
+                        if (!topic || !topic.label) {
+                            console.warn('Skipping invalid topic:', op);
+                            return;
+                        }
+                        
+                        topicMap.set(topic.label, {
+                            id: topic.topicId || 'unknown',
+                            label: topic.label,
+                            query: topic.query || '',
+                            baseQuery: topic.baseQuery || '',
+                            level: 1,
+                            parent: null,
+                            children: []
+                        });
+                    } catch (error) {
+                        console.warn('Error processing topic:', op, error);
+                    }
+                });
+
+                if (topicMap.size === 0) {
+                    throw new Error('No valid topics found in the export');
+                }
+
+                // Build hierarchy from move operations
+                moveTopicOps.forEach(op => {
+                    try {
+                        const parentLabel = op.parentLabel;
+                        const childLabels = op.childLabels || [];
+                        
+                        if (topicMap.has(parentLabel)) {
+                            childLabels.forEach(childLabel => {
+                                if (topicMap.has(childLabel)) {
+                                    const parent = topicMap.get(parentLabel);
+                                    const child = topicMap.get(childLabel);
+                                    
+                                    child.parent = parentLabel;
+                                    parent.children.push(childLabel);
+                                    hierarchyMap.set(childLabel, parentLabel);
+                                }
+                            });
+                        }
+                    } catch (error) {
+                        console.warn('Error processing hierarchy:', op, error);
+                    }
+                });
+
+                // Calculate levels (1-5 max)
+                function calculateLevel(topicLabel, visited = new Set()) {
+                    if (visited.has(topicLabel)) return 1; // Prevent cycles
+                    visited.add(topicLabel);
+                    
+                    const parent = hierarchyMap.get(topicLabel);
+                    if (!parent || !topicMap.has(parent)) {
+                        return 1; // Root level
+                    }
+                    
+                    const parentLevel = calculateLevel(parent, visited);
+                    return Math.min(parentLevel + 1, 5); // Max 5 levels
+                }
+
+                // Update levels for all topics
+                topicMap.forEach((topic, label) => {
+                    try {
+                        topic.level = calculateLevel(label);
+                    } catch (error) {
+                        console.warn('Error calculating level for topic:', label, error);
+                        topic.level = 1; // Default to root level
+                    }
+                });
+
+                // Create Excel workbook
+                const workbook = XLSX.utils.book_new();
+
+                // Sheet 1: Topic Overview
+                const overviewData = [
+                    ["Pirai AI - Text IQ Analysis Report", ""],
+                    ["Property", "Value"],
+                    ["Export Version", textiqData.version || "2.0"],
+                    ["Total Topics", topicMap.size],
+                    ["Root Categories", rootNodes.length],
+                    ["Move Operations", moveTopicOps.length],
+                    ["Max Hierarchy Depth", Math.max(...Array.from(topicMap.values()).map(t => t.level))],
+                    [""],
+                    ["Hierarchy Statistics", ""],
+                    ["Level 1 Topics", Array.from(topicMap.values()).filter(t => t.level === 1).length],
+                    ["Level 2 Topics", Array.from(topicMap.values()).filter(t => t.level === 2).length],
+                    ["Level 3 Topics", Array.from(topicMap.values()).filter(t => t.level === 3).length],
+                    ["Level 4 Topics", Array.from(topicMap.values()).filter(t => t.level === 4).length],
+                    ["Level 5 Topics", Array.from(topicMap.values()).filter(t => t.level === 5).length],
+                    [""],
+                    ["Query Statistics", ""],
+                    ["Topics with Queries", Array.from(topicMap.values()).filter(t => t.query).length],
+                    ["Topics without Queries", Array.from(topicMap.values()).filter(t => !t.query).length],
+                    [""],
+                    ["Generated on", new Date().toISOString()],
+                    ["Generated by", "Pirai AI Text IQ Converter"]
+                ];
+
+                XLSX.utils.book_append_sheet(workbook, XLSX.utils.aoa_to_sheet(overviewData), "Topic Overview");
+
+                // Sheet 2: Topic Hierarchy (Visual Tree)
+                const hierarchyData = [
+                    ["Level", "Topic ID", "Indented Topic Name", "Parent", "Query", "Children Count", "Has Query"]
+                ];
+
+                // Build hierarchical display
+                function addTopicToHierarchy(topicLabel, level = 1, processed = new Set()) {
+                    if (processed.has(topicLabel) || !topicMap.has(topicLabel)) return;
+                    processed.add(topicLabel);
+                    
+                    const topic = topicMap.get(topicLabel);
+                    const indent = "  ".repeat(level - 1);
+                    const prefix = level === 1 ? "" : (level === 2 ? "├─ " : "  ├─ ");
+                    const indentedName = indent + prefix + topic.label;
+                    
+                    hierarchyData.push([
+                        level,
+                        topic.id,
+                        indentedName,
+                        topic.parent || "",
+                        topic.query.length > 100 ? topic.query.substring(0, 100) + "..." : topic.query,
+                        topic.children.length,
+                        topic.query ? "Yes" : "No"
+                    ]);
+                    
+                    // Add children
+                    topic.children.forEach(childLabel => {
+                        addTopicToHierarchy(childLabel, level + 1, processed);
+                    });
+                }
+
+                // Start with root nodes
+                rootNodes.forEach(rootLabel => {
+                    addTopicToHierarchy(rootLabel);
+                });
+
+                XLSX.utils.book_append_sheet(workbook, XLSX.utils.aoa_to_sheet(hierarchyData), "Topic Hierarchy");
+
+                // Sheet 3: Flat Topic List
+                const flatData = [
+                    ["Topic ID", "Topic Label", "Level", "Parent", "Query", "Base Query", "Children", "Root Category"]
+                ];
+
+                topicMap.forEach(topic => {
+                    // Find root category
+                    let rootCategory = topic.label;
+                    let current = topic;
+                    while (current.parent && topicMap.has(current.parent)) {
+                        current = topicMap.get(current.parent);
+                        rootCategory = current.label;
+                    }
+                    
+                    flatData.push([
+                        topic.id,
+                        topic.label,
+                        topic.level,
+                        topic.parent || "",
+                        topic.query,
+                        topic.baseQuery,
+                        topic.children.join(", "),
+                        rootCategory
+                    ]);
+                });
+
+                XLSX.utils.book_append_sheet(workbook, XLSX.utils.aoa_to_sheet(flatData), "Flat Topic List");
+
+                // Sheet 4: Query Analysis
+                const queryData = [
+                    ["Topic Label", "Query Length", "Operators Used", "Complexity Score", "Query Type", "Query Preview"]
+                ];
+
+                topicMap.forEach(topic => {
+                    if (topic.query) {
+                        const operators = [];
+                        if (topic.query.includes('|')) operators.push('OR');
+                        if (topic.query.includes('&')) operators.push('AND');
+                        if (topic.query.includes('-')) operators.push('NOT');
+                        if (topic.query.includes('~')) operators.push('PROXIMITY');
+                        if (topic.query.includes('(')) operators.push('GROUPING');
+                        if (topic.query.includes('"')) operators.push('EXACT');
+                        
+                        const complexity = operators.length + (topic.query.split('|').length - 1) + (topic.query.split('&').length - 1);
+                        const queryType = operators.length === 0 ? 'Simple' : (operators.length <= 2 ? 'Medium' : 'Complex');
+                        
+                        queryData.push([
+                            topic.label,
+                            topic.query.length,
+                            operators.join(', '),
+                            complexity,
+                            queryType,
+                            topic.query.length > 50 ? topic.query.substring(0, 50) + "..." : topic.query
+                        ]);
+                    }
+                });
+
+                XLSX.utils.book_append_sheet(workbook, XLSX.utils.aoa_to_sheet(queryData), "Query Analysis");
+
+                // Sheet 5: Root Categories
+                const rootData = [
+                    ["Root Category", "Direct Children", "Total Descendants", "Max Depth", "Topics with Queries"]
+                ];
+
+                rootNodes.forEach(rootLabel => {
+                    if (topicMap.has(rootLabel)) {
+                        const root = topicMap.get(rootLabel);
+                        
+                        // Count descendants recursively
+                        function countDescendants(label, counted = new Set()) {
+                            if (counted.has(label) || !topicMap.has(label)) return 0;
+                            counted.add(label);
+                            
+                            const topic = topicMap.get(label);
+                            let count = topic.children.length;
+                            topic.children.forEach(child => {
+                                count += countDescendants(child, counted);
+                            });
+                            return count;
+                        }
+                        
+                        // Find max depth
+                        function findMaxDepth(label, depth = 1, visited = new Set()) {
+                            if (visited.has(label) || !topicMap.has(label)) return depth;
+                            visited.add(label);
+                            
+                            const topic = topicMap.get(label);
+                            if (topic.children.length === 0) return depth;
+                            
+                            return Math.max(...topic.children.map(child => 
+                                findMaxDepth(child, depth + 1, new Set(visited))
+                            ));
+                        }
+                        
+                        // Count topics with queries in this branch
+                        function countQueriedTopics(label, visited = new Set()) {
+                            if (visited.has(label) || !topicMap.has(label)) return 0;
+                            visited.add(label);
+                            
+                            const topic = topicMap.get(label);
+                            let count = topic.query ? 1 : 0;
+                            topic.children.forEach(child => {
+                                count += countQueriedTopics(child, new Set(visited));
+                            });
+                            return count;
+                        }
+                        
+                        rootData.push([
+                            root.label,
+                            root.children.length,
+                            countDescendants(rootLabel),
+                            findMaxDepth(rootLabel),
+                            countQueriedTopics(rootLabel)
+                        ]);
+                    }
+                });
+
+                XLSX.utils.book_append_sheet(workbook, XLSX.utils.aoa_to_sheet(rootData), "Root Categories");
+
+                // Generate Excel file
+                excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+
+                // Calculate statistics
+                const stats = {
+                    topics: topicMap.size,
+                    rootCategories: rootNodes.length,
+                    maxLevel: Math.max(...Array.from(topicMap.values()).map(t => t.level)),
+                    queriedTopics: Array.from(topicMap.values()).filter(t => t.query).length,
+                    sheets: 5,
+                    fileSize: Math.round(excelBuffer.byteLength / 1024)
+                };
+
+                // Update UI
+                document.getElementById('progress').style.display = 'none';
+                showResults(stats);
+
+                // Track completion
+                if (typeof dataLayer !== 'undefined') {
+                    dataLayer.push({
+                        'event': 'textiq_processing_completed',
+                        'topics_count': stats.topics,
+                        'file_size_kb': stats.fileSize
+                    });
+                }
+
+            } catch (error) {
+                console.error('Error generating Excel workbook:', error);
+                document.getElementById('progress').style.display = 'none';
+                
+                // Show specific error message
+                let errorMessage = 'Error processing Text IQ data: ';
+                if (error.message.includes('No valid topics')) {
+                    errorMessage += 'No valid topics found in the export file.';
+                } else if (error.message.includes('memory')) {
+                    errorMessage += 'File too large for browser processing. Please contact support.';
+                } else {
+                    errorMessage += error.message || 'Unknown error occurred.';
+                }
+                
+                updateFileStatus('error', '❌ ' + errorMessage, 'Processing error', 0);
+            }
+        }
+
+        function showResults(stats) {
+            // Show statistics
+            const statsGrid = document.getElementById('statsGrid');
+            statsGrid.innerHTML = `
+                <div class="stat-card">
+                    <span class="stat-number">${stats.topics}</span>
+                    <div class="stat-label">Total Topics</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">${stats.rootCategories}</span>
+                    <div class="stat-label">Root Categories</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">${stats.maxLevel}</span>
+                    <div class="stat-label">Max Hierarchy Level</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">${stats.queriedTopics}</span>
+                    <div class="stat-label">Topics with Queries</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">${stats.sheets}</span>
+                    <div class="stat-label">Excel Sheets</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">${stats.fileSize}KB</span>
+                    <div class="stat-label">File Size</div>
+                </div>
+            `;
+
+            // Show sheets preview
+            const sheetsList = document.getElementById('sheetsList');
+            sheetsList.innerHTML = `
+                <div class="sheet-item">
+                    <div class="sheet-icon">📊</div>
+                    <div class="sheet-info">
+                        <h4>Topic Overview</h4>
+                        <p>Summary statistics and metadata about your Text IQ analysis</p>
+                    </div>
+                </div>
+                <div class="sheet-item">
+                    <div class="sheet-icon">🌳</div>
+                    <div class="sheet-info">
+                        <h4>Topic Hierarchy</h4>
+                        <p>Visual tree structure showing 5-level topic hierarchy with indentation</p>
+                    </div>
+                </div>
+                <div class="sheet-item">
+                    <div class="sheet-icon">📋</div>
+                    <div class="sheet-info">
+                        <h4>Flat Topic List</h4>
+                        <p>Searchable table of all topics with level, parent, and query information</p>
+                    </div>
+                </div>
+                <div class="sheet-item">
+                    <div class="sheet-icon">🔍</div>
+                    <div class="sheet-info">
+                        <h4>Query Analysis</h4>
+                        <p>Analysis of query complexity, operators used, and syntax validation</p>
+                    </div>
+                </div>
+                <div class="sheet-item">
+                    <div class="sheet-icon">🎯</div>
+                    <div class="sheet-info">
+                        <h4>Root Categories</h4>
+                        <p>Summary of top-level categories with descendant counts and depths</p>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('stats').style.display = 'block';
+            document.getElementById('sheetsPreview').style.display = 'block';
+            document.getElementById('downloadBtn').style.display = 'inline-block';
+        }
+
+        function downloadExcel() {
+            if (!excelBuffer) {
+                alert('No Excel file ready for download.');
+                return;
+            }
+
+            const blob = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `TextIQ_Analysis_${new Date().toISOString().split('T')[0]}.xlsx`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+
+            // Track download
+            if (typeof dataLayer !== 'undefined') {
+                dataLayer.push({
+                    'event': 'textiq_excel_downloaded'
+                });
+            }
+        }
+
+        // Add floating header effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(17, 24, 39, 0.95)';
+                nav.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+            } else {
+                nav.style.background = 'rgba(17, 24, 39, 0.5)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        function loadSampleData() {
+            // Show sample structure
+            const sampleData = document.getElementById('sampleData');
+            sampleData.innerHTML = `
+                <div class="sheets-preview">
+                    <h3 style="color: #ffffff; margin-bottom: 16px;">📋 Sample Excel Structure</h3>
+                    <div class="sheet-item">
+                        <div class="sheet-icon">📊</div>
+                        <div class="sheet-info">
+                            <h4>Topic Overview Sheet</h4>
+                            <p><strong>Contains:</strong> Total topics (64), Root categories (17), Max depth (5), Export metadata, Generation timestamp</p>
+                        </div>
+                    </div>
+                    <div class="sheet-item">
+                        <div class="sheet-icon">🌳</div>
+                        <div class="sheet-info">
+                            <h4>Topic Hierarchy Sheet</h4>
+                            <p><strong>Visual Example:</strong><br>
+                            Level 1: Overall Satisfaction<br>
+                            &nbsp;&nbsp;├─ Level 2: Repeat Business<br>
+                            &nbsp;&nbsp;├─ Level 3: Loyalty Programs<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;├─ Level 4: Elite Status<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ Level 5: Lifetime Benefits</p>
+                        </div>
+                    </div>
+                    <div class="sheet-item">
+                        <div class="sheet-icon">🔍</div>
+                        <div class="sheet-info">
+                            <h4>Query Analysis Sample</h4>
+                            <p><strong>Example:</strong> "Food | Meal | Eat | Snacks" → OR operators, Medium complexity, 23 characters</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            sampleData.style.display = 'block';
+        }
+    </script>
+
+    <!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			<div class="footer-content">
+				<div>
+					<div class="footer-brand">
+						<img src="https://piraiai.com/logo.png" alt="Pirai AI Logo" width="35" height="35"/>&nbsp;
+						<span>Pirai AI</span>
+					</div>
+					<p class="footer-desc">
+						Enterprise-grade survey automation platform transforming Word documents to Qualtrics format in minutes. 
+						Save $121,740+ annually while multiplying your research team's capacity.
+					</p>
+					<div style="margin-top: 16px;">
+						<p style="color: #9ca3af; font-size: 14px; margin-bottom: 8px;">
+							<strong style="color: #60a5fa;">📧 Contact:</strong> admin@piraiai.com
+						</p>
+						<p style="color: #9ca3af; font-size: 14px;">
+							<strong style="color: #22c55e;">🚀 Early Access:</strong> Join our exclusive beta program
+						</p>
+					</div>
+				</div>
+				
+				<div class="footer-section">
+					<h3>Product</h3>
+					<ul class="footer-links">
+						<li><a href="/">Home</a></li>
+						<li><a href="/#process">How It Works</a></li>
+						<li><a href="/#features">Features</a></li>
+						<li><a href="/#pricing">Pricing</a></li>
+						<li><a href="/#demo">Early Access</a></li>
+					</ul>
+				</div>
+				
+				<div class="footer-section">
+					<h3>Free Tools</h3>
+					<ul class="footer-links">
+						<li><a href="/qsf-to-excel">QSF to Excel</a></li>
+						<li><a href="/pirai-csv-comparator">CSV Comparator</a></li>
+						<li><a href="/embedded-data-generator">ED Generator</a></li>
+						<li><a href="/#roadmap">Product Roadmap</a></li>
+						<li><a href="https://chromewebstore.google.com/detail/qualtrics-embedded-data-g/fkkmlmjhiehciaaodjghecnjojendgfo" target="_blank" style="color: #34d399;">🟢 Chrome Extension</a></li>
+                        <li><a href="/qualtrics-toolkit" style="color: #3b82f6;">Command Center</a></li>                        
+					</ul>
+				</div>
+				
+				<div class="footer-section">
+					<h3>Company</h3>
+					<ul class="footer-links">
+						<li><a href="/about">About Us</a></li>						
+						<li><a href="/#demo">Contact Us</a></li>
+						<li><a href="/privacy">Privacy Policy</a></li>
+						<li><a href="/terms">Terms of Service</a></li>
+                        <li><a href="/security">Security Overview</a></li>
+						<li><a href="https://www.linkedin.com/company/pirai-ai/" target="_blank">LinkedIn</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="footer-bottom">
+				<div class="copyright">
+					© 2025 Pirai AI. All rights reserved. | Built with enterprise-grade security and privacy protection.
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>
