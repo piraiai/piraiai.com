@@ -948,7 +948,7 @@
         }
     }
     </style> 
-    <style>
+    <!-- <style>
         /* Updated Dual Pricing Section */
         .pricing-section {
             padding: 60px 0;
@@ -1230,7 +1230,198 @@
                 transform: scale(0.85);
             }
         }        
-    </style>
+    </style> -->
+   <style>
+    /* Compact Pricing Section - Much Smaller */
+    .pricing-section {
+        padding: 40px 0;
+        background: #f8f9fa;
+        text-align: center;
+    }
+
+    .pricing-section .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .pricing-section h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #2d3748;
+        margin-bottom: 2rem;
+    }
+
+    .pricing-card-compact {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 2rem;
+        max-width: 700px;
+        margin: 0 auto;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        border: 1px solid #e2e8f0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+
+    .price-main {
+        flex: 1;
+    }
+
+    .price-amount {
+        display: flex;
+        align-items: baseline;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        justify-content: flex-start;
+    }
+
+    .amount {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #2d3748;
+    }
+
+    .period {
+        font-size: 1rem;
+        color: #718096;
+        font-weight: 500;
+    }
+
+    .savings-compact {
+        background: #48bb78;
+        color: white;
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-left: 0.5rem;
+    }
+
+    .features-compact {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: left;
+    }
+
+    .features-compact span {
+        font-size: 0.9rem;
+        color: #4a5568;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .cta-compact {
+        flex-shrink: 0;
+        text-align: center;
+    }
+
+    .btn-primary-compact {
+        background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        display: inline-block;
+        box-shadow: 0 3px 10px rgba(66, 153, 225, 0.3);
+        margin-bottom: 0.75rem;
+    }
+
+    .btn-primary-compact:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(66, 153, 225, 0.4);
+        text-decoration: none;
+        color: white;
+    }
+
+    .volume-note {
+        font-size: 0.8rem;
+        color: #718096;
+        margin: 0;
+        font-style: italic;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .pricing-section {
+            padding: 30px 0;
+        }
+        
+        .pricing-section h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .pricing-card-compact {
+            flex-direction: column;
+            padding: 1.5rem;
+            gap: 1.5rem;
+            text-align: center;
+        }
+        
+        .price-amount {
+            justify-content: center;
+        }
+        
+        .amount {
+            font-size: 2.2rem;
+        }
+        
+        .features-compact {
+            text-align: center;
+        }
+        
+        .features-compact span {
+            justify-content: center;
+            font-size: 0.85rem;
+        }
+        
+        .btn-primary-compact {
+            width: 100%;
+            max-width: 250px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .pricing-card-compact {
+            padding: 1.25rem;
+            margin: 0 10px;
+        }
+        
+        .amount {
+            font-size: 2rem;
+        }
+        
+        .period {
+            font-size: 0.9rem;
+        }
+        
+        .savings-compact {
+            font-size: 0.75rem;
+            padding: 0.2rem 0.6rem;
+        }
+        
+        .features-compact span {
+            font-size: 0.8rem;
+        }
+        
+        .volume-note {
+            font-size: 0.75rem;
+        }
+    }
+
+    /* Integration styles */
+    .pricing-section * {
+        box-sizing: border-box;
+    }
+    </style> 
 
     <style>
     /* Phase 4 Specific Styles */
@@ -1974,15 +2165,42 @@
             </div>
         </div>
     </section>
-    <!-- Compact Pricing Section -->
-    <!-- Dual Pricing Section -->
+    <!-- Compact Pricing Section -->   
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <h2>Pricing for Agencies & Enterprises</h2>
+            
+            <div class="pricing-card-compact">
+                <div class="price-main">
+                    
+                    <div class="price-amount">
+                        <span class="amount">$149</span>
+                        <span class="period">per survey</span>
+                        <span class="savings-compact">Save $507</span>
+                    </div>
+                    
+                    <div class="features-compact">
+                        <span>✓ Word to Qualtrics in 15 minutes</span>
+                        <span>✓ Ready-to-import format</span>
+                        <span>✓ <strong>First survey free</strong></span>
+                    </div>
+                </div>
+                
+                <div class="cta-compact">
+                    <a href="#demo" class="btn-primary-compact">Contact Sales</a>
+                    <p class="volume-note">Volume discounts: 50+ surveys = $119 each (20% discount)</p> 
+                </div>
+            </div>
+        </div>
+    </section>     
+<!--     
     <section id="pricing" class="pricing-section">
         <div class="container">
             <h2>Simple, Transparent Pricing</h2>
             <p class="pricing-subtitle">Start free, scale as you grow - choose the plan that fits your survey automation needs</p>
             
             <div class="pricing-cards">
-                <!-- Freemium Plan -->
+               
                 <div class="pricing-card">
                     <div class="price-header">
                         <h3 class="price-title">Freemium</h3>
@@ -2006,7 +2224,7 @@
                     <p class="volume-note">No credit card required</p>
                 </div>
                 
-                <!-- Starter Plan -->
+                
                 <div class="pricing-card">
                     <div class="price-header">
                         <h3 class="price-title">Starter</h3>
@@ -2031,7 +2249,7 @@
                     <p class="volume-note">Pay as you go - no subscription</p>
                 </div>
 
-                <!-- Pro Plan -->
+                
                 <div class="pricing-card featured">
                     <div class="popular-badge">Popular</div>
                     <div class="price-header">
@@ -2057,7 +2275,7 @@
                     <p class="volume-note">Pay as you go - no subscription</p> 
                 </div>
                 
-                <!-- Custom Plan -->
+               
                 <div class="pricing-card">
                     <div class="price-header">
                         <h3 class="price-title">Custom</h3>
@@ -2085,7 +2303,7 @@
                 </div>
             </div>
             
-            <!-- Feature Comparison Note -->
+           
             <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(59, 130, 246, 0.05); border-radius: 12px;">
                 <h3 style="margin-bottom: 1rem; color: #1e40af;">Ready to Transform Your Survey Workflow?</h3>
                 <p style="color: #6b7280; margin-bottom: 1.5rem;">
@@ -2099,7 +2317,7 @@
                 </div>
             </div>
         </div>
-    </section>  
+    </section>   -->
 
     <!-- Adaptive AI Value Proposition Section -->
     <section class="adaptive-ai-section">
