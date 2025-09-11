@@ -727,6 +727,23 @@
                 flex-direction: column;
                 align-items: center;
             }
+
+            .multilingual-title {
+                font-size: 32px;
+            }
+            
+            .multilingual-subtitle {
+                font-size: 18px;
+            }     
+
+            .language-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .platform-grid {
+                grid-template-columns: 1fr;
+            }                 
             
             .demo-grid {
                 grid-template-columns: 1fr;
@@ -737,6 +754,13 @@
                 padding-right: 0;
                 text-align: center;
             }
+
+            .pricing-card-compact {
+                flex-direction: column;
+                padding: 1.5rem;
+                gap: 1.5rem;
+                text-align: center;
+            }            
             
             .footer-content {
                 grid-template-columns: 1fr;
@@ -751,6 +775,30 @@
         /* Hidden by default */
         .hidden {
             display: none !important;
+        }
+
+        /* reCAPTCHA Styling */
+        .recaptcha-container {
+            margin: 24px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .g-recaptcha {
+            transform: scale(0.95);
+            transform-origin: center;
+        }
+
+        /* Mobile responsive reCAPTCHA */
+        @media (max-width: 480px) {
+            .g-recaptcha {
+                transform: scale(0.85);
+            }
+
+            .pricing-card-compact {
+                padding: 1.25rem;
+                margin: 0 10px;
+            }
         }
     </style>
     <style>
@@ -1709,30 +1757,6 @@
         font-size: 14px;
     }
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .agentic-process-grid {
-            grid-template-columns: 1fr;
-            gap: 24px;
-        }
-        
-        .architecture-features {
-            grid-template-columns: 1fr;
-        }
-        
-        .efficiency-stats {
-            flex-direction: column;
-            gap: 12px;
-        }
-        
-        .agent-step {
-            padding: 20px;
-        }
-        
-        .tech-differentiation {
-            padding: 20px;
-        }
-    }
     </style>    
     
     <style>
@@ -1972,6 +1996,142 @@
             grid-template-columns: 1fr;
         }
     }
+
+        /* Multilingual Section */
+        .multilingual-section {
+            padding: 80px 0;
+            background: rgba(17, 24, 39, 0.3);
+        }
+
+        .multilingual-hero {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .multilingual-title {
+            font-size: 42px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .multilingual-subtitle {
+            font-size: 20px;
+            color: #d1d5db;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .language-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+
+        .language-card {
+            background: rgba(31, 41, 55, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(55, 65, 81, 0.5);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease;
+        }
+
+        .language-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(99, 102, 241, 0.5);
+            box-shadow: 0 8px 32px rgba(99, 102, 241, 0.2);
+        }
+
+        .language-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .language-card h3 {
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .language-card p {
+            color: #d1d5db;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .enterprise-use-cases {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(16, 185, 129, 0.1));
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .enterprise-use-cases h3 {
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .use-case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .use-case-item {
+            color: #22c55e;
+            font-weight: 500;
+            font-size: 16px;
+        }    
+
+        /* Platform Showcase */
+        .platform-showcase {
+            padding: 80px 0;
+            background: rgba(17, 24, 39, 0.3);
+        }
+
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+
+        .platform-category {
+            background: rgba(31, 41, 55, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(55, 65, 81, 0.5);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .platform-category h3 {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .platform-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .platform-item {
+            color: #d1d5db;
+            font-size: 14px;
+            padding: 4px 0;
+        }        
     </style>    
 </head>
 <body>
@@ -1989,8 +2149,7 @@
                 </a>
                 <ul class="nav-links">
                     <li><a href="/#process">How It Works</a></li>
-                    <!-- <li><a href="/#features">Features</a></li> -->
-                    <li><a href="/#roi">ROI</a></li>
+                    <li><a href="/#platforms">Platforms</a></li>
                     <li><a href="/#pricing">Pricing</a></li>                                        
                     <li><a href="/qualtrics-toolkit">Command Center</a></li>
                 </ul>
@@ -2002,20 +2161,20 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>From 12 Hours to 15 Minutes: Pirai AI Transforms Survey Creation Without Changing How You Work</h1>
+            <h1>Cross-Platform Document Accelerator: Transform Any Document to Any Format in Minutes</h1>
             <p class="hero-subtitle">
-                Pirai AI converts Word document survey drafts into Qualtrics format instantly. Save $121,740+ annually per research team while multiplying your survey output capacity.
+                From Word documents to 20+ platforms across research, education, healthcare, and enterprise. One platform, every workflow, every language, zero vendor lock-in.
             </p>
             
             <div class="hero-highlight">
-                <h3>Typical 20-minute survey programming:</h3>
-                <p>Manual Process: 12 hours → Pirai AI: 15 minutes</p>
-                <div class="savings">Save $507 per survey • $10,145 per month • $121,740 per year</div>
+                <h3>Perfect Starting Point</h3>
+                <p>Pirai AI handles tedious data entry and format conversion in any language. You focus on strategic elements - logic flows, advanced features, and platform-specific optimizations.</p>
+                <div class="savings">Save 8+ hours per project • Focus on customization, not data entry</div>
             </div>
             
             <div class="hero-ctas">
-                <a href="#roi" class="btn-primary">Calculate Your ROI</a>
-                <!--<a href="#features" class="btn-secondary">Watch 15-Minute Demo</a>-->
+                <a href="#demo" class="btn-primary">Start Universal Automation</a>
+                <a href="#platforms" class="btn-secondary">See All 20+ Platforms</a>
             </div>
         </div>
         
@@ -2024,38 +2183,134 @@
         <div class="float-element-2"></div>
     </section>
 
+    <!-- Multilingual Global Section -->
+    <section class="multilingual-section">
+        <div class="container">
+            <div class="multilingual-hero">
+                <h2 class="multilingual-title">🌍 Global Enterprise Ready</h2>
+                <p class="multilingual-subtitle">
+                    Deploy surveys worldwide with proven multilingual conversion and enterprise-grade character encoding. Deploy the same content across multiple regions and platforms simultaneously.
+                </p>
+            </div>
+            
+            <div class="language-grid">
+                <div class="language-card">
+                    <div class="language-icon">🇺🇸</div>
+                    <h3>English</h3>
+                    <p>Native support with advanced spell-checking and professional terminology validation. Perfect for research agencies and enterprise teams.</p>
+                </div>
+                
+                <div class="language-card">
+                    <div class="language-icon">🇪🇸</div>
+                    <h3>Spanish</h3>
+                    <p>100% tested conversion with perfect character encoding across all platforms. Proven in multi-regional deployments.</p>
+                </div>
+                
+                <div class="language-card">
+                    <div class="language-icon">🌐</div>
+                    <h3>50+ Languages</h3>
+                    <p>UTF-8 compliant processing supports French, German, Portuguese, Italian, and more. Enterprise-grade character encoding ensures perfect formatting.</p>
+                </div>
+            </div>
+            
+            <div class="enterprise-use-cases">
+                <h3>Enterprise Use Cases</h3>
+                <div class="use-case-grid">
+                    <div class="use-case-item">🏢 Multi-platform agencies</div>
+                    <div class="use-case-item">🌍 Global corporations</div>
+                    <div class="use-case-item">🔄 Platform migrations</div>
+                    <div class="use-case-item">📊 Multi-region research</div>
+                </div>
+            </div>
+        </div>
+    </section>    
+
+    <!-- Platform Showcase Section -->
+    <section id="platforms" class="platform-showcase">
+        <div class="container">
+            <h2 class="section-title">One Solution, Every Platform, Every Language</h2>
+            <p class="section-subtitle">
+                Support for 20+ platforms across research, education, healthcare, and enterprise domains
+            </p>
+            
+            <div class="platform-grid">
+                <div class="platform-category">
+                    <h3>🔬 Research & Analytics</h3>
+                    <div class="platform-list">
+                        <div class="platform-item">• Qualtrics</div>
+                        <div class="platform-item">• QuestionPro</div>
+                        <div class="platform-item">• SurveyMonkey</div>
+                        <div class="platform-item">• Zoho Surveys</div>
+                        <div class="platform-item">• Dimensions</div>
+                        <div class="platform-item">• Forsta Survey</div>
+                        <div class="platform-item">• Alchemer</div>
+                        <div class="platform-item">• SurveySparrow</div>
+                    </div>
+                </div>
+                
+                <div class="platform-category">
+                    <h3>🎓 Education & Training</h3>
+                    <div class="platform-list">
+                        <div class="platform-item">• Moodle</div>
+                        <div class="platform-item">• Canvas</div>                        
+                        <div class="platform-item">• Kahoot</div>
+                        <div class="platform-item">• LearnWorlds</div>
+                        <div class="platform-item">• BrainCert</div>
+                        <div class="platform-item">• ClassMarker</div>
+                        <div class="platform-item">• Atomic Jolt</div>
+                    </div>
+                </div>
+                
+                <div class="platform-category">
+                    <h3>🏥 Healthcare & Clinical</h3>
+                    <div class="platform-list">
+                        <div class="platform-item">• REDCap</div>                        
+                    </div>
+                </div>
+                
+                <div class="platform-category">
+                    <h3>🏢 Enterprise & Productivity</h3>
+                    <div class="platform-list">
+                        <div class="platform-item">• Microsoft Forms</div>
+                        <div class="platform-item">• Google Forms</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>    
+
     <!-- Features Section -->
     <section id="features" class="features">
         <div class="container">
             <div class="features-grid">
                 <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Eliminate Vendor Lock-in</h3>
+                    <p>Migrate between platforms effortlessly. Handle multi-platform projects without rebuilding content from scratch. Future-proof your surveys and forms.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Global Deployment Ready</h3>
+                    <p>Deploy the same survey across multiple regions and platforms simultaneously. Perfect character encoding for 50+ languages with enterprise-grade reliability.</p>
+                </div>
+                
+                <div class="feature-card">
                     <div class="feature-icon">⚡</div>
-                    <h3>Multiply Your Team's Capacity</h3>
-                    <p>One programmer can now do the work of four. Transform 12 hours of manual programming into 15 minutes of automated setup. Scale your survey output 4x without hiring.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">💰</div>
-                    <h3>Massive Cost Savings</h3>
-                    <p>Save $507 per survey, $10,145 per month, $121,740+ annually per research team. ROI payback in under 30 days with enterprise-level automation.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🤝</div>
-                    <h3>Perfect Human-AI Collaboration</h3>
-                    <p>AI handles tedious question entry and formatting. Your team focuses on strategic survey logic and insights. Best of both worlds: efficiency + creativity.</p>
+                    <h3>Universal Format Transformation</h3>
+                    <p>Transform documents to any of 20+ platform formats. Perfect for agencies, enterprises, and organizations using multiple survey tools.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Demo Video Section -->
-    <section class="demo-video-section" style="padding: 80px 0; background: rgba(17, 24, 39, 0.3);">
+    <!-- <section class="demo-video-section">
         <div class="container">
             <div style="text-align: center; margin-bottom: 48px;">
-                <h2 style="font-size: 36px; font-weight: 700; color: #ffffff; margin-bottom: 16px;">See Pirai AI in Action</h2>
+                <h2 style="font-size: 36px; font-weight: 700; color: #ffffff; margin-bottom: 16px;">See Universal Automation in Action</h2>
                 <p style="font-size: 20px; color: #d1d5db; max-width: 600px; margin: 0 auto;">
-                    Watch how we transform a 12-hour survey creation workflow into just 15 minutes
+                    Watch how we transform documents to multiple platform formats in minutes
                 </p>
             </div>
             
@@ -2064,7 +2319,7 @@
                     <iframe 
                         src="https://www.youtube.com/embed/0N4Fr2JJ86Y?hd=1&vq=hd720&quality=hd720" 
                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
-                        title="Pirai AI Demo - Transform Survey Programming"
+                        title="Pirai AI Demo - Universal Platform Automation"
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                         allowfullscreen>
@@ -2072,255 +2327,78 @@
                 </div>
             </div>
         </div>
-    </section>    
-
-    <!-- ROI Calculator -->
-    <section id="roi" class="roi-section">
-        <div class="container">
-            <div class="roi-calculator">
-                <h2>Calculate Your Annual Savings</h2>
-                
-                <div class="roi-inputs">
-                    <div class="input-group">
-                        <label>Surveys per month</label>
-                        <input type="number" id="surveysPerMonth" value="20" min="1" max="1000">
-                    </div>
-                    <div class="input-group">
-                        <label>Programmer hourly rate ($)</label>
-                        <input type="number" id="hourlyRate" value="75" min="30" max="200">
-                    </div>
-                </div>
-                
-                <div class="roi-results">
-                    <div class="result-item">
-                        <div class="result-label">Current Manual Process (12 hours per survey)</div>
-                        <div class="result-value current-cost">Monthly Cost: $<span id="currentCost">18,000</span></div>
-                    </div>
-                    
-                    <div class="result-item">
-                        <div class="result-label">With Pirai AI (15 minutes + 3 hours logic = 3.25 hours per survey)</div>
-                        <div class="result-value automated-cost">Monthly Cost: $<span id="automatedCost">4,875</span></div>
-                    </div>
-                    
-                    <div class="result-item">
-                        <div class="result-label">Monthly Savings</div>
-                        <div class="result-value savings">$<span id="monthlySavings">13,125</span></div>
-                    </div>
-                    
-                    <div class="result-item">
-                        <div class="result-label">Annual Savings</div>
-                        <div class="result-value savings annual-savings">$<span id="annualSavings">157,500</span></div>
-                    </div>
-                    
-                    <div style="margin-top: 24px; font-size: 14px; color: #9ca3af;">
-                        Time savings per survey: <span style="color: #22c55e; font-weight: 600;">8.75 hours (73% reduction)</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </section> -->
 
     <!-- Process Section -->
     <section id="process" class="process">
         <div class="container">
-            <h2 class="section-title">From 12 Hours to 15 Minutes: How It Works</h2>
+            <h2 class="section-title">Universal Automation Workflow</h2>
             <p class="section-subtitle">
-                Perfect hybrid approach: AI handles tedious programming, humans focus on strategic logic design
+                Perfect hybrid approach: AI handles tedious data entry, you focus on platform-specific customization
             </p>
             
             <div class="process-grid">
                 <div class="process-step">
                     <div class="step-icon">1</div>
-                    <h3>Upload Word Doc</h3>
-                    <p>Upload your survey document with questions, response options, and structure</p>
+                    <h3>Upload Document</h3>
+                    <p>Upload your Word document with questions, response options, and structure in any language</p>
                     <div class="time-badge">⏱️ 2 minutes</div>
                 </div>
                 
                 <div class="process-step">
                     <div class="step-icon">2</div>
-                    <h3>AI Processing</h3>
-                    <p>Our AI converts questions, formats response options, and structures the survey automatically</p>
+                    <h3>Pirai AI Processing</h3>
+                    <p>Our AI converts questions, formats response options, and structures content for your selected platform automatically.</p>
                     <div class="time-badge">⏱️ 3 minutes</div>
                 </div>
                 
                 <div class="process-step">
                     <div class="step-icon">3</div>
                     <h3>Review & Deploy</h3>
-                    <p>Quick review of generated survey, then direct import to Qualtrics for immediate deployment</p>
+                    <p>Quick review of generated output, then download platform-ready files for immediate import.</p>
                     <div class="time-badge">⏱️ 10 minutes</div>
                 </div>
                 
                 <div class="process-step">
                     <div class="step-icon">4</div>
-                    <h3>Add Logic (Optional)</h3>
-                    <p>Your team adds custom skip logic, display logic, and advanced features as needed</p>
-                    <div class="time-badge">⏱️ 3 hours vs 12</div>
+                    <h3>Customize Logic (Optional)</h3>
+                    <p>Add platform-specific features like skip logic, display logic, and advanced workflows as needed</p>
+                    <div class="time-badge">⏱️ Varies by complexity</div>
                 </div>
             </div>
             
             <div class="hero-highlight" style="margin-top: 48px;">
-                <h3>Total Time: 15 minutes + 3 hours logic = 3.25 hours</h3>
-                <p>Traditional Method: 12+ hours of manual programming</p>
-                <div class="savings">Time Savings: 8.75 hours per survey (73% reduction)</div>
+                <h3>Total Time: 15 minutes for data conversion + your customization time</h3>
+                <p>Traditional Method: Manual recreation from scratch for each platform</p>
+                <div class="savings">Time Savings: Focus on logic and customization, not repetitive data entry</div>
             </div>
         </div>
     </section>
     <!-- Compact Pricing Section -->   
     <section id="pricing" class="pricing-section">
         <div class="container">
-            <h2>Pricing for Agencies and Partners</h2>
+            <h2>Universal Platform Access</h2>
             
             <div class="pricing-card-compact">
                 <div class="price-main">
-                    
-                    <!-- <div class="price-amount">
-                        <span class="amount">$500</span>
-                        <span class="period">per survey</span>
-                        <span class="savings-compact">Save $507</span>
-                    </div> -->
-                    
                     <div class="features-compact">
-                        <span>✓ Word to Qualtrics in 15 minutes</span>
-                        <span>✓ Ready-to-import format</span>
-                        <!-- <span>✓ <strong>First survey free</strong></span> -->
+                        <span>✓ All 20+ platforms supported</span>
+                        <span>✓ Multilingual conversion (50+ languages)</span>
+                        <span>✓ Enterprise-grade character encoding</span>
+                        <span>✓ Platform migration capabilities</span>
                     </div>
                 </div>
                 
                 <div class="cta-compact">
                     <a href="#demo" class="btn-primary-compact">Contact Sales</a>
-                    <!-- <p class="volume-note">Volume discounts: 50+ surveys = $450 each</p>  -->
+                    <p class="volume-note">Custom pricing for enterprise needs</p>
                 </div>
             </div>
         </div>
-    </section>     
-<!--     
-    <section id="pricing" class="pricing-section">
-        <div class="container">
-            <h2>Simple, Transparent Pricing</h2>
-            <p class="pricing-subtitle">Start free, scale as you grow - choose the plan that fits your survey automation needs</p>
-            
-            <div class="pricing-cards">
-               
-                <div class="pricing-card">
-                    <div class="price-header">
-                        <h3 class="price-title">Freemium</h3>
-                        <p class="price-subtitle">Perfect for trying survey automation</p>
-                        
-                        <div class="price-amount">
-                            <span class="amount">Free</span>
-                            <span class="period">forever</span>
-                        </div>
-                    </div>
-                    
-                    <ul class="features-list">
-                        <li>Word → Excel → Platform formats</li>
-                        <li>Up to 10 questions per survey</li>
-                        <li>25kb file size limit</li>
-                        <li>2 conversions per day</li>                   
-                        <li>Email support</li>
-                    </ul>
-                    
-                    <a href="#demo" class="cta-button secondary">Start Free</a>
-                    <p class="volume-note">No credit card required</p>
-                </div>
-                
-                
-                <div class="pricing-card">
-                    <div class="price-header">
-                        <h3 class="price-title">Starter</h3>
-                        <p class="price-subtitle">For regular survey creators</p>
-                        
-                        <div class="price-amount">
-                            <span class="amount">$10</span>
-                            <span class="period">per survey</span>
-                        </div>
-                    </div>
-                    
-                    <ul class="features-list">
-                        <li>Everything in Freemium, plus:</li>
-                        <li>Up to 25 questions per survey</li>
-                        <li>80kb file size limit</li>
-                        <li>5 conversions per purchase</li>                   
-                        <li>Excel → QSF file generation</li>
-                        <li>Export to Multi-platform</li>
-                    </ul>
-                    
-                    <a href="#demo" class="cta-button secondary">Get Started</a>
-                    <p class="volume-note">Pay as you go - no subscription</p>
-                </div>
-
-                
-                <div class="pricing-card featured">
-                    <div class="popular-badge">Popular</div>
-                    <div class="price-header">
-                        <h3 class="price-title">Pro</h3>
-                        <p class="price-subtitle">For professional researchers & teams</p>
-                        
-                        <div class="price-amount">
-                            <span class="amount">$29</span>
-                            <span class="period">per survey</span>                           
-                        </div>
-                    </div>
-                    
-                    <ul class="features-list">
-                        <li>Everything in Starter, plus:</li>
-                        <li>Up to 50 questions per survey</li>
-                        <li>160kb file size limit</li>
-                        <li>10 conversions per purchase</li>
-                        <li>Advanced quality controls</li>
-                        <li>Professional spell check</li>  
-                    </ul>
-                    
-                    <a href="#demo" class="cta-button">Get Started</a>    
-                    <p class="volume-note">Pay as you go - no subscription</p> 
-                </div>
-                
-               
-                <div class="pricing-card">
-                    <div class="price-header">
-                        <h3 class="price-title">Custom</h3>
-                        <p class="price-subtitle">For agencies & enterprises</p>
-                        
-                        <div class="price-amount">
-                            <span class="amount">Custom</span>
-                            <span class="period">pricing</span>
-                        </div>
-                    </div>
-                    
-                    <ul class="features-list">
-                        <li>Everything in Professional, plus:</li>
-                        <li>Unlimited file size & conversions</li>
-                        <li>API extensions for Word → Excel</li>
-                        <li>Custom API integrations</li>
-                        <li>Handle Display & Skip Logic</li>                      
-                        <li>Fine-tuned models for your terminology</li>
-                        <li>Agency-specific style guides</li>                    
-                        <li>Training & onboarding</li>                   
-                    </ul>
-                    
-                    <a href="#demo" class="cta-button secondary">Contact Sales</a>
-                    <p class="volume-note">Volume discounts available</p>
-                </div>
-            </div>
-            
-           
-            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(59, 130, 246, 0.05); border-radius: 12px;">
-                <h3 style="margin-bottom: 1rem; color: #1e40af;">Ready to Transform Your Survey Workflow?</h3>
-                <p style="color: #6b7280; margin-bottom: 1.5rem;">
-                    Join thousands of researchers saving 8+ hours per survey with intelligent automation
-                </p>
-                <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; font-size: 0.9rem; color: #6b7280;">
-                    <span>⚡ 73% time reduction</span>
-                    <span>💰 $507+ savings per survey</span>
-                    <span>🎯 Professional quality output</span>
-                    <span>🔒 Enterprise-grade security</span>
-                </div>
-            </div>
-        </div>
-    </section>   -->
+    </section>  
 
     <!-- Adaptive AI Value Proposition Section -->
-    <!-- <section class="adaptive-ai-section">
+    <section class="adaptive-ai-section">
         <div class="container">
           
             <div class="adaptive-hero">
@@ -2347,8 +2425,8 @@
 
                 <div class="adaptation-card">
                     <div class="adaptation-icon">🧠</div>
-                    <h3>AI Learns Your Team's Language</h3>
-                    <p>Our Agentic AI system fine-tunes to your organization's specification terminology, question styles, and formatting preferences through intelligent pattern recognition.</p>
+                    <h3>Pirai AI Learns Your Team's Language</h3>
+                    <p>Our Pirai AI system fine-tunes to your organization's specification terminology, question styles, and formatting preferences through intelligent pattern recognition.</p>
                     <div class="learning-indicators">
                         <div class="learning-item">
                             <span class="learning-badge">Auto-Detection</span>
@@ -2376,42 +2454,11 @@
                         <span class="feature-tag">✓ Team terminology mapping</span>
                     </div>
                 </div>
-            </div>
+            </div>  
 
-           
-            <div class="agency-examples">
-                <h3>Real Agency Specification Styles We Support</h3>
-                <div class="examples-grid">
-                    <div class="example-card">
-                        <div class="agency-type">Global Research Agency</div>
-                        <div class="spec-style">"Q1a. To what extent do you agree..."</div>
-                        <div class="ai-understanding">✅ AI recognizes: Likert agreement scale with sub-questions</div>
-                    </div>
-                    
-                    <div class="example-card">
-                        <div class="agency-type">Healthcare Research Team</div>
-                        <div class="spec-style">"1) Please rate (1=Never, 7=Always)"</div>
-                        <div class="ai-understanding">✅ AI recognizes: 7-point frequency scale with explicit anchors</div>
-                    </div>
-                    
-                    <div class="example-card">
-                        <div class="agency-type">Brand Strategy Consultancy</div>
-                        <div class="spec-style">"Brand A vs Brand B (select all positive attributes)"</div>
-                        <div class="ai-understanding">✅ AI recognizes: Comparative multi-select with brand context</div>
-                    </div>
-                    
-                    <div class="example-card">
-                        <div class="agency-type">Academic Research Lab</div>
-                        <div class="spec-style">"Item 1: [Construct measurement] 1-5 Likert"</div>
-                        <div class="ai-understanding">✅ AI recognizes: Academic notation with construct references</div>
-                    </div>
-                </div>
-            </div>
-
-          
             <div class="no-change-banner">
                 <div class="banner-content">
-                    <h3>🎉 Zero Learning Curve for Your Team</h3>
+                    <h3>Zero Learning Curve for Your Team</h3>
                     <div class="banner-benefits">
                         <div class="benefit-item">
                             <span class="benefit-icon">📋</span>
@@ -2427,13 +2474,13 @@
                         </div>
                         <div class="benefit-item">
                             <span class="benefit-icon">🔄</span>
-                            <span class="benefit-text">Seamless workflow integration</span>
+                            <span class="benefit-text">Seamless integration</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>     -->
+    </section>    
 
     <!-- Lead Form Section -->
     <section id="demo" class="demo-section">
@@ -2442,25 +2489,24 @@
                 <!-- Left Column - Content -->
                 <div class="demo-content">
                     <div class="moon">🌙</div>
-                    <h2>Ready to Begin Your Survey Transformation?</h2>
+                    <h2>Ready to Begin Your Universal Automation Journey?</h2>
                     <p>
                         Like the crescent moon that marks new beginnings, Pirai AI is ready to transform your survey creation process. Join our exclusive early access program and discover the elegant automation that's revolutionizing how teams work.
                     </p>
                     
                     <ul class="benefits-list">
-                        <li>Exclusive early access pricing</li>
-                        <li>Custom ROI analysis ($120K+ annual savings)</li>
-                        <li>Priority 48-hour onboarding</li>
-                        <li>Beta feature preview access</li>                        
+                        <li>Access to all 20+ supported platforms</li>
+                        <li>Multilingual conversion capabilities</li>                       
+                        <li>Platform migration assistance</li>                        
                     </ul>
                 </div>
                 
                 <!-- Right Column - Form -->
                 <div class="lead-form">
-                    <h3>Join Early Access Program</h3>
+                    <h3>Join Universal Access Program</h3>
                     
                     <div class="success-message" id="successMessage">
-                        🎉 You're in! Our team will reach out within 24 hours to schedule a conversation about your survey process and see if we're building the right solution.<br/>
+                        🎉 You're in! Our team will reach out within 24 hours to discuss your multi-platform needs and see how we can streamline your workflows.<br/>
                         <em>Please check your spam or junk folder just in case — our domain is new and emails might get filtered.</em>
                     </div>
                     
@@ -2499,20 +2545,20 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="surveys">Surveys per Month</label>
+                            <label for="surveys">Surveys/Forms per Month</label>
                             <select id="surveys" name="surveys">
                                 <option value="">Select volume</option>
-                                <option value="1-10">1-10 surveys</option>
-                                <option value="11-25">11-25 surveys</option>
-                                <option value="26-50">26-50 surveys</option>
-                                <option value="50+">50+ surveys</option>
+                                <option value="1-10">1-10</option>
+                                <option value="11-25">11-25</option>
+                                <option value="26-50">26-50</option>
+                                <option value="50+">50+</option>
                             </select>
                         </div>
                         
                         <div class="form-group">
-                            <label for="challenges">Current Survey Creation Challenges</label>
+                            <label for="challenges">Current Survey/Form Creation Challenges</label>
                             <textarea id="challenges" name="challenges" rows="3" 
-                                      placeholder="What takes the most time in your current survey setup process?"></textarea>
+                                      placeholder="What takes the most time in your current survey/form setup process?"></textarea>
                         </div>
                         
                         <!-- Hidden fields for tracking -->
@@ -2535,135 +2581,14 @@
                         </div>
 
                         <button type="submit" id="submitBtn" class="submit-btn" disabled>
-                            Get Early Access
+                            Get Universal Access
                         </button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Roadmap Section -->
-    <section id="roadmap" class="roadmap-section">
-        <div class="container">
-            <h2 class="section-title">The Future of Survey Automation</h2>
-            <p class="section-subtitle">
-                Starting with format conversion, evolving to complete AI workflow automation
-            </p>
-            
-            <div class="roadmap-timeline">
-                <div class="roadmap-item current">
-                    <div class="roadmap-badge current-badge">Phase 1</div>
-                    <div class="roadmap-icon">📄</div>
-                    <div class="roadmap-content">
-                        <h3>Advanced Format Conversion</h3>
-                        <p>Transform Word documents to Qualtrics advanced format text, bulk adding survey questions and setup recodes with one click</p>
-                        <div class="roadmap-features">
-                            <span class="feature">✓ Eliminates manual question entry</span>
-                            <span class="feature">✓ Bulk question & recode setup</span>
-                            <span class="feature">✓ One-click format conversion</span>
-                        </div>
-                        <span class="status current-status">🚀 Available in Early Access</span>
-                    </div>
-                </div>
-                
-                <div class="roadmap-connector"></div>
-                
-                <div class="roadmap-item upcoming">
-                    <div class="roadmap-badge upcoming-badge">Phase 2</div>
-                    <div class="roadmap-icon">⚙️</div>
-                    <div class="roadmap-content">
-                        <h3>Advanced QSF Logic Generation</h3>
-                        <p>Complete survey automation with display logic, skip logic, forced responses, and complex survey flows</p>
-                        <div class="roadmap-features">
-                            <span class="feature">• Display & skip logic automation</span>
-                            <span class="feature">• Survey flow & branch logic setup</span>
-                            <span class="feature">• Force response configuration</span>
-                        </div>
-                        <span class="status upcoming-status">🚀 Beta Access - Apply Now</span>
-                    </div>
-                </div>
-                
-                <div class="roadmap-connector"></div>
-                
-                <div class="roadmap-item future">
-                    <div class="roadmap-badge future-badge">Phase 3</div>
-                    <div class="roadmap-icon">🤖</div>
-                    <div class="roadmap-content">
-                        <h3>Intelligent Survey Automation (85% Automated)</h3>
-                        <p>AI handles the heavy lifting while you maintain control. From Word document to live Qualtrics survey with just 3 human touchpoints for quality assurance.</p>
-                        <div class="roadmap-features">
-                            <span class="feature">• AI-powered survey building with human oversight</span>
-                            <span class="feature">• Intelligent question optimization and flow logic</span>
-                            <span class="feature">• Smart platform publishing with review checkpoints</span>
-                            <span class="feature">• 85% time savings with 100% confidence</span>
-                        </div> 
-                        <!-- <span class="status upcoming-status">Smart Automation</span>       -->
-                    </div>
-                </div>
 
-                <!-- Phase 4 Addition - Insert after Phase 3 -->
-                <!-- <div class="roadmap-connector"></div>
-
-                <div class="roadmap-item future">
-                    <div class="roadmap-badge future-badge">Phase 4</div>
-                    <div class="roadmap-icon">🌐</div>
-                    <div class="roadmap-content">
-                        <h3>Universal Platform Support</h3>
-                        <p>Complete multiplatform automation covering the entire experience management ecosystem. Transform surveys for any platform with intelligent optimization and seamless migration capabilities.</p>
-                        <div class="roadmap-features">
-                            <span class="feature">• Universal platform export (Qualtrics, Medallia, Dimensions, QuestionPro, Inmoment, Confirmit, SurveyMonkey)</span>
-                            <span class="feature">• Platform-specific optimization and formatting</span>
-                            <span class="feature">• Cross-platform survey migration tools</span>
-                            <span class="feature">• Intelligent platform recommendations based on survey type</span>
-                            <span class="feature">• Universal survey specification format for maximum flexibility</span>
-                        </div>
-                        
-                       
-                        <div class="platform-showcase">
-                            <h4>Supported Platforms:</h4>
-                            <div class="platform-logos">
-                                <div class="platform-logo" title="Qualtrics">
-                                    <span class="platform-name">Qualtrics</span>
-                                </div>
-                                <div class="platform-logo" title="Medallia">
-                                    <span class="platform-name">Medallia</span>
-                                </div>
-                                <div class="platform-logo" title="Dimensions">
-                                    <span class="platform-name">Dimensions</span>
-                                </div>
-                                <div class="platform-logo" title="QuestionPro">
-                                    <span class="platform-name">QuestionPro</span>
-                                </div>
-                                <div class="platform-logo" title="Inmoment">
-                                    <span class="platform-name">Inmoment</span>
-                                </div>
-                                <div class="platform-logo" title="Confirmit">
-                                    <span class="platform-name">Confirmit</span>
-                                </div>
-                                <div class="platform-logo" title="SurveyMonkey">
-                                    <span class="platform-name">SurveyMonkey</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <span class="status future-status">🚀 Roadmap Priority - Join Beta Waitlist</span>
-                    </div>
-                </div>
-                
-            </div>-->
-            
-            <div class="roadmap-cta">
-                <div class="hero-highlight" style="margin-top: 48px;">
-                    <h3>Be Part of Shaping the Future of Survey Research</h3>
-                    <p>Early access members get lifetime access to all roadmap features</p>
-                    <div class="savings">Join now and influence our development priorities</div>
-                </div>
-                <div style="text-align: center; margin-top: 24px;">
-                    <a href="#demo" class="btn-primary">Join Early Access Program</a>
-                </div>
-            </div>
-        </div>
-    </section> 
     <!-- Footer -->
 	<footer class="footer">
 		<div class="container">
@@ -2674,27 +2599,26 @@
 						<span>Pirai AI</span>
 					</div>
 					<p class="footer-desc">
-						Enterprise-grade survey automation platform transforming Word documents to Qualtrics format in minutes. 
-						Save $121,740+ annually while multiplying your research team's capacity.
+						Universal platform automation transforming documents to 17+ platforms across research, education, healthcare, and enterprise. Deploy globally in 50+ languages with enterprise-grade reliability.
 					</p>
 					<div style="margin-top: 16px;">
 						<p style="color: #9ca3af; font-size: 14px; margin-bottom: 8px;">
 							<strong style="color: #60a5fa;">📧 Contact:</strong> admin@piraiai.com
 						</p>
 						<p style="color: #9ca3af; font-size: 14px;">
-							<strong style="color: #22c55e;">🚀 Early Access:</strong> Join our exclusive beta program
+							<strong style="color: #22c55e;">🚀 Universal Access:</strong> Join our exclusive beta program
 						</p>
 					</div>
 				</div>
 				
 				<div class="footer-section">
-					<h3>Product</h3>
+					<h3>Platforms</h3>
 					<ul class="footer-links">
-						<li><a href="/">Home</a></li>
+						<li><a href="/#platforms">All 20+ Platforms</a></li>
 						<li><a href="/#process">How It Works</a></li>
 						<li><a href="/#features">Features</a></li>
 						<li><a href="/#pricing">Pricing</a></li>
-						<li><a href="/#demo">Early Access</a></li>
+						<li><a href="/#demo">Universal Access</a></li>
 					</ul>
 				</div>
 				
