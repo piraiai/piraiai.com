@@ -280,98 +280,8 @@
         
         .feature-card p {
             color: #d1d5db;
-        }
-        
-        /* ROI Calculator */
-        .roi-section {
-            padding: 80px 0;
-            background: rgba(17, 24, 39, 0.3);
-        }
-        
-        .roi-calculator {
-            background: linear-gradient(135deg, rgba(31, 41, 55, 0.8), rgba(17, 24, 39, 0.8));
-            backdrop-filter: blur(10px);
-            border-radius: 24px;
-            padding: 48px;
-            border: 1px solid rgba(55, 65, 81, 0.5);
-        }
-        
-        .roi-calculator h2 {
-            font-size: 36px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 32px;
-            color: #ffffff;
-        }
-        
-        .roi-inputs {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 32px;
-            margin-bottom: 32px;
-        }
-        
-        .input-group label {
-            display: block;
-            color: #d1d5db;
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-        
-        .input-group input {
-            width: 100%;
-            background: rgba(55, 65, 81, 0.5);
-            border: 1px solid #6b7280;
-            border-radius: 8px;
-            padding: 12px 16px;
-            color: #ffffff;
-            font-size: 18px;
-        }
-        
-        .input-group input:focus {
-            outline: none;
-            border-color: #3b82f6;
-        }
-        
-        .roi-results {
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(59, 130, 246, 0.2));
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            border-radius: 12px;
-            padding: 24px;
-            text-align: center;
-        }
-        
-        .result-item {
-            margin-bottom: 16px;
-        }
-        
-        .result-label {
-            font-size: 14px;
-            color: #d1d5db;
-            margin-bottom: 4px;
-        }
-        
-        .result-value {
-            font-size: 24px;
-            font-weight: 700;
-        }
-        
-        .current-cost {
-            color: #ef4444;
-        }
-        
-        .automated-cost {
-            color: #3b82f6;
-        }
-        
-        .savings {
-            color: #22c55e;
-        }
-        
-        .annual-savings {
-            font-size: 36px;
-        }
+        }       
+
         
         /* Process Section */
         .process {
@@ -2664,64 +2574,6 @@
 	</footer>
 
     <script>
-		// Updated ROI Calculator with Platform Costs
-		function updateROI() {
-			const surveysPerMonth = parseInt(document.getElementById('surveysPerMonth').value) || 20;
-			const hourlyRate = parseInt(document.getElementById('hourlyRate').value) || 75;
-			
-			// Get platform fee based on volume
-			const platformFeePerSurvey = getPlatformFee(surveysPerMonth);
-			
-			// Manual process: 12 hours per survey
-			const manualHoursPerSurvey = 12;
-			const currentMonthlyCost = surveysPerMonth * manualHoursPerSurvey * hourlyRate;
-			
-			// Automated process: 15 minutes (0.25 hours) + 3 hours logic = 3.25 hours per survey
-			const automatedHoursPerSurvey = 3.25;
-			const automatedLaborCost = surveysPerMonth * automatedHoursPerSurvey * hourlyRate;
-			
-			// Platform costs
-			const automatedPlatformCost = surveysPerMonth * platformFeePerSurvey;
-			
-			// Total automated cost = labor + platform
-			const totalAutomatedCost = automatedLaborCost + automatedPlatformCost;
-			
-			const monthlySavings = currentMonthlyCost - totalAutomatedCost;
-			const annualSavings = monthlySavings * 12;
-			
-			// Per-survey savings for verification
-			const savingsPerSurvey = monthlySavings / surveysPerMonth;
-			
-			document.getElementById('currentCost').textContent = currentMonthlyCost.toLocaleString();
-			document.getElementById('automatedCost').textContent = totalAutomatedCost.toLocaleString();
-			document.getElementById('monthlySavings').textContent = monthlySavings.toLocaleString();
-			document.getElementById('annualSavings').textContent = annualSavings.toLocaleString();
-			
-			// Optional: Update the description to show breakdown
-			const breakdownElement = document.querySelector('.roi-results .result-label');
-			if (breakdownElement && breakdownElement.textContent.includes('With Pirai AI')) {
-				breakdownElement.innerHTML = `With Pirai AI: Labor $${automatedLaborCost.toLocaleString()} + Platform $${automatedPlatformCost.toLocaleString()} (${platformFeePerSurvey}/survey)`;
-			}
-		}
-
-		// Platform fee based on volume tiers
-		function getPlatformFee(surveysPerMonth) {
-			if (surveysPerMonth <= 10) {
-				return 149; // 1-10 surveys: $149 each
-			} else if (surveysPerMonth <= 25) {
-				return 139; // 11-25 surveys: $139 each (7% discount)
-			} else if (surveysPerMonth <= 50) {
-				return 129; // 26-50 surveys: $129 each (13% discount)
-			} else {
-				return 119; // 50+ surveys: $119 each (20% discount)
-			}
-		}
-
-		// Initialize ROI calculator
-		document.getElementById('surveysPerMonth').addEventListener('input', updateROI);
-		document.getElementById('hourlyRate').addEventListener('input', updateROI);
-		updateROI(); // Initial calculation
-
         // reCAPTCHA callback functions
         function enableSubmit() {
             document.getElementById('submitBtn').disabled = false;
@@ -2842,28 +2694,7 @@
 
 		// Enhanced tracking for user interactions
 		document.addEventListener('DOMContentLoaded', function() {
-			
-			// Track ROI calculator usage
-			document.getElementById('surveysPerMonth').addEventListener('change', function() {
-				if (typeof dataLayer !== 'undefined') {
-					dataLayer.push({
-						'event': 'roi_calculator_used',
-						'calculator_field': 'surveys_per_month',
-						'value': this.value
-					});
-				}
-			});
-			
-			document.getElementById('hourlyRate').addEventListener('change', function() {
-				if (typeof dataLayer !== 'undefined') {
-					dataLayer.push({
-						'event': 'roi_calculator_used',
-						'calculator_field': 'hourly_rate',
-						'value': this.value
-					});
-				}
-			});
-			
+
 			// Track demo button clicks
 			document.querySelectorAll('.btn-primary, .btn-secondary').forEach(button => {
 				button.addEventListener('click', function() {
