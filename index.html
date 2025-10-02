@@ -2116,6 +2116,102 @@
         padding: 6px 12px;
     }
 }
+
+/* Testimonial Section Styles */
+.testimonial-section {
+    padding: 80px 0;
+}
+
+.testimonial-card {
+    background: rgba(31, 41, 55, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(55, 65, 81, 0.5);
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-quote {
+    font-size: 20px;
+    line-height: 1.8;
+    color: #e5e7eb;
+    margin-bottom: 32px;
+    font-style: italic;
+    position: relative;
+}
+
+.testimonial-quote::before,
+.testimonial-quote::after {
+    content: '"';
+    font-size: 40px;
+    color: #60a5fa;
+    line-height: 0;
+    position: absolute;
+    top: 20px;
+}
+
+.testimonial-quote::before {
+    left: -20px;
+}
+
+.testimonial-quote::after {
+    right: -20px;
+}
+
+.testimonial-author {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.author-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid #60a5fa;
+    object-fit: cover;
+}
+
+.author-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+}
+
+.author-title {
+    font-size: 14px;
+    color: #9ca3af;
+    margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .testimonial-card {
+        padding: 30px;
+    }
+    .testimonial-quote {
+        font-size: 16px;
+    }
+    .testimonial-quote::before,
+    .testimonial-quote::after {
+        font-size: 32px;
+        top: 10px;
+    }
+    .testimonial-quote::before {
+        left: -10px;
+    }
+    .testimonial-quote::after {
+        right: -10px;
+    }
+}
 </style>      
 </head>
 <body>
@@ -2132,11 +2228,13 @@
                     Pirai AI
                 </a>
                 <ul class="nav-links">
-                    <li><a href="/#process">How It Works</a></li>
-                    <li><a href="/#platforms">Platforms</a></li>
-                    <li><a href="/#efficiency">Efficiency</a></li>                     
-                    <li><a href="/#pricing">Pricing</a></li>                                        
-                    <li><a href="/qualtrics-toolkit">Toolkit</a></li>
+                    <li><a href="/#process">Process</a></li>                    
+                    <li><a href="/#efficiency">Efficiency</a></li>    
+                    <li><a href="/#testimonials">Evidence</a></li>      
+                    <li><a href="/#platforms">Platforms</a></li>            
+                    <li><a href="/#pricing">Pricing</a></li> 
+                                                     
+                    <!-- <li><a href="/qualtrics-toolkit">Toolkit</a></li> -->
                 </ul>
                 <a href="#demo" class="nav-cta">Get Demo</a>
             </div>
@@ -2167,6 +2265,23 @@
         <div class="float-element-1"></div>
         <div class="float-element-2"></div>
     </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonial-section">
+        <div class="container">
+            <h2 class="section-title">What Our Users Are Saying</h2>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">"I had three complicated surveys I was going to have to re-create for qualtrics because my account had expired. I had them in a PDF and Word format, but not in the needed QSF format. Pirai AI converted these three surveys with 106 questions and 490 options in under 10 minutes, which is work that would have taken me an entire day if I were typing everything manually. It saved me an incredible amount of time and streamlined my workflow in a way I didn’t think was possible. This was my first time using such a tool, and I would absolutely recommend Pirai AI to colleagues who work with Qualtrics surveys."</p>
+                <div class="testimonial-author">
+                    <img src="./image/Dr_April.jfif" alt="Dr. April Chatham-Carpenter" class="author-image">
+                    <div class="author-details">
+                        <p class="author-name">Dr. April Chatham-Carpenter</p>
+                        <p class="author-title">Department Chair & Professor of Applied Communication, University of Arkansas at Little Rock</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>    
 
     <!-- Multilingual Global Section -->
     <section class="multilingual-section">
