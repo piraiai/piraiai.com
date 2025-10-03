@@ -2365,7 +2365,358 @@
         right: -10px;
     }
 }
-</style>      
+</style>   
+<style>
+/* Academic Solutions Section Styles */
+.academic-solutions-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(124, 58, 237, 0.05));
+    position: relative;
+    overflow: hidden;
+}
+
+.academic-solutions-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent);
+}
+
+.academic-header {
+    text-align: center;
+    margin-bottom: 64px;
+}
+
+.academic-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    color: white;
+    padding: 8px 24px;
+    border-radius: 24px;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.academic-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #60a5fa, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.academic-subtitle {
+    font-size: 20px;
+    color: #d1d5db;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.academic-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 64px;
+    align-items: start;
+}
+
+/* Testimonial Card */
+.academic-testimonial-card {
+    background: rgba(31, 41, 55, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    padding: 40px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-quote-icon {
+    font-size: 80px;
+    color: rgba(59, 130, 246, 0.2);
+    line-height: 0.5;
+    margin-bottom: 20px;
+}
+
+.testimonial-highlight {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #e5e7eb;
+    margin-bottom: 32px;
+    font-style: italic;
+}
+
+.testimonial-highlight strong {
+    color: #60a5fa;
+    font-weight: 600;
+}
+
+.author-info {
+    border-top: 1px solid rgba(55, 65, 81, 0.5);
+    padding-top: 24px;
+}
+
+.author-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #60a5fa;
+    margin-bottom: 4px;
+}
+
+.author-title {
+    font-size: 14px;
+    color: #d1d5db;
+    margin-bottom: 2px;
+}
+
+.author-org {
+    font-size: 14px;
+    color: #9ca3af;
+}
+
+/* Features Column */
+.academic-features {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.features-heading {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.academic-feature-item {
+    display: flex;
+    gap: 16px;
+    background: rgba(31, 41, 55, 0.3);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(55, 65, 81, 0.3);
+    transition: all 0.3s ease;
+}
+
+.academic-feature-item:hover {
+    transform: translateX(4px);
+    border-color: rgba(59, 130, 246, 0.4);
+    background: rgba(31, 41, 55, 0.5);
+}
+
+.feature-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+}
+
+.feature-content h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 6px;
+}
+
+.feature-content p {
+    font-size: 14px;
+    color: #d1d5db;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* CTA Container */
+.academic-cta-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.academic-cta-card {
+    background: linear-gradient(135deg, rgba(31, 41, 55, 0.8), rgba(17, 24, 39, 0.8));
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    padding: 48px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.academic-cta-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+}
+
+.cta-heading {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 12px;
+}
+
+.cta-description {
+    font-size: 16px;
+    color: #d1d5db;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.cta-benefits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.benefit-tag {
+    background: rgba(59, 130, 246, 0.15);
+    color: #93c5fd;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.cta-action {
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.btn-academic-primary {
+    display: inline-block;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    color: white;
+    padding: 16px 40px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    white-space: nowrap;
+}
+
+.btn-academic-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(59, 130, 246, 0.5);
+    text-decoration: none;
+    color: white;
+}
+
+.cta-note {
+    font-size: 13px;
+    color: #9ca3af;
+    margin-top: 12px;
+    font-style: italic;
+}
+
+/* Mobile Responsive */
+@media (max-width: 968px) {
+    .academic-solutions-section {
+        padding: 60px 0;
+    }
+
+    .academic-title {
+        font-size: 36px;
+    }
+
+    .academic-subtitle {
+        font-size: 18px;
+        padding: 0 20px;
+    }
+
+    .academic-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin-bottom: 48px;
+    }
+
+    .academic-testimonial-card {
+        padding: 32px 24px;
+    }
+
+    .testimonial-highlight {
+        font-size: 16px;
+    }
+
+    .academic-cta-card {
+        grid-template-columns: 1fr;
+        padding: 32px 24px;
+        gap: 32px;
+    }
+
+    .cta-heading {
+        font-size: 24px;
+    }
+
+    .cta-description {
+        font-size: 15px;
+    }
+
+    .btn-academic-primary {
+        width: 100%;
+        font-size: 16px;
+        padding: 14px 32px;
+    }
+
+    .cta-benefits {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .academic-title {
+        font-size: 28px;
+    }
+
+    .academic-badge {
+        font-size: 12px;
+        padding: 6px 18px;
+    }
+
+    .academic-testimonial-card {
+        padding: 24px 20px;
+    }
+
+    .testimonial-quote-icon {
+        font-size: 60px;
+    }
+
+    .academic-feature-item {
+        padding: 16px;
+    }
+
+    .feature-icon {
+        font-size: 28px;
+    }
+
+    .cta-heading {
+        font-size: 20px;
+    }
+
+    .benefit-tag {
+        font-size: 12px;
+        padding: 5px 12px;
+    }
+}
+</style>   
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -2420,16 +2771,111 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonial-section">
+    <!-- <section id="testimonials" class="testimonial-section">
         <div class="container">
             <h2 class="section-title">What Our Users Are Saying</h2>
             <div class="testimonial-card">
                 <p class="testimonial-quote">I had three complicated surveys I was going to have to re-create for qualtrics because my account had expired. I had them in a PDF and Word format, but not in the needed QSF format. Pirai AI converted these three surveys with 106 questions and 490 options in under 10 minutes, which is work that would have taken me an entire day if I were typing everything manually. It saved me an incredible amount of time and streamlined my workflow in a way I didn’t think was possible. This was my first time using such a tool, and I would absolutely recommend Pirai AI to colleagues who work with Qualtrics surveys.</p>
                 <div class="testimonial-author">
-                    <!-- <img src="#" alt="Dr. April Chatham-Carpenter" class="author-image"> -->
+                   
                     <div class="author-details">
                         <p class="author-name">Dr. April Chatham-Carpenter</p>
                         <p class="author-title">Department Chair & Professor of Applied Communication, University of Arkansas at Little Rock</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>     -->
+
+    <!-- Academic Solutions Section - Insert after testimonials, before demo form -->
+    <section class="academic-solutions-section" id="academic">
+        <div class="container">
+            <div class="academic-header">
+                <div class="academic-badge">🎓 Education Solutions</div>
+                <h2 class="academic-title">Purpose-Built for Academic Research</h2>
+                <p class="academic-subtitle">
+                    Trusted by leading universities to automate complex Qualtrics survey creation—saving weeks of manual work for researchers and departments worldwide.
+                </p>
+            </div>
+
+            <div class="academic-grid">
+                <!-- Left: Featured Testimonial -->
+                <div id="testimonials" class="academic-testimonial-card">
+                    <div class="testimonial-quote-icon">"</div>
+                    <p class="testimonial-highlight">
+                        "I had three complicated surveys I was going to have to re-create for Qualtrics because my account had expired. <strong>Pirai AI converted these three surveys with 106 questions and 490 options in under 10 minutes</strong>, which is work that would have taken me an entire day if I were typing everything manually."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <div class="author-name">Dr. April Chatham-Carpenter</div>
+                            <div class="author-title">Department Chair & Professor of Applied Communication</div>
+                            <div class="author-org">University of Arkansas at Little Rock</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Value Propositions -->
+                <div class="academic-features">
+                    <h3 class="features-heading">Why Researchers Choose Pirai AI</h3>
+                    
+                    <div class="academic-feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <div class="feature-content">
+                            <h4>Eliminate Manual Data Entry</h4>
+                            <p>Stop spending 4-5 hours typing questions into Qualtrics. Upload your Word/PDF document and get perfect question text and response options in 10 minutes—ready to import and configure.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="academic-feature-item">
+                        <div class="feature-icon">🎯</div>
+                        <div class="feature-content">
+                            <h4>Zero Transcription Errors</h4>
+                            <p>Manual typing introduces errors that violate IRB protocols and force costly amendments. Pirai AI preserves exact wording from your approved documents—guaranteed accuracy every time.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="academic-feature-item">
+                        <div class="feature-icon">🔄</div>
+                        <div class="feature-content">
+                            <h4>Fast Survey Iteration</h4>
+                            <p>Need to modify questions after pilot testing? Update your Word doc, re-upload, and get a fresh QSF file in 5 minutes. No retyping changes or fixing cascading errors.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="academic-feature-item">
+                        <div class="feature-icon">👥</div>
+                        <div class="feature-content">
+                            <h4>Team-Friendly Workflow</h4>
+                            <p>Research assistants and grad students can generate survey files without Qualtrics expertise. Perfect foundation in minutes, then add your custom logic and launch.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="academic-cta-container">
+                <div class="academic-cta-card">
+                    <div class="cta-content">
+                        <h3 class="cta-heading">Get Academic Pricing & Custom Demo</h3>
+                        <p class="cta-description">
+                            Special pricing available for educational institutions. Send your Word/Pdf files for a free assessment and custom quote.
+                        </p>
+                        
+                        <div class="cta-benefits">
+                            <span class="benefit-tag">✓ Free conversion assessment</span>
+                            <span class="benefit-tag">✓ Academic discount pricing</span>
+                            <span class="benefit-tag">✓ Dedicated research support</span>
+                            <span class="benefit-tag">✓ FERPA compliant processing</span>
+                        </div>
+                    </div>
+
+                    <div class="cta-action">
+                        <a href="mailto:admin@piraiai.com?subject=Academic%20Institution%20Access%20Request&body=Institution%20Name:%0D%0ADepartment:%0D%0AYour%20Name:%0D%0AEmail:%0D%0A%0D%0AExpected%20Use%20Case:%0D%0A%E2%98%90%20Research%20studies%0D%0A%E2%98%90%20Course%20assessments%0D%0A%E2%98%90%20Multi-department%20collaboration%0D%0A%E2%98%90%20Other%0D%0A%0D%0APlease%20attach%20your%20Word%20or%20PDF%20files%20to%20this%20email." 
+                        class="btn-academic-primary"
+                        onclick="if(typeof dataLayer !== 'undefined') { dataLayer.push({'event': 'academic_cta_click', 'cta_location': 'academic_section'}); }">
+                            📧 Request Academic Access
+                        </a>
+                        <p class="cta-note">We respond within 3 hours with pricing and next steps</p>
                     </div>
                 </div>
             </div>
