@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Pirai AI | Frequently Asked Questions</title>
+    <meta name="description" content="Get answers to common questions about Pirai AI's survey automation platform. Learn about file formats, platform support, conversion times, and advanced features.">
+    <link rel="canonical" href="https://piraiai.com/faq" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="FAQ - Pirai AI">
+    <meta property="og:description" content="Everything you need to know about Pirai AI's survey automation platform.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://piraiai.com/faq">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://piraiai.com/logo.png">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #e5e7eb;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Navigation */
+        .nav {
+            background: rgba(17, 24, 39, 0.5);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #374151;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+        
+        .nav-cta {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            padding: 8px 24px;
+            border-radius: 24px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+        
+        .page-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .page-subtitle {
+            font-size: 20px;
+            color: #d1d5db;
+            margin-bottom: 32px;
+        }
+        
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #9ca3af;
+            font-size: 14px;
+        }
+        
+        .stat-icon {
+            font-size: 20px;
+        }
+        
+        /* Search Section */
+        .search-section {
+            max-width: 700px;
+            margin: 0 auto 60px;
+            position: relative;
+        }
+        
+        .search-container {
+            position: relative;
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: #6b7280;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 16px 20px 16px 56px;
+            background: rgba(31, 41, 55, 0.5);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            border-radius: 12px;
+            color: #e5e7eb;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .search-input::placeholder {
+            color: #6b7280;
+        }
+        
+        .no-results {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            background: rgba(31, 41, 55, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(55, 65, 81, 0.5);
+            margin-top: 20px;
+        }
+        
+        .no-results h3 {
+            color: #9ca3af;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+        
+        .no-results p {
+            color: #6b7280;
+        }
+        
+        /* FAQ Content */
+        .faq-content {
+            padding-bottom: 80px;
+        }
+        
+        .category-card {
+            background: rgba(31, 41, 55, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(55, 65, 81, 0.5);
+            margin-bottom: 24px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .category-card:hover {
+            border-color: rgba(59, 130, 246, 0.4);
+        }
+        
+        .category-header {
+            padding: 24px 28px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: background 0.3s;
+        }
+        
+        .category-header:hover {
+            background: rgba(59, 130, 246, 0.05);
+        }
+        
+        .category-title-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .category-icon {
+            font-size: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 12px;
+        }
+        
+        .category-title-text h2 {
+            font-size: 24px;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+        
+        .category-count {
+            font-size: 14px;
+            color: #9ca3af;
+        }
+        
+        .category-toggle {
+            font-size: 24px;
+            color: #6b7280;
+            transition: transform 0.3s;
+        }
+        
+        .category-card.active .category-toggle {
+            transform: rotate(180deg);
+        }
+        
+        .category-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+        
+        .category-card.active .category-content {
+            max-height: 5000px;
+        }
+        
+        .faq-item {
+            border-top: 1px solid rgba(55, 65, 81, 0.5);
+        }
+        
+        .faq-question {
+            padding: 20px 28px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            user-select: none;
+            transition: background 0.3s;
+        }
+        
+        .faq-question:hover {
+            background: rgba(59, 130, 246, 0.05);
+        }
+        
+        .faq-question-text {
+            flex: 1;
+            font-size: 17px;
+            font-weight: 600;
+            color: #e5e7eb;
+            line-height: 1.5;
+        }
+        
+        .faq-question-icon {
+            font-size: 18px;
+            color: #6b7280;
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+        
+        .faq-item.active .faq-question-icon {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 1000px;
+        }
+        
+        .faq-answer-content {
+            padding: 0 28px 24px 28px;
+            color: #d1d5db;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+        
+        .faq-answer-content strong {
+            color: #ffffff;
+        }
+        
+        /* Help CTA Section */
+        .help-cta {
+            background: rgba(31, 41, 55, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            padding: 48px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .help-cta h3 {
+            font-size: 28px;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+        
+        .help-cta p {
+            color: #9ca3af;
+            margin-bottom: 24px;
+            font-size: 16px;
+        }
+        
+        .help-cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            padding: 12px 32px;
+            border-radius: 24px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .help-cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+        
+        /* Footer */
+        .footer {
+            background: rgba(17, 24, 39, 0.8);
+            border-top: 1px solid #374151;
+            padding: 48px 0 24px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 32px;
+        }
+        
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            color: #3b82f6;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .footer-desc {
+            color: #9ca3af;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        
+        .footer h4 {
+            color: #ffffff;
+            margin-bottom: 16px;
+            font-size: 16px;
+        }
+        
+        .footer ul {
+            list-style: none;
+        }
+        
+        .footer ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer ul a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer ul a:hover {
+            color: #3b82f6;
+        }
+        
+        .footer-bottom {
+            padding-top: 24px;
+            border-top: 1px solid #374151;
+            text-align: center;
+            color: #6b7280;
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .page-title {
+                font-size: 36px;
+            }
+            
+            .page-subtitle {
+                font-size: 18px;
+            }
+            
+            .stats-row {
+                flex-direction: column;
+                gap: 16px;
+            }
+            
+            .category-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 24px;
+            }
+            
+            .category-title-text h2 {
+                font-size: 20px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            
+            .help-cta {
+                padding: 32px 24px;
+            }
+        }
+        
+        .highlight {
+            background: rgba(251, 191, 36, 0.2);
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/" class="logo">
+                    <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo" width="35" height="35"/>&nbsp;
+                    Pirai AI
+                </a>
+                <ul class="nav-links">
+                    <li><a href="/#process">Process</a></li>                    
+                    <li><a href="/#efficiency">Efficiency</a></li>    
+                    <li><a href="/#testimonials">Evidence</a></li>      
+                    <li><a href="/#platforms">Platforms</a></li>            
+                    <li><a href="/#pricing">Pricing</a></li> 
+                </ul>
+                <a href="/#demo" class="nav-cta">Get Early Access</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="page-title">Frequently Asked Questions</h1>
+            <p class="page-subtitle">Everything you need to know about Pirai AI's survey automation platform</p>
+            
+            <div class="stats-row">
+                <div class="stat-item">
+                    <span class="stat-icon">📚</span>
+                    <span>21 Questions Answered</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-icon">🗂️</span>
+                    <span>4 Categories</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-icon">⚡</span>
+                    <span>< 30 Second Read Time</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-container">
+                <span class="search-icon">🔍</span>
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    class="search-input" 
+                    placeholder="Search for answers... (e.g., 'language support' or 'file formats')"
+                    autocomplete="off"
+                >
+            </div>
+            <div id="noResults" class="no-results">
+                <h3>No results found</h3>
+                <p>Try different keywords or browse categories below</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Content -->
+    <section class="faq-content">
+        <div class="container">
+            
+            <!-- Word to Excel Conversion -->
+            <div class="category-card" data-category="word-excel">
+                <div class="category-header" onclick="toggleCategory(this)">
+                    <div class="category-title-wrapper">
+                        <div class="category-icon">📄</div>
+                        <div class="category-title-text">
+                            <h2>Word to Excel Conversion</h2>
+                            <p class="category-count">6 questions</p>
+                        </div>
+                    </div>
+                    <span class="category-toggle">▼</span>
+                </div>
+                <div class="category-content">
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">What file formats does Pirai AI accept for conversion?</span>
+                            <span class="faq-question-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Pirai AI accepts <strong>Word documents (.docx)</strong>, <strong>PDF files</strong>. Whether you have a native Word document, a digital PDF, or any other document format, simply upload it and Pirai AI will automatically extract and structure all your survey content. The system preserves all text in its original language and formatting, regardless of the file type.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">Can Pirai AI convert paper surveys and scanned documents?</span>
+                            <span class="faq-question-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Yes! Pirai AI can process scanned documents and even photos of paper surveys. If you have a paper questionnaire or printed survey, simply take a photo with your phone, convert it to PDF, and upload it to Pirai AI. Our advanced extraction technology reads questions, response options, tables, and all survey elements from images and scanned documents with the same accuracy as digital files. This makes it easy to digitize legacy surveys, research instruments, or any paper-based questionnaires.
+                            </div>
+                        </div>
+                    </div>                    
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">Can Pirai AI handle large or complex survey documents?</span>
+                            <span class="faq-question-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Absolutely! Pirai AI is designed to process surveys of any size and complexity without compromising accuracy. Whether you have a 10-question survey or a comprehensive 200-question research instrument, Pirai AI delivers complete, accurate conversions in the same amount of time - typically under 10 minutes. The system automatically adapts to your document's size and structure, ensuring every question, response option, and matrix element is captured perfectly.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">Do I need to format my Word document in a specific way?</span>
+                            <span class="faq-question-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                No! Pirai AI adapts to your existing document style. Whether you use "Q1. How satisfied..." or "1) Rate your satisfaction..." or any other formatting, the AI understands your structure. You can keep using your current templates without any changes.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">What happens if my document has typos or inconsistencies?</span>
+                            <span class="faq-question-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Pirai AI automatically checks for spelling errors across all questions, answer options, and text content during conversion. The system generates a comprehensive typo report that highlights potential misspellings with their locations. You can download the converted Excel file, review and fix any typos or issues identified, and then upload the edited version in Step 2 for platform conversion. The Excel template structure is designed to be edit-friendly - you can make corrections directly in Excel without breaking the formatting, and Pirai AI will process your edited file seamlessly when converting to any survey platform.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">Can Pirai AI handle surveys in multiple languages?</span>
+                            <span class="faq-question-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Yes! Pirai AI supports surveys in <strong>50+ languages</strong> with UTF-8 compliant processing. All text is preserved in its original script and language without translation or transliteration. This includes French, German, Portuguese, Spanish, Italian, Arabic, Chinese, Japanese, and many more.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Excel to Platform Conversion -->
+            <div class="category-card" data-category="excel-platform">
+                <div class="category-header" onclick="toggleCategory(this)">
+                    <div class="category-title-wrapper">
+                        <div class="category-icon">🔄</div>
+                        <div class="category-title-text">
+                            <h2>Excel to Platform Conversion</h2>
+                            <p class="category-count">6 questions</p>
+                        </div>
+                    </div>
+                    <span class="category-toggle">▼</span>
+                </div>
+                <div class="category-content">
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">How many survey platforms does Pirai AI support?</span>
+                            <span class="faq-question-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Pirai AI supports <strong>20+ platforms</strong> across market research, education, healthcare, and enterprise sectors, including Qualtrics (Advanced & QSF), REDCap, SurveyMonkey, QuestionPro, Forsta, Dimensions MDD, Zoho Surveys, SurveySparrow, Microsoft Forms, Google Forms, Moodle, Canvas, Kahoot, LearnWorlds, BrainCert, and more.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">Does Pirai AI support matrix questions?</span>
+                            <span class="faq-question-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Yes, for platforms that support matrix questions natively (like Qualtrics, REDCap, Forsta). For platforms without matrix support, Pirai AI automatically converts matrix questions into individual single-choice questions while preserving all statements and scale points.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">Can I convert one survey to multiple platforms?</span>
+                            <span class="faq-question-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Absolutely! After converting your Word document to the Excel template, you can convert that same Excel file to any of the 20+ supported platforms. This lets you deploy the same survey across multiple tools without rebuilding content from scratch.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">What question types are supported?</span>
+                            <span class="faq-question-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Pirai AI supports: <strong>Multiple Choice (Single/Multiple Answer)</strong>, <strong>Text Entry (Essay, Single Line, Form)</strong>, <strong>Matrix questions</strong>, <strong>Rank Order</strong>, <strong>Constant Sum</strong>, <strong>Descriptive Blocks</strong>, <strong>Page Breaks</strong>, and platform-specific question types. The system intelligently converts unsupported question types to the closest equivalent for each platform.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">How does Pirai AI handle unsupported question types?</span>
+                            <span class="faq-question-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Pirai AI provides intelligent conversion with warnings. For example, Rank Order questions may be converted to Multiple Choice for platforms without ranking support. Constant Sum questions might convert to text entry. You always receive clear notifications about any conversions made.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">What is included in the typo check report?</span>
+                            <span class="faq-question-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                The typo check scans all question text, answer options, and matrix statements for potential spelling errors. It uses intelligent filtering to exclude technical terms, proper nouns, and domain-specific terminology. The report shows all potential typos with their locations and provides counts by question type.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Technical & Processing -->
+            <div class="category-card" data-category="technical">
+                <div class="category-header" onclick="toggleCategory(this)">
+                    <div class="category-title-wrapper">
+                        <div class="category-icon">⚙️</div>
+                        <div class="category-title-text">
+                            <h2>Technical & Processing</h2>
+                            <p class="category-count">3 questions</p>
+                        </div>
+                    </div>
+                    <span class="category-toggle">▼</span>
+                </div>
+                <div class="category-content">
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">How long does conversion typically take?</span>
+                            <span class="faq-question-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Word-to-Excel conversion typically takes <strong>under 10 minutes</strong> for most surveys. For example, converting 3 surveys with 106 questions and 490 options takes less than 10 minutes. Platform conversions (Excel to platform format) usually complete in <strong>30-60 seconds</strong>.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">Does Pirai AI store my survey data?</span>
+                            <span class="faq-question-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                No. Pirai AI is GDPR compliant by design and does not store your uploaded documents. When you upload a Word or PDF file, it stays in your browser's memory during processing and is automatically destroyed after conversion. Files are never saved to permanent storage. All processing happens in real-time with temporary handling and automatic cleanup. The platform uses privacy-first architecture. Only anonymized analytics (no personal or survey content) are logged for platform improvements.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">Can I process surveys with special characters or encoding?</span>
+                            <span class="faq-question-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Yes! Pirai AI uses enterprise-grade <strong>UTF-8 compliant processing</strong> to ensure perfect character encoding across all languages and platforms. Special characters, accents, and non-Latin scripts are preserved accurately throughout the conversion process.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Advanced Features -->
+            <div class="category-card" data-category="advanced">
+                <div class="category-header" onclick="toggleCategory(this)">
+                    <div class="category-title-wrapper">
+                        <div class="category-icon">🚀</div>
+                        <div class="category-title-text">
+                            <h2>Advanced Features</h2>
+                            <p class="category-count">4 questions</p>
+                        </div>
+                    </div>
+                    <span class="category-toggle">▼</span>
+                </div>
+                <div class="category-content">
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">What is the Excel template structure?</span>
+                            <span class="faq-question-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                The Excel template uses <strong>7 standardized columns</strong>: Block Name, Question ID, Question Text, Question Type, Answer Option Text, Recode Value, and Matrix Type. This structure is designed to capture all survey elements in a platform-agnostic format that can be converted to any target platform.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">Can Pirai AI handle custom recode values?</span>
+                            <span class="faq-question-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Yes, for platforms that support custom recode values (like Qualtrics, REDCap, Forsta). The Recode Value column in the Excel template preserves your custom coding scheme. For platforms without recode support, the system uses simplified sequential numbering.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">How does Pirai AI handle survey logic and branching?</span>
+                            <span class="faq-question-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                The current version focuses on question and response conversion. Advanced features like display logic, skip logic, and branching are handled through the platform's native tools after import. Pirai AI ensures the foundational survey structure is perfect for you to add platform-specific logic.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">What import instructions does Pirai AI provide?</span>
+                            <span class="faq-question-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Each platform conversion includes detailed import instructions specific to that platform. For example, Qualtrics QSF files can be imported directly through Survey → Create New → Import Survey. Instructions are tailored to the file format and platform's import process.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Help CTA -->
+            <div class="help-cta">
+                <h3>Still have questions?</h3>
+                <p>Can't find the answer you're looking for? We're here to help.</p>
+                <a href="/#demo" class="help-cta-btn">Get Early Access & Ask Us Anything</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			<div class="footer-content">
+				<div>
+					<div class="footer-brand">
+						<img src="https://piraiai.com/logo.png" alt="Pirai AI Logo" width="35" height="35"/>&nbsp;
+						<span>Pirai AI</span>
+					</div>
+					<p class="footer-desc">
+						Universal platform automation transforming documents to 20+ platforms across research, education, healthcare, and enterprise. Deploy globally in 50+ languages with enterprise-grade reliability.
+					</p>
+					<div style="margin-top: 16px;">
+						<p style="color: #9ca3af; font-size: 14px; margin-bottom: 8px;">
+							<strong style="color: #60a5fa;">📧 Contact:</strong> admin@piraiai.com
+						</p>
+						<p style="color: #9ca3af; font-size: 14px;">
+							<strong style="color: #22c55e;">🚀 Universal Access:</strong> Join our exclusive beta program
+						</p>
+					</div>
+				</div>
+				
+				<div class="footer-section">
+					<h3>Platforms</h3>
+					<ul class="footer-links">
+						<li><a href="/#platforms">All 20+ Platforms</a></li>
+						<li><a href="/#process">How It Works</a></li>
+						<li><a href="/#features">Features</a></li>
+						<li><a href="/#pricing">Pricing</a></li>
+                        <li><a href="/faq">FAQ</a></li>
+						<li><a href="/#demo">Universal Access</a></li>
+					</ul>
+				</div>
+				
+				<div class="footer-section">
+					<h3>Free Tools</h3>
+					<ul class="footer-links">
+						<li><a href="/qsf-to-excel">QSF to Excel</a></li>
+						<li><a href="/pirai-csv-comparator">CSV Comparator</a></li>
+						<li><a href="/embedded-data-generator">ED Generator</a></li>
+						<li><a href="/#roadmap">Product Roadmap</a></li>
+						<li><a href="https://chromewebstore.google.com/detail/qualtrics-embedded-data-g/fkkmlmjhiehciaaodjghecnjojendgfo" target="_blank" style="color: #34d399;">🟢 Chrome Extension</a></li>
+                        <li><a href="/qualtrics-toolkit" style="color: #3b82f6;">Command Center</a></li>                        
+					</ul>
+				</div>
+				
+				<div class="footer-section">
+					<h3>Company</h3>
+					<ul class="footer-links">
+						<li><a href="/about">About Us</a></li>						
+						<li><a href="/#demo">Contact Us</a></li>
+						<li><a href="/privacy">Privacy Policy</a></li>
+						<li><a href="/terms">Terms of Service</a></li>
+                        <li><a href="/security">Security Overview</a></li>
+						<li><a href="https://www.linkedin.com/company/pirai-ai/" target="_blank">LinkedIn</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="footer-bottom">
+				<div class="copyright">
+					© 2025 Pirai AI. All rights reserved. | Built with enterprise-grade security and privacy protection.
+				</div>
+				<div style="display: flex; gap: 16px; align-items: center;">
+					<a href="https://www.linkedin.com/company/pirai-ai/" target="_blank" style="color: #9ca3af; transition: color 0.3s;">
+						<svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+							<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+						</svg>
+					</a>
+                    <a href="https://www.youtube.com/@PiraiAI" target="_blank" style="color: #9ca3af; transition: color 0.3s;">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.498 6.186a2.87 2.87 0 0 0-2.02-2.034C19.65 3.74 12 3.74 12 3.74s-7.65 0-9.478.412A2.87 2.87 0 0 0 .502 6.186C.088 8.02.088 12 .088 12s0 3.98.414 5.814a2.87 2.87 0 0 0 2.02 2.034C4.35 20.26 12 20.26 12 20.26s7.65 0 9.478-.412a2.87 2.87 0 0 0 2.02-2.034C23.912 15.98 23.912 12 23.912 12s0-3.98-.414-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                    </a>                    
+					<span style="color: #6b7280; font-size: 12px;">Follow our journey</span>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+    <script>
+        // Toggle category accordion
+        function toggleCategory(header) {
+            const card = header.parentElement;
+            const isActive = card.classList.contains('active');
+            
+            // Close all categories
+            document.querySelectorAll('.category-card').forEach(c => {
+                c.classList.remove('active');
+            });
+            
+            // Open clicked category if it wasn't active
+            if (!isActive) {
+                card.classList.add('active');
+            }
+        }
+
+        // Toggle individual FAQ items
+        function toggleFAQ(question) {
+            const item = question.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // Close all FAQ items in this category
+            const categoryContent = question.closest('.category-content');
+            categoryContent.querySelectorAll('.faq-item').forEach(faq => {
+                faq.classList.remove('active');
+            });
+            
+            // Open clicked item if it wasn't active
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
+
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const noResults = document.getElementById('noResults');
+        const categoryCards = document.querySelectorAll('.category-card');
+
+        searchInput.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase().trim();
+            
+            if (searchTerm === '') {
+                // Reset view
+                categoryCards.forEach(card => {
+                    card.style.display = 'block';
+                    card.classList.remove('active');
+                    card.querySelectorAll('.faq-item').forEach(item => {
+                        item.style.display = 'block';
+                        item.classList.remove('active');
+                    });
+                });
+                noResults.style.display = 'none';
+                removeHighlights();
+                return;
+            }
+
+            let hasResults = false;
+
+            categoryCards.forEach(card => {
+                const categoryHasResults = filterCategory(card, searchTerm);
+                if (categoryHasResults) {
+                    hasResults = true;
+                    card.style.display = 'block';
+                    card.classList.add('active'); // Auto-expand categories with results
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            noResults.style.display = hasResults ? 'none' : 'block';
+        });
+
+        function filterCategory(card, searchTerm) {
+            const faqItems = card.querySelectorAll('.faq-item');
+            let categoryHasResults = false;
+
+            faqItems.forEach(item => {
+                const questionText = item.querySelector('.faq-question-text').textContent.toLowerCase();
+                const answerText = item.querySelector('.faq-answer-content').textContent.toLowerCase();
+                
+                if (questionText.includes(searchTerm) || answerText.includes(searchTerm)) {
+                    item.style.display = 'block';
+                    item.classList.add('active'); // Auto-expand matching items
+                    categoryHasResults = true;
+                    
+                    // Highlight matching text
+                    highlightText(item, searchTerm);
+                } else {
+                    item.style.display = 'none';
+                    item.classList.remove('active');
+                }
+            });
+
+            return categoryHasResults;
+        }
+
+        function highlightText(item, searchTerm) {
+            const questionEl = item.querySelector('.faq-question-text');
+            const answerEl = item.querySelector('.faq-answer-content');
+            
+            [questionEl, answerEl].forEach(el => {
+                const originalText = el.getAttribute('data-original') || el.textContent;
+                if (!el.getAttribute('data-original')) {
+                    el.setAttribute('data-original', originalText);
+                }
+                
+                const regex = new RegExp(`(${searchTerm})`, 'gi');
+                const highlightedText = originalText.replace(regex, '<span class="highlight">$1</span>');
+                el.innerHTML = highlightedText;
+            });
+        }
+
+        function removeHighlights() {
+            document.querySelectorAll('[data-original]').forEach(el => {
+                el.textContent = el.getAttribute('data-original');
+                el.removeAttribute('data-original');
+            });
+        }
+
+        // Open first category by default
+        window.addEventListener('load', function() {
+            const firstCategory = document.querySelector('.category-card');
+            if (firstCategory) {
+                firstCategory.classList.add('active');
+            }
+        });
+
+        // Handle URL hash navigation (e.g., faq.html#matrix-questions)
+        function handleHashNavigation() {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                const targetElement = document.getElementById(hash);
+                if (targetElement) {
+                    // Open the category
+                    const categoryCard = targetElement.closest('.category-card');
+                    if (categoryCard) {
+                        categoryCard.classList.add('active');
+                    }
+                    
+                    // Open the FAQ item
+                    const faqItem = targetElement.closest('.faq-item');
+                    if (faqItem) {
+                        faqItem.classList.add('active');
+                    }
+                    
+                    // Scroll to element
+                    setTimeout(() => {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 300);
+                }
+            }
+        }
+
+        window.addEventListener('load', handleHashNavigation);
+        window.addEventListener('hashchange', handleHashNavigation);
+    </script>
+</body>
+</html>

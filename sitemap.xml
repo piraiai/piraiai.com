@@ -58,6 +58,13 @@
     <lastmod>2025-07-10</lastmod>
   </url>
 
+  <url>
+    <loc>https://piraiai.com/faq</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2025-10-06</lastmod>
+  </url>
+
   <!-- LEGAL PAGES - Low priority -->
   <url>
     <loc>https://piraiai.com/privacy</loc>
