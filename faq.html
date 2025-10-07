@@ -322,6 +322,14 @@
         .faq-item.active .faq-question-icon {
             transform: rotate(180deg);
         }
+
+        .faq-question-icon::before {
+            content: '+';
+        }
+
+        .faq-item.active .faq-question-icon::before {
+            content: '−';
+        }       
         
         .faq-answer {
             max-height: 0;
@@ -520,11 +528,11 @@
             <div class="stats-row">
                 <div class="stat-item">
                     <span class="stat-icon">📚</span>
-                    <span>20 Questions Answered</span>
+                    <span>34 Questions Answered</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-icon">🗂️</span>
-                    <span>4 Categories</span>
+                    <span>10 Categories</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-icon">⚡</span>
@@ -575,7 +583,7 @@
                     <div class="faq-item">
                         <div class="faq-question" onclick="toggleFAQ(this)">
                             <span class="faq-question-text">What file formats does Pirai AI accept for conversion?</span>
-                            <span class="faq-question-icon">+</span>
+                            <span class="faq-question-icon"></span>
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-content">
@@ -587,7 +595,7 @@
                     <div class="faq-item">
                         <div class="faq-question" onclick="toggleFAQ(this)">
                             <span class="faq-question-text">Can Pirai AI convert paper surveys and scanned documents?</span>
-                            <span class="faq-question-icon">+</span>
+                            <span class="faq-question-icon"></span>
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-content">
@@ -599,7 +607,7 @@
                     <div class="faq-item">
                         <div class="faq-question" onclick="toggleFAQ(this)">
                             <span class="faq-question-text">Can Pirai AI handle large or complex survey documents?</span>
-                            <span class="faq-question-icon">+</span>
+                            <span class="faq-question-icon"></span>
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-content">
@@ -611,7 +619,7 @@
                     <div class="faq-item">
                         <div class="faq-question" onclick="toggleFAQ(this)">
                             <span class="faq-question-text">Do I need to format my Word document in a specific way?</span>
-                            <span class="faq-question-icon">+</span>
+                            <span class="faq-question-icon"></span>
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-content">
@@ -623,7 +631,7 @@
                     <div class="faq-item">
                         <div class="faq-question" onclick="toggleFAQ(this)">
                             <span class="faq-question-text">What happens if my document has typos or inconsistencies?</span>
-                            <span class="faq-question-icon">+</span>
+                            <span class="faq-question-icon"></span>
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-content">
@@ -635,7 +643,7 @@
                     <div class="faq-item">
                         <div class="faq-question" onclick="toggleFAQ(this)">
                             <span class="faq-question-text">Can Pirai AI handle surveys in multiple languages?</span>
-                            <span class="faq-question-icon">+</span>
+                            <span class="faq-question-icon"></span>
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-content">
@@ -663,7 +671,7 @@
                     <div class="faq-item">
                         <div class="faq-question" onclick="toggleFAQ(this)">
                             <span class="faq-question-text">How many survey platforms does Pirai AI support?</span>
-                            <span class="faq-question-icon">+</span>
+                            <span class="faq-question-icon"></span>
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-content">
@@ -675,11 +683,11 @@
                     <div class="faq-item">
                         <div class="faq-question" onclick="toggleFAQ(this)">
                             <span class="faq-question-text">Does Pirai AI support matrix questions?</span>
-                            <span class="faq-question-icon">+</span>
+                            <span class="faq-question-icon"></span>
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-content">
-                                Yes, for platforms that support matrix questions natively (like Qualtrics, REDCap, Forsta). For platforms without matrix support, Pirai AI automatically converts matrix questions into individual single-choice questions while preserving all statements and scale points.
+                                Yes, for platforms that support matrix questions natively (like Qualtrics, QuestionPro, REDCap, Forsta). For platforms without matrix support, Pirai AI automatically converts matrix questions into individual single-choice questions while preserving all statements and scale points.
                             </div>
                         </div>
                     </div>
@@ -687,7 +695,7 @@
                     <div class="faq-item">
                         <div class="faq-question" onclick="toggleFAQ(this)">
                             <span class="faq-question-text">Can I convert one survey to multiple platforms?</span>
-                            <span class="faq-question-icon">+</span>
+                            <span class="faq-question-icon"></span>
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-content">
@@ -699,7 +707,7 @@
                     <div class="faq-item">
                         <div class="faq-question" onclick="toggleFAQ(this)">
                             <span class="faq-question-text">What question types are supported?</span>
-                            <span class="faq-question-icon">+</span>
+                            <span class="faq-question-icon"></span>
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-content">
@@ -711,7 +719,7 @@
                     <div class="faq-item">
                         <div class="faq-question" onclick="toggleFAQ(this)">
                             <span class="faq-question-text">How does Pirai AI handle unsupported question types?</span>
-                            <span class="faq-question-icon">+</span>
+                            <span class="faq-question-icon"></span>
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-content">
@@ -723,7 +731,7 @@
                     <div class="faq-item">
                         <div class="faq-question" onclick="toggleFAQ(this)">
                             <span class="faq-question-text">What is included in the typo check report?</span>
-                            <span class="faq-question-icon">+</span>
+                            <span class="faq-question-icon"></span>
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-content">
@@ -734,6 +742,35 @@
 
                 </div>
             </div>
+
+            <!-- Support & Contact -->
+            <div class="category-card" data-category="support">
+                <div class="category-header" onclick="toggleCategory(this)">
+                    <div class="category-title-wrapper">
+                        <div class="category-icon">📧</div>
+                        <div class="category-title-text">
+                            <h2>Support & Contact</h2>
+                            <p class="category-count">1 question</p>
+                        </div>
+                    </div>
+                    <span class="category-toggle">▼</span>
+                </div>
+                <div class="category-content">
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">How can I get help or contact Pirai AI support?</span>
+                            <span class="faq-question-icon"></span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                For assistance, questions, or support inquiries, please contact us at <strong><a href="mailto:admin@piraiai.com" style="color:#3b82f6 !important;">admin@piraiai.com</a></strong>. Our team is ready to help with any questions about conversions, platform compatibility, technical issues, enterprise pricing, or agency support.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>            
 
             <!-- Technical & Processing -->
             <div class="category-card" data-category="technical">
@@ -752,7 +789,7 @@
                     <div class="faq-item">
                         <div class="faq-question" onclick="toggleFAQ(this)">
                             <span class="faq-question-text">How long does conversion typically take?</span>
-                            <span class="faq-question-icon">+</span>
+                            <span class="faq-question-icon"></span>
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-content">
@@ -764,7 +801,7 @@
                     <div class="faq-item">
                         <div class="faq-question" onclick="toggleFAQ(this)">
                             <span class="faq-question-text">Does Pirai AI store my survey data?</span>
-                            <span class="faq-question-icon">+</span>
+                            <span class="faq-question-icon"></span>
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-content">
@@ -776,11 +813,263 @@
                     <div class="faq-item">
                         <div class="faq-question" onclick="toggleFAQ(this)">
                             <span class="faq-question-text">Can I process surveys with special characters or encoding?</span>
-                            <span class="faq-question-icon">+</span>
+                            <span class="faq-question-icon"></span>
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-content">
                                 Yes! Pirai AI uses enterprise-grade <strong>UTF-8 compliant processing</strong> to ensure perfect character encoding across all languages and platforms. Special characters, accents, and non-Latin scripts are preserved accurately throughout the conversion process.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Workflow & Process -->
+            <div class="category-card" data-category="workflow">
+                <div class="category-header" onclick="toggleCategory(this)">
+                    <div class="category-title-wrapper">
+                        <div class="category-icon">🔄</div>
+                        <div class="category-title-text">
+                            <h2>Workflow & Process</h2>
+                            <p class="category-count">3 questions</p>
+                        </div>
+                    </div>
+                    <span class="category-toggle">▼</span>
+                </div>
+                <div class="category-content">
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">What is the conversion workflow in Pirai AI?</span>
+                            <span class="faq-question-icon"></span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Pirai AI uses a simple <strong>2-step process</strong>: <strong>Step 1</strong> converts your Word/PDF document into a structured Excel template with AI-powered extraction. <strong>Step 2</strong> converts that Excel file into any of 20+ survey platform formats. You can edit the Excel file between steps to refine content, fix typos, or adjust formatting without breaking the structure.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">Can I reuse the same Excel file for multiple platforms?</span>
+                            <span class="faq-question-icon"></span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Absolutely! Once you've converted your Word document to Excel in Step 1, you can use that same Excel file to convert to as many different platforms as needed. This is perfect for <strong>multi-platform deployments</strong>, platform migrations, or testing the same survey across different tools without rebuilding content.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">Do I need to convert to Excel first, or can I go directly to a platform?</span>
+                            <span class="faq-question-icon"></span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Pirai AI uses a 2-step approach where Excel serves as the <strong>universal intermediate format</strong>. This design gives you maximum flexibility - you can review, edit, and validate your survey structure in Excel before converting to any platform. It also allows you to convert the same content to multiple platforms without starting over.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Platform Features & Compatibility -->
+            <div class="category-card" data-category="platform-features">
+                <div class="category-header" onclick="toggleCategory(this)">
+                    <div class="category-title-wrapper">
+                        <div class="category-icon">⚙️</div>
+                        <div class="category-title-text">
+                            <h2>Platform Features & Compatibility</h2>
+                            <p class="category-count">2 questions</p>
+                        </div>
+                    </div>
+                    <span class="category-toggle">▼</span>
+                </div>
+                <div class="category-content">
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">How do I know which platform is best for my survey?</span>
+                            <span class="faq-question-icon"></span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Each platform converter in Pirai AI shows key capabilities like <strong>matrix question support</strong>, <strong>recode value handling</strong>, and <strong>complexity rating</strong>. The platform displays whether your specific survey features (like matrix grids or custom scoring) are supported natively or will be converted to alternative formats. This helps you choose the platform that best matches your survey requirements.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">What happens to features my chosen platform doesn't support?</span>
+                            <span class="faq-question-icon"></span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Pirai AI intelligently converts unsupported features to the closest equivalent. For example, <strong>matrix questions</strong> become individual single-choice questions on platforms without matrix support, and <strong>ranking questions</strong> may convert to multiple choice. You always receive clear warnings about any conversions made, so you know exactly how your survey will appear in the target platform.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Technical Specifications -->
+            <div class="category-card" data-category="technical">
+                <div class="category-header" onclick="toggleCategory(this)">
+                    <div class="category-title-wrapper">
+                        <div class="category-icon">🔧</div>
+                        <div class="category-title-text">
+                            <h2>Technical Specifications</h2>
+                            <p class="category-count">3 questions</p>
+                        </div>
+                    </div>
+                    <span class="category-toggle">▼</span>
+                </div>
+                <div class="category-content">
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">Is there a limit to how many questions I can convert?</span>
+                            <span class="faq-question-icon"></span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <strong>No question limit!</strong> Pirai AI handles surveys of any size, from 10 questions to 200+ questions. The intelligent chunking system automatically processes large documents while maintaining accuracy and completeness throughout the entire survey.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">What file size limits does Pirai AI have?</span>
+                            <span class="faq-question-icon"></span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Pirai AI accepts Word and PDF files up to <strong>5MB</strong>, which accommodates surveys with hundreds of questions. If you have an exceptionally large document, consider splitting it into logical sections or reach out to <a href="mailto:admin@piraiai.com" style="color:#3b82f6 !important;">admin@piraiai.com</a> for assistance with enterprise-scale conversions.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">How accurate is the AI conversion?</span>
+                            <span class="faq-question-icon"></span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Pirai AI uses advanced language models optimized for survey structure recognition with low-temperature settings for consistent, accurate results. The system includes <strong>automatic quality validation</strong> and <strong>spell-checking</strong>. While the AI is highly accurate, we recommend reviewing the Excel output before Step 2 - that's why we make it easy to download, edit, and re-upload.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Use Cases -->
+            <div class="category-card" data-category="use-cases">
+                <div class="category-header" onclick="toggleCategory(this)">
+                    <div class="category-title-wrapper">
+                        <div class="category-icon">💼</div>
+                        <div class="category-title-text">
+                            <h2>Use Cases</h2>
+                            <p class="category-count">4 questions</p>
+                        </div>
+                    </div>
+                    <span class="category-toggle">▼</span>
+                </div>
+                <div class="category-content">
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">Can I use Pirai AI for platform migration?</span>
+                            <span class="faq-question-icon"></span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Yes! Pirai AI is perfect for <strong>migrating surveys between platforms</strong>. If you have an existing survey specification, convert it to Excel in Step 1, then convert to your new target platform in Step 2. This eliminates the need to manually rebuild surveys when switching tools or managing multi-platform deployments.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">Can teams collaborate using Pirai AI?</span>
+                            <span class="faq-question-icon"></span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Yes. After Step 1, you can <strong>share the Excel file with team members</strong> for review and editing. Multiple people can review questions, fix typos, or adjust wording in Excel. Once finalized, anyone can upload the edited Excel file in Step 2 to generate platform files. This makes Pirai AI ideal for research teams, agencies, and organizations with approval workflows.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">Is Pirai AI suitable for academic research surveys?</span>
+                            <span class="faq-question-icon"></span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Absolutely! Pirai AI supports research-focused platforms like <strong>Qualtrics, QuestionPro, REDCap, and Forsta</strong>. The system preserves complex question structures, matrix grids, and custom recode values essential for research data analysis. The multilingual support and privacy-first design make it ideal for international and sensitive research projects.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">Can I use Pirai AI for client work or agency services?</span>
+                            <span class="faq-question-icon"></span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Yes! Agencies and consultants use Pirai AI to <strong>accelerate survey programming for clients</strong>. Convert client specifications to multiple platform formats quickly, handle multi-regional deployments with multilingual support, and deliver projects faster while maintaining quality. Contact <a href="mailto:admin@piraiai.com" style="color:#3b82f6 !important;">admin@piraiai.com</a> for enterprise pricing and agency support.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Comparisons -->
+            <div class="category-card" data-category="comparisons">
+                <div class="category-header" onclick="toggleCategory(this)">
+                    <div class="category-title-wrapper">
+                        <div class="category-icon">⚖️</div>
+                        <div class="category-title-text">
+                            <h2>Comparisons</h2>
+                            <p class="category-count">2 questions</p>
+                        </div>
+                    </div>
+                    <span class="category-toggle">▼</span>
+                </div>
+                <div class="category-content">
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">How is Pirai AI different from manual survey programming?</span>
+                            <span class="faq-question-icon"></span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                Manual survey programming typically takes <strong>hours or days</strong> and is error-prone, especially for large surveys. Pirai AI converts the same survey in <strong>under 10 minutes</strong> with consistent accuracy. The AI handles tedious data entry, formatting, and structure conversion automatically, while you focus on content quality and platform-specific optimizations.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span class="faq-question-text">What's the difference between Qualtrics Advanced and QSF formats?</span>
+                            <span class="faq-question-icon"></span>
+                        </div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <strong>Qualtrics Advanced format (.txt)</strong> is a human-readable text format you import through the "Import from Word" feature - great for reviewing before import. <strong>QSF format (.qsf)</strong> is Qualtrics' native JSON format that you import through "Import Survey" - it creates a complete, ready-to-use survey instantly. Both formats work perfectly; choose based on your preference and workflow.
                             </div>
                         </div>
                     </div>
@@ -805,7 +1094,7 @@
                     <div class="faq-item">
                         <div class="faq-question" onclick="toggleFAQ(this)">
                             <span class="faq-question-text">What is the Excel template structure?</span>
-                            <span class="faq-question-icon">+</span>
+                            <span class="faq-question-icon"></span>
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-content">
@@ -817,7 +1106,7 @@
                     <div class="faq-item">
                         <div class="faq-question" onclick="toggleFAQ(this)">
                             <span class="faq-question-text">Can Pirai AI handle custom recode values?</span>
-                            <span class="faq-question-icon">+</span>
+                            <span class="faq-question-icon"></span>
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-content">
@@ -829,7 +1118,7 @@
                     <div class="faq-item">
                         <div class="faq-question" onclick="toggleFAQ(this)">
                             <span class="faq-question-text">How does Pirai AI handle survey logic and branching?</span>
-                            <span class="faq-question-icon">+</span>
+                            <span class="faq-question-icon"></span>
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-content">
@@ -841,7 +1130,7 @@
                     <div class="faq-item">
                         <div class="faq-question" onclick="toggleFAQ(this)">
                             <span class="faq-question-text">What import instructions does Pirai AI provide?</span>
-                            <span class="faq-question-icon">+</span>
+                            <span class="faq-question-icon"></span>
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-content">
