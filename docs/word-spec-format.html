@@ -471,6 +471,110 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-top: 1px solid #e2e8f0;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding: 60px 0 40px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+            font-size: 24px;
+            font-weight: 700;
+            color: #3b82f6;
+        }
+
+        .footer-desc {
+            color: #6b7280;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .footer-section h3 {
+            color: #1f2937;
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #3b82f6;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #e2e8f0;
+            padding: 24px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .copyright {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .content-wrapper {
+                padding: 20px;
+            }
+
+            .dos-donts {
+                grid-template-columns: 1fr;
+            }
+
+            .content-nav ul {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+        }        
     </style>
 </head>
 <body>
@@ -1097,7 +1201,85 @@ Q5. Thank you for your feedback!
             </div>
         </div>
     </div>
-
+    <!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			<div class="footer-content">
+				<div>
+					<div class="footer-brand">
+						<img src="https://piraiai.com/logo.png" alt="Pirai AI Logo" width="35" height="35"/>&nbsp;
+						<span>Pirai AI</span>
+					</div>
+					<p class="footer-desc">
+						Universal platform automation transforming documents to 20+ platforms across research, education, healthcare, and enterprise. Deploy globally in 50+ languages with enterprise-grade reliability.
+					</p>
+					<div style="margin-top: 16px;">
+						<p style="color: #9ca3af; font-size: 14px; margin-bottom: 8px;">
+							<strong style="color: #60a5fa;">📧 Contact:</strong> admin@piraiai.com
+						</p>
+						<p style="color: #9ca3af; font-size: 14px;">
+							<strong style="color: #22c55e;">🚀 Universal Access:</strong> Join our exclusive beta program
+						</p>
+					</div>
+				</div>
+				
+				<div class="footer-section">
+					<h3>Product</h3>
+					<ul class="footer-links">
+						<li><a href="/">Home</a></li>
+						<li><a href="/#process">How It Works</a></li>
+						<li><a href="/#features">Features</a></li>
+						<li><a href="/#pricing">Pricing</a></li>
+                        <li><a href="/faq">FAQ</a></li>
+						<li><a href="/#demo">Early Access</a></li>
+					</ul>
+				</div>
+				
+				<div class="footer-section">
+					<h3>Free Tools</h3>
+					<ul class="footer-links">
+						<li><a href="/qsf-to-excel">QSF to Excel</a></li>
+						<li><a href="/pirai-csv-comparator">CSV Comparator</a></li>
+						<li><a href="/embedded-data-generator">ED Generator</a></li>
+						<!-- <li><a href="/#roadmap">Product Roadmap</a></li> -->
+						<li><a href="https://chromewebstore.google.com/detail/qualtrics-embedded-data-g/fkkmlmjhiehciaaodjghecnjojendgfo" target="_blank" style="color: #34d399;">🟢 Chrome Extension</a></li>
+                        <li><a href="/qualtrics-toolkit" style="color: #3b82f6;">Command Center</a></li>                                                
+					</ul>
+				</div>
+				
+				<div class="footer-section">
+					<h3>Company</h3>
+					<ul class="footer-links">
+						<li><a href="/about">About Us</a></li>						
+						<li><a href="/#demo">Contact Us</a></li>
+						<li><a href="/privacy">Privacy Policy</a></li>
+						<li><a href="/terms">Terms of Service</a></li>
+                        <li><a href="/security">Security Overview</a></li>
+						<li><a href="https://www.linkedin.com/company/pirai-ai/" target="_blank">LinkedIn</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="footer-bottom">
+				<div class="copyright">
+					© 2025 Pirai AI. All rights reserved. | Built with enterprise-grade security and privacy protection.
+				</div>
+				<div style="display: flex; gap: 16px; align-items: center;">
+					<a href="https://www.linkedin.com/company/pirai-ai/" target="_blank" style="color: #9ca3af; transition: color 0.3s;">
+						<svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+							<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+						</svg>
+					</a>
+                    <a href="https://www.youtube.com/@PiraiAI" target="_blank" style="color: #9ca3af; transition: color 0.3s;">
+                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.498 6.186a2.87 2.87 0 0 0-2.02-2.034C19.65 3.74 12 3.74 12 3.74s-7.65 0-9.478.412A2.87 2.87 0 0 0 .502 6.186C.088 8.02.088 12 .088 12s0 3.98.414 5.814a2.87 2.87 0 0 0 2.02 2.034C4.35 20.26 12 20.26 12 20.26s7.65 0 9.478-.412a2.87 2.87 0 0 0 2.02-2.034C23.912 15.98 23.912 12 23.912 12s0-3.98-.414-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                    </a>                        
+					<span style="color: #6b7280; font-size: 12px;">Follow our journey</span>
+				</div>
+			</div>
+		</div>
+	</footer>
     <script>
         // Add smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
