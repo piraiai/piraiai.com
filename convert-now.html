@@ -1,0 +1,991 @@
+<!doctype html>
+<html lang="en" data-theme="dark" class="no-js">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Convert Documents to Qualtrics QSF - Pirai AI</title>
+    <meta name="description" content="Academic researchers: Convert your Word documents to Qualtrics QSF format. Early access program with manual review and quality assurance."/>
+    <link rel="icon" href="logo.png" type="image/png">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet"/>
+
+    <style>
+        /* ========= THEME TOKENS ========= */
+        :root {
+            --bg: #ffffff;
+            --ink: #0b0b0e;
+            --ink-dim: #4e5360;
+            --muted: #6d7280;
+            --brand: #9B6BFF;
+            --brand-2: #BFA8FF;
+            --tile: #f3f4f8;
+            --card: #fafbff;
+            --radius: 14px;
+            --shadow: 0 12px 28px rgba(18,18,24,.10);
+            --display: "Space Grotesk", system-ui, -apple-system, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, sans-serif;
+            --sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --maxw: 1200px;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0b0b0e;
+            --ink: #f6f7fb;
+            --ink-dim: #b7bac0;
+            --muted: #8b8f99;
+            --tile: #1a1b21;
+            --card: #13141a;
+            --shadow: 0 14px 40px rgba(0,0,0,.35);
+        }
+
+        /* ========= GLOBAL ========= */
+        * { box-sizing: border-box; }
+        html, body { height: 100%; }
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: var(--sans);
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        .container {
+            max-width: var(--maxw);
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 40px;
+        }
+
+        /* ========= NAVIGATION ========= */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(11, 11, 14, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(155, 107, 255, 0.2);
+            z-index: 1000;
+            padding: 20px 0;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--ink);
+            font-family: var(--display);
+            font-weight: 800;
+            font-size: 24px;
+        }
+
+        .logo img {
+            width: 35px;
+            height: 35px;
+        }
+
+        .back-link {
+            color: var(--brand);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--brand-2);
+        }
+
+        /* ========= MAIN CONTENT ========= */
+        .main-content {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0 40px;
+            transition: all 0.6s ease;
+        }
+
+        .form-view .main-content {
+            justify-content: flex-start;
+            padding: 140px 40px 40px;
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            transition: all 0.6s ease;
+        }
+
+        h1 {
+            font-family: var(--display);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            font-size: clamp(36px, 6vw, 60px);
+            margin: -80px 0 20px 0;
+            text-align: center;
+            color: var(--ink);
+            transition: all 0.6s ease;
+        }
+
+        .form-view h1 {
+            font-size: clamp(20px, 3.5vw, 32px);
+            margin: 100px 0 12px 0;
+            max-width: 800px;
+            display: block !important;
+            visibility: visible !important;
+        }
+
+        .subtitle {
+            font-size: clamp(16px, 2vw, 20px);
+            color: var(--ink-dim);
+            text-align: center;
+            margin: 0 0 60px;
+            max-width: 900px;
+            font-weight: 400;
+            line-height: 1.5;
+            transition: all 0.6s ease;
+        }
+
+        .form-view .subtitle {
+            font-size: clamp(14px, 1.5vw, 16px);
+            margin: 0 0 40px;
+        }
+
+        .badge {
+            display: none;
+        }
+
+        /* ========= UPLOAD CARD ========= */
+        .upload-card {
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            padding: 0;
+            max-width: 1000px;
+            width: 100%;
+            box-shadow: none;
+            margin-bottom: 24px;
+        }
+
+        .initial-view .upload-card {
+            max-width: 1000px;
+        }
+
+        .form-view .upload-card {
+            background: var(--card);
+            border: 2px solid rgba(155, 107, 255, 0.3);
+            border-radius: 24px;
+            padding: 48px;
+            max-width: 700px;
+            box-shadow: var(--shadow);
+        }
+
+        .upload-zone {
+            border: 2px solid rgba(155, 107, 255, 0.4);
+            border-radius: 32px;
+            padding: 20px 24px;
+            text-align: left;
+            background: #1a1b21;
+            cursor: pointer;
+            transition: all 0.6s ease;
+            position: relative;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3), 0 0 20px rgba(155, 107, 255, 0.3), 0 8px 32px -8px rgba(155, 107, 255, 0.4);
+            max-width: 780px;
+            width: 100%;
+            min-height: 120px;
+        }
+
+        .form-view .upload-zone {
+            display: none;
+        }
+
+        .upload-zone:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15), 0 0 30px rgba(155, 107, 255, 0.5), 0 12px 40px -8px rgba(155, 107, 255, 0.6);
+            border-color: rgba(155, 107, 255, 0.6);
+        }
+
+        .upload-zone.dragover {
+            background: rgba(155, 107, 255, 0.05);
+            box-shadow: 0 4px 20px rgba(155, 107, 255, 0.2), 0 0 40px rgba(155, 107, 255, 0.6), 0 16px 48px -8px rgba(155, 107, 255, 0.7);
+            border-color: var(--brand);
+        }
+
+        .upload-icon {
+            display: none;
+        }
+
+        .upload-zone h3 {
+            display: none;
+        }
+
+        .upload-zone p {
+            display: none;
+        }
+
+        .upload-zone .upload-placeholder {
+            font-size: 17px;
+            color: #8b8f99;
+            font-weight: 400;
+            padding: 0;
+            display: block;
+            margin: 0;
+        }
+
+        .upload-action-btn {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #7C4FCC, #9B6BFF);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-self: flex-end;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        .upload-zone:hover .upload-action-btn {
+            transform: scale(1.05);
+        }
+
+        .upload-action-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .file-types {
+            font-size: 14px;
+            color: var(--muted);
+            text-align: center;
+            margin-top: 16px;
+            display: block;
+            transition: all 0.6s ease;
+        }
+
+        .form-view .file-types {
+            display: none;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        .file-selected {
+            background: rgba(155, 107, 255, 0.1);
+            border: 1px solid rgba(155, 107, 255, 0.3);
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            margin-top: 0;
+            display: none;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .file-selected.show {
+            display: flex;
+        }
+
+        /* Hide form fields in initial view */
+        .initial-view #conversionForm {
+            display: none;
+        }
+
+        .file-icon {
+            width: 32px;
+            height: 32px;
+            flex-shrink: 0;
+        }
+
+        .file-info {
+            flex: 1;
+        }
+
+        .file-name {
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 4px;
+        }
+
+        .file-size {
+            font-size: 14px;
+            color: var(--ink-dim);
+        }
+
+        .remove-file {
+            background: transparent;
+            border: none;
+            color: var(--muted);
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .remove-file:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--ink);
+        }
+
+        /* ========= FORM FIELDS ========= */
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--ink);
+            font-size: 14px;
+        }
+
+        .form-group label .email-hint {
+            color: var(--muted);
+            font-weight: 400;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 14px;
+            background: var(--tile);
+            border: 1px solid rgba(155, 107, 255, 0.2);
+            border-radius: 12px;
+            color: var(--ink);
+            font-size: 15px;
+            font-family: var(--sans);
+            transition: all 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--brand);
+            box-shadow: 0 0 0 3px rgba(155, 107, 255, 0.1);
+        }
+
+        .form-group input::placeholder {
+            color: var(--muted);
+        }
+
+        .required {
+            color: var(--brand);
+        }
+
+        /* ========= BUTTON ========= */
+        .submit-btn {
+            width: 100%;
+            padding: 14px 28px;
+            background: linear-gradient(135deg, #6B3FCC, #7C4FCC);
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            font-family: var(--display);
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 8px 24px rgba(155, 107, 255, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(155, 107, 255, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* ========= INFO SECTION ========= */
+        .info-section {
+            background: rgba(155, 107, 255, 0.05);
+            border: 1px solid rgba(155, 107, 255, 0.2);
+            border-radius: 16px;
+            padding: 24px;
+            max-width: 700px;
+            width: 100%;
+            display: none;
+        }
+
+        .form-view .info-section {
+            display: block;
+        }
+
+        .info-section h4 {
+            font-family: var(--display);
+            font-weight: 700;
+            font-size: 18px;
+            margin: 0 0 12px;
+            color: var(--ink);
+        }
+
+        .info-section ul {
+            margin: 0;
+            padding-left: 20px;
+            color: var(--ink-dim);
+        }
+
+        .info-section li {
+            margin: 8px 0;
+            font-size: 15px;
+        }
+
+        .info-section .spam-note {
+            color: var(--brand-2);
+        }
+
+        /* ========= CUSTOM MODAL ========= */
+        .custom-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .custom-modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--card);
+            border: 2px solid rgba(155, 107, 255, 0.3);
+            border-radius: 20px;
+            padding: 32px;
+            max-width: 450px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content h3 {
+            font-family: var(--display);
+            font-weight: 700;
+            font-size: 22px;
+            margin: 0 0 12px;
+            color: var(--brand);
+        }
+
+        .modal-content p {
+            color: var(--ink-dim);
+            margin: 0 0 24px;
+            line-height: 1.5;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .modal-btn {
+            flex: 1;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            font-family: var(--sans);
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .modal-btn-primary {
+            background: linear-gradient(135deg, #6B3FCC, #7C4FCC);
+            color: #fff;
+        }
+
+        .modal-btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(155, 107, 255, 0.4);
+        }
+
+        .modal-btn-secondary {
+            background: var(--tile);
+            color: var(--ink);
+            border: 1px solid rgba(155, 107, 255, 0.2);
+        }
+
+        .modal-btn-secondary:hover {
+            background: rgba(155, 107, 255, 0.1);
+        }
+
+        /* ========= SUCCESS MESSAGE ========= */
+        .success-message {
+            display: none;
+            background: linear-gradient(135deg, rgba(155, 107, 255, 0.2), rgba(191, 168, 255, 0.1));
+            border: 2px solid rgba(155, 107, 255, 0.4);
+            border-radius: 16px;
+            padding: 32px;
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .success-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 20px;
+        }
+
+        .success-message h3 {
+            font-family: var(--display);
+            font-weight: 700;
+            font-size: 28px;
+            margin: 0 0 12px;
+            color: var(--brand);
+        }
+
+        .success-message p {
+            font-size: 16px;
+            color: var(--ink-dim);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* ========= LOADING STATE ========= */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        .spinner {
+            border: 3px solid rgba(155, 107, 255, 0.2);
+            border-top: 3px solid var(--brand);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* ========= RESPONSIVE ========= */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .main-content {
+                padding: 100px 20px 40px;
+            }
+
+            .upload-card {
+                padding: 32px 24px;
+            }
+
+            .upload-zone {
+                padding: 40px 20px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <a href="/" class="logo">
+                    <img src="logo.png" alt="Pirai AI Logo"/>
+                    Pirai AI
+                </a>
+                <a href="/" class="back-link">← Back to Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container initial-view" id="mainContainer">
+            <div class="content-wrapper">
+                <span class="badge">🎓 EARLY ACCESS FOR ACADEMICS</span>
+
+                <h1>Convert Documents to<br/>Qualtrics QSF Format</h1>
+
+                <p class="subtitle">
+                    Early access available exclusively to Academics
+                </p>
+
+            <!-- Upload Form -->
+            <div class="upload-card" id="uploadForm">
+                <div class="upload-zone" id="uploadZone">
+                    <p class="upload-placeholder">Drag and drop your doc to convert</p>
+                    <div class="upload-action-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 19V5M5 12l7-7 7 7"/>
+                        </svg>
+                    </div>
+                    <input type="file" id="fileInput" accept=".docx,.pdf,.doc,.txt,.png,.jpg,.jpeg" />
+                </div>
+                <p class="file-types">Upload your files in doc, docx, pdf, image or txt format</p>
+
+                <div class="file-selected" id="fileSelected">
+                    <svg class="file-icon" viewBox="0 0 24 24" fill="#9B6BFF">
+                        <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                    </svg>
+                    <div class="file-info">
+                        <div class="file-name" id="fileName"></div>
+                        <div class="file-size" id="fileSize"></div>
+                    </div>
+                    <button class="remove-file" id="removeFile" type="button">✕</button>
+                </div>
+
+                <form id="conversionForm">
+                    <div class="form-group">
+                        <label for="name">Your Name <span class="required">*</span></label>
+                        <input type="text" id="name" name="name" required placeholder="Dr. Jane Smith" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Academic Email <span class="required">*</span> <span class="email-hint">(we will use this email to send you the qsf file)</span></label>
+                        <input type="email" id="email" name="email" required placeholder="jane.smith@university.edu" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="role">Role <span class="required">*</span></label>
+                        <select id="role" name="role" required>
+                            <option value="">Select your role</option>
+                            <option value="Professor">Professor</option>
+                            <option value="Research Associate">Research Associate</option>
+                            <option value="PhD Student">PhD Student</option>
+                            <option value="Masters Student">Masters Student</option>
+                            <option value="Research Assistant">Research Assistant</option>
+                            <option value="Postdoctoral Researcher">Postdoctoral Researcher</option>
+                            <option value="Other Academic">Other Academic</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="institution">Institution</label>
+                        <input type="text" id="institution" name="institution" placeholder="University of California, Berkeley" />
+                    </div>
+
+                    <div class="loading" id="loading">
+                        <div class="spinner"></div>
+                        <p style="color: var(--ink-dim);">Uploading and processing...</p>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        Convert Now
+                    </button>
+                </form>
+            </div>
+
+            <!-- Success Message -->
+            <div class="success-message" id="successMessage">
+                <svg class="success-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" stroke="#9B6BFF" stroke-width="2" fill="rgba(155, 107, 255, 0.1)"/>
+                    <path d="M8 12L11 15L16 9" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h3>Submission Received!</h3>
+                <p>
+                    Thank you! We've received your document. Our AI agent will convert it to QSF format, and our QA team will review it for accuracy.
+                    <br/><br/>
+                    <strong>You'll receive the converted file via email within a few hours during business hours.</strong>
+                    <br/><br/>
+                    Check your inbox at <span style="color: var(--brand); font-weight: 600;" id="userEmail"></span> | For help contact - admin@piraiai.com
+                </p>
+            </div>
+
+            <!-- Info Section -->
+            <div class="info-section">
+                <h4>What happens next?</h4>
+                <ul>
+                    <li>Our team receives your document</li>
+                    <li>Our AI agent will convert the doc</li>
+                    <li>Quality assurance check ensures accuracy</li>
+                    <li>You receive the .qsf file via email (usually within few hours during business hours)</li>
+                    <li class="spam-note">Please check your spam folder, if you don't see it in your inbox</li>
+                </ul>
+            </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Custom Modal -->
+    <div class="custom-modal" id="emailModal">
+        <div class="modal-content">
+            <h3>Non-Academic Email Detected</h3>
+            <p>This doesn't appear to be an academic email address. Early access is exclusively for academic researchers.</p>
+            <div class="modal-buttons" style="justify-content: flex-end;">
+                <button class="modal-btn modal-btn-secondary" id="modalClose">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const uploadZone = document.getElementById('uploadZone');
+        const fileInput = document.getElementById('fileInput');
+        const fileSelected = document.getElementById('fileSelected');
+        const fileName = document.getElementById('fileName');
+        const fileSize = document.getElementById('fileSize');
+        const removeFile = document.getElementById('removeFile');
+        const conversionForm = document.getElementById('conversionForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const loading = document.getElementById('loading');
+        const uploadFormDiv = document.getElementById('uploadForm');
+        const successMessage = document.getElementById('successMessage');
+        const userEmail = document.getElementById('userEmail');
+        const mainContainer = document.getElementById('mainContainer');
+
+        let selectedFile = null;
+
+        // Switch to form view
+        function switchToFormView() {
+            mainContainer.classList.remove('initial-view');
+            mainContainer.classList.add('form-view');
+        }
+
+        // Click to upload
+        uploadZone.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        // Drag and drop
+        uploadZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadZone.classList.add('dragover');
+        });
+
+        uploadZone.addEventListener('dragleave', () => {
+            uploadZone.classList.remove('dragover');
+        });
+
+        uploadZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadZone.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFile(files[0]);
+            }
+        });
+
+        // File input change
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFile(e.target.files[0]);
+            }
+        });
+
+        // Handle file
+        function handleFile(file) {
+            // Validate file type
+            const allowedTypes = [
+                'application/pdf',
+                'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                'application/msword',
+                'text/plain',
+                'image/png',
+                'image/jpeg',
+                'image/jpg'
+            ];
+            if (!allowedTypes.includes(file.type)) {
+                alert('Please upload a valid file: doc, docx, pdf, image (png/jpg) or txt');
+                return;
+            }
+
+            // Validate file size (50MB limit)
+            if (file.size > 50 * 1024 * 1024) {
+                alert('File size must be less than 50MB');
+                return;
+            }
+
+            selectedFile = file;
+            fileName.textContent = file.name;
+            fileSize.textContent = formatFileSize(file.size);
+
+            // Switch to form view
+            switchToFormView();
+
+            fileSelected.classList.add('show');
+            uploadZone.style.display = 'none';
+        }
+
+        // Remove file
+        removeFile.addEventListener('click', () => {
+            selectedFile = null;
+            fileInput.value = '';
+            fileSelected.classList.remove('show');
+            uploadZone.style.display = 'block';
+        });
+
+        // Format file size
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+        }
+
+        // Convert file to base64
+        function fileToBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result.split(',')[1]);
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+        }
+
+        // Form submission
+        conversionForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            // Validate file
+            if (!selectedFile) {
+                alert('Please select a file to upload');
+                return;
+            }
+
+            // Show loading
+            submitBtn.disabled = true;
+            loading.classList.add('show');
+
+            try {
+                // Convert file to base64
+                const fileContent = await fileToBase64(selectedFile);
+
+                // Prepare data for Google Apps Script
+                const formData = new FormData();
+                formData.append('name', document.getElementById('name').value);
+                formData.append('email', document.getElementById('email').value);
+                formData.append('role', document.getElementById('role').value);
+                formData.append('institution', document.getElementById('institution').value);
+                formData.append('fileName', selectedFile.name);
+                formData.append('fileSize', selectedFile.size);
+                formData.append('mimeType', selectedFile.type);
+                formData.append('fileContent', fileContent);
+                formData.append('timestamp', new Date().toISOString());
+
+                // TODO: Replace with your actual Google Apps Script URL
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbzmPIwrIMuIZ4sEzcNYuxloup4ip3i271mcTHe1w74zwW2hwIdivu2_XAxtSUbZVS9yzw/exec';
+
+                const response = await fetch(scriptURL, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.text();
+
+                if (response.ok && result.includes('success')) {
+                    // Show success message
+                    uploadFormDiv.style.display = 'none';
+                    successMessage.classList.add('show');
+                    userEmail.textContent = document.getElementById('email').value;
+
+                    // Track conversion with GTM
+                    if (window.dataLayer) {
+                        window.dataLayer.push({
+                            'event': 'conversion_submission',
+                            'conversion_type': 'academic_early_access'
+                        });
+                    }
+                } else {
+                    throw new Error('Submission failed: ' + result);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('There was an error submitting your request. Please try again or email us directly at admin@piraiai.com');
+                submitBtn.disabled = false;
+                loading.classList.remove('show');
+            }
+        });
+
+        // Custom modal handling
+        const emailModal = document.getElementById('emailModal');
+        const modalClose = document.getElementById('modalClose');
+        let emailInputField = null;
+
+        // Email validation for .edu domains
+        document.getElementById('email').addEventListener('blur', function(e) {
+            const email = e.target.value;
+            if (email && !email.endsWith('.edu') && !email.includes('.edu.')) {
+                emailInputField = e.target;
+                emailModal.classList.add('show');
+            }
+        });
+
+        // Modal close button
+        modalClose.addEventListener('click', () => {
+            emailModal.classList.remove('show');
+            if (emailInputField) {
+                emailInputField.value = '';
+                emailInputField.focus();
+            }
+        });
+
+        // Close modal on backdrop click
+        emailModal.addEventListener('click', (e) => {
+            if (e.target === emailModal) {
+                emailModal.classList.remove('show');
+                if (emailInputField) {
+                    emailInputField.value = '';
+                    emailInputField.focus();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
