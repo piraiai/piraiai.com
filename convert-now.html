@@ -147,13 +147,16 @@
             text-align: center;
             color: var(--ink);
             transition: all 0.6s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
         }
 
         .form-view h1 {
             font-size: clamp(20px, 3.5vw, 32px);
             margin: 100px 0 12px 0;
             max-width: 800px;
-            display: block !important;
             visibility: visible !important;
         }
 
@@ -661,7 +664,10 @@
             <div class="content-wrapper">
                 <span class="badge">🎓 EARLY ACCESS FOR ACADEMICS</span>
 
-                <h1>Convert Documents to<br/>Qualtrics QSF Format</h1>
+                <h1>
+                    <span>Convert Documents to</span>
+                    <span><span style="color: var(--brand);">Qualtrics</span> QSF Format</span>
+                </h1>
 
                 <p class="subtitle">
                     Early access available exclusively to Academics
