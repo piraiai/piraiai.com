@@ -248,7 +248,7 @@
             display: none;
         }
 
-        .upload-zone p {
+        .upload-zone > p {
             display: none;
         }
 
@@ -257,8 +257,33 @@
             color: #8b8f99;
             font-weight: 400;
             padding: 0;
-            display: block;
+            display: block !important;
             margin: 0;
+        }
+
+        .upload-zone .upload-placeholder p {
+            display: block !important;
+        }
+
+        .upload-placeholder-text {
+            font-size: 17px;
+            color: #8b8f99;
+            font-weight: 400;
+            padding: 0;
+            margin: 0;
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .upload-placeholder-text.fade-out {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        .upload-placeholder-text.fade-in {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .upload-action-btn {
@@ -618,23 +643,109 @@
         /* ========= RESPONSIVE ========= */
         @media (max-width: 768px) {
             .container {
-                padding: 0 20px;
+                padding: 0 16px;
             }
 
             .main-content {
-                padding: 100px 20px 40px;
+                padding: 100px 16px 40px;
+            }
+
+            .form-view .main-content {
+                padding: 120px 16px 40px;
             }
 
             .upload-card {
-                padding: 32px 24px;
+                padding: 0;
+                max-width: 100%;
+            }
+
+            .form-view .upload-card {
+                padding: 32px 20px;
+                border-radius: 20px;
+                max-width: 100%;
             }
 
             .upload-zone {
-                padding: 40px 20px;
+                padding: 24px 20px;
+                min-height: 140px;
+                border-radius: 24px;
+                max-width: 100%;
+            }
+
+            .upload-zone .upload-placeholder {
+                font-size: 15px;
+                line-height: 1.4;
+            }
+
+            .upload-placeholder-text {
+                font-size: 14px;
+                line-height: 1.5;
+            }
+
+            .upload-action-btn {
+                width: 32px;
+                height: 32px;
+            }
+
+            .upload-action-btn svg {
+                width: 14px;
+                height: 14px;
             }
 
             h1 {
                 font-size: 32px;
+                margin: -60px 0 16px 0;
+                gap: 8px;
+            }
+
+            .form-view h1 {
+                font-size: 24px;
+                margin: 0 0 12px 0;
+            }
+
+            h1 span {
+                white-space: nowrap;
+            }
+
+            .subtitle {
+                font-size: 16px;
+                margin: 0 0 40px;
+            }
+
+            .form-view .subtitle {
+                font-size: 14px;
+                margin: 0 0 24px;
+            }
+
+            .file-types {
+                font-size: 13px;
+                margin-top: 12px;
+            }
+
+            .file-selected {
+                padding: 12px 14px;
+                border-radius: 10px;
+                margin-bottom: 16px;
+            }
+
+            .form-group {
+                margin-bottom: 16px;
+            }
+
+            .form-group input,
+            .form-group select {
+                padding: 12px 14px;
+                font-size: 15px;
+            }
+
+            .submit-btn {
+                padding: 14px 24px;
+                font-size: 16px;
+            }
+
+            .info-section {
+                padding: 20px;
+                margin-top: 24px;
             }
         }
     </style>
@@ -676,7 +787,9 @@
             <!-- Upload Form -->
             <div class="upload-card" id="uploadForm">
                 <div class="upload-zone" id="uploadZone">
-                    <p class="upload-placeholder">Drag and drop your doc to convert</p>
+                    <div class="upload-placeholder">
+                        <p class="upload-placeholder-text" id="placeholderText">Drag and drop your doc to convert</p>
+                    </div>
                     <div class="upload-action-btn">
                         <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
                             <path d="M12 19V5M5 12l7-7 7 7"/>
@@ -712,13 +825,13 @@
                         <label for="role">Role <span class="required">*</span></label>
                         <select id="role" name="role" required>
                             <option value="">Select your role</option>
-                            <option value="Professor">Professor</option>
-                            <option value="Research Associate">Research Associate</option>
-                            <option value="PhD Student">PhD Student</option>
-                            <option value="Masters Student">Masters Student</option>
-                            <option value="Research Assistant">Research Assistant</option>
-                            <option value="Postdoctoral Researcher">Postdoctoral Researcher</option>
-                            <option value="Other Academic">Other Academic</option>
+                            <option value="Academic Researcher">Academic Researcher</option>
+                            <option value="Market Research Manager">Market Research Manager</option>
+                            <option value="Survey Specialist">Survey Specialist</option>
+                            <option value="Research Director">Research Director</option>
+                            <option value="Data Analyst">Data Analyst</option>
+                            <option value="Consultant">Consultant</option>
+                            <option value="Other">Other</option>
                         </select>
                     </div>
 
@@ -797,6 +910,45 @@
 
         let selectedFile = null;
 
+        // Track page view on load
+        if (window.dataLayer) {
+            window.dataLayer.push({
+                'event': 'convert_page_view',
+                'page_type': 'conversion_page'
+            });
+        }
+
+        // Animated placeholder messages
+        const placeholderMessages = [
+            'Drag and drop your doc to convert',
+            'For other formats contact: admin@piraiai.com',
+            'Check homepage for other supported formats → Get Demo'
+        ];
+        let currentMessageIndex = 0;
+        const placeholderText = document.getElementById('placeholderText');
+
+        function cyclePlaceholder() {
+            // Fade out
+            placeholderText.classList.add('fade-out');
+
+            setTimeout(() => {
+                // Change text
+                currentMessageIndex = (currentMessageIndex + 1) % placeholderMessages.length;
+                placeholderText.textContent = placeholderMessages[currentMessageIndex];
+
+                // Fade in
+                placeholderText.classList.remove('fade-out');
+                placeholderText.classList.add('fade-in');
+
+                setTimeout(() => {
+                    placeholderText.classList.remove('fade-in');
+                }, 500);
+            }, 500);
+        }
+
+        // Start cycling every 4 seconds
+        setInterval(cyclePlaceholder, 4000);
+
         // Switch to form view
         function switchToFormView() {
             mainContainer.classList.remove('initial-view');
@@ -861,6 +1013,16 @@
             fileName.textContent = file.name;
             fileSize.textContent = formatFileSize(file.size);
 
+            // Track file upload event
+            if (window.dataLayer) {
+                window.dataLayer.push({
+                    'event': 'file_uploaded',
+                    'file_type': file.type,
+                    'file_size': file.size,
+                    'file_name': file.name
+                });
+            }
+
             // Switch to form view
             switchToFormView();
 
@@ -903,6 +1065,15 @@
             if (!selectedFile) {
                 alert('Please select a file to upload');
                 return;
+            }
+
+            // Track form submission (Convert Now button clicked)
+            if (window.dataLayer) {
+                window.dataLayer.push({
+                    'event': 'convert_button_clicked',
+                    'user_role': document.getElementById('role').value,
+                    'has_institution': document.getElementById('institution').value ? 'yes' : 'no'
+                });
             }
 
             // Show loading
@@ -964,14 +1135,7 @@
         const modalClose = document.getElementById('modalClose');
         let emailInputField = null;
 
-        // Email validation for .edu domains
-        document.getElementById('email').addEventListener('blur', function(e) {
-            const email = e.target.value;
-            if (email && !email.endsWith('.edu') && !email.includes('.edu.')) {
-                emailInputField = e.target;
-                emailModal.classList.add('show');
-            }
-        });
+        // Email validation removed - accepting all email addresses
 
         // Modal close button
         modalClose.addEventListener('click', () => {
