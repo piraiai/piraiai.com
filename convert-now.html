@@ -893,6 +893,17 @@
         </div>
     </div>
 
+    <!-- Error Modal -->
+    <div class="custom-modal" id="errorModal">
+        <div class="modal-content">
+            <h3 id="errorModalTitle">Error</h3>
+            <p id="errorModalMessage"></p>
+            <div class="modal-buttons" style="justify-content: flex-end;">
+                <button class="modal-btn modal-btn-primary" id="errorModalClose">Got it</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         const uploadZone = document.getElementById('uploadZone');
         const fileInput = document.getElementById('fileInput');
@@ -949,6 +960,28 @@
         // Start cycling every 4 seconds
         setInterval(cyclePlaceholder, 4000);
 
+        // Error modal handling
+        const errorModal = document.getElementById('errorModal');
+        const errorModalTitle = document.getElementById('errorModalTitle');
+        const errorModalMessage = document.getElementById('errorModalMessage');
+        const errorModalClose = document.getElementById('errorModalClose');
+
+        function showErrorModal(title, message) {
+            errorModalTitle.textContent = title;
+            errorModalMessage.textContent = message;
+            errorModal.classList.add('show');
+        }
+
+        errorModalClose.addEventListener('click', () => {
+            errorModal.classList.remove('show');
+        });
+
+        errorModal.addEventListener('click', (e) => {
+            if (e.target === errorModal) {
+                errorModal.classList.remove('show');
+            }
+        });
+
         // Switch to form view
         function switchToFormView() {
             mainContainer.classList.remove('initial-view');
@@ -999,13 +1032,19 @@
                 'image/jpg'
             ];
             if (!allowedTypes.includes(file.type)) {
-                alert('Please upload a valid file: doc, docx, pdf, image (png/jpg) or txt');
+                showErrorModal('Invalid File Type', 'Please upload a valid file: doc, docx, pdf, image (png/jpg) or txt');
+                // Reset file input
+                fileInput.value = '';
                 return;
             }
 
-            // Validate file size (50MB limit)
-            if (file.size > 50 * 1024 * 1024) {
-                alert('File size must be less than 50MB');
+            // Validate file size (5MB limit)
+            const maxSize = 5 * 1024 * 1024; // 5MB in bytes
+            if (file.size > maxSize) {
+                const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2);
+                showErrorModal('File Too Large', `File size is ${fileSizeMB}MB. Please upload a file smaller than 2MB.\n\nFor larger files, please contact us at admin@piraiai.com`);
+                // Reset file input
+                fileInput.value = '';
                 return;
             }
 
@@ -1063,7 +1102,7 @@
 
             // Validate file
             if (!selectedFile) {
-                alert('Please select a file to upload');
+                showErrorModal('No File Selected', 'Please select a file to upload before submitting.');
                 return;
             }
 
@@ -1124,7 +1163,7 @@
                 }
             } catch (error) {
                 console.error('Error:', error);
-                alert('There was an error submitting your request. Please try again or email us directly at admin@piraiai.com');
+                showErrorModal('Submission Error', 'There was an error submitting your request. Please try again or email us directly at admin@piraiai.com');
                 submitBtn.disabled = false;
                 loading.classList.remove('show');
             }
