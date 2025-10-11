@@ -263,6 +263,8 @@
             display: flex;
             gap: 32px;
             list-style: none;
+            margin-left: auto;
+            margin-right: 32px;
         }
         
         .nav-links a {
@@ -274,7 +276,90 @@
         .nav-links a:hover {
             color: #ffffff;
         }
-        
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+            padding: 8px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #9ca3af;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger:hover span {
+            background: #ffffff;
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(11, 11, 14, 0.98);
+            z-index: 1001;
+            padding: 80px 20px 20px;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-menu li {
+            margin-bottom: 24px;
+        }
+
+        .mobile-menu a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .mobile-menu a:hover {
+            color: #ffffff;
+        }
+
+        .mobile-menu-close {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-size: 40px;
+            color: #ffffff;
+            cursor: pointer;
+            background: rgba(155, 107, 255, 0.2);
+            border: 2px solid #9B6BFF;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            z-index: 1002;
+        }
+
+        .mobile-menu-close:hover {
+            color: #9B6BFF;
+        }
+
         .nav-cta {
             background: linear-gradient(135deg, #3b82f6, #8b5cf6);
             color: white;
@@ -815,7 +900,18 @@
             .nav-links {
                 display: none;
             }
-            
+
+            .hamburger {
+                display: flex;
+                margin-right: 12px;
+            }
+
+            .nav-cta {
+                font-size: 14px;
+                padding: 6px 16px;
+                margin-left: auto;
+            }
+
             .hero h1 {
                 font-size: 32px;
             }
@@ -2765,23 +2861,45 @@
     <nav class="nav">
         <div class="container">
             <div class="nav-content">
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
                 <a href="/" class="logo">
                     <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo" width="35" height="35"/>&nbsp;
                     Pirai AI
                 </a>
                 <ul class="nav-links">
-                    <li><a href="/#process">Process</a></li>                    
-                    <li><a href="/#efficiency">Efficiency</a></li>    
-                    <li><a href="/#testimonials">Evidence</a></li>      
-                    <li><a href="/#platforms">Platforms</a></li>            
-                    <li><a href="/#pricing">Pricing</a></li> 
-                                                     
+                    <li style="position: relative;">
+                        <a href="/convert-now.html" style="padding-right: 40px;">Convert Now</a>
+                        <span style="position: absolute; top: -7px; right: 0; background: #6B3FCC; color: #fff; font-size: 9px; font-weight: 700; padding: 3px 6px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px;">New</span>
+                    </li>
+                    <li><a href="/#process">Process</a></li>
+                    <li><a href="/#efficiency">Efficiency</a></li>
+                    <li><a href="/#testimonials">Evidence</a></li>
+                    <li><a href="/#platforms">Platforms</a></li>
+                    <li><a href="/#pricing">Pricing</a></li>
+
                     <!-- <li><a href="/qualtrics-toolkit">Toolkit</a></li> -->
                 </ul>
                 <a href="#demo" class="nav-cta">Get Demo</a>
             </div>
         </div>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" id="mobileMenuClose">&times;</button>
+        <ul>
+            <li style="position: relative;"><a href="/convert-now.html" style="display: inline-block; position: relative; padding-right: 45px;">Convert Now<span style="position: absolute; top: -2px; right: 0; background: #6B3FCC; color: #fff; font-size: 9px; font-weight: 700; padding: 3px 6px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px;">New</span></a></li>
+            <li><a href="/#process">Process</a></li>
+            <li><a href="/#efficiency">Efficiency</a></li>
+            <li><a href="/#testimonials">Evidence</a></li>
+            <li><a href="/#platforms">Platforms</a></li>
+            <li><a href="/#pricing">Pricing</a></li>
+        </ul>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -3763,6 +3881,37 @@ See the dramatic difference in survey creation time
 			} else {
 				nav.style.background = 'rgba(17, 24, 39, 0.5)';
 				nav.style.boxShadow = 'none';
+			}
+		});
+
+		// Mobile menu toggle
+		const hamburger = document.getElementById('hamburger');
+		const mobileMenu = document.getElementById('mobileMenu');
+		const mobileMenuClose = document.getElementById('mobileMenuClose');
+
+		hamburger.addEventListener('click', () => {
+			mobileMenu.classList.add('active');
+			document.body.style.overflow = 'hidden';
+		});
+
+		mobileMenuClose.addEventListener('click', () => {
+			mobileMenu.classList.remove('active');
+			document.body.style.overflow = '';
+		});
+
+		// Close mobile menu when clicking a link
+		mobileMenu.querySelectorAll('a').forEach(link => {
+			link.addEventListener('click', () => {
+				mobileMenu.classList.remove('active');
+				document.body.style.overflow = '';
+			});
+		});
+
+		// Close mobile menu when clicking outside
+		mobileMenu.addEventListener('click', (e) => {
+			if (e.target === mobileMenu) {
+				mobileMenu.classList.remove('active');
+				document.body.style.overflow = '';
 			}
 		});
     </script>
