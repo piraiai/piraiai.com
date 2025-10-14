@@ -393,6 +393,11 @@
             overflow: hidden;
         }
 
+        .hero .container {
+            position: relative;
+            z-index: 10;
+        }
+
         .hero h1 {
             font-size: clamp(36px, 7.5vw, 84px);
             font-weight: 800;
@@ -890,8 +895,10 @@
             border-radius: 50%;
             filter: blur(60px);
             animation: float 6s ease-in-out infinite;
+            z-index: 1;
+            pointer-events: none;
         }
-        
+
         .float-element-2 {
             position: absolute;
             bottom: 25%;
@@ -903,6 +910,8 @@
             filter: blur(60px);
             animation: float 6s ease-in-out infinite;
             animation-delay: -3s;
+            z-index: 1;
+            pointer-events: none;
         }
         
         @keyframes float {
