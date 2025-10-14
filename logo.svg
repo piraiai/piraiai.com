@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <!-- Base gradient for crescent (brand purple) -->
+    <linearGradient id="piraiPurple" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#9B6BFF"/>
+      <stop offset="100%" stop-color="#7A4FE0"/>
+    </linearGradient>
+
+    <!-- Mask to cut crescent -->
+    <mask id="crescent-mask" maskUnits="userSpaceOnUse">
+      <rect width="256" height="256" fill="black"/>
+      <circle cx="128" cy="128" r="112" fill="white"/>
+      <circle cx="176" cy="116" r="114" fill="black"/>
+    </mask>
+
+    <!-- Spot gradients -->
+    <radialGradient id="spot1" cx="0.3" cy="0.35" r="0.15">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.25)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0)" />
+    </radialGradient>
+    <radialGradient id="spot2" cx="0.65" cy="0.6" r="0.18">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.2)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0)" />
+    </radialGradient>
+  </defs>
+
+  <!-- Rotated crescent -->
+  <g mask="url(#crescent-mask)" transform="rotate(-22 128 128)">
+    <circle cx="128" cy="128" r="112" fill="url(#piraiPurple)"/>
+    <!-- Overlay subtle moon spots -->
+    <circle cx="110" cy="100" r="80" fill="url(#spot1)" />
+    <circle cx="150" cy="150" r="90" fill="url(#spot2)" />
+  </g>
+</svg>

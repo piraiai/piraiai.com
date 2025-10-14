@@ -173,8 +173,11 @@
     }
     </script>    
     
-    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
-	<link rel="apple-touch-icon" href="https://piraiai.com/logo.png">	    
+    <link rel="icon" href="logo.svg" type="image/svg+xml">
+	<link rel="apple-touch-icon" href="logo.svg">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet"/>	    
     <meta name="description" content="Convert Word, PDF & images to Qualtrics, QuestionPro, SurveySparrow & 20+ survey platforms in 10 minutes. University-trusted automation.">    
     <!-- Open Graph for social sharing -->
     <meta property="og:title" content="Pirai AI - Survey Automation Platform">
@@ -202,11 +205,15 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: #e5e7eb;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            background: #0b0b0e;
             min-height: 100vh;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
         
         .container {
@@ -221,9 +228,9 @@
         
         /* Navigation */
         .nav {
-            background: rgba(17, 24, 39, 0.5);
+            background: rgba(11, 11, 14, 0.95);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid #374151;
+            border-bottom: 1px solid rgba(155, 107, 255, 0.2);
             position: fixed;
             top: 0;
             left: 0;
@@ -241,10 +248,12 @@
         .logo {
             display: flex;
             align-items: center;
-            color: #3b82f6;
+            color: #ffffff;
             text-decoration: none;
-            font-size: 24px;
-            font-weight: 700;
+            font-size: clamp(22px, 2.7vw, 30px);
+            font-weight: 800;
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            letter-spacing: 0.01em;
         }
         
         .logo-icon {
@@ -361,115 +370,121 @@
         }
 
         .nav-cta {
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            color: white;
+            background: #9B6BFF;
+            color: #000000;
             padding: 8px 24px;
             border-radius: 24px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
         }
-        
+
         .nav-cta:hover {
+            background: #BFA8FF;
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 12px 32px rgba(155, 107, 255, 0.4);
         }
         
         /* Hero Section */
         .hero {
-            padding: 140px 0 80px;
-            text-align: center;
+            padding: clamp(160px, 12vw, 200px) 0 clamp(80px, 10vw, 120px);
+            text-align: left;
             position: relative;
             overflow: hidden;
         }
-        
+
         .hero h1 {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            background: linear-gradient(135deg, #60a5fa, #a78bfa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            line-height: 1.4;
+            font-size: clamp(36px, 7.5vw, 84px);
+            font-weight: 800;
+            margin-top: 0;
+            margin-bottom: 32px;
+            color: #f6f7fb;
+            line-height: 1.08;
+            letter-spacing: -0.02em;
         }
         
         .hero-subtitle {
-            font-size: 24px;
+            font-size: clamp(16px, 2.2vw, 20px);
             color: #d1d5db;
             margin-bottom: 32px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            max-width: 72ch;
         }
         
         .hero-highlight {
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(59, 130, 246, 0.2));
-            border: 1px solid rgba(34, 197, 94, 0.3);
+            background: linear-gradient(135deg, rgba(155, 107, 255, 0.08), rgba(139, 92, 246, 0.05));
+            border: 1px solid rgba(155, 107, 255, 0.2);
             border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 32px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            padding: 18px;
+            margin: 32px 0;
+            max-width: 700px;
         }
-        
+
         .hero-highlight h3 {
-            font-size: 24px;
-            color: #22c55e;
-            margin-bottom: 8px;
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 17px;
+            color: #9B6BFF;
+            margin: 0 0 8px 0;
+            font-weight: 700;
         }
-        
+
         .hero-highlight p {
-            font-size: 18px;
-            margin-bottom: 8px;
+            font-size: 16px;
+            color: #d1d5db;
+            margin: 0 0 8px 0;
         }
         
         .hero-highlight .savings {
-            font-size: 20px;
-            color: #60a5fa;
+            font-size: 15px;
+            color: #9B6BFF;
             font-weight: 600;
+            margin: 0;
         }
         
         .hero-ctas {
             display: flex;
-            gap: 16px;
-            justify-content: center;
+            gap: 12px;
+            justify-content: flex-start;
             flex-wrap: wrap;
+            margin: 24px 0;
         }
-        
+
         .btn-primary {
-            background: linear-gradient(135deg, #22c55e, #3b82f6);
-            color: white;
-            padding: 16px 32px;
-            border-radius: 24px;
+            padding: 12px 20px;
+            border-radius: 12px;
+            background: #9B6BFF;
+            color: #000000;
+            font-weight: 800;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 18px;
             transition: all 0.3s;
             border: none;
             cursor: pointer;
+            display: inline-block;
+            box-shadow: 0 12px 28px rgba(18,18,24,.10);
+            font-size: 15px;
         }
-        
+
         .btn-primary:hover {
+            background: #BFA8FF;
+            color: #000000;
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(34, 197, 94, 0.3);
         }
         
         .btn-secondary {
-            border: 1px solid #6b7280;
-            color: #d1d5db;
-            padding: 16px 32px;
-            border-radius: 24px;
+            padding: 12px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: #f6f7fb;
+            font-weight: 700;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 18px;
             transition: all 0.3s;
             background: transparent;
+            display: inline-block;
+            font-size: 15px;
         }
-        
+
         .btn-secondary:hover {
-            border-color: #9ca3af;
-            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.05);
         }
         
         /* Features Section */
@@ -912,17 +927,55 @@
                 margin-left: auto;
             }
 
+            .hero {
+                padding-top: 120px;
+                padding-bottom: 60px;
+            }
+
             .hero h1 {
-                font-size: 32px;
+                font-size: clamp(32px, 9vw, 48px);
+                line-height: 1.15;
+                margin-bottom: 24px;
             }
-            
+
             .hero-subtitle {
-                font-size: 18px;
+                font-size: 16px;
+                line-height: 1.5;
+                margin-bottom: 24px;
             }
-            
+
             .hero-ctas {
                 flex-direction: column;
-                align-items: center;
+                align-items: stretch;
+                gap: 12px;
+            }
+
+            .hero-ctas .btn-primary,
+            .hero-ctas .btn-secondary {
+                width: 100%;
+                text-align: center;
+                padding: 12px 20px;
+                font-size: 15px;
+            }
+
+            .hero-highlight {
+                margin-top: 40px;
+                padding: 20px;
+            }
+
+            .hero-highlight h3 {
+                font-size: 18px;
+                margin-bottom: 12px;
+            }
+
+            .hero-highlight p {
+                font-size: 15px;
+                line-height: 1.6;
+            }
+
+            .hero-highlight .savings {
+                font-size: 14px;
+                margin-top: 12px;
             }
 
             .multilingual-title {                
@@ -2867,7 +2920,7 @@
                     <span></span>
                 </div>
                 <a href="/" class="logo">
-                    <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo" width="35" height="35"/>&nbsp;
+                    <img src="logo.svg" alt="Pirai AI Logo" width="30" height="30"/>&nbsp;
                     Pirai AI
                 </a>
                 <ul class="nav-links">
@@ -2904,23 +2957,25 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Cross-Platform Document Accelerator: Transform Any Document to Any Format in Minutes</h1>
+            <h1>Convert Word specs to platform-ready files — in minutes.</h1>
             <p class="hero-subtitle">
                 From Word documents to 20+ platforms across research, education, healthcare, and enterprise. One platform, every workflow, every language, zero vendor lock-in.
             </p>
-            
-            <div class="hero-highlight">
-                <h3>Perfect Starting Point</h3>
-                <p>Pirai AI handles tedious data entry and format conversion in any language. You focus on strategic elements - logic flows, advanced features, and platform-specific optimizations.</p>
-                <div class="savings">Save 8+ hours per project • Focus on customization, not data entry</div>
-            </div>
-            
+
             <div class="hero-ctas">
-                <a href="#demo" class="btn-primary">Start Universal Automation</a>
-                <a href="#platforms" class="btn-secondary">See All 20+ Platforms</a>
+                <a href="#demo" class="btn-primary">Start universal automation</a>
+                <a href="#platforms" class="btn-secondary">See all 20+ platforms</a>
             </div>
         </div>
-        
+
+        <div class="container">
+            <div class="hero-highlight">
+                <h3>Perfect Starting Point</h3>
+                <p>Pirai AI handles tedious data entry and format conversion in any language. You focus on strategic elements — logic flows, advanced features, and platform-specific optimizations.</p>
+                <p class="savings">Save 8+ hours per project • Focus on customization, not data entry</p>
+            </div>
+        </div>
+
         <!-- Floating Elements -->
         <div class="float-element-1"></div>
         <div class="float-element-2"></div>
@@ -3633,7 +3688,7 @@ See the dramatic difference in survey creation time
 			<div class="footer-content">
 				<div>
 					<div class="footer-brand">
-						<img src="https://piraiai.com/logo.png" alt="Pirai AI Logo" width="35" height="35"/>&nbsp;
+						<img src="logo.svg" alt="Pirai AI Logo" width="35" height="35"/>&nbsp;
 						<span>Pirai AI</span>
 					</div>
 					<p class="footer-desc">
