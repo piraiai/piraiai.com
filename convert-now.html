@@ -1414,7 +1414,7 @@
                             exitIntentModal.classList.add('show');
                             exitModalShown = true;
                         }
-                    }, 5000);
+                    }, 4000);
                 } else {
                     throw new Error('Submission failed: ' + result);
                 }
@@ -1483,14 +1483,17 @@
         });
 
         // Handle exit modal submission
-        exitSubmitBtn.addEventListener('click', async () => {
+        exitSubmitBtn.addEventListener('click', () => {
             const selectedSource = document.querySelector('input[name="source"]:checked');
             if (!selectedSource) return;
 
             const source = selectedSource.value;
             const userEmailValue = document.getElementById('email').value;
 
-            // Track with GTM
+            // Close modal immediately for instant feedback
+            exitIntentModal.classList.remove('show');
+
+            // Track with GTM (fire and forget)
             if (window.dataLayer) {
                 window.dataLayer.push({
                     'event': 'referral_source_submitted',
@@ -1499,26 +1502,21 @@
                 });
             }
 
-            // Send to Google Apps Script (optional - you can store this data)
-            try {
-                const formData = new FormData();
-                formData.append('email', userEmailValue);
-                formData.append('source', source);
-                formData.append('timestamp', new Date().toISOString());
-                formData.append('type', 'referral_source');
+            // Send to Google Apps Script in background (fire and forget)
+            const formData = new FormData();
+            formData.append('email', userEmailValue);
+            formData.append('source', source);
+            formData.append('timestamp', new Date().toISOString());
+            formData.append('type', 'referral_source');
 
-                const scriptURL = 'https://script.google.com/macros/s/AKfycbzmPIwrIMuIZ4sEzcNYuxloup4ip3i271mcTHe1w74zwW2hwIdivu2_XAxtSUbZVS9yzw/exec';
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzmPIwrIMuIZ4sEzcNYuxloup4ip3i271mcTHe1w74zwW2hwIdivu2_XAxtSUbZVS9yzw/exec';
 
-                await fetch(scriptURL, {
-                    method: 'POST',
-                    body: formData
-                });
-            } catch (error) {
+            fetch(scriptURL, {
+                method: 'POST',
+                body: formData
+            }).catch(error => {
                 console.log('Could not save referral source:', error);
-            }
-
-            // Close modal
-            exitIntentModal.classList.remove('show');
+            });
         });
 
         // Handle close button
