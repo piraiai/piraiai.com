@@ -24,7 +24,22 @@ Replace the default `Code.gs` content with the following code:
       // Parse the incoming data
       const data = e.parameter;
 
-      // Extract form fields
+      // Check if this is a referral source submission
+      if (data.type === 'referral_source') {
+        const email = data.email || 'Not provided';
+        const source = data.source || 'Not provided';
+        const timestamp = data.timestamp || new Date().toISOString();
+
+        // Log to referral sources sheet
+        logReferralSource(email, source, timestamp);
+
+        return ContentService.createTextOutput(JSON.stringify({
+          status: 'success',
+          message: 'Referral source recorded'
+        })).setMimeType(ContentService.MimeType.JSON);
+      }
+
+      // Extract form fields (for regular file upload submissions)
       const name = data.name || 'Not provided';
       const email = data.email || 'Not provided';
       const role = data.role || 'Not provided';
@@ -222,6 +237,49 @@ Replace the default `Code.gs` content with the following code:
   }
 
   /**
+   * Log referral source to Google Sheets
+   * This tracks how users found out about Pirai AI (exit intent modal data)
+   */
+  function logReferralSource(email, source, timestamp) {
+    try {
+      // IMPORTANT: Replace with your Google Sheet ID (same sheet as above)
+      const sheetId = 'YOUR_GOOGLE_SHEET_ID_HERE';
+      const ss = SpreadsheetApp.openById(sheetId);
+      const sheet = ss.getSheetByName('Referral Sources') || ss.insertSheet('Referral Sources');
+
+      // Add headers if sheet is empty
+      if (sheet.getLastRow() === 0) {
+        sheet.appendRow(['Date/Time', 'Email', 'Source']);
+        // Format header row
+        const headerRange = sheet.getRange(1, 1, 1, 3);
+        headerRange.setFontWeight('bold');
+        headerRange.setBackground('#9B6BFF');
+        headerRange.setFontColor('#FFFFFF');
+      }
+
+      // Insert new row at position 2 (right after header) - newest at the top
+      sheet.insertRowBefore(2);
+
+      // Add referral data to the new row
+      const newRow = [
+        new Date(timestamp),
+        email,
+        source
+      ];
+
+      sheet.getRange(2, 1, 1, 3).setValues([newRow]);
+
+      // Auto-resize columns for better readability
+      sheet.autoResizeColumns(1, 3);
+
+      Logger.log('Successfully logged referral source: ' + source + ' for ' + email);
+    } catch (error) {
+      Logger.log('Error logging referral source: ' + error.toString());
+      // Don't throw error - just log it
+    }
+  }
+
+  /**
    * Test function to verify the script works
    */
   function testEmail() {
@@ -364,15 +422,18 @@ If Google Apps Script is too complex, use Formspree:
 - [ ] Google Apps Script deployed
 - [ ] Script URL added to convert-now.html
 - [ ] Google Sheet created for lead tracking
-- [ ] Sheet ID added to script (line 184)
+- [ ] Sheet ID added to script (line 246)
 - [ ] Script re-deployed with new version
 - [ ] Test submission successful
 - [ ] Email received at admin@piraiai.com
 - [ ] User confirmation email working
 - [ ] File upload working correctly
-- [ ] Lead logged to Google Sheet (check row 2)
+- [ ] Lead logged to Google Sheet "Leads" tab (check row 2)
 - [ ] Form validation working
 - [ ] GTM tracking events firing
+- [ ] Exit intent modal appears after successful submission
+- [ ] Referral source data logged to "Referral Sources" sheet
+- [ ] Referral source GTM events tracking correctly
 
 ## Security Notes
 
@@ -380,6 +441,45 @@ If Google Apps Script is too complex, use Formspree:
 - Anyone can submit to the web app (it's public)
 - Consider adding rate limiting if you get spam
 - Academic email validation happens on client-side (add server-side check if needed)
+
+## Step 7: Referral Source Tracking (Exit Intent Modal)
+
+The convert-now page now includes an exit-intent modal that appears after successful form submission when users try to leave. This collects valuable data about how users found your service.
+
+### 7.1 How It Works
+
+- **Trigger**: Shows when user moves mouse to close tab/window after successful submission
+- **Options**: Word of Mouth, Google Search, AI Search, Social Media (LinkedIn), Other
+- **Data Collected**: User email, selected source, timestamp
+- **Separate Sheet**: Creates a "Referral Sources" sheet in the same Google Spreadsheet
+
+### 7.2 What Gets Logged
+
+The "Referral Sources" sheet will automatically track:
+- **Date/Time** - When the user submitted the referral source
+- **Email** - The user's email (matched to their conversion submission)
+- **Source** - How they heard about Pirai AI
+
+### 7.3 Features
+
+✅ **Automatic sheet creation** - Creates "Referral Sources" sheet if it doesn't exist
+
+✅ **Newest entries at top** - New submissions inserted at row 2
+
+✅ **Formatted headers** - Purple background (#9B6BFF) with white text
+
+✅ **Email matching** - You can match this data with the "Leads" sheet by email
+
+### 7.4 Analytics Tracking
+
+The exit intent modal also tracks events in Google Tag Manager:
+- `referral_source_submitted` - When user selects and submits a source
+- `referral_source_skipped` - When user clicks "Skip for now"
+- `referral_source_closed` - When user closes the modal without submitting
+
+### 7.5 No Additional Setup Required
+
+The referral source tracking uses the same Google Sheet ID you configured in Step 6.3. It will automatically create a new sheet tab called "Referral Sources" in your existing spreadsheet.
 
 ## Support
 

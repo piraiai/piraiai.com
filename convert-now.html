@@ -577,6 +577,198 @@
             background: rgba(155, 107, 255, 0.1);
         }
 
+        /* ========= EXIT INTENT MODAL ========= */
+        .exit-intent-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .exit-intent-modal.show {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .exit-modal-content {
+            background: linear-gradient(135deg, rgba(17, 17, 24, 0.95), rgba(27, 27, 36, 0.95));
+            border: 2px solid rgba(155, 107, 255, 0.6);
+            border-radius: 24px;
+            padding: 40px;
+            padding-top: 20px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6), 0 0 40px rgba(155, 107, 255, 0.4);
+            position: relative;
+            animation: slideUp 0.4s ease-out;
+            overflow: visible;
+        }
+
+        .exit-modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: transparent;
+            border: none;
+            color: var(--muted);
+            font-size: 24px;
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .exit-modal-close:hover {
+            background: rgba(155, 107, 255, 0.1);
+            color: var(--ink);
+        }
+
+        .exit-modal-gif {
+            width: 150px;
+            height: auto;
+            position: absolute;
+            top: -134px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            filter: drop-shadow(0 8px 24px rgba(155, 107, 255, 0.6));
+        }
+
+        .exit-modal-content h3 {
+            font-family: var(--display);
+            font-weight: 800;
+            font-size: 26px;
+            margin: 0 0 8px;
+            color: #ffffff;
+            text-align: center;
+            background: linear-gradient(135deg, #BFA8FF, #9B6BFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .exit-modal-content p {
+            font-size: 16px;
+            color: var(--ink-dim);
+            margin: 0 0 28px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .source-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .source-option {
+            background: var(--tile);
+            border: 2px solid rgba(155, 107, 255, 0.2);
+            border-radius: 12px;
+            padding: 14px 18px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            color: var(--ink);
+        }
+
+        .source-option:hover {
+            border-color: var(--brand);
+            background: rgba(155, 107, 255, 0.1);
+        }
+
+        .source-option.selected {
+            border-color: var(--brand);
+            background: rgba(155, 107, 255, 0.15);
+        }
+
+        .source-option input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--brand);
+            cursor: pointer;
+        }
+
+        .exit-submit-btn {
+            width: 100%;
+            padding: 14px 24px;
+            background: linear-gradient(135deg, #6B3FCC, #7C4FCC);
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            font-family: var(--display);
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 8px 24px rgba(155, 107, 255, 0.3);
+        }
+
+        .exit-submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(155, 107, 255, 0.4);
+        }
+
+        .exit-submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .skip-link {
+            text-align: center;
+            margin-top: 12px;
+        }
+
+        .skip-link button {
+            background: none;
+            border: none;
+            color: var(--muted);
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+
+        .skip-link button:hover {
+            color: var(--ink);
+        }
+
         /* ========= SUCCESS MESSAGE ========= */
         .success-message {
             display: none;
@@ -747,6 +939,25 @@
                 padding: 20px;
                 margin-top: 24px;
             }
+
+            /* Exit modal mobile adjustments */
+            .exit-modal-content {
+                padding: 32px 24px;
+                padding-top: 16px;
+            }
+
+            .exit-modal-gif {
+                width: 110px;
+                top: -100px;
+            }
+
+            .exit-modal-content h3 {
+                font-size: 22px;
+            }
+
+            .exit-modal-content p {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -901,6 +1112,41 @@
             <div class="modal-buttons" style="justify-content: flex-end;">
                 <button class="modal-btn modal-btn-primary" id="errorModalClose">Got it</button>
             </div>
+        </div>
+    </div>
+
+    <!-- Exit Intent Modal -->
+    <div class="exit-intent-modal" id="exitIntentModal">
+        <div class="exit-modal-content">
+            <button class="exit-modal-close" id="exitModalClose">×</button>
+            <img src="psst.gif" alt="Psst" class="exit-modal-gif">
+            <h3>Before you go...</h3>
+            <p>Help us improve — How did you hear about Pirai AI?</p>
+
+            <div class="source-options">
+                <label class="source-option">
+                    <input type="radio" name="source" value="Word of Mouth">
+                    <span>Word of Mouth</span>
+                </label>
+                <label class="source-option">
+                    <input type="radio" name="source" value="Google Search">
+                    <span>Google Search</span>
+                </label>
+                <label class="source-option">
+                    <input type="radio" name="source" value="AI Search (ChatGPT/Claude/Perplexity)">
+                    <span>AI Search (ChatGPT/Claude/Perplexity)</span>
+                </label>
+                <label class="source-option">
+                    <input type="radio" name="source" value="Social Media (LinkedIn)">
+                    <span>Social Media (LinkedIn)</span>
+                </label>
+                <label class="source-option">
+                    <input type="radio" name="source" value="Other">
+                    <span>Other</span>
+                </label>
+            </div>
+
+            <button class="exit-submit-btn" id="exitSubmitBtn" disabled>Submit</button>
         </div>
     </div>
 
@@ -1136,7 +1382,7 @@
                 formData.append('timestamp', new Date().toISOString());
 
                 // TODO: Replace with your actual Google Apps Script URL
-                const scriptURL = 'https://script.google.com/macros/s/AKfycbxKgGnBEHL2gwiXCjOxJ7sRNILOFcEmCqQjXzqC0lQQ4YcTUZg49FVBUicBMwWFnvHZ/exec';
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbzmPIwrIMuIZ4sEzcNYuxloup4ip3i271mcTHe1w74zwW2hwIdivu2_XAxtSUbZVS9yzw/exec';
 
                 const response = await fetch(scriptURL, {
                     method: 'POST',
@@ -1158,6 +1404,17 @@
                             'conversion_type': 'academic_early_access'
                         });
                     }
+
+                    // Enable exit intent modal after successful submission
+                    window.formSubmittedSuccessfully = true;
+
+                    // Show modal after 7 seconds OR on exit intent (whichever comes first)
+                    setTimeout(() => {
+                        if (!exitModalShown) {
+                            exitIntentModal.classList.add('show');
+                            exitModalShown = true;
+                        }
+                    }, 4000);
                 } else {
                     throw new Error('Submission failed: ' + result);
                 }
@@ -1193,6 +1450,92 @@
                     emailInputField.value = '';
                     emailInputField.focus();
                 }
+            }
+        });
+
+        // ========= EXIT INTENT MODAL LOGIC =========
+        const exitIntentModal = document.getElementById('exitIntentModal');
+        const exitModalClose = document.getElementById('exitModalClose');
+        const exitSubmitBtn = document.getElementById('exitSubmitBtn');
+        const sourceRadios = document.querySelectorAll('input[name="source"]');
+
+        let exitModalShown = false;
+        window.formSubmittedSuccessfully = false;
+
+        // Enable submit button when a source is selected
+        sourceRadios.forEach(radio => {
+            radio.addEventListener('change', () => {
+                exitSubmitBtn.disabled = false;
+                // Add visual feedback
+                document.querySelectorAll('.source-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                radio.closest('.source-option').classList.add('selected');
+            });
+        });
+
+        // Show exit intent modal when user tries to leave (mouse goes to top of viewport)
+        document.addEventListener('mouseleave', (e) => {
+            if (e.clientY < 0 && window.formSubmittedSuccessfully && !exitModalShown) {
+                exitIntentModal.classList.add('show');
+                exitModalShown = true;
+            }
+        });
+
+        // Handle exit modal submission
+        exitSubmitBtn.addEventListener('click', () => {
+            const selectedSource = document.querySelector('input[name="source"]:checked');
+            if (!selectedSource) return;
+
+            const source = selectedSource.value;
+            const userEmailValue = document.getElementById('email').value;
+
+            // Close modal immediately for instant feedback
+            exitIntentModal.classList.remove('show');
+
+            // Track with GTM (fire and forget)
+            if (window.dataLayer) {
+                window.dataLayer.push({
+                    'event': 'referral_source_submitted',
+                    'source': source,
+                    'page': 'convert_now'
+                });
+            }
+
+            // Send to Google Apps Script in background (fire and forget)
+            const formData = new FormData();
+            formData.append('email', userEmailValue);
+            formData.append('source', source);
+            formData.append('timestamp', new Date().toISOString());
+            formData.append('type', 'referral_source');
+
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzmPIwrIMuIZ4sEzcNYuxloup4ip3i271mcTHe1w74zwW2hwIdivu2_XAxtSUbZVS9yzw/exec';
+
+            fetch(scriptURL, {
+                method: 'POST',
+                body: formData
+            }).catch(error => {
+                console.log('Could not save referral source:', error);
+            });
+        });
+
+        // Handle close button
+        exitModalClose.addEventListener('click', () => {
+            exitIntentModal.classList.remove('show');
+
+            // Track close with GTM
+            if (window.dataLayer) {
+                window.dataLayer.push({
+                    'event': 'referral_source_closed',
+                    'page': 'convert_now'
+                });
+            }
+        });
+
+        // Close modal on backdrop click
+        exitIntentModal.addEventListener('click', (e) => {
+            if (e.target === exitIntentModal) {
+                exitIntentModal.classList.remove('show');
             }
         });
     </script>
