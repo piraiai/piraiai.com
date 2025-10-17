@@ -4163,13 +4163,7 @@ See the dramatic difference in survey creation time
                     markers = document.querySelectorAll('#world-map svg circle[fill="#9B6BFF"]');
                 }
 
-                console.log('Creating labels for', markers.length, 'markers');
-                console.log('Markers found:', markers);
-
                 if (markers.length === 0) {
-                    console.error('No markers found! Checking map structure...');
-                    console.log('Map container:', mapContainer);
-                    console.log('All elements in map:', document.querySelectorAll('#world-map *'));
                     return;
                 }
 
@@ -4191,8 +4185,6 @@ See the dramatic difference in survey creation time
                     label.style.left = leftPos + 'px';
                     label.style.top = topPos + 'px';
 
-                    console.log(`Label ${index}: ${universities[index].name} at (${leftPos}, ${topPos})`);
-
                     mapContainer.appendChild(label);
                 });
 
@@ -4208,15 +4200,11 @@ See the dramatic difference in survey creation time
             const markers = document.querySelectorAll('.jsvectormap-marker circle');
             let currentIndex = 0;
 
-            console.log('Starting name cycle with', labels.length, 'labels');
-
             if (labels.length === 0) {
-                console.error('No labels found!');
                 return;
             }
 
             function showNextUniversity() {
-                console.log('Showing university', currentIndex, universities[currentIndex].name);
 
                 // Hide all labels
                 labels.forEach(label => {
