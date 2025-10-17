@@ -2918,7 +2918,14 @@
         padding: 5px 12px;
     }
 }
-</style>   
+</style>
+<!-- jsvectormap CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap/dist/jsvectormap.min.css">
+<!-- Anime.js for map animations -->
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<!-- jsvectormap JS -->
+<script src="https://cdn.jsdelivr.net/npm/jsvectormap"></script>
+<script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/maps/world.js"></script>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -3697,6 +3704,621 @@ See the dramatic difference in survey creation time
             </div>
         </div>
     </section>
+
+    <!-- Academic Institutions Section -->
+    <section class="academic-institutions-section">
+        <div class="container">
+            <h2 class="section-title">Academic Institutions Using Pirai AI</h2>
+            <p class="section-subtitle">Trusted by leading universities and institutions worldwide for survey conversion and automation</p>
+
+            <!-- World Map Container -->
+            <div class="world-map-container">
+                <div id="world-map"></div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" data-target="6">0</div>
+                    <div class="stat-label">Countries</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="13">0</div>
+                    <div class="stat-label">Universities</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="3">0</div>
+                    <div class="stat-label">Languages</div>
+                    <div class="language-tags">
+                        <span class="language-tag">English</span>
+                        <span class="language-tag">Spanish</span>
+                        <span class="language-tag">Hebrew</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="577">0</div>
+                    <div class="stat-label">Questions Converted</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="2659">0</div>
+                    <div class="stat-label">Options Converted</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+    /* Academic Institutions Section Styles */
+    .academic-institutions-section {
+        padding: 120px 0;
+        background: linear-gradient(135deg, #0a0a0f 0%, #1a1a24 50%, #0a0a0f 100%);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .academic-institutions-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background:
+            radial-gradient(circle at 20% 30%, rgba(155, 107, 255, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 70%, rgba(155, 107, 255, 0.08) 0%, transparent 50%);
+        pointer-events: none;
+    }
+
+    .section-title {
+        font-size: 48px;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 16px;
+        background: linear-gradient(135deg, #ffffff 0%, #9B6BFF 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .section-subtitle {
+        font-size: 18px;
+        color: #9ca3af;
+        text-align: center;
+        margin-bottom: 60px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* World Map Container */
+    .world-map-container {
+        max-width: 1200px;
+        margin: 0 auto 60px;
+        padding: 40px;
+        background: rgba(17, 17, 24, 0.6);
+        border: 1px solid rgba(155, 107, 255, 0.2);
+        border-radius: 24px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        position: relative;
+    }
+
+    /* University label next to marker */
+    .university-label {
+        position: absolute;
+        background: linear-gradient(135deg, rgba(155, 107, 255, 0.95), rgba(155, 107, 255, 0.85));
+        color: #ffffff;
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 700;
+        white-space: nowrap;
+        pointer-events: none;
+        z-index: 100;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 4px 16px rgba(155, 107, 255, 0.5);
+        opacity: 0;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    #world-map {
+        width: 100%;
+        height: 500px;
+        filter: drop-shadow(0 4px 20px rgba(155, 107, 255, 0.3));
+    }
+
+    #world-map svg {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    /* jsvectormap custom styling */
+    .jsvectormap-container {
+        background: transparent !important;
+    }
+
+    .jsvectormap-tip {
+        background: linear-gradient(135deg, rgba(155, 107, 255, 0.95), rgba(155, 107, 255, 0.85)) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        color: #ffffff !important;
+        padding: 8px 16px !important;
+        border-radius: 8px !important;
+        font-size: 13px !important;
+        font-weight: 700 !important;
+        box-shadow: 0 4px 16px rgba(155, 107, 255, 0.5) !important;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    .jsvectormap-marker {
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .jsvectormap-marker:hover {
+        transform: scale(1.3);
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 24px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .stat-card {
+        background: linear-gradient(135deg, rgba(17, 17, 24, 0.8), rgba(27, 27, 36, 0.8));
+        border: 1px solid rgba(155, 107, 255, 0.3);
+        border-radius: 16px;
+        padding: 32px 24px;
+        text-align: center;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .stat-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, #9B6BFF, transparent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .stat-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(155, 107, 255, 0.6);
+        box-shadow: 0 12px 48px rgba(155, 107, 255, 0.2);
+    }
+
+    .stat-card:hover::before {
+        opacity: 1;
+    }
+
+    .stat-number {
+        font-size: 64px;
+        font-weight: 700;
+        background: linear-gradient(135deg, #9B6BFF 0%, #ffffff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 8px;
+        line-height: 1;
+    }
+
+    .stat-label {
+        font-size: 16px;
+        color: #9ca3af;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .language-tags {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        margin-top: 12px;
+        flex-wrap: wrap;
+    }
+
+    .language-tag {
+        background: rgba(155, 107, 255, 0.2);
+        color: #9B6BFF;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        border: 1px solid rgba(155, 107, 255, 0.3);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .academic-institutions-section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 32px;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            padding: 0 20px;
+        }
+
+        .world-map-container {
+            padding: 20px 10px;
+            margin-bottom: 40px;
+        }
+
+        #world-map {
+            height: 350px !important;
+        }
+
+        .jsvectormap-container {
+            width: 100% !important;
+            height: 350px !important;
+        }
+
+        .jsvectormap-container svg {
+            transform: scale(0.9) !important;
+            transform-origin: center center !important;
+        }
+
+        .university-label {
+            left: 50% !important;
+            top: auto !important;
+            right: auto !important;
+            bottom: 10px !important;
+            transform: translateX(-50%) !important;
+            font-size: 12px !important;
+            padding: 8px 16px !important;
+            width: auto !important;
+            max-width: 90% !important;
+            white-space: nowrap !important;
+        }
+
+        .world-map-container {
+            padding: 20px 10px 60px !important;
+            margin-bottom: 40px;
+        }
+
+        .stats-grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
+            padding: 0 20px;
+        }
+
+        .stat-number {
+            font-size: 48px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+        }
+    }
+    </style>
+
+    <script>
+    // Academic Institutions Map Animation
+    document.addEventListener('DOMContentLoaded', function() {
+        const section = document.querySelector('.academic-institutions-section');
+        const statNumbers = document.querySelectorAll('.stat-number');
+        let animationTriggered = false;
+        let mapInstance = null;
+
+        // University locations with lat/long coordinates
+        const universities = [
+            { name: 'Colorado State University', coords: [40.5853, -105.0844] },
+            { name: 'University of Arkansas - Little Rock', coords: [34.7249, -92.3365] },
+            { name: 'Old Dominion University', coords: [36.8859, -76.3058] },
+            { name: 'University of North Florida', coords: [30.2690, -81.5124] },
+            { name: 'University of Central Florida', coords: [28.6024, -81.2001] },
+            { name: 'The Ohio State University', coords: [40.0067, -83.0305] },
+            { name: 'Clark University', coords: [42.2506, -71.8229] },
+            { name: 'Universidad Autónoma de Madrid', coords: [40.5456, -3.6928] },
+            { name: 'York St John University', coords: [53.9638, -1.0531] },
+            { name: 'Indian Institute Of Management - Ahmedabad', coords: [23.0225, 72.5714] },
+            { name: 'Indian Institute Of Management - Raipur', coords: [21.2514, 81.6296] }
+        ];
+
+        // Initialize jsvectormap
+        function initMap() {
+            const markers = universities.map((uni, index) => ({
+                name: uni.name,
+                coords: uni.coords,
+                style: {
+                    fill: '#9B6BFF',
+                    stroke: '#ffffff',
+                    strokeWidth: 2,
+                    r: 6,
+                    opacity: 0
+                }
+            }));
+
+            // Detect mobile device
+            const isMobile = window.innerWidth <= 768;
+            const initialScale = isMobile ? 0.8 : 1;
+
+            mapInstance = new jsVectorMap({
+                selector: '#world-map',
+                map: 'world',
+                backgroundColor: 'transparent',
+                zoomButtons: false,
+                zoomOnScroll: false,
+                zoomOnScrollSpeed: 0,
+                zoomMax: 1,
+                zoomMin: initialScale,
+                zoomStep: 0.1,
+                regionStyle: {
+                    initial: {
+                        fill: 'rgba(155, 107, 255, 0.15)',
+                        stroke: 'rgba(155, 107, 255, 0.3)',
+                        strokeWidth: 1,
+                        fillOpacity: 1
+                    },
+                    hover: {
+                        fill: 'rgba(155, 107, 255, 0.25)',
+                        stroke: 'rgba(155, 107, 255, 0.5)',
+                        strokeWidth: 1,
+                        cursor: 'default'
+                    }
+                },
+                markerStyle: {
+                    initial: {
+                        fill: '#9B6BFF',
+                        stroke: '#ffffff',
+                        strokeWidth: 2,
+                        r: 6
+                    },
+                    hover: {
+                        fill: '#ffffff',
+                        stroke: '#9B6BFF',
+                        strokeWidth: 2,
+                        r: 8,
+                        cursor: 'pointer'
+                    }
+                },
+                markers: markers,
+                showTooltip: false,
+                onLoaded: function(map) {
+                    // Map loaded, now animate markers when scrolled into view
+                }
+            });
+        }
+
+        // Intersection Observer for scroll-triggered animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !animationTriggered) {
+                    animationTriggered = true;
+                    startAnimations();
+                }
+            });
+        }, { threshold: 0.3 });
+
+        observer.observe(section);
+
+        function startAnimations() {
+            // Animate markers appearing with delay
+            setTimeout(() => {
+                const markers = document.querySelectorAll('.jsvectormap-marker');
+
+                // Animate markers
+                anime({
+                    targets: markers,
+                    opacity: [0, 1],
+                    scale: [0, 1],
+                    delay: anime.stagger(100),
+                    duration: 600,
+                    easing: 'easeOutElastic(1, .6)',
+                    complete: function() {
+                        // After markers appear, create labels and start cycling
+                        createUniversityLabels();
+                    }
+                });
+            }, 500);
+
+            // Animate stat cards
+            anime({
+                targets: '.stat-card',
+                translateY: [50, 0],
+                opacity: [0, 1],
+                delay: anime.stagger(80, {start: 800}),
+                duration: 600,
+                easing: 'easeOutExpo'
+            });
+
+            // Counter animations
+            setTimeout(() => {
+                animateCounters();
+            }, 1000);
+        }
+
+        function createUniversityLabels() {
+            // Wait a bit for markers to be fully rendered
+            setTimeout(() => {
+                const mapContainer = document.querySelector('.world-map-container');
+
+                // Try different selectors for jsvectormap markers
+                let markers = document.querySelectorAll('.jsvectormap-marker');
+
+                if (markers.length === 0) {
+                    markers = document.querySelectorAll('[class*="jvm-marker"]');
+                }
+
+                if (markers.length === 0) {
+                    markers = document.querySelectorAll('.jvectormap-marker');
+                }
+
+                if (markers.length === 0) {
+                    // Try to find circles in the SVG
+                    markers = document.querySelectorAll('#world-map svg circle[fill="#9B6BFF"]');
+                }
+
+                console.log('Creating labels for', markers.length, 'markers');
+                console.log('Markers found:', markers);
+
+                if (markers.length === 0) {
+                    console.error('No markers found! Checking map structure...');
+                    console.log('Map container:', mapContainer);
+                    console.log('All elements in map:', document.querySelectorAll('#world-map *'));
+                    return;
+                }
+
+                markers.forEach((marker, index) => {
+                    if (index >= universities.length) return;
+
+                    const label = document.createElement('div');
+                    label.className = 'university-label';
+                    label.textContent = universities[index].name;
+                    label.setAttribute('data-index', index);
+
+                    // Position label next to marker
+                    const markerRect = marker.getBoundingClientRect();
+                    const containerRect = mapContainer.getBoundingClientRect();
+
+                    const leftPos = markerRect.left - containerRect.left + markerRect.width + 10;
+                    const topPos = markerRect.top - containerRect.top - 10;
+
+                    label.style.left = leftPos + 'px';
+                    label.style.top = topPos + 'px';
+
+                    console.log(`Label ${index}: ${universities[index].name} at (${leftPos}, ${topPos})`);
+
+                    mapContainer.appendChild(label);
+                });
+
+                // Start cycling after labels are created
+                setTimeout(() => {
+                    startUniversityNameCycle();
+                }, 300);
+            }, 1000); // Increased delay to ensure map is fully loaded
+        }
+
+        function startUniversityNameCycle() {
+            const labels = document.querySelectorAll('.university-label');
+            const markers = document.querySelectorAll('.jsvectormap-marker circle');
+            let currentIndex = 0;
+
+            console.log('Starting name cycle with', labels.length, 'labels');
+
+            if (labels.length === 0) {
+                console.error('No labels found!');
+                return;
+            }
+
+            function showNextUniversity() {
+                console.log('Showing university', currentIndex, universities[currentIndex].name);
+
+                // Hide all labels
+                labels.forEach(label => {
+                    anime({
+                        targets: label,
+                        opacity: 0,
+                        scale: 0.8,
+                        duration: 300,
+                        easing: 'easeInExpo'
+                    });
+                });
+
+                // Show current label
+                const currentLabel = labels[currentIndex];
+                if (currentLabel) {
+                    anime({
+                        targets: currentLabel,
+                        opacity: [0, 1],
+                        scale: [0.8, 1],
+                        duration: 500,
+                        delay: 300,
+                        easing: 'easeOutElastic(1, .6)'
+                    });
+                }
+
+                // Pulse current marker
+                const currentMarker = markers[currentIndex];
+                if (currentMarker) {
+                    anime({
+                        targets: currentMarker,
+                        scale: [1, 1.5, 1],
+                        duration: 600,
+                        easing: 'easeOutElastic(1, .6)'
+                    });
+                }
+
+                // Move to next university
+                currentIndex = (currentIndex + 1) % universities.length;
+            }
+
+            // Show first university immediately
+            if (labels[0]) {
+                anime({
+                    targets: labels[0],
+                    opacity: [0, 1],
+                    scale: [0.8, 1],
+                    duration: 600,
+                    easing: 'easeOutElastic(1, .6)'
+                });
+            }
+
+            // Cycle through universities every 2 seconds
+            setInterval(showNextUniversity, 2000);
+        }
+
+        function animateCounters() {
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-target'));
+
+                anime({
+                    targets: stat,
+                    innerHTML: [0, target],
+                    duration: 2000,
+                    round: 1,
+                    easing: 'easeOutExpo',
+                    update: function(anim) {
+                        stat.innerHTML = Math.round(anim.animations[0].currentValue);
+                    }
+                });
+            });
+        }
+
+        // Add pulsing animation to random markers
+        setInterval(() => {
+            const markers = document.querySelectorAll('.jsvectormap-marker');
+            if (markers.length > 0) {
+                const randomMarker = markers[Math.floor(Math.random() * markers.length)];
+                anime({
+                    targets: randomMarker,
+                    scale: [1, 1.4, 1],
+                    duration: 1000,
+                    easing: 'easeInOutQuad'
+                });
+            }
+        }, 2500);
+
+        // Initialize map after a short delay to ensure library is loaded
+        setTimeout(initMap, 100);
+
+        // Handle window resize
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+                if (mapInstance) {
+                    // Update map size on resize
+                    mapInstance.updateSize();
+                }
+            }, 250);
+        });
+    });
+    </script>
 
     <!-- Footer -->
 	<footer class="footer">
