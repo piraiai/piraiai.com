@@ -42,6 +42,7 @@ Replace the default `Code.gs` content with the following code:
       // Extract form fields (for regular file upload submissions)
       const name = data.name || 'Not provided';
       const email = data.email || 'Not provided';
+      const platform = data.platform || 'Not specified';
       const role = data.role || 'Not provided';
       const institution = data.institution || 'Not provided';
       const fileName = data.fileName || 'document';
@@ -99,8 +100,9 @@ Replace the default `Code.gs` content with the following code:
   Role:        ${role}
   Institution: ${institution}
 
-  DOCUMENT INFORMATION:
+  CONVERSION REQUEST:
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Platform:    ${platform}
   File Name:   ${fileName}
   Submitted:   ${new Date(timestamp).toLocaleString()}
 
@@ -110,9 +112,9 @@ Replace the default `Code.gs` content with the following code:
   NEXT STEPS:
   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   1. Click the link above to download the document
-  2. Convert to Qualtrics QSF format using AI agent
+  2. Convert to ${platform} format using AI agent
   3. Reply to: ${email}
-  4. Attach the .qsf file
+  4. Attach the converted file
 
   ═══════════════════════════════════════
 
@@ -170,7 +172,7 @@ Replace the default `Code.gs` content with the following code:
       });
 
       // Log the submission
-      logSubmission(name, email, role, institution, fileName, timestamp, fileUrl);
+      logSubmission(name, email, platform, role, institution, fileName, timestamp, fileUrl);
 
       // Return success response
       return ContentService.createTextOutput(JSON.stringify({
@@ -193,7 +195,7 @@ Replace the default `Code.gs` content with the following code:
    * Log submission to Google Sheets
    * This automatically logs all leads to a spreadsheet with newest entries at the top
    */
-  function logSubmission(name, email, role, institution, fileName, timestamp, fileUrl) {
+  function logSubmission(name, email, platform, role, institution, fileName, timestamp, fileUrl) {
     try {
       // IMPORTANT: Replace with your Google Sheet ID
       const sheetId = 'YOUR_GOOGLE_SHEET_ID_HERE';
@@ -202,9 +204,9 @@ Replace the default `Code.gs` content with the following code:
 
       // Add headers if sheet is empty
       if (sheet.getLastRow() === 0) {
-        sheet.appendRow(['Date/Time', 'Name', 'Email', 'Role', 'Institution', 'File Name', 'File URL']);
+        sheet.appendRow(['Date/Time', 'Name', 'Email', 'Platform', 'Role', 'Institution', 'File Name', 'File URL']);
         // Format header row
-        const headerRange = sheet.getRange(1, 1, 1, 7);
+        const headerRange = sheet.getRange(1, 1, 1, 8);
         headerRange.setFontWeight('bold');
         headerRange.setBackground('#9B6BFF');
         headerRange.setFontColor('#FFFFFF');
@@ -218,16 +220,17 @@ Replace the default `Code.gs` content with the following code:
         new Date(timestamp),
         name,
         email,
+        platform,
         role,
         institution,
         fileName,
         fileUrl
       ];
 
-      sheet.getRange(2, 1, 1, 7).setValues([newRow]);
+      sheet.getRange(2, 1, 1, 8).setValues([newRow]);
 
       // Auto-resize columns for better readability
-      sheet.autoResizeColumns(1, 7);
+      sheet.autoResizeColumns(1, 8);
 
       Logger.log('Successfully logged submission to sheet: ' + email);
     } catch (error) {
@@ -383,6 +386,7 @@ The spreadsheet will automatically track:
 - **Date/Time** - When the submission was made
 - **Name** - Lead's full name
 - **Email** - Lead's email address
+- **Platform** - Target conversion platform (e.g., Qualtrics, SurveyMonkey)
 - **Role** - Their academic role
 - **Institution** - Their institution name
 - **File Name** - Name of the uploaded document
