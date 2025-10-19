@@ -124,7 +124,7 @@
                         },
                         "author": {
                             "@type": "Person",
-                            "name": "Devon Jensen",
+                            "name": "Dr. Devon Jensen",
                             "jobTitle": "Ed Leadership and Higher Education, CCIE",
                             "worksFor": {
                                 "@type": "EducationalOrganization",
@@ -2678,11 +2678,12 @@
 }
 
 .testimonial-highlight {
-    font-size: 18px;
-    line-height: 1.7;
+    font-size: 17px; /* Slightly reduced from 18px */
+    line-height: 1.6;
     color: #e5e7eb;
-    margin-bottom: 32px;
+    margin-bottom: 0; /* Remove bottom margin since stats row adds spacing */
     font-style: italic;
+    min-height: 160px; /* Ensures consistent card heights */
 }
 
 .testimonial-highlight strong {
@@ -2691,7 +2692,7 @@
 }
 
 .author-info {
-    border-top: 1px solid rgba(55, 65, 81, 0.5);
+    /* border-top: 1px solid rgba(55, 65, 81, 0.5); */
     padding-top: 24px;
 }
 
@@ -2761,6 +2762,53 @@
     color: #d1d5db;
     line-height: 1.5;
     margin: 0;
+}
+
+/* Category Badges on Cards */
+.card-category-badge {
+    display: inline-block;
+    background: rgba(59, 130, 246, 0.15);
+    color: #60a5fa;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.card-category-badge.competitive {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+    border-color: rgba(34, 197, 94, 0.3);
+}
+
+/* Stats Row at Bottom of Cards */
+.testimonial-stats-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(55, 65, 81, 0.3);
+}
+
+.stat-badge {
+    background: rgba(31, 41, 55, 0.6);
+    color: #d1d5db;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid rgba(55, 65, 81, 0.5);
+    white-space: nowrap;
+}
+
+.stat-badge.highlight {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(59, 130, 246, 0.2));
+    color: #22c55e;
+    border-color: rgba(34, 197, 94, 0.4);
+    font-weight: 600;
 }
 
 /* CTA Container */
@@ -2886,7 +2934,14 @@
     .testimonial-highlight {
         font-size: 16px;
     }
-
+    
+    .testimonial-stats-row {
+        justify-content: center;
+    }
+    
+    .testimonial-highlight {
+        min-height: auto;
+    }
     .academic-cta-card {
         grid-template-columns: 1fr;
         padding: 32px 24px;
@@ -3033,22 +3088,6 @@
     </section>
 
     <!-- Testimonials Section -->
-    <!-- <section id="testimonials" class="testimonial-section">
-        <div class="container">
-            <h2 class="section-title">What Our Users Are Saying</h2>
-            <div class="testimonial-card">
-                <p class="testimonial-quote">I had three complicated surveys I was going to have to re-create for qualtrics because my account had expired. I had them in a PDF and Word format, but not in the needed QSF format. Pirai AI converted these three surveys with 106 questions and 490 options in under 10 minutes, which is work that would have taken me an entire day if I were typing everything manually. It saved me an incredible amount of time and streamlined my workflow in a way I didn’t think was possible. This was my first time using such a tool, and I would absolutely recommend Pirai AI to colleagues who work with Qualtrics surveys.</p>
-                <div class="testimonial-author">
-                   
-                    <div class="author-details">
-                        <p class="author-name">Dr. April Chatham-Carpenter</p>
-                        <p class="author-title">Department Chair & Professor of Applied Communication, University of Arkansas at Little Rock</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>     -->
-
     <!-- Academic Solutions Section - Insert after testimonials, before demo form -->
     <section class="academic-solutions-section" id="academic">
         <div class="container">
@@ -3059,14 +3098,20 @@
                     Trusted by leading universities to automate complex Qualtrics survey creation—saving weeks of manual work for researchers and departments worldwide.
                 </p>
             </div>
-
             <div class="academic-grid">
-                <!-- Left: Featured Testimonial -->
+                <!-- Left Card: Dr. April Chatham-Carpenter (Volume & Speed) -->
                 <div id="testimonials" class="academic-testimonial-card">
+                    <div class="card-category-badge">📊 Volume & Speed</div>
                     <div class="testimonial-quote-icon">"</div>
                     <p class="testimonial-highlight">
                         "I had three complicated surveys I was going to have to re-create for Qualtrics because my account had expired. <strong>Pirai AI converted these three surveys with 106 questions and 490 options in under 10 minutes</strong>, which is work that would have taken me an entire day if I were typing everything manually."
                     </p>
+                    <div class="testimonial-stats-row">
+                        <span class="stat-badge">3 Surveys</span>
+                        <span class="stat-badge">106 Questions</span>
+                        <span class="stat-badge">490 Options</span>
+                        <span class="stat-badge highlight">⏱️ <10 min</span>
+                    </div>
                     <div class="testimonial-author">
                         <div class="author-info">
                             <div class="author-name">Dr. April Chatham-Carpenter</div>
@@ -3076,43 +3121,27 @@
                     </div>
                 </div>
 
-                <!-- Right: Value Propositions -->
-                <div class="academic-features">
-                    <h3 class="features-heading">Why Researchers Choose Pirai AI</h3>
-                    
-                    <div class="academic-feature-item">
-                        <div class="feature-icon">⚡</div>
-                        <div class="feature-content">
-                            <h4>Eliminate Manual Data Entry</h4>
-                            <p>Stop spending 4-5 hours typing questions into Qualtrics. Upload your Word/PDF document and get perfect question text and response options in 10 minutes—ready to import and configure.</p>
-                        </div>
+                <!-- Right Card: Devon Jensen (Quality & Reliability) -->
+                <div class="academic-testimonial-card">
+                    <div class="card-category-badge competitive">⚡ When Others Fail</div>
+                    <div class="testimonial-quote-icon">"</div>
+                    <p class="testimonial-highlight">
+                        "I had tried <strong>many prompts in ChatGPT to fix conversion errors, but nothing worked</strong>. Then I found Pirai AI — and that was a good find! <strong>The conversion to QSF went perfectly</strong>, and I was easily able to upload the file into Qualtrics."
+                    </p>
+                    <div class="testimonial-stats-row">
+                        <span class="stat-badge">64 Questions</span>
+                        <span class="stat-badge">296 Options</span>
+                        <span class="stat-badge highlight">✓ Perfect QSF</span>
                     </div>
-                    
-                    <div class="academic-feature-item">
-                        <div class="feature-icon">🎯</div>
-                        <div class="feature-content">
-                            <h4>Zero Transcription Errors</h4>
-                            <p>Manual typing introduces errors that violate IRB protocols and force costly amendments. Pirai AI preserves exact wording from your approved documents—guaranteed accuracy every time.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="academic-feature-item">
-                        <div class="feature-icon">🔄</div>
-                        <div class="feature-content">
-                            <h4>Fast Survey Iteration</h4>
-                            <p>Need to modify questions after pilot testing? Update your Word doc, re-upload, and get a fresh QSF file in 5 minutes. No retyping changes or fixing cascading errors.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="academic-feature-item">
-                        <div class="feature-icon">👥</div>
-                        <div class="feature-content">
-                            <h4>Team-Friendly Workflow</h4>
-                            <p>Research assistants and grad students can generate survey files without Qualtrics expertise. Perfect foundation in minutes, then add your custom logic and launch.</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <div class="author-name">Dr. Devon Jensen</div>
+                            <div class="author-title">Ed Leadership and Higher Education, CCIE</div>
+                            <div class="author-org">University of Central Florida</div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>  
 
             <!-- CTA Section -->
             <div class="academic-cta-container">
