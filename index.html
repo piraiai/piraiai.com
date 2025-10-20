@@ -3781,7 +3781,7 @@ See the dramatic difference in survey creation time
                     <div class="stat-label">Countries</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" data-target="14">0</div>
+                    <div class="stat-number" data-target="17">0</div>
                     <div class="stat-label">Universities</div>
                 </div>
                 <div class="stat-card">
@@ -3794,11 +3794,11 @@ See the dramatic difference in survey creation time
                     </div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" data-target="827">0</div>
+                    <div class="stat-number" data-target="974">0</div>
                     <div class="stat-label">Questions Converted</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" data-target="3584">0</div>
+                    <div class="stat-number" data-target="3797">0</div>
                     <div class="stat-label">Options Converted</div>
                 </div>
             </div>
@@ -4073,7 +4073,9 @@ See the dramatic difference in survey creation time
         let mapInstance = null;
 
         // University locations with lat/long coordinates
+        // University locations with lat/long coordinates
         const universities = [
+            // Existing Universities
             { name: 'Colorado State University', coords: [40.5853, -105.0844] },
             { name: 'University of Arkansas - Little Rock', coords: [34.7249, -92.3365] },
             { name: 'Old Dominion University', coords: [36.8859, -76.3058] },
@@ -4084,7 +4086,15 @@ See the dramatic difference in survey creation time
             { name: 'Universidad Autónoma de Madrid', coords: [40.5456, -3.6928] },
             { name: 'York St John University', coords: [53.9638, -1.0531] },
             { name: 'Indian Institute Of Management - Ahmedabad', coords: [23.0225, 72.5714] },
-            { name: 'Indian Institute Of Management - Raipur', coords: [21.2514, 81.6296] }
+            { name: 'Indian Institute Of Management - Raipur', coords: [21.2514, 81.6296] },
+            
+            // New Universities (Added from image)
+            { name: 'Arkansas State University', coords: [35.84, -90.67] },
+            { name: 'Drexel University', coords: [39.96, -75.19] },
+            { name: 'IOWA STATE UNIVERSITY', coords: [42.03, -93.65] },
+            { name: 'Worcester Polytechnic Institute', coords: [42.27, -71.81] },
+            { name: 'New College of Florida', coords: [27.38, -82.56] },
+            { name: 'University of Tampa', coords: [27.95, -82.47] }
         ];
 
         // Initialize jsvectormap
