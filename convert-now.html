@@ -1728,13 +1728,13 @@
                     // Enable exit intent modal after successful submission
                     window.formSubmittedSuccessfully = true;
 
-                    // Show modal after 7 seconds OR on exit intent (whichever comes first)
+                    // Show modal after 2 seconds OR on exit intent (whichever comes first)
                     setTimeout(() => {
                         if (!exitModalShown) {
                             exitIntentModal.classList.add('show');
                             exitModalShown = true;
                         }
-                    }, 4000);
+                    }, 2000);
                 } else {
                     throw new Error('Submission failed: ' + result);
                 }
