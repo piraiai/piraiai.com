@@ -757,8 +757,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.30);
+            backdrop-filter: blur(2px);
             z-index: 3000;
             align-items: center;
             justify-content: center;
@@ -1335,7 +1335,6 @@
     <!-- Exit Intent Modal -->
     <div class="exit-intent-modal" id="exitIntentModal">
         <div class="exit-modal-content">
-            <button class="exit-modal-close" id="exitModalClose">×</button>
             <img src="psst.gif" alt="Psst" class="exit-modal-gif">
             <h3>Before you go...</h3>
             <p>Help us improve — How did you hear about Pirai AI?</p>
@@ -1471,9 +1470,9 @@
         const platforms = [
             { name: 'Qualtrics', format: 'QSF Format' },
             { name: 'QuestionPro', format: 'Survey Format' },
-            { name: 'SurveyMonkey', format: 'Survey Format' },
-            { name: 'Google Forms', format: 'Survey Format' },
-            { name: 'SurveySparrow', format: 'Survey Format' },
+            { name: 'SurveyMonkey', format: 'Format' },
+            { name: 'Google Forms', format: 'Format' },
+            { name: 'SurveySparrow', format: 'Format' },
             { name: 'Zoho Survey', format: 'Format' },
             { name: 'Forsta', format: 'Survey Format' },
             { name: 'Dimensions', format: 'Survey Format' },
@@ -1734,7 +1733,7 @@
                             exitIntentModal.classList.add('show');
                             exitModalShown = true;
                         }
-                    }, 2000);
+                    }, 1200);
                 } else {
                     throw new Error('Submission failed: ' + result);
                 }
@@ -1775,7 +1774,6 @@
 
         // ========= EXIT INTENT MODAL LOGIC =========
         const exitIntentModal = document.getElementById('exitIntentModal');
-        const exitModalClose = document.getElementById('exitModalClose');
         const exitSubmitBtn = document.getElementById('exitSubmitBtn');
         const sourceRadios = document.querySelectorAll('input[name="source"]');
 
@@ -1839,25 +1837,7 @@
             });
         });
 
-        // Handle close button
-        exitModalClose.addEventListener('click', () => {
-            exitIntentModal.classList.remove('show');
-
-            // Track close with GTM
-            if (window.dataLayer) {
-                window.dataLayer.push({
-                    'event': 'referral_source_closed',
-                    'page': 'convert_now'
-                });
-            }
-        });
-
-        // Close modal on backdrop click
-        exitIntentModal.addEventListener('click', (e) => {
-            if (e.target === exitIntentModal) {
-                exitIntentModal.classList.remove('show');
-            }
-        });
+        // Close button and backdrop click removed - users must submit to close the modal
     </script>
 </body>
 </html>
