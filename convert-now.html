@@ -978,6 +978,20 @@
             line-height: 1.6;
         }
 
+        .spam-reminder {
+            margin-top: 24px;
+            padding: 16px 24px;
+            background: linear-gradient(135deg, rgba(155, 107, 255, 0.15), rgba(191, 168, 255, 0.1));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(155, 107, 255, 0.3);
+            border-radius: 12px;
+            font-size: 14px;
+            color: #BFA8FF;
+            text-align: center;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(155, 107, 255, 0.15);
+        }
+
         /* ========= BUY ME A COFFEE BUTTON ========= */
         #bmc-wbtn {
             height: 28px !important;
@@ -1292,6 +1306,9 @@
                     <br/><br/>
                     Check your inbox at <span style="color: var(--brand); font-weight: 600;" id="userEmail"></span> | For help contact - admin@piraiai.com
                 </p>
+                <div class="spam-reminder">
+                    Please do check your spam folder if you haven't received any email in 24 hours.
+                </div>
             </div>
 
 
