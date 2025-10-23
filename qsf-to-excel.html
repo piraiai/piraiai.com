@@ -1273,7 +1273,41 @@
                         }
                     }
                 });
+                // PHASE 3: JavaScript Extraction
+                const javascriptData = [];
 
+                questions.forEach(q => {
+                    // Only process questions that have JavaScript
+                    if (q.QuestionJS && q.QuestionJS !== false) {
+                        try {
+                            const questionText = q.QuestionText ? 
+                                q.QuestionText.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim() : '';
+                            
+                            const jsCode = typeof q.QuestionJS === 'string' ? q.QuestionJS : String(q.QuestionJS);
+                            
+                            // Detect event types (case-insensitive)
+                            const hasOnLoad = jsCode.toLowerCase().includes('addonload');
+                            const hasOnReady = jsCode.toLowerCase().includes('addonready');
+                            const hasOnUnload = jsCode.toLowerCase().includes('addonunload');
+                            
+                            javascriptData.push([
+                                q.QuestionID,
+                                questionText.length > 100 ? questionText.substring(0, 100) + "..." : questionText,
+                                q.QuestionType || 'N/A',
+                                'Yes',
+                                jsCode.length,
+                                hasOnLoad ? 'Yes' : 'No',
+                                hasOnReady ? 'Yes' : 'No',
+                                hasOnUnload ? 'Yes' : 'No',
+                                jsCode  // Full code, no truncation
+                            ]);
+                        } catch (error) {
+                            console.warn(`Error extracting JavaScript for ${q.QuestionID}:`, error);
+                        }
+                    }
+                });
+
+                console.log(`Extracted JavaScript for ${javascriptData.length} questions`);
                 // ============================================================================
                 // END OF EXTRACTION CODE
                 // ============================================================================
@@ -1394,7 +1428,8 @@
                     ["Display Logic Rules", displayLogicData.length, "Questions with conditional display", "Show/hide questions based on responses"],
                     ["Email Triggers", emailTriggersData.length, "Automated email notifications", "Workflow automation and alerts"],
                     ["Validation Rules", validationRulesData.filter(v => v[5] !== 'None').length, "Questions with validation rules", "Data quality and required fields"],
-                    ["Recode Mappings", recodeValuesData.length, "Choice value transformations", "Data recoding for analysis"]
+                    ["Recode Mappings", recodeValuesData.length, "Choice value transformations", "Data recoding for analysis"],
+                    ["Questions with JavaScript", javascriptData.length, "Custom JavaScript code", "Advanced functionality and customization"]
                 ];
 
                 XLSX.utils.book_append_sheet(workbook, XLSX.utils.aoa_to_sheet(flowSummary), "Flow Summary");
@@ -1427,6 +1462,13 @@
                 ];
                 XLSX.utils.book_append_sheet(workbook, XLSX.utils.aoa_to_sheet(recodeValuesSheet), "Recode Values");
 
+                // Sheet 13: JavaScript Code
+                const javascriptSheet = [
+                    ["Question ID", "Question Text", "Question Type", "Has JavaScript", "Code Length (chars)", "Has OnLoad", "Has OnReady", "Has OnUnload", "JavaScript Code"],
+                    ...javascriptData
+                ];
+                XLSX.utils.book_append_sheet(workbook, XLSX.utils.aoa_to_sheet(javascriptSheet), "JavaScript Code");
+
                 // Generate Excel file
                 excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
 
@@ -1442,7 +1484,8 @@
                     emailTriggers: emailTriggersData.length,
                     validationRules: validationRulesData.filter(v => v[5] !== 'None').length,
                     recodeMappings: recodeValuesData.length,
-                    sheets: 12,
+                    javascript: javascriptData.length,
+                    sheets: 13,
                     fileSize: Math.round(excelBuffer.byteLength / 1024)
                 });
 
@@ -1533,7 +1576,8 @@
                 { name: "Display Logic", desc: "Conditional display rules and logic conditions" },
                 { name: "Email Triggers", desc: "Automated email notifications and workflows" },
                 { name: "Validation Rules", desc: "Field validation and requirement settings" },
-                { name: "Recode Values", desc: "Answer choice recoding for data analysis" }
+                { name: "Recode Values", desc: "Answer choice recoding for data analysis" },
+                { name: "JavaScript Code", desc: "Custom JavaScript code and event handlers" }
             ];
 
             sheetsList.innerHTML = sheets.map(sheet => `
