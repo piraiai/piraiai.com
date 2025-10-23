@@ -1012,10 +1012,15 @@
                 const embeddedDataSets = [];
                 const branches = [];
                 const blocks = [];
-
-                // Extract blocks
+                
+                // Extract blocks - Handle both array and object formats
                 if (blockElement?.Payload) {
-                    blockElement.Payload.forEach(block => {
+                    // Convert to array if it's an object (handles both formats)
+                    const blocksData = Array.isArray(blockElement.Payload) 
+                        ? blockElement.Payload 
+                        : Object.values(blockElement.Payload);
+                    
+                    blocksData.forEach(block => {
                         blocks.push([
                             block.ID,
                             block.Type,
@@ -1075,6 +1080,203 @@
                 }
 
                 extractFlowElements(surveyFlow);
+
+                // ============================================================================
+                // PHASE 1 & PHASE 2: EXTRACT NEW DATA
+                // ============================================================================
+
+                // PHASE 1: Display Logic Extraction
+                const displayLogicData = [];
+
+                questions.forEach(q => {
+                    if (q.DisplayLogic) {
+                        try {
+                            function extractLogicConditions(logic, conditions = []) {
+                                if (!logic) return conditions;
+                                
+                                if (logic.Type === 'BooleanExpression' && logic['0']) {
+                                    const mainLogic = logic['0'];
+                                    
+                                    Object.keys(mainLogic).forEach(key => {
+                                        if (key === 'Type') return;
+                                        
+                                        const condition = mainLogic[key];
+                                        if (condition.Type === 'Expression') {
+                                            conditions.push({
+                                                logicType: condition.Type === 'If' ? 'If' : (condition.Conjuction || 'And'),
+                                                sourceQuestionID: condition.QuestionID || condition.LeftOperand || 'N/A',
+                                                logicCategory: condition.LogicType || 'Unknown',
+                                                operator: condition.Operator || 'N/A',
+                                                leftOperand: condition.LeftOperand || 'N/A',
+                                                rightOperand: condition.RightOperand || 'N/A',
+                                                description: condition.Description ? 
+                                                    condition.Description.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim() :
+                                                    `${condition.LogicType || ''} ${condition.Operator || ''}`
+                                            });
+                                        }
+                                    });
+                                }
+                                
+                                return conditions;
+                            }
+                            
+                            const conditions = extractLogicConditions(q.DisplayLogic);
+                            
+                            let logicString = '';
+                            if (conditions.length > 0) {
+                                logicString = conditions.map((cond, idx) => {
+                                    const conjunction = idx === 0 ? 'IF' : (cond.logicType || 'AND');
+                                    return `${conjunction}: ${cond.logicCategory} [${cond.sourceQuestionID}] ${cond.operator} ${cond.rightOperand}`;
+                                }).join(' | ');
+                            } else {
+                                logicString = JSON.stringify(q.DisplayLogic).substring(0, 500);
+                            }
+                            
+                            const questionText = q.QuestionText ? 
+                                q.QuestionText.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim() : '';
+                            
+                            displayLogicData.push([
+                                q.QuestionID,
+                                questionText.length > 100 ? questionText.substring(0, 100) + "..." : questionText,
+                                "Yes",
+                                conditions.length,
+                                logicString.length > 500 ? logicString.substring(0, 500) + "..." : logicString
+                            ]);
+                        } catch (error) {
+                            console.warn(`Error extracting display logic for ${q.QuestionID}:`, error);
+                        }
+                    }
+                });
+
+                // PHASE 1: Email Triggers Extraction
+                const emailTriggersData = [];
+                const triggerElements = qsfData.SurveyElements.filter(e => e.Element === 'TR');
+
+                triggerElements.forEach(triggerElement => {
+                    try {
+                        const trigger = triggerElement.Payload;
+                        
+                        let logicSummary = 'No conditions';
+                        let conditionCount = 0;
+                        
+                        if (trigger.Logic) {
+                            try {
+                                const logic = trigger.Logic;
+                                const conditions = [];
+                                
+                                if (logic['0']) {
+                                    Object.keys(logic['0']).forEach(key => {
+                                        if (key === 'Type') return;
+                                        
+                                        const condition = logic['0'][key];
+                                        if (condition.Type === 'Expression') {
+                                            const desc = condition.Description ? 
+                                                condition.Description.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim() :
+                                                `${condition.LogicType || ''} ${condition.LeftOperand || ''} ${condition.Operator || ''} ${condition.RightOperand || ''}`;
+                                            conditions.push(desc);
+                                        }
+                                    });
+                                }
+                                
+                                conditionCount = conditions.length;
+                                logicSummary = conditions.length > 0 ? conditions.join(' AND ') : 'No conditions';
+                                
+                                if (logicSummary.length > 300) {
+                                    logicSummary = logicSummary.substring(0, 300) + "...";
+                                }
+                            } catch (error) {
+                                logicSummary = 'Complex logic - see QSF file';
+                            }
+                        }
+                        
+                        emailTriggersData.push([
+                            triggerElement.PrimaryAttribute || 'N/A',
+                            trigger.Name || 'Unnamed Trigger',
+                            trigger.TriggerAction || 'N/A',
+                            trigger.EventType || trigger.Type || 'N/A',
+                            trigger.ToEmail || 'N/A',
+                            trigger.FromName || 'N/A',
+                            trigger.FromEmail || 'N/A',
+                            trigger.Subject || 'N/A',
+                            trigger.Message || 'N/A',
+                            trigger.IncludeReport ? 'Yes' : 'No',
+                            trigger.UseFullText ? 'Yes' : 'No',
+                            conditionCount,
+                            logicSummary
+                        ]);
+                    } catch (error) {
+                        console.warn('Error extracting trigger:', error);
+                    }
+                });
+
+                // PHASE 2: Validation Rules Extraction
+                const validationRulesData = [];
+
+                questions.forEach(q => {
+                    try {
+                        const validation = q.Validation?.Settings || {};
+                        const questionText = q.QuestionText ? 
+                            q.QuestionText.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim() : '';
+                        
+                        validationRulesData.push([
+                            q.QuestionID,
+                            questionText.length > 100 ? questionText.substring(0, 100) + "..." : questionText,
+                            q.QuestionType || 'N/A',
+                            validation.ForceResponse || 'OFF',
+                            validation.ForceResponseType || 'OFF',
+                            validation.Type || 'None',
+                            validation.ContentType || 'N/A',
+                            validation.MinValue || validation.MinLength || 'N/A',
+                            validation.MaxValue || validation.MaxLength || 'N/A',
+                            validation.CustomValidationMessage || 'N/A',
+                            validation.ValidDateType || 'N/A',
+                            validation.ValidPhoneType || 'N/A',
+                            validation.ValidZipType || 'N/A'
+                        ]);
+                    } catch (error) {
+                        console.warn(`Error extracting validation for ${q.QuestionID}:`, error);
+                    }
+                });
+
+                // PHASE 2: Recode Values Extraction
+                const recodeValuesData = [];
+
+                questions.forEach(q => {
+                    if (q.RecodeValues) {
+                        try {
+                            const questionText = q.QuestionText ? 
+                                q.QuestionText.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim() : '';
+                            
+                            Object.entries(q.RecodeValues).forEach(([choiceId, recodeValue]) => {
+                                const choiceText = q.Choices && q.Choices[choiceId] ? 
+                                    (q.Choices[choiceId].Display || choiceId) : choiceId;
+                                
+                                let purpose = 'Data transformation';
+                                if (recodeValue === '1' || recodeValue === '0') {
+                                    purpose = 'Binary: 1=Yes, 0=No';
+                                } else if (!isNaN(recodeValue)) {
+                                    purpose = 'Numeric scoring';
+                                }
+                                
+                                recodeValuesData.push([
+                                    q.QuestionID,
+                                    questionText.length > 100 ? questionText.substring(0, 100) + "..." : questionText,
+                                    q.QuestionType || 'N/A',
+                                    choiceId,
+                                    choiceText,
+                                    recodeValue,
+                                    purpose
+                                ]);
+                            });
+                        } catch (error) {
+                            console.warn(`Error extracting recode values for ${q.QuestionID}:`, error);
+                        }
+                    }
+                });
+
+                // ============================================================================
+                // END OF EXTRACTION CODE
+                // ============================================================================
 
                 // Create Excel workbook
                 const workbook = XLSX.utils.book_new();
@@ -1188,11 +1390,42 @@
                     ["Embedded Data Variables", embeddedDataSets.length, "Variables for data management", "System configuration"],
                     ["Branch Logic Elements", branches.length, "Conditional flow controls", "Dynamic routing and question visibility"],
                     ["Survey Blocks", blocks.length, "Question organization blocks", "User interface organization and flow control"],
-                    ["Total Questions", questions.length, "Survey questions and display blocks"],
-                    ["Display Logic Rules", questions.filter(q => q.DisplayLogic).length, "Dynamic question visibility", "Contextual question showing based on conditions"]
+                    ["Total Questions", questions.length, "Survey questions and display blocks", ""],
+                    ["Display Logic Rules", displayLogicData.length, "Questions with conditional display", "Show/hide questions based on responses"],
+                    ["Email Triggers", emailTriggersData.length, "Automated email notifications", "Workflow automation and alerts"],
+                    ["Validation Rules", validationRulesData.filter(v => v[5] !== 'None').length, "Questions with validation rules", "Data quality and required fields"],
+                    ["Recode Mappings", recodeValuesData.length, "Choice value transformations", "Data recoding for analysis"]
                 ];
 
                 XLSX.utils.book_append_sheet(workbook, XLSX.utils.aoa_to_sheet(flowSummary), "Flow Summary");
+
+                // Sheet 9: Display Logic
+                const displayLogicSheet = [
+                    ["Question ID", "Question Text", "Has Display Logic", "Condition Count", "Display Logic Conditions"],
+                    ...displayLogicData
+                ];
+                XLSX.utils.book_append_sheet(workbook, XLSX.utils.aoa_to_sheet(displayLogicSheet), "Display Logic");
+
+                // Sheet 10: Email Triggers
+                const emailTriggersSheet = [
+                    ["Trigger ID", "Trigger Name", "Action Type", "Event Type", "To Email", "From Name", "From Email", "Subject", "Message", "Include Report", "Use Full Text", "Condition Count", "Logic Summary"],
+                    ...emailTriggersData
+                ];
+                XLSX.utils.book_append_sheet(workbook, XLSX.utils.aoa_to_sheet(emailTriggersSheet), "Email Triggers");
+
+                // Sheet 11: Validation Rules
+                const validationRulesSheet = [
+                    ["Question ID", "Question Text", "Question Type", "Force Response", "Force Response Type", "Validation Type", "Content Type", "Min Value/Length", "Max Value/Length", "Custom Message", "Date Type", "Phone Type", "Zip Type"],
+                    ...validationRulesData
+                ];
+                XLSX.utils.book_append_sheet(workbook, XLSX.utils.aoa_to_sheet(validationRulesSheet), "Validation Rules");
+
+                // Sheet 12: Recode Values
+                const recodeValuesSheet = [
+                    ["Question ID", "Question Text", "Question Type", "Choice ID", "Choice Text", "Recoded Value", "Purpose"],
+                    ...recodeValuesData
+                ];
+                XLSX.utils.book_append_sheet(workbook, XLSX.utils.aoa_to_sheet(recodeValuesSheet), "Recode Values");
 
                 // Generate Excel file
                 excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
@@ -1205,7 +1438,11 @@
                     variables: embeddedDataSets.length,
                     blocks: blocks.length,
                     branches: branches.length,
-                    sheets: 8,
+                    displayLogic: displayLogicData.length,
+                    emailTriggers: emailTriggersData.length,
+                    validationRules: validationRulesData.filter(v => v[5] !== 'None').length,
+                    recodeMappings: recodeValuesData.length,
+                    sheets: 12,
                     fileSize: Math.round(excelBuffer.byteLength / 1024)
                 });
 
@@ -1239,13 +1476,13 @@
             document.getElementById('stats').style.display = 'block';
             const statsGrid = document.getElementById('statsGrid');
             statsGrid.innerHTML = `
-                <div class="stat-card">
+            <div class="stat-card">
                     <div class="stat-number">${stats.questions}</div>
                     <div class="stat-label">Questions</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">${stats.apis}</div>
-                    <div class="stat-label">API Calls</div>
+                    <div class="stat-label">APIs</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">${stats.variables}</div>
@@ -1258,6 +1495,22 @@
                 <div class="stat-card">
                     <div class="stat-number">${stats.branches}</div>
                     <div class="stat-label">Branches</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${stats.displayLogic}</div>
+                    <div class="stat-label">Display Logic</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${stats.emailTriggers}</div>
+                    <div class="stat-label">Email Triggers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${stats.validationRules}</div>
+                    <div class="stat-label">Validation Rules</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${stats.recodeMappings}</div>
+                    <div class="stat-label">Recode Mappings</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-number">${stats.fileSize}KB</div>
@@ -1276,7 +1529,11 @@
                 { name: "Survey Blocks", desc: "Question organization and block structure" },
                 { name: "Branch Logic", desc: "Conditional flow controls and routing" },
                 { name: "Question Choices", desc: "Multiple choice options and defaults" },
-                { name: "Flow Summary", desc: "Architecture overview and component counts" }
+                { name: "Flow Summary", desc: "Architecture overview and component counts" },
+                { name: "Display Logic", desc: "Conditional display rules and logic conditions" },
+                { name: "Email Triggers", desc: "Automated email notifications and workflows" },
+                { name: "Validation Rules", desc: "Field validation and requirement settings" },
+                { name: "Recode Values", desc: "Answer choice recoding for data analysis" }
             ];
 
             sheetsList.innerHTML = sheets.map(sheet => `
