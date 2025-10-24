@@ -1099,6 +1099,97 @@
             100% { transform: rotate(360deg); }
         }
 
+        /* ========= UNIVERSITY TICKER ========= */
+        .university-ticker-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, rgba(17, 17, 24, 0.98), rgba(27, 27, 36, 0.98));
+            backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(155, 107, 255, 0.3);
+            padding: 16px 0;
+            z-index: 998;
+            box-shadow: 0 -8px 32px rgba(155, 107, 255, 0.15);
+        }
+
+        .university-ticker-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 20px;
+            width: 100%;
+            padding: 0 40px;
+        }
+
+        .university-ticker-title {
+            font-family: var(--display);
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--brand-2);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .university-ticker-scroll {
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .university-ticker {
+            display: flex;
+            width: fit-content;
+            animation: scrollUniversities 60s linear infinite;
+        }
+
+        .university-ticker:hover {
+            animation-play-state: paused;
+        }
+
+        .university-ticker-track {
+            display: flex;
+            align-items: center;
+            gap: 0;
+        }
+
+        .university-name {
+            display: inline-flex;
+            align-items: center;
+            padding: 0;
+            background: transparent;
+            border: none;
+            font-size: 16px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.8);
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            text-shadow: 0 2px 8px rgba(155, 107, 255, 0.3);
+        }
+
+        .university-name:hover {
+            color: rgba(255, 255, 255, 1);
+            text-shadow: 0 2px 12px rgba(155, 107, 255, 0.6);
+        }
+
+        .university-name::after {
+            content: "•";
+            margin: 0 24px;
+            color: rgba(155, 107, 255, 0.5);
+            font-size: 14px;
+        }
+
+        @keyframes scrollUniversities {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
         /* ========= RESPONSIVE ========= */
         @media (max-width: 768px) {
             .container {
@@ -1224,6 +1315,23 @@
 
             .exit-modal-content p {
                 font-size: 14px;
+            }
+
+            /* University ticker mobile adjustments */
+            .university-ticker-wrapper {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+                padding: 0 16px;
+            }
+
+            .university-ticker-title {
+                font-size: 13px;
+                text-align: center;
+            }
+
+            .university-name {
+                font-size: 15px;
             }
         }
     </style>
@@ -1446,6 +1554,72 @@
             <div id="bmcButtonContainer"></div>
         </div>
     </footer>
+
+    <!-- University Ticker -->
+    <div class="university-ticker-container">
+        <div class="university-ticker-wrapper">
+            <div class="university-ticker-title">Trusted by Academics Around the World</div>
+            <div class="university-ticker-scroll">
+                <div class="university-ticker">
+                    <div class="university-ticker-track">
+                    <span class="university-name">Colorado State University</span>
+                    <span class="university-name">University of Arkansas - Little Rock</span>
+                    <span class="university-name">Old Dominion University</span>
+                    <span class="university-name">McGill University</span>
+                    <span class="university-name">Universidad Autónoma de Madrid</span>
+                    <span class="university-name">University of Greenwich</span>
+                    <span class="university-name">Qatar University</span>
+                    <span class="university-name">University of North Florida</span>
+                    <span class="university-name">University of Central Florida</span>
+                    <span class="university-name">The Ohio State University</span>
+                    <span class="university-name">Clark University</span>
+                    <span class="university-name">Arkansas State University</span>
+                    <span class="university-name">Drexel University</span>
+                    <span class="university-name">Iowa State University</span>
+                    <span class="university-name">Worcester Polytechnic Institute</span>
+                    <span class="university-name">New College of Florida</span>
+                    <span class="university-name">University of Tampa</span>
+                    <span class="university-name">Seton Hill University</span>
+                    <span class="university-name">The University of Virginia</span>
+                    <span class="university-name">University of Oklahoma</span>
+                    <span class="university-name">Appalachian State University</span>
+                    <span class="university-name">Florida State University</span>
+                    <span class="university-name">York St John University</span>
+                    <span class="university-name">Indian Institute Of Management - Ahmedabad</span>
+                    <span class="university-name">Indian Institute Of Management - Raipur</span>
+                </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="university-ticker-track" aria-hidden="true">
+                    <span class="university-name">Colorado State University</span>
+                    <span class="university-name">University of Arkansas - Little Rock</span>
+                    <span class="university-name">Old Dominion University</span>
+                    <span class="university-name">McGill University</span>
+                    <span class="university-name">Universidad Autónoma de Madrid</span>
+                    <span class="university-name">University of Greenwich</span>
+                    <span class="university-name">Qatar University</span>
+                    <span class="university-name">University of North Florida</span>
+                    <span class="university-name">University of Central Florida</span>
+                    <span class="university-name">The Ohio State University</span>
+                    <span class="university-name">Clark University</span>
+                    <span class="university-name">Arkansas State University</span>
+                    <span class="university-name">Drexel University</span>
+                    <span class="university-name">Iowa State University</span>
+                    <span class="university-name">Worcester Polytechnic Institute</span>
+                    <span class="university-name">New College of Florida</span>
+                    <span class="university-name">University of Tampa</span>
+                    <span class="university-name">Seton Hill University</span>
+                    <span class="university-name">The University of Virginia</span>
+                    <span class="university-name">University of Oklahoma</span>
+                    <span class="university-name">Appalachian State University</span>
+                    <span class="university-name">Florida State University</span>
+                    <span class="university-name">York St John University</span>
+                    <span class="university-name">Indian Institute Of Management - Ahmedabad</span>
+                    <span class="university-name">Indian Institute Of Management - Raipur</span>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- SEO Content for AI/LLMs and Search Engines -->
     <div style="position: absolute; left: -9999px; top: -9999px; opacity: 0; pointer-events: none;" aria-hidden="true">
