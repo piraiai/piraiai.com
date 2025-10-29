@@ -328,6 +328,44 @@
             height: 35px;
         }
 
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-link-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .qstar-link {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            padding-right: 40px;
+            transition: color 0.3s;
+        }
+
+        .qstar-link:hover {
+            color: #ffffff;
+        }
+
+        .new-badge {
+            position: absolute;
+            top: -7px;
+            right: 0;
+            background: #6B3FCC;
+            color: #fff;
+            font-size: 9px;
+            font-weight: 700;
+            padding: 3px 6px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
         .back-link {
             color: var(--brand);
             text-decoration: none;
@@ -1350,7 +1388,13 @@
                     <img src="logo.svg" alt="Pirai AI Logo"/>
                     Pirai AI
                 </a>
-                <a href="/" class="back-link">← Back to Home</a>
+                <div class="nav-links">
+                    <span class="nav-link-wrapper">
+                        <a href="https://qstar.piraiai.com" class="qstar-link" target="_blank" rel="noopener noreferrer">QStar</a>
+                        <span class="new-badge">New</span>
+                    </span>
+                    <a href="/" class="back-link">← Back to Home</a>
+                </div>
             </div>
         </div>
     </nav>
