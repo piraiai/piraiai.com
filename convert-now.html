@@ -1587,6 +1587,10 @@
                 </label>
             </div>
 
+            <div id="otherSpecifyContainer" style="display: none; margin-bottom: 20px;">
+                <input type="text" id="otherSpecifyInput" placeholder="Please specify..." style="width: 100%; padding: 12px 14px; background: var(--tile); border: 1px solid rgba(155, 107, 255, 0.3); border-radius: 12px; color: var(--ink); font-size: 15px; font-family: var(--sans);">
+            </div>
+
             <button class="exit-submit-btn" id="exitSubmitBtn" disabled>Submit</button>
         </div>
     </div>
@@ -2102,16 +2106,40 @@
         let exitModalShown = false;
         window.formSubmittedSuccessfully = false;
 
+        // Get references to "Other specify" elements
+        const otherSpecifyContainer = document.getElementById('otherSpecifyContainer');
+        const otherSpecifyInput = document.getElementById('otherSpecifyInput');
+
         // Enable submit button when a source is selected
         sourceRadios.forEach(radio => {
             radio.addEventListener('change', () => {
-                exitSubmitBtn.disabled = false;
+                // Show/hide "Other specify" field based on selection
+                if (radio.value === 'Other') {
+                    otherSpecifyContainer.style.display = 'block';
+                    otherSpecifyInput.focus(); // Auto-focus the input field
+                    // Keep submit button disabled until user fills the specify field
+                    exitSubmitBtn.disabled = true;
+                } else {
+                    otherSpecifyContainer.style.display = 'none';
+                    otherSpecifyInput.value = ''; // Clear the field when hiding
+                    exitSubmitBtn.disabled = false;
+                }
+
                 // Add visual feedback
                 document.querySelectorAll('.source-option').forEach(opt => {
                     opt.classList.remove('selected');
                 });
                 radio.closest('.source-option').classList.add('selected');
             });
+        });
+
+        // Enable submit button when user types in "Other specify" field
+        otherSpecifyInput.addEventListener('input', () => {
+            const selectedOther = document.querySelector('input[name="source"]:checked');
+            if (selectedOther && selectedOther.value === 'Other') {
+                // Enable button only if field has content
+                exitSubmitBtn.disabled = otherSpecifyInput.value.trim() === '';
+            }
         });
 
         // Show exit intent modal when user tries to leave (mouse goes to top of viewport)
@@ -2127,8 +2155,19 @@
             const selectedSource = document.querySelector('input[name="source"]:checked');
             if (!selectedSource) return;
 
-            const source = selectedSource.value;
+            let source = selectedSource.value;
             const userEmailValue = document.getElementById('email').value;
+
+            // If "Other" was selected, combine it with the specify text
+            if (source === 'Other') {
+                const specifyText = otherSpecifyInput.value.trim();
+                // Double-check validation - should not happen due to button disable logic
+                if (!specifyText) {
+                    return;
+                }
+                // Combine as "Other - [user's text]"
+                source = `Other - ${specifyText}`;
+            }
 
             // Close modal immediately for instant feedback
             exitIntentModal.classList.remove('show');
