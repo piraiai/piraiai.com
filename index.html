@@ -1020,7 +1020,11 @@
                 font-family: 'Space Grotesk', sans-serif;
                 font-size: 36px;
             }
-            
+
+            .mobile-break {
+                display: inline;
+            }
+
             .multilingual-subtitle {
                 font-size: 18px;
             }     
@@ -2066,6 +2070,10 @@
             background-clip: text;
         }
 
+        .mobile-break {
+            display: none;
+        }
+
         .multilingual-subtitle {
             font-size: 20px;
             color: var(--ink-dim);
@@ -2141,6 +2149,8 @@
         }
 
         .use-case-item {
+            display: flex;
+            align-items: center;
             color: var(--ink-dim);
             font-weight: 500;
             font-size: 16px;
@@ -3233,7 +3243,7 @@
     <section class="multilingual-section">
         <div class="container">
             <div class="multilingual-hero">
-                <h2 class="multilingual-title">Global Enterprise Ready</h2>
+                <h2 class="multilingual-title">Global Enterprise<br class="mobile-break"> Ready</h2>
                 <p class="multilingual-subtitle">
                     Deploy surveys worldwide with proven multilingual conversion and enterprise-grade character encoding. Deploy the same content across multiple regions and platforms simultaneously.
                 </p>
