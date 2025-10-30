@@ -3107,7 +3107,7 @@
                     <div class="stat-label">Countries</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" data-target="40">0</div>
+                    <div class="stat-number" data-target="44">0</div>
                     <div class="stat-label">Universities</div>
                 </div>
                 <div class="stat-card">
@@ -3122,12 +3122,12 @@
                     </div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" data-target="2107">0</div>
-                    <div class="stat-label">Questions Converted</div>
+                    <div class="stat-number" data-target="61">0</div>
+                    <div class="stat-label">Survey Projects</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" data-target="8082">0</div>
-                    <div class="stat-label">Options Converted</div>
+                    <div class="stat-number" data-target="10.1" data-suffix="K">0</div>
+                    <div class="stat-label">Questions & Options Converted</div>
                 </div>
             </div>
         </div>
@@ -4368,16 +4368,25 @@ See the dramatic difference in survey creation time
 
         function animateCounters() {
             statNumbers.forEach(stat => {
-                const target = parseInt(stat.getAttribute('data-target'));
+                const targetValue = stat.getAttribute('data-target');
+                const suffix = stat.getAttribute('data-suffix') || '';
+                const target = parseFloat(targetValue);
 
                 anime({
                     targets: stat,
                     innerHTML: [0, target],
                     duration: 2000,
-                    round: 1,
+                    round: suffix ? 10 : 1, // Use 1 decimal place for numbers with suffix
                     easing: 'easeOutExpo',
                     update: function(anim) {
-                        stat.innerHTML = Math.round(anim.animations[0].currentValue);
+                        const currentValue = anim.animations[0].currentValue;
+                        if (suffix) {
+                            // Format with 1 decimal place and add suffix
+                            stat.innerHTML = currentValue.toFixed(1) + suffix;
+                        } else {
+                            // Round to whole number
+                            stat.innerHTML = Math.round(currentValue);
+                        }
                     }
                 });
             });
