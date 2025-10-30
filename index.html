@@ -1016,8 +1016,9 @@
                 margin-top: 12px;
             }
 
-            .multilingual-title {                
-                font-size: 32px;
+            .multilingual-title {
+                font-family: 'Space Grotesk', sans-serif;
+                font-size: 36px;
             }
             
             .multilingual-subtitle {
@@ -2043,8 +2044,8 @@
 
         /* Multilingual Section */
         .multilingual-section {
-            padding: 80px 0;
-            background: rgba(17, 24, 39, 0.3);
+            padding: 100px 0;
+            background: var(--tile);
         }
 
         .multilingual-hero {
@@ -2053,16 +2054,21 @@
         }
 
         .multilingual-title {
-            font-size: 42px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 48px;
             font-weight: 700;
-            color: #60a5fa;
             margin-bottom: 16px;
             line-height: 1.2;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #ffffff 0%, #9B6BFF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .multilingual-subtitle {
             font-size: 20px;
-            color: #d1d5db;
+            color: var(--ink-dim);
             max-width: 800px;
             margin: 0 auto;
             line-height: 1.6;
@@ -2078,16 +2084,17 @@
         .language-card {
             background: rgba(31, 41, 55, 0.5);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(55, 65, 81, 0.5);
+            border: 1px solid rgba(155, 107, 255, 0.4);
             border-radius: 16px;
             padding: 32px;
             transition: all 0.3s ease;
+            box-shadow: 0 0 30px rgba(155, 107, 255, 0.35), 0 0 15px rgba(155, 107, 255, 0.2);
         }
 
         .language-card:hover {
             transform: translateY(-4px);
-            border-color: rgba(99, 102, 241, 0.5);
-            box-shadow: 0 8px 32px rgba(99, 102, 241, 0.2);
+            border-color: rgba(155, 107, 255, 0.6);
+            box-shadow: 0 0 30px rgba(155, 107, 255, 0.3), 0 8px 32px rgba(155, 107, 255, 0.2);
         }
 
         .language-icon {
@@ -2104,21 +2111,24 @@
         }
 
         .language-card p {
-            color: #d1d5db;
+            color: var(--ink-dim);
             font-size: 16px;
             line-height: 1.6;
         }
 
         .enterprise-use-cases {
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(16, 185, 129, 0.1));
-            border: 1px solid rgba(34, 197, 94, 0.3);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 0.5px solid rgba(156, 163, 175, 0.2);
             border-radius: 16px;
             padding: 32px;
             text-align: center;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
         }
 
         .enterprise-use-cases h3 {
-            color: #ffffff;
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--ink);
             font-size: 24px;
             font-weight: 700;
             margin-bottom: 24px;
@@ -2131,7 +2141,7 @@
         }
 
         .use-case-item {
-            color: #22c55e;
+            color: var(--ink-dim);
             font-weight: 500;
             font-size: 16px;
         }    
@@ -3223,39 +3233,39 @@
     <section class="multilingual-section">
         <div class="container">
             <div class="multilingual-hero">
-                <h2 class="multilingual-title">🌍 Global Enterprise Ready</h2>
+                <h2 class="multilingual-title">Global Enterprise Ready</h2>
                 <p class="multilingual-subtitle">
                     Deploy surveys worldwide with proven multilingual conversion and enterprise-grade character encoding. Deploy the same content across multiple regions and platforms simultaneously.
                 </p>
             </div>
-            
+
             <div class="language-grid">
                 <div class="language-card">
                     <!-- <div class="language-icon">🇺🇸</div> -->
                     <h3>English</h3>
                     <p>Native support with advanced spell-checking and professional terminology validation. Perfect for research agencies and enterprise teams.</p>
                 </div>
-                
+
                 <div class="language-card">
                     <!-- <div class="language-icon">🇪🇸</div> -->
                     <h3>Spanish</h3>
                     <p>100% tested conversion with perfect character encoding across all platforms. Proven in multi-regional deployments.</p>
                 </div>
-                
+
                 <div class="language-card">
                     <!-- <div class="language-icon">🌐</div> -->
                     <h3>50+ Languages</h3>
-                    <p>UTF-8 compliant processing supports French, German, Portuguese, Italian, and more. Enterprise-grade character encoding ensures perfect formatting.</p>
+                    <p>UTF-8 compliant processing supports Arabic, French, German, Dutch, and more. Enterprise-grade character encoding ensures perfect formatting.</p>
                 </div>
             </div>
-            
+
             <div class="enterprise-use-cases">
                 <h3>Enterprise Use Cases</h3>
                 <div class="use-case-grid">
-                    <div class="use-case-item">🏢 Multi-platform agencies</div>
-                    <div class="use-case-item">🌍 Global corporations</div>
-                    <div class="use-case-item">🔄 Platform migrations</div>
-                    <div class="use-case-item">📊 Multi-region research</div>
+                    <div class="use-case-item"><svg xmlns="http://www.w3.org/2000/svg" style="width:20px;height:20px;vertical-align:middle;margin-right:8px" viewBox="0 0 24 24" fill="#9B6BFF"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>Multi-platform agencies</div>
+                    <div class="use-case-item"><svg xmlns="http://www.w3.org/2000/svg" style="width:20px;height:20px;vertical-align:middle;margin-right:8px" viewBox="0 0 24 24" fill="#9B6BFF"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>Global corporations</div>
+                    <div class="use-case-item"><svg xmlns="http://www.w3.org/2000/svg" style="width:20px;height:20px;vertical-align:middle;margin-right:8px" viewBox="0 0 24 24" fill="#9B6BFF"><path d="M19 12h-2v3h-3v2h5v-5zM7 9h3V7H5v5h2V9zm14-6H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16.01H3V4.99h18v14.02z"/></svg>Platform migrations</div>
+                    <div class="use-case-item"><svg xmlns="http://www.w3.org/2000/svg" style="width:20px;height:20px;vertical-align:middle;margin-right:8px" viewBox="0 0 24 24" fill="#9B6BFF"><path d="M17.5 4.5c-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-1.45-1.1-3.55-1.5-5.5-1.5zM21 18.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/></svg>Multi-region research</div>
                 </div>
             </div>
         </div>
