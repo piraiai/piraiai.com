@@ -1484,9 +1484,9 @@
                             <path d="M12 19V5M5 12l7-7 7 7"/>
                         </svg>
                     </div>
-                    <input type="file" id="fileInput" accept=".docx,.pdf,.doc,.txt,.png,.jpg,.jpeg" />
+                    <input type="file" id="fileInput" accept=".docx,.pdf,.doc,.txt,.png,.jpg,.jpeg,.xlsx,.csv" />
                 </div>
-                <p class="file-types">Upload your files in doc, docx, pdf, image or txt format</p>
+                <p class="file-types">Upload your files in doc, docx, pdf, image, txt, xlsx or csv format</p>
 
                 <!-- Trust Banner -->
                 <div class="trust-banner">
@@ -2116,10 +2116,12 @@
                 'text/plain',
                 'image/png',
                 'image/jpeg',
-                'image/jpg'
+                'image/jpg',
+                'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                'text/csv'
             ];
             if (!allowedTypes.includes(file.type)) {
-                showErrorModal('Invalid File Type', 'Please upload a valid file: doc, docx, pdf, image (png/jpg) or txt');
+                showErrorModal('Invalid File Type', 'Please upload a valid file: doc, docx, pdf, image (png/jpg), txt, xlsx or csv');
                 // Reset file input
                 fileInput.value = '';
                 return;
