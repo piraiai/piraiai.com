@@ -11,7 +11,13 @@
     <changefreq>weekly</changefreq>
     <lastmod>2025-10-10</lastmod>
   </url>
-
+  <!-- Flow - Highest priority -->
+  <url>
+    <loc>https://piraiai.com/flow</loc>
+    <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-11-29</lastmod>
+  </url>
   <!-- MAIN TOOLS - High priority -->
   <url>
     <loc>https://piraiai.com/convert-now</loc>
