@@ -190,6 +190,12 @@
             padding: 0;
             box-sizing: border-box;
         }
+
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+        }        
         
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -201,7 +207,8 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 20px;
+            width: 100%;
         }
         
         /* Navigation */
@@ -1094,30 +1101,77 @@
         }
         
         /* Responsive Design */
-        @media (max-width: 850px) {
+        @media (max-width: 950px) {
+            .container {
+                padding: 0 16px;
+                max-width: 100%;
+            }
+
+            .nav-container {
+                gap: 8px;
+                padding: 16px 16px;
+                max-width: 100%;
+                width: 100%;
+            }
+
             .nav-links {
                 display: none;
             }
 
             .hamburger {
                 display: flex;
-                margin-right: 12px;
+                margin-right: 8px;
+                order: -1;
+                flex-shrink: 0;
+            }
+
+            .nav-brand {
+                margin-right: auto;
+                flex-shrink: 1;
+                min-width: 0;
+            }
+
+            .nav-brand span {
+                font-size: 18px;
             }
 
             .nav-cta {
                 font-size: 14px;
-                padding: 6px 16px;
-                margin-left: auto;
+                padding: 6px 12px;
+                flex-shrink: 0;
+                white-space: nowrap;
+            }
+
+            .hero {
+                overflow: hidden;
+                padding: 120px 0 60px;
             }
 
             .hero h1 {
                 font-size: clamp(32px, 9vw, 48px);
                 line-height: 1.15;
+                word-wrap: break-word;
+            }
+
+            .section-title {
+                font-size: 32px;
+                word-wrap: break-word;
+                padding: 0 10px;
+            }
+
+            .section-subtitle {
+                font-size: 16px;
+                padding: 0 10px;
+            }
+
+            .problem-card {
+                padding: 24px 16px;
             }
             
             .solution-flow {
                 flex-direction: column;
                 gap: 16px;
+                max-width: 100%;
             }
             
             .flow-step {
@@ -1147,6 +1201,33 @@
             
             .footer-content {
                 grid-template-columns: 1fr;
+            }
+
+            .roadmap-timeline {
+                padding: 0;
+                max-width: 100%;
+            }
+            
+            /* Roadmap fix for mobile */
+            .roadmap-item {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                padding: 24px 16px;
+                align-items: flex-start;
+            }
+
+            .roadmap-badge {
+                width: fit-content;
+                font-size: 12px;
+                padding: 8px 14px;
+            }
+
+            .roadmap-content h3 {
+                font-size: 20px;
+            }
+
+            .roadmap-content p {
+                font-size: 15px;
             }
         }
     </style>
