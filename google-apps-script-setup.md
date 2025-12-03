@@ -24,7 +24,26 @@ Replace the default `Code.gs` content with the following code:
       // Parse the incoming data
       const data = e.parameter;
 
-      // Check if this is a referral source submission
+      // Check if this is a referral source AND pricing submission
+      if (data.type === 'referral_and_pricing') {
+        const email = data.email || 'Not provided';
+        const source = data.source || 'Not provided';
+        const pricing = data.pricing || 'Not provided';
+        const timestamp = data.timestamp || new Date().toISOString();
+
+        // Log to referral sources sheet
+        logReferralSource(email, source, timestamp);
+
+        // Log to pricing willingness sheet
+        logPricingWillingness(email, pricing, timestamp);
+
+        return ContentService.createTextOutput(JSON.stringify({
+          status: 'success',
+          message: 'Referral source and pricing recorded'
+        })).setMimeType(ContentService.MimeType.JSON);
+      }
+
+      // Legacy support: Check if this is a referral source submission only
       if (data.type === 'referral_source') {
         const email = data.email || 'Not provided';
         const source = data.source || 'Not provided';
@@ -283,6 +302,49 @@ Replace the default `Code.gs` content with the following code:
   }
 
   /**
+   * Log pricing willingness to Google Sheets
+   * This tracks user willingness to pay for the service (pricing question data)
+   */
+  function logPricingWillingness(email, pricing, timestamp) {
+    try {
+      // IMPORTANT: Replace with your Google Sheet ID (same sheet as above)
+      const sheetId = 'YOUR_GOOGLE_SHEET_ID_HERE';
+      const ss = SpreadsheetApp.openById(sheetId);
+      const sheet = ss.getSheetByName('Pricing Willingness') || ss.insertSheet('Pricing Willingness');
+
+      // Add headers if sheet is empty
+      if (sheet.getLastRow() === 0) {
+        sheet.appendRow(['Date/Time', 'Email', 'Pricing Willingness']);
+        // Format header row
+        const headerRange = sheet.getRange(1, 1, 1, 3);
+        headerRange.setFontWeight('bold');
+        headerRange.setBackground('#9B6BFF');
+        headerRange.setFontColor('#FFFFFF');
+      }
+
+      // Insert new row at position 2 (right after header) - newest at the top
+      sheet.insertRowBefore(2);
+
+      // Add pricing data to the new row
+      const newRow = [
+        new Date(timestamp),
+        email,
+        pricing
+      ];
+
+      sheet.getRange(2, 1, 1, 3).setValues([newRow]);
+
+      // Auto-resize columns for better readability
+      sheet.autoResizeColumns(1, 3);
+
+      Logger.log('Successfully logged pricing willingness: ' + pricing + ' for ' + email);
+    } catch (error) {
+      Logger.log('Error logging pricing willingness: ' + error.toString());
+      // Don't throw error - just log it
+    }
+  }
+
+  /**
    * Test function to verify the script works
    */
   function testEmail() {
@@ -426,7 +488,7 @@ If Google Apps Script is too complex, use Formspree:
 - [ ] Google Apps Script deployed
 - [ ] Script URL added to convert-now.html
 - [ ] Google Sheet created for lead tracking
-- [ ] Sheet ID added to script (line 246)
+- [ ] Sheet ID added to script (lines 219, 268, 311)
 - [ ] Script re-deployed with new version
 - [ ] Test submission successful
 - [ ] Email received at admin@piraiai.com
@@ -436,8 +498,14 @@ If Google Apps Script is too complex, use Formspree:
 - [ ] Form validation working
 - [ ] GTM tracking events firing
 - [ ] Exit intent modal appears after successful submission
+- [ ] Referral source question appears first in exit modal
+- [ ] Pricing question appears after selecting referral source
+- [ ] Submit button disabled until both questions answered
 - [ ] Referral source data logged to "Referral Sources" sheet
-- [ ] Referral source GTM events tracking correctly
+- [ ] Pricing willingness data logged to "Pricing Willingness" sheet
+- [ ] Both referral and pricing GTM events tracking correctly with parameters
+- [ ] Modal displays properly on mobile devices
+- [ ] Pricing options layout correctly in 2x2 grid
 
 ## Security Notes
 
@@ -446,44 +514,60 @@ If Google Apps Script is too complex, use Formspree:
 - Consider adding rate limiting if you get spam
 - Academic email validation happens on client-side (add server-side check if needed)
 
-## Step 7: Referral Source Tracking (Exit Intent Modal)
+## Step 7: Exit Intent Modal - Referral Source & Pricing Willingness Tracking
 
-The convert-now page now includes an exit-intent modal that appears after successful form submission when users try to leave. This collects valuable data about how users found your service.
+The convert-now page now includes an exit-intent modal that appears after successful form submission. This collects two types of valuable data:
+1. **Referral Source** - How users found your service
+2. **Pricing Willingness** - Whether users would pay for the service
 
 ### 7.1 How It Works
 
-- **Trigger**: Shows when user moves mouse to close tab/window after successful submission
-- **Options**: Word of Mouth, Google Search, AI Search, Social Media (LinkedIn), Other
-- **Data Collected**: User email, selected source, timestamp
-- **Separate Sheet**: Creates a "Referral Sources" sheet in the same Google Spreadsheet
+- **Trigger**: Shows when user moves mouse to close tab/window after successful submission, or automatically after 1.2 seconds
+- **Two-Step Process**:
+  1. First, users select how they heard about Pirai AI (Word of Mouth, Google Search, AI Search, Social Media, Other)
+  2. Then, a pricing question appears asking if they would pay for the service
+- **Data Collected**: User email, selected source, pricing willingness, timestamp
+- **Separate Sheets**: Creates both "Referral Sources" and "Pricing Willingness" sheets in the same Google Spreadsheet
 
-### 7.2 What Gets Logged
+### 7.2 Referral Source Data
 
 The "Referral Sources" sheet will automatically track:
 - **Date/Time** - When the user submitted the referral source
 - **Email** - The user's email (matched to their conversion submission)
-- **Source** - How they heard about Pirai AI
+- **Source** - How they heard about Pirai AI (Word of Mouth, Google Search, AI Search, Social Media, Other - [custom text])
 
-### 7.3 Features
+### 7.3 Pricing Willingness Data
 
-✅ **Automatic sheet creation** - Creates "Referral Sources" sheet if it doesn't exist
+The "Pricing Willingness" sheet will automatically track:
+- **Date/Time** - When the user submitted their pricing preference
+- **Email** - The user's email (matched to their conversion submission)
+- **Pricing Willingness** - What they'd be willing to pay ($1, $2, $2-5, or $0 for "Not interested")
+
+### 7.4 Features
+
+✅ **Automatic sheet creation** - Creates both "Referral Sources" and "Pricing Willingness" sheets if they don't exist
 
 ✅ **Newest entries at top** - New submissions inserted at row 2
 
 ✅ **Formatted headers** - Purple background (#9B6BFF) with white text
 
-✅ **Email matching** - You can match this data with the "Leads" sheet by email
+✅ **Email matching** - You can match this data with the "Leads" sheet by email to get complete user profiles
 
-### 7.4 Analytics Tracking
+✅ **Mobile responsive** - Works seamlessly on mobile devices
 
-The exit intent modal also tracks events in Google Tag Manager:
-- `referral_source_submitted` - When user selects and submits a source
-- `referral_source_skipped` - When user clicks "Skip for now"
-- `referral_source_closed` - When user closes the modal without submitting
+✅ **Polished messaging** - Professional, startup-friendly copy
 
-### 7.5 No Additional Setup Required
+### 7.5 Analytics Tracking
 
-The referral source tracking uses the same Google Sheet ID you configured in Step 6.3. It will automatically create a new sheet tab called "Referral Sources" in your existing spreadsheet.
+The exit intent modal tracks events in Google Tag Manager:
+- `referral_source_submitted` - When user completes both referral source and pricing questions
+- Includes both `source` and `pricing` parameters
+
+### 7.6 No Additional Setup Required
+
+Both referral source and pricing tracking use the same Google Sheet ID you configured in Step 6.3. The script will automatically create two new sheet tabs:
+1. "Referral Sources" - For tracking user acquisition channels
+2. "Pricing Willingness" - For tracking pricing sensitivity
 
 ## Support
 
