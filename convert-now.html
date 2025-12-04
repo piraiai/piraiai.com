@@ -1056,6 +1056,48 @@
             transform: none;
         }
 
+        .exit-continue-btn {
+            width: 100%;
+            padding: 14px 24px;
+            background: linear-gradient(135deg, #6B3FCC, #7C4FCC);
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            font-family: var(--display);
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 8px 24px rgba(155, 107, 255, 0.3);
+            margin-top: 20px;
+        }
+
+        .exit-continue-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(155, 107, 255, 0.4);
+        }
+
+        .exit-continue-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .exit-modal-step {
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .skip-link {
             text-align: center;
             margin-top: 12px;
@@ -1710,42 +1752,47 @@
     <!-- Exit Intent Modal -->
     <div class="exit-intent-modal" id="exitIntentModal">
         <div class="exit-modal-content">
-            <img src="psst.gif" alt="Psst" class="exit-modal-gif">
-            <h3>Before you go...</h3>
-            <p>Help us improve — How did you hear about Pirai AI?</p>
+            <!-- Step 1: Referral Source Question -->
+            <div class="exit-modal-step" id="sourceQuestionSection">
+                <img src="psst.gif" alt="Psst" class="exit-modal-gif">
+                <h3>Before you go...</h3>
+                <p>Help us improve — How did you hear about Pirai AI?</p>
 
-            <div class="source-options">
-                <label class="source-option">
-                    <input type="radio" name="source" value="Word of Mouth">
-                    <span>Word of Mouth</span>
-                </label>
-                <label class="source-option">
-                    <input type="radio" name="source" value="Google Search">
-                    <span>Google Search</span>
-                </label>
-                <label class="source-option">
-                    <input type="radio" name="source" value="AI Search (ChatGPT/Claude/Perplexity)">
-                    <span>AI Search (ChatGPT/Claude/Perplexity)</span>
-                </label>
-                <label class="source-option">
-                    <input type="radio" name="source" value="Social Media (LinkedIn)">
-                    <span>Social Media (LinkedIn)</span>
-                </label>
-                <label class="source-option">
-                    <input type="radio" name="source" value="Other">
-                    <span>Other</span>
-                </label>
+                <div class="source-options">
+                    <label class="source-option">
+                        <input type="radio" name="source" value="Word of Mouth">
+                        <span>Word of Mouth</span>
+                    </label>
+                    <label class="source-option">
+                        <input type="radio" name="source" value="Google Search">
+                        <span>Google Search</span>
+                    </label>
+                    <label class="source-option">
+                        <input type="radio" name="source" value="AI Search (ChatGPT/Claude/Perplexity)">
+                        <span>AI Search (ChatGPT/Claude/Perplexity)</span>
+                    </label>
+                    <label class="source-option">
+                        <input type="radio" name="source" value="Social Media (LinkedIn)">
+                        <span>Social Media (LinkedIn)</span>
+                    </label>
+                    <label class="source-option">
+                        <input type="radio" name="source" value="Other">
+                        <span>Other</span>
+                    </label>
+                </div>
+
+                <div id="otherSpecifyContainer" style="height: 0; overflow: hidden; margin-top: 0; transition: height 0.3s ease, margin-top 0.3s ease;">
+                    <input type="text" id="otherSpecifyInput" placeholder="Please specify..." style="width: 100%; padding: 12px 14px; background: var(--tile); border: 1px solid rgba(155, 107, 255, 0.3); border-radius: 12px; color: var(--ink); font-size: 15px; font-family: var(--sans);">
+                </div>
+
+                <button class="exit-continue-btn" id="continueBtn" disabled>Continue</button>
             </div>
 
-            <div id="otherSpecifyContainer" style="display: none; margin-bottom: 20px;">
-                <input type="text" id="otherSpecifyInput" placeholder="Please specify..." style="width: 100%; padding: 12px 14px; background: var(--tile); border: 1px solid rgba(155, 107, 255, 0.3); border-radius: 12px; color: var(--ink); font-size: 15px; font-family: var(--sans);">
-            </div>
-
-            <!-- Pricing Question Section -->
-            <div class="pricing-question-section" id="pricingQuestionSection" style="display: none;">
-                <div class="pricing-divider"></div>
-                <h4 class="pricing-question-title">One more thing...</h4>
-                <p class="pricing-question-text">We're a 2-person startup hoping to save you hours of work. If we were to offer this as a paid service, what would you consider fair?</p>
+            <!-- Step 2: Pricing Question -->
+            <div class="exit-modal-step" id="pricingQuestionSection" style="display: none;">
+                <img src="psst.gif" alt="Psst" class="exit-modal-gif">
+                <h3>One more thing...</h3>
+                <p>We built Pirai AI to save you hours. If we were to offer this as a paid service, what would you consider fair?</p>
 
                 <div class="pricing-options">
                     <label class="pricing-option">
@@ -1765,9 +1812,9 @@
                         <span>Not interested</span>
                     </label>
                 </div>
-            </div>
 
-            <button class="exit-submit-btn" id="exitSubmitBtn" disabled>Submit</button>
+                <button class="exit-submit-btn" id="exitSubmitBtn" disabled>Submit</button>
+            </div>
         </div>
     </div>
 
@@ -2473,8 +2520,10 @@
         // ========= EXIT INTENT MODAL LOGIC =========
         const exitIntentModal = document.getElementById('exitIntentModal');
         const exitSubmitBtn = document.getElementById('exitSubmitBtn');
+        const continueBtn = document.getElementById('continueBtn');
         const sourceRadios = document.querySelectorAll('input[name="source"]');
         const pricingRadios = document.querySelectorAll('input[name="pricing"]');
+        const sourceQuestionSection = document.getElementById('sourceQuestionSection');
         const pricingQuestionSection = document.getElementById('pricingQuestionSection');
 
         let exitModalShown = false;
@@ -2484,30 +2533,36 @@
         const otherSpecifyContainer = document.getElementById('otherSpecifyContainer');
         const otherSpecifyInput = document.getElementById('otherSpecifyInput');
 
-        // Function to check if form is complete
-        function checkFormComplete() {
+        // Function to check if source question is complete
+        function checkSourceComplete() {
             const sourceSelected = document.querySelector('input[name="source"]:checked');
-            const pricingSelected = document.querySelector('input[name="pricing"]:checked');
 
             // If source is "Other", check if specify field is filled
             if (sourceSelected && sourceSelected.value === 'Other') {
                 const hasSpecifyText = otherSpecifyInput.value.trim() !== '';
-                exitSubmitBtn.disabled = !(hasSpecifyText && pricingSelected);
+                continueBtn.disabled = !hasSpecifyText;
             } else {
-                // Both source and pricing must be selected
-                exitSubmitBtn.disabled = !(sourceSelected && pricingSelected);
+                continueBtn.disabled = !sourceSelected;
             }
         }
 
-        // Enable submit button when a source is selected
+        // Function to check if pricing question is complete
+        function checkPricingComplete() {
+            const pricingSelected = document.querySelector('input[name="pricing"]:checked');
+            exitSubmitBtn.disabled = !pricingSelected;
+        }
+
+        // Handle source radio selection
         sourceRadios.forEach(radio => {
             radio.addEventListener('change', () => {
                 // Show/hide "Other specify" field based on selection
                 if (radio.value === 'Other') {
-                    otherSpecifyContainer.style.display = 'block';
-                    otherSpecifyInput.focus(); // Auto-focus the input field
+                    otherSpecifyContainer.style.height = '60px';
+                    otherSpecifyContainer.style.marginTop = '16px';
+                    setTimeout(() => otherSpecifyInput.focus(), 300); // Auto-focus after animation
                 } else {
-                    otherSpecifyContainer.style.display = 'none';
+                    otherSpecifyContainer.style.height = '0';
+                    otherSpecifyContainer.style.marginTop = '0';
                     otherSpecifyInput.value = ''; // Clear the field when hiding
                 }
 
@@ -2517,15 +2572,23 @@
                 });
                 radio.closest('.source-option').classList.add('selected');
 
-                // Show pricing question section after source is selected
-                pricingQuestionSection.style.display = 'block';
-
-                // Check if form is complete
-                checkFormComplete();
+                // Check if continue button should be enabled
+                checkSourceComplete();
             });
         });
 
-        // Enable submit button when pricing is selected
+        // Handle "Other specify" input
+        otherSpecifyInput.addEventListener('input', () => {
+            checkSourceComplete();
+        });
+
+        // Handle Continue button click (move to step 2)
+        continueBtn.addEventListener('click', () => {
+            sourceQuestionSection.style.display = 'none';
+            pricingQuestionSection.style.display = 'block';
+        });
+
+        // Handle pricing radio selection
         pricingRadios.forEach(radio => {
             radio.addEventListener('change', () => {
                 // Add visual feedback
@@ -2534,14 +2597,9 @@
                 });
                 radio.closest('.pricing-option').classList.add('selected');
 
-                // Check if form is complete
-                checkFormComplete();
+                // Check if submit button should be enabled
+                checkPricingComplete();
             });
-        });
-
-        // Enable submit button when user types in "Other specify" field
-        otherSpecifyInput.addEventListener('input', () => {
-            checkFormComplete();
         });
 
         // Show exit intent modal when user tries to leave (mouse goes to top of viewport)
