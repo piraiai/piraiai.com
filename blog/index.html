@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Pirai AI | Research Automation Insights</title>
+    <meta name="description" content="Automation insights, platform guides, and time-saving strategies for research professionals.">
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #1a1a1a;
+        }
+
+        .logo img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .blog-label {
+            color: #6b7280;
+            font-weight: 400;
+            margin-left: 8px;
+        }
+
+        nav a {
+            margin-left: 32px;
+            text-decoration: none;
+            color: #4b5563;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #9B6BFF;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            padding: 64px 24px;
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Search & Filter */
+        .search-filter {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 32px 24px;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.2s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #9B6BFF;
+        }
+
+        .filter-tags {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .filter-tag {
+            padding: 8px 16px;
+            background: #f3f4f6;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #4b5563;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .filter-tag:hover,
+        .filter-tag.active {
+            background: #9B6BFF;
+            color: #ffffff;
+            border-color: #9B6BFF;
+        }
+
+        /* Featured Article */
+        .featured-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 24px;
+        }
+
+        .featured-label {
+            display: inline-block;
+            background: #9B6BFF;
+            color: #ffffff;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 24px;
+        }
+
+        .featured-article {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            background: #f9fafb;
+            border-radius: 12px;
+            padding: 48px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .featured-image {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .featured-content h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .featured-content p {
+            font-size: 18px;
+            color: #4b5563;
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+
+        .featured-meta {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 24px;
+        }
+
+        .read-more {
+            display: inline-block;
+            background: #9B6BFF;
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .read-more:hover {
+            background: #8a5bef;
+            transform: translateY(-2px);
+        }
+
+        /* Articles Grid */
+        .articles-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 64px 24px;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 32px;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .article-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            display: block;
+        }
+
+        .article-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .article-thumbnail {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+
+        .article-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .article-body {
+            padding: 24px;
+        }
+
+        .article-category {
+            display: inline-block;
+            background: #f3f4f6;
+            color: #6b7280;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .article-category.tutorial { background: #dbeafe; color: #1e40af; }
+        .article-category.case-study { background: #d1fae5; color: #065f46; }
+        .article-category.guide { background: #fef3c7; color: #92400e; }
+        .article-category.thought-leadership { background: #f3e8ff; color: #6b21a8; }
+
+        .article-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .article-card p {
+            font-size: 15px;
+            color: #6b7280;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .article-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: #9ca3af;
+        }
+
+        /* Newsletter CTA */
+        .newsletter-cta {
+            max-width: 1200px;
+            margin: 64px auto;
+            padding: 0 24px;
+        }
+
+        .newsletter-box {
+            background: linear-gradient(135deg, #9B6BFF, #BFA8FF);
+            padding: 48px;
+            border-radius: 12px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .newsletter-box h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .newsletter-box p {
+            font-size: 18px;
+            margin-bottom: 32px;
+            opacity: 0.95;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 12px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 14px 16px;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .newsletter-form button {
+            padding: 14px 32px;
+            background: #1a1a1a;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .newsletter-form button:hover {
+            background: #374151;
+        }
+
+        /* Footer */
+        footer {
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            padding: 32px 24px;
+            text-align: center;
+        }
+
+        footer p {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .featured-article {
+                grid-template-columns: 1fr;
+            }
+
+            .articles-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .header-container nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .featured-article {
+                padding: 24px;
+            }
+
+            .featured-content h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo">
+                <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo">
+                <span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span>
+            </a>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/blog">All Articles</a>
+                <a href="/#platforms">Platforms</a>
+                <a href="/#demo">Get Demo</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Research Automation Insights</h1>
+        <p>Automation strategies, platform guides, and time-saving tips for research professionals</p>
+    </div>
+
+    <!-- Search & Filter -->
+    <div class="search-filter">
+        <div class="search-box">
+            <input type="text" placeholder="Search articles...">
+        </div>
+        <div class="filter-tags">
+            <a href="#" class="filter-tag active">All</a>
+            <a href="#" class="filter-tag">Tutorials</a>
+            <a href="#" class="filter-tag">Case Studies</a>
+            <a href="#" class="filter-tag">Guides</a>
+            <a href="#" class="filter-tag">Industry Insights</a>
+        </div>
+    </div>
+
+    <!-- Featured Article -->
+    <section class="featured-section">
+        <span class="featured-label">Featured Article</span>
+        <div class="featured-article">
+            <div class="featured-image">
+                <img src="image/Pirai_AI_All_In_One_Toolkit.png" alt="Enterprise Research Automation Hub">
+            </div>
+            <div class="featured-content">
+                <h2>The Ultimate Enterprise Research Automation Hub</h2>
+                <div class="featured-meta">
+                    <span>Arun Kumar</span>
+                    <span>•</span>
+                    <span>December 6, 2024</span>
+                    <span>•</span>
+                    <span>5 min read</span>
+                </div>
+                <p>Accelerate insights with a complete toolkit for complex survey operations. Multi-platform export, multilingual support, dashboard automation, and enterprise-grade security—all in one platform.</p>
+                <a href="enterprise-automation-hub.html" class="read-more">Read Article →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Articles -->
+    <section class="articles-section">
+        <h2 class="section-title">Recent Articles</h2>
+        <div class="articles-grid">
+
+            <!-- Article Card 1 -->
+            <a href="#" class="article-card">
+                <div class="article-thumbnail">📊</div>
+                <div class="article-body">
+                    <span class="article-category tutorial">Tutorial</span>
+                    <h3>Converting Word Surveys to Qualtrics in 3 Steps</h3>
+                    <p>A complete walkthrough of transforming Word specifications into platform-ready QSF files in minutes.</p>
+                    <div class="article-footer">
+                        <span>Dec 5, 2024</span>
+                        <span>4 min read</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Article Card 2 -->
+            <a href="#" class="article-card">
+                <div class="article-thumbnail">⏱️</div>
+                <div class="article-body">
+                    <span class="article-category case-study">Case Study</span>
+                    <h3>106 Questions in 10 Minutes: UALR Case Study</h3>
+                    <p>How Dr. Chatham-Carpenter saved an entire day of work with automated survey conversion.</p>
+                    <div class="article-footer">
+                        <span>Dec 4, 2024</span>
+                        <span>6 min read</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Article Card 3 -->
+            <a href="#" class="article-card">
+                <div class="article-thumbnail">🌍</div>
+                <div class="article-body">
+                    <span class="article-category guide">Guide</span>
+                    <h3>Multi-Language Deployment for Global Enterprises</h3>
+                    <p>Best practices for deploying surveys in 50+ languages with perfect character encoding.</p>
+                    <div class="article-footer">
+                        <span>Dec 3, 2024</span>
+                        <span>7 min read</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Article Card 4 -->
+            <a href="#" class="article-card">
+                <div class="article-thumbnail">🔓</div>
+                <div class="article-body">
+                    <span class="article-category thought-leadership">Thought Leadership</span>
+                    <h3>Breaking Free from Platform Lock-In</h3>
+                    <p>Why vendor lock-in is the silent budget killer and how to achieve true platform independence.</p>
+                    <div class="article-footer">
+                        <span>Dec 2, 2024</span>
+                        <span>5 min read</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Article Card 5 -->
+            <a href="#" class="article-card">
+                <div class="article-thumbnail">🎓</div>
+                <div class="article-body">
+                    <span class="article-category case-study">Case Study</span>
+                    <h3>Academic Research Automation: Time Savings at Scale</h3>
+                    <p>Why leading universities are adopting survey automation and the impact on research workflows.</p>
+                    <div class="article-footer">
+                        <span>Dec 1, 2024</span>
+                        <span>8 min read</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Article Card 6 -->
+            <a href="#" class="article-card">
+                <div class="article-thumbnail">🔧</div>
+                <div class="article-body">
+                    <span class="article-category tutorial">Tutorial</span>
+                    <h3>Migrating REDCap to QuestionPro Without Data Loss</h3>
+                    <p>Step-by-step guide to seamless platform migration with complete data integrity.</p>
+                    <div class="article-footer">
+                        <span>Nov 30, 2024</span>
+                        <span>6 min read</span>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- Newsletter CTA -->
+    <section class="newsletter-cta">
+        <div class="newsletter-box">
+            <h2>Get Research Automation Insights</h2>
+            <p>Join 1,000+ research professionals receiving weekly tips on survey automation and platform optimization</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Pirai AI. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
