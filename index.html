@@ -2673,8 +2673,8 @@
 
 .academic-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
+    grid-template-columns: repeat(3, 1fr); /* Changed from 1fr 1fr */
+    gap: 32px; /* Reduced from 48px for 3 cards */
     margin-bottom: 64px;
     align-items: start;
 }
@@ -2862,6 +2862,7 @@
     background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
 }
 
+
 .cta-heading {
     font-size: 28px;
     font-weight: 700;
@@ -2944,7 +2945,6 @@
     .academic-grid {
         grid-template-columns: 1fr;
         gap: 32px;
-        margin-bottom: 48px;
     }
 
     .academic-testimonial-card {
@@ -3127,7 +3127,7 @@
                     <div class="stat-label">Countries</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" data-target="138">0</div>
+                    <div class="stat-number" data-target="139">0</div>
                     <div class="stat-label">Universities</div>
                 </div>
                 <div class="stat-card">
@@ -3144,11 +3144,11 @@
                     </div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" data-target="254">0</div>
+                    <div class="stat-number" data-target="257">0</div>
                     <div class="stat-label">Survey Projects</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" data-target="39.0" data-suffix="K">0</div>
+                    <div class="stat-number" data-target="39.7" data-suffix="K">0</div>
                     <div class="stat-label">Questions & Options Converted</div>
                 </div>
             </div>
@@ -3196,11 +3196,12 @@
                     <p class="testimonial-highlight">
                         "I had tried <strong>many prompts in ChatGPT to fix conversion errors, but nothing worked</strong>. Then I found Pirai AI — and that was a good find! <strong>The conversion to QSF went perfectly</strong>, and I was easily able to upload the file into Qualtrics."
                     </p>
+                    <br/><br/>
                     <div class="testimonial-stats-row">
                         <span class="stat-badge">64 Questions</span>
                         <span class="stat-badge">296 Options</span>
                         <span class="stat-badge highlight">✓ Perfect QSF</span>
-                    </div>
+                    </div>                                      
                     <div class="testimonial-author">
                         <div class="author-info">
                             <div class="author-name">Dr. Devon Jensen</div>
@@ -3208,7 +3209,31 @@
                             <div class="author-org">University of Central Florida</div>
                         </div>
                     </div>
+                    <br/>
                 </div>
+
+                <!-- Third Card: Kristin (Team Collaboration) -->
+                <div class="academic-testimonial-card">
+                    <div class="card-category-badge team">🤝 Team Collaboration</div>
+                    <div class="testimonial-quote-icon">"</div>
+                    <p class="testimonial-highlight">
+                        "Pirai AI helped my team get our Word-document based survey into Qualtrics format. <strong>The file you sent saved a ton of time and energy for our team</strong>, and it worked smoothly with Qualtrics. Thank you for offering this to help us be more efficient."
+                    </p>
+                    <br/>
+                    <div class="testimonial-stats-row">
+                        <span class="stat-badge">86 Questions</span>
+                        <span class="stat-badge">467 Options</span>
+                        <span class="stat-badge highlight">✓ Team Project</span>
+                    </div>                  
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <div class="author-name">Kristin</div>
+                            <div class="author-title">Professor of Pediatrics</div>
+                            <!-- <div class="author-org">[University Name]</div> -->
+                        </div>
+                    </div>
+                    <br/>&nbsp;
+                </div>                
             </div>  
 
             <!-- CTA Section -->
@@ -4219,7 +4244,8 @@ See the dramatic difference in survey creation time
             { name: 'University of North Carolina at Wilmington', coords: [34.226, -77.876] },
             { name: 'University of Maryland, Baltimore County', coords: [39.2559, -76.7118] },
             { name: 'Syracuse University', coords: [43.0384, -76.1345] },
-            { name: 'Brown University', coords: [41.8268, -71.4024] },                         
+            { name: 'Brown University', coords: [41.8268, -71.4024] },
+            { name: 'University of Rochester', coords: [43.13, -77.63] },                         
             //Mexico
             { name: 'Universidad Panamericana', coords: [19.356, -99.208] },                             
             //Austria        
