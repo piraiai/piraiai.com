@@ -44,7 +44,7 @@
         })();
     </script>
     
-    <style>
+<style>
         /* BLOG-MATCHED STYLES */
         
         * {
@@ -64,6 +64,7 @@
             line-height: 1.7;
             font-size: 18px;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -162,6 +163,12 @@
             padding: 48px 24px;
         }
 
+        @media (max-width: 640px) {
+            .container {
+                padding: 32px 16px;
+            }
+        }
+
         .content-container {
             display: grid;
             grid-template-columns: 250px 1fr;
@@ -208,6 +215,7 @@
         /* Main Content */
         .content-wrapper {
             max-width: 800px;
+            overflow-x: hidden;
         }
 
         .content-wrapper h2 {
@@ -240,12 +248,15 @@
         .content-wrapper p {
             margin-bottom: 24px;
             color: #374151;
+            max-width: 100%;
+            word-wrap: break-word;
         }
 
         .content-wrapper ul,
         .content-wrapper ol {
             margin-bottom: 24px;
             padding-left: 24px;
+            max-width: 100%;
         }
 
         .content-wrapper li {
@@ -265,6 +276,8 @@
             border-radius: 8px;
             padding: 24px;
             margin: 32px 0;
+            max-width: 100%;
+            overflow-wrap: break-word;
         }
 
         .overview-box h3 {
@@ -279,6 +292,8 @@
             border-radius: 8px;
             padding: 24px;
             margin: 32px 0;
+            max-width: 100%;
+            overflow-wrap: break-word;
         }
 
         .checklist h3 {
@@ -316,6 +331,15 @@
             border-radius: 8px;
             overflow: hidden;
             border: 1px solid #e5e7eb;
+        }
+
+        @media (max-width: 640px) {
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
         }
 
         th, td {
@@ -474,6 +498,15 @@
             font-size: 16px;
             border: 1px solid #e5e7eb;
             font-family: 'Courier New', monospace;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        @media (max-width: 640px) {
+            code {
+                font-size: 14px;
+                padding: 2px 6px;
+            }
         }
 
         /* Footer - Simple */
@@ -497,6 +530,8 @@
 
             .content-nav {
                 position: static;
+                width: 100%;
+                max-width: 100%;
             }
 
             .dos-donts {
@@ -507,6 +542,10 @@
         @media (max-width: 640px) {
             .nav-links {
                 display: none;
+            }
+
+            .hero {
+                padding: 48px 16px;
             }
 
             .hero h1 {
@@ -523,6 +562,10 @@
 
             .content-wrapper h2 {
                 font-size: 24px;
+            }
+            
+            .content-nav {
+                display: none;
             }
         }
     </style>
