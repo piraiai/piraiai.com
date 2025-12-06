@@ -31,6 +31,22 @@
     <changefreq>weekly</changefreq>
     <lastmod>2025-10-10</lastmod>
   </url>
+  <!-- BLOG SECTION - Medium-High priority -->
+  <url>
+    <loc>https://piraiai.com/blog/</loc>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2024-12-06</lastmod>
+  </url>
+
+  <url>
+    <loc>https://piraiai.com/blog/enterprise-automation-hub</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2024-12-06</lastmod>
+  </url>
+
+  <!-- Add each new article as you publish -->
 
   <!-- SPECIALIZED TOOLS - Medium-high priority -->
   <url>

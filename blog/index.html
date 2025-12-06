@@ -400,6 +400,22 @@
             background: #374151;
         }
 
+        .cta-button {
+            display: inline-block;
+            background: #ffffff;
+            color: #9B6BFF;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: transform 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }        
+
         /* Footer */
         footer {
             background: #f9fafb;
@@ -520,7 +536,7 @@
     </section>
 
     <!-- Recent Articles -->
-    <section class="articles-section">
+    <section class="articles-section" style="display:none;">
         <h2 class="section-title">Recent Articles</h2>
         <div class="articles-grid">
 
@@ -614,12 +630,9 @@
     <!-- Newsletter CTA -->
     <section class="newsletter-cta">
         <div class="newsletter-box">
-            <h2>Get Research Automation Insights</h2>
-            <p>Join 1,000+ research professionals receiving weekly tips on survey automation and platform optimization</p>
-            <form class="newsletter-form">
-                <input type="email" placeholder="Enter your email" required>
-                <button type="submit">Subscribe</button>
-            </form>
+            <h2>Try Pirai AI Free</h2>
+            <p>Convert your first survey in minutes. No credit card required.</p>
+            <a href="/convert-now" class="cta-button">Get Started</a>
         </div>
     </section>
 
