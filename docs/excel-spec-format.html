@@ -13,13 +13,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Excel Specification User Guide - Pirai AI</title>
     <meta name="description" content="Complete user guide for creating Excel specifications for survey automation. Transform survey specifications with Pirai AI's expert documentation for survey programmers and researchers.">
-    <!-- Prevent indexing and following links -->
+    
+    <!-- Prevent indexing -->
     <meta name="robots" content="noindex, nofollow">
-    <!-- Prevent caching -->
     <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, nocache">
-    <!-- Prevent specific bots -->
     <meta name="googlebot" content="noindex, nofollow">
-    <meta name="bingbot" content="noindex, nofollow">       
+    <meta name="bingbot" content="noindex, nofollow">
+    
     <!-- Open Graph -->
     <meta property="og:title" content="Excel Specification User Guide - Pirai AI">
     <meta property="og:description" content="Complete user guide for creating Excel specifications for survey automation. Built by Pirai AI survey automation specialists.">
@@ -30,398 +30,370 @@
     <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
     <link rel="canonical" href="https://piraiai.com/docs/excel-spec-format">
 
-    <!-- jQuery Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>  
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet"/>	          
+    <!-- Fonts - BLOG STYLE -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    
     <script>
-        // Immediate bot blocking - runs before page loads
+        // Bot blocking
         (function() {
             const botRegex = /(bot|crawler|spider|crawling|scraper|parser|extractor|fetch|monitor|analyze)/i;
-            
-            if (botRegex.test(navigator.userAgent) || 
-                navigator.webdriver || 
-                !window.outerHeight ||
-                window.callPhantom) {
-                
-                // Block immediately
+            if (botRegex.test(navigator.userAgent) || navigator.webdriver || !window.outerHeight || window.callPhantom) {
                 document.write('<h1>Access Denied</h1>');
                 throw new Error('Automated access not allowed');
             }
         })();
-    </script>     
+    </script>
+    
     <style>
+        /* BLOG-MATCHED STYLES */
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #1f2937;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            min-height: 100vh;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.7;
+            font-size: 18px;
+            -webkit-font-smoothing: antialiased;
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }            
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #1a1a1a;
         }
 
-        /* Navigation */
+        /* Header - Blog Style */
         .nav {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #e2e8f0;
-            position: fixed;
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 16px 0;
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
             z-index: 1000;
-            transition: all 0.3s ease;
         }
 
         .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 0;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            color: #000;
+            gap: 12px;
             text-decoration: none;
-            font-size: 24px;
+            color: #1a1a1a;
+        }
+
+        .logo img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
+            font-size: 20px;
+        }
+
+        .docs-label {
+            color: #6b7280;
+            font-weight: 400;
+            margin-left: 8px;
         }
 
         .nav-links {
             display: flex;
-            gap: 32px;
             list-style: none;
+            gap: 32px;
         }
 
         .nav-links a {
-            color: #6b7280;
             text-decoration: none;
-            transition: color 0.3s;
+            color: #4b5563;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
         }
 
         .nav-links a:hover {
-            color: #1f2937;
+            color: #9B6BFF;
         }
 
-        .nav-cta {
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            color: white;
-            padding: 8px 24px;
-            border-radius: 24px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
-        }
-
-        /* Hero Section */
+        /* Hero Section - Blog Style */
         .hero {
-            padding: 140px 0 80px;
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            padding: 64px 24px;
             text-align: center;
-            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-            position: relative;
-            overflow: hidden;
-            color: white;
+            border-bottom: 1px solid #e5e7eb;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 42px;
             font-weight: 700;
-            margin-bottom: 24px;
-            color: white;
-            position: relative;
-            z-index: 1;
+            margin-bottom: 16px;
+            line-height: 1.2;
         }
 
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 32px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            position: relative;
-            z-index: 1;
+        .hero p {
+            font-size: 20px;
+            color: #6b7280;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 24px;
-            padding: 8px 16px;
-            margin-bottom: 24px;
-            font-size: 0.875rem;
-            color: white;
-            position: relative;
-            z-index: 1;
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 24px;
         }
 
-        /* Content Container */
         .content-container {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 24px;
-            margin: 40px auto;
-            border: 1px solid #e2e8f0;
-            overflow: hidden;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 48px;
+            align-items: start;
         }
 
-        .content-wrapper {
-            padding: 40px;
-        }
-
-        /* Navigation Menu */
+        /* Sidebar Navigation - Blog Style */
         .content-nav {
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-            padding: 30px;
-            border-radius: 16px;
-            margin-bottom: 40px;
-            border: 1px solid #e2e8f0;
+            position: sticky;
+            top: 80px;
+            height: fit-content;
+            background: #f9fafb;
+            padding: 24px;
+            border-radius: 8px;
         }
 
         .content-nav h3 {
-            color: #1e293b;
-            margin-bottom: 20px;
-            font-size: 1.3em;
-            display: flex;
-            align-items: center;
-        }
-
-        .content-nav h3::before {
-            content: "📋";
-            margin-right: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #1a1a1a;
         }
 
         .content-nav ul {
             list-style: none;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 12px;
+        }
+
+        .content-nav li {
+            margin-bottom: 12px;
         }
 
         .content-nav a {
-            color: #3b82f6;
+            color: #4b5563;
             text-decoration: none;
-            padding: 12px 16px;
-            display: block;
-            border-radius: 8px;
-            transition: all 0.3s;
-            border: 1px solid transparent;
+            font-size: 14px;
+            transition: color 0.2s;
         }
 
         .content-nav a:hover {
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+            color: #9B6BFF;
         }
 
-        /* Typography */
-        h2 {
-            color: #1e293b;
-            font-size: 2.25rem;
-            margin: 60px 0 30px 0;
-            padding-bottom: 16px;
-            border-bottom: 3px solid;
-            border-image: linear-gradient(135deg, #3b82f6, #8b5cf6) 1;
-            position: relative;
+        /* Main Content */
+        .content-wrapper {
+            max-width: 800px;
         }
 
-        h3 {
-            color: #334155;
-            font-size: 1.5rem;
-            margin: 40px 0 20px 0;
-        }
-
-        h4 {
-            color: #475569;
-            font-size: 1.25rem;
-            margin: 30px 0 15px 0;
-        }
-
-        p {
-            color: #4b5563;
+        .content-wrapper h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-top: 48px;
             margin-bottom: 16px;
+            padding-left: 16px;
+            border-left: 4px solid #9B6BFF;
         }
 
-        /* Special Boxes */
-        .overview-box {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            border: 1px solid #0ea5e9;
-            border-radius: 16px;
-            padding: 30px;
-            margin: 30px 0;
-            position: relative;
-        }
-
-        .overview-box::before {
-            content: "🌟";
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 1.5rem;
-            opacity: 0.8;
-        }
-
-        .overview-box h3 {
-            color: #0369a1;
+        .content-wrapper h2:first-child {
             margin-top: 0;
         }
 
+        .content-wrapper h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+        }
+
+        .content-wrapper h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 24px;
+            margin-bottom: 8px;
+        }
+
+        .content-wrapper p {
+            margin-bottom: 24px;
+            color: #374151;
+        }
+
+        .content-wrapper ul,
+        .content-wrapper ol {
+            margin-bottom: 24px;
+            padding-left: 24px;
+        }
+
+        .content-wrapper li {
+            margin-bottom: 12px;
+            color: #374151;
+        }
+
+        .content-wrapper strong {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        /* Special Boxes - Keep colorful but refined */
+        .overview-box {
+            background: #f5f3ff;
+            border-left: 4px solid #9B6BFF;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 32px 0;
+        }
+
+        .overview-box h3 {
+            color: #6b21a8;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
         .checklist {
-            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
-            border: 1px solid #22c55e;
-            border-radius: 16px;
-            padding: 30px;
-            margin: 30px 0;
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 32px 0;
         }
 
         .checklist h3 {
             color: #15803d;
             margin-top: 0;
+            margin-bottom: 16px;
         }
 
         .checklist ul {
             list-style: none;
+            padding-left: 0;
         }
 
         .checklist li {
             margin: 12px 0;
-            padding-left: 35px;
+            padding-left: 32px;
             position: relative;
-            color: #374151;
         }
 
         .checklist li:before {
-            content: "✅";
+            content: "✓";
             position: absolute;
             left: 0;
-            font-size: 1.1rem;
+            color: #22c55e;
+            font-weight: 700;
+            font-size: 18px;
         }
 
-        /* Tables */
+        /* Tables - Blog Style */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 30px 0;
-            background: white;
-            border-radius: 16px;
+            margin: 32px 0;
+            background: #ffffff;
+            border-radius: 8px;
             overflow: hidden;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e5e7eb;
         }
 
         th, td {
-            padding: 16px 20px;
+            padding: 16px;
             text-align: left;
-            border-bottom: 1px solid #e2e8f0;
+            border-bottom: 1px solid #f3f4f6;
         }
 
         th {
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            background: #f9fafb;
             font-weight: 600;
-            color: #374151;
+            color: #1a1a1a;
+            font-size: 15px;
         }
 
         td {
-            color: #4b5563;
+            color: #374151;
+            font-size: 16px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background: #f9fafb;
         }
 
         /* Pattern Boxes */
         .pattern-box {
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-            border: 2px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 30px;
-            margin: 25px 0;
-            /* font-family: 'Courier New', monospace; */
-            overflow-x: auto;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 24px 0;
         }
 
-        .pattern-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 10px 0 0 0;
-            background: transparent;
+        .pattern-box strong {
+            display: block;
+            margin-bottom: 12px;
+            color: #1a1a1a;
         }
 
-        .pattern-table th,
-        .pattern-table td {
-            padding: 12px 16px;
-            border: 1px solid #cbd5e1;
-            /* font-family: 'Courier New', monospace; */
-            font-size: 0.9em;
-        }
-
-        .pattern-table th {
-            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
-            color: #374151;
-            font-weight: 600;
-        }
-
-        .pattern-table td {
-            color: #1e293b;
-        }
-
-        /* Alert Boxes */
+        /* Alert Boxes - Refined colors */
         .rules-box {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            border: 1px solid #f59e0b;
-            border-radius: 16px;
-            padding: 25px;
-            margin: 25px 0;
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 24px 0;
         }
 
         .rules-box h4 {
             color: #92400e;
             margin-top: 0;
+            margin-bottom: 12px;
         }
 
         .tips-box {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            border: 1px solid #0ea5e9;
-            border-radius: 16px;
-            padding: 25px;
-            margin: 25px 0;
+            background: #dbeafe;
+            border-left: 4px solid #3b82f6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 24px 0;
         }
 
         .tips-box h4 {
-            color: #0369a1;
+            color: #1e40af;
             margin-top: 0;
+            margin-bottom: 12px;
         }
 
         .warning {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            border: 1px solid #f59e0b;
-            border-radius: 16px;
-            padding: 20px;
-            margin: 25px 0;
+            background: #fef3c7;
             border-left: 4px solid #f59e0b;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 24px 0;
         }
 
         .warning strong {
@@ -429,23 +401,24 @@
         }
 
         .troubleshooting {
-            background: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%);
-            border: 1px solid #ef4444;
-            border-radius: 16px;
-            padding: 25px;
-            margin: 25px 0;
+            background: #fee2e2;
+            border-left: 4px solid #ef4444;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 24px 0;
         }
 
         .troubleshooting h4 {
             color: #dc2626;
             margin-top: 0;
+            margin-bottom: 12px;
         }
 
         .solution {
-            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            background: #f0fdf4;
             border-left: 4px solid #22c55e;
             padding: 20px;
-            margin: 15px 0;
+            margin: 16px 0;
             border-radius: 8px;
         }
 
@@ -457,183 +430,131 @@
         .dos-donts {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin: 30px 0;
+            gap: 24px;
+            margin: 32px 0;
         }
 
         .dos {
-            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            background: #f0fdf4;
             border: 1px solid #22c55e;
-            border-radius: 16px;
-            padding: 25px;
+            border-radius: 8px;
+            padding: 24px;
         }
 
         .donts {
-            background: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%);
+            background: #fee2e2;
             border: 1px solid #ef4444;
-            border-radius: 16px;
-            padding: 25px;
+            border-radius: 8px;
+            padding: 24px;
         }
 
         .dos h4 {
             color: #15803d;
             margin-top: 0;
+            margin-bottom: 16px;
         }
 
         .donts h4 {
             color: #dc2626;
             margin-top: 0;
+            margin-bottom: 16px;
         }
 
-        .dos ol li, .donts ol li {
-            color: #374151;
+        .dos ol li,
+        .donts ol li {
             margin: 8px 0;
         }
 
-        /* Code */
+        /* Code - Blog Style */
         code {
-            background: #f1f5f9;
-            padding: 4px 8px;
-            border-radius: 6px;
-            /* font-family: 'Courier New', monospace; */
-            color: #3b82f6;
-            border: 1px solid #e2e8f0;
+            background: #f3f4f6;
+            padding: 3px 8px;
+            border-radius: 4px;
+            color: #9B6BFF;
+            font-size: 16px;
+            border: 1px solid #e5e7eb;
+            font-family: 'Courier New', monospace;
         }
 
-        /* Footer */
+        /* Footer - Simple */
         .footer {
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-            border-top: 1px solid #e2e8f0;
-            margin-top: 80px;
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            padding: 32px 24px;
+            text-align: center;
         }
 
-        .footer-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 40px;
-            padding: 60px 0 40px;
-        }
-
-        .footer-brand {
-            display: flex;
-            align-items: center;
-            margin-bottom: 16px;
-            font-size: 24px;
-            font-weight: 700;
-            color: #000;
-        }
-
-        .footer-desc {
+        .footer p {
             color: #6b7280;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .footer-section h3 {
-            color: #1f2937;
-            margin-bottom: 16px;
-            font-size: 1.1rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 8px;
-        }
-
-        .footer-links a {
-            color: #6b7280;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: #3b82f6;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #e2e8f0;
-            padding: 24px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .copyright {
-            color: #6b7280;
-            font-size: 0.875rem;
+            font-size: 14px;
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+        @media (max-width: 968px) {
+            .content-container {
+                grid-template-columns: 1fr;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-
-            .content-wrapper {
-                padding: 20px;
+            .content-nav {
+                position: static;
             }
 
             .dos-donts {
                 grid-template-columns: 1fr;
             }
+        }
 
-            .content-nav ul {
-                grid-template-columns: 1fr;
+        @media (max-width: 640px) {
+            .nav-links {
+                display: none;
             }
 
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
+            .hero h1 {
+                font-size: 28px;
             }
 
-            .footer-bottom {
-                flex-direction: column;
-                gap: 16px;
-                text-align: center;
+            .hero p {
+                font-size: 16px;
+            }
+
+            body {
+                font-size: 16px;
+            }
+
+            .content-wrapper h2 {
+                font-size: 24px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
 
-    <!-- Navigation -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Header -->
     <nav class="nav">
-        <div class="container">
-            <div class="nav-content">
-                <a href="/" class="logo">
-                   <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo" width="35" height="35"/>&nbsp;
-                    Pirai AI
-                </a>
-                <a href="/#demo" class="nav-cta">Get Early Access</a>
-            </div>
+        <div class="nav-content">
+            <a href="/" class="logo">
+                <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo">
+                <span class="logo-text">Pirai AI <span class="docs-label">/ Docs</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/#platforms">Platforms</a></li>
+                <li><a href="/#demo">Get Demo</a></li>
+            </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <div class="hero-badge">
-                📝 Documentation Guide
-            </div>
-            <h1>Excel Specification<br>User Guide</h1>
-            <p class="hero-subtitle">
-                Master survey programming with our comprehensive Excel template guide. Built by Pirai AI's 
-                survey automation experts for programmers, researchers, and students.
+        <div class="hero-container">
+            <h1>Excel Specification Format Guide</h1>
+            <p>
+                Master the 7-column template that enables seamless conversion to any platform (Qualtrics, QuestionPro, etc.).
+                Built by Pirai AI's survey automation experts for programmers, researchers, and students.
             </p>
         </div>
     </section>
@@ -641,23 +562,24 @@
     <!-- Main Content -->
     <div class="container">
         <div class="content-container">
+            
+            <!-- Navigation Menu -->
+            <div class="content-nav">
+                <h3>Quick Navigation</h3>
+                <ul>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#quick-start">Quick Start</a></li>
+                    <li><a href="#column-reference">Column Reference</a></li>
+                    <li><a href="#question-types">Question Types</a></li>
+                    <li><a href="#best-practices">Best Practices</a></li>
+                    <li><a href="#troubleshooting">Troubleshooting</a></li>
+                    <li><a href="#quality-assurance">Quality Assurance</a></li>
+                    <li><a href="#help">Need Help</a></li>
+                </ul>
+            </div>
+
             <div class="content-wrapper">
                 
-                <!-- Navigation Menu -->
-                <div class="content-nav">
-                    <h3>Quick Navigation</h3>
-                    <ul>
-                        <li><a href="#overview">Overview</a></li>
-                        <li><a href="#quick-start">Quick Start</a></li>
-                        <li><a href="#column-reference">Column Reference</a></li>
-                        <li><a href="#question-types">Question Types</a></li>
-                        <li><a href="#best-practices">Best Practices</a></li>
-                        <li><a href="#troubleshooting">Troubleshooting</a></li>
-                        <li><a href="#quality-assurance">Quality Assurance</a></li>
-                        <li><a href="#help">Need Help</a></li>                        
-                    </ul>
-                </div>
-
                 <!-- Overview Section -->
                 <section id="overview">
                     <h2>Overview</h2>
@@ -666,7 +588,7 @@
                         <h3>What You Need to Know</h3>
                         <p>This Excel template enables you to create survey specifications that can be successfully converted to Qualtrics Advanced Format. <strong>Following the exact structure is critical</strong> - any deviation may cause conversion errors or question malformation.</p>
                         
-                        <ul style="margin-top: 15px; padding-left: 20px; color: #374151;">
+                        <ul style="margin-top: 15px; padding-left: 20px;">
                             <li><strong>Structure is mandatory</strong> - Do not alter column headers or data patterns</li>
                             <li><strong>Each question type has specific requirements</strong> - Follow examples precisely</li>
                             <li><strong>Row relationships matter</strong> - Question options must follow the documented patterns</li>
@@ -1261,150 +1183,77 @@
                             <li>Use strategically to control survey pacing</li>
                         </ul>
                     </div>
-                </section>
+                    <div class="tips-box">
+                        <h4>💡 Pro Tip</h4>
+                        <p>Each question type has specific column requirements. Review the examples carefully before creating your specifications.</p>
+                    </div>                    
+                </section>                
 
-                <!-- Best Practices Section -->
+                <!-- Best Practices -->
                 <section id="best-practices">
-                    <h2>Data Entry Best Practices</h2>
+                    <h2>Best Practices</h2>
                     
                     <div class="dos-donts">
                         <div class="dos">
-                            <h4>✅ Do's</h4>
+                            <h4>✓ Do's</h4>
                             <ol>
-                                <li><strong>Follow Examples Exactly:</strong> Use the provided patterns as templates</li>
-                                <li><strong>Consistent Block Names:</strong> Group related questions logically</li>
-                                <li><strong>Sequential Question IDs:</strong> Use clear, consistent naming (Q1, Q2, etc.)</li>
-                                <li><strong>Clear Question Text:</strong> Write concise, unambiguous questions</li>
-                                <li><strong>Meaningful Recode Values:</strong> Use logical coding systems</li>
-                                <li><strong>Test Early and Often:</strong> Import small sections to verify structure</li>
+                                <li>Follow the exact column structure</li>
+                                <li>Use consistent Block Names</li>
+                                <li>Test small surveys first</li>
+                                <li>Keep recode values sequential</li>
+                                <li>Leave required cells empty as shown</li>
                             </ol>
                         </div>
-                        
                         <div class="donts">
-                            <h4>❌ Don'ts</h4>
+                            <h4>✗ Don'ts</h4>
                             <ol>
-                                <li><strong>Don't Modify Column Headers:</strong> This will break the conversion</li>
-                                <li><strong>Don't Skip Required Fields:</strong> Empty required cells cause errors</li>
-                                <li><strong>Don't Mix Question Types:</strong> Each question should have one consistent type</li>
-                                <li><strong>Don't Use Special Characters:</strong> Stick to alphanumeric characters in IDs</li>
-                                <li><strong>Don't Forget Matrix Order:</strong> Statements must come before Scale Points</li>
-                                <li><strong>Don't Leave Gaps:</strong> Fill continuation rows properly with empty values</li>
+                                <li>Don't alter column headers</li>
+                                <li>Don't skip question IDs</li>
+                                <li>Don't mix question type formats</li>
+                                <li>Don't use special characters in IDs</li>
+                                <li>Don't leave required fields empty</li>
                             </ol>
                         </div>
                     </div>
                 </section>
 
-                <!-- Troubleshooting Section -->
+                <!-- Troubleshooting -->
                 <section id="troubleshooting">
-                    <h2>Common Mistakes & Troubleshooting</h2>
-
+                    <h2>Troubleshooting</h2>
+                    
                     <div class="troubleshooting">
-                        <h4>❌ Problem: Conversion fails with "Invalid structure" error</h4>
+                        <h4>Common Issues</h4>
+                        <p><strong>Problem:</strong> Conversion fails with "Invalid structure" error</p>
                         <div class="solution">
-                            <strong>✅ Solution:</strong> Check that column headers match exactly: <code>Block Name | Question ID | Question Text | Question Type | Answer Option Text | Recode Value | Matrix Type</code>
-                        </div>
-                    </div>
-
-                    <div class="troubleshooting">
-                        <h4>❌ Problem: Matrix question displays incorrectly</h4>
-                        <div class="solution">
-                            <strong>✅ Solution:</strong> Verify that all statements have <code>Matrix Type = "Statement"</code> and all scale points have <code>Matrix Type = "Scale Point"</code>. Statements must be listed first.
-                        </div>
-                    </div>
-
-                    <div class="troubleshooting">
-                        <h4>❌ Problem: Multiple choice options don't display</h4>
-                        <div class="solution">
-                            <strong>✅ Solution:</strong> Ensure continuation rows have empty cells in Question Text and Question Type columns, with options only in Answer Option Text.
-                        </div>
-                    </div>
-
-                    <div class="troubleshooting">
-                        <h4>❌ Problem: Question appears twice in survey</h4>
-                        <div class="solution">
-                            <strong>✅ Solution:</strong> Check for duplicate Question IDs or missing empty values in continuation rows.
-                        </div>
-                    </div>
-
-                    <div class="troubleshooting">
-                        <h4>❌ Problem: Text entry questions don't work</h4>
-                        <div class="solution">
-                            <strong>✅ Solution:</strong> Verify that Answer Option Text, Recode Value, and Matrix Type are empty for text entry questions.
+                            <strong>Solution:</strong> Verify all 7 columns are present and named exactly as specified in the template.
                         </div>
                     </div>
                 </section>
 
-                <!-- Quality Assurance Section -->
+                <!-- Quality Assurance -->
                 <section id="quality-assurance">
-                    <h2>Quality Assurance Checklist</h2>
+                    <h2>Quality Assurance</h2>
                     
                     <div class="checklist">
-                        <h3>Before converting your template, verify:</h3>
+                        <h3>Pre-Conversion Checklist:</h3>
                         <ul>
-                            <li><strong>Structure Integrity:</strong> All 7 columns present with correct headers</li>
-                            <li><strong>Question Completeness:</strong> Every question has required fields filled</li>
-                            <li><strong>Option Consistency:</strong> All answer options follow the correct pattern for their question type</li>
-                            <li><strong>Matrix Format:</strong> Statements listed before scale points with correct Matrix Type values</li>
-                            <li><strong>Unique IDs:</strong> No duplicate Question IDs within your survey</li>
-                            <li><strong>Block Logic:</strong> Questions grouped logically into blocks</li>
-                            <li><strong>Special Characters:</strong> No problematic characters in critical fields</li>
-                            <li><strong>Test Import:</strong> Small sample successfully converts before building full survey</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <!-- Advanced Tips Section -->
-                <section id="advanced-tips">
-                    <h2>Advanced Tips</h2>
-                    
-                    <div class="tips-box">
-                        <h4>Efficient Workflow</h4>
-                        <ol>
-                            <li><strong>Plan Your Survey Structure:</strong> Sketch out blocks and question flow before entering data</li>
-                            <li><strong>Use Copy-Paste:</strong> Duplicate similar questions and modify details</li>
-                            <li><strong>Batch Similar Questions:</strong> Group all multiple choice questions together for faster entry</li>
-                            <li><strong>Version Control:</strong> Save incremental versions as you build complex surveys</li>
-                        </ol>
-                    </div>
-
-                    <div class="tips-box">
-                        <h4>Scale Design for Matrix Questions</h4>
-                        <ul>
-                            <li>Keep scales consistent across related questions</li>
-                            <li>Use 5-7 point scales for optimal discrimination</li>
-                            <li>Consider including neutral midpoints or "Not Applicable" options</li>
-                            <li>Label endpoints clearly (e.g., "Strongly Disagree" to "Strongly Agree")</li>
-                        </ul>
-                    </div>
-
-                    <div class="tips-box">
-                        <h4>Question Ordering Strategy</h4>
-                        <ul>
-                            <li>Start with engaging, easy questions</li>
-                            <li>Group related topics together</li>
-                            <li>Place demographic questions at the end</li>
-                            <li>Use page breaks to prevent survey fatigue</li>
+                            <li>All question IDs are unique</li>
+                            <li>Block names are consistent</li>
+                            <li>Question types match supported formats</li>
+                            <li>Recode values are present where required</li>
+                            <li>Matrix types correctly specified</li>
+                            <li>No empty rows between questions</li>
                         </ul>
                     </div>
                 </section>
 
                 <!-- Help Section -->
                 <section id="help">
-                    <h2>Need Help? <strong style="color: #60a5fa;">📧 Contact:</strong> admin@piraiai.com </h2>
+                    <h2>Need Help?</h2>
                     
-                    <div class="warning">
-                        <strong>Remember:</strong> The key to successful conversion is structural precision. When in doubt:
-                        <ol style="margin-top: 10px;">
-                            <li>Refer back to the provided examples</li>
-                            <li>Test import a single question first</li>
-                            <li>Check that your pattern exactly matches the documented structure</li>
-                            <li>Verify all required fields are completed</li>
-                        </ol>
-                    </div>
-
                     <div class="tips-box">
-                        <h4>Success Indicator</h4>
-                        <p>If your Excel template follows these patterns exactly, the Qualtrics Advanced Format Conversion should process smoothly and create a properly formatted survey.</p>
+                        <h4>Get Support</h4>
+                        <p>If you encounter issues or have questions about the Excel specification format, contact our team at <a href="mailto:admin@piraiai.com" style="color:#9B6BFF;"><span class="__cf_email__">admin@piraiai.com</span></a></p>
                     </div>
                 </section>
 
@@ -1413,114 +1262,9 @@
     </div>
 
     <!-- Footer -->
-	<footer class="footer">
-		<div class="container">
-			<div class="footer-content">
-				<div>
-					<div class="footer-brand">
-						<img src="https://piraiai.com/logo.png" alt="Pirai AI Logo" width="35" height="35"/>&nbsp;
-						<span>Pirai AI</span>
-					</div>
-					<p class="footer-desc">
-						Universal platform automation transforming documents to 20+ platforms across research, education, healthcare, and enterprise. Deploy globally in 50+ languages with enterprise-grade reliability.
-					</p>
-					<div style="margin-top: 16px;">
-						<p style="color: #9ca3af; font-size: 14px; margin-bottom: 8px;">
-							<strong style="color: #60a5fa;">📧 Contact:</strong> admin@piraiai.com
-						</p>
-						<p style="color: #9ca3af; font-size: 14px;">
-							<strong style="color: #22c55e;">🚀 Universal Access:</strong> Join our exclusive beta program
-						</p>
-					</div>
-				</div>
-				
-				<div class="footer-section">
-					<h3>Product</h3>
-					<ul class="footer-links">
-						<li><a href="/">Home</a></li>
-						<li><a href="/#process">How It Works</a></li>
-						<li><a href="/#features">Features</a></li>
-						<li><a href="/#pricing">Pricing</a></li>
-                        <li><a href="/faq">FAQ</a></li>
-                        <li><a href="/blog">Blog</a></li>
-                        <li><a href="/gethelp">Get Help</a></li>                        
-						<li><a href="/#demo">Early Access</a></li>
-					</ul>
-				</div>
-				
-				<div class="footer-section">
-					<h3>Free Tools</h3>
-					<ul class="footer-links">
-                        <li><a href="https://qstar.piraiai.com" target="_blank">QStar (Beta)</a></li>
-                        <li><a href="https://chromewebstore.google.com/detail/qualtrics-api-toolkit-by/lloepmlcmkeohopokcedejdelohoilip" target="_blank">Qualtrics API Toolkit</a></li>
-                        <li><a href="/qsf-to-excel">QSF to Excel WorkBook</a></li>
-						<li><a href="/textiq-to-excel">Text IQ JSON to Excel Book</a></li>
-                        <li><a href="/embedded-data-generator">Embedded Data Generator</a></li>
-						<li><a href="/pirai-csv-comparator">CSV Comparator</a></li>
-                        <li><a href="/qualtrics-toolkit" style="color: #3b82f6;">Command Center</a></li>                                                  
-					</ul>
-				</div>
-				
-				<div class="footer-section">
-					<h3>Company</h3>
-					<ul class="footer-links">
-						<li><a href="/about">About Us</a></li>						
-						<li><a href="/#demo">Contact Us</a></li>
-						<li><a href="/privacy">Privacy Policy</a></li>
-						<li><a href="/terms">Terms of Service</a></li>
-                        <li><a href="/security">Security Overview</a></li>
-						<li><a href="https://www.linkedin.com/company/pirai-ai/" target="_blank">LinkedIn</a></li>
-					</ul>
-				</div>
-			</div>
-			
-			<div class="footer-bottom">
-				<div class="copyright">
-					© 2025 Pirai AI. All rights reserved. | Built with enterprise-grade security and privacy protection.
-				</div>
-				<div style="display: flex; gap: 16px; align-items: center;">
-					<a href="https://www.linkedin.com/company/pirai-ai/" target="_blank" style="color: #9ca3af; transition: color 0.3s;">
-						<svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-							<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-						</svg>
-					</a>
-                    <a href="https://www.youtube.com/@PiraiAI" target="_blank" style="color: #9ca3af; transition: color 0.3s;">
-                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M23.498 6.186a2.87 2.87 0 0 0-2.02-2.034C19.65 3.74 12 3.74 12 3.74s-7.65 0-9.478.412A2.87 2.87 0 0 0 .502 6.186C.088 8.02.088 12 .088 12s0 3.98.414 5.814a2.87 2.87 0 0 0 2.02 2.034C4.35 20.26 12 20.26 12 20.26s7.65 0 9.478-.412a2.87 2.87 0 0 0 2.02-2.034C23.912 15.98 23.912 12 23.912 12s0-3.98-.414-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                        </svg>
-                    </a>                        
-					<span style="color: #6b7280; font-size: 12px;">Follow our journey</span>
-				</div>
-			</div>
-		</div>
-	</footer>
+    <footer class="footer">
+        <p>&copy; 2025 Pirai AI. All rights reserved.</p>
+    </footer>
 
-    <script>
-        // Add floating header effect
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('.nav');
-            if (window.scrollY > 100) {
-                nav.style.background = 'rgba(255, 255, 255, 0.95)';
-                nav.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
-            } else {
-                nav.style.background = 'rgba(255, 255, 255, 0.8)';
-                nav.style.boxShadow = 'none';
-            }
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
 </body>
 </html>

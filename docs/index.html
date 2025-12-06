@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - Pirai AI | Survey Automation Guides</title>
+    <meta name="description" content="Complete documentation for creating survey specifications. Excel and Word format guides for Pirai AI survey automation.">
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #1a1a1a;
+        }
+
+        .logo img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .docs-label {
+            color: #6b7280;
+            font-weight: 400;
+            margin-left: 8px;
+        }
+
+        nav a {
+            margin-left: 32px;
+            text-decoration: none;
+            color: #4b5563;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #9B6BFF;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            padding: 64px 24px;
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 64px 24px;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 32px;
+        }
+
+        /* Docs Grid */
+        .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            margin-bottom: 64px;
+        }
+
+        .doc-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 32px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            display: block;
+        }
+
+        .doc-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+            border-color: #9B6BFF;
+        }
+
+        .doc-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #9B6BFF, #BFA8FF);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .doc-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+        }
+
+        .doc-card p {
+            font-size: 16px;
+            color: #6b7280;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .doc-meta {
+            display: flex;
+            gap: 16px;
+            font-size: 14px;
+            color: #9ca3af;
+        }
+
+        .doc-badge {
+            display: inline-block;
+            background: #f3f4f6;
+            color: #4b5563;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Quick Links */
+        .quick-links {
+            background: #f9fafb;
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 64px;
+        }
+
+        .quick-links h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .quick-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #1a1a1a;
+            transition: all 0.2s;
+        }
+
+        .quick-link:hover {
+            background: #f9fafb;
+            border-color: #9B6BFF;
+        }
+
+        .quick-link-icon {
+            font-size: 24px;
+        }
+
+        .quick-link-text {
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #9B6BFF, #BFA8FF);
+            padding: 48px;
+            border-radius: 12px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .cta-section h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 32px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ffffff;
+            color: #9B6BFF;
+            padding: 14px 32px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: transform 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            padding: 32px 24px;
+            text-align: center;
+        }
+
+        footer p {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .docs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .header-container nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .cta-section {
+                padding: 32px 24px;
+            }
+
+            .cta-section h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo">
+                <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo">
+                <span class="logo-text">Pirai AI <span class="docs-label">/ Docs</span></span>
+            </a>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/blog">Blog</a>
+                <a href="/#platforms">Platforms</a>
+                <a href="/#demo">Get Demo</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Documentation</h1>
+        <p>Complete guides for creating survey specifications with Pirai AI</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <!-- Format Guides -->
+        <section>
+            <h2 class="section-title">Specification Format Guides</h2>
+            <div class="docs-grid">
+
+                <!-- Excel Spec Guide -->
+                <a href="/docs/excel-spec-format" class="doc-card">
+                    <div class="doc-icon">📊</div>
+                    <h3>Excel Specification Format</h3>
+                    <p>Master the 7-column template that enables seamless conversion to any platform. Comprehensive guide covering all question types, validation rules, and best practices.</p>
+                    <div class="doc-meta">
+                        <span class="doc-badge">Guide</span>
+                        <span>15 min read</span>
+                    </div>
+                </a>
+
+                <!-- Word Spec Guide -->
+                <a href="/docs/word-spec-format" class="doc-card">
+                    <div class="doc-icon">📝</div>
+                    <h3>Word Specification Format</h3>
+                    <p>Learn the bracket notation and structured table approach for creating Word-based survey specifications. Perfect for natural document flow.</p>
+                    <div class="doc-meta">
+                        <span class="doc-badge">Guide</span>
+                        <span>12 min read</span>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- Quick Links -->
+        <section class="quick-links">
+            <h2>Quick Links</h2>
+            <div class="links-grid">
+                <a href="/#process" class="quick-link">
+                    <span class="quick-link-icon">⚡</span>
+                    <span class="quick-link-text">How It Works</span>
+                </a>
+                <a href="/#platforms" class="quick-link">
+                    <span class="quick-link-icon">🔗</span>
+                    <span class="quick-link-text">Supported Platforms</span>
+                </a>
+                <a href="/blog" class="quick-link">
+                    <span class="quick-link-icon">📚</span>
+                    <span class="quick-link-text">Blog & Insights</span>
+                </a>
+                <a href="/#faq" class="quick-link">
+                    <span class="quick-link-icon">❓</span>
+                    <span class="quick-link-text">FAQ</span>
+                </a>
+                <a href="/qualtrics-toolkit" class="quick-link">
+                    <span class="quick-link-icon">🛠️</span>
+                    <span class="quick-link-text">Free Tools</span>
+                </a>
+                <a href="mailto:admin@piraiai.com" class="quick-link">
+                    <span class="quick-link-icon">💬</span>
+                    <span class="quick-link-text">Get Support</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <h2>Ready to Start Converting?</h2>
+            <p>Transform your survey specifications in minutes with Pirai AI automation</p>
+            <a href="/convert-now" class="cta-button">Convert Now →</a>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Pirai AI. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
