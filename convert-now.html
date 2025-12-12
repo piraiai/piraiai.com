@@ -1794,24 +1794,18 @@
                 <h3>One more thing...</h3>
                 <p>We built Pirai AI to save you hours. If we were to offer this as a paid service, what would you consider fair?</p>
 
-                <div class="pricing-options">
-                    <label class="pricing-option">
-                        <input type="radio" name="pricing" value="$1">
-                        <span>$1</span>
-                    </label>
-                    <label class="pricing-option">
-                        <input type="radio" name="pricing" value="$2">
-                        <span>$2</span>
-                    </label>
-                    <label class="pricing-option">
-                        <input type="radio" name="pricing" value="$2-5">
-                        <span>$2-5</span>
-                    </label>
-                    <label class="pricing-option">
-                        <input type="radio" name="pricing" value="$0">
-                        <span>Not interested</span>
-                    </label>
+                <div class="pricing-input-wrapper" style="position: relative; margin: 20px 0;">
+                    <span class="pricing-currency" style="position: absolute; left: 18px; top: 50%; transform: translateY(-50%); font-size: 18px; font-weight: 600; color: var(--ink); pointer-events: none;">$</span>
+                    <input type="number" id="pricingInput" name="pricing" placeholder="2" min="0" step="0.01" style="width: 100%; padding: 14px 18px 14px 40px; background: var(--tile); border: 2px solid rgba(155, 107, 255, 0.3); border-radius: 12px; color: var(--ink); font-size: 18px; font-family: var(--sans); font-weight: 600; text-align: left; -moz-appearance: textfield;">
                 </div>
+                <p style="font-size: 13px; color: var(--ink-dim); margin: -10px 0 20px; text-align: center;">Free for academics • Helps us price fairly for others</p>
+                <style>
+                    #pricingInput::-webkit-outer-spin-button,
+                    #pricingInput::-webkit-inner-spin-button {
+                        -webkit-appearance: none;
+                        margin: 0;
+                    }
+                </style>
 
                 <button class="exit-submit-btn" id="exitSubmitBtn" disabled>Submit</button>
             </div>
@@ -2552,7 +2546,7 @@
         const exitSubmitBtn = document.getElementById('exitSubmitBtn');
         const continueBtn = document.getElementById('continueBtn');
         const sourceRadios = document.querySelectorAll('input[name="source"]');
-        const pricingRadios = document.querySelectorAll('input[name="pricing"]');
+        const pricingInput = document.getElementById('pricingInput');
         const sourceQuestionSection = document.getElementById('sourceQuestionSection');
         const pricingQuestionSection = document.getElementById('pricingQuestionSection');
 
@@ -2578,8 +2572,8 @@
 
         // Function to check if pricing question is complete
         function checkPricingComplete() {
-            const pricingSelected = document.querySelector('input[name="pricing"]:checked');
-            exitSubmitBtn.disabled = !pricingSelected;
+            const pricingValue = pricingInput.value.trim();
+            exitSubmitBtn.disabled = pricingValue === '';
         }
 
         // Handle source radio selection
@@ -2616,20 +2610,13 @@
         continueBtn.addEventListener('click', () => {
             sourceQuestionSection.style.display = 'none';
             pricingQuestionSection.style.display = 'block';
+            // Auto-focus the pricing input
+            setTimeout(() => pricingInput.focus(), 100);
         });
 
-        // Handle pricing radio selection
-        pricingRadios.forEach(radio => {
-            radio.addEventListener('change', () => {
-                // Add visual feedback
-                document.querySelectorAll('.pricing-option').forEach(opt => {
-                    opt.classList.remove('selected');
-                });
-                radio.closest('.pricing-option').classList.add('selected');
-
-                // Check if submit button should be enabled
-                checkPricingComplete();
-            });
+        // Handle pricing input
+        pricingInput.addEventListener('input', () => {
+            checkPricingComplete();
         });
 
         // Show exit intent modal when user tries to leave (mouse goes to top of viewport)
@@ -2643,12 +2630,12 @@
         // Handle exit modal submission
         exitSubmitBtn.addEventListener('click', () => {
             const selectedSource = document.querySelector('input[name="source"]:checked');
-            const selectedPricing = document.querySelector('input[name="pricing"]:checked');
+            const pricingValue = pricingInput.value.trim();
 
-            if (!selectedSource || !selectedPricing) return;
+            if (!selectedSource || pricingValue === '') return;
 
             let source = selectedSource.value;
-            const pricing = selectedPricing.value;
+            const pricing = '$' + pricingValue;
             const userEmailValue = document.getElementById('email').value;
 
             // If "Other" was selected, combine it with the specify text
