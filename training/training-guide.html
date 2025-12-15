@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <!-- End Google Tag Manager -->
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Start Training Guide - Pirai AI</title>
+    <meta name="description" content="Complete training guide for Pirai AI. Learn the 2-step workflow, platform migration, AI editing, and best practices.">
+    
+    <!-- Prevent indexing -->
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, nocache">
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="bingbot" content="noindex, nofollow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Quick Start Training Guide - Pirai AI">
+    <meta property="og:description" content="Complete training guide for Pirai AI survey automation platform.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://piraiai.com/training-guide">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link rel="canonical" href="https://piraiai.com/docs/training-guide">
+
+    <!-- Fonts - BLOG STYLE -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    
+    <script>
+        // Bot blocking
+        (function() {
+            const botRegex = /(bot|crawler|spider|crawling|scraper|parser|extractor|fetch|monitor|analyze)/i;
+            if (botRegex.test(navigator.userAgent) || navigator.webdriver || !window.outerHeight || window.callPhantom) {
+                document.write('<h1>Access Denied</h1>');
+                throw new Error('Automated access not allowed');
+            }
+        })();
+    </script>
+    
+    <style>
+        /* BLOG-MATCHED STYLES - Same as Excel/Word spec */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.7;
+            font-size: 18px;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #1a1a1a;
+        }
+
+        /* Header */
+        .nav {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #1a1a1a;
+        }
+
+        .logo img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .docs-label {
+            color: #6b7280;
+            font-weight: 400;
+            margin-left: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4b5563;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #9B6BFF;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            padding: 64px 24px;
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 20px;
+            color: #6b7280;
+            margin-bottom: 8px;
+        }
+
+        .hero .version {
+            font-size: 14px;
+            color: #9ca3af;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 24px;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 32px 16px;
+            }
+        }
+
+        .content-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        /* Sidebar Navigation */
+        .content-nav {
+            position: sticky;
+            top: 80px;
+            height: fit-content;
+            background: #f9fafb;
+            padding: 24px;
+            border-radius: 8px;
+        }
+
+        .content-nav h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+
+        .content-nav ul {
+            list-style: none;
+        }
+
+        .content-nav li {
+            margin-bottom: 12px;
+        }
+
+        .content-nav a {
+            color: #4b5563;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .content-nav a:hover {
+            color: #9B6BFF;
+        }
+
+        /* Main Content */
+        .content-wrapper {
+            max-width: 800px;
+            overflow-x: hidden;
+        }
+
+        .content-wrapper h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-top: 48px;
+            margin-bottom: 16px;
+            padding-left: 16px;
+            border-left: 4px solid #9B6BFF;
+        }
+
+        .content-wrapper h2:first-child {
+            margin-top: 0;
+        }
+
+        .content-wrapper h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+        }
+
+        .content-wrapper h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 24px;
+            margin-bottom: 8px;
+        }
+
+        .content-wrapper p {
+            margin-bottom: 24px;
+            color: #374151;
+            max-width: 100%;
+            word-wrap: break-word;
+        }
+
+        .content-wrapper ul,
+        .content-wrapper ol {
+            margin-bottom: 24px;
+            padding-left: 24px;
+            max-width: 100%;
+        }
+
+        .content-wrapper li {
+            margin-bottom: 12px;
+            color: #374151;
+        }
+
+        .content-wrapper strong {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        /* Special Boxes */
+        .overview-box {
+            background: #f5f3ff;
+            border-left: 4px solid #9B6BFF;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 32px 0;
+            max-width: 100%;
+            overflow-wrap: break-word;
+        }
+
+        .overview-box h3 {
+            color: #6b21a8;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .checklist {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 32px 0;
+            max-width: 100%;
+            overflow-wrap: break-word;
+        }
+
+        .checklist h3 {
+            color: #15803d;
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+
+        .checklist ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .checklist li {
+            margin: 12px 0;
+            padding-left: 32px;
+            position: relative;
+        }
+
+        .checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #22c55e;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 32px 0;
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+        }
+
+        @media (max-width: 640px) {
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+
+        th, td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        th {
+            background: #f9fafb;
+            font-weight: 600;
+            color: #1a1a1a;
+            font-size: 15px;
+        }
+
+        td {
+            color: #374151;
+            font-size: 16px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background: #f9fafb;
+        }
+
+        /* Alert Boxes */
+        .rules-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+
+        .rules-box h4 {
+            color: #92400e;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .tips-box {
+            background: #dbeafe;
+            border-left: 4px solid #3b82f6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+
+        .tips-box h4 {
+            color: #1e40af;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .warning {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+
+        .warning strong {
+            color: #92400e;
+        }
+
+        .troubleshooting {
+            background: #fee2e2;
+            border-left: 4px solid #ef4444;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+
+        .troubleshooting h4 {
+            color: #dc2626;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .solution {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 20px;
+            margin: 16px 0;
+            border-radius: 8px;
+        }
+
+        .solution strong {
+            color: #15803d;
+        }
+
+        /* Do's and Don'ts */
+        .dos-donts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .dos {
+            background: #f0fdf4;
+            border: 1px solid #22c55e;
+            border-radius: 8px;
+            padding: 24px;
+        }
+
+        .donts {
+            background: #fee2e2;
+            border: 1px solid #ef4444;
+            border-radius: 8px;
+            padding: 24px;
+        }
+
+        .dos h4 {
+            color: #15803d;
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+
+        .donts h4 {
+            color: #dc2626;
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+
+        .dos ul li,
+        .donts ul li {
+            margin: 8px 0;
+        }
+
+        /* Code blocks */
+        code {
+            background: #f3f4f6;
+            padding: 3px 8px;
+            border-radius: 4px;
+            color: #9B6BFF;
+            font-size: 16px;
+            border: 1px solid #e5e7eb;
+            font-family: 'Courier New', monospace;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        pre {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+            overflow-x: auto;
+        }
+
+        pre code {
+            background: none;
+            border: none;
+            padding: 0;
+            font-size: 14px;
+            color: #1a1a1a;
+        }
+
+        @media (max-width: 640px) {
+            code {
+                font-size: 14px;
+                padding: 2px 6px;
+            }
+        }
+
+        /* Quick Reference Card */
+        .quick-ref {
+            background: linear-gradient(135deg, #f5f3ff, #e0e7ff);
+            border: 2px solid #9B6BFF;
+            border-radius: 12px;
+            padding: 32px;
+            margin: 32px 0;
+        }
+
+        .quick-ref h3 {
+            color: #6b21a8;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            padding: 32px 24px;
+            text-align: center;
+        }
+
+        .footer p {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .content-container {
+                grid-template-columns: 1fr;
+            }
+
+            .content-nav {
+                position: static;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .dos-donts {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 48px 16px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero .subtitle {
+                font-size: 16px;
+            }
+
+            body {
+                font-size: 16px;
+            }
+
+            .content-wrapper h2 {
+                font-size: 24px;
+            }
+            
+            .content-nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Header -->
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="/" class="logo">
+                <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo">
+                <span class="logo-text">Pirai AI <span class="docs-label">/ Training</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/docs">Documentation</a></li>
+                <li><a href="/#demo">Get Demo</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Quick Start Training Guide</h1>
+            <p class="subtitle">Cross-Platform Survey Document Accelerator</p>
+            <p class="version">Version 1.0 | December 2025</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="content-container">
+            
+            <!-- Navigation Menu -->
+            <div class="content-nav">
+                <h3>Quick Navigation</h3>
+                <ul>
+                    <li><a href="#what-is-pirai">What is Pirai AI?</a></li>
+                    <li><a href="#workflow-overview">Workflow Overview</a></li>
+                    <li><a href="#step-1">Step 1: Word to Excel</a></li>
+                    <li><a href="#step-2">Step 2: Excel to Platform</a></li>
+                    <li><a href="#dos">Do's & Best Practices</a></li>
+                    <li><a href="#donts">Don'ts - Avoid These</a></li>
+                    <li><a href="#troubleshooting">Troubleshooting</a></li>
+                    <li><a href="#support">Support & Resources</a></li>
+                    <li><a href="#quick-reference">Quick Reference</a></li>
+                </ul>
+            </div>
+
+            <div class="content-wrapper">
+                
+                <!-- What is Pirai AI Section -->
+                <section id="what-is-pirai">
+                    <h2>🎯 What is Pirai AI?</h2>
+                    
+                    <div class="overview-box">
+                        <p>Pirai AI transforms survey creation <strong>and platform migration</strong> from <strong>hours to minutes</strong> across 20+ platforms:</p>
+                        <ul>
+                            <li><strong>Market Research:</strong> Qualtrics, REDCap, SurveyMonkey, QuestionPro, Forsta, Dimensions MDD</li>
+                            <li><strong>Education:</strong> Moodle, Canvas, Kahoot, LearnWorlds, BrainCert, ClassMarker</li>
+                            <li><strong>Enterprise:</strong> Microsoft Forms, Google Forms, Zoho Surveys, SurveySparrow</li>
+                            <li><strong>Healthcare:</strong> REDCap</li>
+                        </ul>
+                    </div>
+
+                    <h3>Key Capabilities</h3>
+                    <ol>
+                        <li><strong>Document Conversion</strong> - Convert Word/PDF surveys to any platform</li>
+                        <li><strong>Platform Migration</strong> - Move surveys between platforms (import QSF, XML, MDD, etc.)</li>
+                        <li><strong>Multi-Format Support</strong> - Process Word, PDF, Excel, CSV, text, and platform export files</li>
+                        <li><strong>AI-Powered Editing</strong> - Edit surveys conversationally with natural language</li>
+                    </ol>
+
+                    <div class="tips-box">
+                        <h4>⏱️ Time Savings</h4>
+                        <p>Convert a 100-question survey in under 10 minutes (vs. 8-12 hours manual programming)</p>
+                    </div>
+                </section>
+
+                <!-- Workflow Overview Section -->
+                <section id="workflow-overview">
+                    <h2>📋 Complete Workflow Overview</h2>
+
+                    <h3>STEP 1: Document → Excel (5-10 minutes)</h3>
+                    <p>Upload your survey document <strong>OR</strong> platform export → Get structured Excel template</p>
+
+                    <div class="checklist">
+                        <h3>Accepts:</h3>
+                        <ul>
+                            <li>Survey documents (Word, PDF, text)</li>
+                            <li>Structured data (Excel, CSV)</li>
+                            <li>Platform exports (QSF, XML, MDD, etc.)</li>
+                        </ul>
+                    </div>
+
+                    <h3>STEP 2: Excel → Platform (1-2 minutes)</h3>
+                    <p>Upload Excel → Select target platform → Download ready-to-import file</p>
+
+                    <p><strong>Outputs:</strong> Any of 20+ platforms</p>
+
+                    <div class="quick-ref">
+                        <h3>Total Time: ~15 minutes</h3>
+                        <p>Complete survey conversion or platform migration from start to finish</p>
+                        <p><strong>🔄 Use Case:</strong> Migrate surveys between platforms (e.g., Qualtrics → SurveyMonkey, Forsta → REDCap)</p>
+                    </div>
+                </section>
+
+                <!-- Step 1 Section -->
+                <section id="step-1">
+                    <h2>STEP 1: Word to Excel Conversion</h2>
+
+                    <h3>1.1 Upload Your Document</h3>
+
+                    <h4>Supported Formats:</h4>
+                    <div class="checklist">
+                        <ul>
+                            <li><strong>Word documents</strong> (.docx)</li>
+                            <li><strong>PDF files</strong> (digital or scanned)</li>
+                            <li><strong>Excel files</strong> (.xlsx, .xls)</li>
+                            <li><strong>CSV files</strong> (.csv)</li>
+                            <li><strong>Text files</strong> (.txt)</li>
+                            <li><strong>Platform files</strong> - Qualtrics QSF (.qsf), XML formats (.xml), Dimensions MDD (.mdd)</li>
+                            <li><strong>Scanned paper surveys</strong> (photos converted to PDF)</li>
+                            <li><strong>50+ languages</strong> supported</li>
+                        </ul>
+                    </div>
+
+                    <h4>File Requirements:</h4>
+                    <ul>
+                        <li>Maximum size: 5MB</li>
+                        <li>No specific formatting required - Pirai AI adapts to your style</li>
+                        <li>Platform files are automatically parsed and converted to universal Excel format</li>
+                    </ul>
+
+                    <div class="tips-box">
+                        <h4>💡 Pro Tip</h4>
+                        <p>Already have surveys in Qualtrics, Forsta, or other platforms? Export them and upload to convert to any other platform!</p>
+                    </div>
+
+                    <h3>1.2 Choose Extraction Method (Optional)</h3>
+
+                    <p>For most users, the default "Smart Detection (Recommended)" works perfectly. However, you can choose different extraction methods based on your document type:</p>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Method</th>
+                                <th>Best For</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Smart Detection</strong> ⭐</td>
+                                <td>Most documents</td>
+                                <td>AI automatically chooses the best extraction approach</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Standard Extraction</strong></td>
+                                <td>Simple documents</td>
+                                <td>Basic paragraph and table extraction</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Visual Layout Preserved</strong></td>
+                                <td>Complex formatting</td>
+                                <td>Preserves headings and markdown-style structure</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Alternative Parser</strong></td>
+                                <td>Problematic docs</td>
+                                <td>Uses alternative library with post-processing</td>
+                            </tr>
+                            <tr>
+                                <td><strong>PDF Advanced</strong></td>
+                                <td>Complex PDFs with images</td>
+                                <td>Vision-based extraction for scanned PDFs, forms, and image-heavy documents</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="tips-box">
+                        <h4>💡 When to Use PDF Advanced</h4>
+                        <ul>
+                            <li>Scanned paper surveys (photos/scans)</li>
+                            <li>PDF forms with complex layouts</li>
+                            <li>Documents with embedded images containing text</li>
+                            <li>PDFs where standard extraction misses content</li>
+                            <li>Multi-column layouts or tables in PDFs</li>
+                        </ul>
+                    </div>
+
+                    <h3>1.3 AI Processing</h3>
+
+                    <h4>What Happens Automatically:</h4>
+                    <ol>
+                        <li><strong>Document Extraction</strong> - Questions, options, and structure identified</li>
+                        <li><strong>Intelligent Parsing</strong> - Question types auto-detected (MC, text entry, matrix, etc.)</li>
+                        <li><strong>Quality Check</strong> - Spell checking across all content</li>
+                        <li><strong>Excel Generation</strong> - 7-column standardized format created</li>
+                    </ol>
+
+                    <p><strong>Processing Time:</strong> Typically under 10 minutes for most surveys</p>
+
+                    <h3>1.4 Review & Download</h3>
+
+                    <h4>Two Download Options:</h4>
+
+                    <div class="dos-donts">
+                        <div class="dos">
+                            <h4>Option A: Excel File (Required for Step 2)</h4>
+                            <ul>
+                                <li>7-column structure: Block Name, Question ID, Question Text, Question Type, Answer Option Text, Recode Value, Matrix Type</li>
+                                <li>Edit-friendly - make corrections directly in Excel if needed</li>
+                                <li>Platform-agnostic format</li>
+                            </ul>
+                        </div>
+                        <div class="dos">
+                            <h4>Option B: Word Preview (Optional)</h4>
+                            <ul>
+                                <li>Formatted document for stakeholder review</li>
+                                <li>Professional styling with colors and formatting</li>
+                                <li>Print-ready with headers/footers</li>
+                                <li>Shareable via email</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3>1.5 Preview Your Converted Survey (4 Modes)</h3>
+
+                    <p>After conversion completes, choose how to review your survey:</p>
+
+                    <h4>Mode 1: 📊 Table View</h4>
+                    <ul>
+                        <li>Raw Excel data display</li>
+                        <li>Verify structure and formatting</li>
+                        <li>Check all rows/columns</li>
+                    </ul>
+
+                    <h4>Mode 2: 👁️ Survey Preview</h4>
+                    <ul>
+                        <li>Visual rendering of your survey</li>
+                        <li>Choose preview style: Qualtrics, Google Forms, or SurveyMonkey</li>
+                        <li>See how questions will appear to respondents</li>
+                    </ul>
+
+                    <h4>Mode 3: 🔄 Side-by-Side</h4>
+                    <ul>
+                        <li>Split screen: Excel table + Survey preview</li>
+                        <li>Compare structure vs. visual output</li>
+                        <li>Ideal for validation</li>
+                    </ul>
+
+                    <h4>Mode 4: 💬 AI Editor (Advanced Feature)</h4>
+                    <ul>
+                        <li>Conversational survey editing interface</li>
+                        <li>Edit surveys using natural language commands</li>
+                        <li>Real-time preview updates</li>
+                        <li>Version control with undo/rollback</li>
+                    </ul>
+
+                    <div class="tips-box">
+                        <h4>💡 Important</h4>
+                        <p>You can edit your survey here before downloading Excel for Step 2!</p>
+                    </div>
+
+                    <h3>1.6 AI Editor: Quick Edits in Step 1</h3>
+
+                    <p><strong>Available in Step 1 immediately after conversion!</strong></p>
+
+                    <h4>Interface Layout:</h4>
+                    <ul>
+                        <li><strong>Bottom:</strong> Excel table view</li>
+                        <li><strong>Left:</strong> Live survey preview</li>
+                        <li><strong>Right:</strong> Chat interface for commands</li>
+                    </ul>
+
+                    <h4>Example Commands:</h4>
+                    <pre><code>✓ "Add option 'Other' to Q3"
+✓ "Add question 'What is your occupation?' after Q2"
+✓ "Delete Q5"
+✓ "Change Q1 text to 'What is your age range?'"
+✓ "Undo" or "Roll back the previous change"</code></pre>
+
+                    <h4>Version Control:</h4>
+                    <ul>
+                        <li>Every edit creates a new version</li>
+                        <li>View version history (shows count: "📜 3 version(s) in history")</li>
+                        <li>Rollback to previous versions anytime</li>
+                        <li>Preserves last 10 versions with timestamps</li>
+                    </ul>
+
+                    <div class="tips-box">
+                        <h4>💡 Pro Tip</h4>
+                        <p>Use AI Editor in Step 1 to fix issues before downloading Excel!</p>
+                    </div>
+
+                    <h3>1.7 Quality Assurance & Download</h3>
+
+                    <h4>Automatic Spell Check:</h4>
+                    <ul>
+                        <li>Scans questions, options, and all text</li>
+                        <li>Highlights potential typos with locations</li>
+                        <li>Smart filtering (excludes technical terms, proper nouns)</li>
+                        <li>Download as separate report</li>
+                    </ul>
+
+                    <h4>What to Review:</h4>
+                    <ol>
+                        <li>Question numbering sequence</li>
+                        <li>Answer option completeness</li>
+                        <li>Spelling corrections flagged</li>
+                        <li>Question type assignments</li>
+                    </ol>
+
+                    <h4>Download Options:</h4>
+                    <div class="checklist">
+                        <ul>
+                            <li><strong>Excel file</strong> (required for Step 2)</li>
+                            <li><strong>Word preview</strong> (optional - for stakeholder review)</li>
+                        </ul>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>💡 Best Practice</h4>
+                        <p>Use AI Editor to make quick fixes → Download Excel → Upload to Step 2</p>
+                    </div>
+                </section>
+
+                <!-- Step 2 Section -->
+                <section id="step-2">
+                    <h2>STEP 2: Excel to Platform Conversion</h2>
+
+                    <h3>2.1 Upload Excel File(s)</h3>
+
+                    <h4>Single File Upload:</h4>
+                    <ul>
+                        <li>Upload the Excel from Step 1</li>
+                        <li>Or upload a pre-existing survey Excel file</li>
+                    </ul>
+
+                    <h4>NEW: Multi-File Upload & Merge</h4>
+                    <ul>
+                        <li>Upload 2+ Excel files (e.g., chunked large surveys)</li>
+                        <li>Drag and drop to reorder merge sequence</li>
+                        <li>Preview merged Excel before converting</li>
+                        <li>Download merged Excel file for future use</li>
+                    </ul>
+
+                    <div class="tips-box">
+                        <h4>💡 Use Case</h4>
+                        <p>Split a 200-question survey into 4 separate Word docs (50 questions each) → Convert all 4 to Excel → Merge in Step 2 → Convert to target platform</p>
+                    </div>
+
+                    <h4>Merge Process:</h4>
+                    <ol>
+                        <li>Upload 2+ Excel files (e.g., chunked large surveys)</li>
+                        <li>Use dropdown menus to specify merge order (Position 1, 2, 3...)</li>
+                        <li>Click "Confirm Order & Merge Files"</li>
+                        <li>Download merged Excel (optional)</li>
+                        <li>System validates and combines all files</li>
+                    </ol>
+
+                    <div class="warning">
+                        <strong>📌 User Responsibility:</strong> Maintain correct Block Name and Question ID sequencing across files
+                    </div>
+
+                    <h3>2.2 Preview Your Survey (3 Modes)</h3>
+
+                    <h4>Mode 1: 📊 Table View</h4>
+                    <ul>
+                        <li>Raw Excel data display</li>
+                        <li>Verify structure and formatting</li>
+                        <li>Check all rows/columns</li>
+                    </ul>
+
+                    <h4>Mode 2: 👁️ Survey Preview</h4>
+                    <ul>
+                        <li>Visual rendering of your survey</li>
+                        <li>Choose preview style: Qualtrics, Google Forms, or SurveyMonkey</li>
+                        <li>See how questions will appear to respondents</li>
+                    </ul>
+
+                    <h4>Mode 3: 🔄 Side-by-Side</h4>
+                    <ul>
+                        <li>Split screen: Excel table + Survey preview</li>
+                        <li>Compare structure vs. visual output</li>
+                        <li>Ideal for final validation before platform conversion</li>
+                    </ul>
+
+                    <div class="tips-box">
+                        <h4>📌 Note</h4>
+                        <p>AI Editor is available in Step 1. Make edits there before uploading to Step 2.</p>
+                    </div>
+
+                    <h3>2.3 Validation & Quality Check</h3>
+
+                    <h4>Automatic Validation:</h4>
+                    <div class="checklist">
+                        <ul>
+                            <li>Required columns present</li>
+                            <li>Valid question types</li>
+                            <li>Proper matrix structure</li>
+                            <li>Answer option completeness</li>
+                            <li>Character encoding (UTF-8 compliance)</li>
+                        </ul>
+                    </div>
+
+                    <h4>Validation Report:</h4>
+                    <ul>
+                        <li><strong>Errors (❌)</strong> - Must fix before conversion</li>
+                        <li><strong>Warnings (⚠️)</strong> - Review recommended</li>
+                        <li><strong>Info (ℹ️)</strong> - FYI notes</li>
+                    </ul>
+
+                    <h4>Common Validation Issues:</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Issue</th>
+                                <th>Solution</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Missing required columns</td>
+                                <td>Check Excel has all 7 columns</td>
+                            </tr>
+                            <tr>
+                                <td>Invalid question type</td>
+                                <td>Use supported types (MC, TE, Matrix, etc.)</td>
+                            </tr>
+                            <tr>
+                                <td>Empty Question ID</td>
+                                <td>Assign unique IDs to all questions</td>
+                            </tr>
+                            <tr>
+                                <td>Matrix missing scale points</td>
+                                <td>Add "Scale Point" rows for matrix questions</td>
+                            </tr>
+                            <tr>
+                                <td>File size exceeded</td>
+                                <td>Split into multiple files or compress</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>2.4 Select Platform & Convert</h3>
+
+                    <h4>Platform Selection:</h4>
+                    <p>Choose from 20+ supported platforms. Each platform shows:</p>
+                    <ul>
+                        <li>✅ Matrix support status</li>
+                        <li>✅ Recode value handling</li>
+                        <li>✅ Complexity rating</li>
+                    </ul>
+
+                    <h4>Platform-Specific Notes:</h4>
+                    <ul>
+                        <li><strong>Qualtrics:</strong> Choose between Advanced Text (.txt) or QSF (.qsf) format</li>
+                        <li><strong>Matrix Questions:</strong> Converted to individual questions on platforms without native matrix support</li>
+                        <li><strong>Recode Values:</strong> Preserved on supported platforms (Qualtrics, REDCap, Forsta)</li>
+                    </ul>
+
+                    <h4>Conversion Process:</h4>
+                    <ol>
+                        <li>Click "Convert to [Platform]" button</li>
+                        <li>Processing completes in 30-60 seconds</li>
+                        <li>Review conversion summary</li>
+                        <li>Download platform file</li>
+                    </ol>
+
+                    <h3>2.5 Download & Import</h3>
+
+                    <h4>What You Get:</h4>
+                    <div class="checklist">
+                        <ul>
+                            <li>Platform-specific file (ready to import)</li>
+                            <li>Import instructions tailored to platform</li>
+                            <li>Processing time metrics</li>
+                            <li>Question count summary</li>
+                        </ul>
+                    </div>
+
+                    <h4>Download Options:</h4>
+                    <ul>
+                        <li><strong>Primary:</strong> Platform file (e.g., .txt, .qsf, .xml, .csv)</li>
+                        <li><strong>Optional:</strong> Merged Excel file (if multi-file upload used)</li>
+                    </ul>
+
+                    <h4>Import Instructions Provided:</h4>
+                    <p><strong>Example for Qualtrics QSF:</strong></p>
+                    <ol>
+                        <li>Login to Qualtrics</li>
+                        <li>Projects → Create New → From File</li>
+                        <li>Upload downloaded .qsf file</li>
+                        <li>Survey imports automatically</li>
+                    </ol>
+
+                    <div class="tips-box">
+                        <h4>📌 Important</h4>
+                        <p>Platform-specific instructions included with every download</p>
+                    </div>
+
+                    <h3>Time-Saving Shortcuts</h3>
+                    <ol>
+                        <li><strong>Edit in Step 1:</strong> Use AI Editor immediately after conversion to fix issues before downloading Excel</li>
+                        <li><strong>Batch Convert:</strong> Upload same Excel to multiple platforms sequentially in Step 2</li>
+                        <li><strong>Team Collaboration:</strong> Share Excel file for team review/editing between Step 1 and Step 2</li>
+                        <li><strong>Platform Migration:</strong> Upload QSF/XML/MDD exports → Convert to Excel → Deploy to new platform</li>
+                        <li><strong>Multi-Platform Deploy:</strong> Convert once to Excel, then deploy to 5+ platforms for regional differences</li>
+                        <li><strong>Version Control:</strong> Use AI Editor's version history in Step 1 for incremental edits</li>
+                    </ol>
+                </section>
+
+                <!-- Do's Section -->
+                <section id="dos">
+                    <h2>✅ DO's - Best Practices</h2>
+
+                    <div class="checklist">
+                        <h3>Streamlit App Usage:</h3>
+                        <ul>
+                            <li><strong>Never press F5</strong> - Use "Rerun" button instead</li>
+                            <li><strong>Work in one tab</strong> - Don't open multiple Pirai AI tabs</li>
+                            <li><strong>Download immediately</strong> - Files don't persist after browser refresh</li>
+                            <li>Use sidebar navigation to switch between Step 1 and Step 2</li>
+                            <li>Save your work by downloading files before moving to next conversion</li>
+                            <li>Download Excel from Step 1 before proceeding to Step 2</li>
+                        </ul>
+                    </div>
+
+                    <div class="checklist">
+                        <h3>For Step 1:</h3>
+                        <ul>
+                            <li>Keep documents under 5MB</li>
+                            <li>Use clear question numbering</li>
+                            <li>Review typo report carefully</li>
+                            <li>Use AI Editor for quick fixes</li>
+                            <li>Download Excel before moving to Step 2</li>
+                        </ul>
+                    </div>
+
+                    <div class="checklist">
+                        <h3>For Step 2:</h3>
+                        <ul>
+                            <li>Preview survey before converting</li>
+                            <li>Check validation warnings</li>
+                            <li>Download multiple platform formats from same Excel</li>
+                            <li>Download files immediately after conversion</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Don'ts Section -->
+                <section id="donts">
+                    <h2>❌ DON'Ts - Avoid These</h2>
+
+                    <div class="donts">
+                        <h4>Browser Actions to Avoid</h4>
+                        <ul>
+                            <li>❌ <strong>DON'T press F5 or browser refresh</strong> - you'll lose all progress and need to log in again</li>
+                            <li>❌ <strong>DON'T use browser back/forward buttons</strong> - use app navigation in sidebar instead</li>
+                            <li>❌ <strong>DON'T close the tab</strong> before downloading your converted files</li>
+                            <li>❌ <strong>DON'T open multiple Pirai AI tabs</strong> - work in one tab only</li>
+                        </ul>
+                    </div>
+
+                    <div class="donts">
+                        <h4>Session Management</h4>
+                        <ul>
+                            <li>❌ DON'T expect your session to persist after browser refresh</li>
+                            <li>❌ DON'T leave conversions incomplete - uploaded files won't survive refresh</li>
+                            <li>❌ DON'T assume auto-save - manually download all important files</li>
+                            <li>❌ DON'T share your session URL - each user needs their own login</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning">
+                        <strong>⚠️ Critical Streamlit Behavior</strong>
+                        <p>Streamlit apps are <strong>stateful within a session</strong> but <strong>stateless across browser refreshes</strong>.</p>
+                        <p><strong>What this means:</strong> Your work persists as long as browser tab stays open. Pressing F5 or closing tab = all progress lost.</p>
+                        <p><strong>Best Practice:</strong> Treat each work session as temporary and download results promptly!</p>
+                    </div>
+                </section>
+
+                <!-- Troubleshooting Section -->
+                <section id="troubleshooting">
+                    <h2>🔧 Tips & Troubleshooting</h2>
+
+                    <h3>Common Streamlit Issues & Solutions</h3>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Issue</th>
+                                <th>Why It Happens</th>
+                                <th>Solution</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>"Please log in again" message</strong></td>
+                                <td>Browser was refreshed (F5)</td>
+                                <td>Log in again and restart your conversion</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Uploaded file disappeared</strong></td>
+                                <td>Session lost due to refresh</td>
+                                <td>Re-upload the file - don't use F5</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Conversion seems stuck</strong></td>
+                                <td>Display not updating</td>
+                                <td>Use "Rerun" button (top-right), NOT F5</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Lost my converted files</strong></td>
+                                <td>Files not downloaded before refresh</td>
+                                <td>Download immediately after each conversion</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Can't find Step 2</strong></td>
+                                <td>Not using sidebar navigation</td>
+                                <td>Click "Step 2: Excel to Platform" in left sidebar</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Common Issues & Solutions</h3>
+
+                    <div class="troubleshooting">
+                        <h4>"Conversion missed some questions or content"</h4>
+                        <div class="solution">
+                            <strong>Solution:</strong>
+                            <ul>
+                                <li>Try different extraction method in Step 1</li>
+                                <li>For PDFs with images or scans: Use "PDF Advanced"</li>
+                                <li>For complex formatting: Use "Visual Layout Preserved"</li>
+                                <li>For simple docs that failed: Try "Alternative Parser"</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="troubleshooting">
+                        <h4>"File too large" error</h4>
+                        <div class="solution">
+                            <strong>Solution:</strong>
+                            <ul>
+                                <li>Remove images/graphics from document</li>
+                                <li>Compress using "Save As → Tools → Compress Pictures"</li>
+                                <li>Split into multiple smaller files</li>
+                                <li>Use multi-file merge feature in Step 2</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>💡 Pro Tips for Streamlit Apps</h4>
+                        <ol>
+                            <li><strong>Work in sequence:</strong> Complete Step 1 fully (upload → convert → download Excel) before moving to Step 2</li>
+                            <li><strong>Download immediately:</strong> Get your files right after conversion - don't wait</li>
+                            <li><strong>Use AI Editor in Step 1:</strong> Make all edits before downloading Excel for Step 2</li>
+                            <li><strong>Plan your session:</strong> Upload and convert one document at a time</li>
+                            <li><strong>Sidebar is your friend:</strong> Use it to navigate between steps, don't use browser buttons</li>
+                            <li><strong>Rerun button:</strong> Top-right corner - use this instead of F5 if you need to refresh</li>
+                        </ol>
+                    </div>
+                </section>
+
+                <!-- Support Section -->
+                <section id="support">
+                    <h2>📞 Support & Resources</h2>
+
+                    <h3>Getting Help</h3>
+
+                    <div class="overview-box">
+                        <h3>Email Support</h3>
+                        <p>📧 <a href="mailto:admin@piraiai.com" style="color:#9B6BFF;">admin@piraiai.com</a></p>
+                        <p><strong>Response Time:</strong> Within 24 hours for pilot users</p>
+                    </div>
+
+                    <h4>What to Include:</h4>
+                    <ul>
+                        <li>Description of issue</li>
+                        <li>Screenshots (if applicable)</li>
+                        <li>File name and platform being used</li>
+                        <li>Error messages received</li>
+                        <li><strong>Important:</strong> Mention if issue occurred after browser refresh (F5)</li>
+                    </ul>
+
+                    <h4>Before Contacting Support:</h4>
+                    <ol>
+                        <li>Try the "Rerun" button (top-right) instead of F5</li>
+                        <li>Check if you're logged in</li>
+                        <li>Verify you're working in a single browser tab</li>
+                        <li>Download and re-upload files if session was lost</li>
+                    </ol>
+
+                    <h3>FAQ Quick Reference</h3>
+
+                    <div class="tips-box">
+                        <h4>Q: Can I convert one survey to multiple platforms?</h4>
+                        <p><strong>A:</strong> Yes! Upload once in Step 1, then convert to as many platforms as needed in Step 2.</p>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>Q: Can I migrate surveys between platforms?</h4>
+                        <p><strong>A:</strong> Absolutely! Upload a platform export file (QSF, XML, MDD, etc.) in Step 1 to convert it to Excel, then convert to any target platform in Step 2. Perfect for platform migration projects.</p>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>Q: Does Pirai AI store my survey data?</h4>
+                        <p><strong>A:</strong> No. Files are processed in memory and automatically deleted. GDPR compliant.</p>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>Q: What if my document has typos?</h4>
+                        <p><strong>A:</strong> Download the typo report from Step 1, fix in Excel, then re-upload to Step 2.</p>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>Q: Can I edit the survey after conversion?</h4>
+                        <p><strong>A:</strong> Yes, use AI Editor before conversion or edit manually in the downloaded platform file.</p>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>Q: How accurate is the AI conversion?</h4>
+                        <p><strong>A:</strong> Highly accurate with automatic quality validation. Always review the preview before finalizing.</p>
+                    </div>
+
+                    <h3>Training Resources</h3>
+
+                    <div class="checklist">
+                        <h3>Available Materials:</h3>
+                        <ul>
+                            <li>This Quick Start Guide</li>
+                            <li>Video walkthrough (available on request)</li>
+                            <li>Platform-specific import guides</li>
+                            <li>FAQ document</li>
+                        </ul>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>Pilot Program Feedback</h4>
+                        <p>Please share your experience, questions, and suggestions with <a href="mailto:admin@piraiai.com" style="color:#9B6BFF;">admin@piraiai.com</a></p>
+                    </div>
+                </section>
+
+                <!-- Quick Reference Section -->
+                <section id="quick-reference">
+                    <h2>🚀 Quick Reference Card</h2>
+
+                    <div class="quick-ref">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Task</th>
+                                    <th>Time</th>
+                                    <th>Key Steps</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Word → Excel</strong></td>
+                                    <td>5-10 min</td>
+                                    <td>Upload doc → Download Excel & typo report</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Excel → Platform</strong></td>
+                                    <td>1-2 min</td>
+                                    <td>Upload Excel → Preview → Select platform → Download</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Multi-File Merge</strong></td>
+                                    <td>2-3 min</td>
+                                    <td>Upload files → Order → Merge → Validate → Convert</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>AI Editing</strong></td>
+                                    <td>30 sec/edit</td>
+                                    <td>Type command → Send → Preview updates</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Full Workflow</strong></td>
+                                    <td>~15 min</td>
+                                    <td>Complete survey conversion start to finish</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="overview-box" style="margin-top: 32px;">
+                        <h3>Welcome to Pirai AI!</h3>
+                        <p>Questions? Email <a href="mailto:admin@piraiai.com" style="color:#9B6BFF;">admin@piraiai.com</a></p>
+                        <p><em>© 2025 Pirai AI. All rights reserved. Pilot Program Version 1.0</em></p>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Pirai AI. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
