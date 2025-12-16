@@ -157,27 +157,58 @@
         .breadcrumb-current {
             color: #1a1a1a;
             font-weight: 500;
+        }  
+        
+        .article-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            max-width: 800px;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .separator {
+            color: #d1d5db;
         }        
 
         /* Hero Section - Blog Style */
         .hero {
             background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
-            padding: 64px 24px;
-            text-align: center;
+            padding: 48px 24px;
+            /* text-align: center; */
             border-bottom: 1px solid #e5e7eb;
         }
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
+        /* 
         .hero h1 {
             font-size: 42px;
             font-weight: 700;
             margin-bottom: 16px;
             line-height: 1.2;
-        }
+        } */
 
         .hero p {
             font-size: 20px;
-            color: #6b7280;
-            max-width: 700px;
+            color: #6b7280;            
             margin: 0 auto;
         }
 
@@ -678,6 +709,13 @@
             <p>
                 Transform complex API operations into simple CSV uploads. No coding required - master advanced Qualtrics operations with our free Chrome extension.
             </p>
+            <div class="article-meta">
+                <span class="author">Arun Raj</span>
+                <span class="separator">•</span>
+                <span>December 8, 2025</span>
+                <span class="separator">•</span>
+                <span>5 min read</span>
+            </div>            
         </div>
     </section>
 
