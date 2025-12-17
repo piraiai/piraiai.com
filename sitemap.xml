@@ -36,17 +36,42 @@
     <loc>https://piraiai.com/blog/</loc>
     <priority>0.7</priority>
     <changefreq>weekly</changefreq>
-    <lastmod>2024-12-06</lastmod>
+    <lastmod>2025-12-06</lastmod>
   </url>
 
   <url>
     <loc>https://piraiai.com/blog/enterprise-automation-hub</loc>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>2024-12-06</lastmod>
+    <lastmod>2025-12-06</lastmod>
   </url>
 
   <!-- Add each new article as you publish -->
+  <!-- Documentation SECTION - Medium-High priority -->
+  <url>
+    <loc>https://piraiai.com/docs/</loc>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2025-12-08</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/docs/excel-spec-format</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2025-12-08</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/docs/qualtrics-api-toolkit</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2025-12-08</lastmod>
+  </url>  
+  <url>
+    <loc>https://piraiai.com/docs/word-spec-format</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2025-12-08</lastmod>
+  </url>   
 
   <!-- SPECIALIZED TOOLS - Medium-high priority -->
   <url>
