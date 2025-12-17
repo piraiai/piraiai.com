@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <!-- End Google Tag Manager -->
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Editor Prompt Templates - Pirai AI</title>
+    <meta name="description" content="Comprehensive collection of AI Editor prompt templates for survey automation. Standardized patterns for matrix operations, question updates, conversions, and complex edits.">
+    
+    <!-- Keywords -->
+    <meta name="keywords" content="AI editor prompts, survey editing templates, matrix question prompts, Pirai AI editor, survey automation commands, question type conversion, survey editing patterns, AI survey editor, prompt templates, survey programming automation">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://piraiai.com/docs/ai-editor-prompts">
+    <meta property="og:title" content="AI Editor Prompt Templates - Pirai AI">
+    <meta property="og:description" content="Master AI-powered survey editing with 100+ standardized prompt templates. From simple text updates to complex matrix operations - copy, paste, and automate your workflow.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="og:site_name" content="Pirai AI Documentation">
+    <meta property="article:published_time" content="2025-12-15T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta property="article:section" content="Documentation">
+    <meta property="article:tag" content="AI Editor">
+    <meta property="article:tag" content="Prompt Templates">
+    <meta property="article:tag" content="Survey Automation">
+    <meta property="article:tag" content="Documentation">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://piraiai.com/docs/ai-editor-prompts">
+    <meta name="twitter:title" content="AI Editor Prompt Templates - Pirai AI">
+    <meta name="twitter:description" content="Master AI-powered survey editing with 100+ standardized prompt templates. Copy, paste, and automate your workflow.">
+    <meta name="twitter:image" content="https://piraiai.com/logo.png">
+    
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link rel="canonical" href="https://piraiai.com/docs/ai-editor-prompts">
+
+    <!-- Fonts - DOCS STYLE -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    
+    <style>
+        /* DOCS-MATCHED STYLES - Same as Excel/Word spec */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.7;
+            font-size: 18px;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #1a1a1a;
+        }
+
+        /* Header */
+        .nav {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #1a1a1a;
+        }
+
+        .logo img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .docs-label {
+            color: #6b7280;
+            font-weight: 400;
+            margin-left: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4b5563;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #9B6BFF;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background: #f9fafb;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 12px 24px;
+        }
+
+        .breadcrumb-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .breadcrumb a {
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb a:hover {
+            color: #9B6BFF;
+        }
+
+        .breadcrumb-separator {
+            color: #d1d5db;
+        }
+
+        .breadcrumb-current {
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+        
+        .article-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            max-width: 800px;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .separator {
+            color: #d1d5db;
+        }          
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            padding: 48px 24px;
+            /* text-align: center; */
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }          
+
+        /* .hero h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        } */
+
+        .hero p {
+            font-size: 20px;
+            color: #6b7280;            
+            margin: 0 auto;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 24px;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 32px 16px;
+            }
+        }
+
+        .content-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        /* Sidebar Navigation */
+        .content-nav {
+            position: sticky;
+            top: 80px;
+            height: fit-content;
+            background: #f9fafb;
+            padding: 24px;
+            border-radius: 8px;
+        }
+
+        .content-nav h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+
+        .content-nav ul {
+            list-style: none;
+        }
+
+        .content-nav li {
+            margin-bottom: 12px;
+        }
+
+        .content-nav a {
+            color: #4b5563;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .content-nav a:hover {
+            color: #9B6BFF;
+        }
+
+        /* Main Content */
+        .content-wrapper {
+            max-width: 800px;
+            overflow-x: hidden;
+        }
+
+        .content-wrapper h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-top: 48px;
+            margin-bottom: 16px;
+            padding-left: 16px;
+            border-left: 4px solid #9B6BFF;
+        }
+
+        .content-wrapper h2:first-child {
+            margin-top: 0;
+        }
+
+        .content-wrapper h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+        }
+
+        .content-wrapper h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 24px;
+            margin-bottom: 8px;
+        }
+
+        .content-wrapper p {
+            margin-bottom: 24px;
+            color: #374151;
+            max-width: 100%;
+            word-wrap: break-word;
+        }
+
+        .content-wrapper ul,
+        .content-wrapper ol {
+            margin-bottom: 24px;
+            padding-left: 24px;
+            max-width: 100%;
+        }
+
+        .content-wrapper li {
+            margin-bottom: 12px;
+            color: #374151;
+        }
+
+        .content-wrapper strong {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        /* Special Boxes */
+        .overview-box {
+            background: #f5f3ff;
+            border-left: 4px solid #9B6BFF;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 32px 0;
+            max-width: 100%;
+            overflow-wrap: break-word;
+        }
+
+        .overview-box h3 {
+            color: #6b21a8;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .checklist {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 32px 0;
+            max-width: 100%;
+            overflow-wrap: break-word;
+        }
+
+        .checklist h3 {
+            color: #15803d;
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+
+        .checklist ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .checklist li {
+            margin: 12px 0;
+            padding-left: 32px;
+            position: relative;
+        }
+
+        .checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #22c55e;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        /* Prompt Template Box */
+        .prompt-box {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 24px 0;
+            position: relative;
+        }
+
+        .prompt-pattern {
+            background: #e0e7ff;
+            border-left: 4px solid #6366f1;
+            padding: 16px;
+            margin-bottom: 16px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 15px;
+            color: #1e40af;
+        }
+
+        .prompt-example {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            padding: 16px;
+            margin: 12px 0;
+            border-radius: 6px;
+            position: relative;
+        }
+
+        .prompt-example pre {
+            margin: 0;
+            padding: 0;
+            background: none;
+            border: none;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #1a1a1a;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: #9B6BFF;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: #7c3aed;
+        }
+
+        .copy-btn:active {
+            background: #6d28d9;
+        }
+
+        /* Difficulty Badge */
+        .difficulty {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .difficulty.beginner {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .difficulty.intermediate {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .difficulty.advanced {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        /* Alert Boxes */
+        .tips-box {
+            background: #dbeafe;
+            border-left: 4px solid #3b82f6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+
+        .tips-box h4 {
+            color: #1e40af;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .warning {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+
+        .warning strong {
+            color: #92400e;
+        }
+
+        /* Code */
+        code {
+            background: #f3f4f6;
+            padding: 3px 8px;
+            border-radius: 4px;
+            color: #9B6BFF;
+            font-size: 16px;
+            border: 1px solid #e5e7eb;
+            font-family: 'Courier New', monospace;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        pre {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+            overflow-x: auto;
+        }
+
+        pre code {
+            background: none;
+            border: none;
+            padding: 0;
+            font-size: 14px;
+            color: #1a1a1a;
+        }
+
+        @media (max-width: 640px) {
+            code {
+                font-size: 14px;
+                padding: 2px 6px;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            padding: 32px 24px;
+            text-align: center;
+        }
+
+        .footer p {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .content-container {
+                grid-template-columns: 1fr;
+            }
+
+            .content-nav {
+                position: static;
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 48px 16px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            body {
+                font-size: 16px;
+            }
+
+            .content-wrapper h2 {
+                font-size: 24px;
+            }
+            
+            .content-nav {
+                display: none;
+            }
+
+            .breadcrumb {
+                padding: 12px 16px;
+            }
+
+            .breadcrumb-container {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Header -->
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="/" class="logo">
+                <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo">
+                <span class="logo-text">Pirai AI <span class="docs-label">/ Docs</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/docs">Documentation</a></li>
+                <li><a href="/#demo">Get Demo</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="/">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="/docs">Documentation</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">AI Editor Prompts</span>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>AI Editor Prompt Templates</h1>
+            <p>
+                Master AI-powered survey editing with 100+ standardized prompt templates. Copy, paste, and automate your workflow in seconds.
+            </p>
+            <div class="article-meta">
+                <span class="author">Arun Raj</span>
+                <span class="separator">•</span>
+                <span>December 15, 2025</span>
+                <span class="separator">•</span>
+                <span>20 min read</span>
+            </div>              
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="content-container">
+            
+            <!-- Navigation Menu -->
+            <div class="content-nav">
+                <h3>Quick Navigation</h3>
+                <ul>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#quick-start">Quick Start</a></li>
+                    <li><a href="#matrix">Matrix Operations</a></li>
+                    <li><a href="#update-text">Update Text</a></li>
+                    <li><a href="#add-questions">Add Questions</a></li>
+                    <li><a href="#remove">Remove Questions</a></li>
+                    <li><a href="#convert">Convert Types</a></li>
+                    <li><a href="#scales">Scales & Options</a></li>
+                    <li><a href="#piping">Piping & Logic</a></li>
+                    <li><a href="#formatting">HTML Formatting</a></li>
+                    <li><a href="#reordering">Reordering</a></li>
+                    <li><a href="#multi-step">Multi-Step Edits</a></li>
+                    <li><a href="#best-practices">Best Practices</a></li>
+                </ul>
+            </div>
+
+            <div class="content-wrapper">
+                
+                <!-- Overview Section -->
+                <section id="overview">
+                    <h2>Overview</h2>
+                    
+                    <div class="overview-box">
+                        <h3>What are AI Editor Prompt Templates?</h3>
+                        <p>Standardized prompt patterns that help you communicate effectively with Pirai AI's survey editor. These templates ensure consistent, accurate results for common survey editing tasks - from simple text updates to complex matrix operations.</p>
+                        
+                        <ul style="margin-top: 15px; padding-left: 20px;">
+                            <li><strong>100+ Templates</strong> - Covering all major survey editing operations</li>
+                            <li><strong>Copy-Paste Ready</strong> - Pre-formatted patterns you can use immediately</li>
+                            <li><strong>Time-Saving</strong> - Edit surveys in 30 seconds vs. 30 minutes manually</li>
+                            <li><strong>Consistent Results</strong> - Same pattern = same reliable output</li>
+                        </ul>
+                    </div>
+
+                    <h3>How to Use This Guide</h3>
+                    <ol>
+                        <li><strong>Find your task</strong> - Browse categories or use Quick Start for common edits</li>
+                        <li><strong>Copy the pattern</strong> - Click the copy button on any template</li>
+                        <li><strong>Customize</strong> - Replace placeholders (Q9, question text, etc.)</li>
+                        <li><strong>Paste & Send</strong> - Submit to AI Editor and watch it work</li>
+                    </ol>
+
+                    <h3>Formatting Rules</h3>
+                    <ul>
+                        <li><strong>Multi-step prompts:</strong> Use numbered format <code>1)</code>, <code>2)</code>, <code>3)</code></li>
+                        <li><strong>Single-step prompts:</strong> No numbering needed</li>
+                        <li><strong>Action verbs:</strong> Update, Add, Remove, Combine, Convert, Move, Fill, Replace</li>
+                        <li><strong>Question references:</strong> Use format <code>Q9</code>, <code>Q9-Q15</code>, <code>Q9 to Q15</code></li>
+                    </ul>
+                </section>
+
+                <!-- Quick Start Section -->
+                <section id="quick-start">
+                    <h2>🚀 Quick Start - Top 5 Most Used</h2>
+                    <p>Start here if you're new. These 5 templates cover 80% of common editing tasks.</p>
+
+                    <div class="prompt-box">
+                        <h3>1. Update Question Text <span class="difficulty beginner">Beginner</span></h3>
+                        <div class="prompt-pattern">
+                            <strong>Pattern:</strong> Update Q{number} question text to "{new text}".
+                        </div>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Update Q9 question text to "Please rate your level of agreement."</pre>
+                        </div>
+                    </div>
+
+                    <div class="prompt-box">
+                        <h3>2. Combine Questions into Matrix <span class="difficulty intermediate">Intermediate</span></h3>
+                        <div class="prompt-pattern">
+                            <strong>Pattern:</strong> Combine Q{start}-Q{end} into a single matrix question.
+                        </div>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Combine Q10-Q15 into a single matrix question and use the question text as statements.</pre>
+                        </div>
+                    </div>
+
+                    <div class="prompt-box">
+                        <h3>3. Add New Question After <span class="difficulty beginner">Beginner</span></h3>
+                        <div class="prompt-pattern">
+                            <strong>Pattern:</strong> Add new question Q{number}_{suffix} "{text}" as {type} after Q{number}.
+                        </div>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Add new question Q10_1 "If yes, which platform(s)?" as Essay question type after Q10.</pre>
+                        </div>
+                    </div>
+
+                    <div class="prompt-box">
+                        <h3>4. Convert Question Type <span class="difficulty beginner">Beginner</span></h3>
+                        <div class="prompt-pattern">
+                            <strong>Pattern:</strong> Convert Q{number} to {Single Answer|Multiple Answer|Matrix}.
+                        </div>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Convert Q6 to Single Answer question type.</pre>
+                        </div>
+                    </div>
+
+                    <div class="prompt-box">
+                        <h3>5. Remove Question <span class="difficulty beginner">Beginner</span></h3>
+                        <div class="prompt-pattern">
+                            <strong>Pattern:</strong> Remove Q{number}.
+                        </div>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Remove Q46.</pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Matrix Operations Section -->
+                <section id="matrix">
+                    <h2>🔄 Matrix Operations</h2>
+
+                    <h3>1.1 Combine Questions into Matrix <span class="difficulty intermediate">Intermediate</span></h3>
+                    <div class="prompt-pattern">
+                        <strong>Pattern:</strong> Combine Q{start}-Q{end} into a single matrix question.
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>Combine Q10-Q15 into a single matrix question and use the question text as statements.</pre>
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>1) Combine Q25-Q32 into one matrix question
+2) Use "Please rate your agreement" as the question text
+3) Current question texts become the statements</pre>
+                    </div>
+
+                    <h3>1.2 Group by Section <span class="difficulty intermediate">Intermediate</span></h3>
+                    <div class="prompt-pattern">
+                        <strong>Pattern:</strong> Group all questions in [section name] as one matrix.
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>Group all Likert scale questions in the "Customer Satisfaction" section as one matrix question. Use the section header as the question text.</pre>
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>1) Combine all questions in the Barriers block (Q246-Q257) as one matrix
+2) Combine all questions in the Decision Making block (Q185-Q193) as one matrix</pre>
+                    </div>
+
+                    <h3>1.3 Convert Options to Matrix <span class="difficulty advanced">Advanced</span></h3>
+                    <div class="prompt-pattern">
+                        <strong>Pattern:</strong> Question has statements mixed in options - restructure as matrix.
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>Q15 is a matrix question. The options include statements and scale points.
+Convert to proper matrix:
+- Options starting with "Offer" are statements
+- Rest are scale points</pre>
+                    </div>
+
+                    <h3>1.4 Fix Matrix Structure <span class="difficulty beginner">Beginner</span></h3>
+                    <div class="prompt-pattern">
+                        <strong>Pattern:</strong> Ensure statements appear before scale points.
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>For all matrix questions, ensure statements are listed first, followed by scale points.</pre>
+                    </div>
+                </section>
+
+                <!-- Update Text Section -->
+                <section id="update-text">
+                    <h2>✏️ Update Question Text</h2>
+
+                    <h3>2.1 Single Question Update <span class="difficulty beginner">Beginner</span></h3>
+                    <div class="prompt-pattern">
+                        <strong>Pattern:</strong> Update Q{number} question text to "{new text}".
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>Update Q9 question text to "Please rate your level of agreement."</pre>
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>Update Q3 question text to "Age" and Q4 question text to "Gender".</pre>
+                    </div>
+
+                    <h3>2.2 Multiple Questions Update <span class="difficulty beginner">Beginner</span></h3>
+                    <div class="prompt-pattern">
+                        <strong>Pattern:</strong> Update multiple questions with specific text.
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>1) Update Q9, Q12, Q15 question text to "Please rate your level of agreement"
+2) Update Q20 question text to "How satisfied are you with the following?"</pre>
+                    </div>
+
+                    <h3>2.3 Use Section Header as Question Text <span class="difficulty intermediate">Intermediate</span></h3>
+                    <div class="prompt-pattern">
+                        <strong>Pattern:</strong> For matrix questions, use section/block name.
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>Use the block name as the question text for all matrix questions in this section.</pre>
+                    </div>
+                </section>
+
+                <!-- Add Questions Section -->
+                <section id="add-questions">
+                    <h2>➕ Add New Questions</h2>
+
+                    <h3>3.1 Add After Specific Question <span class="difficulty beginner">Beginner</span></h3>
+                    <div class="prompt-pattern">
+                        <strong>Pattern:</strong> Add new question Q{number}_{suffix} "{text}" as {type} after Q{number}.
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>Add new question Q10_1 "If yes, which platform(s)?" as Essay question type after Q10.</pre>
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>1) Add new question Q13_1 "If yes, please briefly describe" as Essay after Q13
+2) Add new question Q15_1 "Please explain your rating" as Essay after Q15</pre>
+                    </div>
+
+                    <h3>3.2 Add Essay for Each Matrix Statement <span class="difficulty advanced">Advanced</span></h3>
+                    <div class="prompt-pattern">
+                        <strong>Pattern:</strong> Create follow-up essays for matrix statements.
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>After Q4, create open-end Essay questions for each statement in Q4.
+Use "Please explain: [statement text]" as question text.</pre>
+                    </div>
+
+                    <h3>3.3 Add at Specific Position <span class="difficulty intermediate">Intermediate</span></h3>
+                    <div class="prompt-pattern">
+                        <strong>Pattern:</strong> Add question before/after with sequence update.
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>Add new question before Q9 with text "Overall satisfaction" as Single Answer.
+Update all subsequent question IDs sequentially.</pre>
+                    </div>
+                </section>
+
+                <!-- Remove Questions Section -->
+                <section id="remove">
+                    <h2>🗑️ Remove Questions</h2>
+
+                    <h3>4.1 Remove Single Question <span class="difficulty beginner">Beginner</span></h3>
+                    <div class="prompt-pattern">
+                        <strong>Pattern:</strong> Remove Q{number}.
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>Remove Q46.</pre>
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>1) Remove Q26
+2) Remove Q33
+3) Update question IDs sequentially</pre>
+                    </div>
+
+                    <h3>4.2 Remove Text from Question <span class="difficulty beginner">Beginner</span></h3>
+                    <div class="prompt-pattern">
+                        <strong>Pattern:</strong> Remove specific text/phrase from question.
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>Remove "Display only apps selected in Q3" from Q6 answer options.</pre>
+                    </div>
+                </section>
+
+                <!-- Convert Types Section -->
+                <section id="convert">
+                    <h2>🔀 Convert Question Types</h2>
+
+                    <h3>5.1 Convert to Matrix <span class="difficulty intermediate">Intermediate</span></h3>
+                    <div class="prompt-pattern">
+                        <strong>Pattern:</strong> Convert Q{number} to Matrix with {scales} as scale points.
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>Convert Q4 to Matrix with 0, 50, and 100 as scale points.</pre>
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>Convert Q5 to Matrix question with "Used myself", "Used with students", and "Both" as scales.</pre>
+                    </div>
+
+                    <h3>5.2 Convert to Single/Multiple Answer <span class="difficulty beginner">Beginner</span></h3>
+                    <div class="prompt-pattern">
+                        <strong>Pattern:</strong> Convert Q{number} to {Single Answer|Multiple Answer}.
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>Convert Q26, Q46, and Q64 to Single Answer.</pre>
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>Convert Q6 to Single Answer question type.</pre>
+                    </div>
+                </section>
+
+                <!-- Scales & Options Section -->
+                <section id="scales">
+                    <h2>📊 Scales & Options Management</h2>
+
+                    <h3>6.1 Fill Missing Scale Points <span class="difficulty intermediate">Intermediate</span></h3>
+                    <div class="prompt-pattern">
+                        <strong>Pattern:</strong> Make scale industry standard for Q{number}.
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>Q15 scale points include only 2 options. Fill missing scale points to make it industry standard 5-point Likert scale.</pre>
+                    </div>
+
+                    <h3>6.2 Update Scale Labels <span class="difficulty beginner">Beginner</span></h3>
+                    <div class="prompt-pattern">
+                        <strong>Pattern:</strong> Update Q{number} scales with specific labels.
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>Update Q19 scales to:
+1 – Never
+2 – Rarely
+3 – Occasionally
+4 – Sometimes
+5 – Frequently</pre>
+                    </div>
+
+                    <h3>6.3 Add "Other" Option <span class="difficulty beginner">Beginner</span></h3>
+                    <div class="prompt-pattern">
+                        <strong>Pattern:</strong> Add additional option to question.
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>Add "I don't know" as the last option in Q6.</pre>
+                    </div>
+                </section>
+
+                <!-- Piping & Logic Section -->
+                <section id="piping">
+                    <h2>🔗 Piping & Display Logic</h2>
+
+                    <h3>7.1 Populate from Previous Question <span class="difficulty intermediate">Intermediate</span></h3>
+                    <div class="prompt-pattern">
+                        <strong>Pattern:</strong> Options should populate from Q{number}.
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>Q6 answer options should populate all options selected in Q3.</pre>
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>Q15 answer options should display only options selected in Q14, excluding "None of the above".</pre>
+                    </div>
+
+                    <h3>7.2 Populate with Exclusions <span class="difficulty advanced">Advanced</span></h3>
+                    <div class="prompt-pattern">
+                        <strong>Pattern:</strong> Populate from Q{number} excluding {items}.
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>Q7 answer options should populate from Q6, excluding "WhatsApp" and "Dialpad".</pre>
+                    </div>
+                </section>
+
+                <!-- HTML Formatting Section -->
+                <section id="formatting">
+                    <h2>🎨 HTML Formatting & Line Breaks</h2>
+
+                    <h3>11.1 Add Line Breaks <span class="difficulty beginner">Beginner</span></h3>
+                    <div class="prompt-pattern">
+                        <strong>Pattern:</strong> Add line breaks in question text for readability.
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>Add line breaks &lt;br&gt; wherever necessary in Q1 and INTRO1 to make the text visually good to read.</pre>
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>Add line breaks &lt;br&gt; throughout the survey in question text wherever necessary for better readability.</pre>
+                    </div>
+
+                    <h3>11.2 Add Line Breaks at Specific Points <span class="difficulty beginner">Beginner</span></h3>
+                    <div class="prompt-pattern">
+                        <strong>Pattern:</strong> Insert breaks at specific locations.
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>Add line break after "is responsible for looking after your information." in the Data Handling section.</pre>
+                    </div>
+                </section>
+
+                <!-- Reordering Section -->
+                <section id="reordering">
+                    <h2>↕️ Reordering Questions</h2>
+
+                    <h3>9.1 Move Question Position <span class="difficulty intermediate">Intermediate</span></h3>
+                    <div class="prompt-pattern">
+                        <strong>Pattern:</strong> Move Q{number} before/after Q{number}.
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>Move Q20 to appear after Q15. Update question IDs sequentially.</pre>
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>1) Move Q8 before Q5
+2) Update all question IDs to maintain sequence</pre>
+                    </div>
+                </section>
+
+                <!-- Multi-Step Edits Section -->
+                <section id="multi-step">
+                    <h2>⚙️ Multi-Step Edits</h2>
+
+                    <h3>10.1 Complex Restructuring <span class="difficulty advanced">Advanced</span></h3>
+                    <div class="prompt-pattern">
+                        <strong>Pattern:</strong> Multiple operations in sequence.
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>1) Combine Q10-Q23 into one matrix question
+2) Add essay question Q23_1 "Please explain" after the matrix
+3) Update Q24 question text to "Demographics"
+4) Remove Q30
+5) Update all question IDs sequentially</pre>
+                    </div>
+
+                    <h3>10.2 Section-by-Section Updates <span class="difficulty advanced">Advanced</span></h3>
+                    <div class="prompt-pattern">
+                        <strong>Pattern:</strong> Apply same operation across multiple sections.
+                    </div>
+
+                    <div class="prompt-example">
+                        <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                        <pre>1) Combine questions Q12-Q18 in "Satisfaction" section as one matrix
+2) Combine questions Q25-Q32 in "Likelihood" section as one matrix
+3) Combine questions Q40-Q48 in "Barriers" section as one matrix
+4) Use section headers as matrix question text for each</pre>
+                    </div>
+                </section>
+
+                <!-- Best Practices Section -->
+                <section id="best-practices">
+                    <h2>💡 Best Practices</h2>
+
+                    <div class="checklist">
+                        <h3>✅ DO:</h3>
+                        <ul>
+                            <li>Be specific with question numbers (Q9, Q10-Q15)</li>
+                            <li>Use standard action verbs (Update, Add, Remove, Combine, Convert)</li>
+                            <li>Number steps when multiple actions needed</li>
+                            <li>Specify question types (Matrix, Single Answer, Essay, Multiple Answer)</li>
+                            <li>Reference exact text in quotes for updates</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning">
+                        <strong>❌ DON'T:</strong>
+                        <ul style="margin-top: 12px;">
+                            <li>Use vague references ("the first question", "that matrix")</li>
+                            <li>Mix different numbering styles in one prompt</li>
+                            <li>Skip question ID updates when reordering</li>
+                            <li>Assume AI knows context without question numbers</li>
+                        </ul>
+                    </div>
+
+                    <h3>Common Combinations</h3>
+                    
+                    <div class="prompt-box">
+                        <h4>Matrix Grouping + Text Update:</h4>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>1) Combine Q15-Q22 into one matrix question
+2) Use "Please rate the following features" as question text
+3) Current question texts become statements</pre>
+                        </div>
+                    </div>
+
+                    <div class="prompt-box">
+                        <h4>Convert + Add:</h4>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>1) Convert Q6 to Single Answer
+2) Add essay question Q6_1 "Please describe briefly" after Q6</pre>
+                        </div>
+                    </div>
+
+                    <div class="prompt-box">
+                        <h4>Remove + Reorder:</h4>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>1) Remove Q10
+2) Move Q11 to Q10 position
+3) Update all subsequent question IDs</pre>
+                        </div>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>💡 Pro Tips</h4>
+                        <ul>
+                            <li><strong>Test with one question first</strong> - Verify the pattern works before applying to multiple questions</li>
+                            <li><strong>Save successful prompts</strong> - Build your own library for recurring tasks</li>
+                            <li><strong>Be explicit with IDs</strong> - Always reference question numbers clearly</li>
+                            <li><strong>Use version control</strong> - AI Editor has undo - don't be afraid to experiment</li>
+                        </ul>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Pirai AI. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function copyPrompt(button) {
+            const promptText = button.nextElementSibling.textContent;
+            navigator.clipboard.writeText(promptText).then(() => {
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.style.background = '#22c55e';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '#9B6BFF';
+                }, 2000);
+            });
+        }
+    </script>
+
+</body>
+</html>
