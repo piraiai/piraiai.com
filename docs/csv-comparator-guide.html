@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <!-- End Google Tag Manager -->
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Comparator User Guide - Pirai AI</title>
+    <meta name="description" content="Complete user guide for CSV Comparator. Compare CSV files instantly with field-level precision. Perfect for Qualtrics SDS validation and data quality checks.">
+    
+    <!-- Keywords -->
+    <meta name="keywords" content="CSV comparison tool, compare CSV files, Qualtrics SDS validation, data diff tool, CSV change tracking, survey data comparison, supplemental data sources, data quality check, free CSV comparator">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://piraiai.com/docs/csv-comparator">
+    <meta property="og:title" content="CSV Comparator User Guide - Pirai AI">
+    <meta property="og:description" content="Compare CSV files instantly. Find missing, new, and changed records with field-level precision. Perfect for Qualtrics SDS validation. 100% private - browser-based tool.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="og:site_name" content="Pirai AI Documentation">
+    <meta property="article:published_time" content="2025-12-15T00:00:00Z">
+    <meta property="article:author" content="Pirai AI Team">
+    <meta property="article:section" content="Tools & Extensions">
+    <meta property="article:tag" content="CSV Comparator">
+    <meta property="article:tag" content="Data Validation">
+    <meta property="article:tag" content="Qualtrics SDS">
+    <meta property="article:tag" content="Free Tool">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://piraiai.com/docs/csv-comparator">
+    <meta name="twitter:title" content="CSV Comparator User Guide - Pirai AI">
+    <meta name="twitter:description" content="Compare CSV files instantly. Find differences, validate Qualtrics SDS updates, and ensure data quality. 100% private browser tool.">
+    <meta name="twitter:image" content="https://piraiai.com/logo.png">
+    
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link rel="canonical" href="https://piraiai.com/docs/csv-comparator">
+
+    <!-- Fonts - DOCS STYLE -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    
+    <style>
+        /* DOCS-MATCHED STYLES - Same as Qualtrics API Toolkit */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.7;
+            font-size: 18px;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #1a1a1a;
+        }
+
+        /* Header */
+        .nav {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #1a1a1a;
+        }
+
+        .logo img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .docs-label {
+            color: #6b7280;
+            font-weight: 400;
+            margin-left: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4b5563;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #9B6BFF;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background: #f9fafb;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 12px 24px;
+        }
+
+        .breadcrumb-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .breadcrumb a {
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb a:hover {
+            color: #9B6BFF;
+        }
+
+        .breadcrumb-separator {
+            color: #d1d5db;
+        }
+
+        .breadcrumb-current {
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+
+        .article-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            max-width: 800px;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .separator {
+            color: #d1d5db;
+        }          
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            padding: 48px 24px;
+            /* text-align: center; */
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }        
+
+        /* .hero h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        } */
+
+        .hero p {
+            font-size: 20px;
+            color: #6b7280;           
+            margin: 0 auto;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 24px;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 32px 16px;
+            }
+        }
+
+        .content-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        /* Sidebar Navigation */
+        .content-nav {
+            position: sticky;
+            top: 80px;
+            height: fit-content;
+            background: #f9fafb;
+            padding: 24px;
+            border-radius: 8px;
+        }
+
+        .content-nav h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+
+        .content-nav ul {
+            list-style: none;
+        }
+
+        .content-nav li {
+            margin-bottom: 12px;
+        }
+
+        .content-nav a {
+            color: #4b5563;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .content-nav a:hover {
+            color: #9B6BFF;
+        }
+
+        /* Main Content */
+        .content-wrapper {
+            max-width: 800px;
+            overflow-x: hidden;
+        }
+
+        .content-wrapper h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-top: 48px;
+            margin-bottom: 16px;
+            padding-left: 16px;
+            border-left: 4px solid #9B6BFF;
+        }
+
+        .content-wrapper h2:first-child {
+            margin-top: 0;
+        }
+
+        .content-wrapper h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+        }
+
+        .content-wrapper h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 24px;
+            margin-bottom: 8px;
+        }
+
+        .content-wrapper p {
+            margin-bottom: 24px;
+            color: #374151;
+            max-width: 100%;
+            word-wrap: break-word;
+        }
+
+        .content-wrapper ul,
+        .content-wrapper ol {
+            margin-bottom: 24px;
+            padding-left: 24px;
+            max-width: 100%;
+        }
+
+        .content-wrapper li {
+            margin-bottom: 12px;
+            color: #374151;
+        }
+
+        .content-wrapper strong {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        /* Special Boxes */
+        .overview-box {
+            background: #f5f3ff;
+            border-left: 4px solid #9B6BFF;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 32px 0;
+            max-width: 100%;
+            overflow-wrap: break-word;
+        }
+
+        .overview-box h3 {
+            color: #6b21a8;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .checklist {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 32px 0;
+            max-width: 100%;
+            overflow-wrap: break-word;
+        }
+
+        .checklist h3 {
+            color: #15803d;
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+
+        .checklist ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .checklist li {
+            margin: 12px 0;
+            padding-left: 32px;
+            position: relative;
+        }
+
+        .checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #22c55e;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        /* Step Items */
+        .step-item {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 16px 0;
+            display: flex;
+            gap: 16px;
+            align-items: start;
+        }
+
+        .step-number {
+            background: #9B6BFF;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+        }
+
+        .step-content p {
+            margin-bottom: 0;
+            color: #6b7280;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 32px 0;
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+        }
+
+        @media (max-width: 640px) {
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+
+        th, td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        th {
+            background: #f9fafb;
+            font-weight: 600;
+            color: #1a1a1a;
+            font-size: 15px;
+        }
+
+        td {
+            color: #374151;
+            font-size: 16px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background: #f9fafb;
+        }
+
+        /* Alert Boxes */
+        .tips-box {
+            background: #dbeafe;
+            border-left: 4px solid #3b82f6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+
+        .tips-box h4 {
+            color: #1e40af;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .warning {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+
+        .warning strong {
+            color: #92400e;
+        }
+
+        .troubleshooting {
+            background: #fee2e2;
+            border-left: 4px solid #ef4444;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+
+        .troubleshooting h4 {
+            color: #dc2626;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .solution {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 20px;
+            margin: 16px 0;
+            border-radius: 8px;
+        }
+
+        .solution strong {
+            color: #15803d;
+        }
+
+        /* Result Boxes */
+        .result-missing {
+            background: #fee2e2;
+            border-left: 4px solid #ef4444;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+
+        .result-missing h4 {
+            color: #dc2626;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .result-new {
+            background: #d1fae5;
+            border-left: 4px solid #22c55e;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+
+        .result-new h4 {
+            color: #15803d;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .result-changed {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+
+        .result-changed h4 {
+            color: #92400e;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        /* Code */
+        code {
+            background: #f3f4f6;
+            padding: 3px 8px;
+            border-radius: 4px;
+            color: #9B6BFF;
+            font-size: 16px;
+            border: 1px solid #e5e7eb;
+            font-family: 'Courier New', monospace;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        pre {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+            overflow-x: auto;
+        }
+
+        pre code {
+            background: none;
+            border: none;
+            padding: 0;
+            font-size: 14px;
+            color: #1a1a1a;
+        }
+
+        @media (max-width: 640px) {
+            code {
+                font-size: 14px;
+                padding: 2px 6px;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            padding: 32px 24px;
+            text-align: center;
+        }
+
+        .footer p {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .content-container {
+                grid-template-columns: 1fr;
+            }
+
+            .content-nav {
+                position: static;
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 48px 16px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            body {
+                font-size: 16px;
+            }
+
+            .content-wrapper h2 {
+                font-size: 24px;
+            }
+            
+            .content-nav {
+                display: none;
+            }
+
+            .breadcrumb {
+                padding: 12px 16px;
+            }
+
+            .breadcrumb-container {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Header -->
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="/" class="logo">
+                <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo">
+                <span class="logo-text">Pirai AI <span class="docs-label">/ Docs</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/docs">Documentation</a></li>
+                <li><a href="/#demo">Get Demo</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="/">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="/docs">Documentation</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">CSV Comparator</span>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>CSV Comparator</h1>
+            <p>
+                Compare CSV files instantly with field-level precision. Find missing, new, and changed records. 100% private - everything runs in your browser.
+            </p>
+            <div class="article-meta">
+                <span class="author">Arun Raj</span>
+                <span class="separator">•</span>
+                <span>December 17, 2025</span>
+                <span class="separator">•</span>
+                <span>10 min read</span>
+            </div>              
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="content-container">
+            
+            <!-- Navigation Menu -->
+            <div class="content-nav">
+                <h3>Quick Navigation</h3>
+                <ul>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#getting-started">Getting Started</a></li>
+                    <li><a href="#how-to-use">How to Use</a></li>
+                    <li><a href="#results">Understanding Results</a></li>
+                    <li><a href="#use-cases">Use Cases</a></li>
+                    <li><a href="#best-practices">Best Practices</a></li>
+                    <li><a href="#privacy">Privacy & Security</a></li>
+                    <li><a href="#troubleshooting">Troubleshooting</a></li>
+                </ul>
+            </div>
+
+            <div class="content-wrapper">
+                
+                <!-- Overview Section -->
+                <section id="overview">
+                    <h2>Overview</h2>
+                    
+                    <div class="overview-box">
+                        <h3>What is CSV Comparator?</h3>
+                        <p>CSV Comparator is a <strong>free browser-based tool</strong> that helps you compare two CSV files and identify differences with field-level precision. Perfect for data validation, quality checks, and tracking changes over time.</p>
+                        
+                        <ul style="margin-top: 15px; padding-left: 20px;">
+                            <li><strong>Compare up to 100,000 rows</strong> - Instant processing for large datasets</li>
+                            <li><strong>Auto-detect identifiers</strong> - Automatically finds email, ID, or unique key columns</li>
+                            <li><strong>Field-level tracking</strong> - See exactly which fields changed and how</li>
+                            <li><strong>100% private</strong> - All processing happens in your browser, no uploads</li>
+                        </ul>
+                    </div>
+
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li><strong>Instant Results:</strong> Process large files in seconds</li>
+                        <li><strong>Smart Detection:</strong> Automatically identifies unique identifier columns</li>
+                        <li><strong>Three Result Types:</strong> Missing records, new records, and changed fields</li>
+                        <li><strong>Export Reports:</strong> Download detailed comparison results</li>
+                        <li><strong>Drag & Drop:</strong> Simple, intuitive interface</li>
+                        <li><strong>Works Offline:</strong> No internet connection required after initial load</li>
+                    </ul>
+                </section>
+
+                <!-- Getting Started Section -->
+                <section id="getting-started">
+                    <h2>Getting Started</h2>
+
+                    <h3>What You Need</h3>
+                    <div class="checklist">
+                        <ul>
+                            <li>A modern web browser (Chrome, Firefox, Safari, Edge)</li>
+                            <li>Two CSV files to compare</li>
+                            <li>Files with a unique identifier column (email, ID, customer number, etc.)</li>
+                        </ul>
+                    </div>
+
+                    <h3>Supported File Formats</h3>
+                    <ul>
+                        <li><strong>CSV files</strong> (.csv) - Comma-separated values</li>
+                        <li><strong>TSV files</strong> (.tsv) - Tab-separated values</li>
+                        <li><strong>UTF-8 encoding</strong> - Supports special characters and multiple languages</li>
+                    </ul>
+
+                    <h3>File Size Limits</h3>
+                    <ul>
+                        <li><strong>Maximum rows:</strong> 100,000 rows per file</li>
+                        <li><strong>Performance:</strong> Files under 50,000 rows process instantly</li>
+                        <li><strong>Recommendation:</strong> Test with sample data first for very large files</li>
+                    </ul>
+
+                    <div class="tips-box">
+                        <h4>💡 Quick Start</h4>
+                        <p>Access the tool: <a href="https://piraiai.com/pirai-csv-comparator" target="_blank" style="color:#9B6BFF;">https://piraiai.com/pirai-csv-comparator</a></p>
+                        <p>No installation, registration, or setup required. Just open and start comparing!</p>
+                    </div>
+                </section>
+
+                <!-- How to Use Section -->
+                <section id="how-to-use">
+                    <h2>How to Use</h2>
+
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Upload Two CSV Files</h4>
+                            <p>Drag and drop or click to upload your "before" and "after" CSV files. The tool will display a preview of the first few rows.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Select Identifier Field</h4>
+                            <p>Choose the column that uniquely identifies each record (e.g., Email, CustomerID, ResponseID). The tool will auto-detect common identifiers.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Run Comparison</h4>
+                            <p>Click "Compare" to start the analysis. Processing typically takes seconds, even for large files.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h4>Review Results</h4>
+                            <p>Explore three result categories: Missing records (🔴), New records (🟢), and Changed fields (🟡). View field-by-field changes.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h4>Export Report</h4>
+                            <p>Download a detailed comparison report with all changes documented. Results are exported in CSV format.</p>
+                        </div>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>💡 Pro Tip</h4>
+                        <p>Make sure both CSV files use the same identifier column name and format. For example, if File 1 uses "Email", File 2 should also use "Email" (case-sensitive).</p>
+                    </div>
+                </section>
+
+                <!-- Understanding Results Section -->
+                <section id="results">
+                    <h2>Understanding Results</h2>
+
+                    <p>The comparison produces three types of results, each with distinct meaning:</p>
+
+                    <div class="result-missing">
+                        <h4>🔴 Missing Records</h4>
+                        <p><strong>Definition:</strong> Records that exist in File 1 (before) but are missing in File 2 (after).</p>
+                        <p><strong>Common causes:</strong></p>
+                        <ul>
+                            <li>Records were deleted or removed</li>
+                            <li>Data export filtered out certain records</li>
+                            <li>Respondents dropped out (in survey contexts)</li>
+                        </ul>
+                        <p><strong>Example:</strong> Customer ID "C123" appears in your old SDS file but not in the updated version.</p>
+                    </div>
+
+                    <div class="result-new">
+                        <h4>🟢 New Records</h4>
+                        <p><strong>Definition:</strong> Records that exist in File 2 (after) but were not in File 1 (before).</p>
+                        <p><strong>Common causes:</strong></p>
+                        <ul>
+                            <li>New records were added</li>
+                            <li>Additional data was collected</li>
+                            <li>New customers/respondents joined</li>
+                        </ul>
+                        <p><strong>Example:</strong> Customer ID "C456" appears in your updated SDS file but wasn't in the previous version.</p>
+                    </div>
+
+                    <div class="result-changed">
+                        <h4>🟡 Changed Fields</h4>
+                        <p><strong>Definition:</strong> Records that exist in both files but have different values in one or more fields.</p>
+                        <p><strong>Shows:</strong></p>
+                        <ul>
+                            <li>Which fields changed</li>
+                            <li>Old value → New value</li>
+                            <li>Field-by-field comparison</li>
+                        </ul>
+                        <p><strong>Example:</strong> Customer C123's "Status" field changed from "Active" to "Inactive".</p>
+                    </div>
+
+                    <h3>Summary Statistics</h3>
+                    <p>At the top of the results, you'll see:</p>
+                    <ul>
+                        <li><strong>Total records compared</strong> - How many unique identifiers were found</li>
+                        <li><strong>Match rate</strong> - Percentage of records that appeared in both files</li>
+                        <li><strong>Missing count</strong> - Number of records removed</li>
+                        <li><strong>New count</strong> - Number of records added</li>
+                        <li><strong>Changed count</strong> - Number of records with field changes</li>
+                    </ul>
+
+                    <h3>Reading Changed Field Results</h3>
+                    <p>For changed records, you'll see a table showing:</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Identifier</th>
+                                <th>Field Name</th>
+                                <th>Old Value</th>
+                                <th>New Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>C123</td>
+                                <td>Status</td>
+                                <td>Active</td>
+                                <td>Inactive</td>
+                            </tr>
+                            <tr>
+                                <td>C123</td>
+                                <td>Segment</td>
+                                <td>Premium</td>
+                                <td>Standard</td>
+                            </tr>
+                            <tr>
+                                <td>C456</td>
+                                <td>Email</td>
+                                <td>old@email.com</td>
+                                <td>new@email.com</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- Use Cases Section -->
+                <section id="use-cases">
+                    <h2>Use Cases</h2>
+
+                    <h3>1. Qualtrics Supplemental Data Sources (SDS) Validation</h3>
+                    <p>Qualtrics allows you to upload CSV files as <a href="https://www.qualtrics.com/support/survey-platform/survey-module/sds/supplemental-data-sources-basic-overview/" target="_blank" style="color:#9B6BFF;">Supplemental Data Sources (SDS)</a> to enrich survey responses with additional data.</p>
+
+                    <p><strong>The challenge:</strong> When updating SDS files, you need to verify what changed before uploading to Qualtrics.</p>
+
+                    <p><strong>How CSV Comparator helps:</strong></p>
+                    <ul>
+                        <li>Compare old vs new SDS CSV files before uploading</li>
+                        <li>Verify which records were added, removed, or updated</li>
+                        <li>Ensure no critical data was accidentally deleted</li>
+                        <li>Track field-level changes across customer/respondent data</li>
+                    </ul>
+
+                    <div class="tips-box">
+                        <h4>💡 Qualtrics SDS Pro Tip</h4>
+                        <p><strong>Before uploading updated Supplemental Data Sources to Qualtrics:</strong></p>
+                        <ol>
+                            <li>Export your current SDS file from Qualtrics</li>
+                            <li>Upload both old and new files to CSV Comparator</li>
+                            <li>Use CustomerID or Email as identifier</li>
+                            <li>Review all changes - missing, new, and field updates</li>
+                            <li>Prevent accidental data loss or incorrect updates</li>
+                        </ol>
+                        <p><strong>This 2-minute check can save hours of troubleshooting!</strong></p>
+                    </div>
+
+                    <h3>2. Survey Response Validation</h3>
+                    <ul>
+                        <li>Compare exported survey responses before and after bulk updates</li>
+                        <li>Verify that embedded data updates were applied correctly</li>
+                        <li>Check for unexpected changes after data processing</li>
+                        <li>Validate data transformations</li>
+                    </ul>
+
+                    <h3>3. Data Quality Checks</h3>
+                    <ul>
+                        <li>Track data drift over time</li>
+                        <li>Identify unexpected changes in master data files</li>
+                        <li>Validate data synchronization between systems</li>
+                        <li>Monitor changes in customer/respondent information</li>
+                    </ul>
+
+                    <h3>4. QA Testing</h3>
+                    <ul>
+                        <li>Validate data migrations between systems</li>
+                        <li>Compare test vs production data</li>
+                        <li>Ensure data integrity after system updates</li>
+                        <li>Verify ETL processes worked correctly</li>
+                    </ul>
+
+                    <h3>5. Respondent Tracking</h3>
+                    <ul>
+                        <li>Compare participant lists across survey waves</li>
+                        <li>Identify new respondents in follow-up studies</li>
+                        <li>Track respondent dropouts between waves</li>
+                        <li>Monitor panel composition changes</li>
+                    </ul>
+                </section>
+
+                <!-- Best Practices Section -->
+                <section id="best-practices">
+                    <h2>Best Practices</h2>
+
+                    <div class="checklist">
+                        <h3>✅ Do's</h3>
+                        <ul>
+                            <li>Use unique identifiers (email, ID, customer number)</li>
+                            <li>Ensure consistent column names across both files</li>
+                            <li>Clean your data before comparison (remove extra spaces, standardize formats)</li>
+                            <li>Test with a small sample first if working with very large files</li>
+                            <li>Export and save comparison results for documentation</li>
+                            <li>Verify identifier column has no duplicate values</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning">
+                        <strong>❌ Don'ts</strong>
+                        <ul style="margin-top: 12px;">
+                            <li>Don't use non-unique identifiers (names, dates, generic IDs with duplicates)</li>
+                            <li>Don't compare files with completely different structures</li>
+                            <li>Don't forget to download results before closing the browser</li>
+                            <li>Don't assume missing identifier means missing data - check for typos</li>
+                        </ul>
+                    </div>
+
+                    <h3>Performance Tips</h3>
+                    <div class="tips-box">
+                        <h4>💡 Optimize for Large Files</h4>
+                        <ul>
+                            <li><strong>Files under 50K rows:</strong> Process instantly</li>
+                            <li><strong>Files 50K-100K rows:</strong> May take 10-30 seconds</li>
+                            <li><strong>Files over 100K rows:</strong> Consider splitting into chunks</li>
+                            <li><strong>Browser recommendation:</strong> Chrome or Edge for best performance</li>
+                            <li><strong>Memory:</strong> Close unnecessary browser tabs for very large comparisons</li>
+                        </ul>
+                    </div>
+
+                    <h3>Data Preparation Checklist</h3>
+                    <ol>
+                        <li><strong>Verify identifier uniqueness:</strong> No duplicate IDs in either file</li>
+                        <li><strong>Consistent naming:</strong> Same column names in both files</li>
+                        <li><strong>Same data types:</strong> Numbers as numbers, dates in same format</li>
+                        <li><strong>Trim whitespace:</strong> Remove leading/trailing spaces</li>
+                        <li><strong>Standardize case:</strong> Decide on uppercase/lowercase for identifiers</li>
+                    </ol>
+                </section>
+
+                <!-- Privacy & Security Section -->
+                <section id="privacy">
+                    <h2>🔐 Privacy & Security</h2>
+
+                    <div class="overview-box">
+                        <h3>Your Data Stays Private</h3>
+                        <p>CSV Comparator is designed with privacy as the top priority. All comparison processing happens entirely in your browser - your data never leaves your computer.</p>
+                    </div>
+
+                    <h3>How It Works</h3>
+                    <div class="checklist">
+                        <ul>
+                            <li><strong>100% browser-based:</strong> All processing happens locally on your device</li>
+                            <li><strong>No server uploads:</strong> Your CSV files are never sent to any server</li>
+                            <li><strong>No data storage:</strong> Files are processed in memory and discarded when you close the tab</li>
+                            <li><strong>Works offline:</strong> After initial page load, no internet connection required</li>
+                            <li><strong>Client-side JavaScript:</strong> All logic runs in your browser</li>
+                        </ul>
+                    </div>
+
+                    <h3>Technical Details</h3>
+                    <ul>
+                        <li><strong>Processing:</strong> JavaScript FileReader API reads files locally</li>
+                        <li><strong>Memory:</strong> Data stored temporarily in browser RAM only</li>
+                        <li><strong>Network:</strong> Zero network requests after page load</li>
+                        <li><strong>Sessions:</strong> All data clears when you close the browser tab</li>
+                    </ul>
+
+                    <h3>Best Practices for Sensitive Data</h3>
+                    <div class="tips-box">
+                        <h4>💡 Security Tips</h4>
+                        <ul>
+                            <li>Use on trusted devices only</li>
+                            <li>Clear browser cache after working with highly sensitive data</li>
+                            <li>Close the browser tab when finished to clear all data from memory</li>
+                            <li>For extremely sensitive data, consider using in an incognito/private window</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning">
+                        <strong>⚠️ Important:</strong> While the tool itself is secure and private, always follow your organization's data handling policies when working with sensitive information.
+                    </div>
+                </section>
+
+                <!-- Troubleshooting Section -->
+                <section id="troubleshooting">
+                    <h2>Troubleshooting</h2>
+
+                    <div class="troubleshooting">
+                        <h4>❌ "File won't upload"</h4>
+                        <div class="solution">
+                            <strong>Solutions:</strong>
+                            <ul>
+                                <li>Check file format - must be CSV or TSV</li>
+                                <li>Verify file size is under 100K rows</li>
+                                <li>Ensure file is not corrupted - try opening in Excel first</li>
+                                <li>Check file encoding - should be UTF-8</li>
+                                <li>Remove special characters from filename</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="troubleshooting">
+                        <h4>❌ "No identifier field detected"</h4>
+                        <div class="solution">
+                            <strong>Solutions:</strong>
+                            <ul>
+                                <li>Manually select the identifier column from the dropdown</li>
+                                <li>Ensure the identifier column has unique values</li>
+                                <li>Check for empty cells in the identifier column</li>
+                                <li>Verify both files have the same identifier column name</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="troubleshooting">
+                        <h4>❌ "Comparison taking too long"</h4>
+                        <div class="solution">
+                            <strong>Solutions:</strong>
+                            <ul>
+                                <li>Large file detected - be patient (may take up to 30 seconds for 100K rows)</li>
+                                <li>Close other browser tabs to free up memory</li>
+                                <li>Use Chrome or Edge browser for best performance</li>
+                                <li>Consider splitting file if over 100K rows</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="troubleshooting">
+                        <h4>❌ "Unexpected results / Too many changes"</h4>
+                        <div class="solution">
+                            <strong>Solutions:</strong>
+                            <ul>
+                                <li>Verify you selected the correct identifier column</li>
+                                <li>Check for duplicate identifiers in either file</li>
+                                <li>Ensure both files use the same identifier format (e.g., both use "email" not "Email" vs "email")</li>
+                                <li>Look for leading/trailing spaces in identifier values</li>
+                                <li>Verify data types are consistent (numbers stored as text vs numbers)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="troubleshooting">
+                        <h4>❌ "All records showing as new/missing"</h4>
+                        <div class="solution">
+                            <strong>Solutions:</strong>
+                            <ul>
+                                <li>Check if identifier column names match exactly in both files</li>
+                                <li>Verify you didn't swap File 1 and File 2</li>
+                                <li>Look for case sensitivity issues (ID vs id)</li>
+                                <li>Check if identifier format changed (added prefixes/suffixes)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3>Still Having Issues?</h3>
+                    <p>Contact our support team: <a href="mailto:admin@piraiai.com" style="color:#9B6BFF;">admin@piraiai.com</a></p>
+                    <p>Include:</p>
+                    <ul>
+                        <li>Description of the issue</li>
+                        <li>Browser and version</li>
+                        <li>Approximate file sizes</li>
+                        <li>Screenshot of error (if any)</li>
+                    </ul>
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Pirai AI. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
