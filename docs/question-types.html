@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <!-- End Google Tag Manager -->
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Types Reference - Pirai AI</title>
+    <meta name="description" content="Complete reference guide for all Pirai AI question types. Learn Excel formatting, platform support, and best practices for each survey question type.">
+    
+    <!-- Keywords -->
+    <meta name="keywords" content="survey question types, Pirai AI question formats, MC SingleAnswer, MC MultipleAnswer, Matrix questions, survey automation, Excel specification, question type guide">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://piraiai.com/docs/question-types">
+    <meta property="og:title" content="Question Types Reference - Pirai AI">
+    <meta property="og:description" content="Complete reference guide for all Pirai AI question types with Excel formats, examples, and best practices.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="og:site_name" content="Pirai AI Documentation">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://piraiai.com/docs/question-types">
+    <meta name="twitter:title" content="Question Types Reference - Pirai AI">
+    <meta name="twitter:description" content="Complete reference guide for all Pirai AI question types with Excel formats and best practices.">
+    <meta name="twitter:image" content="https://piraiai.com/logo.png">
+    
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link rel="canonical" href="https://piraiai.com/docs/question-types">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.7;
+            font-size: 18px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #1a1a1a;
+        }
+
+        /* Header */
+        .nav {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #1a1a1a;
+        }
+
+        .logo img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .docs-label {
+            color: #6b7280;
+            font-weight: 400;
+            margin-left: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4b5563;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #9B6BFF;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background: #f9fafb;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 12px 24px;
+        }
+
+        .breadcrumb-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .breadcrumb a {
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb a:hover {
+            color: #9B6BFF;
+        }
+
+        .breadcrumb-separator {
+            color: #d1d5db;
+        }
+
+        .breadcrumb-current {
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            padding: 80px 24px;
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #6b7280;
+            max-width: 700px;
+            margin: 0 auto 32px;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-top: 32px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: #9B6BFF;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #6b7280;
+            margin-top: 4px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 64px 24px;
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Question Type Grid */
+        .question-types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 24px;
+            margin-bottom: 64px;
+        }
+
+        .question-type-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 32px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .question-type-card:hover {
+            border-color: #9B6BFF;
+            box-shadow: 0 4px 12px rgba(155, 107, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .question-type-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #9B6BFF, #7c3aed);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .question-type-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .card-icon {
+            font-size: 32px;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f5f3ff;
+            border-radius: 12px;
+        }
+
+        .card-title {
+            flex: 1;
+        }
+
+        .card-title h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .card-title .code {
+            font-size: 13px;
+            color: #9B6BFF;
+            font-family: 'Courier New', monospace;
+            background: #f5f3ff;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .card-description {
+            color: #6b7280;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .card-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .feature-tag {
+            font-size: 12px;
+            padding: 4px 12px;
+            background: #f3f4f6;
+            color: #4b5563;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        .card-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #22c55e;
+            font-weight: 500;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+        }
+
+        .card-status.coming-soon {
+            color: #f59e0b;
+        }
+
+        .card-status.coming-soon .status-dot {
+            background: #f59e0b;
+        }
+
+        /* Coming Soon Overlay */
+        .coming-soon-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: #f59e0b;
+            color: white;
+            padding: 4px 16px;
+            font-size: 12px;
+            font-weight: 600;
+            border-bottom-left-radius: 8px;
+        }
+
+        /* Category Sections */
+        .category-section {
+            margin-bottom: 64px;
+        }
+
+        .category-header {
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .category-header h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .category-header p {
+            font-size: 16px;
+            color: #6b7280;
+        }
+
+        /* Footer */
+        .footer {
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            padding: 48px 24px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .footer p {
+            color: #6b7280;
+            font-size: 16px;
+            margin-bottom: 24px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .footer-links a {
+            color: #6b7280;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #9B6BFF;
+        }
+
+        .footer-copyright {
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .question-types-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .container {
+                padding: 48px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Header -->
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="/" class="logo">
+                <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo">
+                <span class="logo-text">Pirai AI <span class="docs-label">/ Docs</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/docs">Documentation</a></li>
+                <li><a href="/#demo">Get Demo</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="/">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="/docs">Documentation</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Question Types</span>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Question Types Reference</h1>
+        <p>
+            Complete guide to all Pirai AI question types. Learn Excel formatting, platform support, and best practices for each survey question type.
+        </p>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Question Types</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">20+</div>
+                <div class="stat-label">Platform Support</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Conversion Accuracy</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <!-- Multiple Choice Section -->
+        <div class="category-section">
+            <div class="category-header">
+                <h2>Multiple Choice Questions</h2>
+                <p>The foundation of most surveys. Single and multiple selection options.</p>
+            </div>
+
+            <div class="question-types-grid">
+                
+                <!-- Single Answer -->
+                <a href="/docs/question-types/single-answer" class="question-type-card">
+                    <div class="card-header">
+                        <div class="card-icon">○</div>
+                        <div class="card-title">
+                            <h3>Single Answer</h3>
+                            <span class="code">MC:SingleAnswer</span>
+                        </div>
+                    </div>
+                    <p class="card-description">
+                        Allow respondents to select exactly one option from a list. The most fundamental question type using radio buttons.
+                    </p>
+                    <div class="card-features">
+                        <span class="feature-tag">Radio Buttons</span>
+                        <span class="feature-tag">One Selection</span>
+                        <span class="feature-tag">Demographics</span>
+                    </div>
+                    <div class="card-status">
+                        <span class="status-dot"></span>
+                        <span>Documentation Available</span>
+                    </div>
+                </a>
+
+                <!-- Multiple Answer -->
+                <a href="/docs/question-types/multiple-answer" class="question-type-card">
+                    <div class="card-header">
+                        <div class="card-icon">☑</div>
+                        <div class="card-title">
+                            <h3>Multiple Answer</h3>
+                            <span class="code">MC:MultipleAnswer</span>
+                        </div>
+                    </div>
+                    <p class="card-description">
+                        Allow respondents to select one or more options. Essential for "select all that apply" scenarios with checkboxes.
+                    </p>
+                    <div class="card-features">
+                        <span class="feature-tag">Checkboxes</span>
+                        <span class="feature-tag">Multiple Selection</span>
+                        <span class="feature-tag">Awareness</span>
+                    </div>
+                    <div class="card-status">
+                        <span class="status-dot"></span>
+                        <span>Documentation Available</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
+        <!-- Matrix/Grid Section -->
+        <div class="category-section">
+            <div class="category-header">
+                <h2>Matrix & Grid Questions</h2>
+                <p>Rate multiple items on the same scale efficiently.</p>
+            </div>
+
+            <div class="question-types-grid">
+                
+                <!-- Matrix -->
+                <div class="question-type-card" style="cursor: default; opacity: 0.7;">
+                    <span class="coming-soon-overlay">Coming Soon</span>
+                    <div class="card-header">
+                        <div class="card-icon">⊞</div>
+                        <div class="card-title">
+                            <h3>Matrix</h3>
+                            <span class="code">Matrix</span>
+                        </div>
+                    </div>
+                    <p class="card-description">
+                        Rate multiple statements on the same scale. Efficient for Likert scales and grid-based questions.
+                    </p>
+                    <div class="card-features">
+                        <span class="feature-tag">Grid Layout</span>
+                        <span class="feature-tag">Likert Scale</span>
+                        <span class="feature-tag">Efficient</span>
+                    </div>
+                    <div class="card-status coming-soon">
+                        <span class="status-dot"></span>
+                        <span>Coming Soon</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Text Entry Section -->
+        <div class="category-section">
+            <div class="category-header">
+                <h2>Text Entry Questions</h2>
+                <p>Collect open-ended responses and detailed feedback.</p>
+            </div>
+
+            <div class="question-types-grid">
+                
+                <!-- Single Line Text -->
+                <div class="question-type-card" style="cursor: default; opacity: 0.7;">
+                    <span class="coming-soon-overlay">Coming Soon</span>
+                    <div class="card-header">
+                        <div class="card-icon">─</div>
+                        <div class="card-title">
+                            <h3>Single Line Text</h3>
+                            <span class="code">TE:SingleLine</span>
+                        </div>
+                    </div>
+                    <p class="card-description">
+                        Short text input for names, numbers, or brief responses. Single line text box.
+                    </p>
+                    <div class="card-features">
+                        <span class="feature-tag">Text Input</span>
+                        <span class="feature-tag">Short Answer</span>
+                        <span class="feature-tag">Names</span>
+                    </div>
+                    <div class="card-status coming-soon">
+                        <span class="status-dot"></span>
+                        <span>Coming Soon</span>
+                    </div>
+                </div>
+
+                <!-- Essay Text -->
+                <div class="question-type-card" style="cursor: default; opacity: 0.7;">
+                    <span class="coming-soon-overlay">Coming Soon</span>
+                    <div class="card-header">
+                        <div class="card-icon">☰</div>
+                        <div class="card-title">
+                            <h3>Essay Text</h3>
+                            <span class="code">TE:Essay</span>
+                        </div>
+                    </div>
+                    <p class="card-description">
+                        Large text area for detailed responses, comments, and long-form feedback.
+                    </p>
+                    <div class="card-features">
+                        <span class="feature-tag">Text Area</span>
+                        <span class="feature-tag">Long Answer</span>
+                        <span class="feature-tag">Feedback</span>
+                    </div>
+                    <div class="card-status coming-soon">
+                        <span class="status-dot"></span>
+                        <span>Coming Soon</span>
+                    </div>
+                </div>
+
+                <!-- Form Text -->
+                <div class="question-type-card" style="cursor: default; opacity: 0.7;">
+                    <span class="coming-soon-overlay">Coming Soon</span>
+                    <div class="card-header">
+                        <div class="card-icon">📝</div>
+                        <div class="card-title">
+                            <h3>Form Text</h3>
+                            <span class="code">TE:Form</span>
+                        </div>
+                    </div>
+                    <p class="card-description">
+                        Multiple labeled text fields in a single question. Perfect for collecting structured data like addresses.
+                    </p>
+                    <div class="card-features">
+                        <span class="feature-tag">Multiple Fields</span>
+                        <span class="feature-tag">Structured</span>
+                        <span class="feature-tag">Addresses</span>
+                    </div>
+                    <div class="card-status coming-soon">
+                        <span class="status-dot"></span>
+                        <span>Coming Soon</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Ranking & Allocation Section -->
+        <div class="category-section">
+            <div class="category-header">
+                <h2>Ranking & Allocation Questions</h2>
+                <p>Understand priorities and allocate resources.</p>
+            </div>
+
+            <div class="question-types-grid">
+                
+                <!-- Rank Order -->
+                <div class="question-type-card" style="cursor: default; opacity: 0.7;">
+                    <span class="coming-soon-overlay">Coming Soon</span>
+                    <div class="card-header">
+                        <div class="card-icon">↕</div>
+                        <div class="card-title">
+                            <h3>Rank Order</h3>
+                            <span class="code">RankOrder</span>
+                        </div>
+                    </div>
+                    <p class="card-description">
+                        Ask respondents to order items by preference or priority. Drag-and-drop ranking.
+                    </p>
+                    <div class="card-features">
+                        <span class="feature-tag">Drag & Drop</span>
+                        <span class="feature-tag">Priority</span>
+                        <span class="feature-tag">Order</span>
+                    </div>
+                    <div class="card-status coming-soon">
+                        <span class="status-dot"></span>
+                        <span>Coming Soon</span>
+                    </div>
+                </div>
+
+                <!-- Constant Sum -->
+                <div class="question-type-card" style="cursor: default; opacity: 0.7;">
+                    <span class="coming-soon-overlay">Coming Soon</span>
+                    <div class="card-header">
+                        <div class="card-icon">Σ</div>
+                        <div class="card-title">
+                            <h3>Constant Sum</h3>
+                            <span class="code">ConstantSum</span>
+                        </div>
+                    </div>
+                    <p class="card-description">
+                        Allocate a fixed total (e.g., 100 points) across multiple options to show relative importance.
+                    </p>
+                    <div class="card-features">
+                        <span class="feature-tag">Allocation</span>
+                        <span class="feature-tag">Points</span>
+                        <span class="feature-tag">Budget</span>
+                    </div>
+                    <div class="card-status coming-soon">
+                        <span class="status-dot"></span>
+                        <span>Coming Soon</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Other Question Types Section -->
+        <div class="category-section">
+            <div class="category-header">
+                <h2>Other Question Types</h2>
+                <p>Specialized question formats for specific use cases.</p>
+            </div>
+
+            <div class="question-types-grid">
+                
+                <!-- Descriptive Block -->
+                <div class="question-type-card" style="cursor: default; opacity: 0.7;">
+                    <span class="coming-soon-overlay">Coming Soon</span>
+                    <div class="card-header">
+                        <div class="card-icon">📄</div>
+                        <div class="card-title">
+                            <h3>Descriptive Block</h3>
+                            <span class="code">DB</span>
+                        </div>
+                    </div>
+                    <p class="card-description">
+                        Display text, instructions, or information without requiring a response. Non-question content.
+                    </p>
+                    <div class="card-features">
+                        <span class="feature-tag">No Response</span>
+                        <span class="feature-tag">Instructions</span>
+                        <span class="feature-tag">Information</span>
+                    </div>
+                    <div class="card-status coming-soon">
+                        <span class="status-dot"></span>
+                        <span>Coming Soon</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h3>Need Help?</h3>
+            <p>Explore our documentation, watch tutorials, or contact support for assistance.</p>
+            <div class="footer-links">
+                <a href="/docs">Documentation</a>
+                <a href="/docs/excel-spec-format">Excel Spec Format</a>
+                <a href="/docs/training-guide">Training Guide</a>
+                <a href="mailto:admin@piraiai.com">Contact Support</a>
+            </div>
+            <p class="footer-copyright">&copy; 2025 Pirai AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

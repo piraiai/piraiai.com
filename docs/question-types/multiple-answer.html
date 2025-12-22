@@ -1,0 +1,2113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <!-- End Google Tag Manager -->
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Answer Question Type - Pirai AI</title>
+    <meta name="description" content="Complete guide to Multiple Answer (MC:MultipleAnswer) question type. Learn Excel formatting, real-world examples, platform support, and best practices for survey automation.">
+    
+    <!-- Keywords -->
+    <meta name="keywords" content="multiple answer question, checkbox question, MC MultipleAnswer, multiple choice multi select, select all that apply, survey question types, Pirai AI question format, Excel survey specification, multi select format, question type guide">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://piraiai.com/docs/question-types/multiple-answer">
+    <meta property="og:title" content="Multiple Answer Question Type Guide - Pirai AI">
+    <meta property="og:description" content="Master Multiple Answer questions with copy-paste Excel formats, real-world examples, and platform support across 20+ survey platforms. Complete guide with best practices.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="og:site_name" content="Pirai AI Documentation">
+    <meta property="article:published_time" content="2025-12-15T00:00:00Z">
+    <meta property="article:author" content="Pirai AI Team">
+    <meta property="article:section" content="Question Types">
+    <meta property="article:tag" content="Question Types">
+    <meta property="article:tag" content="Multiple Answer">
+    <meta property="article:tag" content="Multiple Choice">
+    <meta property="article:tag" content="Excel Format">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://piraiai.com/docs/question-types/multiple-answer">
+    <meta name="twitter:title" content="Multiple Answer Question Type Guide - Pirai AI">
+    <meta name="twitter:description" content="Master Multiple Answer questions with copy-paste Excel formats and real-world examples. Complete guide for survey automation.">
+    <meta name="twitter:image" content="https://piraiai.com/logo.png">
+    
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link rel="canonical" href="https://piraiai.com/docs/question-types/multiple-answer">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.7;
+            font-size: 18px;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #1a1a1a;
+        }
+
+        .nav {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #1a1a1a;
+        }
+
+        .logo img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .docs-label {
+            color: #6b7280;
+            font-weight: 400;
+            margin-left: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4b5563;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #9B6BFF;
+        }
+
+        .breadcrumb {
+            background: #f9fafb;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 12px 24px;
+        }
+
+        .breadcrumb-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .breadcrumb a {
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb a:hover {
+            color: #9B6BFF;
+        }
+
+        .breadcrumb-separator {
+            color: #d1d5db;
+        }
+
+        .breadcrumb-current {
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            padding: 64px 24px;
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #6b7280;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .hero .meta {
+            margin-top: 16px;
+            font-size: 14px;
+            color: #9ca3af;
+        }
+
+        .hero .meta code {
+            background: #f3f4f6;
+            padding: 4px 8px;
+            border-radius: 4px;
+            color: #9B6BFF;
+            font-family: 'Courier New', monospace;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 24px;
+        }
+
+        .content-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .content-nav {
+            position: sticky;
+            top: 80px;
+            height: fit-content;
+            background: #f9fafb;
+            padding: 24px;
+            border-radius: 8px;
+        }
+
+        .content-nav h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+
+        .content-nav ul {
+            list-style: none;
+        }
+
+        .content-nav li {
+            margin-bottom: 12px;
+        }
+
+        .content-nav a {
+            color: #4b5563;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .content-nav a:hover {
+            color: #9B6BFF;
+        }
+
+        .content-wrapper {
+            max-width: 800px;
+            overflow-x: hidden;
+        }
+
+        .content-wrapper h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-top: 48px;
+            margin-bottom: 16px;
+            padding-left: 16px;
+            border-left: 4px solid #9B6BFF;
+        }
+
+        .content-wrapper h2:first-child {
+            margin-top: 0;
+        }
+
+        .content-wrapper h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+        }
+
+        .content-wrapper h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 24px;
+            margin-bottom: 8px;
+        }
+
+        .content-wrapper p {
+            margin-bottom: 24px;
+            color: #374151;
+        }
+
+        .content-wrapper ul,
+        .content-wrapper ol {
+            margin-bottom: 24px;
+            padding-left: 24px;
+        }
+
+        .content-wrapper li {
+            margin-bottom: 12px;
+            color: #374151;
+        }
+
+        .content-wrapper strong {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .overview-box {
+            background: #f5f3ff;
+            border-left: 4px solid #9B6BFF;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 32px 0;
+        }
+
+        .overview-box h3 {
+            color: #6b21a8;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .checklist {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 32px 0;
+        }
+
+        .checklist h3 {
+            color: #15803d;
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+
+        .checklist ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .checklist li {
+            margin: 12px 0;
+            padding-left: 32px;
+            position: relative;
+        }
+
+        .checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #22c55e;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .example-box {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 24px 0;
+            position: relative;
+        }
+
+        .example-box h4 {
+            margin-top: 0;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+
+        .format-pattern {
+            background: #e0e7ff;
+            border-left: 4px solid #6366f1;
+            padding: 16px;
+            margin-bottom: 16px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 15px;
+            color: #1e40af;
+        }
+
+        .format-example {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            padding: 16px;
+            margin: 12px 0;
+            border-radius: 6px;
+            position: relative;
+            overflow-x: auto;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: #9B6BFF;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: background 0.2s;
+            z-index: 10;
+        }
+
+        .copy-btn:hover {
+            background: #7c3aed;
+        }
+
+        .copy-btn:active {
+            background: #6d28d9;
+        }
+
+        .visual-example {
+            background: #f9fafb;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 32px;
+            margin: 24px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            line-height: 2;
+        }
+
+        .visual-example .radio {
+            color: #9B6BFF;
+            font-weight: 700;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+            font-size: 14px;
+        }
+
+        @media (max-width: 640px) {
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        th {
+            background: #f9fafb;
+            font-weight: 600;
+            color: #1a1a1a;
+            font-size: 13px;
+        }
+
+        td {
+            color: #374151;
+            font-size: 13px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background: #f9fafb;
+        }
+
+        .tips-box {
+            background: #dbeafe;
+            border-left: 4px solid #3b82f6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+
+        .tips-box h4 {
+            color: #1e40af;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .warning {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+
+        .warning h4 {
+            color: #92400e;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .mistake-box {
+            background: #fee2e2;
+            border-left: 4px solid #ef4444;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+
+        .mistake-box h4 {
+            color: #dc2626;
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .solution-box {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 16px;
+            margin: 16px 0;
+            border-radius: 6px;
+        }
+
+        .solution-box strong {
+            color: #15803d;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, #9B6BFF 0%, #7c3aed 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 48px;
+            margin: 48px 0;
+            text-align: center;
+        }
+
+        .cta-box h3 {
+            color: white;
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .cta-box p {
+            color: #e9d5ff;
+            margin-bottom: 24px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: white;
+            color: #9B6BFF;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: transform 0.2s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        code {
+            background: #f3f4f6;
+            padding: 3px 8px;
+            border-radius: 4px;
+            color: #9B6BFF;
+            font-size: 16px;
+            border: 1px solid #e5e7eb;
+            font-family: 'Courier New', monospace;
+        }
+
+        pre {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px 0;
+            overflow-x: auto;
+        }
+
+        pre code {
+            background: none;
+            border: none;
+            padding: 0;
+            font-size: 14px;
+            color: #1a1a1a;
+        }
+
+        .footer {
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            padding: 32px 24px;
+            text-align: center;
+        }
+
+        .footer p {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        @media (max-width: 968px) {
+            .content-container {
+                grid-template-columns: 1fr;
+            }
+
+            .content-nav {
+                position: static;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 48px 16px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            body {
+                font-size: 16px;
+            }
+
+            .content-wrapper h2 {
+                font-size: 24px;
+            }
+            
+            .content-nav {
+                display: none;
+            }
+
+            .breadcrumb {
+                padding: 12px 16px;
+            }
+
+            .container {
+                padding: 32px 16px;
+            }
+
+            .cta-box {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Header -->
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="/" class="logo">
+                <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo">
+                <span class="logo-text">Pirai AI <span class="docs-label">/ Docs</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/docs">Documentation</a></li>
+                <li><a href="/#demo">Get Demo</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="/">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="/docs">Documentation</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="/docs/question-types">Question Types</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Multiple Answer</span>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Multiple Answer Question</h1>
+            <p>
+                Essential for "select all that apply" scenarios. Allow respondents to select one or more options from a list of choices.
+            </p>
+            <div class="meta">
+                <strong>Question Type Code:</strong> <code>MC:MultipleAnswer</code> | <strong>Last Updated:</strong> December 2025
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="content-container">
+            
+            <!-- Navigation Menu -->
+            <div class="content-nav">
+                <h3>Quick Navigation</h3>
+                <ul>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#when-to-use">When to Use</a></li>
+                    <li><a href="#visual">Visual Example</a></li>
+                    <li><a href="#excel-format">Excel Format</a></li>
+                    <li><a href="#examples">Real Examples</a></li>
+                    <li><a href="#platform-support">Platform Support</a></li>
+                    <li><a href="#horizontal">Horizontal Layout</a></li>
+                    <li><a href="#mistakes">Common Mistakes</a></li>
+                    <li><a href="#best-practices">Best Practices</a></li>
+                    <li><a href="#faqs">FAQs</a></li>
+                </ul>
+            </div>
+
+            <div class="content-wrapper">
+                
+                <!-- Overview Section -->
+                <section id="overview">
+                    <h2>Overview</h2>
+                    
+                    <div class="overview-box">
+                        <h3>What is a Multiple Answer Question?</h3>
+                        <p>A <strong>Multiple Answer question</strong> (also known as checkbox or multi-select) allows survey respondents to select <strong>one or more options</strong> from a list of predefined choices. This question type is essential for "select all that apply" scenarios where multiple selections are valid and expected.</p>
+                        
+                        <ul style="margin-top: 15px; padding-left: 20px;">
+                            <li><strong>Checkbox interface</strong> - Visual indicator of multiple selection capability</li>
+                            <li><strong>Multiple selections allowed</strong> - Select as many options as applicable</li>
+                            <li><strong>Universal support</strong> - Works across all 20+ platforms</li>
+                            <li><strong>100% conversion accuracy</strong> - Perfect structure preservation</li>
+                        </ul>
+                    </div>
+
+                    <p>When you create a multiple answer question in Pirai AI using the <code>MC:MultipleAnswer</code> type, it converts seamlessly to the native multi-select format across Qualtrics, REDCap, SurveyMonkey, Google Forms, and all other supported platforms.</p>
+                </section>
+
+                <!-- When to Use Section -->
+                                <section id="when-to-use">
+                    <h2>When to Use</h2>
+
+                    <h3>✅ Best Use Cases</h3>
+
+                    <div class="checklist">
+                        <h4>Product & Service Feedback</h4>
+                        <ul>
+                            <li>Features you use regularly</li>
+                            <li>Features you'd like to see added</li>
+                            <li>Reasons for choosing a product/service</li>
+                            <li>Problems encountered with a product</li>
+                        </ul>
+                    </div>
+
+                    <div class="checklist">
+                        <h4>Awareness & Recognition</h4>
+                        <ul>
+                            <li>Brands you recognize (aided awareness)</li>
+                            <li>Channels where you saw advertising</li>
+                            <li>Events you attended</li>
+                            <li>Sources of information</li>
+                        </ul>
+                    </div>
+
+                    <div class="checklist">
+                        <h4>Behavioral Research</h4>
+                        <ul>
+                            <li>Activities you engage in</li>
+                            <li>Devices you own</li>
+                            <li>Social media platforms you use</li>
+                            <li>Payment methods you accept</li>
+                        </ul>
+                    </div>
+
+                    <div class="checklist">
+                        <h4>Demographics & Segmentation</h4>
+                        <ul>
+                            <li>Areas of expertise</li>
+                            <li>Certifications held</li>
+                            <li>Languages spoken</li>
+                            <li>Countries visited</li>
+                        </ul>
+                    </div>
+
+                    <div class="checklist">
+                        <h4>Market Research</h4>
+                        <ul>
+                            <li>Media consumption habits</li>
+                            <li>Shopping preferences</li>
+                            <li>Purchase influencers</li>
+                            <li>Competitive product usage</li>
+                        </ul>
+                    </div>
+
+                    <div class="checklist">
+                        <h4>Healthcare & Medical</h4>
+                        <ul>
+                            <li>Symptoms experienced</li>
+                            <li>Medications currently taking</li>
+                            <li>Allergies</li>
+                            <li>Medical conditions</li>
+                        </ul>
+                    </div>
+
+                    <h3>❌ When NOT to Use</h3>
+
+                    <div class="warning">
+                        <h4>Use Different Question Types Instead</h4>
+                        <ul>
+                            <li><strong>Only one selection allowed?</strong> → Use MC:SingleAnswer</li>
+                            <li><strong>Rating multiple items on same scale?</strong> → Use Matrix (grid questions)</li>
+                            <li><strong>Need to rank/prioritize items?</strong> → Use RankOrder</li>
+                            <li><strong>Need exact quantity or percentage?</strong> → Use ConstantSum</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Visual Example Section -->
+                <section id="visual">
+                    <h2>Visual Example</h2>
+
+                    <h3>How Respondents See It</h3>
+
+                    <div style="background: #f9fafb; border: 2px solid #e5e7eb; border-radius: 12px; padding: 32px; margin: 24px 0;">
+                        <div style="background: white; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                            <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                                <span style="background: #9B6BFF; color: white; padding: 4px 10px; border-radius: 4px; font-weight: 600; font-size: 0.9em;">Q2</span>
+                            </div>
+                            <div style="font-size: 1.05em; color: #1f2937; margin: 12px 0; line-height: 1.6; font-weight: 500;">
+                                Which social media platforms do you use regularly? <span style="color: #6b7280; font-style: italic;">(Select all that apply)</span>
+                            </div>
+                            <div style="margin-top: 15px;">
+                                <label style="display: flex; align-items: center; padding: 10px; margin: 5px 0; border-radius: 6px; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#f9fafb'" onmouseout="this.style.background='transparent'">
+                                    <input type="checkbox" name="q2_example" style="margin-right: 12px; width: 18px; height: 18px;" checked disabled>
+                                    <span style="color: #374151; font-size: 0.95em;">Facebook</span>
+                                </label>
+                                <label style="display: flex; align-items: center; padding: 10px; margin: 5px 0; border-radius: 6px; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#f9fafb'" onmouseout="this.style.background='transparent'">
+                                    <input type="checkbox" name="q2_example" style="margin-right: 12px; width: 18px; height: 18px;" disabled>
+                                    <span style="color: #374151; font-size: 0.95em;">Instagram</span>
+                                </label>
+                                <label style="display: flex; align-items: center; padding: 10px; margin: 5px 0; border-radius: 6px; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#f9fafb'" onmouseout="this.style.background='transparent'">
+                                    <input type="checkbox" name="q2_example" style="margin-right: 12px; width: 18px; height: 18px;" checked disabled>
+                                    <span style="color: #374151; font-size: 0.95em;">Twitter/X</span>
+                                </label>
+                                <label style="display: flex; align-items: center; padding: 10px; margin: 5px 0; border-radius: 6px; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#f9fafb'" onmouseout="this.style.background='transparent'">
+                                    <input type="checkbox" name="q2_example" style="margin-right: 12px; width: 18px; height: 18px;" checked disabled>
+                                    <span style="color: #374151; font-size: 0.95em;">LinkedIn</span>
+                                </label>
+                                <label style="display: flex; align-items: center; padding: 10px; margin: 5px 0; border-radius: 6px; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#f9fafb'" onmouseout="this.style.background='transparent'">
+                                    <input type="checkbox" name="q2_example" style="margin-right: 12px; width: 18px; height: 18px;" disabled>
+                                    <span style="color: #374151; font-size: 0.95em;">TikTok</span>
+                                </label>
+                                <label style="display: flex; align-items: center; padding: 10px; margin: 5px 0; border-radius: 6px; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#f9fafb'" onmouseout="this.style.background='transparent'">
+                                    <input type="checkbox" name="q2_example" style="margin-right: 12px; width: 18px; height: 18px;" disabled>
+                                    <span style="color: #374151; font-size: 0.95em;">YouTube</span>
+                                </label>
+                                <label style="display: flex; align-items: center; padding: 10px; margin: 5px 0; border-radius: 6px; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#f9fafb'" onmouseout="this.style.background='transparent'">
+                                    <input type="checkbox" name="q2_example" style="margin-right: 12px; width: 18px; height: 18px;" disabled>
+                                    <span style="color: #374151; font-size: 0.95em;">Snapchat</span>
+                                </label>
+                                <label style="display: flex; align-items: center; padding: 10px; margin: 5px 0; border-radius: 6px; cursor: pointer; transition: background 0.2s;" onmouseover="this.style.background='#f9fafb'" onmouseout="this.style.background='transparent'">
+                                    <input type="checkbox" name="q2_example" style="margin-right: 12px; width: 18px; height: 18px;" disabled>
+                                    <span style="color: #374151; font-size: 0.95em;">Other</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p><strong>Key Visual Characteristics:</strong></p>
+                    <ul>
+                        <li>Checkboxes (squares ☑) indicating multiple selection capability</li>
+                        <li>Multiple options can be selected simultaneously</li>
+                        <li>Clear "Select all that apply" instruction in question text</li>
+                        <li>Distinct from radio buttons (single answer)</li>
+                        <li>Some options shown as checked to demonstrate multi-select</li>
+                    </ul>
+                </section>
+
+                <!-- Excel Format Section -->
+                <section id="excel-format">
+                    <h2>Pirai AI Excel Specification</h2>
+
+                    <h3>Quick Reference</h3>
+
+                    <p>To create a Multiple Answer question in Pirai AI, use the <strong>7-column Excel format</strong>:</p>
+
+                    <div class="format-example">
+                        <button class="copy-btn" onclick="copyTable(this)">Copy</button>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Block Name</th>
+                                    <th>Question ID</th>
+                                    <th>Question Text</th>
+                                    <th>Question Type</th>
+                                    <th>Answer Option Text</th>
+                                    <th>Recode Value</th>
+                                    <th>Matrix Type</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Preferences</td>
+                                    <td>Q2</td>
+                                    <td>Which social media platforms do you use regularly? (Select all that apply)</td>
+                                    <td>MC:MultipleAnswer</td>
+                                    <td>Facebook</td>
+                                    <td>1</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Preferences</td>
+                                    <td>Q2</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Instagram</td>
+                                    <td>2</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Preferences</td>
+                                    <td>Q2</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Twitter/X</td>
+                                    <td>3</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Preferences</td>
+                                    <td>Q2</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>LinkedIn</td>
+                                    <td>4</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Preferences</td>
+                                    <td>Q2</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>TikTok</td>
+                                    <td>5</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Preferences</td>
+                                    <td>Q2</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>YouTube</td>
+                                    <td>6</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Preferences</td>
+                                    <td>Q2</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Snapchat</td>
+                                    <td>7</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Preferences</td>
+                                    <td>Q2</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Other</td>
+                                    <td>8</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>Key Formatting Rules</h3>
+                    <ol>
+                        <li><strong>First Row:</strong> Contains Block Name, Question ID, Question Text, <code>MC:MultipleAnswer</code>, first option, and recode value <code>1</code></li>
+                        <li><strong>Subsequent Rows:</strong> Same Block Name and Question ID, but leave Question Text and Question Type <strong>empty</strong></li>
+                        <li><strong>Answer Options:</strong> Each option gets its own row with sequential recode values (1, 2, 3, 4...)</li>
+                        <li><strong>Matrix Type:</strong> Always leave <strong>empty</strong> for multiple choice questions</li>
+                        <li><strong>Clear Instructions:</strong> Include "(Select all that apply)" in question text for clarity</li>
+                    </ol>
+
+                    <div class="tips-box">
+                        <h4>📖 Full Format Documentation</h4>
+                        <p>See the complete <a href="/docs/excel-spec-format" style="color:#9B6BFF;">Excel Specification Format Guide</a> for detailed column explanations and advanced formatting options.</p>
+                    </div>
+                </section>
+
+                                <!-- Real Examples Section -->
+                <section id="examples">
+                    <h2>Real-World Examples</h2>
+
+                    <div class="example-box">
+                        <h4>Example 1: Feature Selection Survey</h4>
+                        <p><strong>Question:</strong> Which features are most important to you in a project management tool?</p>
+                        
+                        <div class="format-example">
+                            <button class="copy-btn" onclick="copyTable(this)">Copy</button>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Block Name</th>
+                                        <th>Question ID</th>
+                                        <th>Question Text</th>
+                                        <th>Question Type</th>
+                                        <th>Answer Option Text</th>
+                                        <th>Recode Value</th>
+                                        <th>Matrix Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Features</td>
+                                        <td>Q3</td>
+                                        <td>Which features are most important to you in a project management tool? (Select all that apply)</td>
+                                        <td>MC:MultipleAnswer</td>
+                                        <td>Task tracking</td>
+                                        <td>1</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Features</td>
+                                        <td>Q3</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Team collaboration</td>
+                                        <td>2</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Features</td>
+                                        <td>Q3</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Time tracking</td>
+                                        <td>3</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Features</td>
+                                        <td>Q3</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Budget management</td>
+                                        <td>4</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Features</td>
+                                        <td>Q3</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Gantt charts</td>
+                                        <td>5</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Features</td>
+                                        <td>Q3</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Mobile app</td>
+                                        <td>6</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Features</td>
+                                        <td>Q3</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Integrations</td>
+                                        <td>7</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Features</td>
+                                        <td>Q3</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Reporting/analytics</td>
+                                        <td>8</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Features</td>
+                                        <td>Q3</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>File storage</td>
+                                        <td>9</td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="example-box">
+                        <h4>Example 2: Brand Awareness Study</h4>
+                        <p><strong>Question:</strong> Which of these coffee brands have you heard of?</p>
+                        
+                        <div class="format-example">
+                            <button class="copy-btn" onclick="copyTable(this)">Copy</button>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Block Name</th>
+                                        <th>Question ID</th>
+                                        <th>Question Text</th>
+                                        <th>Question Type</th>
+                                        <th>Answer Option Text</th>
+                                        <th>Recode Value</th>
+                                        <th>Matrix Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Awareness</td>
+                                        <td>Q5</td>
+                                        <td>Which of these coffee brands have you heard of? (Select all that apply)</td>
+                                        <td>MC:MultipleAnswer</td>
+                                        <td>Starbucks</td>
+                                        <td>1</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Awareness</td>
+                                        <td>Q5</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Dunkin'</td>
+                                        <td>2</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Awareness</td>
+                                        <td>Q5</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Peet's Coffee</td>
+                                        <td>3</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Awareness</td>
+                                        <td>Q5</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Tim Hortons</td>
+                                        <td>4</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Awareness</td>
+                                        <td>Q5</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Costa Coffee</td>
+                                        <td>5</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Awareness</td>
+                                        <td>Q5</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Blue Bottle</td>
+                                        <td>6</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Awareness</td>
+                                        <td>Q5</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Caribou Coffee</td>
+                                        <td>7</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Awareness</td>
+                                        <td>Q5</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>None of these</td>
+                                        <td>8</td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="example-box">
+                        <h4>Example 3: Healthcare Screening</h4>
+                        <p><strong>Question:</strong> Do you have any of the following medical conditions?</p>
+                        
+                        <div class="format-example">
+                            <button class="copy-btn" onclick="copyTable(this)">Copy</button>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Block Name</th>
+                                        <th>Question ID</th>
+                                        <th>Question Text</th>
+                                        <th>Question Type</th>
+                                        <th>Answer Option Text</th>
+                                        <th>Recode Value</th>
+                                        <th>Matrix Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Medical</td>
+                                        <td>Q7</td>
+                                        <td>Do you have any of the following medical conditions? (Select all that apply)</td>
+                                        <td>MC:MultipleAnswer</td>
+                                        <td>Diabetes</td>
+                                        <td>1</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Medical</td>
+                                        <td>Q7</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Hypertension</td>
+                                        <td>2</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Medical</td>
+                                        <td>Q7</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Heart disease</td>
+                                        <td>3</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Medical</td>
+                                        <td>Q7</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Asthma</td>
+                                        <td>4</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Medical</td>
+                                        <td>Q7</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Arthritis</td>
+                                        <td>5</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Medical</td>
+                                        <td>Q7</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>None of the above</td>
+                                        <td>6</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Medical</td>
+                                        <td>Q7</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Prefer not to answer</td>
+                                        <td>7</td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="example-box">
+                        <h4>Example 4: Marketing Attribution</h4>
+                        <p><strong>Question:</strong> Where did you hear about our company?</p>
+                        
+                        <div class="format-example">
+                            <button class="copy-btn" onclick="copyTable(this)">Copy</button>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Block Name</th>
+                                        <th>Question ID</th>
+                                        <th>Question Text</th>
+                                        <th>Question Type</th>
+                                        <th>Answer Option Text</th>
+                                        <th>Recode</th>
+                                        <th>Matrix</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Attribution</td>
+                                        <td>Q4</td>
+                                        <td>Where did you hear about our company? (Select all that apply)</td>
+                                        <td>MC:MultipleAnswer</td>
+                                        <td>Google search</td>
+                                        <td>1</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Attribution</td>
+                                        <td>Q4</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Social media ad</td>
+                                        <td>2</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Attribution</td>
+                                        <td>Q4</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Friend/colleague recommendation</td>
+                                        <td>3</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Attribution</td>
+                                        <td>Q4</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>News article or blog</td>
+                                        <td>4</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Attribution</td>
+                                        <td>Q4</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Email newsletter</td>
+                                        <td>5</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Attribution</td>
+                                        <td>Q4</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Podcast or YouTube</td>
+                                        <td>6</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Attribution</td>
+                                        <td>Q4</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Trade show/conference</td>
+                                        <td>7</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Attribution</td>
+                                        <td>Q4</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Industry publication</td>
+                                        <td>8</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Attribution</td>
+                                        <td>Q4</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Other</td>
+                                        <td>9</td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="example-box">
+                        <h4>Example 5: Employee Benefits Prioritization</h4>
+                        <p><strong>Question:</strong> Which benefits are most important to you?</p>
+                        
+                        <div class="format-example">
+                            <button class="copy-btn" onclick="copyTable(this)">Copy</button>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Block Name</th>
+                                        <th>Question ID</th>
+                                        <th>Question Text</th>
+                                        <th>Question Type</th>
+                                        <th>Answer Option Text</th>
+                                        <th>Recode</th>
+                                        <th>Matrix</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Benefits</td>
+                                        <td>Q6</td>
+                                        <td>Which benefits are most important to you? (Select up to 5)</td>
+                                        <td>MC:MultipleAnswer</td>
+                                        <td>Health insurance</td>
+                                        <td>1</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Benefits</td>
+                                        <td>Q6</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Dental insurance</td>
+                                        <td>2</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Benefits</td>
+                                        <td>Q6</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Vision insurance</td>
+                                        <td>3</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Benefits</td>
+                                        <td>Q6</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>401(k) matching</td>
+                                        <td>4</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Benefits</td>
+                                        <td>Q6</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Paid time off</td>
+                                        <td>5</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Benefits</td>
+                                        <td>Q6</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Remote work flexibility</td>
+                                        <td>6</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Benefits</td>
+                                        <td>Q6</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Professional development</td>
+                                        <td>7</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Benefits</td>
+                                        <td>Q6</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Performance bonus</td>
+                                        <td>8</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Benefits</td>
+                                        <td>Q6</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Stock options</td>
+                                        <td>9</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Benefits</td>
+                                        <td>Q6</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Gym membership</td>
+                                        <td>10</td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="tips-box">
+                            <h4>💡 Selection Limit Tip</h4>
+                            <p>While Pirai AI creates the question structure, selection limits ("Select up to 5") are enforced in the target platform after conversion.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Platform Support Section -->
+                <section id="platform-support">
+                    <h2>Platform Support Matrix</h2>
+
+                    <h3>✅ Full Native Support</h3>
+
+                    <p><code>MC:MultipleAnswer</code> converts to native multi-select formats across <strong>all 20+ Pirai AI platforms</strong>:</p>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Platform Category</th>
+                                <th>Platforms</th>
+                                <th>Native Question Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Market Research</strong></td>
+                                <td>Qualtrics, QuestionPro, Forsta, SurveyMonkey, Alchemer, Zoho Surveys</td>
+                                <td>Multiple choice (checkboxes)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Healthcare</strong></td>
+                                <td>REDCap, Sawtooth</td>
+                                <td>Checkboxes (coded)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Education (LMS)</strong></td>
+                                <td>Moodle, Canvas, Kahoot, LearnWorlds, BrainCert, ClassMarker</td>
+                                <td>Multiple answer / Checkboxes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Standards</strong></td>
+                                <td>QTI 2.1, Respondus</td>
+                                <td>Choice interaction (multiple)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Enterprise</strong></td>
+                                <td>Google Forms, Microsoft Forms, PointerPro</td>
+                                <td>Checkboxes / Multiple choice</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="checklist">
+                        <h4>Conversion Quality</h4>
+                        <ul>
+                            <li><strong>Accuracy:</strong> 100% - Multiple answer questions maintain perfect structure</li>
+                            <li><strong>Compatibility:</strong> All 20+ platforms, zero configuration required</li>
+                            <li><strong>Speed:</strong> 15 seconds for entire survey vs 2-5 minutes per question manually</li>
+                        </ul>
+                    </div>
+
+                    <h3>Platform-Specific Data Storage</h3>
+
+                    <div class="tips-box">
+                        <h4>📊 How Data is Stored</h4>
+                        <p><strong>Binary Format (Most Common):</strong></p>
+                        <ul>
+                            <li>Each option becomes a separate binary variable (0/1)</li>
+                            <li>Example: Q2_1 (Facebook), Q2_2 (Instagram), Q2_3 (Twitter)</li>
+                            <li>Used by: Qualtrics, REDCap, SPSS exports</li>
+                        </ul>
+                        <p style="margin-top: 12px;"><strong>Comma-Separated Format:</strong></p>
+                        <ul>
+                            <li>Selected options stored as comma-separated values</li>
+                            <li>Example: "1,3,4" (selected options 1, 3, and 4)</li>
+                            <li>Used by: SurveyMonkey, Google Forms</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Horizontal Layout Section -->
+                <section id="horizontal">
+                    <h2>Horizontal Layout Variant</h2>
+
+                    <p>For questions with fewer options (typically 3-7), you can use <strong>horizontal display</strong> with <code>MC:MultipleAnswer:Horizontal</code>:</p>
+
+                    <h3>Visual Comparison</h3>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 24px 0;">
+                        <div>
+                            <h4 style="margin-bottom: 12px;">Vertical (Default):</h4>
+                            <div style="background: #f9fafb; padding: 16px; border-radius: 8px; font-family: monospace;">
+☑ Option A<br>
+☐ Option B<br>
+☑ Option C<br>
+☐ Option D
+                            </div>
+                        </div>
+                        <div>
+                            <h4 style="margin-bottom: 12px;">Horizontal Layout:</h4>
+                            <div style="background: #f9fafb; padding: 16px; border-radius: 8px; font-family: monospace; font-size: 12px;">
+☑ Option A &nbsp; ☐ Option B<br>
+☑ Option C &nbsp; ☐ Option D
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Excel Format for Horizontal</h3>
+
+                    <p>Simply change the question type to <code>MC:MultipleAnswer:Horizontal</code>:
+
+                    <div class="format-example">
+                        <button class="copy-btn" onclick="copyTable(this)">Copy</button>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Block Name</th>
+                                    <th>Question ID</th>
+                                    <th>Question Text</th>
+                                    <th>Question Type</th>
+                                    <th>Answer Option Text</th>
+                                    <th>Recode</th>
+                                    <th>Matrix</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Survey</td>
+                                    <td>Q8</td>
+                                    <td>Which devices do you own? (Select all that apply)</td>
+                                    <td>MC:MultipleAnswer:Horizontal</td>
+                                    <td>Laptop</td>
+                                    <td>1</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Survey</td>
+                                    <td>Q8</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Tablet</td>
+                                    <td>2</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Survey</td>
+                                    <td>Q8</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Smartphone</td>
+                                    <td>3</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Survey</td>
+                                    <td>Q8</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Desktop</td>
+                                    <td>4</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Survey</td>
+                                    <td>Q8</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Smartwatch</td>
+                                    <td>5</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>💡 When to Use Horizontal Layout</h4>
+                        <ul>
+                            <li>Short option text (1-3 words)</li>
+                            <li>3-7 options maximum</li>
+                            <li>Rating scales (satisfaction, agreement, frequency)</li>
+                            <li>Likert-style single items</li>
+                        </ul>
+                    </div>
+                </section>
+
+                                <!-- Common Mistakes Section -->
+                <section id="mistakes">
+                    <h2>Common Mistakes & How to Fix Them</h2>
+
+                    <div class="mistake-box">
+                        <h4>❌ Mistake 1: Missing "(Select all that apply)" Instruction</h4>
+                        <p><strong>Problem:</strong> Users may not realize they can select multiple options</p>
+                        <div class="format-example">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Question ID</th>
+                                        <th>Question Text</th>
+                                        <th>Question Type</th>
+                                        <th>Answer Option Text</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="background: #fee2e2;">
+                                        <td>Q2</td>
+                                        <td>Which social media platforms do you use?</td>
+                                        <td>MC:MultipleAnswer</td>
+                                        <td>Facebook</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p style="margin-top: 8px; color: #dc2626; font-size: 14px;">⚠️ Missing clear instruction about multiple selections</p>
+                        </div>
+                        
+                        <div class="solution-box">
+                            <strong>✅ Fix:</strong> Always include clear instructions
+                            <div class="format-example" style="margin-top: 12px;">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Question ID</th>
+                                            <th>Question Text</th>
+                                            <th>Question Type</th>
+                                            <th>Answer Option Text</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="background: #f0fdf4;">
+                                            <td>Q2</td>
+                                            <td>Which social media platforms do you use? (Select all that apply)</td>
+                                            <td>MC:MultipleAnswer</td>
+                                            <td>Facebook</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mistake-box">
+                        <h4>❌ Mistake 2: Mutually Exclusive Options</h4>
+                        <p><strong>Problem:</strong> Including options that contradict each other</p>
+                        <div class="format-example">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Question ID</th>
+                                        <th>Question Text</th>
+                                        <th>Answer Option Text</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Q3</td>
+                                        <td>What is your employment status? (Select all)</td>
+                                        <td>Employed full-time</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Q3</td>
+                                        <td></td>
+                                        <td>Employed part-time</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Q3</td>
+                                        <td></td>
+                                        <td>Unemployed</td>
+                                    </tr>
+                                    <tr style="background: #fee2e2;">
+                                        <td>Q3</td>
+                                        <td></td>
+                                        <td>None of the above</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p style="margin-top: 8px; color: #dc2626; font-size: 14px;">⚠️ "None of the above" is mutually exclusive with other options!</p>
+                        </div>
+                        
+                        <div class="solution-box">
+                            <strong>✅ Fix:</strong> Use MC:SingleAnswer instead, or restructure question
+                            <div class="format-example" style="margin-top: 12px;">
+                                <p>Employment status should be single-select:</p>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Question ID</th>
+                                            <th>Question Text</th>
+                                            <th>Question Type</th>
+                                            <th>Answer Option Text</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="background: #f0fdf4;">
+                                            <td>Q3</td>
+                                            <td>What is your employment status?</td>
+                                            <td>MC:SingleAnswer</td>
+                                            <td>Employed full-time</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mistake-box">
+                        <h4>❌ Mistake 3: Too Many Options (Cognitive Overload)</h4>
+                        <p><strong>Problem:</strong> Presenting 20+ options overwhelms respondents</p>
+                        <div class="format-example">
+                            <p style="color: #dc2626;">Q: Which features would you like? (Select all)</p>
+                            <p style="margin-left: 20px;">☐ Feature 1<br>☐ Feature 2<br>... [25 more options] ...<br>☐ Feature 27</p>
+                        </div>
+                        
+                        <div class="solution-box">
+                            <strong>✅ Fix:</strong> Limit to 10-15 options or use multiple questions
+                            <div class="format-example" style="margin-top: 12px;">
+                                <p style="color: #15803d;"><strong>Better Approach:</strong></p>
+                                <p><strong>Q1:</strong> Which category of features is most important? (Select one)</p>
+                                <p><strong>Q2:</strong> Specific features in selected category</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mistake-box">
+                        <h4>❌ Mistake 4: Missing "None of the above" Option</h4>
+                        <p><strong>Problem:</strong> No way for respondents to indicate "none apply"</p>
+                        <div class="format-example">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Question ID</th>
+                                        <th>Question Text</th>
+                                        <th>Answer Option Text</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Q4</td>
+                                        <td>Which symptoms are you experiencing?</td>
+                                        <td>Headache</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Q4</td>
+                                        <td></td>
+                                        <td>Fever</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Q4</td>
+                                        <td></td>
+                                        <td>Cough</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p style="margin-top: 8px; color: #dc2626; font-size: 14px;">⚠️ What if the user has none of these symptoms?</p>
+                        </div>
+                        
+                        <div class="solution-box">
+                            <strong>✅ Fix:</strong> Include "None of the above" or "N/A"
+                            <div class="format-example" style="margin-top: 12px;">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Question ID</th>
+                                            <th>Question Text</th>
+                                            <th>Answer Option Text</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Q4</td>
+                                            <td>Which symptoms are you experiencing?</td>
+                                            <td>Headache</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Q4</td>
+                                            <td></td>
+                                            <td>Fever</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Q4</td>
+                                            <td></td>
+                                            <td>Cough</td>
+                                        </tr>
+                                        <tr style="background: #f0fdf4;">
+                                            <td>Q4</td>
+                                            <td></td>
+                                            <td>None of the above</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                                <!-- Best Practices Section -->
+                <section id="best-practices">
+                    <h2>Best Practices</h2>
+
+                    <h3>✅ Design Guidelines</h3>
+
+                    <div class="checklist">
+                        <h4>Option Count</h4>
+                        <ul>
+                            <li><strong>Minimum:</strong> 2 options (though typically 3+)</li>
+                            <li><strong>Optimal:</strong> 4-12 options for usability</li>
+                            <li><strong>Maximum:</strong> 15-20 options before considering restructuring</li>
+                        </ul>
+                    </div>
+
+                    <div class="checklist">
+                        <h4>Clear Instructions</h4>
+                        <ul>
+                            <li>Always include "(Select all that apply)"</li>
+                            <li>Consider "(Check all that apply)"</li>
+                            <li>For limited selections: "(Select up to 3)"</li>
+                        </ul>
+                    </div>
+
+                    <div class="checklist">
+                        <h4>Option Design</h4>
+                        <ul>
+                            <li>Keep option text concise (under 75 characters)</li>
+                            <li>Use parallel structure across options</li>
+                            <li>Order logically (alphabetical, frequency, or importance)</li>
+                            <li>Avoid overlapping categories</li>
+                        </ul>
+                    </div>
+
+                    <div class="checklist">
+                        <h4>Include Catch-All Options</h4>
+                        <ul>
+                            <li>"Other (please specify)" for completeness</li>
+                            <li>"None of the above" when applicable</li>
+                            <li>"Prefer not to answer" for sensitive questions</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning">
+                        <h4>⚠️ Avoid "Select All" Options</h4>
+                        <ul>
+                            <li>Don't include an option that says "All of the above"</li>
+                            <li>Users can select all checkboxes if needed</li>
+                            <li>"All of the above" creates analytical complexity</li>
+                        </ul>
+                    </div>
+
+                    <h3>✅ Question Wording</h3>
+
+                    <div class="tips-box">
+                        <h4>💡 Good Examples</h4>
+                        <ul>
+                            <li>"Which of the following features do you use regularly? (Select all that apply)"</li>
+                            <li>"What devices do you own? (Check all that apply)"</li>
+                            <li>"Which symptoms are you experiencing? (Select all relevant)"</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning">
+                        <h4>❌ Poor Examples</h4>
+                        <ul>
+                            <li>"Select your favorite platforms" (use singular "platform" for MC:SingleAnswer)</li>
+                            <li>"Check if applicable" (unclear - which options?)</li>
+                            <li>"All that apply" (missing context)</li>
+                        </ul>
+                    </div>
+
+                    <h3>✅ Data Analysis Considerations</h3>
+
+                    <p><strong>Binary Data Structure:</strong> Each option creates a 0/1 variable:</p>
+
+                    <table style="margin-top: 16px;">
+                        <thead>
+                            <tr>
+                                <th>Respondent</th>
+                                <th>Option_1</th>
+                                <th>Option_2</th>
+                                <th>Option_3</th>
+                                <th>Option_4</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>User_001</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>User_002</td>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>User_003</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>1</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="tips-box" style="margin-top: 24px;">
+                        <h4>📊 Analysis Approaches</h4>
+                        <ul>
+                            <li>Frequency analysis (% selecting each option)</li>
+                            <li>Co-occurrence analysis (options selected together)</li>
+                            <li>Total selections per respondent</li>
+                            <li>None selected analysis</li>
+                        </ul>
+                    </div>
+                </section>
+
+                                <!-- FAQs Section -->
+                <section id="faqs">
+                    <h2>FAQs</h2>
+
+                    <div class="tips-box">
+                        <h4>Q: How is data stored for multiple answer questions?</h4>
+                        <p>A: Most platforms store each option as a separate binary variable (0/1). For example, Q2 with 5 options creates Q2_1, Q2_2, Q2_3, Q2_4, Q2_5. Some platforms use comma-separated values ("1,3,5").</p>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>Q: Can I set minimum or maximum number of selections?</h4>
+                        <p>A: Yes, but this is configured in the target platform after conversion. For example, Qualtrics allows "Request response" with "Select at least 2" or "Select at most 5" validation.</p>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>Q: Should I randomize option order?</h4>
+                        <p>A: Randomization is platform-specific and should be enabled after conversion to avoid order bias, especially for awareness or preference questions.</p>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>Q: How do I handle "Other (please specify)" with text input?</h4>
+                        <p>A: Include "Other" as a standard checkbox option in Pirai AI. After conversion, use the platform's native "Other with text box" feature if available.</p>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>Q: Can respondents skip the question without selecting anything?</h4>
+                        <p>A: Yes, unless you make the question required in the target platform. Consider including "None of the above" or "Prefer not to answer" as explicit options.</p>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>Q: What's the difference between "Select all that apply" and "Check all that apply"?</h4>
+                        <p>A: No functional difference - both indicate multiple selections are allowed. "Select all" is more common in online surveys, while "Check all" references physical checkboxes.</p>
+                    </div>
+                </section>
+
+                <!-- CTA Section -->
+                <div class="cta-box">
+                    <h3>Ready to Convert Your Multiple Answer Questions?</h3>
+                    <p>Upload your Word/PDF document or create an Excel specification to see Pirai AI in action.</p>
+                    <a href="/convert-now" class="cta-btn">Convert Now →</a>
+                </div>
+
+                <!-- Help Section -->
+                <div class="tips-box" style="margin-top: 48px;">
+                    <h4>📚 Need Help?</h4>
+                    <ul>
+                        <li><strong>Documentation:</strong> <a href="/docs/excel-spec-format" style="color:#9B6BFF;">Excel Specification Format Guide</a></li>
+                        <li><strong>Video Tutorial:</strong> <a href="https://youtube.com/@piraiai" target="_blank" style="color:#9B6BFF;">Creating Multiple Answer Questions</a></li>
+                        <li><strong>Email Support:</strong> <a href="/cdn-cgi/l/email-protection#2041444d494e60504952414941490e434f4d" style="color:#9B6BFF;"><span class="__cf_email__" data-cfemail="1273767f7b7c52627b60737b737b3c717d7f">[email&#160;protected]</span></a></li>
+                        <li><strong>Live Demo:</strong> <a href="/" style="color:#9B6BFF;">Try the Converter</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Pirai AI. All rights reserved. | Last Updated: December 2025</p>
+    </footer>
+
+    <script>
+        function copyTable(button) {
+            const table = button.nextElementSibling;
+            const range = document.createRange();
+            range.selectNode(table);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            
+            try {
+                document.execCommand('copy');
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.style.background = '#22c55e';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '#9B6BFF';
+                }, 2000);
+            } catch (err) {
+                console.error('Copy failed:', err);
+            }
+            
+            window.getSelection().removeAllRanges();
+        }
+    </script>
+
+</body>
+</html>
