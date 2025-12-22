@@ -90,7 +90,24 @@
     <changefreq>monthly</changefreq>
     <lastmod>2025-12-15</lastmod>
   </url>    
-
+  <url>
+    <loc>https://piraiai.com/docs/question-types</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2025-12-22</lastmod>
+  </url> 
+  <url>
+    <loc>https://piraiai.com/docs/question-types/single-answer</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2025-12-22</lastmod>
+  </url> 
+  <url>
+    <loc>https://piraiai.com/docs/question-types/multiple-answer</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2025-12-22</lastmod>
+  </url>     
   <!-- SPECIALIZED TOOLS - Medium-high priority -->
   <url>
     <loc>https://piraiai.com/qsf-to-excel</loc>
