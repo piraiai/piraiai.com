@@ -430,7 +430,7 @@
             font-size: clamp(16px, 2vw, 20px);
             color: var(--ink-dim);
             text-align: center;
-            margin: 0 0 60px;
+            margin: 0 0 16px;
             max-width: 900px;
             font-weight: 400;
             line-height: 1.5;
@@ -587,44 +587,106 @@
             display: none;
         }
 
-        /* Trust Banner */
-        .trust-banner {
-            display: flex;
+        /* Perfect Starting Point - Text Link Style */
+        .starting-point {
+            text-align: center;
+            position: relative;
+            margin-bottom: 28px;
+        }
+
+        .starting-point-trigger {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #9B6BFF;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 1px dashed rgba(155, 107, 255, 0.4);
+            padding-bottom: 2px;
+        }
+
+        .starting-point-trigger:hover {
+            color: #b794ff;
+            border-bottom-color: rgba(155, 107, 255, 0.7);
+        }
+
+        .starting-point-trigger .info-btn {
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            margin-top: 24px;
-            padding: 18px 28px;
-            background: linear-gradient(135deg, rgba(155, 107, 255, 0.25) 0%, rgba(155, 107, 255, 0.15) 100%);
-            border-radius: 12px;
-            max-width: 780px;
-            margin-left: auto;
-            margin-right: auto;
             transition: all 0.3s ease;
         }
 
-        .trust-banner:hover {
-            background: linear-gradient(135deg, rgba(155, 107, 255, 0.3) 0%, rgba(155, 107, 255, 0.2) 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(155, 107, 255, 0.25);
+        .starting-point-trigger .info-btn svg {
+            width: 14px;
+            height: 14px;
+            transition: transform 0.3s ease;
         }
 
-        .trust-icon {
-            width: 24px;
-            height: 24px;
-            color: var(--brand);
-            flex-shrink: 0;
+        .starting-point.expanded .starting-point-trigger .info-btn svg {
+            transform: rotate(45deg);
         }
 
-        .trust-text {
+        .starting-point-tooltip {
+            position: absolute;
+            top: calc(100% + 12px);
+            left: 50%;
+            transform: translateX(-50%) scale(0.95);
+            background: linear-gradient(135deg, #1a1a2e 0%, #141422 100%);
+            border: 1px solid rgba(155, 107, 255, 0.25);
+            border-radius: 12px;
+            padding: 20px 28px;
+            width: 700px;
+            max-width: 90vw;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .starting-point-tooltip::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            width: 14px;
+            height: 14px;
+            background: #1a1a2e;
+            border-left: 1px solid rgba(155, 107, 255, 0.25);
+            border-top: 1px solid rgba(155, 107, 255, 0.25);
+        }
+
+        .starting-point.expanded .starting-point-tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) scale(1);
+        }
+
+        .starting-point-tooltip p {
+            font-size: 14px;
+            color: #d1d5db;
+            line-height: 1.7;
+            margin: 0 0 10px 0;
+            text-align: center;
+        }
+
+        .starting-point-tooltip p:last-of-type:not(.savings) {
+            margin-bottom: 12px;
+        }
+
+        .starting-point-tooltip .savings {
+            color: #9B6BFF;
+            font-weight: 600;
             margin: 0;
             font-size: 14px;
-            color: var(--ink);
-            font-weight: 500;
-            line-height: 1.5;
+            text-align: center;
         }
 
-        .form-view .trust-banner {
+        .form-view .starting-point {
             display: none;
         }
 
@@ -1448,7 +1510,7 @@
 
             .subtitle {
                 font-size: 16px;
-                margin: 0 0 40px;
+                margin: 0 0 12px;
             }
 
             .form-view .subtitle {
@@ -1461,22 +1523,23 @@
                 margin-top: 12px;
             }
 
-            .trust-banner {
-                justify-content: flex-start;
-                gap: 10px;
-                padding: 14px 16px;
-                margin-top: 16px;
-                max-width: 100%;
+            .starting-point {
+                margin-bottom: 20px;
             }
 
-            .trust-icon {
-                width: 20px;
-                height: 20px;
+            .starting-point-trigger {
+                font-size: 14px;
             }
 
-            .trust-text {
-                font-size: 12px;
-                text-align: left;
+            .starting-point-tooltip {
+                width: 95vw;
+                max-width: 95vw;
+                padding: 18px 20px;
+            }
+
+            .starting-point-tooltip p,
+            .starting-point-tooltip .savings {
+                font-size: 13px;
             }
 
             .file-selected {
@@ -1597,6 +1660,23 @@
                     Early access available exclusively to Academics | The Only AI-Powered Survey Converter | 20+ Platforms | Zero Vendor Lock-In
                 </p>
 
+                <!-- Perfect Starting Point -->
+                <div class="starting-point" onclick="this.classList.toggle('expanded')">
+                    <div class="starting-point-trigger">
+                        <span>Perfect Starting Point</span>
+                        <span class="info-btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                                <path d="M12 5v14M5 12h14"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="starting-point-tooltip">
+                        <p>Pirai AI handles tedious data entry and format conversion in any language. You focus on strategic elements - logic flows, advanced features, and platform-specific optimizations.</p>
+                        <p>Hand-verified by survey experts with 15+ years of experience.</p>
+                        <p class="savings">Save 8+ hours per project • Focus on customization, not data entry</p>
+                    </div>
+                </div>
+
             <!-- Upload Form -->
             <div class="upload-card" id="uploadForm">
                 <div class="upload-zone" id="uploadZone">
@@ -1611,15 +1691,6 @@
                     <input type="file" id="fileInput" accept=".docx,.pdf,.doc,.txt,.png,.jpg,.jpeg,.xlsx,.csv" />
                 </div>
                 <p class="file-types">Upload your files in doc, docx, pdf, image, txt, xlsx or csv format</p>
-
-                <!-- Trust Banner -->
-                <div class="trust-banner">
-                    <svg class="trust-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2L3 7V11C3 16.55 6.84 21.74 12 23C17.16 21.74 21 16.55 21 11V7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <p class="trust-text">Every conversion is hand-verified by survey experts with 15+ years of industry experience</p>
-                </div>
 
                 <div class="file-selected" id="fileSelected">
                     <svg class="file-icon" viewBox="0 0 24 24" fill="#9B6BFF">
@@ -2719,6 +2790,14 @@
         });
 
         // Close button and backdrop click removed - users must submit to close the modal
+
+        // Close tooltip when clicking outside
+        document.addEventListener('click', function(e) {
+            const tooltip = document.querySelector('.starting-point');
+            if (tooltip && !tooltip.contains(e.target)) {
+                tooltip.classList.remove('expanded');
+            }
+        });
     </script>
 </body>
 </html>
