@@ -2620,8 +2620,8 @@
 <style>
 /* Academic Solutions Section Styles */
 .academic-solutions-section {
-    padding: 100px 0;
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(124, 58, 237, 0.05));
+    padding: 120px 0;
+    background: linear-gradient(135deg, #0a0a0f 0%, #1a1a24 50%, #0a0a0f 100%);
     position: relative;
     overflow: hidden;
 }
@@ -2632,8 +2632,11 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent);
+    bottom: 0;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(155, 107, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(155, 107, 255, 0.08) 0%, transparent 50%);
+    pointer-events: none;
 }
 
 .academic-header {
@@ -2643,14 +2646,15 @@
 
 .academic-badge {
     display: inline-block;
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    background: linear-gradient(135deg, rgba(155, 107, 255, 0.95), rgba(155, 107, 255, 0.85));
     color: white;
     padding: 8px 24px;
     border-radius: 24px;
     font-weight: 600;
     font-size: 14px;
     margin-bottom: 24px;
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 4px 15px rgba(155, 107, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .academic-title {
@@ -2658,9 +2662,10 @@
     font-weight: 700;
     color: #ffffff;
     margin-bottom: 16px;
-    background: linear-gradient(135deg, #60a5fa, #a78bfa);
+    background: linear-gradient(135deg, #ffffff 0%, #9B6BFF 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .academic-subtitle {
@@ -2671,55 +2676,253 @@
     line-height: 1.6;
 }
 
-.academic-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Changed from 1fr 1fr */
-    gap: 32px; /* Reduced from 48px for 3 cards */
+/* Testimonial Carousel Container */
+.testimonial-carousel-wrapper {
+    position: relative;
     margin-bottom: 64px;
-    align-items: start;
+    padding: 40px 0;
+    overflow: hidden;
+}
+
+.testimonial-carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 560px;
+    perspective: 1500px;
+    perspective-origin: center center;
+    transform-style: preserve-3d;
+}
+
+.academic-grid {
+    display: none; /* Hide original grid, replaced by carousel */
 }
 
 /* Testimonial Card */
 .academic-testimonial-card {
-    background: rgba(31, 41, 55, 0.5);
+    background: linear-gradient(135deg, rgba(17, 17, 24, 0.9), rgba(27, 27, 36, 0.9));
     backdrop-filter: blur(10px);
-    border-radius: 16px;
-    border: 1px solid rgba(59, 130, 246, 0.2);
-    padding: 40px;
-    position: relative;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    border: 1px solid rgba(155, 107, 255, 0.2);
+    padding: 28px;
+    position: absolute;
+    width: 380px;
+    max-width: 90vw;
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+                opacity 0.6s ease-out,
+                box-shadow 0.6s ease-out,
+                border-color 0.6s ease-out,
+                z-index 0s 0.3s;
+    cursor: pointer;
+    opacity: 0.6;
+    transform: scale(0.85);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+}
+
+/* Card widths based on content - longer content = wider card */
+.academic-testimonial-card[data-index="0"] {
+    width: 400px; /* Longest content - widest */
+}
+
+.academic-testimonial-card[data-index="1"] {
+    width: 380px; /* Medium content */
+}
+
+.academic-testimonial-card[data-index="2"] {
+    width: 360px; /* Shortest content */
+}
+
+/* Initial positions before JS loads */
+.academic-testimonial-card[data-index="0"] {
+    transform: translateX(0) scale(1) rotateY(0deg);
+    z-index: 10;
+    opacity: 1;
+    border-color: rgba(155, 107, 255, 0.5);
+    box-shadow: 0 20px 60px rgba(155, 107, 255, 0.3), 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.academic-testimonial-card[data-index="1"] {
+    transform: translateX(105%) scale(0.85) rotateY(12deg);
+    z-index: 2;
+    opacity: 0.7;
+}
+
+.academic-testimonial-card[data-index="2"] {
+    transform: translateX(-105%) scale(0.85) rotateY(-12deg);
+    z-index: 2;
+    opacity: 0.7;
+}
+
+.academic-testimonial-card[data-index="3"] {
+    transform: translateX(0) scale(0.7) rotateY(0deg);
+    z-index: 0;
+    opacity: 0;
+}
+
+.academic-testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #9B6BFF, transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 20px 20px 0 0;
+}
+
+.academic-testimonial-card:hover::before {
+    opacity: 1;
+}
+
+/* Carousel positions - cards fan outward */
+.academic-testimonial-card.carousel-left {
+    transform: translateX(-105%) scale(0.85) rotateY(-12deg);
+    z-index: 2;
+    opacity: 0.7;
+}
+
+.academic-testimonial-card.carousel-center {
+    transform: translateX(0) scale(1) rotateY(0deg);
+    z-index: 10;
+    opacity: 1;
+    border-color: rgba(155, 107, 255, 0.5);
+    box-shadow: 0 20px 60px rgba(155, 107, 255, 0.3), 0 8px 32px rgba(0, 0, 0, 0.4);
+    animation: centerGlow 3s ease-in-out infinite;
+}
+
+@keyframes centerGlow {
+    0%, 100% {
+        box-shadow: 0 20px 60px rgba(155, 107, 255, 0.3), 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+    50% {
+        box-shadow: 0 25px 70px rgba(155, 107, 255, 0.45), 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+}
+
+.academic-testimonial-card.carousel-right {
+    transform: translateX(105%) scale(0.85) rotateY(12deg);
+    z-index: 2;
+    opacity: 0.7;
+}
+
+.academic-testimonial-card.carousel-hidden {
+    transform: translateX(0) scale(0.7) rotateY(0deg);
+    z-index: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Carousel Navigation */
+.carousel-nav {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(155, 107, 255, 0.3);
+    border: 2px solid rgba(155, 107, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-dot:hover {
+    background: rgba(155, 107, 255, 0.5);
+}
+
+.carousel-dot.active {
+    background: #9B6BFF;
+    border-color: #9B6BFF;
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(155, 107, 255, 0.6);
+}
+
+.carousel-arrows {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    pointer-events: none;
+    z-index: 20;
+}
+
+.carousel-arrow {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(155, 107, 255, 0.2);
+    border: 1px solid rgba(155, 107, 255, 0.4);
+    color: #9B6BFF;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    pointer-events: auto;
+    backdrop-filter: blur(10px);
+}
+
+.carousel-arrow:hover {
+    background: rgba(155, 107, 255, 0.4);
+    border-color: #9B6BFF;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(155, 107, 255, 0.4);
 }
 
 .testimonial-quote-icon {
-    font-size: 80px;
-    color: rgba(59, 130, 246, 0.2);
-    line-height: 0.5;
-    margin-bottom: 20px;
+    font-size: 40px;
+    color: rgba(155, 107, 255, 0.3);
+    line-height: 0.8;
+    margin: 0;
 }
 
 .testimonial-highlight {
-    font-size: 17px; /* Slightly reduced from 18px */
+    font-size: 15px;
     line-height: 1.6;
     color: #e5e7eb;
-    margin-bottom: 0; /* Remove bottom margin since stats row adds spacing */
+    margin: 0;
     font-style: italic;
-    min-height: 160px; /* Ensures consistent card heights */
 }
 
 .testimonial-highlight strong {
-    color: #60a5fa;
+    color: #9B6BFF;
     font-weight: 600;
 }
 
+.academic-testimonial-card .testimonial-author {
+    padding-top: 16px;
+    border-top: 1px solid rgba(155, 107, 255, 0.2);
+    margin-top: auto;
+    display: block;
+}
+
 .author-info {
-    /* border-top: 1px solid rgba(55, 65, 81, 0.5); */
-    padding-top: 24px;
+    padding-top: 0;
 }
 
 .author-name {
     font-size: 18px;
     font-weight: 700;
-    color: #60a5fa;
+    color: #9B6BFF;
     margin-bottom: 4px;
 }
 
@@ -2786,21 +2989,14 @@
 
 /* Category Badges on Cards */
 .card-category-badge {
-    display: inline-block;
-    background: rgba(59, 130, 246, 0.15);
-    color: #60a5fa;
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-    margin-bottom: 16px;
-    border: 1px solid rgba(59, 130, 246, 0.3);
+    display: none;
 }
 
-.card-category-badge.competitive {
-    background: rgba(34, 197, 94, 0.15);
-    color: #22c55e;
-    border-color: rgba(34, 197, 94, 0.3);
+.card-category-badge.competitive,
+.card-category-badge.team {
+    background: rgba(155, 107, 255, 0.2);
+    color: #9B6BFF;
+    border-color: rgba(155, 107, 255, 0.3);
 }
 
 /* Stats Row at Bottom of Cards */
@@ -2808,9 +3004,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-top: 24px;
-    padding-top: 24px;
-    border-top: 1px solid rgba(55, 65, 81, 0.3);
+    margin: 0;
 }
 
 .stat-badge {
@@ -2825,9 +3019,9 @@
 }
 
 .stat-badge.highlight {
-    background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(59, 130, 246, 0.2));
-    color: #22c55e;
-    border-color: rgba(34, 197, 94, 0.4);
+    background: rgba(155, 107, 255, 0.2);
+    color: #9B6BFF;
+    border-color: rgba(155, 107, 255, 0.4);
     font-weight: 600;
 }
 
@@ -2838,10 +3032,10 @@
 }
 
 .academic-cta-card {
-    background: linear-gradient(135deg, rgba(31, 41, 55, 0.8), rgba(17, 24, 39, 0.8));
+    background: linear-gradient(135deg, rgba(17, 17, 24, 0.9), rgba(27, 27, 36, 0.9));
     backdrop-filter: blur(10px);
     border-radius: 20px;
-    border: 1px solid rgba(59, 130, 246, 0.3);
+    border: 1px solid rgba(155, 107, 255, 0.3);
     padding: 48px;
     display: grid;
     grid-template-columns: 1fr auto;
@@ -2858,8 +3052,8 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #9B6BFF, transparent);
 }
 
 
@@ -2884,13 +3078,13 @@
 }
 
 .benefit-tag {
-    background: rgba(59, 130, 246, 0.15);
-    color: #93c5fd;
+    background: rgba(155, 107, 255, 0.15);
+    color: #c4a5ff;
     padding: 6px 16px;
     border-radius: 20px;
     font-size: 13px;
     font-weight: 500;
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    border: 1px solid rgba(155, 107, 255, 0.2);
 }
 
 .cta-action {
@@ -2900,7 +3094,7 @@
 
 .btn-academic-primary {
     display: inline-block;
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    background: linear-gradient(135deg, rgba(155, 107, 255, 0.95), rgba(155, 107, 255, 0.85));
     color: white;
     padding: 16px 40px;
     border-radius: 12px;
@@ -2908,14 +3102,14 @@
     font-weight: 700;
     font-size: 18px;
     transition: all 0.3s ease;
-    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(155, 107, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     white-space: nowrap;
 }
 
 .btn-academic-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(59, 130, 246, 0.5);
+    box-shadow: 0 15px 40px rgba(155, 107, 255, 0.5);
     text-decoration: none;
     color: white;
 }
@@ -2930,7 +3124,7 @@
 /* Mobile Responsive */
 @media (max-width: 968px) {
     .academic-solutions-section {
-        padding: 60px 0;
+        padding: 80px 0;
     }
 
     .academic-title {
@@ -2943,24 +3137,101 @@
     }
 
     .academic-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
+        display: none;
+    }
+
+    .testimonial-carousel {
+        height: 540px;
+        perspective: 1000px;
+        perspective-origin: center center;
     }
 
     .academic-testimonial-card {
-        padding: 32px 24px;
+        width: calc(100% - 48px);
+        max-width: 360px;
+        padding: 24px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform-style: preserve-3d;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                    opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Wider cards for longer content on tablet */
+    .academic-testimonial-card[data-index="0"] {
+        max-width: 380px;
+    }
+
+    .academic-testimonial-card[data-index="1"] {
+        max-width: 360px;
+    }
+
+    .academic-testimonial-card[data-index="2"] {
+        max-width: 340px;
+    }
+
+    /* Card sliding out to the left */
+    .academic-testimonial-card.carousel-left {
+        transform: translate(-50%, -50%) translateX(-110%) rotateY(-20deg) scale(0.85);
+        opacity: 0;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    /* Card sliding out to the right */
+    .academic-testimonial-card.carousel-right {
+        transform: translate(-50%, -50%) translateX(110%) rotateY(20deg) scale(0.85);
+        opacity: 0;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    /* Hidden cards */
+    .academic-testimonial-card.carousel-hidden {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    /* Active center card */
+    .academic-testimonial-card.carousel-center {
+        transform: translate(-50%, -50%) translateX(0) rotateY(0deg) scale(1);
+        opacity: 1;
+        z-index: 10;
+        box-shadow: 0 15px 40px rgba(155, 107, 255, 0.25), 0 5px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .carousel-arrows {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        padding: 0 8px;
+    }
+
+    .carousel-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        background: rgba(155, 107, 255, 0.3);
     }
 
     .testimonial-highlight {
+        font-size: 15px;
+    }
+
+    .testimonial-quote-icon {
+        font-size: 50px;
+        margin-bottom: 10px;
+    }
+
+    .author-name {
         font-size: 16px;
     }
-    
-    .testimonial-stats-row {
-        justify-content: center;
-    }
-    
-    .testimonial-highlight {
-        min-height: auto;
+
+    .author-title, .author-org {
+        font-size: 12px;
     }
     .academic-cta-card {
         grid-template-columns: 1fr;
@@ -2997,12 +3268,72 @@
         padding: 6px 18px;
     }
 
+    .testimonial-carousel {
+        height: 500px;
+    }
+
     .academic-testimonial-card {
-        padding: 24px 20px;
+        width: calc(100% - 40px);
+        max-width: 320px;
+        padding: 20px;
+    }
+
+    /* Wider cards for longer content on mobile */
+    .academic-testimonial-card[data-index="0"] {
+        max-width: 340px;
+    }
+
+    .academic-testimonial-card[data-index="1"] {
+        max-width: 320px;
+    }
+
+    .academic-testimonial-card[data-index="2"] {
+        max-width: 300px;
+    }
+
+    .academic-testimonial-card.carousel-left {
+        transform: translate(-50%, -50%) translateX(-100%) rotateY(-15deg) scale(0.8);
+    }
+
+    .academic-testimonial-card.carousel-right {
+        transform: translate(-50%, -50%) translateX(100%) rotateY(15deg) scale(0.8);
+    }
+
+    .carousel-arrows {
+        padding: 0 4px;
+    }
+
+    .carousel-arrow {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
     }
 
     .testimonial-quote-icon {
-        font-size: 60px;
+        font-size: 36px;
+        margin-bottom: 6px;
+    }
+
+    .testimonial-highlight {
+        font-size: 14px;
+    }
+
+    .stat-badge {
+        font-size: 11px;
+        padding: 5px 10px;
+    }
+
+    .author-name {
+        font-size: 15px;
+    }
+
+    .author-title, .author-org {
+        font-size: 12px;
+    }
+
+    .card-category-badge {
+        font-size: 11px;
+        padding: 5px 12px;
     }
 
     .academic-feature-item {
@@ -3185,74 +3516,106 @@
                     Trusted by leading universities to automate complex Qualtrics survey creation—saving weeks of manual work for researchers and departments worldwide.
                 </p>
             </div>
-            <div class="academic-grid">
-                <!-- Left Card: Dr. April Chatham-Carpenter (Volume & Speed) -->
-                <div id="testimonials" class="academic-testimonial-card">
-                    <div class="card-category-badge">📊 Volume & Speed</div>
-                    <div class="testimonial-quote-icon">"</div>
-                    <p class="testimonial-highlight">
-                        "I had three complicated surveys I was going to have to re-create for Qualtrics because my account had expired. <strong>Pirai AI converted these three surveys with 106 questions and 490 options in under 10 minutes</strong>, which is work that would have taken me an entire day if I were typing everything manually."
-                    </p>
-                    <div class="testimonial-stats-row">
-                        <span class="stat-badge">3 Surveys</span>
-                        <span class="stat-badge">106 Questions</span>
-                        <span class="stat-badge">490 Options</span>
-                        <span class="stat-badge highlight">⏱️ &lt;10 min</span>
+            <!-- Testimonial Carousel -->
+            <div class="testimonial-carousel-wrapper" id="testimonials">
+                <div class="testimonial-carousel">
+                    <!-- Navigation Arrows -->
+                    <div class="carousel-arrows">
+                        <button class="carousel-arrow carousel-prev" aria-label="Previous testimonial">&#8249;</button>
+                        <button class="carousel-arrow carousel-next" aria-label="Next testimonial">&#8250;</button>
                     </div>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <div class="author-name">Dr. April Chatham-Carpenter</div>
-                            <div class="author-title">Department Chair & Professor of Applied Communication</div>
-                            <div class="author-org">University of Arkansas at Little Rock</div>
+
+                    <!-- Card 1: Dr. April Chatham-Carpenter -->
+                    <div class="academic-testimonial-card" data-index="0">
+                        <div class="card-category-badge">📊 Volume & Speed</div>
+                        <div class="testimonial-quote-icon">"</div>
+                        <p class="testimonial-highlight">
+                            "I had three complicated surveys I was going to have to re-create for Qualtrics because my account had expired. <strong>Pirai AI converted these three surveys with 106 questions and 490 options in under 10 minutes</strong>, which is work that would have taken me an entire day if I were typing everything manually."
+                        </p>
+                        <div class="testimonial-stats-row">
+                            <span class="stat-badge">3 Surveys</span>
+                            <span class="stat-badge">106 Questions</span>
+                            <span class="stat-badge">490 Options</span>
+                            <span class="stat-badge highlight">⏱️ &lt;10 min</span>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <div class="author-name">Dr. April Chatham-Carpenter</div>
+                                <div class="author-title">Department Chair & Professor of Applied Communication</div>
+                                <div class="author-org">University of Arkansas at Little Rock</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Dr. Devon Jensen -->
+                    <div class="academic-testimonial-card" data-index="1">
+                        <div class="card-category-badge">⚡ When Others Fail</div>
+                        <div class="testimonial-quote-icon">"</div>
+                        <p class="testimonial-highlight">
+                            "I had tried <strong>many prompts in ChatGPT to fix conversion errors, but nothing worked</strong>. Then I found Pirai AI — and that was a good find! <strong>The conversion to QSF went perfectly</strong>, and I was easily able to upload the file into Qualtrics."
+                        </p>
+                        <div class="testimonial-stats-row">
+                            <span class="stat-badge">64 Questions</span>
+                            <span class="stat-badge">296 Options</span>
+                            <span class="stat-badge highlight">✓ Perfect QSF</span>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <div class="author-name">Dr. Devon Jensen</div>
+                                <div class="author-title">Ed Leadership and Higher Education, CCIE</div>
+                                <div class="author-org">University of Central Florida</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Kristin -->
+                    <div class="academic-testimonial-card" data-index="2">
+                        <div class="card-category-badge">🤝 Team Collaboration</div>
+                        <div class="testimonial-quote-icon">"</div>
+                        <p class="testimonial-highlight">
+                            "Pirai AI helped my team get our Word-document based survey into Qualtrics format. <strong>The file you sent saved a ton of time and energy for our team</strong>, and it worked smoothly with Qualtrics. Thank you for offering this to help us be more efficient."
+                        </p>
+                        <div class="testimonial-stats-row">
+                            <span class="stat-badge">86 Questions</span>
+                            <span class="stat-badge">467 Options</span>
+                            <span class="stat-badge highlight">✓ Team Project</span>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <div class="author-name">Kristin</div>
+                                <div class="author-title">Professor of Pediatrics</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Market Researcher -->
+                    <div class="academic-testimonial-card" data-index="3">
+                        <div class="card-category-badge">⚡ Speed</div>
+                        <div class="testimonial-quote-icon">"</div>
+                        <p class="testimonial-highlight">
+                            "It went very well, and I must say <strong>it is very time saving and fast</strong>."
+                        </p>
+                        <div class="testimonial-stats-row">
+                            <span class="stat-badge">Multiple Surveys</span>
+                            <span class="stat-badge highlight">✓ Time Saving</span>
+                            <span class="stat-badge highlight">⚡ Fast</span>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <div class="author-name">Market Researcher</div>
+                                <div class="author-title">Multi-national Agency</div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right Card: Devon Jensen (Quality & Reliability) -->
-                <div class="academic-testimonial-card">
-                    <div class="card-category-badge competitive">⚡ When Others Fail</div>
-                    <div class="testimonial-quote-icon">"</div>
-                    <p class="testimonial-highlight">
-                        "I had tried <strong>many prompts in ChatGPT to fix conversion errors, but nothing worked</strong>. Then I found Pirai AI — and that was a good find! <strong>The conversion to QSF went perfectly</strong>, and I was easily able to upload the file into Qualtrics."
-                    </p>
-                    <br/><br/>
-                    <div class="testimonial-stats-row">
-                        <span class="stat-badge">64 Questions</span>
-                        <span class="stat-badge">296 Options</span>
-                        <span class="stat-badge highlight">✓ Perfect QSF</span>
-                    </div>                                      
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <div class="author-name">Dr. Devon Jensen</div>
-                            <div class="author-title">Ed Leadership and Higher Education, CCIE</div>
-                            <div class="author-org">University of Central Florida</div>
-                        </div>
-                    </div>
-                    <br/>
+                <!-- Navigation Dots -->
+                <div class="carousel-nav">
+                    <button class="carousel-dot active" data-index="0" aria-label="View testimonial 1"></button>
+                    <button class="carousel-dot" data-index="1" aria-label="View testimonial 2"></button>
+                    <button class="carousel-dot" data-index="2" aria-label="View testimonial 3"></button>
+                    <button class="carousel-dot" data-index="3" aria-label="View testimonial 4"></button>
                 </div>
-
-                <!-- Third Card: Kristin (Team Collaboration) -->
-                <div class="academic-testimonial-card">
-                    <div class="card-category-badge team">🤝 Team Collaboration</div>
-                    <div class="testimonial-quote-icon">"</div>
-                    <p class="testimonial-highlight">
-                        "Pirai AI helped my team get our Word-document based survey into Qualtrics format. <strong>The file you sent saved a ton of time and energy for our team</strong>, and it worked smoothly with Qualtrics. Thank you for offering this to help us be more efficient."
-                    </p>
-                    <br/>
-                    <div class="testimonial-stats-row">
-                        <span class="stat-badge">86 Questions</span>
-                        <span class="stat-badge">467 Options</span>
-                        <span class="stat-badge highlight">✓ Team Project</span>
-                    </div>                  
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <div class="author-name">Kristin</div>
-                            <div class="author-title">Professor of Pediatrics</div>
-                            <!-- <div class="author-org">[University Name]</div> -->
-                        </div>
-                    </div>
-                    <br/>&nbsp;
-                </div>                
             </div>  
 
             <!-- CTA Section -->
@@ -4955,6 +5318,140 @@ See the dramatic difference in survey creation time
 				document.body.style.overflow = '';
 			}
 		});
+    </script>
+
+    <!-- Testimonial Carousel Script -->
+    <script>
+    (function() {
+        const carousel = document.querySelector('.testimonial-carousel');
+        if (!carousel) return;
+
+        const cards = carousel.querySelectorAll('.academic-testimonial-card');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const prevBtn = carousel.querySelector('.carousel-prev');
+        const nextBtn = carousel.querySelector('.carousel-next');
+
+        let currentIndex = 0;
+        let autoRotateInterval;
+        const autoRotateDelay = 5000; // 5 seconds
+        const totalCards = cards.length;
+
+        function getPositionClass(index, current, total) {
+            const diff = (index - current + total) % total;
+
+            if (diff === 0) return 'carousel-center';
+            if (diff === 1 || (diff === total - 1 && total === 2)) return 'carousel-right';
+            if (diff === total - 1) return 'carousel-left';
+            return 'carousel-hidden';
+        }
+
+        function updateCarousel() {
+            cards.forEach((card, index) => {
+                card.classList.remove('carousel-left', 'carousel-center', 'carousel-right', 'carousel-hidden');
+                const positionClass = getPositionClass(index, currentIndex, totalCards);
+                card.classList.add(positionClass);
+            });
+
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        function goToSlide(index) {
+            currentIndex = (index + totalCards) % totalCards;
+            updateCarousel();
+            resetAutoRotate();
+        }
+
+        function nextSlide() {
+            goToSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+            goToSlide(currentIndex - 1);
+        }
+
+        function startAutoRotate() {
+            autoRotateInterval = setInterval(nextSlide, autoRotateDelay);
+        }
+
+        function resetAutoRotate() {
+            clearInterval(autoRotateInterval);
+            startAutoRotate();
+        }
+
+        // Event listeners
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => goToSlide(index));
+        });
+
+        // Click on cards to navigate
+        cards.forEach((card, index) => {
+            card.addEventListener('click', () => {
+                if (index !== currentIndex) {
+                    goToSlide(index);
+                }
+            });
+        });
+
+        // Pause on hover
+        carousel.addEventListener('mouseenter', () => {
+            clearInterval(autoRotateInterval);
+        });
+
+        carousel.addEventListener('mouseleave', () => {
+            startAutoRotate();
+        });
+
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            clearInterval(autoRotateInterval);
+        }, { passive: true });
+
+        carousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+            startAutoRotate();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            const carouselRect = carousel.getBoundingClientRect();
+            const isVisible = carouselRect.top < window.innerHeight && carouselRect.bottom > 0;
+
+            if (isVisible) {
+                if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                } else if (e.key === 'ArrowRight') {
+                    nextSlide();
+                }
+            }
+        });
+
+        // Initialize
+        updateCarousel();
+        startAutoRotate();
+    })();
     </script>
 
     <!-- SEO Content for AI/LLMs and Search Engines -->
