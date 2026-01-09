@@ -416,74 +416,253 @@
         
         /* Hero Section */
         .hero {
-            padding: clamp(160px, 12vw, 200px) 0 clamp(80px, 10vw, 120px);
+            height: 100vh;
+            padding: 0;
             text-align: left;
             position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
         }
 
-        .hero .container {
+        .hero > .container {
             position: relative;
             z-index: 10;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
         }
 
         .hero h1 {
-            font-size: clamp(36px, 7.5vw, 84px);
+            font-size: clamp(28px, 4vw, 56px);
             font-weight: 800;
             margin-top: 0;
-            margin-bottom: 32px;
+            margin-bottom: clamp(16px, 2vh, 24px);
             color: #f6f7fb;
-            line-height: 1.08;
+            line-height: 1.1;
             letter-spacing: -0.02em;
         }
-        
+
         .hero-subtitle {
-            font-size: clamp(16px, 2.2vw, 20px);
+            font-size: clamp(14px, 1.4vw, 17px);
             color: #d1d5db;
-            margin-bottom: 32px;
-            max-width: 72ch;
+            margin-bottom: clamp(16px, 2vh, 24px);
+            max-width: 60ch;
+            line-height: 1.5;
         }
         
         .hero-highlight {
             background: linear-gradient(135deg, rgba(155, 107, 255, 0.08), rgba(139, 92, 246, 0.05));
             border: 1px solid rgba(155, 107, 255, 0.2);
             border-radius: 12px;
-            padding: 18px;
-            margin: 32px 0;
-            max-width: 700px;
+            padding: clamp(12px, 1.5vh, 18px);
+            margin: clamp(16px, 2vh, 24px) 0 0 0;
+            max-width: 600px;
         }
 
         .hero-highlight h3 {
             font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 17px;
+            font-size: clamp(14px, 1.2vw, 16px);
             color: #9B6BFF;
-            margin: 0 0 8px 0;
+            margin: 0 0 6px 0;
             font-weight: 700;
         }
 
         .hero-highlight p {
-            font-size: 16px;
+            font-size: clamp(13px, 1.1vw, 15px);
             color: #d1d5db;
-            margin: 0 0 8px 0;
+            margin: 0 0 6px 0;
+            line-height: 1.4;
         }
-        
+
         .hero-highlight .savings {
-            font-size: 15px;
+            font-size: clamp(12px, 1vw, 14px);
             color: #9B6BFF;
             font-weight: 600;
             margin: 0;
         }
-        
+
+        /* Hero Split Layout */
+        .hero-split {
+            display: flex;
+            align-items: center;
+            gap: clamp(24px, 3vw, 48px);
+            height: 100%;
+            width: 100%;
+            padding-top: clamp(60px, 8vh, 100px);
+        }
+
+        .hero-content {
+            flex: 0 0 58%;
+            max-width: 58%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .university-wall-wrapper {
+            flex: 0 0 44%;
+            max-width: 44%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-university-wall {
+            position: relative;
+            height: 52vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .university-wall-header {
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: clamp(18px, 1.7vw, 24px);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: clamp(24px, 3vh, 36px);
+            line-height: 1.4;
+            position: relative;
+            height: 1.5em;
+        }
+
+        .university-wall-header span {
+            position: absolute;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #ffffff 0%, #BFA8FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .university-wall-header span:nth-child(1) {
+            animation: textCycleFirst 10s ease-in-out infinite;
+        }
+
+        .university-wall-header span:nth-child(2) {
+            animation: textCycleSecond 10s ease-in-out infinite;
+        }
+
+        @keyframes textCycleFirst {
+            0%, 45% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            50%, 95% {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes textCycleSecond {
+            0%, 45% {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            50%, 95% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
+        }
+
+        .university-wall-scroller {
+            flex: 1;
+            overflow: hidden;
+            mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+        }
+
+        .university-wall-scroll {
+            display: flex;
+            flex-direction: column;
+            animation: scrollUniversitiesVertical 90s linear infinite;
+        }
+
+        .university-wall-scroll:hover {
+            animation-play-state: paused;
+        }
+
+        .university-wall-track {
+            padding: clamp(12px, 1.5vh, 20px) clamp(20px, 2vw, 28px);
+            text-align: center;
+        }
+
+        .university-wall-item {
+            padding: clamp(16px, 2.2vh, 24px) 0;
+        }
+
+        .university-wall-name {
+            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: clamp(14px, 1.2vw, 16px);
+            font-weight: 500;
+            color: #c9cdd3;
+            line-height: 1.3;
+        }
+
+        /* Floating Hearts */
+        .tiny-heart {
+            position: absolute;
+            color: #BFA8FF;
+            z-index: 10;
+            opacity: 0;
+            animation: floatUp ease-in-out infinite;
+        }
+
+        .tiny-heart::before {
+            content: '\2665';
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(0.8);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            50% {
+                opacity: 0.9;
+            }
+            90% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-120px) scale(1);
+                opacity: 0;
+            }
+        }
+
+        @keyframes scrollUniversitiesVertical {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-50%);
+            }
+        }
+
         .hero-ctas {
             display: flex;
             gap: 12px;
             justify-content: flex-start;
             flex-wrap: wrap;
-            margin: 24px 0;
+            margin: clamp(12px, 1.5vh, 20px) 0;
         }
 
         .btn-primary {
-            padding: 12px 20px;
+            padding: clamp(10px, 1.2vh, 12px) clamp(16px, 1.5vw, 20px);
             border-radius: 12px;
             background: #9B6BFF;
             color: #000000;
@@ -494,7 +673,7 @@
             cursor: pointer;
             display: inline-block;
             box-shadow: 0 12px 28px rgba(18,18,24,.10);
-            font-size: 15px;
+            font-size: clamp(13px, 1.1vw, 15px);
         }
 
         .btn-primary:hover {
@@ -502,9 +681,9 @@
             color: #000000;
             transform: translateY(-2px);
         }
-        
+
         .btn-secondary {
-            padding: 12px 20px;
+            padding: clamp(10px, 1.2vh, 12px) clamp(16px, 1.5vw, 20px);
             border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.18);
             color: #f6f7fb;
@@ -513,7 +692,7 @@
             transition: all 0.3s;
             background: transparent;
             display: inline-block;
-            font-size: 15px;
+            font-size: clamp(13px, 1.1vw, 15px);
         }
 
         .btn-secondary:hover {
@@ -966,20 +1145,37 @@
             }
 
             .hero {
-                padding-top: 120px;
-                padding-bottom: 60px;
+                height: auto;
+                min-height: 100vh;
+                padding-top: 100px;
+                padding-bottom: 40px;
+            }
+
+            .hero-split {
+                flex-direction: column;
+                gap: 32px;
+                height: auto;
+            }
+
+            .hero-content {
+                flex: 1;
+                max-width: 100%;
+            }
+
+            .university-wall-wrapper {
+                display: none;
             }
 
             .hero h1 {
-                font-size: clamp(32px, 9vw, 48px);
+                font-size: clamp(28px, 8vw, 40px);
                 line-height: 1.15;
-                margin-bottom: 24px;
+                margin-bottom: 16px;
             }
 
             .hero-subtitle {
-                font-size: 16px;
+                font-size: 15px;
                 line-height: 1.5;
-                margin-bottom: 24px;
+                margin-bottom: 16px;
             }
 
             .hero-ctas {
@@ -997,23 +1193,23 @@
             }
 
             .hero-highlight {
-                margin-top: 40px;
-                padding: 20px;
+                margin-top: 20px;
+                padding: 16px;
             }
 
             .hero-highlight h3 {
-                font-size: 18px;
-                margin-bottom: 12px;
+                font-size: 15px;
+                margin-bottom: 8px;
             }
 
             .hero-highlight p {
-                font-size: 15px;
-                line-height: 1.6;
+                font-size: 14px;
+                line-height: 1.5;
             }
 
             .hero-highlight .savings {
-                font-size: 14px;
-                margin-top: 12px;
+                font-size: 13px;
+                margin-top: 8px;
             }
 
             .multilingual-title {
@@ -3418,22 +3614,129 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Convert Word specs to platform-ready files — in minutes.</h1>
-            <p class="hero-subtitle">
-                From Word/PDF documents to Qualtrics, QuestionPro, Forsta, UNICOM Dimensions, SurveySparrow, Zoho Survey, Inmoment, Confirmit, REDCap, SurveyMonkey, Google Forms, Microsoft Forms, Moodle & 20+ platforms across research, education, healthcare, and enterprise. One Solution, Every Platform, Every Language, zero vendor lock-in.
-            </p>
+            <div class="hero-split">
+                <!-- Left Side: Main Content (60%) -->
+                <div class="hero-content">
+                    <h1>Convert Word specs to platform-ready files — in minutes.</h1>
+                    <p class="hero-subtitle">
+                        From Word/PDF documents to Qualtrics, QuestionPro, Forsta, UNICOM Dimensions, SurveySparrow, Zoho Survey, Inmoment, Confirmit, REDCap, SurveyMonkey, Google Forms, Microsoft Forms, Moodle & 20+ platforms across research, education, healthcare, and enterprise. One Solution, Every Platform, Every Language, zero vendor lock-in.
+                    </p>
 
-            <div class="hero-ctas">
-                <a href="#demo" class="btn-primary">Start universal automation</a>
-                <a href="#platforms" class="btn-secondary">See all 20+ platforms</a>
-            </div>
-        </div>
+                    <div class="hero-ctas">
+                        <a href="#demo" class="btn-primary">Start universal automation</a>
+                        <a href="#platforms" class="btn-secondary">See all 20+ platforms</a>
+                    </div>
 
-        <div class="container">
-            <div class="hero-highlight">
-                <h3>Perfect Starting Point</h3>
-                <p>Pirai AI handles tedious data entry and format conversion in any language. You focus on strategic elements — logic flows, advanced features, and platform-specific optimizations.</p>
-                <p class="savings">Save 8+ hours per project • Focus on customization, not data entry</p>
+                    <div class="hero-highlight">
+                        <h3>Perfect Starting Point</h3>
+                        <p>Pirai AI handles tedious data entry and format conversion in any language. You focus on strategic elements — logic flows, advanced features, and platform-specific optimizations.</p>
+                        <p class="savings">Save 8+ hours per project • Focus on customization, not data entry</p>
+                    </div>
+                </div>
+
+                <!-- Right Side: University Wall (40%) -->
+                <div class="university-wall-wrapper">
+                    <!-- Floating Hearts -->
+                    <span class="tiny-heart" style="bottom: 8%; left: 18%; font-size: 16px; animation-duration: 8s; animation-delay: 0s;"></span>
+                    <span class="tiny-heart" style="bottom: 5%; left: 32%; font-size: 11px; animation-duration: 10s; animation-delay: -3s;"></span>
+                    <span class="tiny-heart" style="bottom: 10%; right: 30%; font-size: 14px; animation-duration: 9s; animation-delay: -6s;"></span>
+                    <span class="tiny-heart" style="bottom: 6%; right: 15%; font-size: 18px; animation-duration: 11s; animation-delay: -4s;"></span>
+
+                    <div class="hero-university-wall">
+                        <div class="university-wall-header">
+                            <span>Your Peers Use Pirai AI</span>
+                            <span>Trusted by Agencies Worldwide</span>
+                        </div>
+                        <div class="university-wall-scroller">
+                            <div class="university-wall-scroll">
+                                <div class="university-wall-track">
+                                    <!-- Ordered by prestige with international diversity -->
+                                    <div class="university-wall-item"><span class="university-wall-name">Stanford University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Harvard Graduate School of Education</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">University of Oxford</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Imperial College London</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Indian Institute of Management, Bangalore</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">University of Pennsylvania</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Universidad Autónoma de Madrid</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">The University of Hong Kong</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Qatar University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Cornell University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Brown University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Teachers College Columbia University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">New York University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">King's College London</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">McGill University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">University of Sydney</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">The University of British Columbia</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Rice University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">University of Amsterdam</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Tufts University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">University of Southern California - Los Angeles</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Durham University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">University of Washington</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Monash University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Virginia Tech</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Rutgers University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Purdue University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">University Of Glasgow</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Northeastern University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">University of Florida</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Utrecht University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">The Ohio State University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">University of North Carolina at Chapel Hill</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Victoria University of Wellington</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Arizona State University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">University of Ghent</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">University of Colorado Boulder</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Indian Institute Of Management - Ahmedabad</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Hong Kong Baptist University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">University of Calgary</span></div>
+                                    <!-- Duplicate for seamless loop -->
+                                    <div class="university-wall-item"><span class="university-wall-name">Stanford University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Harvard Graduate School of Education</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">University of Oxford</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Imperial College London</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Indian Institute of Management, Bangalore</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">University of Pennsylvania</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Universidad Autónoma de Madrid</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">The University of Hong Kong</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Qatar University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Cornell University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Brown University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Teachers College Columbia University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">New York University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">King's College London</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">McGill University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">University of Sydney</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">The University of British Columbia</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Rice University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">University of Amsterdam</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Tufts University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">University of Southern California - Los Angeles</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Durham University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">University of Washington</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Monash University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Virginia Tech</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Rutgers University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Purdue University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">University Of Glasgow</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Northeastern University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">University of Florida</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Utrecht University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">The Ohio State University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">University of North Carolina at Chapel Hill</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Victoria University of Wellington</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Arizona State University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">University of Ghent</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">University of Colorado Boulder</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Indian Institute Of Management - Ahmedabad</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">Hong Kong Baptist University</span></div>
+                                    <div class="university-wall-item"><span class="university-wall-name">University of Calgary</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
