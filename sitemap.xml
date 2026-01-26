@@ -45,6 +45,12 @@
     <changefreq>monthly</changefreq>
     <lastmod>2025-12-06</lastmod>
   </url>
+    <url>
+    <loc>https://piraiai.com/blog/ai-survey-tools-comparison</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-01-26</lastmod>
+  </url>
 
   <!-- Add each new article as you publish -->
   <!-- Documentation SECTION - Medium-High priority -->
