@@ -207,6 +207,7 @@
         /* Article Content */
         .article-content {
             max-width: 680px;
+            overflow-x: hidden;
         }
 
         .article-content h2 {
@@ -252,38 +253,44 @@
             font-weight: 600;
         }
 
-        /* Feature Table */
-        .feature-table {
+        /* Tables - Blog Style (from excel-spec-format.html) */
+        table {
             width: 100%;
-            margin: 32px 0;
             border-collapse: collapse;
-            font-size: 16px;
+            margin: 32px 0;
             background: #ffffff;
-            border: 1px solid #e5e7eb;
             border-radius: 8px;
             overflow: hidden;
+            border: 1px solid #e5e7eb;
         }
 
-        .feature-table th {
-            background: #f9fafb;
+        @media (max-width: 640px) {
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+
+        th, td {
             padding: 16px;
             text-align: left;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        th {
+            background: #f9fafb;
             font-weight: 600;
             color: #1a1a1a;
             border-bottom: 2px solid #e5e7eb;
         }
 
-        .feature-table td {
-            padding: 16px;
-            border-bottom: 1px solid #f3f4f6;
-            color: #374151;
-        }
-
-        .feature-table tr:last-child td {
+        tr:last-child td {
             border-bottom: none;
         }
 
-        .feature-table tr:hover {
+        tr:hover {
             background: #f9fafb;
         }
 
@@ -690,7 +697,7 @@
             <ul>
                 <li>Creating quick survey drafts for review</li>
                 <li>Brainstorming question wording</li>
-                <li>Simple surveys (<20 questions) for personal use</li>
+                <li>Simple surveys (&lt;20 questions) for personal use</li>
                 <li>Experimenting with survey concepts</li>
                 <li>No specific platform requirement</li>
             </ul>
