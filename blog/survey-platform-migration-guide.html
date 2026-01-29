@@ -123,7 +123,7 @@
         .breadcrumb {
             background: #f9fafb;
             border-bottom: 1px solid #e5e7eb;
-            padding: 16px 24px;
+            padding: 12px 24px;
         }
 
         .breadcrumb-container {
@@ -136,14 +136,23 @@
             color: #6b7280;
         }
 
-        .breadcrumb-container a {
+        .breadcrumb a {
             color: #6b7280;
             text-decoration: none;
             transition: color 0.2s;
         }
 
-        .breadcrumb-container a:hover {
+        .breadcrumb a:hover {
             color: #9B6BFF;
+        }
+
+        .breadcrumb-separator {
+            color: #d1d5db;
+        }
+
+        .breadcrumb-current {
+            color: #1a1a1a;
+            font-weight: 500;
         }
 
         /* Hero */
@@ -661,12 +670,13 @@
     <div class="breadcrumb">
         <div class="breadcrumb-container">
             <a href="/">Home</a>
-            <span>/</span>
+            <span class="breadcrumb-separator">›</span>
             <a href="/blog">Blog</a>
-            <span>/</span>
-            <span>Survey Platform Migration Guide</span>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Survey Platform Migration Guide</span>
         </div>
     </div>
+
     <!-- Hero Section -->
     <div class="hero">
         <div class="hero-container">
