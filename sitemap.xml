@@ -57,6 +57,12 @@
     <changefreq>monthly</changefreq>
     <lastmod>2026-01-27</lastmod>
   </url>  
+  <url>
+    <loc>https://piraiai.com/blog/convert-word-to-qualtrics</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-02-01</lastmod>
+  </url>   
 
   <!-- Add each new article as you publish -->
   <!-- Documentation SECTION - Medium-High priority -->
