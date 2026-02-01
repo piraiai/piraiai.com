@@ -737,13 +737,14 @@
                     <div class="method-card">
                         <span class="method-icon">📄</span>
                         <h3>Method 2: Qualtrics Import</h3>
-                        <span class="method-time">2-3 hours for 50 questions</span>
-                        <p>Use Qualtrics' built-in Word import feature with specific formatting requirements.</p>
+                        <span class="method-time" style="background: #fef2f2; color: #dc2626;">2-3 hours reformatting required</span>
+                        <p><strong>⚠️ Warning:</strong> Cannot import existing Word documents. Must manually create new DOCX in Qualtrics TXT format.</p>
                         <div class="pros-cons">
                             <h5>Best for:</h5>
                             <ul>
-                                <li>Simple multiple choice surveys</li>
-                                <li>Word already formatted correctly</li>
+                                <li>Willing to manually reformat from scratch</li>
+                                <li>Simple multiple choice only</li>
+                                <li><strong>Not recommended for most users</strong></li>
                             </ul>
                         </div>
                     </div>
@@ -806,18 +807,33 @@
 
                 <h2 id="method-qualtrics">Method 2: Qualtrics Advanced Word Import</h2>
 
-                <p>Qualtrics offers a built-in import feature for Word documents, but it requires very specific formatting.</p>
+                <div style="background: #fef2f2; border-left: 4px solid #ef4444; padding: 24px; margin: 24px 0; border-radius: 4px;">
+                    <h4 style="color: #dc2626; margin-top: 0; margin-bottom: 12px; font-size: 20px;">⚠️ Critical Limitation - Read Before Attempting</h4>
+                    <p style="margin-bottom: 12px;"><strong>You CANNOT import existing Word documents into Qualtrics.</strong></p>
+                    <p style="margin-bottom: 12px;">Qualtrics' "Word import" feature does not accept:</p>
+                    <ul style="margin-bottom: 12px;">
+                        <li>❌ Regular Word documents with survey questions</li>
+                        <li>❌ Word documents exported from Qualtrics</li>
+                        <li>❌ Client-provided survey specifications</li>
+                        <li>❌ Any existing Word file</li>
+                    </ul>
+                    <p style="margin-bottom: 0;"><strong>Instead:</strong> You must manually create a brand new DOCX file from scratch following Qualtrics' specific TXT format specification. This defeats the purpose of "importing" and is rarely worth the effort.</p>
+                </div>
+
+                <p><strong>If you still want to attempt this method:</strong></p>
 
                 <h3>How it works:</h3>
                 <ol>
-                    <li>Format your Word document using Qualtrics' template</li>
+                    <li><strong>Create a NEW Word document from scratch</strong> (cannot use your existing document)</li>
+                    <li>Manually type survey content following Qualtrics TXT format specification</li>
                     <li>Use specific heading styles (Heading 1 for blocks, Heading 2 for questions)</li>
                     <li>Format answer options with bullets in exact format</li>
                     <li>Save as .docx</li>
                     <li>In Qualtrics: Tools → Import/Export → Import Survey from Word</li>
+                    <li>Troubleshoot inevitable import errors</li>
                 </ol>
 
-                <h3>Required Word Format:</h3>
+                <h3>Required Format (Must be exact):</h3>
                 <pre>Heading 1: Block Name
 Heading 2: Question text here
    • Answer option 1
@@ -825,11 +841,12 @@ Heading 2: Question text here
    • Answer option 3</pre>
 
                 <div class="highlight-box">
-                    <h4>Time Required</h4>
+                    <h4>Time Required (Reality Check)</h4>
                     <ul>
-                        <li>Formatting Word document: 1-3 hours (first time)</li>
+                        <li>Manually creating new DOCX in Qualtrics format: 2-3 hours</li>
                         <li>Import process: 5-10 minutes</li>
                         <li>Fixing import errors: 30 minutes - 2 hours</li>
+                        <li><strong>Total: 3-5 hours for what should be a simple import</strong></li>
                     </ul>
                 </div>
 
@@ -838,18 +855,23 @@ Heading 2: Question text here
                 <p><strong>Pros:</strong></p>
                 <ul>
                     <li>✓ Built into Qualtrics (no external tools)</li>
-                    <li>✓ Faster than full manual entry</li>
                     <li>✓ Free to use</li>
+                    <li>✓ That's about it...</li>
                 </ul>
 
                 <p><strong>Cons:</strong></p>
                 <ul>
-                    <li>✗ Requires strict Word formatting (very finicky)</li>
+                    <li>✗ <strong>Cannot import existing Word documents</strong></li>
+                    <li>✗ <strong>Must manually recreate survey in specific format</strong></li>
+                    <li>✗ Requires strict formatting (very finicky)</li>
                     <li>✗ Often fails with formatting errors</li>
-                    <li>✗ Limited question type support</li>
+                    <li>✗ Limited question type support (basic multiple choice only)</li>
                     <li>✗ Doesn't handle logic or branching</li>
-                    <li>✗ Matrix questions require manual reformatting</li>
+                    <li>✗ Matrix questions not supported</li>
+                    <li>✗ Takes 3-5 hours vs 10 minutes with AI</li>
                 </ul>
+
+                <p style="margin-top: 24px; padding: 16px; background: #f0fdf4; border-left: 4px solid #22c55e; border-radius: 4px;"><strong>💡 Recommendation:</strong> Skip this method entirely. If you have an existing Word document, use AI conversion (Method 3). It accepts any Word format and generates perfect QSF files in 10-15 minutes with no reformatting required.</p>
 
                 <h2 id="method-ai">Method 3: AI-Powered Conversion to QSF</h2>
 
