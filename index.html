@@ -255,13 +255,50 @@
             scroll-behavior: smooth;
         }        
         
+        /* Announcement Banner */
+        .announcement-banner {
+            background: #6B3FCC;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 15px;
+            font-weight: 500;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+        }
+
+        .announcement-banner a {
+            color: #ffffff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .announcement-banner a:hover {
+            color: #ffffff;
+            opacity: 0.9;
+        }
+
+        .announcement-banner .banner-arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .announcement-banner a:hover .banner-arrow {
+            transform: translateX(4px);
+        }
+
         /* Navigation */
         .nav {
             background: rgba(11, 11, 14, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(155, 107, 255, 0.2);
             position: fixed;
-            top: 0;
+            top: 38px;
             left: 0;
             right: 0;
             z-index: 1000;
@@ -1129,6 +1166,16 @@
         
         /* Responsive Design */
         @media (max-width: 950px) {
+            .announcement-banner {
+                font-size: 14px;
+                padding: 10px 20px;
+                line-height: 1.4;
+            }
+
+            .nav {
+                top: 58px;
+            }
+
             .nav-links {
                 display: none;
             }
@@ -1147,7 +1194,7 @@
             .hero {
                 height: auto;
                 min-height: 100vh;
-                padding-top: 100px;
+                padding-top: 150px;
                 padding-bottom: 40px;
             }
 
@@ -3562,7 +3609,16 @@
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->    
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Partnership Announcement Banner -->
+    <div class="announcement-banner">
+        <a href="https://www.questionpro.com/partnerships/pirai-ai/" target="_blank" rel="noopener">
+            Pirai AI partners with QuestionPro to bring AI-powered survey automation to enterprise teams
+            <span class="banner-arrow">→</span>
+        </a>
+    </div>
+
     <!-- Navigation -->
     <nav class="nav">
         <div class="container">
