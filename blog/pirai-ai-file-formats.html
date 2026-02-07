@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <!-- End Google Tag Manager -->        
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pirai AI File Upload Guide: Supported Formats & Best Practices - Pirai AI Blog</title>
+    <meta name="description" content="Learn what file types Pirai AI supports for survey conversion. Complete guide to uploading Word, PDF, Excel, QSF files and best practices for perfect conversions.">
+    <meta name="keywords" content="Pirai AI file formats, survey file upload, supported file types, Word to survey, PDF survey conversion, Excel survey conversion, QSF file, survey file size limit, upload survey files">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://piraiai.com/blog/pirai-ai-file-formats">
+    <meta property="og:title" content="Pirai AI File Upload Guide: Supported Formats & Best Practices">
+    <meta property="og:description" content="Complete guide to file formats supported by Pirai AI. Learn which files work best for survey conversion and upload best practices.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="og:site_name" content="Pirai AI Blog">
+    <meta property="article:published_time" content="2026-02-07T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta property="article:section" content="Guide">
+    <meta property="article:tag" content="File Formats">
+    <meta property="article:tag" content="User Guide">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://piraiai.com/blog/pirai-ai-file-formats">
+    <meta name="twitter:title" content="Pirai AI File Upload Guide: Supported Formats & Best Practices">
+    <meta name="twitter:description" content="Learn what files Pirai AI supports and best practices for survey conversion uploads.">
+    <meta name="twitter:image" content="https://piraiai.com/logo.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://piraiai.com/blog/pirai-ai-file-formats">
+
+    <!-- Favicons -->
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://piraiai.com/logo.png">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        /* Header */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #1a1a1a;
+        }
+
+        .blog-label {
+            color: #9B6BFF;
+            font-weight: 400;
+            margin-left: 8px;            
+        }
+
+        header nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        header nav a {
+            color: #6b7280;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        header nav a:hover {
+            color: #9B6BFF;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background: #f9fafb;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 12px 24px;
+        }
+
+        .breadcrumb-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .breadcrumb a {
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb a:hover {
+            color: #9B6BFF;
+        }
+
+        .breadcrumb-separator {
+            color: #d1d5db;
+        }
+
+        .breadcrumb-current {
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            padding: 48px 24px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .article-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1.2;
+            color: #1a1a1a;
+            margin-bottom: 24px;
+            max-width: 900px;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            color: #6b7280;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .separator {
+            color: #d1d5db;
+        }
+
+        /* Content Wrapper */
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 48px auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 64px;
+        }
+
+        /* Article Content */
+        .article-content {
+            max-width: 720px;
+        }
+
+        .article-content p {
+            margin-bottom: 24px;
+            font-size: 17px;
+            line-height: 1.7;
+            color: #374151;
+        }
+
+        .article-content h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin: 48px 0 24px;
+            color: #1a1a1a;
+        }
+
+        .article-content h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            margin: 32px 0 16px;
+            color: #1a1a1a;
+        }
+
+        .article-content a {
+            color: #9B6BFF;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(155, 107, 255, 0.3);
+            transition: all 0.2s;
+        }
+
+        .article-content a:hover {
+            border-bottom-color: #9B6BFF;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin: 24px 0;
+            padding-left: 24px;
+        }
+
+        .article-content li {
+            margin-bottom: 12px;
+            color: #374151;
+            line-height: 1.7;
+        }
+
+        .article-content strong {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            border-left: 4px solid #9B6BFF;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 32px 0;
+        }
+
+        .highlight-box h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+        }
+
+        .highlight-box p {
+            margin-bottom: 12px;
+            font-size: 16px;
+            color: #374151;
+        }
+
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-box ul,
+        .highlight-box ol {
+            margin: 12px 0;
+            padding-left: 20px;
+        }
+
+        .highlight-box li {
+            margin-bottom: 8px;
+            color: #374151;
+        }
+
+        /* Checklist Styles */
+        .checklist {
+            margin: 24px 0;
+        }
+
+        .checklist-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding: 16px;
+            background: #f9fafb;
+            border-radius: 8px;
+            border-left: 3px solid #22c55e;
+        }
+
+        .checklist-item.dont {
+            border-left-color: #ef4444;
+        }
+
+        .checklist-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .checklist-content {
+            flex: 1;
+        }
+
+        .checklist-content strong {
+            font-size: 16px;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .checklist-content p {
+            font-size: 15px;
+            margin: 0;
+            color: #6b7280;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .sidebar-section {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .sidebar-section h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+
+        .toc-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc-list li {
+            margin-bottom: 8px;
+        }
+
+        .toc-list a {
+            color: #6b7280;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+            display: block;
+            padding: 4px 0;
+        }
+
+        .toc-list a:hover {
+            color: #9B6BFF;
+        }
+
+        /* CTA Box */
+        .cta-box {
+            background: linear-gradient(135deg, #9B6BFF, #BFA8FF);
+            padding: 32px;
+            border-radius: 8px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .cta-box h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .cta-box p {
+            font-size: 14px;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ffffff;
+            color: #9B6BFF;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: transform 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Related Articles */
+        .related-articles {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 64px 24px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .related-articles h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .related-card {
+            background: #f9fafb;
+            border-radius: 8px;
+            padding: 24px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .related-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .related-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .related-card p {
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        /* Footer */
+        footer {
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            padding: 32px 24px;
+            text-align: center;
+        }
+
+        footer p {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            .article-title {
+                font-size: 32px;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            header nav {
+                display: none;
+            }
+
+            .article-title {
+                font-size: 28px;
+            }
+
+            .article-content h2 {
+                font-size: 24px;
+            }
+
+            .breadcrumb {
+                padding: 12px 16px;
+            }
+
+            .breadcrumb-container {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->  
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo">
+                <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo">
+                <span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span>
+            </a>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/blog">All Articles</a>
+                <a href="/docs">Documentation</a>
+                <a href="/#demo">Get Demo</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="/">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="/blog">Blog</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">File Upload Guide</span>
+        </div>
+    </div>    
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-container">
+            <h1 class="article-title">Pirai AI File Upload Guide: Supported Formats & Best Practices</h1>
+            <div class="article-meta">
+                <span class="author">Arun Raj</span>
+                <span class="separator">•</span>
+                <span>February 7, 2026</span>
+                <span class="separator">•</span>
+                <span>3 min read</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content-wrapper">
+        
+        <!-- Article Content -->
+        <article class="article-content">
+            
+            <h2 id="what-files">What Files Can Pirai AI Process?</h2>
+
+            <p>Pirai AI is designed to convert survey content into platform-specific formats across <a href="/#platforms">19+ platforms</a>. To give you the best conversion experience, we support multiple file types that commonly contain survey content:</p>
+
+            <h3>Recommended File Types</h3>
+
+            <ul>
+                <li><strong>Text files (.txt)</strong> - Simple, clean format ideal for survey questions</li>
+                <li><strong>Word documents (.docx)</strong> - Perfect for formatted questionnaires and research instruments</li>
+                <li><strong>PDF files (.pdf)</strong> - Great for finalized survey drafts and published scales</li>
+            </ul>
+
+            <h3>Also Supported</h3>
+
+            <ul>
+                <li>Excel spreadsheets (.xlsx, .csv)</li>
+                <li>QSF files (Qualtrics native format)</li>
+                <li>XML/MDD files (for market research platforms)</li>
+            </ul>
+
+            <h2 id="file-size">File Size Limits</h2>
+
+            <p>Our free tier supports files up to <strong>300KB</strong> - which is more than enough for most survey projects:</p>
+
+            <ul>
+                <li>80+ questions with simple response options</li>
+                <li>200+ questions for basic text-based surveys</li>
+                <li>Most academic questionnaires and research instruments</li>
+                <li>Standard market research surveys</li>
+            </ul>
+
+            <p>For context, a typical 50-question survey with response scales usually comes in around 100-150KB.</p>
+
+            <h2 id="what-to-upload">What Should You Upload?</h2>
+
+            <div class="checklist">
+                <div class="checklist-item">
+                    <div class="checklist-icon">✓</div>
+                    <div class="checklist-content">
+                        <strong>Upload these:</strong>
+                        <p>Survey questionnaires (drafts or finalized), question banks or item pools, research instruments and scales, quiz content with questions and answers, assessment tools, structured interview guides</p>
+                    </div>
+                </div>
+
+                <div class="checklist-item dont">
+                    <div class="checklist-icon">✗</div>
+                    <div class="checklist-content">
+                        <strong>Don't upload these:</strong>
+                        <p>General research plans or proposals, thesis chapters or dissertations, academic journal articles or books, literature reviews, research methodology sections, analysis reports or data results, random sample files "just to test"</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 id="why-it-matters">Why This Matters</h2>
+
+            <p>Pirai AI is built to extract structured survey content - questions, response options, and logic. When you upload research plans, books, or thesis documents, our system will search for survey-like content but won't find the structured format needed for conversion.</p>
+
+            <p>Think of it this way: If your document contains actual questions that respondents would answer, it's perfect for Pirai AI. If it's about research or describes a study, it's not what we need.</p>
+
+            <div class="highlight-box">
+                <h4>💡 PRO TIP: From Research Idea to Survey</h4>
+                <p>No survey questions yet? Try this workflow:</p>
+                
+                <p>If you have a research plan, thesis outline, or general concept but haven't created the actual survey questions:</p>
+                
+                <ol>
+                    <li><strong>Brainstorm with AI</strong> - Use ChatGPT, Claude, or Gemini to help generate your questionnaire
+                        <ul>
+                            <li>Share your research objectives</li>
+                            <li>Ask the AI to create structured survey questions</li>
+                            <li>Refine the questions until they match your needs</li>
+                        </ul>
+                    </li>
+                    <li><strong>Save as Text or Word</strong> - Copy the generated questions into a .txt or .docx file</li>
+                    <li><strong>Upload to Pirai AI</strong> - Now you have a properly formatted survey document ready for conversion to any platform</li>
+                </ol>
+
+                <p><strong>Example prompt for AI:</strong> "Create a 20-question customer satisfaction survey for a healthcare clinic, including 5-point Likert scales, multiple choice, and open-ended questions."</p>
+
+                <p>This two-step approach gives you the best of both worlds: AI creativity for question generation, and Pirai AI's precision for platform-specific formatting.</p>
+            </div>
+
+            <h2 id="checklist">Quick Checklist Before Upload</h2>
+
+            <p>Ask yourself:</p>
+
+            <ol>
+                <li>Does this document contain actual survey questions?</li>
+                <li>Are there response options (scales, multiple choice, etc.)?</li>
+                <li>Is this meant for respondents to complete?</li>
+            </ol>
+
+            <p>If you answered "yes" to these questions, you're ready to upload!</p>
+
+            <p><strong>Need help?</strong> If you're unsure whether your document is suitable, our Smart Detection system will analyze it and let you know. You can also reach out to <a href="mailto:admin@piraiai.com">admin@piraiai.com</a> for guidance.</p>
+
+            <div class="highlight-box" style="margin-top: 40px;">
+                <h4>Ready to Convert Your Survey?</h4>
+                <p><a href="/convert-now">Start your free conversion</a> and experience how Pirai AI transforms your survey documents into platform-ready files in minutes.</p>
+            </div>
+
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            
+            <!-- Table of Contents -->
+            <div class="sidebar-section">
+                <h3>In This Article</h3>
+                <ul class="toc-list">
+                    <li><a href="#what-files">What Files Can Pirai AI Process?</a></li>
+                    <li><a href="#file-size">File Size Limits</a></li>
+                    <li><a href="#what-to-upload">What Should You Upload?</a></li>
+                    <li><a href="#why-it-matters">Why This Matters</a></li>
+                    <li><a href="#checklist">Quick Checklist Before Upload</a></li>
+                </ul>
+            </div>
+
+            <!-- CTA Box -->
+            <div class="cta-box">
+                <h3>Try Pirai AI Free</h3>
+                <p>Upload your survey document and get platform-ready files in minutes.</p>
+                <a href="/convert-now" class="cta-button">Get Started</a>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <!-- Related Articles -->
+    <div class="related-articles">
+        <h2>Related Articles</h2>
+        <div class="related-grid">
+            <a href="/blog/convert-word-to-qualtrics" class="related-card">
+                <h3>How to Convert Word to Qualtrics</h3>
+                <p>Step-by-step guide to converting Word documents to Qualtrics QSF format</p>
+            </a>
+            <a href="/blog/enterprise-automation-hub" class="related-card">
+                <h3>Enterprise Research Automation Hub</h3>
+                <p>Complete toolkit for complex survey operations across platforms</p>
+            </a>
+            <a href="/blog/ai-survey-tools-comparison" class="related-card">
+                <h3>AI Survey Tools Comparison 2026</h3>
+                <p>Compare purpose-built AI vs general AI vs manual programming</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
