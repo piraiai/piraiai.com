@@ -572,7 +572,6 @@
 </section>
 
 <!-- ═══ GOOGLE FORMS APP SCRIPT ═══ -->
-<!-- ═══ GOOGLE FORMS APP SCRIPT ═══ -->
 <section class="faq-category" id="google-forms-script">
   <div class="category-header"><h2>Google Forms App Script Issues</h2><span class="category-count">2 questions</span></div>
   <div class="faq-item"><button class="faq-question" onclick="faqToggle(this)">Why does my Google Forms App Script fail with Question ID errors?<span class="faq-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-answer"><p>Google Forms App Script fails when Question IDs contain dots (periods). Pirai AI generates Question IDs based on your document's numbering, which may include dots like "Q1.1" or "Section.2.3". Before running the App Script, you must replace all dots (.) with underscores (_) in the Question ID column. For example: change <code>Q1.1</code> to <code>Q1_1</code>, change <code>Section.2.3</code> to <code>Section_2_3</code>. Open your Excel file, find/replace all "." with "_" in the Question ID column, save, then re-generate the Google Forms script.</p></div></div>
