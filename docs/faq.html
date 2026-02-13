@@ -141,7 +141,7 @@
   <div class="hero-container">
     <h1 class="article-title">Frequently Asked Questions</h1>
     <div class="article-meta">
-      <span class="author">Arun Raj</span><span class="separator">•</span><span>February 11, 2026</span><span class="separator">•</span><span>20 categories · 130+ answers</span>
+      <span class="author">Arun Raj</span><span class="separator">•</span><span>February 11, 2026</span><span class="separator">•</span><span>30 categories · 130+ answers</span>
     </div>
     <div class="search-wrap">
       <div class="search-inner">
@@ -188,6 +188,7 @@
         <li><a href="#complex-documents">Complex Documents <span class="nav-count">9</span></a></li>
         <li><a href="#conversion-issues">Conversion Issues <span class="nav-count">6</span></a></li>
         <li><a href="#matrix-questions">Matrix Questions <span class="nav-count">4</span></a></li>
+        <li><a href="#google-forms-script">Google Forms Script <span class="nav-count">2</span></a></li>        
       </ul>
     </nav>
 
@@ -568,6 +569,14 @@
   <div class="faq-item"><button class="faq-question" onclick="faqToggle(this)">Can I add a separate question text for my matrix?<span class="faq-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-answer"><p>Yes! Use AI Editor and say "Add question text to matrix Q5: 'Please rate the following aspects'" — this will insert proper Question Text and move the first statement back to the matrix rows. Or download Excel, add text to the Question Text column in Q5's first row, and ensure all statements remain in matrix rows below.</p></div></div>
   <div class="faq-item"><button class="faq-question" onclick="faqToggle(this)">Why does my matrix have question text I didn't write?<span class="faq-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-answer"><p>If your original document's matrix lacked a header/title, Pirai AI automatically uses the first Statement as Question Text to create valid Excel structure. This is intentional to avoid validation errors (every question needs Question Text). Use AI Editor to replace it: "Change Q5 question text to 'Rate our services'" if you want different wording.</p></div></div>
   <div class="faq-item"><button class="faq-question" onclick="faqToggle(this)">How do I know if my matrix question text is from the document or auto-generated?<span class="faq-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-answer"><p>Compare the converted Excel Question Text with your original document — if the Question Text matches your first matrix statement word-for-word, it was likely auto-generated from the first statement. If it matches a header/title above the matrix in your document, it's from the original. Use "Include original document" in AI Editor to verify and correct if needed.</p></div></div>
+</section>
+
+<!-- ═══ GOOGLE FORMS APP SCRIPT ═══ -->
+<!-- ═══ GOOGLE FORMS APP SCRIPT ═══ -->
+<section class="faq-category" id="google-forms-script">
+  <div class="category-header"><h2>Google Forms App Script Issues</h2><span class="category-count">2 questions</span></div>
+  <div class="faq-item"><button class="faq-question" onclick="faqToggle(this)">Why does my Google Forms App Script fail with Question ID errors?<span class="faq-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-answer"><p>Google Forms App Script fails when Question IDs contain dots (periods). Pirai AI generates Question IDs based on your document's numbering, which may include dots like "Q1.1" or "Section.2.3". Before running the App Script, you must replace all dots (.) with underscores (_) in the Question ID column. For example: change <code>Q1.1</code> to <code>Q1_1</code>, change <code>Section.2.3</code> to <code>Section_2_3</code>. Open your Excel file, find/replace all "." with "_" in the Question ID column, save, then re-generate the Google Forms script.</p></div></div>
+  <div class="faq-item"><button class="faq-question" onclick="faqToggle(this)">Why does my Google Forms App Script fail with duplicate answer option errors?<span class="faq-chevron"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button><div class="faq-answer"><p>Google Forms App Script fails when a single question has duplicate answer options. This happens when conversion errors cause the same choice text to appear multiple times in one question (for example, Q5 has "Agree" listed twice as separate options). To fix this: <strong>Option 1 (Recommended)</strong>: Edit your Excel file to remove the duplicate answer options — keep only one instance of each unique choice text per question. <strong>Option 2</strong>: Comment out the problematic question in the App Script by adding <code>//</code> at the start of the error line, then manually create that question in Google Forms. <strong>Option 3</strong>: Remove the duplicate question entirely from the script. The only permanent solution is to ensure all answer options within each question are unique in your Excel template before generating the Google Forms script.</p></div></div>
 </section>
 
     </div><!-- /content-wrapper -->
