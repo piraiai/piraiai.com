@@ -1618,6 +1618,184 @@
                 font-size: 15px;
             }
         }
+
+        /* ========= PLATFORM LAUNCH MODAL ========= */
+        .launch-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(8px);
+            z-index: 4000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .launch-modal.show {
+            display: flex;
+        }
+
+        .launch-modal-content {
+            background: linear-gradient(135deg, rgba(17, 17, 24, 0.98), rgba(27, 27, 36, 0.98));
+            border: 2px solid rgba(155, 107, 255, 0.6);
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 520px;
+            width: 90%;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6), 0 0 60px rgba(155, 107, 255, 0.3);
+            position: relative;
+            animation: slideUp 0.4s ease-out;
+            text-align: center;
+        }
+
+        .launch-modal-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            background: linear-gradient(135deg, rgba(155, 107, 255, 0.2), rgba(107, 63, 204, 0.3));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(155, 107, 255, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(155, 107, 255, 0.5);
+            }
+        }
+
+        .launch-modal-content h3 {
+            font-family: var(--display);
+            font-weight: 800;
+            font-size: 28px;
+            margin: 0 0 16px;
+            background: linear-gradient(135deg, #BFA8FF, #9B6BFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .launch-modal-content p {
+            font-size: 16px;
+            color: var(--ink-dim);
+            margin: 0 0 12px;
+            line-height: 1.6;
+        }
+
+        .launch-modal-content .highlight {
+            color: var(--brand);
+            font-weight: 600;
+        }
+
+        .launch-features {
+            background: rgba(155, 107, 255, 0.08);
+            border: 1px solid rgba(155, 107, 255, 0.2);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .launch-features ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .launch-features li {
+            color: var(--ink-dim);
+            font-size: 14px;
+            padding: 6px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .launch-features li::before {
+            content: "✓";
+            color: #22c55e;
+            font-weight: 700;
+        }
+
+        .countdown-wrapper {
+            margin: 24px 0;
+        }
+
+        .countdown-text {
+            font-size: 14px;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+
+        .countdown-timer {
+            font-family: var(--display);
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--brand);
+        }
+
+        .launch-redirect-btn {
+            width: 100%;
+            padding: 16px 28px;
+            background: linear-gradient(135deg, #6B3FCC, #9B6BFF);
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            font-family: var(--display);
+            font-weight: 700;
+            font-size: 17px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 8px 24px rgba(155, 107, 255, 0.4);
+            margin-top: 8px;
+        }
+
+        .launch-redirect-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(155, 107, 255, 0.5);
+        }
+
+        .launch-stay-link {
+            display: inline-block;
+            margin-top: 16px;
+            color: var(--muted);
+            font-size: 13px;
+            cursor: pointer;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+
+        .launch-stay-link:hover {
+            color: var(--ink);
+        }
+
+        @media (max-width: 480px) {
+            .launch-modal-content {
+                padding: 28px 20px;
+            }
+
+            .launch-modal-content h3 {
+                font-size: 22px;
+            }
+
+            .launch-modal-content p {
+                font-size: 14px;
+            }
+
+            .countdown-timer {
+                font-size: 28px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1880,6 +2058,37 @@
 
                 <button class="exit-submit-btn" id="exitSubmitBtn" disabled>Submit</button>
             </div>
+        </div>
+    </div>
+
+    <!-- Platform Launch Modal -->
+    <div class="launch-modal show" id="launchModal">
+        <div class="launch-modal-content">
+            <div class="launch-modal-icon">
+                🚀
+            </div>
+            <h3>We've Launched!</h3>
+            <p>
+                Great news! Our <span class="highlight">commercial beta</span> is now live.
+                We've made it <span class="highlight">fully automatic</span>. Get your conversions done
+                in real-time, at your convenience.
+            </p>
+            <div class="launch-features">
+                <ul>
+                    <li>Instant real-time conversions</li>
+                    <li>No more waiting hours for results</li>
+                    <li>Same great accuracy, now automated</li>
+                    <li>Convert whenever you need</li>
+                </ul>
+            </div>
+            <div class="countdown-wrapper">
+                <div class="countdown-text">Redirecting to the platform in</div>
+                <div class="countdown-timer" id="countdownTimer">15</div>
+            </div>
+            <button class="launch-redirect-btn" id="launchRedirectBtn" onclick="window.location.href='https://platform.piraiai.com/'">
+                Go to Platform Now
+            </button>
+            <span class="launch-stay-link" id="launchStayLink">Stay on this page</span>
         </div>
     </div>
 
@@ -3051,6 +3260,60 @@
                 tooltip.classList.remove('expanded');
             }
         });
+
+        // ========= PLATFORM LAUNCH MODAL =========
+        (function() {
+            const launchModal = document.getElementById('launchModal');
+            const countdownTimer = document.getElementById('countdownTimer');
+            const launchStayLink = document.getElementById('launchStayLink');
+            const platformUrl = 'https://platform.piraiai.com/';
+
+            let countdown = 15;
+            let countdownInterval = null;
+
+            // Start countdown
+            function startCountdown() {
+                countdownInterval = setInterval(() => {
+                    countdown--;
+                    countdownTimer.textContent = countdown;
+
+                    if (countdown <= 0) {
+                        clearInterval(countdownInterval);
+                        window.location.href = platformUrl;
+                    }
+                }, 1000);
+            }
+
+            // Stop countdown and close modal
+            function stayOnPage() {
+                if (countdownInterval) {
+                    clearInterval(countdownInterval);
+                }
+                launchModal.classList.remove('show');
+
+                // Track that user chose to stay
+                if (window.dataLayer) {
+                    window.dataLayer.push({
+                        'event': 'launch_modal_stay',
+                        'page': 'convert_now'
+                    });
+                }
+            }
+
+            // Event listeners
+            launchStayLink.addEventListener('click', stayOnPage);
+
+            // Track modal view
+            if (window.dataLayer) {
+                window.dataLayer.push({
+                    'event': 'launch_modal_view',
+                    'page': 'convert_now'
+                });
+            }
+
+            // Start the countdown
+            startCountdown();
+        })();
     </script>
 </body>
 </html>
