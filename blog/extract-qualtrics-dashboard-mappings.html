@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <!-- End Google Tag Manager -->        
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extract Qualtrics Dashboard Data Field Mappings - Complete Guide - Pirai AI Blog</title>
+    <meta name="description" content="Complete step-by-step guide to automatically extract all field types, names, and data source mappings from your Qualtrics Dashboard. Export to CSV, Excel, or JSON in seconds.">
+    <meta name="keywords" content="Qualtrics dashboard export, field mapping extraction, Qualtrics data export, dashboard field extractor, extract Qualtrics fields, Qualtrics mapping tool, Qualtrics dashboard data, export field mappings">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://piraiai.com/blog/extract-qualtrics-dashboard-mappings">
+    <meta property="og:title" content="Extract Qualtrics Dashboard Data Field Mappings - Complete Guide">
+    <meta property="og:description" content="Automatically extract all field types, names, and data source mappings from your Qualtrics Dashboard. Export to CSV, Excel, or JSON.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="og:site_name" content="Pirai AI Blog">
+    <meta property="article:published_time" content="2026-02-15T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta property="article:section" content="Tutorial">
+    <meta property="article:tag" content="Qualtrics">
+    <meta property="article:tag" content="Dashboard">
+    <meta property="article:tag" content="Data Export">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://piraiai.com/blog/extract-qualtrics-dashboard-mappings">
+    <meta name="twitter:title" content="Extract Qualtrics Dashboard Data Field Mappings - Complete Guide">
+    <meta name="twitter:description" content="Automatically extract field mappings from Qualtrics Dashboard. Export to CSV, Excel, or JSON in seconds.">
+    <meta name="twitter:image" content="https://piraiai.com/logo.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://piraiai.com/blog/extract-qualtrics-dashboard-mappings">
+
+    <!-- Favicons -->
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://piraiai.com/logo.png">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        /* Header */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #1a1a1a;
+        }
+
+        .blog-label {
+            color: #9B6BFF;
+            font-weight: 400;
+            margin-left: 8px;            
+        }
+
+        header nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        header nav a {
+            color: #6b7280;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        header nav a:hover {
+            color: #9B6BFF;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background: #f9fafb;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 12px 24px;
+        }
+
+        .breadcrumb-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .breadcrumb a {
+            color: #6b7280;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb a:hover {
+            color: #9B6BFF;
+        }
+
+        .breadcrumb-separator {
+            color: #d1d5db;
+        }
+
+        .breadcrumb-current {
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            padding: 48px 24px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .article-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1.2;
+            color: #1a1a1a;
+            margin-bottom: 24px;
+            max-width: 900px;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            color: #6b7280;
+        }
+
+        .author {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .separator {
+            color: #d1d5db;
+        }
+
+        /* Content Wrapper */
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 48px auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 64px;
+        }
+
+        /* Article Content */
+        .article-content {
+            max-width: 720px;
+        }
+
+        .article-content p {
+            margin-bottom: 24px;
+            font-size: 17px;
+            line-height: 1.7;
+            color: #374151;
+        }
+
+        .article-content h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin: 48px 0 24px;
+            color: #1a1a1a;
+        }
+
+        .article-content h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            margin: 32px 0 16px;
+            color: #1a1a1a;
+        }
+
+        .article-content h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 24px 0 12px;
+            color: #1a1a1a;
+        }
+
+        .article-content a {
+            color: #9B6BFF;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(155, 107, 255, 0.3);
+            transition: all 0.2s;
+        }
+
+        .article-content a:hover {
+            border-bottom-color: #9B6BFF;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin: 24px 0;
+            padding-left: 24px;
+        }
+
+        .article-content li {
+            margin-bottom: 12px;
+            color: #374151;
+            line-height: 1.7;
+        }
+
+        .article-content strong {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 32px 0;
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+        }
+
+        @media (max-width: 640px) {
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+
+        th, td {
+            padding: 16px;
+            text-align: left;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        th {
+            background: #f9fafb;
+            font-weight: 600;
+            color: #1a1a1a;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background: #f9fafb;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            border-left: 4px solid #9B6BFF;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 32px 0;
+        }
+
+        .highlight-box h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+        }
+
+        .highlight-box p {
+            margin-bottom: 12px;
+            font-size: 16px;
+            color: #374151;
+        }
+
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-box ul,
+        .highlight-box ol {
+            margin: 12px 0;
+            padding-left: 20px;
+        }
+
+        .highlight-box li {
+            margin-bottom: 8px;
+            color: #374151;
+        }
+
+        /* Step Box */
+        .step-box {
+            background: #f9fafb;
+            border-left: 4px solid #9B6BFF;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: #9B6BFF;
+            color: white;
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            border-radius: 50%;
+            font-weight: 700;
+            margin-right: 12px;
+            font-size: 18px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .step-box h4 {
+            display: inline;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .step-box p {
+            margin: 16px 0 8px 47px;
+            font-size: 16px;
+            color: #374151;
+            line-height: 1.7;
+        }
+
+        /* Code Block */
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 24px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 24px 0;
+            position: relative;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .code-block pre {
+            margin: 0;
+            white-space: pre;
+            overflow-x: auto;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #9B6BFF;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .copy-button:hover {
+            background: #8855eb;
+            transform: translateY(-1px);
+        }
+
+        .copy-button:active {
+            transform: translateY(0);
+        }
+
+        .copy-button.copied {
+            background: #22c55e;
+        }
+
+        /* Command Box */
+        .command-box {
+            background: #1e1e1e;
+            color: #22c55e;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 24px 0;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .command-box code {
+            color: #22c55e;
+        }
+
+        /* Alert Boxes */
+        .alert {
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 24px 0;
+            border-left: 4px solid;
+        }
+
+        .alert-success {
+            background: #d1fae5;
+            border-left-color: #22c55e;
+            color: #065f46;
+        }
+
+        .alert-info {
+            background: #dbeafe;
+            border-left-color: #3b82f6;
+            color: #1e40af;
+        }
+
+        .alert-warning {
+            background: #fef3c7;
+            border-left-color: #f59e0b;
+            color: #92400e;
+        }
+
+        /* Feature List */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 24px 0;
+        }
+
+        .feature-list li {
+            padding: 8px 0 8px 32px;
+            position: relative;
+            font-size: 17px;
+            color: #374151;
+            line-height: 1.7;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #22c55e;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        /* Troubleshooting Box */
+        .troubleshooting-box {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+
+        .troubleshooting-box h4 {
+            color: #92400e;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .troubleshooting-box ul {
+            margin: 12px 0 12px 20px;
+        }
+
+        .troubleshooting-box li {
+            margin: 8px 0;
+            color: #92400e;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .sidebar-section {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .sidebar-section h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+
+        .toc-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .toc-list li {
+            margin-bottom: 8px;
+        }
+
+        .toc-list a {
+            color: #6b7280;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+            display: block;
+            padding: 4px 0;
+        }
+
+        .toc-list a:hover {
+            color: #9B6BFF;
+        }
+
+        /* CTA Box */
+        .cta-box {
+            background: linear-gradient(135deg, #9B6BFF, #BFA8FF);
+            padding: 32px;
+            border-radius: 8px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .cta-box h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .cta-box p {
+            font-size: 14px;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ffffff;
+            color: #9B6BFF;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: transform 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Related Articles */
+        .related-articles {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 64px 24px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .related-articles h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .related-card {
+            background: #f9fafb;
+            border-radius: 8px;
+            padding: 24px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .related-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .related-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .related-card p {
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        /* Footer */
+        footer {
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            padding: 32px 24px;
+            text-align: center;
+        }
+
+        footer p {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            .article-title {
+                font-size: 32px;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            header nav {
+                display: none;
+            }
+
+            .article-title {
+                font-size: 28px;
+            }
+
+            .article-content h2 {
+                font-size: 24px;
+            }
+
+            .breadcrumb {
+                padding: 12px 16px;
+            }
+
+            .breadcrumb-container {
+                font-size: 12px;
+            }
+
+            .step-box p {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->  
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo">
+                <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo">
+                <span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span>
+            </a>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/blog">All Articles</a>
+                <a href="/docs">Documentation</a>
+                <a href="/#demo">Get Demo</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="/">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="/blog">Blog</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Extract Qualtrics Dashboard Mappings</span>
+        </div>
+    </div>    
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-container">
+            <h1 class="article-title">Extract Qualtrics Dashboard Data Field Mappings - Complete Guide</h1>
+            <div class="article-meta">
+                <span class="author">Arun Raj</span>
+                <span class="separator">•</span>
+                <span>February 15, 2026</span>
+                <span class="separator">•</span>
+                <span>10 min read</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content-wrapper">
+        
+        <!-- Article Content -->
+        <article class="article-content">
+            
+            <h2 id="why-extract">Why Extract Field Mappings?</h2>
+
+            <p>If you work with Qualtrics Dashboard Data, you know that managing field mappings across multiple data sources can be challenging. Manually documenting which fields are mapped to which sources is time-consuming and error-prone.</p>
+
+            <p>This guide provides a simple browser-based method to automatically extract all your field mappings in seconds:</p>
+
+            <ul class="feature-list">
+                <li>Extract field types (Date, Text Set, Number Set, Open Text, etc.)</li>
+                <li>Capture full field names (no truncation)</li>
+                <li>Get all data source mappings in one export</li>
+                <li>See which fields are mapped vs "Not mapped" for each source</li>
+                <li>Export to CSV, Excel, or JSON format</li>
+                <li>Works with any number of data sources (2, 3, 10+)</li>
+            </ul>
+
+            <h2 id="how-to-extract">How to Extract Your Field Mappings</h2>
+
+            <p>This is the fastest method and works directly in your browser while viewing the Qualtrics Dashboard Data page.</p>
+
+            <div class="step-box">
+                <span class="step-number">1</span>
+                <h4>Navigate to Dashboard Data</h4>
+                <p>In Qualtrics, go to your Dashboard and navigate to:<br>
+                <strong>Settings → Dashboard Data</strong></p>
+                <p>Make sure the field mapping grid is visible on your screen.</p>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">2</span>
+                <h4>Open Browser Console</h4>
+                <p><strong>Right-click on the first field mapping row</strong> in the Dashboard Data grid (where you see "Date", "Text Set", etc.)</p>
+                <p>Select <strong>"Inspect"</strong> or <strong>"Inspect Element"</strong> from the menu</p>
+                <p>In the developer tools that appear, click on the <strong>"Console"</strong> tab</p>
+                <div class="alert alert-info">
+                    <strong>Why this way?</strong> Right-clicking directly on a field ensures the DOM elements are loaded in the inspector, making the extraction more reliable.
+                </div>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">3</span>
+                <h4>Copy and Run the Script</h4>
+                <p>Copy the script below by clicking the "Copy Script" button:</p>
+                
+                <div class="code-block">
+                    <button class="copy-button" onclick="copyScript('script1')">Copy Script</button>
+                    <pre id="script1">/**
+ * Qualtrics Dashboard Field Extractor
+ * Extracts Field Type, Field Name, and ALL Data Source Mappings
+ */
+
+(function() {
+    console.log('=== Qualtrics Field Extractor Started ===');
+    
+    function getDataSourceNames() {
+        const sourceNames = [];
+        const sourceContainers = document.querySelectorAll('.source-menu-container');
+        
+        console.log(`Found ${sourceContainers.length} source containers`);
+        
+        sourceContainers.forEach((container, index) => {
+            try {
+                const labelContainer = container.querySelector('.source-label-container');
+                if (labelContainer) {
+                    const sourceName = labelContainer.textContent.trim();
+                    sourceNames.push({
+                        index: index,
+                        name: sourceName
+                    });
+                    console.log(`Source ${index + 1}: ${sourceName}`);
+                }
+            } catch (error) {
+                console.warn(`Error getting source name ${index}:`, error);
+                sourceNames.push({
+                    index: index,
+                    name: `Source ${index + 1}`
+                });
+            }
+        });
+        
+        return sourceNames;
+    }
+    
+    function extractFieldData() {
+        const fields = [];
+        const dataSources = getDataSourceNames();
+        
+        console.log(`\nData Sources Found: ${dataSources.length}`);
+        dataSources.forEach(ds => console.log(`  - ${ds.name}`));
+        
+        const fieldRows = document.querySelectorAll('li.grid-field-info');
+        
+        console.log(`\nFound ${fieldRows.length} field rows\n`);
+        
+        fieldRows.forEach((row, index) => {
+            try {
+                let fieldType = 'Unknown';
+                let fieldName = 'Unknown';
+                const sourceMappings = {};
+                
+                const fieldTypeElement = row.querySelector('field-type .type-text');
+                if (fieldTypeElement) {
+                    fieldType = fieldTypeElement.textContent.trim();
+                }
+                
+                const fieldNameElement = row.querySelector('field-name .no-wrap-ellipsis-text.no-input');
+                if (fieldNameElement) {
+                    fieldName = fieldNameElement.textContent.trim();
+                }
+                
+                const sourceFields = row.querySelectorAll('.sources-side-row');
+                
+                sourceFields.forEach((sourceField, sourceIndex) => {
+                    try {
+                        let mappingText = '';
+                        
+                        const notMappedElement = sourceField.querySelector('[data-key="NOT_MAPPED"]');
+                        if (notMappedElement) {
+                            mappingText = 'Not mapped';
+                        } else {
+                            const sourceNameSpan = sourceField.querySelector('.source-field-name span');
+                            if (sourceNameSpan) {
+                                const allSpans = sourceField.querySelectorAll('.source-field-name span');
+                                for (let span of allSpans) {
+                                    const text = span.textContent.trim();
+                                    if (text && text !== 'Not mapped') {
+                                        mappingText = text;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        
+                        const sourceName = dataSources[sourceIndex] ? dataSources[sourceIndex].name : `Source ${sourceIndex + 1}`;
+                        sourceMappings[sourceName] = mappingText || 'Not mapped';
+                        
+                    } catch (error) {
+                        console.warn(`Error processing source ${sourceIndex} for field ${index}:`, error);
+                        const sourceName = dataSources[sourceIndex] ? dataSources[sourceIndex].name : `Source ${sourceIndex + 1}`;
+                        sourceMappings[sourceName] = 'Error';
+                    }
+                });
+                
+                if (fieldType !== 'Unknown' || fieldName !== 'Unknown') {
+                    const fieldData = {
+                        index: index + 1,
+                        fieldType: fieldType,
+                        fieldName: fieldName,
+                        ...sourceMappings
+                    };
+                    
+                    fields.push(fieldData);
+                    
+                    if ((index + 1) % 5 === 0) {
+                        console.log(`Processed ${index + 1} fields...`);
+                    }
+                }
+            } catch (error) {
+                console.warn(`Error processing row ${index}:`, error);
+            }
+        });
+        
+        return fields;
+    }
+    
+    function displayAsTable(fields) {
+        console.log('\n=== EXTRACTED FIELDS ===\n');
+        console.table(fields);
+        console.log(`\nTotal fields extracted: ${fields.length}`);
+    }
+    
+    function convertToCSV(fields) {
+        if (fields.length === 0) return '';
+        
+        const allKeys = new Set();
+        fields.forEach(field => {
+            Object.keys(field).forEach(key => allKeys.add(key));
+        });
+        
+        const keys = Array.from(allKeys).filter(key => key !== 'index');
+        const orderedHeaders = ['fieldType', 'fieldName', ...keys.filter(h => h !== 'fieldType' && h !== 'fieldName')];
+        
+        const headerRow = orderedHeaders.map(h => {
+            if (h === 'fieldType') return 'Field Type';
+            if (h === 'fieldName') return 'Field Name';
+            return h;
+        }).map(h => `"${h}"`).join(',');
+        
+        const dataRows = fields.map(field => {
+            return orderedHeaders.map(key => {
+                const value = field[key] || '';
+                return `"${String(value).replace(/"/g, '""')}"`;
+            }).join(',');
+        }).join('\n');
+        
+        return headerRow + '\n' + dataRows;
+    }
+    
+    function downloadCSV(csv, filename = 'qualtrics_fields.csv') {
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        const link = document.createElement('a');
+        const url = URL.createObjectURL(blob);
+        
+        link.setAttribute('href', url);
+        link.setAttribute('download', filename);
+        link.style.visibility = 'hidden';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        console.log(`✓ Downloaded: ${filename}`);
+    }
+    
+    function copyToClipboard(text) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        
+        try {
+            document.execCommand('copy');
+            console.log('✓ CSV data copied to clipboard!');
+            return true;
+        } catch (err) {
+            console.error('Failed to copy to clipboard:', err);
+            return false;
+        } finally {
+            document.body.removeChild(textarea);
+        }
+    }
+    
+    console.log('Starting extraction...\n');
+    const extractedFields = extractFieldData();
+    
+    if (extractedFields.length === 0) {
+        console.error('❌ No fields found! Make sure you are on the Qualtrics Dashboard Data mapping page.');
+        return;
+    }
+    
+    displayAsTable(extractedFields);
+    
+    const csvData = convertToCSV(extractedFields);
+    
+    window.qualtricsFieldData = extractedFields;
+    window.qualtricsFieldCSV = csvData;
+    
+    window.downloadQualtricsCSV = function(filename) {
+        downloadCSV(csvData, filename || 'qualtrics_fields.csv');
+    };
+    
+    window.copyQualtricsCSV = function() {
+        return copyToClipboard(csvData);
+    };
+    
+    window.getQualtricsJSON = function() {
+        return JSON.stringify(extractedFields, null, 2);
+    };
+    
+    window.downloadQualtricsJSON = function(filename) {
+        const json = JSON.stringify(extractedFields, null, 2);
+        const blob = new Blob([json], { type: 'application/json' });
+        const link = document.createElement('a');
+        const url = URL.createObjectURL(blob);
+        
+        link.setAttribute('href', url);
+        link.setAttribute('download', filename || 'qualtrics_fields.json');
+        link.style.visibility = 'hidden';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        console.log(`✓ Downloaded: ${filename || 'qualtrics_fields.json'}`);
+    };
+    
+    console.log('\n=== ACTIONS AVAILABLE ===');
+    console.log('1. Download CSV:  downloadQualtricsCSV()');
+    console.log('2. Download JSON: downloadQualtricsJSON()');
+    console.log('3. Copy CSV:      copyQualtricsCSV()');
+    console.log('4. View data:     qualtricsFieldData');
+    console.log('5. View CSV:      qualtricsFieldCSV');
+    console.log('6. View JSON:     getQualtricsJSON()');
+    
+    console.log('\n✓ Extraction complete! Use the commands above to export the data.');
+    
+})();</pre>
+                </div>
+
+                <p>Paste the script into the console and press <strong>Enter</strong></p>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">4</span>
+                <h4>View the Results</h4>
+                <p>The script will display a table showing all extracted fields in the console.</p>
+                <div class="alert alert-success">
+                    You should see a message like: "✓ Extraction complete! Total fields extracted: 22"
+                </div>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">5</span>
+                <h4>Export Your Data</h4>
+                <p>Use any of these commands in the console to export:</p>
+                
+                <div class="command-box">
+                    <code>downloadQualtricsCSV()</code> &nbsp;&nbsp;// Download as CSV file<br>
+                    <code>downloadQualtricsJSON()</code> &nbsp;// Download as JSON file<br>
+                    <code>copyQualtricsCSV()</code> &nbsp;&nbsp;&nbsp;&nbsp;// Copy to clipboard
+                </div>
+
+                <div class="alert alert-info">
+                    <strong>Pro Tip:</strong> The CSV file can be opened directly in Excel, Google Sheets, or any spreadsheet application!
+                </div>
+            </div>
+
+            <h2 id="understanding-output">Understanding Your Output</h2>
+            
+            <h3>What Gets Extracted</h3>
+            <p>The extraction captures complete information about your Dashboard Data configuration:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Field Type</th>
+                        <th>Field Name</th>
+                        <th>Source 1 Name</th>
+                        <th>Source 2 Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Date</td>
+                        <td>Survey Metadata - Start Date</td>
+                        <td>Survey Metadata - Start Date</td>
+                        <td>Survey Metadata - Start Date</td>
+                    </tr>
+                    <tr>
+                        <td>Number Set</td>
+                        <td>Q1 - How likely are you to recommend...</td>
+                        <td>Q1 - How likely are you to recommend...</td>
+                        <td>Not mapped</td>
+                    </tr>
+                    <tr>
+                        <td>Open Text</td>
+                        <td>Q2 - why did you give this score?</td>
+                        <td>Q2 - why did you give this score?</td>
+                        <td>Not mapped</td>
+                    </tr>
+                    <tr>
+                        <td>Number Set</td>
+                        <td>Embedded Data - NPS</td>
+                        <td>NPS</td>
+                        <td>Not mapped</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Field Types You'll See</h3>
+            <ul class="feature-list">
+                <li><strong>Date</strong> - Date/time fields</li>
+                <li><strong>Text Value</strong> - Single text values</li>
+                <li><strong>Text Set</strong> - Categorical text fields</li>
+                <li><strong>Numeric Value</strong> - Numeric measurements</li>
+                <li><strong>Number Set</strong> - Categorical numeric fields</li>
+                <li><strong>Open Text</strong> - Free-form text responses</li>
+            </ul>
+
+            <h3>Source Mappings</h3>
+            <p>For each data source in your dashboard, you'll see:</p>
+            <ul class="feature-list">
+                <li>The exact field name from that source</li>
+                <li>"Not mapped" if the field isn't connected to that source</li>
+                <li>Different field names if sources use different naming conventions</li>
+            </ul>
+
+            <h2 id="troubleshooting">Troubleshooting</h2>
+
+            <div class="troubleshooting-box">
+                <h4>Problem: "No fields found" message</h4>
+                <ul>
+                    <li>Make sure you're on the Dashboard Data page with the field grid visible</li>
+                    <li>Try scrolling down to load all fields before running the script</li>
+                    <li>Refresh the page and try again</li>
+                </ul>
+            </div>
+
+            <div class="troubleshooting-box">
+                <h4>Problem: Download button doesn't work</h4>
+                <ul>
+                    <li>Use <code>copyQualtricsCSV()</code> to copy to clipboard instead</li>
+                    <li>Paste into Excel, Google Sheets, or a text editor</li>
+                    <li>Check if your browser is blocking downloads</li>
+                </ul>
+            </div>
+
+            <div class="troubleshooting-box">
+                <h4>Problem: Script doesn't run or shows errors</h4>
+                <ul>
+                    <li>Make sure you copied the entire script</li>
+                    <li>Clear the console and try again</li>
+                    <li>Refresh the Qualtrics page and run the script again</li>
+                </ul>
+            </div>
+
+            <h2 id="advanced-usage">Advanced Usage</h2>
+
+            <h3>Filtering Specific Sources</h3>
+            <p>After running the extraction, you can filter the data in the console:</p>
+            <div class="command-box">
+                <code>// Get only fields mapped to a specific source</code><br>
+                <code>qualtricsFieldData.filter(f => f['Source Name'] !== 'Not mapped')</code>
+            </div>
+
+            <h3>Custom Export Filename</h3>
+            <div class="command-box">
+                <code>downloadQualtricsCSV('my_dashboard_fields.csv')</code><br>
+                <code>downloadQualtricsJSON('my_dashboard_fields.json')</code>
+            </div>
+
+            <h2 id="use-cases">Use Cases</h2>
+
+            <h3>Documentation</h3>
+            <p>Create comprehensive documentation of your dashboard configuration for:</p>
+            <ul class="feature-list">
+                <li>Onboarding new team members</li>
+                <li>Audit trails and compliance</li>
+                <li>Project handoffs</li>
+                <li>Version control and change tracking</li>
+            </ul>
+
+            <h3>Migration Planning</h3>
+            <p>Plan data source migrations by:</p>
+            <ul class="feature-list">
+                <li>Identifying which fields are mapped vs unmapped</li>
+                <li>Understanding field naming differences across sources</li>
+                <li>Creating mapping specifications for new sources</li>
+                <li>Validating that all required fields are configured</li>
+            </ul>
+
+            <h3>Analysis & Optimization</h3>
+            <ul class="feature-list">
+                <li>Identify unused fields across data sources</li>
+                <li>Find inconsistencies in field naming</li>
+                <li>Spot gaps in data source coverage</li>
+                <li>Plan field consolidation strategies</li>
+            </ul>
+
+            <h3>Backup & Recovery</h3>
+            <ul class="feature-list">
+                <li>Create backups of your dashboard configuration</li>
+                <li>Track changes over time</li>
+                <li>Recover from accidental deletions</li>
+                <li>Compare configurations across environments</li>
+            </ul>
+
+            <div class="highlight-box" style="margin-top: 40px;">
+                <h4>Need Help with Qualtrics Survey Conversion?</h4>
+                <p>While this tool extracts dashboard mappings, if you need to convert surveys between formats, check out <a href="/convert-now">Pirai AI's survey automation platform</a>. We help researchers convert Word, PDF, and Excel questionnaires into Qualtrics and 19+ other platforms in minutes.</p>
+            </div>
+
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            
+            <!-- Table of Contents -->
+            <div class="sidebar-section">
+                <h3>In This Article</h3>
+                <ul class="toc-list">
+                    <li><a href="#why-extract">Why Extract Field Mappings?</a></li>
+                    <li><a href="#how-to-extract">How to Extract</a></li>
+                    <li><a href="#understanding-output">Understanding Output</a></li>
+                    <li><a href="#troubleshooting">Troubleshooting</a></li>
+                    <li><a href="#advanced-usage">Advanced Usage</a></li>
+                    <li><a href="#use-cases">Use Cases</a></li>
+                </ul>
+            </div>
+
+            <!-- CTA Box -->
+            <div class="cta-box">
+                <h3>Survey Automation</h3>
+                <p>Convert surveys to Qualtrics and 19+ platforms automatically.</p>
+                <a href="/convert-now" class="cta-button">Try Pirai AI</a>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <!-- Related Articles -->
+    <div class="related-articles">
+        <h2>Related Articles</h2>
+        <div class="related-grid">
+            <a href="/blog/convert-word-to-qualtrics" class="related-card">
+                <h3>How to Convert Word to Qualtrics</h3>
+                <p>Step-by-step guide to converting Word documents to Qualtrics QSF format</p>
+            </a>
+            <a href="/blog/pirai-ai-vs-qualtrics-vs-questionpro" class="related-card">
+                <h3>Pirai AI vs Qualtrics vs QuestionPro</h3>
+                <p>Understanding survey automation vs survey platforms</p>
+            </a>
+            <a href="/blog/enterprise-automation-hub" class="related-card">
+                <h3>Enterprise Research Automation Hub</h3>
+                <p>Complete toolkit for complex survey operations</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p>
+        <p style="margin-top: 8px; font-size: 13px;">This guide is provided for educational purposes. Qualtrics is a trademark of Qualtrics LLC. Not affiliated with or endorsed by Qualtrics.</p>
+    </footer>
+
+    <script>
+        function copyScript(elementId) {
+            const codeBlock = document.getElementById(elementId);
+            const button = event.target;
+            
+            // Create temporary textarea
+            const textarea = document.createElement('textarea');
+            textarea.value = codeBlock.textContent;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            
+            // Select and copy
+            textarea.select();
+            
+            try {
+                document.execCommand('copy');
+                
+                // Visual feedback
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+            } catch (err) {
+                alert('Failed to copy. Please select and copy manually.');
+            }
+            
+            document.body.removeChild(textarea);
+        }
+    </script>
+</body>
+</html>
