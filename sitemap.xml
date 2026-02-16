@@ -81,6 +81,12 @@
     <changefreq>monthly</changefreq>
     <lastmod>2026-02-07</lastmod>
   </url>   
+  <url>
+    <loc>https://piraiai.com/blog/extract-qualtrics-dashboard-mappings</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-02-07</lastmod>
+  </url>     
 
   <!-- Add each new article as you publish -->
   <!-- Documentation SECTION - Medium-High priority -->

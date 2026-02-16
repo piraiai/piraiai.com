@@ -170,18 +170,18 @@
         .article-title {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 42px;
-            font-weight: 800;
+            font-weight: 700;
             line-height: 1.2;
             color: #1a1a1a;
-            margin-bottom: 24px;
-            max-width: 900px;
+            margin-bottom: 16px;
+            max-width: 800px;
         }
 
         .article-meta {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 15px;
+            gap: 16px;
+            font-size: 14px;
             color: #6b7280;
         }
 
@@ -201,35 +201,40 @@
             padding: 0 24px;
             display: grid;
             grid-template-columns: 1fr 300px;
-            gap: 64px;
+            gap: 48px;
         }
 
         /* Article Content */
         .article-content {
-            max-width: 720px;
+            max-width: 680px;
+            overflow-x: hidden;
         }
 
         .article-content p {
-            margin-bottom: 24px;
-            font-size: 17px;
-            line-height: 1.7;
+            font-size: 18px;
             color: #374151;
+            margin-bottom: 24px;
+            line-height: 1.7;
         }
 
         .article-content h2 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 700;
-            margin: 48px 0 24px;
             color: #1a1a1a;
+            margin-top: 48px;
+            margin-bottom: 16px;
+            padding-left: 16px;
+            border-left: 4px solid #9B6BFF;
         }
 
         .article-content h3 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 600;
-            margin: 32px 0 16px;
             color: #1a1a1a;
+            margin-top: 32px;
+            margin-bottom: 12px;
         }
 
         .article-content h4 {
@@ -251,16 +256,15 @@
             border-bottom-color: #9B6BFF;
         }
 
-        .article-content ul,
-        .article-content ol {
-            margin: 24px 0;
+        .article-content ul, .article-content ol {
+            margin-bottom: 24px;
             padding-left: 24px;
         }
 
         .article-content li {
-            margin-bottom: 12px;
+            font-size: 18px;
             color: #374151;
-            line-height: 1.7;
+            margin-bottom: 12px;
         }
 
         .article-content strong {
@@ -311,40 +315,25 @@
 
         /* Highlight Box */
         .highlight-box {
-            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            background: #f5f3ff;
             border-left: 4px solid #9B6BFF;
-            border-radius: 8px;
             padding: 24px;
             margin: 32px 0;
+            border-radius: 4px;
         }
 
         .highlight-box h4 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 600;
             color: #1a1a1a;
             margin-bottom: 12px;
         }
 
         .highlight-box p {
-            margin-bottom: 12px;
             font-size: 16px;
             color: #374151;
-        }
-
-        .highlight-box p:last-child {
             margin-bottom: 0;
-        }
-
-        .highlight-box ul,
-        .highlight-box ol {
-            margin: 12px 0;
-            padding-left: 20px;
-        }
-
-        .highlight-box li {
-            margin-bottom: 8px;
-            color: #374151;
         }
 
         /* Step Box */
@@ -530,7 +519,7 @@
         /* Sidebar */
         .sidebar {
             position: sticky;
-            top: 100px;
+            top: 80px;
             height: fit-content;
         }
 
@@ -560,12 +549,10 @@
         }
 
         .toc-list a {
-            color: #6b7280;
+            color: #4b5563;
             text-decoration: none;
             font-size: 14px;
             transition: color 0.2s;
-            display: block;
-            padding: 4px 0;
         }
 
         .toc-list a:hover {
@@ -709,10 +696,6 @@
 
             .breadcrumb-container {
                 font-size: 12px;
-            }
-
-            .step-box p {
-                margin-left: 0;
             }
         }
     </style>
