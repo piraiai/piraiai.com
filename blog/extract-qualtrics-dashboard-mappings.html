@@ -804,12 +804,14 @@
                 <div class="code-block">
                     <button class="copy-button" onclick="copyScript('script1')">Copy Script</button>
                     <pre id="script1">/**
- * Qualtrics Dashboard Field Extractor
+ * Qualtrics Dashboard Field Extractor - v2.2 DEBUG
  * Extracts Field Type, Field Name, and ALL Data Source Mappings
  */
 
 (function() {
-    console.log('=== Qualtrics Field Extractor Started ===');
+    console.log('=== Qualtrics Field Extractor v2.2 DEBUG ===');
+    console.log('⚠️  IMPORTANT: Expand all Measure Groups before running!');
+    console.log('⚠️  Click the arrow next to group fields to expand them.\n');
     
     function getDataSourceNames() {
         const sourceNames = [];
@@ -847,36 +849,54 @@
         console.log(`\nData Sources Found: ${dataSources.length}`);
         dataSources.forEach(ds => console.log(`  - ${ds.name}`));
         
-        const fieldRows = document.querySelectorAll('li.grid-field-info');
+        // Get ALL li elements, including those nested in groups
+        const allListItems = document.querySelectorAll('li.grid-field-info, li.ng-scope[grid-row]');
         
-        console.log(`\nFound ${fieldRows.length} field rows\n`);
+        console.log(`\nFound ${allListItems.length} total list items\n`);
         
-        fieldRows.forEach((row, index) => {
+        let processedCount = 0;
+        
+        allListItems.forEach((row, rowIndex) => {
             try {
                 let fieldType = 'Unknown';
                 let fieldName = 'Unknown';
                 const sourceMappings = {};
                 
+                // Extract field type
                 const fieldTypeElement = row.querySelector('field-type .type-text');
                 if (fieldTypeElement) {
                     fieldType = fieldTypeElement.textContent.trim();
                 }
                 
+                // Extract field name
                 const fieldNameElement = row.querySelector('field-name .no-wrap-ellipsis-text.no-input');
                 if (fieldNameElement) {
                     fieldName = fieldNameElement.textContent.trim();
                 }
                 
+                // DEBUG: Log what we're finding
+                if (fieldName.includes('i1') || fieldName.includes('i2')) {
+                    console.log(`DEBUG Row ${rowIndex + 1}: Type="${fieldType}", Name="${fieldName}"`);
+                }
+                
+                // Extract source mappings
                 const sourceFields = row.querySelectorAll('.sources-side-row');
                 
                 sourceFields.forEach((sourceField, sourceIndex) => {
                     try {
+                        // Skip if we're processing more sources than we have data sources
+                        if (sourceIndex >= dataSources.length) {
+                            return;
+                        }
+                        
                         let mappingText = '';
                         
+                        // Check for "Not mapped"
                         const notMappedElement = sourceField.querySelector('[data-key="NOT_MAPPED"]');
                         if (notMappedElement) {
                             mappingText = 'Not mapped';
                         } else {
+                            // Get the actual source field mapping
                             const sourceNameSpan = sourceField.querySelector('.source-field-name span');
                             if (sourceNameSpan) {
                                 const allSpans = sourceField.querySelectorAll('.source-field-name span');
@@ -890,19 +910,21 @@
                             }
                         }
                         
-                        const sourceName = dataSources[sourceIndex] ? dataSources[sourceIndex].name : `Source ${sourceIndex + 1}`;
+                        const sourceName = dataSources[sourceIndex].name;
                         sourceMappings[sourceName] = mappingText || 'Not mapped';
                         
                     } catch (error) {
-                        console.warn(`Error processing source ${sourceIndex} for field ${index}:`, error);
+                        console.warn(`Error processing source ${sourceIndex} for field ${rowIndex}:`, error);
                         const sourceName = dataSources[sourceIndex] ? dataSources[sourceIndex].name : `Source ${sourceIndex + 1}`;
                         sourceMappings[sourceName] = 'Error';
                     }
                 });
                 
                 if (fieldType !== 'Unknown' || fieldName !== 'Unknown') {
+                    processedCount++;
+                    
                     const fieldData = {
-                        index: index + 1,
+                        index: processedCount,
                         fieldType: fieldType,
                         fieldName: fieldName,
                         ...sourceMappings
@@ -910,12 +932,12 @@
                     
                     fields.push(fieldData);
                     
-                    if ((index + 1) % 5 === 0) {
-                        console.log(`Processed ${index + 1} fields...`);
+                    if (processedCount % 10 === 0) {
+                        console.log(`Processed ${processedCount} fields...`);
                     }
                 }
             } catch (error) {
-                console.warn(`Error processing row ${index}:`, error);
+                console.warn(`Error processing row ${rowIndex}:`, error);
             }
         });
         
@@ -937,9 +959,10 @@
         });
         
         const keys = Array.from(allKeys).filter(key => key !== 'index');
-        const orderedHeaders = ['fieldType', 'fieldName', ...keys.filter(h => h !== 'fieldType' && h !== 'fieldName')];
+        const orderedHeaders = ['index', 'fieldType', 'fieldName', ...keys.filter(h => h !== 'fieldType' && h !== 'fieldName')];
         
         const headerRow = orderedHeaders.map(h => {
+            if (h === 'index') return 'Index';
             if (h === 'fieldType') return 'Field Type';
             if (h === 'fieldName') return 'Field Name';
             return h;
@@ -966,6 +989,7 @@
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
+        URL.revokeObjectURL(url);
         
         console.log(`✓ Downloaded: ${filename}`);
     }
@@ -1029,6 +1053,7 @@
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
+        URL.revokeObjectURL(url);
         
         console.log(`✓ Downloaded: ${filename || 'qualtrics_fields.json'}`);
     };
