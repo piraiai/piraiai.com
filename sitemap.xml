@@ -155,7 +155,13 @@
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
     <lastmod>2026-02-12</lastmod>
-  </url>      
+  </url>  
+  <url>
+    <loc>https://piraiai.com/docs/how-to-guide</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-02-21</lastmod>
+  </url>       
   <!-- SPECIALIZED TOOLS - Medium-high priority -->
   <url>
     <loc>https://piraiai.com/qsf-to-excel</loc>
