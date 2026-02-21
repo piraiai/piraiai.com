@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Platform How-To Guide | Video Tutorials | Pirai AI Docs</title>
+    <meta name="description" content="Learn the Pirai AI AI-powered survey converter step by step. Watch our official how-to video series covering core workflows, Smart Fix, history management, and more." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://piraiai.com/docs/how-to-guide" />
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Platform How-To Guide | Pirai AI Docs" />
+    <meta property="og:description" content="Step-by-step video tutorials for the Pirai AI survey automation platform." />
+    <meta property="og:url" content="https://piraiai.com/docs/how-to-guide" />
+    <meta property="og:type" content="article" />
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+        /* =====================
+           RESET & BASE
+        ===================== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.7;
+            font-size: 18px;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #1a1a1a;
+        }
+
+        /* =====================
+           NAVIGATION
+        ===================== */
+        .nav {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #1a1a1a;
+        }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+        }
+        .docs-label { color: #6b7280; font-weight: 400; margin-left: 8px; }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #4b5563;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: #9B6BFF; }
+
+        /* =====================
+           BREADCRUMB
+        ===================== */
+        .breadcrumb {
+            background: #f9fafb;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 12px 24px;
+        }
+        .breadcrumb-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #6b7280;
+        }
+        .breadcrumb a { color: #6b7280; text-decoration: none; transition: color 0.2s; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+
+        /* =====================
+           HERO
+        ===================== */
+        .hero {
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            padding: 48px 24px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            max-width: 800px;
+        }
+        .hero-subtitle {
+            font-size: 20px;
+            color: #6b7280;
+            max-width: 680px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 14px;
+            color: #6b7280;
+            flex-wrap: wrap;
+        }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, #9B6BFF, #BFA8FF);
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            letter-spacing: 0.3px;
+        }
+
+        /* =====================
+           MAIN LAYOUT
+        ===================== */
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 24px;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 48px;
+            align-items: start;
+        }
+
+        /* =====================
+           ARTICLE CONTENT
+        ===================== */
+        .article-content { min-width: 0; }
+
+        /* Learning path banner */
+        .learning-path-banner {
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border: 1px solid #c4b5fd;
+            border-left: 4px solid #9B6BFF;
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-bottom: 48px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+        .learning-path-banner .banner-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+        .learning-path-banner p {
+            font-size: 16px;
+            color: #374151;
+            margin: 0;
+            line-height: 1.6;
+        }
+        .learning-path-banner strong { color: #6b21a8; }
+
+        /* Section headings */
+        .article-content h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-top: 56px;
+            margin-bottom: 8px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        .article-content h2:first-of-type { margin-top: 0; }
+        .section-intro {
+            font-size: 16px;
+            color: #6b7280;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        /* =====================
+           VIDEO CARDS
+        ===================== */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 28px;
+            margin-bottom: 16px;
+        }
+        .video-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+        }
+        .video-card:hover {
+            box-shadow: 0 8px 24px rgba(155, 107, 255, 0.12);
+            transform: translateY(-3px);
+            border-color: #c4b5fd;
+        }
+        .video-embed {
+            position: relative;
+            padding-bottom: 56.25%;
+            background: #f3f4f6;
+        }
+        .video-embed iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: none;
+        }
+        .video-body { padding: 20px; }
+        .video-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        .step-badge {
+            font-size: 11px;
+            font-weight: 700;
+            background: #f3f4f6;
+            color: #6b7280;
+            padding: 3px 8px;
+            border-radius: 12px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .audience-badge {
+            font-size: 11px;
+            font-weight: 600;
+            background: #f0fdf4;
+            color: #15803d;
+            border: 1px solid #bbf7d0;
+            padding: 3px 8px;
+            border-radius: 12px;
+        }
+        .video-body h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            line-height: 1.35;
+        }
+        .video-body p {
+            font-size: 14px;
+            color: #6b7280;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .video-body .key-points {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #f3f4f6;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .key-point {
+            font-size: 13px;
+            color: #374151;
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+        }
+        .key-point::before {
+            content: "✓";
+            color: #9B6BFF;
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* =====================
+           PLATFORM CTA BAND
+        ===================== */
+        .platform-cta {
+            background: linear-gradient(135deg, #9B6BFF 0%, #BFA8FF 100%);
+            border-radius: 12px;
+            padding: 36px 40px;
+            margin-top: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .platform-cta-text h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+        .platform-cta-text p {
+            font-size: 15px;
+            color: rgba(255,255,255,0.85);
+            margin: 0;
+        }
+        .platform-cta-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            flex-shrink: 0;
+        }
+        .btn-primary {
+            display: inline-block;
+            background: #ffffff;
+            color: #9B6BFF;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            white-space: nowrap;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+        }
+        .btn-secondary {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            border: 1px solid rgba(255,255,255,0.4);
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+        .btn-secondary:hover { background: rgba(255,255,255,0.25); }
+
+        /* =====================
+           SIDEBAR
+        ===================== */
+        .sidebar {
+            position: sticky;
+            top: 80px;
+            height: fit-content;
+        }
+        .sidebar-section {
+            background: #f9fafb;
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+        .sidebar-section h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+        }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 4px; }
+        .toc-list a {
+            color: #4b5563;
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 8px;
+            border-radius: 6px;
+            transition: background 0.15s, color 0.15s;
+        }
+        .toc-list a:hover {
+            color: #9B6BFF;
+            background: #f3f0ff;
+        }
+        .toc-list .toc-icon { font-size: 14px; flex-shrink: 0; }
+        .toc-list .toc-count {
+            margin-left: auto;
+            font-size: 11px;
+            background: #e5e7eb;
+            color: #6b7280;
+            padding: 2px 7px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+        .toc-divider {
+            height: 1px;
+            background: #e5e7eb;
+            margin: 8px 0;
+        }
+
+        /* Sidebar CTA */
+        .cta-box {
+            background: linear-gradient(135deg, #9B6BFF, #BFA8FF);
+            padding: 28px 24px;
+            border-radius: 8px;
+            text-align: center;
+            color: #ffffff;
+        }
+        .cta-box h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        .cta-box p {
+            font-size: 14px;
+            margin-bottom: 18px;
+            opacity: 0.92;
+            line-height: 1.5;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #ffffff;
+            color: #9B6BFF;
+            padding: 10px 22px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            transition: transform 0.2s;
+        }
+        .cta-button:hover { transform: translateY(-2px); }
+
+        /* Playlist link box */
+        .playlist-box {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .playlist-box h3 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+        .playlist-box p {
+            font-size: 13px;
+            color: #6b7280;
+            margin-bottom: 14px;
+            line-height: 1.5;
+        }
+        .playlist-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #fee2e2;
+            color: #dc2626;
+            padding: 10px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .playlist-link:hover { background: #fecaca; }
+
+        /* =====================
+           FOOTER
+        ===================== */
+        .footer {
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            padding: 32px 24px;
+            text-align: center;
+            margin-top: 80px;
+        }
+        .footer p { color: #6b7280; font-size: 14px; }
+
+        /* =====================
+           RESPONSIVE
+        ===================== */
+        @media (max-width: 968px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: static;
+            }
+        }
+        @media (max-width: 640px) {
+            .nav-links { display: none; }
+            .article-title { font-size: 28px; }
+            .hero { padding: 40px 16px; }
+            .hero-subtitle { font-size: 16px; }
+            .content-wrapper { padding: 32px 16px; }
+            .video-grid { grid-template-columns: 1fr; }
+            .platform-cta { padding: 28px 24px; }
+            .platform-cta-text h3 { font-size: 18px; }
+            .breadcrumb { padding: 10px 16px; }
+            .breadcrumb-container { font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- ===================== NAV ===================== -->
+<nav class="nav">
+    <div class="nav-content">
+        <a href="/" class="logo">
+            <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo" />
+            <span class="logo-text">Pirai AI <span class="docs-label">/ Docs</span></span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/docs">Documentation</a></li>
+            <li><a href="/#demo">Get Demo</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- ===================== BREADCRUMB ===================== -->
+<div class="breadcrumb">
+    <div class="breadcrumb-container">
+        <a href="/">Home</a>
+        <span class="breadcrumb-separator">›</span>
+        <a href="/docs">Documentation</a>
+        <span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">Platform How-To Guide</span>
+    </div>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+    <div class="hero-container">
+        <h1 class="article-title">Platform How-To Guide</h1>
+        <p class="hero-subtitle">
+            Step-by-step video walkthroughs for the Pirai AI survey converter. Go from document upload to a fully converted, ready-to-deploy survey in minutes.
+        </p>
+        <div class="article-meta">
+            <span class="author">Pirai AI Team</span>
+            <span class="separator">•</span>
+            <span>6 videos</span>
+            <span class="separator">•</span>
+            <span>Beginner friendly</span>
+            <span class="separator">•</span>
+            <span class="badge">📺 Video Series</span>
+        </div>
+    </div>
+</section>
+
+<!-- ===================== MAIN CONTENT ===================== -->
+<div class="content-wrapper">
+
+    <!-- Article column -->
+    <article class="article-content">
+
+        <!-- Learning path banner -->
+        <div class="learning-path-banner">
+            <div class="banner-icon">🗺️</div>
+            <p>
+                <strong>Recommended learning path:</strong> New to Pirai AI? Watch the videos in order — start with navigation and core conversion, then move into advanced features like Smart Fix and History. Already familiar with the basics? Jump to any video that covers what you need.
+            </p>
+        </div>
+
+        <!-- ===== SECTION 1: GETTING STARTED ===== -->
+        <h2 id="getting-started">🚀 Getting Started</h2>
+        <p class="section-intro">These three videos cover the foundational workflows every user needs — orienting yourself in the platform, running your first conversion, and reviewing the output before you download.</p>
+
+        <div class="video-grid">
+
+            <!-- Video 1: Menu Navigation -->
+            <div class="video-card">
+                <div class="video-embed">
+                    <iframe
+                        src="https://www.youtube.com/embed/HJldCYKkffE"
+                        title="Master the Menu: Floating Navigation Guide | Pirai AI"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-body">
+                    <div class="video-meta">
+                        <span class="step-badge">Step 1</span>
+                        <span class="audience-badge">New Users</span>
+                    </div>
+                    <h3>Master the Menu: Floating Navigation Guide</h3>
+                    <p>Get your bearings in the platform. Learn how the floating sidebar works and how to reach every core tool — New Conversion, History, and Account Settings — without cluttering your workspace.</p>
+                    <div class="key-points">
+                        <span class="key-point">Hover to reveal floating menu labels</span>
+                        <span class="key-point">Start a new conversion with the + icon</span>
+                        <span class="key-point">Access profile and documentation settings</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video 2: How to Convert -->
+            <div class="video-card">
+                <div class="video-embed">
+                    <iframe
+                        src="https://www.youtube.com/embed/2UbOZsdcPTI"
+                        title="How To Convert Documents To Survey Platforms | Pirai AI"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-body">
+                    <div class="video-meta">
+                        <span class="step-badge">Step 2</span>
+                        <span class="audience-badge">New Users</span>
+                    </div>
+                    <h3>How to Convert Documents to Survey Platforms</h3>
+                    <p>The core workflow from start to finish. Watch a document go from drag-and-drop upload to a finalized platform import file — covering AI analysis, question extraction, preview, and download.</p>
+                    <div class="key-points">
+                        <span class="key-point">Drag and drop your Word, PDF, or Excel file</span>
+                        <span class="key-point">Select your target platform (20+ options)</span>
+                        <span class="key-point">Preview, finalize, and download in one step</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video 3: Review Workspace -->
+            <div class="video-card">
+                <div class="video-embed">
+                    <iframe
+                        src="https://www.youtube.com/embed/weocPtnHzY8"
+                        title="Mastering the Review Workspace | Pirai AI"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-body">
+                    <div class="video-meta">
+                        <span class="step-badge">Step 3</span>
+                        <span class="audience-badge">New Users</span>
+                    </div>
+                    <h3>Mastering the Review Workspace: A Complete Walkthrough</h3>
+                    <p>A deep dive into everything inside the review screen — AI-powered validation, multi-device preview modes, the interactive AI Assistant, and one-click export for Qualtrics, SurveyMonkey, and more.</p>
+                    <div class="key-points">
+                        <span class="key-point">AI-powered validation catches formatting issues</span>
+                        <span class="key-point">Preview across desktop, tablet, and mobile</span>
+                        <span class="key-point">Interactive AI Assistant for in-workspace help</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ===== SECTION 2: POWER FEATURES ===== -->
+        <h2 id="power-features">⚡ Power Features</h2>
+        <p class="section-intro">Once you're comfortable with the core workflow, these videos unlock the tools that will make you significantly faster — Smart Fix for error repair, History for multi-platform re-exports, and workspace personalization.</p>
+
+        <div class="video-grid">
+
+            <!-- Video 4: Smart Fix -->
+            <div class="video-card">
+                <div class="video-embed">
+                    <iframe
+                        src="https://www.youtube.com/embed/HbNpIXglFgo"
+                        title="What are Structural Errors & How to Use Smart Fix | Pirai AI"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-body">
+                    <div class="video-meta">
+                        <span class="step-badge">Power Feature</span>
+                        <span class="audience-badge">All Users</span>
+                    </div>
+                    <h3>Structural Errors & How to Use Smart Fix</h3>
+                    <p>Learn what structural errors are — matrix mismatches, duplicate IDs, empty fields, non-sequential numbering — and how Smart Fix resolves them automatically in a single click without touching your survey content.</p>
+                    <div class="key-points">
+                        <span class="key-point">Understand the 5 most common structural errors</span>
+                        <span class="key-point">Smart Fix repairs structure without editing content</span>
+                        <span class="key-point">Like auto-correct, but for your survey format</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video 5: History Management -->
+            <div class="video-card">
+                <div class="video-embed">
+                    <iframe
+                        src="https://www.youtube.com/embed/1csn3WVFkcw"
+                        title="Multi-Platform Downloads & History Management | Pirai AI"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-body">
+                    <div class="video-meta">
+                        <span class="step-badge">Power Feature</span>
+                        <span class="audience-badge">All Users</span>
+                    </div>
+                    <h3>Multi-Platform Downloads &amp; History Management</h3>
+                    <p>Your conversion history is a living asset. See how to search past conversions, re-export the same survey to a different platform (Download As), retrieve a universal Excel file for clean-up, or jump back into the Review Workspace for quick edits.</p>
+                    <div class="key-points">
+                        <span class="key-point">Search and browse all past conversions</span>
+                        <span class="key-point">Re-export to QuestionPro, Google Forms, and more</span>
+                        <span class="key-point">Edit tool reopens the full Review Workspace</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video 6: Customize Background -->
+            <div class="video-card">
+                <div class="video-embed">
+                    <iframe
+                        src="https://www.youtube.com/embed/wbpflBdwhv8"
+                        title="How to Customize Your Background Theme | Pirai AI"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-body">
+                    <div class="video-meta">
+                        <span class="step-badge">Personalization</span>
+                        <span class="audience-badge">All Users</span>
+                    </div>
+                    <h3>How to Customize Your Background Theme</h3>
+                    <p>A quick personal touch — learn how to choose a workspace background that fits your style. Access personalization through the Profile menu in under 60 seconds.</p>
+                    <div class="key-points">
+                        <span class="key-point">Silhouette icon → Profile → Personalize</span>
+                        <span class="key-point">Choose from multiple background options</span>
+                        <span class="key-point">Your preference saves automatically</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ===== PLATFORM CTA ===== -->
+        <div class="platform-cta">
+            <div class="platform-cta-text">
+                <h3>Ready to convert your first survey?</h3>
+                <p>Upload a Word, PDF, or Excel file and get a platform-ready survey file in minutes. No manual data entry.</p>
+            </div>
+            <div class="platform-cta-buttons">
+                <a href="https://platform.piraiai.com" target="_blank" rel="noopener" class="btn-primary">Open Platform →</a>
+                <a href="/docs" class="btn-secondary">View All Docs</a>
+            </div>
+        </div>
+
+    </article>
+
+    <!-- ===================== SIDEBAR ===================== -->
+    <aside class="sidebar">
+
+        <!-- Table of Contents -->
+        <div class="sidebar-section">
+            <h3>In This Guide</h3>
+            <ul class="toc-list">
+                <li>
+                    <a href="#getting-started">
+                        <span class="toc-icon">🚀</span>
+                        Getting Started
+                        <span class="toc-count">3</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#getting-started">
+                        <span class="toc-icon">↳</span>
+                        Floating Navigation
+                    </a>
+                </li>
+                <li>
+                    <a href="#getting-started">
+                        <span class="toc-icon">↳</span>
+                        First Conversion
+                    </a>
+                </li>
+                <li>
+                    <a href="#getting-started">
+                        <span class="toc-icon">↳</span>
+                        Review Workspace
+                    </a>
+                </li>
+                <div class="toc-divider"></div>
+                <li>
+                    <a href="#power-features">
+                        <span class="toc-icon">⚡</span>
+                        Power Features
+                        <span class="toc-count">3</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#power-features">
+                        <span class="toc-icon">↳</span>
+                        Smart Fix
+                    </a>
+                </li>
+                <li>
+                    <a href="#power-features">
+                        <span class="toc-icon">↳</span>
+                        History &amp; Re-export
+                    </a>
+                </li>
+                <li>
+                    <a href="#power-features">
+                        <span class="toc-icon">↳</span>
+                        Personalization
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- CTA box -->
+        <div class="cta-box">
+            <h3>Try Pirai AI Now</h3>
+            <p>Convert your survey document to any platform in minutes.</p>
+            <a href="https://platform.piraiai.com" target="_blank" rel="noopener" class="cta-button">Open Platform →</a>
+        </div>
+
+        <!-- Full playlist link -->
+        <div class="playlist-box">
+            <h3>📺 Full YouTube Playlist</h3>
+            <p>All 6 how-to videos in one place on the Pirai AI channel.</p>
+            <a href="https://www.youtube.com/playlist?list=PLJGEcWCEVKnxDFNMX7BNazjy2wVgUzzNM" target="_blank" rel="noopener" class="playlist-link">
+                ▶ Watch on YouTube
+            </a>
+        </div>
+
+    </aside>
+
+</div>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+    <p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
