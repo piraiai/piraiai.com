@@ -3597,6 +3597,313 @@
     }
 }
 </style>
+<style>
+/* ── Section wrapper ── */
+.pricing-section {
+    padding: 60px 0 80px;
+    background: #f8f9fa;
+    text-align: center;
+}
+
+.pricing-section .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.pricing-section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.pricing-subtitle {
+    font-size: 1rem;
+    color: #9ca3af;
+    font-style: italic;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+}
+
+/* ── 3-column grid ── */
+.pricing-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+}
+
+/* ── Base card ── */
+.pc {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 1.75rem 1.5rem 1.5rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    border: 2px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.pc:hover {
+    box-shadow: 0 10px 36px rgba(0,0,0,0.12);
+    transform: translateY(-4px);
+}
+
+/* ── PRO: purple accent ── */
+.pc.pro {
+    border-color: #6B3FCC;
+    background: linear-gradient(160deg, #faf8ff 0%, #f0e9ff 100%);
+}
+
+.pc.pro::after {
+    content: 'MOST POPULAR';
+    position: absolute;
+    top: 18px;
+    right: -30px;
+    background: #6B3FCC;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    padding: 5px 44px;
+    transform: rotate(35deg);
+}
+
+/* ── Enterprise: dark accent ── */
+.pc.enterprise {
+    border-color: #2d3748;
+    background: linear-gradient(160deg, #f7fafc 0%, #edf2f7 100%);
+}
+
+/* ── Plan header ── */
+.pc-tier {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+}
+.pc-tier.free       { color: #48bb78; }
+.pc-tier.pro        { color: #6B3FCC; }
+.pc-tier.enterprise { color: #2d3748; }
+
+.pc-name {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #1a202c;
+    margin: 0 0 0.4rem;
+}
+
+.pc-price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.25rem;
+    margin-bottom: 0.3rem;
+}
+
+.pc-price .amt {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #2d3748;
+}
+.pc.pro  .pc-price .amt       { color: #6B3FCC; }
+.pc.enterprise .pc-price .amt { color: #2d3748; }
+
+.pc-price .per {
+    font-size: 0.9rem;
+    color: #718096;
+    font-weight: 500;
+}
+
+.pc-tagline {
+    font-size: 0.8rem;
+    color: #718096;
+    font-style: italic;
+    margin: 0 0 0.2rem;
+}
+
+/* ── File size badge ── */
+.pc-limit {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #edf2f7;
+    color: #4a5568;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+}
+.pc.pro        .pc-limit { background: #ede9fe; color: #6B3FCC; }
+.pc.enterprise .pc-limit { background: #e2e8f0; color: #2d3748; }
+
+/* ── Divider ── */
+.pc hr {
+    border: none;
+    border-top: 1px solid #e2e8f0;
+    margin: 0.9rem 0;
+}
+
+/* ── Platform chips ── */
+.pc-chips-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #a0aec0;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 0.5rem;
+}
+
+.pc-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 0.75rem;
+}
+
+.chip {
+    background: #edf2f7;
+    color: #4a5568;
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+.pc.pro        .chip { background: #ede9fe; color: #6B3FCC; }
+.pc.enterprise .chip { background: #e2e8f0; color: #2d3748; }
+
+/* ── Feature list ── */
+.pc-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.pc-features li {
+    font-size: 0.84rem;
+    color: #4a5568;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.45rem;
+    line-height: 1.45;
+}
+
+.pc-features li .fi { /* feature icon */
+    flex-shrink: 0;
+    margin-top: 1px;
+    color: #48bb78;
+    font-style: normal;
+}
+.pc.pro        .pc-features li .fi { color: #6B3FCC; }
+.pc.enterprise .pc-features li .fi { color: #2d3748; }
+
+.pc-features li.highlight {
+    font-weight: 700;
+}
+.pc.pro        .pc-features li.highlight { color: #6B3FCC; }
+.pc.enterprise .pc-features li.highlight { color: #2d3748; }
+
+/* ── CTA buttons ── */
+.btn-free {
+    display: block;
+    text-align: center;
+    background: #fff;
+    color: #2d3748;
+    border: 2px solid #cbd5e0;
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+.btn-free:hover {
+    border-color: #6B3FCC;
+    color: #6B3FCC;
+    text-decoration: none;
+}
+
+.btn-pro {
+    display: block;
+    text-align: center;
+    background: linear-gradient(135deg, #6B3FCC 0%, #5a32b0 100%);
+    color: #fff;
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(107,63,204,0.35);
+    transition: all 0.2s ease;
+}
+.btn-pro:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(107,63,204,0.45);
+    text-decoration: none;
+    color: #fff;
+}
+
+.btn-enterprise {
+    display: block;
+    text-align: center;
+    background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+    color: #fff;
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(45,55,72,0.25);
+    transition: all 0.2s ease;
+}
+.btn-enterprise:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(45,55,72,0.35);
+    text-decoration: none;
+    color: #fff;
+}
+
+/* ── Bottom note ── */
+.pricing-note {
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    color: #718096;
+}
+
+.pricing-note a {
+    color: #6B3FCC;
+    font-weight: 600;
+    text-decoration: none;
+}
+.pricing-note a:hover { text-decoration: underline; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+    .pricing-grid-3 {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin: 0 auto;
+    }
+    .pc.pro::after { display: none; }
+}
+
+@media (max-width: 480px) {
+    .pricing-section { padding: 40px 0 60px; }
+    .pricing-section h2 { font-size: 1.6rem; }
+}
+</style>
 <!-- jsvectormap CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap/dist/jsvectormap.min.css">
 <!-- Anime.js for map animations -->
@@ -3840,11 +4147,11 @@
                     </div> -->
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" data-target="609">0</div>
+                    <div class="stat-number" data-target="612">0</div>
                     <div class="stat-label">Survey Projects</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" data-target="101.5" data-suffix="K">0</div>
+                    <div class="stat-number" data-target="101.7" data-suffix="K">0</div>
                     <div class="stat-label">Questions & Options Converted</div>
                 </div>
             </div>
@@ -4384,36 +4691,121 @@ See the dramatic difference in survey creation time
             </div>
         </div>
     </section>
-   
-    <!-- Compact Pricing Section -->   
+ 
     <section id="pricing" class="pricing-section">
         <div class="container">
-            <h2>Enterprise Platform Access for Organizations</h2>
-            <p class="pricing-subtitle">Tailored solutions for Partners, Agencies, Schools & Universities</p>
-            
-            <div class="pricing-card-compact">
-                <div class="price-main">
-                    <div class="features-compact">
-                        <span>✓ All 20+ platforms supported</span>
-                        <span>✓ Multilingual conversion (50+ languages)</span>
-                        <span>✓ Enterprise-grade character encoding</span>
-                        <span>✓ Platform migration capabilities</span>
-                        <span>✓ Adapts to your organization's terminology</span>
-                        <span>✓ Custom question style recognition</span>
-                        <span>✓ Preserves your existing Word templates</span>
-                        <span>✓ No workflow disruption required</span>
-                        <span>✓ Handles large documents (150+ pages)</span>
-                        <span>✓ Custom pricing for enterprise needs</span>
-                    </div>
+            <h2>Simple, Transparent Pricing</h2>
+            <p class="pricing-subtitle">Convert hundreds of questions free - upgrade for more power</p>
+
+            <div class="pricing-grid-3">
+
+                <!-- ══════════════════ FREE ══════════════════ -->
+                <div class="pc free">
+                    <div class="pc-tier free">Starter</div>
+                    <div class="pc-name">Free</div>
+                    <div class="pc-price"><span class="amt">$0</span><span class="per">/ forever</span></div>
+                    <p class="pc-tagline">2 conversions per day · no credit card</p>
+                    <span class="pc-limit">📄 200 KB file limit</span>
+
+                    <div class="pc-chips-label">Export to 20+ Platforms</div>
+                    <!-- <div class="pc-chips">
+                        <span class="chip">Qualtrics</span>
+                        <span class="chip">QuestionPro</span>
+                        <span class="chip">Forsta (Decipher)</span>
+                        <span class="chip">Forsta (Confirmit)</span>
+                        <span class="chip">Forsta (Word)</span>
+                        <span class="chip">Forsta (BConvert)</span>
+                        <span class="chip">SurveyMonkey</span>
+                        <span class="chip">SurveySparrow</span>
+                        <span class="chip">ZohoSurvey</span>
+                        <span class="chip">Alchemer</span>
+                        <span class="chip">Dimensions</span>
+                        <span class="chip">Microsoft Forms</span>
+                        <span class="chip">Google Forms</span>
+                        <span class="chip">REDCap</span>
+                        <span class="chip">Qualtrics Advanced (TXT)</span>
+                    </div> -->
+
+                    <hr>
+
+                    <ul class="pc-features">
+                        <li><i class="fi">✓</i> Universal Structured Excel output</li>
+                        <li><i class="fi">✓</i> Smart Fix Assistant</li>
+                        <li><i class="fi">✓</i> AI Agent Assistant</li>
+                        <li><i class="fi">✓</i> Conversion History</li>
+                        <li><i class="fi">✓</i> Download converted document to any platform</li>
+                        <li><i class="fi">✓</i> Quality Check - AI Structural Error Detection</li>
+                        <li><i class="fi">✓</i> Skip Error Feature - export error-free questions</li>
+                        <li><i class="fi">✓</i> Import: Word (DOCX), TXT, PDF, QSF, XML</li>                       
+                        <li><i class="fi">✓</i> 2 conversions / day</li> 
+                    </ul>
+
+                    <a href="https://platform.piraiai.com" class="btn-free">Get Started Free →</a>
                 </div>
-                
-                <div class="cta-compact">
-                    <a href="#demo" class="btn-primary-compact">Contact Sales</a>
-                    <p class="volume-note">Custom pricing for enterprise needs</p>
+
+                <!-- ══════════════════ PRO ══════════════════ -->
+                <div class="pc pro">
+                    <div class="pc-tier pro">Pro</div>
+                    <div class="pc-name">PRO</div>
+                    <div class="pc-price"><span class="amt" style="font-size:1.6rem;color:#6B3FCC;">Contact Us</span></div>
+                    <p class="pc-tagline">Everything in Free, plus unlimited power</p>
+                    <span class="pc-limit">📄 1 MB file limit</span>
+                    <div class="pc-chips-label">Export to 20+ Platforms</div>
+                    <hr>
+
+                    <ul class="pc-features">
+                        <li class="highlight"><i class="fi">✦</i> Conversational AI Editor - update structure &amp; fix errors via natural language</li>
+                        <li><i class="fi">✓</i> PDF with image-based questionnaire processing</li>
+                        <li><i class="fi">✓</i> Accept Pirai AI Excel format as import</li>
+                        <li><i class="fi">✓</i> Edit Structured Excel Template directly</li>
+                        <li><i class="fi">✓</i> Import: Excel (.xlsx)</li>                        
+                        <li><i class="fi">✓</i> Universal Structured Excel output</li>
+                        <li><i class="fi">✓</i> Smart Fix Assistant</li>
+                        <li><i class="fi">✓</i> AI Agent Assistant</li>
+                        <li><i class="fi">✓</i> Quality Check &amp; Skip Error Feature</li>                       
+                        <li><i class="fi">✓</i> 5 conversions</li>                
+                    </ul>
+
+                    <a href="#demo" class="btn-pro">Get PRO Access →</a>
                 </div>
-            </div>
+
+                <!-- ══════════════════ ENTERPRISE ══════════════════ -->
+                <div class="pc enterprise">
+                    <div class="pc-tier enterprise">Enterprise</div>
+                    <div class="pc-name">Enterprise</div>
+                    <div class="pc-price"><span class="amt" style="font-size:1.6rem;">Custom</span></div>
+                    <p class="pc-tagline">For agencies, universities &amp; research orgs</p>
+                    <span class="pc-limit">📄 5 MB file limit</span>
+                    <div class="pc-chips-label">Export to 20+ Platforms</div>
+                    <hr>
+
+                    <ul class="pc-features">
+                        <li class="highlight"><i class="fi">✦</i> Voice-activated Conversational AI - customize logics hands-free</li>
+                        <li class="highlight"><i class="fi">✦</i> Translation CSV Template export (platform-native translation import)</li>
+                        <li class="highlight"><i class="fi">✦</i> Bulk Display Logic &amp; Skip Logic support</li>
+                        <li class="highlight"><i class="fi">✦</i> Direct Platform Integration</li>
+                        <li class="highlight"><i class="fi">✦</i> Custom Integration support</li>
+                        <li class="highlight"><i class="fi">✦</i> Preview Features - early access</li>
+                        <li><i class="fi">✓</i> Priority Support</li>
+                        <li><i class="fi">✓</i> Everything in PRO</li>
+                        <li><i class="fi">✓</i> Import: CSV import</li>            
+                        <li><i class="fi">✓</i> Unlimited conversions</li>
+                        <li><i class="fi"></i> </li>    
+                        <li><i class="fi"></i> </li>                            
+                    </ul>
+
+                    <a href="#demo" class="btn-enterprise">Contact Sales →</a>
+                </div>
+
+            </div><!-- /.pricing-grid-3 -->
+
+            <p class="pricing-note">
+                All plans include 50+ language support &amp; enterprise-grade security.
+                Need a custom quote? <a href="#demo">Talk to us →</a>
+            </p>
+
         </div>
-    </section>
+    </section>    
 
     <!-- Adaptive AI Value Proposition Section -->
     <section class="adaptive-ai-section">
