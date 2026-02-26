@@ -86,7 +86,13 @@
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
     <lastmod>2026-02-07</lastmod>
-  </url>     
+  </url>   
+  <url>
+    <loc>https://piraiai.com/blog/ai-multilingual-survey-tool-global-research</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-02-26</lastmod>
+  </url> 
 
   <!-- Add each new article as you publish -->
   <!-- Documentation SECTION - Medium-High priority -->
