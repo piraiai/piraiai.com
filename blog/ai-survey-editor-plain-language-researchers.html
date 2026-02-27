@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Say It, Change It: The AI Survey Editor That Understands Researchers - Pirai AI Blog</title>
+    <meta name="description" content="Pirai AI's conversational AI survey editor lets researchers reorder questions, bulk edit survey questions, filter languages and restructure entire surveys in plain language, then deploy instantly to Qualtrics, QuestionPro, REDCap and 20+ platforms.">
+    <meta name="keywords" content="AI survey editor for researchers, bulk edit survey questions, conversational survey editor, survey editing tool, survey platform conversion, Qualtrics survey editor, REDCap survey editor, QuestionPro editor, plain language survey tool">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://piraiai.com/blog/ai-survey-editor-plain-language-researchers">
+    <meta property="og:title" content="Say It, Change It: The AI Survey Editor That Understands Researchers - Pirai AI">
+    <meta property="og:description" content="Pirai AI's conversational AI survey editor lets researchers reorder questions, bulk edit survey questions, filter languages and restructure entire surveys in plain language, then deploy instantly to Qualtrics, QuestionPro, REDCap and 20+ platforms.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="og:site_name" content="Pirai AI Blog">
+    <meta property="article:published_time" content="2026-02-27T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta property="article:section" content="Research Automation">
+    <meta property="article:tag" content="Survey Editor">
+    <meta property="article:tag" content="AI Tools">
+    <meta property="article:tag" content="Research Automation">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://piraiai.com/blog/ai-survey-editor-plain-language-researchers">
+    <meta name="twitter:title" content="Say It, Change It: The AI Survey Editor That Understands Researchers - Pirai AI">
+    <meta name="twitter:description" content="Bulk edit survey questions, filter languages and restructure entire surveys in plain language, then deploy to Qualtrics, REDCap and 20+ platforms.">
+    <meta name="twitter:image" content="https://piraiai.com/logo.png">
+
+    <link rel="canonical" href="https://piraiai.com/blog/ai-survey-editor-plain-language-researchers">
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://piraiai.com/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #ffffff; color: #1a1a1a; line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header */
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; padding: 16px 0; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #1a1a1a; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        nav a { margin-left: 32px; text-decoration: none; color: #4b5563; font-size: 15px; font-weight: 500; transition: color 0.2s; }
+        nav a:hover { color: #9B6BFF; }
+
+        /* Breadcrumb */
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; transition: color 0.2s; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+
+        /* Hero */
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+        .article-tag { background: #f5f3ff; color: #7c3aed; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        /* Featured Image */
+        .featured-image { max-width: 1200px; margin: 48px auto; padding: 0 24px; }
+        .featured-image img { width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+
+        /* Content Grid */
+        .content-wrapper { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+
+        /* Article */
+        .article-content { max-width: 680px; }
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-top: 32px; margin-bottom: 12px; }
+        .article-content p { font-size: 18px; color: #374151; margin-bottom: 24px; line-height: 1.7; }
+        .article-content ul, .article-content ol { margin-bottom: 24px; padding-left: 24px; }
+        .article-content li { font-size: 18px; color: #374151; margin-bottom: 12px; line-height: 1.6; }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+        .article-content a { color: #9B6BFF; text-decoration: none; font-weight: 600; }
+        .article-content a:hover { text-decoration: underline; }
+
+        /* Highlight Box */
+        .highlight-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 24px; margin: 32px 0; border-radius: 0 8px 8px 0; }
+        .highlight-box h4 { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; color: #7c3aed; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .highlight-box p { font-size: 17px; color: #374151; margin-bottom: 0; }
+
+        /* Scenario Box */
+        .scenario-box { background: #fafafa; border: 1px solid #e5e7eb; border-radius: 12px; padding: 32px; margin: 32px 0; }
+        .scenario-label { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #7c3aed; background: #f5f3ff; padding: 4px 12px; border-radius: 100px; margin-bottom: 16px; border: 1px solid #e9d5ff; }
+        .scenario-box p { font-size: 17px; color: #374151; margin-bottom: 16px; line-height: 1.7; }
+        .scenario-box p:last-child { margin-bottom: 0; }
+        .scenario-result { display: flex; align-items: center; gap: 12px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 16px 20px; margin-top: 20px; }
+        .scenario-result-icon { font-size: 20px; flex-shrink: 0; }
+        .scenario-result-text { font-size: 16px; font-weight: 600; color: #15803d; }
+
+        /* Command Block */
+        .command-block { background: #f5f3ff; border-left: 3px solid #9B6BFF; border-radius: 0 6px 6px 0; padding: 16px 20px; margin: 16px 0 24px; font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 15px; color: #4c1d95; line-height: 1.6; }
+
+        /* Feature Steps */
+        .feature-steps { display: flex; flex-direction: column; gap: 32px; margin: 24px 0; }
+        .feature-step { border: 1px solid #e5e7eb; border-radius: 12px; padding: 28px; position: relative; overflow: hidden; transition: box-shadow 0.2s; }
+        .feature-step:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
+        .feature-step::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: #9B6BFF; }
+        .feature-step-num { font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 700; color: #9B6BFF; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .feature-step h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: #1a1a1a; margin-top: 0; margin-bottom: 12px; }
+        .feature-step p { font-size: 17px; color: #374151; margin-bottom: 0; line-height: 1.65; }
+        .feature-step .command-block { margin-bottom: 12px; }
+
+        /* Feature Table */
+        .feature-table { width: 100%; margin: 24px 0; border-collapse: collapse; font-size: 16px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; }
+        .feature-table th { background: #f9fafb; padding: 14px 16px; text-align: left; font-weight: 600; color: #1a1a1a; border-bottom: 2px solid #e5e7eb; }
+        .feature-table td { padding: 14px 16px; border-bottom: 1px solid #f3f4f6; color: #374151; }
+        .feature-table tr:last-child td { border-bottom: none; }
+        .feature-table tr:hover td { background: #fafafa; }
+        .check { color: #22c55e; font-weight: 700; }
+
+        /* FAQ */
+        .faq-section { margin: 16px 0; }
+        .faq-item { border-bottom: 1px solid #f3f4f6; padding: 20px 0; }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-question { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; color: #1a1a1a; margin-bottom: 10px; cursor: pointer; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; user-select: none; }
+        .faq-question-text { flex: 1; }
+        .faq-toggle { font-size: 22px; color: #9B6BFF; line-height: 1; flex-shrink: 0; }
+        .faq-answer { font-size: 17px; color: #374151; line-height: 1.7; }
+        .faq-answer a { color: #9B6BFF; text-decoration: none; font-weight: 600; }
+
+        /* Article CTA */
+        .article-cta { background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%); border: 1px solid #ddd6fe; border-radius: 12px; padding: 36px; margin-top: 48px; text-align: center; }
+        .article-cta h3 { font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 700; color: #1a1a1a; margin-bottom: 12px; }
+        .article-cta p { font-size: 17px; color: #374151; margin-bottom: 24px; }
+        .cta-button-primary { display: inline-block; background: #7c3aed; color: #ffffff !important; text-decoration: none; padding: 14px 32px; border-radius: 8px; font-weight: 700; font-size: 16px; transition: background 0.2s, transform 0.2s; margin-bottom: 12px; border: none; }
+        .cta-button-primary:hover { background: #6d28d9; transform: translateY(-1px); }
+        .cta-button-secondary { display: inline-block; background: #ffffff; color: #7c3aed; text-decoration: none; padding: 14px 32px; border-radius: 8px; font-weight: 600; font-size: 16px; border: 2px solid #7c3aed; transition: background 0.2s; margin-left: 12px; }
+        .cta-button-secondary:hover { background: #f5f3ff; }
+        .cta-sub { font-size: 14px !important; color: #7c3aed !important; margin-top: 12px !important; margin-bottom: 0 !important; }
+
+        /* Sidebar */
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; border-radius: 8px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 16px; }
+        .toc-list { list-style: none; }
+        .toc-list li { margin-bottom: 10px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; line-height: 1.5; transition: color 0.2s; display: flex; gap: 8px; align-items: flex-start; }
+        .toc-list a::before { content: '→'; color: #d1d5db; font-size: 12px; margin-top: 2px; flex-shrink: 0; }
+        .toc-list a:hover { color: #9B6BFF; }
+        .toc-list a:hover::before { color: #9B6BFF; }
+        .cta-box { background: #1a1a1a; border-radius: 8px; padding: 24px; text-align: center; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; color: #ffffff; margin-bottom: 8px; }
+        .cta-box p { font-size: 14px; color: #9ca3af; margin-bottom: 20px; }
+        .cta-box .cta-button { display: block; background: #9B6BFF; color: #ffffff; text-decoration: none; padding: 12px 20px; border-radius: 6px; font-weight: 600; font-size: 14px; transition: background 0.2s; margin-bottom: 10px; }
+        .cta-box .cta-button:hover { background: #7c3aed; }
+        .cta-box .cta-button-outline { display: block; background: transparent; color: #9B6BFF; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 13px; border: 1px solid #9B6BFF; transition: background 0.2s; }
+        .cta-box .cta-button-outline:hover { background: #1f1f1f; }
+        .sidebar-stat { text-align: center; padding: 14px 0; border-top: 1px solid #e5e7eb; }
+        .sidebar-stat:first-of-type { border-top: none; padding-top: 0; }
+        .sidebar-stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #9B6BFF; }
+        .sidebar-stat-label { font-size: 13px; color: #6b7280; }
+
+        /* Related Articles */
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: #1a1a1a; margin-bottom: 8px; }
+        .related-card p { font-size: 14px; color: #6b7280; }
+
+        /* Footer */
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .content-wrapper { grid-template-columns: 1fr; }
+            .sidebar { position: static; }
+            .article-title { font-size: 32px; }
+            .related-grid { grid-template-columns: 1fr; }
+            .cta-button-secondary { margin-left: 0; margin-top: 12px; }
+        }
+        @media (max-width: 640px) {
+            .header-container nav { display: none; }
+            .article-title { font-size: 28px; }
+            .article-content h2 { font-size: 24px; }
+            .breadcrumb { padding: 12px 16px; }
+            .breadcrumb-container { font-size: 12px; }
+            .article-cta { padding: 24px; }
+            .cta-button-secondary { display: block; margin-left: 0; margin-top: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo">
+                <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo">
+                <span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span>
+            </a>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/blog">All Articles</a>
+                <a href="/docs">Documentation</a>
+                <a href="/#demo">Get Demo</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="/">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="/blog">Blog</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Say It, Change It: The AI Survey Editor That Understands Researchers</span>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="hero-container">
+            <div style="margin-bottom:16px;">
+                <span class="article-tag">Tutorial</span>
+            </div>
+            <h1 class="article-title">Say It, Change It: The AI Survey Editor That Understands Researchers</h1>
+            <div class="article-meta">
+                <span class="author">Arun Raj</span>
+                <span class="separator">•</span>
+                <span>February 27, 2026</span>
+                <span class="separator">•</span>
+                <span>4 min read</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Image -->
+    <!-- <div class="featured-image">
+        <img src="image/Pirai_AI_Survey_Editor.png" alt="Pirai AI conversational AI survey editor for researchers">
+    </div> -->
+    <br/>
+
+    <!-- Main Content -->
+    <div class="content-wrapper">
+
+        <article class="article-content">
+
+            <p>Survey platforms like <a href="https://piraiai.com/#platforms">Qualtrics, QuestionPro and REDCap</a> are incredibly powerful for collecting data, running logic and analysing results. What they were never really designed for is the work that happens before a survey gets built inside them. Converting a messy Word document, restructuring a poorly formatted spec or making bulk edits across a 100-question instrument takes a lot of time and manual effort.</p>
+
+            <p>That is the gap Pirai AI fills. As a <a href="/blog/questionpro-partnership">technology partner of QuestionPro</a> and a conversational survey editor used by researchers on <a href="https://piraiai.com/#platforms">Qualtrics, REDCap, SurveyMonkey and 20 other platforms</a>, Pirai AI handles everything between your source document and your live survey. At the centre of that is an AI survey editor that lets you make any change you need, in plain language, in seconds.</p>
+
+            <p>It is not here to replace the platforms you already use. It is here to make getting your survey into them a whole lot faster.</p>
+
+            <!-- Scenario Box -->
+            <h2 id="scenario">A Real Scenario: From Messy Document to Deployed Survey</h2>
+
+            <div class="scenario-box">
+                <div class="scenario-label">📋 Real Research Workflow</div>
+                <p>A university research team receives a bilingual Chinese and English questionnaire from a collaborating institution. The document is 80 questions long, formatted inconsistently, with separate matrix questions that should be grouped, question IDs out of sequence and both language layers mixed together in every field.</p>
+                <p>In a traditional workflow this would mean hours of manual cleanup inside a survey platform before the study could even begin. With Pirai AI the team uploads the document and the AI structures it into a universal master survey. From there the AI editor takes over.</p>
+                <p>They type a few plain language instructions. Remove the Chinese text. Combine the separate matrix questions by section. Update all question IDs to follow a sequential order. Add follow-up essay questions after the key rating items. The survey updates in real time with each instruction, and every change is reversible if something needs refining.</p>
+                <p>When the survey looks exactly right, they export to Qualtrics for the English-speaking cohort and to QuestionPro for the Mandarin-speaking cohort. Both files import cleanly on the first try.</p>
+                <div class="scenario-result">
+                    <span class="scenario-result-icon">⏱</span>
+                    <span class="scenario-result-text">What would have taken two days of manual programming takes under an hour.</span>
+                </div>
+            </div>
+
+            <!-- How it Works -->
+            <h2 id="how-it-works">How the AI Survey Editor Works</h2>
+
+            <p>When you upload a document to Pirai AI, whether it is a Word file, a PDF, an Excel spec or a Qualtrics export, it structures your survey into a universal format that sits outside any single platform. You can then edit it freely before it goes anywhere.</p>
+
+            <p>The conversational survey editor works on top of this structure. Instead of clicking through platform screens, you just type what you want to change. The AI understands question types, question IDs, matrix statements, scale points and language layers, and it applies your instruction across the whole survey at once.</p>
+
+            <div class="highlight-box">
+                <h4>How it flows</h4>
+                <p>Upload your document → AI builds a universal master survey → Type your edits in plain language → Preview updates in real time → Export to any platform as a clean, import-ready file.</p>
+            </div>
+
+            <p>When you are happy with it, you export to your platform of choice and it imports cleanly on the first try.</p>
+
+            <!-- 5 Things -->
+            <h2 id="five-things">5 Things Researchers Do with the AI Editor Every Day</h2>
+
+            <p>These are real commands from real researchers. The kind of edits that take a long time to do manually and take seconds in Pirai AI.</p>
+
+            <div class="feature-steps">
+
+                <div class="feature-step">
+                    <div class="feature-step-num">01 — Reorder Questions</div>
+                    <h3>Reorder Questions in Bulk</h3>
+                    <p>Adjusting survey flow is one of the most common requests on any project. Instead of dragging and dropping one question at a time inside a platform, you just type it:</p>
+                    <div class="command-block">Move Q20 to appear after Q15. Update question IDs sequentially.</div>
+                    <p>The AI resequences everything and updates the IDs across the whole survey at once.</p>
+                </div>
+
+                <div class="feature-step">
+                    <div class="feature-step-num">02 — Clean Up IDs</div>
+                    <h3>Bulk Update Question IDs and Variable Names</h3>
+                    <p>Clean variable naming matters for wave studies and multi-platform deployments. You can standardise the entire survey in one instruction:</p>
+                    <div class="command-block">Update all question IDs to follow a sequential order.</div>
+                    <p>A survey with inconsistent IDs across 100 questions gets cleaned up in seconds with no risk of mismatches when you export.</p>
+                </div>
+
+                <div class="feature-step">
+                    <div class="feature-step-num">03 — Filter Languages</div>
+                    <h3>Filter Language Layers from Multilingual Documents</h3>
+                    <p>If you are working with a bilingual source document, Pirai AI pulls the exact approved text from your file. It does not generate new translations or touch validated phrasing. You just tell it what you need:</p>
+                    <div class="command-block">Remove all the Chinese text from the survey.</div>
+                    <p>The preview updates instantly, English only, structure fully intact. Want the Chinese version for a different cohort? One more instruction and it switches over. Two clean outputs from one master survey with no manual editing at all. <a href="/blog/ai-multilingual-survey-tool-global-research">Read more about multilingual survey handling.</a></p>
+                </div>
+
+                <div class="feature-step">
+                    <div class="feature-step-num">04 — Restructure Questions</div>
+                    <h3>Add, Combine and Restructure Questions in Plain Language</h3>
+                    <p>Whether you need to combine 14 separate questions into one matrix or add follow-up essays after specific answers, the survey editing tool handles it in a single instruction:</p>
+                    <div class="command-block">Combine Q10 to Q23 into one matrix question. Use the question text as statements. Add essay question Q23_1 asking the respondent to explain after the matrix.</div>
+                    <p>Complex restructuring that would take a long time to do manually becomes a quick conversational edit.</p>
+                </div>
+
+                <div class="feature-step">
+                    <div class="feature-step-num">05 — Undo Anything</div>
+                    <h3>Undo and Experiment with Full Version Control</h3>
+                    <p>Every edit is reversible. If something needs refining, one click brings back the previous version with a clear note of what changed:</p>
+                    <div class="command-block">Rolled back to previous version. Undid: Remove all the Chinese text from the survey.</div>
+                    <p>Researchers can try things freely knowing every version is saved. It makes the whole editing process feel a lot more relaxed.</p>
+                </div>
+
+            </div>
+
+            <!-- Deploy Section -->
+            <h2 id="deploy">Ready to Deploy? Pick Your Platform</h2>
+
+            <p>Once your survey is exactly how you want it, exporting is straightforward. The same master survey goes to any of <a href="https://piraiai.com/#platforms">20+ supported platforms</a> as a clean file that imports correctly first time.</p>
+
+            <table class="feature-table">
+                <thead>
+                    <tr>
+                        <th>Platform Category</th>
+                        <th>Supported Platforms</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Market Research</strong></td>
+                        <td>Qualtrics, QuestionPro, SurveyMonkey, Forsta, Alchemer, Dimensions, SurveySparrow, Zoho Survey</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Healthcare / Academic</strong></td>
+                        <td>REDCap, Microsoft Forms, Google Forms</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Education</strong></td>
+                        <td>Moodle, Canvas, Kahoot, BrainCert, ClassMarker, LearnWorlds</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Enterprise</strong></td>
+                        <td>PointerPro, Atomic Assessments, Sawtooth + more added regularly</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Import formats accepted</strong></td>
+                        <td><span class="check">✓</span> Word, PDF, Excel, CSV, QSF, images and more</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>As a <a href="/blog/questionpro-partnership">technology partner of QuestionPro</a> and a tool trusted by researchers across <a href="https://piraiai.com/about">160+ universities in 23 countries</a>, Pirai AI is built to work alongside the platforms researchers already use. The goal is simple: get well-structured, carefully edited surveys into the right platform faster so researchers can focus on what they actually care about.</p>
+
+            <!-- FAQ -->
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <div class="faq-section">
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-question-text">What is an AI survey editor?</span>
+                        <span class="faq-toggle">−</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>An AI survey editor is a tool that lets you make changes to a survey using plain language instructions instead of manually editing fields inside a survey platform. Pirai AI's conversational editor understands survey structure including question types, IDs, matrix statements and scale points, and applies your instructions across the entire survey at once.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-question-text">Can I bulk edit survey questions across a whole survey?</span>
+                        <span class="faq-toggle">−</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes. Pirai AI is built for bulk editing. You can reorder questions, update all question IDs sequentially, combine multiple questions into a matrix, add follow-up questions after specific items and apply text changes across the whole survey in a single plain language instruction.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-question-text">Does Pirai AI work with Qualtrics and QuestionPro?</span>
+                        <span class="faq-toggle">−</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes. Pirai AI is a <a href="/blog/questionpro-partnership">technology partner of QuestionPro</a> and supports <a href="https://piraiai.com/#platforms">Qualtrics, REDCap, SurveyMonkey, Forsta, Alchemer, Google Forms, Microsoft Forms, Moodle, Canvas and 10 more platforms</a>. You edit your survey once in Pirai AI and export to any supported platform with a single click.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-question-text">Is it safe to experiment with edits? Can I undo changes?</span>
+                        <span class="faq-toggle">−</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Every edit in Pirai AI is reversible. The editor keeps a full version history and you can roll back to any previous state with one click. This makes it easy to try bulk changes without any risk to your survey.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span class="faq-question-text">Can I use Pirai AI with multilingual surveys?</span>
+                        <span class="faq-toggle">−</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes. Pirai AI supports surveys in 50+ languages with UTF-8 compliant processing. For bilingual documents it extracts and filters the exact approved text from your source file rather than generating new translations, so validated phrasing is always preserved. <a href="/blog/ai-multilingual-survey-tool-global-research">Read our full guide on multilingual survey handling.</a></p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Closing CTA -->
+            <div class="article-cta">
+                <h3>Give the AI Editor a Try</h3>
+                <p>You can explore 100+ ready-to-use AI editor prompt templates in the Pirai AI prompt library, or sign up free and run your first edit in under a minute.</p>
+                <a href="https://platform.piraiai.com" class="cta-button-primary">Try Pirai AI Free →</a>
+                <a href="https://piraiai.com/docs/ai-editor-prompts" class="cta-button-secondary">Browse Prompt Library</a>
+                <p class="cta-sub">Trusted by researchers at 160+ universities in 23 countries</p>
+            </div>
+
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="sidebar-section">
+                <h3>In This Article</h3>
+                <ul class="toc-list">
+                    <li><a href="#scenario">A Real Research Scenario</a></li>
+                    <li><a href="#how-it-works">How the AI Editor Works</a></li>
+                    <li><a href="#five-things">5 Things Researchers Do Daily</a></li>
+                    <li><a href="#deploy">Deploy to 20+ Platforms</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Pirai AI by the Numbers</h3>
+                <div class="sidebar-stat">
+                    <div class="sidebar-stat-num">160+</div>
+                    <div class="sidebar-stat-label">Universities worldwide</div>
+                </div>
+                <div class="sidebar-stat">
+                    <div class="sidebar-stat-num">23</div>
+                    <div class="sidebar-stat-label">Countries</div>
+                </div>
+                <div class="sidebar-stat">
+                    <div class="sidebar-stat-num">30K+</div>
+                    <div class="sidebar-stat-label">Questions processed</div>
+                </div>
+                <div class="sidebar-stat">
+                    <div class="sidebar-stat-num">20+</div>
+                    <div class="sidebar-stat-label">Survey platforms</div>
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <h3>Try Pirai AI Free</h3>
+                <p>Edit your first survey in plain language. No credit card required.</p>
+                <a href="https://platform.piraiai.com" class="cta-button">Get Started →</a>
+                <a href="https://piraiai.com/docs/ai-editor-prompts" class="cta-button-outline">Browse Prompt Library</a>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <!-- Related Articles -->
+    <section class="related-articles">
+        <h2>Related Articles</h2>
+        <div class="related-grid">
+            <a href="/blog/ai-multilingual-survey-tool-global-research" class="related-card">
+                <h3>How AI Is Solving the Multilingual Survey Problem for Global Researchers</h3>
+                <p>Bilingual survey localization, language filtering and cross-platform deployment without hallucinated translations.</p>
+            </a>
+            <a href="/blog/enterprise-automation-hub" class="related-card">
+                <h3>The Ultimate Enterprise Research Automation Hub</h3>
+                <p>The complete Pirai AI toolkit for complex survey operations at scale.</p>
+            </a>
+            <a href="/blog/questionpro-partnership" class="related-card">
+                <h3>Pirai AI Partners with QuestionPro to Automate Survey Creation</h3>
+                <p>AI-powered survey automation now available to QuestionPro users. Convert Word and PDF to surveys 70x faster.</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(function(q) {
+            q.addEventListener('click', function() {
+                var item = this.closest('.faq-item');
+                var answer = item.querySelector('.faq-answer');
+                var toggle = this.querySelector('.faq-toggle');
+                var isOpen = answer.style.display !== 'none';
+                document.querySelectorAll('.faq-item').forEach(function(i) {
+                    i.querySelector('.faq-answer').style.display = 'none';
+                    i.querySelector('.faq-toggle').textContent = '+';
+                });
+                if (!isOpen) {
+                    answer.style.display = 'block';
+                    toggle.textContent = '−';
+                }
+            });
+        });
+        document.querySelectorAll('.faq-answer').forEach(function(a) { a.style.display = 'block'; });
+        document.querySelectorAll('.faq-toggle').forEach(function(t) { t.textContent = '−'; });
+    </script>
+</body>
+</html>
