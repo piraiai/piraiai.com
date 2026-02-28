@@ -99,6 +99,12 @@
     <changefreq>monthly</changefreq>
     <lastmod>2026-02-27</lastmod>
   </url>   
+  <url>
+    <loc>https://piraiai.com/blog/qsf-file-guide</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-02-28</lastmod>
+  </url>  
   
 
   <!-- Add each new article as you publish -->
