@@ -323,6 +323,28 @@
         .article-category.guide { background: #fef3c7; color: #92400e; }
         .article-category.thought-leadership { background: #f3e8ff; color: #6b21a8; }
 
+        /* No results message */
+        .no-results {
+            display: none;
+            text-align: center;
+            padding: 48px 24px;
+            color: #6b7280;
+            font-size: 16px;
+            grid-column: 1 / -1;
+        }
+        .no-results span {
+            display: block;
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        /* Reset button styles to match old anchor tags */
+        .filter-tag {
+            font-family: 'Inter', sans-serif;
+            background: #f3f4f6;
+            border: 1px solid #e5e7eb;
+        }
+
         .article-card h3 {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 20px;
@@ -515,11 +537,11 @@
             <input type="text" placeholder="Search articles...">
         </div>
         <div class="filter-tags">
-            <a href="#" class="filter-tag active">All</a>
-            <a href="#" class="filter-tag">Tutorials</a>
-            <a href="#" class="filter-tag">Case Studies</a>
-            <a href="#" class="filter-tag">Guides</a>
-            <a href="#" class="filter-tag">Industry Insights</a>
+            <button class="filter-tag active" data-filter="all">All</button>
+            <button class="filter-tag" data-filter="tutorial">Tutorials</button>
+            <button class="filter-tag" data-filter="guide">Guides</button>
+            <button class="filter-tag" data-filter="case-study">Case Studies</button>
+            <button class="filter-tag" data-filter="thought-leadership">Thought Leadership</button>
         </div>
     </div>
 
@@ -607,7 +629,7 @@
             <a href="questionpro-partnership" class="article-card">
                 <div class="article-thumbnail">🤝</div>
                 <div class="article-body">
-                    <span class="article-category partnership">Partnership</span>
+                    <span class="article-category thought-leadership">Partnership</span>
                     <h3>Pirai AI Partners with QuestionPro to Automate Survey Creation</h3>
                     <p>Technology partnership brings AI-powered survey automation to QuestionPro users. Convert Word/PDF to surveys 70x faster.</p>
                     <div class="article-footer">
@@ -765,6 +787,10 @@
                 </div>
             </a> -->
 
+            <div class="no-results" id="noResults">
+                <span>🔍</span>
+                No articles found. Try a different search or category.
+            </div>
         </div>
     </section>
 
@@ -782,5 +808,89 @@
         <p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p>
     </footer>
 
+    <script>
+        (function () {
+            const searchInput = document.querySelector('.search-box input');
+            const filterButtons = document.querySelectorAll('.filter-tag');
+            const cards = document.querySelectorAll('.articles-grid .article-card');
+            const noResults = document.getElementById('noResults');
+            const featuredSection = document.querySelector('.featured-section');
+
+            // Map filter values to the CSS classes used in article-category spans
+            // "guide" covers: guide, how-to guide, comparison guide, migration guide
+            const guideClasses = ['guide'];
+
+            let activeFilter = 'all';
+            let searchTerm = '';
+
+            function getCategoryClass(card) {
+                const cat = card.querySelector('.article-category');
+                if (!cat) return '';
+                // classList: ['article-category', 'guide'] — return the second class
+                return Array.from(cat.classList).find(c => c !== 'article-category') || '';
+            }
+
+            function filterMatches(card) {
+                const catClass = getCategoryClass(card);
+
+                // Category match
+                let categoryMatch = true;
+                if (activeFilter !== 'all') {
+                    if (activeFilter === 'guide') {
+                        // Guides filter catches: guide, how-to guide, migration guide, comparison guide
+                        categoryMatch = catClass === 'guide';
+                    } else {
+                        categoryMatch = catClass === activeFilter;
+                    }
+                }
+
+                // Search match — check h3, p, and category label text
+                let searchMatch = true;
+                if (searchTerm) {
+                    const h3 = card.querySelector('h3')?.textContent.toLowerCase() || '';
+                    const p = card.querySelector('p')?.textContent.toLowerCase() || '';
+                    const catText = card.querySelector('.article-category')?.textContent.toLowerCase() || '';
+                    searchMatch = h3.includes(searchTerm) || p.includes(searchTerm) || catText.includes(searchTerm);
+                }
+
+                return categoryMatch && searchMatch;
+            }
+
+            function applyFilters() {
+                let visibleCount = 0;
+
+                cards.forEach(card => {
+                    const show = filterMatches(card);
+                    card.style.display = show ? '' : 'none';
+                    if (show) visibleCount++;
+                });
+
+                // Show/hide no-results message
+                noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+
+                // Hide featured article when a category filter is active
+                // (the featured article doesn't carry a category class)
+                if (featuredSection) {
+                    featuredSection.style.display = activeFilter === 'all' ? '' : 'none';
+                }
+            }
+
+            // Filter button clicks
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    activeFilter = btn.dataset.filter;
+                    applyFilters();
+                });
+            });
+
+            // Search input
+            searchInput.addEventListener('input', () => {
+                searchTerm = searchInput.value.toLowerCase().trim();
+                applyFilters();
+            });
+        })();
+    </script>
 </body>
 </html>
