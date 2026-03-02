@@ -1765,19 +1765,6 @@
             box-shadow: 0 12px 32px rgba(155, 107, 255, 0.5);
         }
 
-        .launch-stay-link {
-            display: inline-block;
-            margin-top: 16px;
-            color: var(--muted);
-            font-size: 13px;
-            cursor: pointer;
-            text-decoration: underline;
-            transition: color 0.2s;
-        }
-
-        .launch-stay-link:hover {
-            color: var(--ink);
-        }
 
         @media (max-width: 480px) {
             .launch-modal-content {
@@ -2092,7 +2079,6 @@
             <button class="launch-redirect-btn" id="launchRedirectBtn" onclick="window.location.href='https://platform.piraiai.com/'">
                 Go to Platform Now
             </button>
-            <span class="launch-stay-link" id="launchStayLink">Stay on this page</span>
         </div>
     </div>
 
@@ -3327,7 +3313,6 @@
         (function() {
             const launchModal = document.getElementById('launchModal');
             const countdownTimer = document.getElementById('countdownTimer');
-            const launchStayLink = document.getElementById('launchStayLink');
             const platformUrl = 'https://platform.piraiai.com/';
 
             let countdown = 15;
@@ -3346,24 +3331,6 @@
                 }, 1000);
             }
 
-            // Stop countdown and close modal
-            function stayOnPage() {
-                if (countdownInterval) {
-                    clearInterval(countdownInterval);
-                }
-                launchModal.classList.remove('show');
-
-                // Track that user chose to stay
-                if (window.dataLayer) {
-                    window.dataLayer.push({
-                        'event': 'launch_modal_stay',
-                        'page': 'convert_now'
-                    });
-                }
-            }
-
-            // Event listeners
-            launchStayLink.addEventListener('click', stayOnPage);
 
             // Track modal view
             if (window.dataLayer) {
