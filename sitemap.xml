@@ -110,7 +110,13 @@
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
     <lastmod>2026-03-03</lastmod>
-  </url>   
+  </url> 
+  <url>
+    <loc>https://piraiai.com/blog/case-study-ucf-qualtrics-survey-conversion</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-03-05</lastmod>
+  </url>    
   
 
   <!-- Add each new article as you publish -->
