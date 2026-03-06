@@ -1,990 +1,473 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <!-- End Google Tag Manager -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Pirai AI Command Center - Research Tools Hub</title>
-    <meta name="description" content="Access all Pirai AI free research tools in one place. QSF converter, CSV comparator, embedded data generator and more.">
-    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
-	<link rel="apple-touch-icon" href="https://piraiai.com/logo.png"> 	    
-    <!-- Open Graph for social sharing -->
-    <meta property="og:title" content="Your Pirai AI Command Center - Research Tools Hub">
-    <meta property="og:description" content="Access all Pirai AI free research tools in one place. QSF converter, CSV comparator, embedded data generator and more.">
+    <title>Qualtrics Toolkit - Free Research Tools by Pirai AI</title>
+    <meta name="description" content="Access all Pirai AI free Qualtrics tools in one place. Dashboard Field Mapper, QSF to Excel, CSV Comparator, Embedded Data Generator, API Toolkit and more.">
+    <meta name="keywords" content="Qualtrics free tools, Qualtrics toolkit, QSF converter, CSV comparator, Qualtrics dashboard mapper, embedded data generator, Qualtrics automation">
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://piraiai.com/qualtrics-toolkit">
+    <meta property="og:title" content="Qualtrics Toolkit - Free Research Tools by Pirai AI">
+    <meta property="og:description" content="Access all Pirai AI free Qualtrics tools in one place. Dashboard Field Mapper, QSF to Excel, CSV Comparator, Embedded Data Generator, API Toolkit and more.">
     <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="og:site_name" content="Pirai AI">
 
     <link rel="canonical" href="https://piraiai.com/qualtrics-toolkit">
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet"/>	        
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://piraiai.com/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
-            color: #e5e7eb;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-            min-height: 100vh;
+            color: #1a1a1a;
+            background: #ffffff;
+            -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }         
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Navigation */
-        .nav {
-            background: rgba(17, 24, 39, 0.5);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #374151;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-        }
-        
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 0;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 24px;
-            font-weight: 700;
-            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            letter-spacing: 0.01em;             
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: #9ca3af;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: #ffffff;
-        }
-        
-        .nav-cta {
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            color: white;
-            padding: 8px 24px;
-            border-radius: 24px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: 140px 0 60px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.25rem;
-            color: #9ca3af;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .hero-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 24px;
-            margin-top: 40px;
-        }
-        
-        .stat-card {
-            background: rgba(17, 24, 39, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid #374151;
-            border-radius: 16px;
-            padding: 24px;
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #3b82f6;
-            margin-bottom: 8px;
-        }
-        
-        .stat-label {
-            color: #9ca3af;
-            font-size: 0.9rem;
-        }
-        
+        /* Header */
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        header nav { display: flex; gap: 32px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; transition: color 0.2s; }
+        header nav a:hover { color: #9B6BFF; }
+        /* Breadcrumb */
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; transition: color 0.2s; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+
+        /* Hero */
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 56px 24px 48px; border-bottom: 1px solid #e5e7eb; text-align: center; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .hero-tag { display: inline-block; background: #f5f3ff; color: #7c3aed; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 20px; }
+        .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; }
+        .hero p { font-size: 18px; color: #6b7280; max-width: 600px; margin: 0 auto 40px; }
+
+        /* Hero Stats */
+        .hero-stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; background: #ffffff; max-width: 900px; margin: 0 auto; }
+        .hero-stat { padding: 20px 16px; text-align: center; border-right: 1px solid #e5e7eb; }
+        .hero-stat:last-child { border-right: none; }
+        .hero-stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 700; color: #9B6BFF; display: block; }
+        .hero-stat-label { font-size: 12px; color: #6b7280; margin-top: 4px; display: block; }
+
+        /* Main Container */
+        .main { max-width: 1200px; margin: 0 auto; padding: 56px 24px 80px; }
+
+        /* Section Header */
+        .section-header { margin-bottom: 32px; }
+        .section-header h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; padding-left: 16px; border-left: 4px solid #9B6BFF; margin-bottom: 8px; }
+        .section-header p { font-size: 16px; color: #6b7280; padding-left: 20px; }
+
         /* Tools Grid */
-        .tools-section {
-            padding: 80px 0;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: #ffffff;
-        }
-        
-        .section-subtitle {
-            font-size: 1.1rem;
-            color: #9ca3af;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 32px;
-            margin-bottom: 60px;
-        }
-        
-        .tool-card {
-            background: rgba(17, 24, 39, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid #374151;
-            border-radius: 20px;
-            padding: 40px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .tool-card:hover {
-            transform: translateY(-8px);
-            border-color: #3b82f6;
-            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
-        }
-        
-        .tool-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-        
-        .tool-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 12px;
-        }
-        
-        .tool-description {
-            color: #9ca3af;
-            margin-bottom: 24px;
-            line-height: 1.6;
-        }
-        
-        .tool-features {
-            list-style: none;
-            margin-bottom: 32px;
-        }
-        
-        .tool-features li {
-            color: #d1d5db;
-            margin-bottom: 8px;
-            position: relative;
-            padding-left: 20px;
-        }
-        
-        .tool-features li::before {
-            content: "✓";
-            color: #22c55e;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-        
-        .tool-actions {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 0.9rem;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: #9ca3af;
-            padding: 12px 24px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            border: 1px solid #374151;
-            transition: all 0.3s;
-            font-size: 0.9rem;
-        }
-        
-        .btn-secondary:hover {
-            color: #ffffff;
-            border-color: #3b82f6;
-            background: rgba(59, 130, 246, 0.1);
-        }
-        
-        .status-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: linear-gradient(135deg, #22c55e, #16a34a);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-        
-        .status-badge.chrome-extension {
-            background: linear-gradient(135deg, #34d399, #10b981);
-        }
-        
-        .chrome-badge {
-            display: inline-flex;
-            align-items: center;
-            background: linear-gradient(135deg, #4285f4, #1a73e8);
-            color: white;
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            margin-left: 8px;
-        }
-        
-        /* Quick Actions */
-        .quick-actions {
-            background: rgba(17, 24, 39, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid #374151;
-            border-radius: 20px;
-            padding: 40px;
-            text-align: center;
-        }
-        
-        .quick-actions h3 {
-            font-size: 1.5rem;
-            color: #ffffff;
-            margin-bottom: 16px;
-        }
-        
-        .quick-actions p {
-            color: #9ca3af;
-            margin-bottom: 32px;
-        }
-        
-        .action-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        /* Usage Stats */
-        .usage-stats {
-            background: rgba(17, 24, 39, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid #374151;
-            border-radius: 20px;
-            padding: 40px;
-            margin-top: 40px;
-        }
-        
-        .usage-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 24px;
-        }
-        
-        .usage-metric {
-            text-align: center;
-        }
-        
-        .usage-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .demo-section {
-            background: rgba(17, 24, 39, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid #374151;
-            border-radius: 20px;
-            padding: 40px;
-            margin: 40px 0;
-        }
-        
-        .demo-header {
-            text-align: center;
-            margin-bottom: 32px;
-        }
-        
-        .demo-title {
-            font-size: 1.5rem;
-            color: #ffffff;
-            margin-bottom: 12px;
-        }
-        
-        .demo-subtitle {
-            color: #9ca3af;
-            margin-bottom: 24px;
-        }
-        
-        .demo-frame {
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            background: #000;
-        }
-        
-        .demo-frame iframe {
-            width: 100%;
-            height: 600px;
-            border: none;
-            border-radius: 16px;
-        }
-        
-        /* Floating Elements */
-        .float-element-1, .float-element-2 {
-            position: absolute;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        .float-element-1 {
-            width: 200px;
-            height: 200px;
-            top: 10%;
-            left: -100px;
-            animation-delay: 0s;
-        }
-        
-        .float-element-2 {
-            width: 300px;
-            height: 300px;
-            bottom: 10%;
-            right: -150px;
-            animation-delay: 3s;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-        
-        /* Footer */
-        .footer {
-            background: rgba(17, 24, 39, 0.5);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid #374151;
-            padding: 48px 0;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 32px;
-        }
-        
-        .footer-brand {
-            display: flex;
-            align-items: center;
-            margin-bottom: 16px;
-        }
-        
-        .footer-brand span {
-            font-size: 24px;
-            font-weight: 700;
-            color: #ffffff;
-        }
-        
-        .footer-desc {
-            color: #9ca3af;
-            margin-bottom: 16px;
-            max-width: 400px;
-        }
-        
-        .footer-section h3 {
-            color: #ffffff;
-            font-weight: 600;
-            margin-bottom: 16px;
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 8px;
-        }
-        
-        .footer-links a {
-            color: #9ca3af;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: #ffffff;
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid #374151;
-            margin-top: 32px;
-            padding-top: 32px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-        
-        .footer-bottom .copyright {
-            color: #9ca3af;
-            font-size: 14px;
-        }
+        .tools-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 48px; }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .tools-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .tool-card {
-                padding: 24px;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .action-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .usage-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .hero-stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .demo-section {
-                padding: 24px;
-            }
-            
-            .demo-frame iframe {
-                height: 400px;
-            }
+        /* Tool Card */
+        .tool-card { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 28px; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; position: relative; display: flex; flex-direction: column; }
+        .tool-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); border-color: #ddd6fe; }
+        .tool-card.coming-soon { opacity: 0.7; }
+
+        .status-badge { position: absolute; top: 16px; right: 16px; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.4px; }
+        .badge-live { background: #d1fae5; color: #065f46; }
+        .badge-free { background: #f5f3ff; color: #7c3aed; }
+        .badge-soon { background: #f3f4f6; color: #6b7280; }
+
+        .tool-icon { font-size: 32px; margin-bottom: 14px; display: block; }
+        .tool-title { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; color: #1a1a1a; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .chrome-badge { display: inline-flex; align-items: center; background: #dbeafe; color: #1e40af; padding: 3px 8px; border-radius: 8px; font-size: 11px; font-weight: 600; font-family: 'Inter', sans-serif; }
+        .tool-description { font-size: 14px; color: #6b7280; line-height: 1.6; margin-bottom: 16px; }
+
+        .tool-features { list-style: none; padding: 0; margin-bottom: 24px; flex: 1; }
+        .tool-features li { font-size: 14px; color: #374151; padding: 5px 0 5px 22px; position: relative; line-height: 1.5; }
+        .tool-features li::before { content: "✓"; position: absolute; left: 0; color: #22c55e; font-weight: 700; }
+
+        .tool-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; }
+        .btn-primary { background: #9B6BFF; color: #ffffff; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px; transition: background 0.2s, transform 0.2s; white-space: nowrap; }
+        .btn-primary:hover { background: #7c3aed; transform: translateY(-1px); }
+        .btn-secondary { background: #ffffff; color: #6b7280; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px; border: 1px solid #e5e7eb; transition: all 0.2s; white-space: nowrap; }
+        .btn-secondary:hover { border-color: #9B6BFF; color: #9B6BFF; }
+
+        /* Video Card */
+        .video-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; }
+        .video-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+        .video-card p { font-size: 13px; color: #6b7280; margin-bottom: 16px; }
+        .video-card iframe { border-radius: 8px; width: 100%; }
+
+        /* Quick Actions */
+        .quick-actions { background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%); border: 1px solid #ddd6fe; border-radius: 12px; padding: 40px; text-align: center; margin-top: 16px; }
+        .quick-actions h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #1a1a1a; margin-bottom: 10px; }
+        .quick-actions p { font-size: 16px; color: #374151; margin-bottom: 28px; }
+        .action-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .btn-cta-primary { display: inline-block; background: #7c3aed; color: #ffffff; text-decoration: none; padding: 12px 28px; border-radius: 8px; font-weight: 700; font-size: 15px; transition: background 0.2s, transform 0.2s; }
+        .btn-cta-primary:hover { background: #6d28d9; transform: translateY(-1px); }
+        .btn-cta-secondary { display: inline-block; background: #ffffff; color: #7c3aed; text-decoration: none; padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 15px; border: 2px solid #7c3aed; transition: background 0.2s; }
+        .btn-cta-secondary:hover { background: #f5f3ff; }
+
+        /* Footer */
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 48px 24px 32px; }
+        .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; margin-bottom: 40px; }
+        .footer-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+        .footer-brand img { width: 28px; height: 28px; }
+        .footer-brand span { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .footer-desc { font-size: 14px; color: #6b7280; line-height: 1.6; margin-bottom: 16px; max-width: 320px; }
+        .footer-contact { font-size: 13px; color: #6b7280; margin-bottom: 4px; }
+        .footer-contact a { color: #9B6BFF; text-decoration: none; }
+        .footer-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 8px; }
+        .footer-links a { color: #6b7280; text-decoration: none; font-size: 14px; transition: color 0.2s; }
+        .footer-links a:hover { color: #9B6BFF; }
+        .footer-bottom { max-width: 1200px; margin: 0 auto; border-top: 1px solid #e5e7eb; padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+        .footer-bottom p { font-size: 13px; color: #6b7280; }
+        .footer-socials { display: flex; gap: 14px; align-items: center; }
+        .footer-socials a { color: #9ca3af; transition: color 0.2s; }
+        .footer-socials a:hover { color: #9B6BFF; }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .tools-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-stats { grid-template-columns: repeat(3, 1fr); }
+            .hero-stat:nth-child(3) { border-right: none; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 640px) {
+            header nav { display: none; }
+            .hero h1 { font-size: 28px; }
+            .tools-grid { grid-template-columns: 1fr; }
+            .hero-stats { grid-template-columns: repeat(2, 1fr); }
+            .hero-stat:nth-child(2) { border-right: none; }
+            .hero-stat:nth-child(3) { border-right: 1px solid #e5e7eb; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="container">
-            <div class="nav-content">
-                <a href="/" class="logo">
-                    <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo" width="35" height="35"/>&nbsp;
-                    Pirai AI
-                </a>
-                <ul class="nav-links">
-                    <li><a href="/#process">Process</a></li>                    
-                    <li><a href="/#efficiency">Efficiency</a></li>    
-                    <li><a href="/#testimonials">Evidence</a></li>      
-                    <li><a href="/#platforms">Platforms</a></li>            
-                    <li><a href="/#pricing">Pricing</a></li> 
-                </ul>
-                <a href="/#demo" class="nav-cta">Get Demo</a>
-            </div>
-        </div>
-    </nav>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>Your Pirai AI Command Center</h1>
-            <p class="hero-subtitle">
-                Access all our free research tools in one powerful hub. From QSF conversion to data validation, everything you need to supercharge your survey workflows.
-            </p>
-            
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo">
+                <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo">
+                <span class="logo-text">Pirai AI</span>
+            </a>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/blog">All Articles</a>
+                <a href="/docs">Documentation</a>
+                <a href="/#demo">Get Demo</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="/">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Qualtrics Toolkit</span>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="hero-container">
+            <span class="hero-tag">Free Tools</span>
+            <h1>Qualtrics Toolkit</h1>
+            <p>All Pirai AI free research tools in one place. Built for Qualtrics practitioners, researchers and survey teams.</p>
+
             <div class="hero-stats">
-                <div class="stat-card">
-                    <div class="stat-number">5</div>
-                    <div class="stat-label">Free Tools Available</div>
+                <div class="hero-stat">
+                    <span class="hero-stat-num">6</span>
+                    <span class="hero-stat-label">Free Tools</span>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number">NEW!</div>
-                    <div class="stat-label">Chrome Extension Launched</div>
+                <div class="hero-stat">
+                    <span class="hero-stat-num">8.75h</span>
+                    <span class="hero-stat-label">Saved Per Survey</span>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number">8.75</div>
-                    <div class="stat-label">Hours Saved Per Survey</div>
+                <div class="hero-stat">
+                    <span class="hero-stat-num">73%</span>
+                    <span class="hero-stat-label">Time Reduction</span>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number">73%</div>
-                    <div class="stat-label">Time Reduction</div>
-                </div>                
-                <div class="stat-card">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Client-Side Secure</div>
+                <div class="hero-stat">
+                    <span class="hero-stat-num">100%</span>
+                    <span class="hero-stat-label">Client-Side Secure</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-num">0</span>
+                    <span class="hero-stat-label">Uploads Required</span>
                 </div>
             </div>
         </div>
-        
-        <!-- Floating Elements -->
-        <div class="float-element-1"></div>
-        <div class="float-element-2"></div>
-    </section>
+    </div>
 
-    <!-- Tools Section -->
-    <section class="tools-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Research Tools Arsenal</h2>
-                <p class="section-subtitle">
-                    Professionally-grade tools that work entirely in your browser. No uploads, no storage, complete privacy.
-                </p>
-            </div>
+    <!-- Main -->
+    <main class="main">
 
-            
-
-            <div class="tools-grid"> 
-                <!-- Dashboard Field Mapper Tool -->
-                <div class="tool-card">
-                    <div class="status-badge">Free</div>
-                    <div class="tool-icon">🗺️</div>
-                    <h3 class="tool-title">Dashboard Field Mapper</h3>
-                    <p class="tool-description">
-                        Instantly extract all Qualtrics Dashboard Data field mappings via a browser console script. Document every field type, source mapping, and unmapped field — exported in seconds.
-                    </p>
-                    <ul class="tool-features">
-                        <li>Extract field types (Date, Text Set, Number Set, Open Text, etc.)</li>
-                        <li>Capture full field names without truncation</li>
-                        <li>Map all data sources in a single export</li>
-                        <li>Identify mapped vs "Not mapped" fields per source</li>
-                        <li>Export to CSV, Excel, or JSON format</li>
-                    </ul>
-                    <div class="tool-actions">
-                        <a href="/blog/extract-qualtrics-dashboard-mappings" class="btn-primary">View Guide</a>
-                        <!-- <a href="#" class="btn-secondary">Watch Demo</a> -->
-                    </div>
-                </div> 
-                
-                <!-- Qualtrics API Toolkit -->
-                <div class="tool-card">
-                    <div class="status-badge">Live</div>
-                    <div class="tool-icon">🔧</div>
-                    <h3 class="tool-title">
-                        Qualtrics API Toolkit
-                        <span class="chrome-badge">🟢 Chrome</span>
-                    </h3>
-                    <p class="tool-description">
-                        No-code solution for bulk embedded data updates in Qualtrics. Upload CSV files with responseId + embedded data fields, validate everything, and process updates with a simple point-and-click interface.
-                    </p>
-                    <ul class="tool-features">
-                        <li>No coding skills required</li>
-                        <li>CSV upload with validation</li>
-                        <li>Real-time progress tracking</li>
-                        <li>Bulk embedded data updates</li>
-                        <li>Uses Qualtrics APIs under the hood</li>
-                    </ul>
-                    <div class="tool-actions">
-                        <a href="https://chromewebstore.google.com/detail/lloepmlcmkeohopokcedejdelohoilip" target="_blank" class="btn-primary">📥Get Chrome Extension</a>
-                        <a href="https://piraiai.com/docs/qualtrics-api-toolkit" target="_blank" class="btn-secondary">View Tutorial</a>
-                    </div>
-                </div>                 
-                <!-- CSV Comparator Tool -->
-                <div class="tool-card">
-                    <div class="status-badge">Live</div>
-                    <div class="tool-icon">📊</div>
-                    <h3 class="tool-title">CSV Comparator</h3>
-                    <p class="tool-description">
-                        Validate Supplemental Data Sources for Qualtrics. Compare CSV files with up to 100K rows, find duplicates, and ensure perfect data matching.
-                    </p>
-                    <ul class="tool-features">
-                        <li>Handle files up to 100,000 rows</li>
-                        <li>Duplicate detection & field analysis</li>
-                        <li>Side-by-side comparison view</li>
-                        <li>Export detailed difference reports</li>
-                    </ul>
-                    <div class="tool-actions">
-                        <a href="/pirai-csv-comparator" class="btn-primary">Web Version</a>
-                        <a href="https://chromewebstore.google.com/detail/mpjjfdgfkkiilopjdhjeeleoaoddmdef" target="_blank" class="btn-primary">📥Get Chrome Extension</a>
-                    </div>                    
-                </div>
-
-                <!-- Chrome Extension Demo Section -->
-                <div class="tool-card">
-                    <div class="tool-features">
-                        <h3 class="demo-title">🎬 Chrome Extension in Action</h3>
-                        <p class="demo-subtitle">Watch how the CSV File Comparator Chrome extension works directly in your browser</p>
-                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/5a_1SSiah1s?si=9JyUeLUQcxLlnPkK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>                    
-                </div>                
-
-                <!-- Embedded Data Generator Tool -->
-                <div class="tool-card">
-                    <div class="status-badge">Live</div>
-                    <div class="tool-icon">⚡</div>
-                    <h3 class="tool-title">
-                        Embedded Data Generator
-                        <span class="chrome-badge">🟢 Chrome</span>
-                    </h3>
-                    <p class="tool-description">
-                        Convert CSV files into Qualtrics Advanced Format embedded data instantly. Available as both a web app and Chrome extension for maximum flexibility and workflow integration.
-                    </p>
-                    <ul class="tool-features">
-                        <li>Web app + Chrome extension available</li>
-                        <li>Smart format auto-detection</li>
-                        <li>Field/value pair processing</li>
-                        <li>Direct Qualtrics integration (Chrome)</li>
-                        <li>Batch processing capabilities</li>
-                    </ul>
-                    <div class="tool-actions">
-                        <a href="/embedded-data-generator" class="btn-primary">Web Version</a>
-                        <a href="https://chromewebstore.google.com/detail/qualtrics-embedded-data-g/fkkmlmjhiehciaaodjghecnjojendgfo" target="_blank" class="btn-primary">📥Get Chrome Extension</a>
-                    </div>
-                </div>
-                
-
-                <!-- Chrome Extension Demo Section -->
-                <!-- <div class="demo-section">
-                    <div class="demo-header">
-                        <h3 class="demo-title">🎬 Chrome Extension in Action</h3>
-                        <p class="demo-subtitle">Watch how the Embedded Data Generator Chrome extension works directly in Qualtrics</p>
-                    </div>
-                    <div class="demo-frame">
-                        <iframe src="https://app.supademo.com/embed/cmcv7mklp017h3f0iry64ky9j" 
-                                title="Pirai AI Chrome Extension Demo"
-                                allow="clipboard-read; clipboard-write">
-                        </iframe>
-                    </div>
-                </div> -->
-
-                <!-- Chrome Extension Demo Section -->
-                <div class="tool-card">
-                    <div class="tool-features">
-                        <h3 class="demo-title">🎬 Chrome Extension in Action</h3>
-                        <p class="demo-subtitle">Watch how the Embedded Data Generator Chrome extension works directly in Qualtrics</p>
-                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/ohWVQRuFUq0?si=5eKrK9KWCBPhRsDL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>                    
-                </div>  
-                <!-- Text IQ to Excel Tool -->
-                <div class="tool-card">
-                    <div class="status-badge">Live</div>
-                    <div class="tool-icon">🎯</div>
-                    <h3 class="tool-title">Text IQ JSON to Excel</h3>
-                    <p class="tool-description">
-                        Convert Qualtrics Text IQ topic exports into comprehensive Excel documentation. Transform complex JSON topic hierarchies into stakeholder-ready reports.
-                    </p>
-                    <ul class="tool-features">
-                        <li>5-level topic hierarchy visualization</li>
-                        <li>Query complexity analysis & validation</li>
-                        <li>Visual tree structure with indentation</li>
-                        <li>Professional Excel workbook output</li>
-                    </ul>
-                    <div class="tool-actions">
-                        <a href="/textiq-to-excel" class="btn-primary">Launch Tool</a>
-                        <!-- <a href="#" class="btn-secondary">View Demo</a> -->
-                    </div>
-                </div>                       
-                
-                <!-- QSF to Excel Tool -->
-                <div class="tool-card">
-                    <div class="status-badge">Live</div>
-                    <div class="tool-icon">📁</div>
-                    <h3 class="tool-title">QSF to Excel Converter</h3>
-                    <p class="tool-description">
-                        Transform Qualtrics QSF files into comprehensive Excel documentation. Perfect for survey analysis, documentation, and sharing with stakeholders.
-                    </p>
-                    <ul class="tool-features">
-                        <li>Complete survey structure analysis</li>
-                        <li>Multiple Excel sheets with organized data</li>
-                        <li>Question flow and logic mapping</li>
-                        <li>Instant processing up to 10MB files</li>
-                    </ul>
-                    <div class="tool-actions">
-                        <a href="/qsf-to-excel" class="btn-primary">Launch Tool</a>
-                        <!-- <a href="#" class="btn-secondary">View Samples</a> -->
-                    </div>
-                </div>                
-
-                <!-- Coming Soon Tool -->
-                <!-- <div class="tool-card">
-                    <div class="status-badge coming-soon">Coming Soon</div>
-                    <div class="tool-icon">🎯</div>
-                    <h3 class="tool-title">Survey Logic Builder</h3>
-                    <p class="tool-description">
-                        Visual drag-and-drop interface for building complex survey logic and branching. No coding required, just point and click to create sophisticated flows.
-                    </p>
-                    <ul class="tool-features">
-                        <li>Visual logic flow designer</li>
-                        <li>Conditional branching builder</li>
-                        <li>Auto-generate Qualtrics code</li>
-                        <li>Logic testing & validation</li>
-                    </ul>
-                    <div class="tool-actions">
-                        <a href="#" class="btn-secondary">Join Waitlist</a>
-                        <a href="#" class="btn-secondary">Preview</a>
-                    </div>
-                </div> -->
-
-
-
-                <!-- Coming Soon Tool -->
-                <!-- <div class="tool-card">
-                    <div class="status-badge coming-soon">Coming Soon</div>
-                    <div class="tool-icon">📈</div>
-                    <h3 class="tool-title">Response Quality Analyzer</h3>
-                    <p class="tool-description">
-                        Advanced response quality detection using AI. Identify low-quality responses, speeders, straight-liners, and improve your data integrity.
-                    </p>
-                    <ul class="tool-features">
-                        <li>AI-powered quality detection</li>
-                        <li>Speeder identification</li>
-                        <li>Pattern analysis</li>
-                        <li>Quality scoring algorithms</li>
-                    </ul>
-                    <div class="tool-actions">
-                        <a href="#" class="btn-secondary">Join Waitlist</a>
-                        <a href="#" class="btn-secondary">Preview</a>
-                    </div>
-                </div> -->
-
-                <!-- Auto Tester Tool -->
-                <!-- <div class="tool-card">
-                    <div class="status-badge coming-soon">Coming Soon</div>
-                    <div class="tool-icon">🧪</div>
-                    <h3 class="tool-title">AI-Powered Auto Tester</h3>
-                    <p class="tool-description">
-                        Intelligent survey testing and validation using advanced AI. Automatically simulate realistic response patterns, validate complex logic flows, and predict potential issues before launch.
-                    </p>
-                    <ul class="tool-features">
-                        <li>AI-driven response pattern simulation</li>
-                        <li>Intelligent logic flow validation</li>
-                        <li>Predictive error detection</li>
-                        <li>Smart multi-scenario testing</li>
-                    </ul>
-                    <div class="tool-actions">
-                        <a href="/#demo" class="btn-secondary">Join Waitlist</a>                        
-                    </div>
-                </div> -->
-
-                <!-- Coming Soon Tool -->
-                <div class="tool-card">
-                    <div class="status-badge coming-soon">Coming Soon</div>
-                    <div class="tool-icon">📋</div>
-                    <h3 class="tool-title">Survey Template Generator</h3>
-                    <p class="tool-description">
-                        AI-powered survey template creation from simple descriptions. Generate complete surveys with proper question types, logic, and best practices.
-                    </p>
-                    <ul class="tool-features">
-                        <li>AI-powered template generation</li>
-                        <li>Industry-specific templates</li>
-                        <li>Best practice recommendations</li>
-                        <li>Direct Qualtrics export</li>
-                    </ul>
-                    <div class="tool-actions">
-                        <a href="/#demo" class="btn-secondary">Join Waitlist</a>
-                        <!-- <a href="#" class="btn-secondary">Preview</a> -->
-                    </div>
-                </div>                 
-            </div>
-
-            <!-- Quick Actions -->
-            <div class="quick-actions">
-                <h3>Need Something Specific?</h3>
-                <p>Can't find the exact tool you need? We're constantly expanding our toolkit based on user feedback.</p>
-                <div class="action-buttons">
-                    <a href="/#demo" class="btn-primary">Request Feature</a>                  
-                    <a href="/#demo" class="btn-secondary">Contact Team</a>
-                </div>
-            </div>
-
-            <!-- Usage Stats -->
-            <!-- <div class="usage-stats">
-                <h3 style="text-align: center; color: #ffffff; margin-bottom: 32px;">Community Impact</h3>
-                <div class="usage-grid">
-                    <div class="usage-metric">
-                        <div class="usage-number">127K+</div>
-                        <div class="usage-label">Files Processed This Month</div>
-                    </div>
-                    <div class="usage-metric">
-                        <div class="usage-number">89%</div>
-                        <div class="usage-label">Time Reduction Average</div>
-                    </div>
-                    <div class="usage-metric">
-                        <div class="usage-number">2.3M+</div>
-                        <div class="usage-label">Survey Questions Processed</div>
-                    </div>
-                    <div class="usage-metric">
-                        <div class="usage-number">$847K</div>
-                        <div class="usage-label">Estimated Cost Savings</div>
-                    </div>
-                </div>
-            </div> -->
+        <div class="section-header">
+            <h2>Research Tools</h2>
+            <p>Professional-grade tools that work entirely in your browser. No uploads, no data storage, complete privacy.</p>
         </div>
-    </section>
+
+        <div class="tools-grid">
+
+            <!-- Dashboard Field Mapper -->
+            <div class="tool-card">
+                <span class="status-badge badge-free">Free</span>
+                <span class="tool-icon">🗺️</span>
+                <h3 class="tool-title">Dashboard Field Mapper</h3>
+                <p class="tool-description">Instantly extract all Qualtrics Dashboard Data field mappings via a browser console script. Document every field type, source mapping and unmapped field in seconds.</p>
+                <ul class="tool-features">
+                    <li>Extract field types (Date, Text Set, Number Set, Open Text)</li>
+                    <li>Capture full field names without truncation</li>
+                    <li>Map all data sources in a single export</li>
+                    <li>Identify mapped vs unmapped fields per source</li>
+                    <li>Export to CSV, Excel or JSON</li>
+                </ul>
+                <div class="tool-actions">
+                    <a href="/blog/extract-qualtrics-dashboard-mappings" class="btn-primary">View Guide</a>
+                </div>
+            </div>
+
+            <!-- XM Directory Mapper -->
+            <div class="tool-card">
+                <span class="status-badge badge-free">Free</span>
+                <span class="tool-icon">🗂️</span>
+                <h3 class="tool-title">XM Directory Mapper</h3>
+                <p class="tool-description">Extract all contact and transaction field mappings from the Qualtrics Update XM Directory Contacts workflow task. Includes Make Piped Text status for every field.</p>
+                <ul class="tool-features">
+                    <li>Extract contact and transaction mappings</li>
+                    <li>Captures Make Piped Text status</li>
+                    <li>Two-screen extraction in under 5 minutes</li>
+                    <li>Export to CSV or JSON</li>
+                    <li>Runs directly in your browser</li>
+                </ul>
+                <div class="tool-actions">
+                    <a href="/blog/extract-qualtrics-xm-directory-mappings" class="btn-primary">View Guide</a>
+                </div>
+            </div>
+
+            <!-- Qualtrics API Toolkit -->
+            <div class="tool-card">
+                <span class="status-badge badge-live">Live</span>
+                <span class="tool-icon">🔧</span>
+                <h3 class="tool-title">Qualtrics API Toolkit <span class="chrome-badge">Chrome</span></h3>
+                <p class="tool-description">No-code solution for bulk embedded data updates in Qualtrics. Upload a CSV, validate everything, and process updates with a point-and-click interface.</p>
+                <ul class="tool-features">
+                    <li>No coding skills required</li>
+                    <li>CSV upload with validation</li>
+                    <li>Real-time progress tracking</li>
+                    <li>Bulk embedded data updates</li>
+                    <li>Uses Qualtrics APIs under the hood</li>
+                </ul>
+                <div class="tool-actions">
+                    <a href="https://chromewebstore.google.com/detail/lloepmlcmkeohopokcedejdelohoilip" target="_blank" class="btn-primary">Get Chrome Extension</a>
+                    <a href="https://piraiai.com/docs/qualtrics-api-toolkit" target="_blank" class="btn-secondary">View Tutorial</a>
+                </div>
+            </div>
+
+            <!-- CSV Comparator -->
+            <div class="tool-card">
+                <span class="status-badge badge-live">Live</span>
+                <span class="tool-icon">📊</span>
+                <h3 class="tool-title">CSV Comparator <span class="chrome-badge">Chrome</span></h3>
+                <p class="tool-description">Validate Supplemental Data Sources for Qualtrics. Compare CSV files with up to 100K rows, find duplicates and ensure perfect data matching.</p>
+                <ul class="tool-features">
+                    <li>Handle files up to 100,000 rows</li>
+                    <li>Duplicate detection and field analysis</li>
+                    <li>Side-by-side comparison view</li>
+                    <li>Export detailed difference reports</li>
+                </ul>
+                <div class="tool-actions">
+                    <a href="/pirai-csv-comparator" class="btn-primary">Web Version</a>
+                    <a href="https://chromewebstore.google.com/detail/mpjjfdgfkkiilopjdhjeeleoaoddmdef" target="_blank" class="btn-secondary">Chrome Extension</a>
+                </div>
+            </div>
+
+            <!-- CSV Comparator Demo Video -->
+            <div class="video-card">
+                <h3>CSV Comparator in Action</h3>
+                <p>Watch the Chrome extension working directly in your browser</p>
+                <iframe height="220" src="https://www.youtube.com/embed/5a_1SSiah1s?si=9JyUeLUQcxLlnPkK" title="CSV Comparator Chrome Extension Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <!-- Embedded Data Generator -->
+            <div class="tool-card">
+                <span class="status-badge badge-live">Live</span>
+                <span class="tool-icon">⚡</span>
+                <h3 class="tool-title">Embedded Data Generator <span class="chrome-badge">Chrome</span></h3>
+                <p class="tool-description">Convert CSV files into Qualtrics Advanced Format embedded data instantly. Available as both a web app and Chrome extension for maximum flexibility.</p>
+                <ul class="tool-features">
+                    <li>Web app and Chrome extension available</li>
+                    <li>Smart format auto-detection</li>
+                    <li>Field and value pair processing</li>
+                    <li>Direct Qualtrics integration via Chrome</li>
+                    <li>Batch processing capabilities</li>
+                </ul>
+                <div class="tool-actions">
+                    <a href="/embedded-data-generator" class="btn-primary">Web Version</a>
+                    <a href="https://chromewebstore.google.com/detail/qualtrics-embedded-data-g/fkkmlmjhiehciaaodjghecnjojendgfo" target="_blank" class="btn-secondary">Chrome Extension</a>
+                </div>
+            </div>
+
+            <!-- Embedded Data Generator Demo Video -->
+            <div class="video-card">
+                <h3>Embedded Data Generator in Action</h3>
+                <p>Watch the Chrome extension working directly inside Qualtrics</p>
+                <iframe height="220" src="https://www.youtube.com/embed/ohWVQRuFUq0?si=5eKrK9KWCBPhRsDL" title="Embedded Data Generator Chrome Extension Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <!-- Text IQ to Excel -->
+            <div class="tool-card">
+                <span class="status-badge badge-live">Live</span>
+                <span class="tool-icon">🎯</span>
+                <h3 class="tool-title">Text IQ JSON to Excel</h3>
+                <p class="tool-description">Convert Qualtrics Text IQ topic exports into comprehensive Excel documentation. Transform complex JSON topic hierarchies into stakeholder-ready reports.</p>
+                <ul class="tool-features">
+                    <li>5-level topic hierarchy visualisation</li>
+                    <li>Query complexity analysis and validation</li>
+                    <li>Visual tree structure with indentation</li>
+                    <li>Professional Excel workbook output</li>
+                </ul>
+                <div class="tool-actions">
+                    <a href="/textiq-to-excel" class="btn-primary">Launch Tool</a>
+                </div>
+            </div>
+
+            <!-- QSF to Excel -->
+            <div class="tool-card">
+                <span class="status-badge badge-live">Live</span>
+                <span class="tool-icon">📁</span>
+                <h3 class="tool-title">QSF to Excel Converter</h3>
+                <p class="tool-description">Transform Qualtrics QSF files into comprehensive Excel documentation. Perfect for survey analysis, documentation and sharing with stakeholders.</p>
+                <ul class="tool-features">
+                    <li>Complete survey structure analysis</li>
+                    <li>Multiple Excel sheets with organised data</li>
+                    <li>Question flow and logic mapping</li>
+                    <li>Instant processing up to 10MB files</li>
+                </ul>
+                <div class="tool-actions">
+                    <a href="/qsf-to-excel" class="btn-primary">Launch Tool</a>
+                </div>
+            </div>
+
+            <!-- Survey Template Generator — Coming Soon -->
+            <div class="tool-card coming-soon">
+                <span class="status-badge badge-soon">Coming Soon</span>
+                <span class="tool-icon">📋</span>
+                <h3 class="tool-title">Survey Template Generator</h3>
+                <p class="tool-description">AI-powered survey template creation from simple descriptions. Generate complete surveys with proper question types, logic and best practice recommendations.</p>
+                <ul class="tool-features">
+                    <li>AI-powered template generation</li>
+                    <li>Industry-specific templates</li>
+                    <li>Best practice recommendations</li>
+                    <li>Direct Qualtrics export</li>
+                </ul>
+                <div class="tool-actions">
+                    <a href="/#demo" class="btn-secondary">Join Waitlist</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <h3>Need Something Specific?</h3>
+            <p>We are continuously expanding the toolkit based on user feedback. If there is a tool that would save your team time, let us know.</p>
+            <div class="action-buttons">
+                <a href="/#demo" class="btn-cta-primary">Request a Tool</a>
+                <a href="/#demo" class="btn-cta-secondary">Contact the Team</a>
+            </div>
+        </div>
+
+    </main>
 
     <!-- Footer -->
-	<footer class="footer">
-		<div class="container">
-			<div class="footer-content">
-				<div>
-					<div class="footer-brand">
-						<img src="https://piraiai.com/logo.png" alt="Pirai AI Logo" width="35" height="35"/>&nbsp;
-						<span>Pirai AI</span>
-					</div>
-					<p class="footer-desc">
-						Universal platform automation transforming documents to 20+ platforms across research, education, healthcare, and enterprise. Deploy globally in 50+ languages with enterprise-grade reliability.
-					</p>
-					<div style="margin-top: 16px;">
-						<p style="color: #9ca3af; font-size: 14px; margin-bottom: 8px;">
-							<strong style="color: #60a5fa;">📧 Contact:</strong> admin@piraiai.com
-						</p>
-						<p style="color: #9ca3af; font-size: 14px;">
-							<strong style="color: #22c55e;">🚀 Universal Access:</strong> Join our exclusive beta program
-						</p>
-					</div>
-				</div>
-				
-				<div class="footer-section">
-					<h3>Product</h3>
-					<ul class="footer-links">
-						<li><a href="/">Home</a></li>
-						<li><a href="/#process">How It Works</a></li>
-						<li><a href="/#features">Features</a></li>
-						<li><a href="/#pricing">Pricing</a></li>
-                        <li><a href="/faq">FAQ</a></li>
-                        <li><a href="/blog">Blog</a></li>
-                        <li><a href="/gethelp">Get Help</a></li>                        
-						<li><a href="/#demo">Early Access</a></li>
-					</ul>
-				</div>
-				
-				<div class="footer-section">
-					<h3>Free Tools</h3>
-					<ul class="footer-links">
-                        <li><a href="https://qstar.piraiai.com" target="_blank">QStar (Beta)</a></li>
-                        <li><a href="https://chromewebstore.google.com/detail/qualtrics-api-toolkit-by/lloepmlcmkeohopokcedejdelohoilip" target="_blank">Qualtrics API Toolkit</a></li>
-                        <li><a href="/qsf-to-excel">QSF to Excel WorkBook</a></li>
-						<li><a href="/textiq-to-excel">Text IQ JSON to Excel Book</a></li>
-                        <li><a href="/embedded-data-generator">Embedded Data Generator</a></li>
-						<li><a href="/pirai-csv-comparator">CSV Comparator</a></li>
-                        <li><a href="/qualtrics-toolkit" style="color: #3b82f6;">Command Center</a></li>   
-					</ul>
-				</div>
-				
-				<div class="footer-section">
-					<h3>Company</h3>
-					<ul class="footer-links">
-						<li><a href="/about">About Us</a></li>						
-						<li><a href="/#demo">Contact Us</a></li>
-						<li><a href="/privacy">Privacy Policy</a></li>
-						<li><a href="/terms">Terms of Service</a></li>
-                        <li><a href="/security">Security Overview</a></li>
-						<li><a href="https://www.linkedin.com/company/pirai-ai/" target="_blank">LinkedIn</a></li>
-					</ul>
-				</div>
-			</div>
-			
-			<div class="footer-bottom">
-				<div class="copyright">
-					© <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved. | Built with enterprise-grade security and privacy protection.
-				</div>
-				<div style="display: flex; gap: 16px; align-items: center;">
-					<a href="https://www.linkedin.com/company/pirai-ai/" target="_blank" style="color: #9ca3af; transition: color 0.3s;">
-						<svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-							<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-						</svg>
-					</a>
-                    <a href="https://www.youtube.com/@PiraiAI" target="_blank" style="color: #9ca3af; transition: color 0.3s;">
-                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M23.498 6.186a2.87 2.87 0 0 0-2.02-2.034C19.65 3.74 12 3.74 12 3.74s-7.65 0-9.478.412A2.87 2.87 0 0 0 .502 6.186C.088 8.02.088 12 .088 12s0 3.98.414 5.814a2.87 2.87 0 0 0 2.02 2.034C4.35 20.26 12 20.26 12 20.26s7.65 0 9.478-.412a2.87 2.87 0 0 0 2.02-2.034C23.912 15.98 23.912 12 23.912 12s0-3.98-.414-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                        </svg>
-                    </a>                        
-					<span style="color: #6b7280; font-size: 12px;">Follow our journey</span>
-				</div>
-			</div>
-		</div>
-	</footer>
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand">
+                    <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo">
+                    <span>Pirai AI</span>
+                </div>
+                <p class="footer-desc">Universal platform automation transforming documents to 20+ platforms across research, education, healthcare and enterprise. Deploy globally in 50+ languages.</p>
+                <p class="footer-contact">📧 <a href="mailto:admin@piraiai.com">admin@piraiai.com</a></p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Product</h3>
+                <ul class="footer-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#process">How It Works</a></li>
+                    <li><a href="/#features">Features</a></li>
+                    <li><a href="/#pricing">Pricing</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/#demo">Early Access</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Free Tools</h3>
+                <ul class="footer-links">
+                    <li><a href="https://qstar.piraiai.com" target="_blank">QStar (Beta)</a></li>
+                    <li><a href="https://chromewebstore.google.com/detail/qualtrics-api-toolkit-by/lloepmlcmkeohopokcedejdelohoilip" target="_blank">Qualtrics API Toolkit</a></li>
+                    <li><a href="/qsf-to-excel">QSF to Excel</a></li>
+                    <li><a href="/textiq-to-excel">Text IQ to Excel</a></li>
+                    <li><a href="/embedded-data-generator">Embedded Data Generator</a></li>
+                    <li><a href="/pirai-csv-comparator">CSV Comparator</a></li>
+                    <li><a href="/qualtrics-toolkit" style="color: #9B6BFF; font-weight: 600;">Toolkit Hub</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul class="footer-links">
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/#demo">Contact Us</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/terms">Terms of Service</a></li>
+                    <li><a href="/security">Security Overview</a></li>
+                    <li><a href="https://www.linkedin.com/company/pirai-ai/" target="_blank">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p>
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/company/pirai-ai/" target="_blank" aria-label="LinkedIn">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+                <a href="https://www.youtube.com/@PiraiAI" target="_blank" aria-label="YouTube">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
