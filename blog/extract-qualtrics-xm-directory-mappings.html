@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extract Mappings from the Qualtrics Update XM Directory Contacts Task - Pirai AI</title>
+    <meta name="description" content="Complete guide to extracting contact and transaction field mappings from the Qualtrics Update XM Directory Contacts task. Free browser script with CSV and JSON export in under 5 minutes.">
+    <meta name="keywords" content="Qualtrics XM Directory mappings, extract XM Directory fields, Qualtrics workflow documentation, XM Directory contact mappings, transaction mappings Qualtrics, Make Piped Text, Qualtrics workflow automation, Update XM Directory Contacts task">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://piraiai.com/blog/extract-qualtrics-xm-directory-mappings">
+    <meta property="og:title" content="Extract Mappings from the Qualtrics Update XM Directory Contacts Task">
+    <meta property="og:description" content="Extract all XM Directory contact and transaction mappings from Qualtrics Workflows in seconds. Free browser-based script with CSV and JSON export.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="og:site_name" content="Pirai AI Blog">
+    <meta property="article:published_time" content="2026-03-06T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta property="article:section" content="Tutorial">
+    <meta property="article:tag" content="Qualtrics">
+    <meta property="article:tag" content="XM Directory">
+    <meta property="article:tag" content="Workflow Automation">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://piraiai.com/blog/extract-qualtrics-xm-directory-mappings">
+    <meta name="twitter:title" content="Extract Mappings from the Qualtrics Update XM Directory Contacts Task">
+    <meta name="twitter:description" content="Free browser script to extract all XM Directory contact and transaction mappings from Qualtrics Workflows in seconds.">
+    <meta name="twitter:image" content="https://piraiai.com/logo.png">
+
+    <link rel="canonical" href="https://piraiai.com/blog/extract-qualtrics-xm-directory-mappings">
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://piraiai.com/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        /* Header */
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        header nav { display: flex; gap: 32px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; transition: color 0.2s; }
+        header nav a:hover { color: #9B6BFF; }
+
+        /* Breadcrumb */
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; transition: color 0.2s; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+
+        /* Hero */
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+
+        /* Content Wrapper */
+        .content-wrapper { max-width: 1200px; margin: 48px auto; padding: 0 24px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+
+        /* Article Content */
+        .article-content { max-width: 680px; overflow-x: hidden; }
+        .article-content p { font-size: 18px; color: #374151; margin-bottom: 24px; line-height: 1.7; }
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-top: 32px; margin-bottom: 12px; }
+        .article-content h4 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; margin: 24px 0 12px; color: #1a1a1a; }
+        .article-content a { color: #9B6BFF; text-decoration: none; border-bottom: 1px solid rgba(155, 107, 255, 0.3); transition: all 0.2s; }
+        .article-content a:hover { border-bottom-color: #9B6BFF; }
+        .article-content ul, .article-content ol { margin-bottom: 24px; padding-left: 24px; }
+        .article-content li { font-size: 18px; color: #374151; margin-bottom: 12px; }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; margin: 32px 0; background: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; }
+        @media (max-width: 640px) { table { display: block; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; } }
+        th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid #f3f4f6; font-size: 15px; }
+        th { background: #f9fafb; font-weight: 600; color: #1a1a1a; border-bottom: 2px solid #e5e7eb; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover { background: #f9fafb; }
+
+        /* Highlight Box */
+        .highlight-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 24px; margin: 32px 0; border-radius: 4px; }
+        .highlight-box h4 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 600; color: #1a1a1a; margin-bottom: 12px; }
+        .highlight-box p { font-size: 16px; color: #374151; margin-bottom: 0; }
+
+        /* Step Box */
+        .step-box { background: #f9fafb; border-left: 4px solid #9B6BFF; border-radius: 8px; padding: 24px; margin: 24px 0; }
+        .step-number { display: inline-block; background: #9B6BFF; color: white; width: 35px; height: 35px; line-height: 35px; text-align: center; border-radius: 50%; font-weight: 700; margin-right: 12px; font-size: 18px; font-family: 'Space Grotesk', sans-serif; }
+        .step-box h4 { display: inline; font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: #1a1a1a; }
+        .step-box p { margin: 12px 0 8px 47px; font-size: 16px; color: #374151; line-height: 1.7; }
+
+        /* Part Banner - two-part flow */
+        .part-banner { display: flex; gap: 0; margin: 40px 0 0; border-radius: 8px 8px 0 0; overflow: hidden; border: 1px solid #e5e7eb; border-bottom: none; }
+        .part-tab { flex: 1; padding: 14px 20px; text-align: center; font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 600; background: #f3f4f6; color: #6b7280; }
+        .part-tab.active { background: #9B6BFF; color: #ffffff; }
+        .part-tab.done { background: #d1fae5; color: #065f46; }
+        .part-content { border: 1px solid #e5e7eb; border-radius: 0 0 8px 8px; padding: 0; margin-bottom: 32px; }
+
+        /* Warning banner */
+        .warning-banner { background: #fef3c7; border: 2px solid #f59e0b; border-radius: 8px; padding: 18px 20px; margin: 24px 0; display: flex; gap: 12px; align-items: flex-start; }
+        .warning-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+        .warning-banner strong { color: #92400e; font-size: 16px; display: block; margin-bottom: 4px; }
+        .warning-banner p { color: #92400e; font-size: 15px; margin: 0; line-height: 1.6; }
+
+        /* Code Block */
+        .code-block { background: #1e1e1e; color: #d4d4d4; padding: 24px; border-radius: 8px; overflow-x: auto; margin: 24px 0; position: relative; font-family: 'Courier New', Courier, monospace; font-size: 14px; line-height: 1.5; }
+        .code-block pre { margin: 0; white-space: pre; overflow-x: auto; }
+        .copy-button { position: absolute; top: 12px; right: 12px; background: #9B6BFF; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600; transition: all 0.2s; font-family: 'Inter', sans-serif; z-index: 2; }
+        .copy-button:hover { background: #8855eb; transform: translateY(-1px); }
+        .copy-button.copied { background: #22c55e; }
+
+        /* Command Box */
+        .command-box { background: #1e1e1e; color: #22c55e; padding: 20px; border-radius: 8px; font-family: 'Courier New', monospace; margin: 24px 0; font-size: 14px; line-height: 1.8; }
+        .command-box code { color: #22c55e; }
+        .command-box .comment { color: #6b7280; }
+
+        /* Alert Boxes */
+        .alert { padding: 16px 20px; border-radius: 8px; margin: 24px 0; border-left: 4px solid; font-size: 15px; }
+        .alert-success { background: #d1fae5; border-left-color: #22c55e; color: #065f46; }
+        .alert-info { background: #dbeafe; border-left-color: #3b82f6; color: #1e40af; }
+        .alert-warning { background: #fef3c7; border-left-color: #f59e0b; color: #92400e; }
+
+        /* Feature List */
+        .feature-list { list-style: none; padding: 0; margin: 24px 0; }
+        .feature-list li { padding: 8px 0 8px 32px; position: relative; font-size: 17px; color: #374151; line-height: 1.7; }
+        .feature-list li:before { content: "✓"; position: absolute; left: 0; color: #22c55e; font-weight: bold; font-size: 20px; }
+
+        /* Troubleshooting Box */
+        .troubleshooting-box { background: #fef3c7; border: 2px solid #f59e0b; border-radius: 8px; padding: 24px; margin: 24px 0; }
+        .troubleshooting-box h4 { color: #92400e; font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; margin-bottom: 12px; }
+        .troubleshooting-box ul { margin: 12px 0 12px 20px; }
+        .troubleshooting-box li { margin: 8px 0; color: #92400e; font-size: 16px; }
+
+        /* Advanced Accordion */
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; font-weight: 400; transition: transform 0.2s; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 2000px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 16px; }
+        .accordion-body ul { margin: 0 0 16px 20px; }
+        .accordion-body li { font-size: 16px; color: #374151; margin-bottom: 8px; }
+
+        /* Sidebar */
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a1a1a; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; transition: color 0.2s; border-bottom: none; display: block; }
+        .toc-list a:hover { color: #9B6BFF; border-bottom: none; }
+        .toc-indent { padding-left: 14px; }
+
+        /* Sidebar stat cards */
+        .stat-cards { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+        .stat-card { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; display: flex; align-items: center; gap: 12px; }
+        .stat-icon { font-size: 18px; flex-shrink: 0; }
+        .stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #9B6BFF; }
+        .stat-label { font-size: 12px; color: #6b7280; }
+
+        /* CTA Box */
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 32px; border-radius: 8px; text-align: center; color: #ffffff; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .cta-box p { font-size: 14px; margin-bottom: 20px; opacity: 0.95; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.2s; border-bottom: none; }
+        .cta-button:hover { transform: translateY(-2px); border-bottom: none; }
+
+        /* Related Articles */
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; border-bottom: none; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); border-bottom: none; }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: #1a1a1a; margin-bottom: 8px; }
+        .related-card p { font-size: 14px; color: #6b7280; }
+
+        /* Footer */
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .content-wrapper { grid-template-columns: 1fr; }
+            .sidebar { position: static; }
+            .article-title { font-size: 32px; }
+            .related-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 640px) {
+            header nav { display: none; }
+            .article-title { font-size: 28px; }
+            .article-content h2 { font-size: 24px; }
+            .breadcrumb { padding: 12px 16px; }
+            .breadcrumb-container { font-size: 12px; }
+            .part-banner { flex-direction: column; border-radius: 8px 8px 0 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo">
+                <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo">
+                <span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span>
+            </a>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/blog">All Articles</a>
+                <a href="/docs">Documentation</a>
+                <a href="/#demo">Get Demo</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="/">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="/blog">Blog</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Update XM Directory Contacts Task: Extract Mappings</span>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="hero-container">
+            <h1 class="article-title">Extract Mappings from the Qualtrics Update XM Directory Contacts Task</h1>
+            <div class="article-meta">
+                <span class="author">Arun Raj</span>
+                <span class="separator">•</span>
+                <span>March 6, 2026</span>
+                <span class="separator">•</span>
+                <span>10 min read</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content-wrapper">
+
+        <article class="article-content">
+
+            <h2 id="why-extract">Why Extract XM Directory Mappings?</h2>
+
+            <p>If you work with Qualtrics Workflows and XM Directory, the <strong>Update XM Directory Contacts</strong> task is one of the most powerful data integration tools available. It maps survey responses, embedded data and transaction metadata directly into your directory contacts.</p>
+
+            <p>Managing these mappings across multiple workflows is where things get painful:</p>
+
+            <ul class="feature-list">
+                <li>Manually documenting which source fields map to which directory fields is slow and error-prone</li>
+                <li>Transaction data mappings involve extra complexity with the "Make Piped Text" setting</li>
+                <li>Migrating workflows between environments requires exact mapping documentation</li>
+                <li>Audit and compliance requirements demand comprehensive, reproducible records</li>
+            </ul>
+
+            <p>This guide gives you a <strong>free browser-based script</strong> that extracts all your contact and transaction mappings in seconds and exports them as clean CSV files.</p>
+
+            <div class="warning-banner">
+                <div class="warning-icon">⚠️</div>
+                <div>
+                    <strong>This is a two-part process. Run the script twice</strong>
+                    <p>The XM Directory task has two separate mapping screens. You must run the extraction script once on each screen. Running it only once is the most common mistake and results in missing transaction mappings.</p>
+                </div>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Screen</th>
+                        <th>What it captures</th>
+                        <th>Output file</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Part 1:</strong> Confirm import fields</td>
+                        <td>Source Field → XM Directory contact fields</td>
+                        <td>xm_contact_mappings.csv</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Part 2:</strong> Map specific values</td>
+                        <td>Source Field → Transaction fields + Make Piped Text status</td>
+                        <td>xm_transaction_mappings.csv</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ===================== PART 1 ===================== -->
+            <h2 id="part-1">Part 1: Extract Contact Mappings</h2>
+
+            <h3>Watch the Demo</h3>
+            <div style="margin: 32px 0;">
+                <!-- Replace VIDEO_ID with your YouTube video ID when ready -->
+                <div style="width:560px; max-width:100%; height:315px; background:#1e1e1e; border-radius:8px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px;">
+                    <div style="font-size:48px;">▶</div>
+                    <div style="font-family:'Space Grotesk',sans-serif; font-size:15px; color:#9B6BFF; font-weight:600;">Video coming soon</div>
+                    <div style="font-size:13px; color:#6b7280;">Replace this placeholder with your YouTube embed</div>
+                </div>
+                <!-- PLACEHOLDER — swap the div above for this iframe when ready:
+                <iframe width="560" height="315"
+                    src="https://www.youtube.com/embed/VIDEO_ID"
+                    title="Extract XM Directory Mappings - Pirai AI"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                    style="max-width: 100%; border-radius: 8px;">
+                </iframe>
+                -->
+            </div>
+
+            <div class="part-banner">
+                <div class="part-tab active">▶ Part 1: Contact Mappings</div>
+                <div class="part-tab">Part 2: Transaction Mappings</div>
+            </div>
+            <div class="part-content">
+
+                <div class="step-box">
+                    <span class="step-number">1</span>
+                    <h4>Open the Workflow Task</h4>
+                    <p>In Qualtrics, navigate to the <strong>Workflows</strong> tab in your project or the standalone Workflows page.</p>
+                    <p>Open a workflow containing an <strong>Update XM Directory Contacts</strong> task and click on it to open the configuration wizard.</p>
+                    <p>You should land on the <strong>"Confirm import fields"</strong> screen with two columns showing Source Field and XM Directory Field.</p>
+                </div>
+
+                <div class="step-box">
+                    <span class="step-number">2</span>
+                    <h4>Open the Browser Console</h4>
+                    <p><strong>Right-click directly on the mapping table</strong> on any row where you can see a Source Field value.</p>
+                    <p>Select <strong>Inspect</strong> or <strong>Inspect Element</strong> from the context menu.</p>
+                    <p>In the developer tools panel that appears, click the <strong>Console</strong> tab.</p>
+                    <div class="alert alert-info">
+                        <strong>Why right-click on the table?</strong> This ensures the correct DOM elements are loaded in the inspector before the script runs, making extraction more reliable.
+                    </div>
+                </div>
+
+                <div class="step-box">
+                    <span class="step-number">3</span>
+                    <h4>Copy and Run the Extraction Script</h4>
+                    <p>Click the Copy Script button, paste into the console, then press <strong>Enter</strong>.</p>
+
+                    <div class="code-block">
+                        <button class="copy-button" onclick="copyScript('xm-script')">Copy Script</button>
+                        <pre id="xm-script">
+/**
+ * Qualtrics XM Directory Mapping Extractor (Contacts + Transactions)
+ * Extracts Source Field to XM Directory Field mappings - v2.3
+ * "Update XM Directory Contacts" workflow task.
+ * Run this script on EACH screen (Part 1 and Part 2).
+ * Developed by Pirai AI — piraiai.com
+ * Last updated: March 6, 2026
+*/
+ 
+(function() {
+    console.log('=== Qualtrics XM Directory Mapping Extractor Started ===');
+    function extractContactMappings() {
+        const mappings = [];
+        // Find the contacts data mapper section (not transaction)
+        const contactsTable = document.querySelector('.contactsDataMapper table.dataMapperTable');
+        if (!contactsTable) {
+            console.log('No contacts mapping table found');
+            return mappings;
+        }
+        const rows = contactsTable.querySelectorAll('tbody tr._2Oqzg');
+        console.log(`\nFound ${rows.length} contact mapping rows`);
+        rows.forEach((row, index) => {
+            try {
+                let sourceField = '';
+                let xmDirectoryField = '';
+                // Extract Source Field (left column)
+                const sourceInput = row.querySelector('td.sourceFieldCell input.textInput');
+                if (sourceInput) {
+                    sourceField = sourceInput.value.trim();
+                }
+                // Extract XM Directory Field (right column - combobox)
+                const destinationInput = row.querySelector('td:nth-child(2) input[role="combobox"]');
+                if (destinationInput) {
+                    xmDirectoryField = destinationInput.value.trim();
+                }
+                if (sourceField || xmDirectoryField) {
+                    mappings.push({
+                        index: index + 1,
+                        sourceField: sourceField,
+                        xmDirectoryField: xmDirectoryField
+                    });
+                }
+            } catch (error) {
+                console.warn(`Error processing contact row ${index}:`, error);
+            }
+        });
+        return mappings;
+    }
+    function extractTransactionMappings() {
+        const mappings = [];
+        // Find the transaction data mapper section
+        const transactionTable = document.querySelector('.transactionDataMapper table.dataMapperTable');
+        if (!transactionTable) {
+            console.log('No transaction mapping table found');
+            return mappings;
+        }
+        const rows = transactionTable.querySelectorAll('tbody tr._2Oqzg');
+        console.log(`\nFound ${rows.length} transaction mapping rows`);
+        rows.forEach((row, index) => {
+            try {
+                let sourceField = '';
+                let xmDirectoryField = '';
+                let makePipedText = false;
+                // Extract Source Field (left column)
+                const sourceInput = row.querySelector('td.sourceFieldCell input.textInput');
+                if (sourceInput) {
+                    sourceField = sourceInput.value.trim();
+                }
+                // Extract XM Directory Field (middle column)
+                const secondColumn = row.querySelector('td:nth-child(2)');
+                if (secondColumn) {
+                    // First check for label WITHOUT nested input (Transaction Date case)
+                    const standaloneLabel = secondColumn.querySelector('label:not(:has(input))');
+                    if (standaloneLabel) {
+                        xmDirectoryField = standaloneLabel.textContent.trim();
+                    } else {
+                        // Check for label WITH nested input (custom fields case)
+                        const labelWithInput = secondColumn.querySelector('label input[type="text"]');
+                        if (labelWithInput) {
+                            xmDirectoryField = labelWithInput.value.trim();
+                        }
+                    }
+                }
+                // Extract "Make piped text" checkbox status (third column)
+                const checkbox = row.querySelector('td:nth-child(3) input[type="checkbox"]');
+                if (checkbox) {
+                    makePipedText = checkbox.checked;
+                }
+                if (sourceField || xmDirectoryField) {
+                    mappings.push({
+                        index: index + 1,
+                        sourceField: sourceField,
+                        xmDirectoryField: xmDirectoryField,
+                        makePipedText: makePipedText ? 'Yes' : 'No'
+                    });
+                }
+            } catch (error) {
+                console.warn(`Error processing transaction row ${index}:`, error);
+            }
+        });
+        return mappings;
+    }
+    function displayAsTable(mappings, type) {
+        console.log(`\n=== EXTRACTED ${type.toUpperCase()} MAPPINGS ===\n`);
+        console.table(mappings);
+        console.log(`\nTotal ${type} mappings: ${mappings.length}`);
+    }
+    function convertToCSV(mappings, includePipedText = false) {
+        if (mappings.length === 0) return '';
+        let headerRow = '"Index","Source Field","XM Directory Field"';
+        if (includePipedText) {
+            headerRow += ',"Make Piped Text"';
+        }
+        const dataRows = mappings.map(mapping => {
+            let row = [
+                `"${mapping.index}"`,
+                `"${mapping.sourceField.replace(/"/g, '""')}"`,
+                `"${mapping.xmDirectoryField.replace(/"/g, '""')}"`
+            ];
+            if (includePipedText) {
+                row.push(`"${mapping.makePipedText}"`);
+            }
+            return row.join(',');
+        }).join('\n');
+        return headerRow + '\n' + dataRows;
+    }
+    function downloadCSV(csv, filename) {
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        const link = document.createElement('a');
+        const url = URL.createObjectURL(blob);
+        link.setAttribute('href', url);
+        link.setAttribute('download', filename);
+        link.style.visibility = 'hidden';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+        console.log(`✓ Downloaded: ${filename}`);
+    }
+    function copyToClipboard(text) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+            document.execCommand('copy');
+            console.log('✓ CSV data copied to clipboard!');
+            return true;
+        } catch (err) {
+            console.error('Failed to copy to clipboard:', err);
+            return false;
+        } finally {
+            document.body.removeChild(textarea);
+        }
+    }
+    console.log('Starting extraction...\n');
+    // Extract both types
+    const contactMappings = extractContactMappings();
+    const transactionMappings = extractTransactionMappings();
+    if (contactMappings.length === 0 && transactionMappings.length === 0) {
+        console.error('❌ No mappings found! Make sure you are on the XM Directory mapping dialog.');
+        return;
+    }
+    // Display results
+    if (contactMappings.length > 0) {
+        displayAsTable(contactMappings, 'contact');
+    }
+    if (transactionMappings.length > 0) {
+        displayAsTable(transactionMappings, 'transaction');
+    }
+    // Prepare CSV data
+    const contactCSV = convertToCSV(contactMappings, false);
+    const transactionCSV = convertToCSV(transactionMappings, true);
+    // Make data available globally
+    window.xmContactMappings = contactMappings;
+    window.xmTransactionMappings = transactionMappings;
+    window.xmContactCSV = contactCSV;
+    window.xmTransactionCSV = transactionCSV;
+    // Contact mapping functions
+    window.downloadContactMappingsCSV = function(filename) {
+        downloadCSV(contactCSV, filename || 'xm_contact_mappings.csv');
+    };
+    window.copyContactMappingsCSV = function() {
+        return copyToClipboard(contactCSV);
+    };
+    // Transaction mapping functions
+    window.downloadTransactionMappingsCSV = function(filename) {
+        downloadCSV(transactionCSV, filename || 'xm_transaction_mappings.csv');
+    };
+    window.copyTransactionMappingsCSV = function() {
+        return copyToClipboard(transactionCSV);
+    };
+    // Combined functions
+    window.downloadAllMappingsCSV = function() {
+        if (contactMappings.length > 0) {
+            downloadCSV(contactCSV, 'xm_contact_mappings.csv');
+        }
+        if (transactionMappings.length > 0) {
+            downloadCSV(transactionCSV, 'xm_transaction_mappings.csv');
+        }
+    };
+    window.getContactJSON = function() {
+        return JSON.stringify(contactMappings, null, 2);
+    };
+    window.getTransactionJSON = function() {
+        return JSON.stringify(transactionMappings, null, 2);
+    };
+    console.log('\n=== ACTIONS AVAILABLE ===');
+    console.log('CONTACT MAPPINGS:');
+    console.log('  1. Download CSV:  downloadContactMappingsCSV()');
+    console.log('  2. Copy CSV:      copyContactMappingsCSV()');
+    console.log('  3. View JSON:     getContactJSON()');
+    console.log('\nTRANSACTION MAPPINGS:');
+    console.log('  4. Download CSV:  downloadTransactionMappingsCSV()');
+    console.log('  5. Copy CSV:      copyTransactionMappingsCSV()');
+    console.log('  6. View JSON:     getTransactionJSON()');
+    console.log('\nALL MAPPINGS:');
+    console.log('  7. Download All:  downloadAllMappingsCSV()');
+    console.log('  8. View data:     xmContactMappings / xmTransactionMappings');
+    console.log('\n✓ Extraction complete! Use the commands above to export the data.');
+})();</pre>
+                    </div>
+                </div>
+
+                <div class="step-box">
+                    <span class="step-number">4</span>
+                    <h4>Export Contact Mappings</h4>
+                    <p>You should see the contact mappings table printed in the console. Run this command to download:</p>
+                    <div class="command-box">
+                        <code>downloadContactMappingsCSV()</code>
+                        <span class="comment"> &nbsp;// downloads xm_contact_mappings.csv</span>
+                    </div>
+                    <div class="alert alert-success">
+                        You should see: ✓ Downloaded: xm_contact_mappings.csv
+                    </div>
+                    <p>Keep the console and the Qualtrics dialog open, you need both for Part 2.</p>
+                </div>
+
+                <div class="step-box">
+                    <span class="step-number">5</span>
+                    <h4>Click "Next" in Qualtrics</h4>
+                    <p>Click the <strong>Next</strong> button at the bottom of the contact mapping screen to advance to the transaction data screen. Stay inside the task dialog.</p>
+                </div>
+
+            </div><!-- end part-content -->
+
+            <!-- ===================== PART 2 ===================== -->
+            <h2 id="part-2">Part 2: Extract Transaction Mappings</h2>
+
+            <div class="part-banner">
+                <div class="part-tab done">✓ Part 1: Contact Mappings Done</div>
+                <div class="part-tab active">▶ Part 2: Transaction Mappings</div>
+            </div>
+            <div class="part-content">
+
+                <div class="step-box">
+                    <span class="step-number">6</span>
+                    <h4>Enable the Transaction Data Checkbox</h4>
+                    <p>On the <strong>"Map specific values (optional)"</strong> screen, check the <strong>Transaction data</strong> checkbox to reveal the transaction mapping table.</p>
+                    <p>You should now see three columns: Source Field, XM Directory Field, and Make Piped Text.</p>
+                    <div class="alert alert-info">
+                        <strong>How to confirm you're on the right screen:</strong> Look for a "Transaction data" checkbox, a "Make piped text" column header, and a Save button at the bottom (not Next).
+                    </div>
+                </div>
+
+                <div class="step-box">
+                    <span class="step-number">7</span>
+                    <h4>Run the Same Script Again</h4>
+                    <p>Paste and run the <strong>exact same script</strong> from Step 3 into the console again. This time it will find the transaction mapping table and extract those rows automatically.</p>
+                    <div class="alert alert-warning">
+                        <strong>Yes, the same script.</strong> It detects which screen you are on and extracts accordingly. The contact table and transaction table are in different parts of the page structure, which is why a second run is needed.
+                    </div>
+                </div>
+
+                <div class="step-box">
+                    <span class="step-number">8</span>
+                    <h4>Export Transaction Mappings</h4>
+                    <p>Run this command to download your transaction mappings:</p>
+                    <div class="command-box">
+                        <code>downloadTransactionMappingsCSV()</code>
+                        <span class="comment"> &nbsp;// downloads xm_transaction_mappings.csv</span>
+                    </div>
+                    <p>Or download both files at once if you prefer:</p>
+                    <div class="command-box">
+                        <code>downloadAllMappingsCSV()</code>
+                        <span class="comment"> &nbsp;// downloads both CSV files in one command</span>
+                    </div>
+                    <div class="alert alert-success">
+                        Done. You now have two CSV files with complete documentation of your XM Directory workflow mappings.
+                    </div>
+                </div>
+
+            </div><!-- end part-content -->
+
+            <!-- ===================== OUTPUT ===================== -->
+            <h2 id="understanding-output">Understanding Your Output</h2>
+
+            <h3>Contact Mappings (xm_contact_mappings.csv)</h3>
+            <p>Extracted from the "Confirm import fields" screen. Shows which data source fields map to which XM Directory contact fields.</p>
+
+            <table>
+                <thead>
+                    <tr><th>Index</th><th>Source Field</th><th>XM Directory Field</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>${e://Field/SampleField3}</td><td>First name</td></tr>
+                    <tr><td>2</td><td>${e://Field/SampleField4}</td><td>Last name</td></tr>
+                    <tr><td>3</td><td>${e://Field/SampleField5}</td><td>Email</td></tr>
+                    <tr><td>4</td><td>${e://Field/SampleField6}</td><td>Phone number</td></tr>
+                    <tr><td>5</td><td>${e://Field/SampleField2}</td><td>Contact ID</td></tr>
+                </tbody>
+            </table>
+
+            <h3>Transaction Mappings (xm_transaction_mappings.csv)</h3>
+            <p>Extracted from the "Map specific values" screen. Includes the Make Piped Text column, which is critical for downstream workflow logic.</p>
+
+            <table>
+                <thead>
+                    <tr><th>Index</th><th>Source Field</th><th>XM Directory Field</th><th>Make Piped Text</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>${e://Field/purchase_date}</td><td>Transaction Date</td><td>No</td></tr>
+                    <tr><td>2</td><td>${e://Field/product_name}</td><td>product_name</td><td>Yes</td></tr>
+                    <tr><td>3</td><td>${e://Field/order_total}</td><td>order_value</td><td>Yes</td></tr>
+                    <tr><td>4</td><td>${e://Field/order_status}</td><td>status</td><td>No</td></tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box">
+                <h4>Why "Make Piped Text" matters</h4>
+                <p>When a transaction field is marked <strong>Yes</strong>, it becomes available as <code>${tr://Field/field_name}</code> in all subsequent workflow tasks including email personalisation, conditional branches, web service calls. If a downstream task is failing unexpectedly, check this column first. A field used in an email template that was not marked Make Piped Text will silently fail.</p>
+            </div>
+
+            <!-- ===================== TROUBLESHOOTING ===================== -->
+            <h2 id="troubleshooting">Troubleshooting</h2>
+
+            <div class="troubleshooting-box">
+                <h4>No mappings found</h4>
+                <ul>
+                    <li>Confirm you are inside the "Update XM Directory Contacts" task configuration with the mapping table fully visible</li>
+                    <li>Scroll through the table to ensure all rows have loaded before running the script</li>
+                    <li>Refresh the page, reopen the task, and try again</li>
+                </ul>
+            </div>
+
+            <div class="troubleshooting-box">
+                <h4>No transaction mappings found (most common issue)</h4>
+                <ul>
+                    <li>You ran the script on the contact screen only. Click Next, check the Transaction data checkbox, and run the script again</li>
+                    <li>Make sure the Transaction data checkbox is ticked before running on Part 2</li>
+                    <li>If your workflow has no transaction data configured, this is expected and not an error</li>
+                </ul>
+            </div>
+
+            <div class="troubleshooting-box">
+                <h4>Download not working</h4>
+                <ul>
+                    <li>Use the clipboard alternative: <code>copyContactMappingsCSV()</code> then paste into Excel or Google Sheets</li>
+                    <li>Check your browser is not blocking downloads from qualtrics.com</li>
+                    <li>Disable any pop-up blocker temporarily and retry</li>
+                </ul>
+            </div>
+
+            <div class="troubleshooting-box">
+                <h4>Script shows errors or runs but finds nothing</h4>
+                <ul>
+                    <li>Make sure you copied the entire script, it is long, use Ctrl+A inside the code block before copying</li>
+                    <li>Type <code>clear()</code> in the console to reset it, then paste and run again</li>
+                    <li>Try Chrome if you are using another browser</li>
+                </ul>
+            </div>
+
+            <!-- ===================== ADVANCED ===================== -->
+            <h2 id="advanced-usage">Advanced Usage</h2>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    Custom export filenames
+                    <span class="accordion-icon">+</span>
+                </div>
+                <div class="accordion-body">
+                    <p>Pass a filename to keep your exports organised by workflow, environment and date:</p>
+                    <div class="command-box">
+                        <code>downloadContactMappingsCSV('PostPurchase_Contacts_2026-03-06.csv')</code><br>
+                        <code>downloadTransactionMappingsCSV('PostPurchase_Transactions_2026-03-06.csv')</code>
+                    </div>
+                    <p>Recommended naming pattern: <code>{WorkflowName}_{Type}_{YYYY-MM-DD}.csv</code></p>
+                </div>
+            </div>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    Filter and analyse data in the console
+                    <span class="accordion-icon">+</span>
+                </div>
+                <div class="accordion-body">
+                    <p>After extraction the data is stored as JavaScript arrays you can query directly:</p>
+                    <div class="command-box">
+                        <span class="comment">// Only fields marked for piped text</span><br>
+                        <code>xmTransactionMappings.filter(m => m.makePipedText === 'Yes')</code><br><br>
+                        <span class="comment">// Find a specific contact field</span><br>
+                        <code>xmContactMappings.find(m => m.xmDirectoryField === 'Email')</code><br><br>
+                        <span class="comment">// Count totals</span><br>
+                        <code>console.log(xmContactMappings.length, xmTransactionMappings.length)</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    Export as JSON for programmatic use
+                    <span class="accordion-icon">+</span>
+                </div>
+                <div class="accordion-body">
+                    <p>If you need the data in JSON format for documentation pipelines, validation scripts or CI/CD workflows:</p>
+                    <div class="command-box">
+                        <span class="comment">// View JSON in console</span><br>
+                        <code>console.log(JSON.stringify(xmContactMappings, null, 2))</code><br><br>
+                        <span class="comment">// Download as JSON file</span><br>
+                        <code>const b = new Blob([JSON.stringify(xmContactMappings, null, 2)], {type:'application/json'});</code><br>
+                        <code>const a = document.createElement('a');</code><br>
+                        <code>a.href = URL.createObjectURL(b);</code><br>
+                        <code>a.download = 'contact_mappings.json'; a.click();</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    Best practices for documentation and versioning
+                    <span class="accordion-icon">+</span>
+                </div>
+                <div class="accordion-body">
+                    <p>A few habits that pay off when workflows change or environments are migrated:</p>
+                    <ul>
+                        <li>Extract before making any changes, which creates a clean rollback reference</li>
+                        <li>Use a consistent folder structure: <code>WorkflowDocs / 2026-Q1 / WorkflowName_Type_Date.csv</code></li>
+                        <li>For environment migrations, extract from test first, verify all source fields exist in production, reconfigure, then extract again and compare to confirm accuracy</li>
+                        <li>Use Excel VLOOKUP to diff two extractions: <code>=IF(VLOOKUP(B2,Sheet2!B:C,2,FALSE)=C2,"Match","Different")</code></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box" style="margin-top: 40px;">
+                <h4>Need to convert surveys into Qualtrics?</h4>
+                <p>This tool documents your XM Directory workflow mappings. If you also need to convert Word, PDF or Excel questionnaires into <a href="/blog/qsf-file-guide">QSF files</a> for Qualtrics import, <a href="https://platform.piraiai.com">Pirai AI</a> handles that automatically across <a href="/blog/survey-platform-migration-guide">20+ survey platforms</a> with no manual scripting required.</p>
+            </div>
+
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="sidebar-section">
+                <h3>In This Guide</h3>
+                <ul class="toc-list">
+                    <li><a href="#why-extract">Why Extract Mappings?</a></li>
+                    <li><a href="#part-1">Part 1: Contact Mappings</a></li>
+                    <li class="toc-indent"><a href="#part-1">Steps 1–5</a></li>
+                    <li><a href="#part-2">Part 2: Transaction Mappings</a></li>
+                    <li class="toc-indent"><a href="#part-2">Steps 6–8</a></li>
+                    <li><a href="#understanding-output">Understanding Output</a></li>
+                    <li><a href="#troubleshooting">Troubleshooting</a></li>
+                    <li><a href="#advanced-usage">Advanced Usage</a></li>
+                </ul>
+            </div>
+
+            <div class="stat-cards">
+                <div class="stat-card">
+                    <div class="stat-icon">📋</div>
+                    <div>
+                        <div class="stat-num">2 CSV files</div>
+                        <div class="stat-label">Contact + Transaction mappings</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⚡</div>
+                    <div>
+                        <div class="stat-num">Under 5 min</div>
+                        <div class="stat-label">Full extraction time</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🔧</div>
+                    <div>
+                        <div class="stat-num">No install</div>
+                        <div class="stat-label">Runs in your browser</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <h3>Convert Surveys to Qualtrics</h3>
+                <p>Upload Word, PDF or Excel and get a QSF file ready to import in minutes.</p>
+                <a href="https://platform.piraiai.com" class="cta-button">Try Pirai AI Free</a>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <!-- Related Articles -->
+    <div class="related-articles">
+        <h2>Related Articles</h2>
+        <div class="related-grid">
+            <a href="/blog/extract-qualtrics-dashboard-mappings" class="related-card">
+                <h3>Extract Qualtrics Dashboard Data Field Mappings</h3>
+                <p>Extract all field types, names and data source mappings from your Qualtrics Dashboard in seconds.</p>
+            </a>
+            <a href="/blog/qsf-file-guide" class="related-card">
+                <h3>What is a QSF File? Complete Guide to Qualtrics Survey Format</h3>
+                <p>Everything you need to know about QSF files, how to create them and fix common import errors.</p>
+            </a>
+            <a href="/blog/convert-word-to-qualtrics" class="related-card">
+                <h3>How to Convert Word to Qualtrics Survey: Complete Guide 2026</h3>
+                <p>Three methods compared with time and cost breakdown for any survey size.</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p>
+        <p style="margin-top: 8px; font-size: 13px;">This guide is provided for educational purposes. Qualtrics and XM Directory are trademarks of Qualtrics LLC. Not affiliated with or endorsed by Qualtrics.</p>
+    </footer>
+
+    <script>
+        function copyScript(elementId) {
+            const codeBlock = document.getElementById(elementId);
+            const button = event.target;
+            const textarea = document.createElement('textarea');
+            textarea.value = codeBlock.textContent;
+            textarea.style.cssText = 'position:fixed;opacity:0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                const orig = button.textContent;
+                button.textContent = '✓ Copied!';
+                button.classList.add('copied');
+                setTimeout(() => {
+                    button.textContent = orig;
+                    button.classList.remove('copied');
+                }, 2000);
+            } catch (e) {
+                alert('Copy failed. Select the script manually and press Ctrl+C.');
+            }
+            document.body.removeChild(textarea);
+        }
+
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('open'));
+            document.querySelectorAll('.accordion-icon').forEach(i => i.textContent = '+');
+            if (!isOpen) {
+                body.classList.add('open');
+                icon.textContent = '−';
+            }
+        }
+    </script>
+
+</body>
+</html>
