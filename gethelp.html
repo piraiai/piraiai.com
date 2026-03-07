@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get Help - Pirai AI</title>
-    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -12,310 +8,98 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
     <!-- End Google Tag Manager -->
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet"/>	        
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Help - Pirai AI</title>
+    <meta name="description" content="Need assistance with Pirai AI? Send us your questions, feedback or support requests and we will get back to you promptly.">
+
+    <link rel="canonical" href="https://piraiai.com/gethelp">
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://piraiai.com/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
-            color: #e5e7eb;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-            min-height: 100vh;
+            color: #1a1a1a;
+            background: #ffffff;
+            -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }         
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Navigation */
-        .nav {
-            background: rgba(17, 24, 39, 0.5);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #374151;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-        }
-        
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 0;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 24px;
-            font-weight: 700;
-            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            letter-spacing: 0.01em;             
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: #9ca3af;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: #ffffff;
-        }
-        
-        .nav-cta {
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            color: white;
-            padding: 8px 24px;
-            border-radius: 24px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
-        }
-        
-        /* Help Banner Section */
-        .help-banner {
-            padding: 140px 0 80px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .help-content {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .help-title {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, #ffffff, #e5e7eb);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .help-subtitle {
-            font-size: 20px;
-            color: #9ca3af;
-            margin-bottom: 32px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .email-banner {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            border-radius: 16px;
-            padding: 40px;
-            max-width: 600px;
-            margin: 0 auto;
-            backdrop-filter: blur(10px);
-        }
-        
-        .email-icon {
-            font-size: 48px;
-            margin-bottom: 16px;
-            display: block;
-        }
-        
-        .email-text {
-            font-size: 18px;
-            margin-bottom: 24px;
-            color: #e5e7eb;
-        }
-        
-        .email-address {
-            font-size: 24px;
-            font-weight: 600;
-            color: #3b82f6;
-            margin-bottom: 24px;
-            word-break: break-all;
-        }
-        
-        .email-button {
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            color: white;
-            padding: 16px 32px;
-            border: none;
-            border-radius: 12px;
-            font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s;
-        }
-        
-        .email-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
-        }
-        
+        /* Header */
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        header nav { display: flex; gap: 32px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; transition: color 0.2s; }
+        header nav a:hover { color: #9B6BFF; }
+
+        /* Breadcrumb */
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; transition: color 0.2s; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+
+        /* Hero */
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 56px 24px 48px; border-bottom: 1px solid #e5e7eb; text-align: center; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; color: #1a1a1a; margin-bottom: 12px; }
+        .hero p { font-size: 18px; color: #6b7280; max-width: 500px; margin: 0 auto; }
+
+        /* Main */
+        .main { max-width: 1200px; margin: 0 auto; padding: 64px 24px 80px; display: flex; justify-content: center; }
+
+        /* Contact Card */
+        .contact-card { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 48px; text-align: center; max-width: 560px; width: 100%; box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+        .contact-icon { font-size: 48px; display: block; margin-bottom: 20px; }
+        .contact-card h2 { font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 700; color: #1a1a1a; margin-bottom: 10px; }
+        .contact-card p { font-size: 16px; color: #6b7280; margin-bottom: 28px; line-height: 1.6; }
+        .email-address { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #9B6BFF; margin-bottom: 28px; display: block; word-break: break-all; }
+        .email-button { display: inline-block; background: #9B6BFF; color: #ffffff; padding: 14px 36px; border-radius: 8px; font-weight: 700; font-size: 16px; text-decoration: none; transition: background 0.2s, transform 0.2s; }
+        .email-button:hover { background: #7c3aed; transform: translateY(-2px); }
+
+        /* Response info */
+        .response-note { margin-top: 24px; font-size: 13px; color: #9ca3af; }
+
         /* Footer */
-        .footer {
-            background: rgba(17, 24, 39, 0.5);
-            backdrop-filter: blur(10px);
-            border-top: 1px solid #374151;
-            padding: 48px 0;
-            margin-top: 80px;
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 48px 24px 32px; }
+        .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; margin-bottom: 40px; }
+        .footer-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+        .footer-brand img { width: 28px; height: 28px; }
+        .footer-brand span { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .footer-desc { font-size: 14px; color: #6b7280; line-height: 1.6; margin-bottom: 16px; max-width: 320px; }
+        .footer-contact { font-size: 13px; color: #6b7280; margin-bottom: 4px; }
+        .footer-contact a { color: #9B6BFF; text-decoration: none; }
+        .footer-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 8px; }
+        .footer-links a { color: #6b7280; text-decoration: none; font-size: 14px; transition: color 0.2s; }
+        .footer-links a:hover { color: #9B6BFF; }
+        .footer-bottom { max-width: 1200px; margin: 0 auto; border-top: 1px solid #e5e7eb; padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+        .footer-bottom p { font-size: 13px; color: #6b7280; }
+        .footer-socials { display: flex; gap: 14px; align-items: center; }
+        .footer-socials a { color: #9ca3af; transition: color 0.2s; }
+        .footer-socials a:hover { color: #9B6BFF; }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            header nav { display: none; }
+            .hero h1 { font-size: 28px; }
+            .contact-card { padding: 32px 24px; }
+            .email-address { font-size: 18px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; text-align: center; }
         }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 32px;
-        }
-        
-        .footer-brand {
-            display: flex;
-            align-items: center;
-            margin-bottom: 16px;
-        }
-        
-        .footer-brand span {
-            font-size: 24px;
-            font-weight: 700;
-            color: #ffffff;
-        }
-        
-        .footer-desc {
-            color: #9ca3af;
-            margin-bottom: 16px;
-            max-width: 400px;
-        }
-        
-        .footer-section h3 {
-            color: #ffffff;
-            font-weight: 600;
-            margin-bottom: 16px;
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 8px;
-        }
-        
-        .footer-links a {
-            color: #9ca3af;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: #ffffff;
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid #374151;
-            margin-top: 32px;
-            padding-top: 32px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-        
-        .footer-bottom .copyright {
-            color: #9ca3af;
-            font-size: 14px;
-        }
-        
-        /* Floating elements */
-        .float-element-1 {
-            position: absolute;
-            top: 25%;
-            left: 25%;
-            width: 256px;
-            height: 256px;
-            background: rgba(59, 130, 246, 0.1);
-            border-radius: 50%;
-            filter: blur(60px);
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        .float-element-2 {
-            position: absolute;
-            bottom: 25%;
-            right: 25%;
-            width: 384px;
-            height: 384px;
-            background: rgba(139, 92, 246, 0.1);
-            border-radius: 50%;
-            filter: blur(60px);
-            animation: float 6s ease-in-out infinite;
-            animation-delay: -3s;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .help-title {
-                font-size: 32px;
-            }
-            
-            .help-subtitle {
-                font-size: 18px;
-            }
-            
-            .email-banner {
-                padding: 24px;
-                margin: 0 16px;
-            }
-            
-            .email-address {
-                font-size: 18px;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
+        @media (max-width: 968px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
@@ -323,129 +107,116 @@
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
 
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="container">
-            <div class="nav-content">
-                <a href="/" class="logo">
-                    <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo" width="35" height="35"/>&nbsp;
-                    Pirai AI
-                </a>
-                <ul class="nav-links">
-                    <li><a href="/#process">Process</a></li>                    
-                    <li><a href="/#efficiency">Efficiency</a></li>    
-                    <li><a href="/#testimonials">Evidence</a></li>      
-                    <li><a href="/#platforms">Platforms</a></li>            
-                    <li><a href="/#pricing">Pricing</a></li> 
-                </ul>
-                <a href="/#demo" class="nav-cta">Get Early Access</a>
-            </div>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo">
+                <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo">
+                <span class="logo-text">Pirai AI</span>
+            </a>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/blog">All Articles</a>
+                <a href="/docs">Documentation</a>
+                <a href="/#demo">Get Demo</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <!-- Help Banner Section -->
-    <section class="help-banner">
-        <div class="float-element-1"></div>
-        <div class="float-element-2"></div>
-        
-        <div class="container">
-            <div class="help-content">
-                <h1 class="help-title">Get Help</h1>
-                <p class="help-subtitle">Need assistance? We're here to help you succeed with Pirai AI</p>
-                
-                <div class="email-banner">
-                    <span class="email-icon">📧</span>
-                    <p class="email-text">Send us your questions, feedback, or support requests</p>
-                    <div class="email-address">admin@piraiai.com</div>
-                    <a href="mailto:admin@piraiai.com" class="email-button">Send Email</a>
-                </div>
-            </div>
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="/">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Get Help</span>
         </div>
-    </section>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="hero-container">
+            <h1>Get Help</h1>
+            <p>Need assistance? We are here to help you succeed with Pirai AI.</p>
+        </div>
+    </div>
+
+    <!-- Main -->
+    <main class="main">
+        <div class="contact-card">
+            <span class="contact-icon">📧</span>
+            <h2>Send Us a Message</h2>
+            <p>Send us your questions, feedback or support requests and we will get back to you as soon as possible.</p>
+            <span class="email-address">admin@piraiai.com</span>
+            <a href="mailto:admin@piraiai.com" class="email-button">Send Email</a>
+            <p class="response-note">We typically respond within one business day.</p>
+        </div>
+    </main>
 
     <!-- Footer -->
-	<footer class="footer">
-		<div class="container">
-			<div class="footer-content">
-				<div>
-					<div class="footer-brand">
-						<img src="https://piraiai.com/logo.png" alt="Pirai AI Logo" width="35" height="35"/>&nbsp;
-						<span>Pirai AI</span>
-					</div>
-					<p class="footer-desc">
-						Universal platform automation transforming documents to 20+ platforms across research, education, healthcare, and enterprise. Deploy globally in 50+ languages with enterprise-grade reliability.
-					</p>
-					<div style="margin-top: 16px;">
-						<p style="color: #9ca3af; font-size: 14px; margin-bottom: 8px;">
-							<strong style="color: #60a5fa;">📧 Contact:</strong> admin@piraiai.com
-						</p>
-						<p style="color: #9ca3af; font-size: 14px;">
-							<strong style="color: #22c55e;">🚀 Universal Access:</strong> Join our exclusive beta program
-						</p>
-					</div>
-				</div>
-				
-				<div class="footer-section">
-					<h3>Product</h3>
-					<ul class="footer-links">
-						<li><a href="/">Home</a></li>
-						<li><a href="/#process">How It Works</a></li>
-						<li><a href="/#features">Features</a></li>
-						<li><a href="/#pricing">Pricing</a></li>
-                        <li><a href="/faq">FAQ</a></li>
-                        <li><a href="/blog">Blog</a></li>
-                        <li><a href="/gethelp">Get Help</a></li>                        
-						<li><a href="/#demo">Early Access</a></li>
-					</ul>
-				</div>
-				
-				<div class="footer-section">
-					<h3>Free Tools</h3>
-					<ul class="footer-links">
-                        <li><a href="https://qstar.piraiai.com" target="_blank">QStar (Beta)</a></li>
-                        <li><a href="https://chromewebstore.google.com/detail/qualtrics-api-toolkit-by/lloepmlcmkeohopokcedejdelohoilip" target="_blank">Qualtrics API Toolkit</a></li>
-                        <li><a href="/qsf-to-excel">QSF to Excel WorkBook</a></li>
-						<li><a href="/textiq-to-excel">Text IQ JSON to Excel Book</a></li>
-                        <li><a href="/embedded-data-generator">Embedded Data Generator</a></li>
-						<li><a href="/pirai-csv-comparator">CSV Comparator</a></li>
-                        <li><a href="/qualtrics-toolkit" style="color: #3b82f6;">Toolkit Hub</a></li>                                                  
-					</ul>
-				</div>
-				
-				<div class="footer-section">
-					<h3>Company</h3>
-					<ul class="footer-links">
-						<li><a href="/about">About Us</a></li>						
-						<li><a href="/#demo">Contact Us</a></li>
-						<li><a href="/privacy">Privacy Policy</a></li>
-						<li><a href="/terms">Terms of Service</a></li>
-                        <li><a href="/security">Security Overview</a></li>
-						<li><a href="https://www.linkedin.com/company/pirai-ai/" target="_blank">LinkedIn</a></li>
-					</ul>
-				</div>
-			</div>
-			
-			<div class="footer-bottom">
-				<div class="copyright">
-					© <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved. | Built with enterprise-grade security and privacy protection.
-				</div>
-				<div style="display: flex; gap: 16px; align-items: center;">
-					<a href="https://www.linkedin.com/company/pirai-ai/" target="_blank" style="color: #9ca3af; transition: color 0.3s;">
-						<svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-							<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-						</svg>
-					</a>
-                    <a href="https://www.youtube.com/@PiraiAI" target="_blank" style="color: #9ca3af; transition: color 0.3s;">
-                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M23.498 6.186a2.87 2.87 0 0 0-2.02-2.034C19.65 3.74 12 3.74 12 3.74s-7.65 0-9.478.412A2.87 2.87 0 0 0 .502 6.186C.088 8.02.088 12 .088 12s0 3.98.414 5.814a2.87 2.87 0 0 0 2.02 2.034C4.35 20.26 12 20.26 12 20.26s7.65 0 9.478-.412a2.87 2.87 0 0 0 2.02-2.034C23.912 15.98 23.912 12 23.912 12s0-3.98-.414-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                        </svg>
-                    </a>                        
-					<span style="color: #6b7280; font-size: 12px;">Follow our journey</span>
-				</div>
-			</div>
-		</div>
-	</footer>
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand">
+                    <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo">
+                    <span>Pirai AI</span>
+                </div>
+                <p class="footer-desc">Universal platform automation transforming documents to 20+ platforms across research, education, healthcare and enterprise. Deploy globally in 50+ languages.</p>
+                <p class="footer-contact">📧 <a href="mailto:admin@piraiai.com">admin@piraiai.com</a></p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Product</h3>
+                <ul class="footer-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#process">How It Works</a></li>
+                    <li><a href="/#features">Features</a></li>
+                    <li><a href="/#pricing">Pricing</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/gethelp" style="color: #9B6BFF; font-weight: 600;">Get Help</a></li>
+                    <li><a href="/#demo">Early Access</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Free Tools</h3>
+                <ul class="footer-links">
+                    <li><a href="https://qstar.piraiai.com" target="_blank">QStar (Beta)</a></li>
+                    <li><a href="https://chromewebstore.google.com/detail/qualtrics-api-toolkit-by/lloepmlcmkeohopokcedejdelohoilip" target="_blank">Qualtrics API Toolkit</a></li>
+                    <li><a href="/qsf-to-excel">QSF to Excel</a></li>
+                    <li><a href="/textiq-to-excel">Text IQ to Excel</a></li>
+                    <li><a href="/embedded-data-generator">Embedded Data Generator</a></li>
+                    <li><a href="/pirai-csv-comparator">CSV Comparator</a></li>
+                    <li><a href="/qualtrics-toolkit">Toolkit Hub</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul class="footer-links">
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/#demo">Contact Us</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/terms">Terms of Service</a></li>
+                    <li><a href="/security">Security Overview</a></li>
+                    <li><a href="https://www.linkedin.com/company/pirai-ai/" target="_blank">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p>
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/company/pirai-ai/" target="_blank" aria-label="LinkedIn">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+                <a href="https://www.youtube.com/@PiraiAI" target="_blank" aria-label="YouTube">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
