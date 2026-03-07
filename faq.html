@@ -18,541 +18,176 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet"/>	    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #e5e7eb;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-            min-height: 100vh;
-        }
-        
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        line-height: 1.6; color: #1a1a1a; background: #ffffff;
+        -webkit-font-smoothing: antialiased;
+    }
+    h1,h2,h3,h4,h5,h6 { font-family: 'Space Grotesk', sans-serif; }
 
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Navigation */
-        .nav {
-            background: rgba(17, 24, 39, 0.5);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #374151;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-        }
-        
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 0;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 24px;
-            font-weight: 800;
-            font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            letter-spacing: 0.01em;            
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: #9ca3af;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: #ffffff;
-        }
-        
-        .nav-cta {
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            color: white;
-            padding: 8px 24px;
-            border-radius: 24px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
-        }
-        
-        /* Hero Section */
-        .hero-section {
-            padding: 120px 0 60px;
-            text-align: center;
-        }
-        
-        .page-title {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, #60a5fa, #a78bfa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .page-subtitle {
-            font-size: 20px;
-            color: #d1d5db;
-            margin-bottom: 32px;
-        }
-        
-        .stats-row {
-            display: flex;
-            justify-content: center;
-            gap: 32px;
-            margin-top: 24px;
-            flex-wrap: wrap;
-        }
-        
-        .stat-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #9ca3af;
-            font-size: 14px;
-        }
-        
-        .stat-icon {
-            font-size: 20px;
-        }
-        
-        /* Search Section */
-        .search-section {
-            max-width: 700px;
-            margin: 0 auto 60px;
-            position: relative;
-        }
-        
-        .search-container {
-            position: relative;
-        }
-        
-        .search-icon {
-            position: absolute;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 20px;
-            color: #6b7280;
-        }
-        
-        .search-input {
-            width: 100%;
-            padding: 16px 20px 16px 56px;
-            background: rgba(31, 41, 55, 0.5);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(59, 130, 246, 0.3);
-            border-radius: 12px;
-            color: #e5e7eb;
-            font-size: 16px;
-            transition: all 0.3s;
-        }
-        
-        .search-input:focus {
-            outline: none;
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-        }
-        
-        .search-input::placeholder {
-            color: #6b7280;
-        }
-        
-        .no-results {
-            display: none;
-            text-align: center;
-            padding: 40px;
-            background: rgba(31, 41, 55, 0.5);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            border: 1px solid rgba(55, 65, 81, 0.5);
-            margin-top: 20px;
-        }
-        
-        .no-results h3 {
-            color: #9ca3af;
-            font-size: 20px;
-            margin-bottom: 8px;
-        }
-        
-        .no-results p {
-            color: #6b7280;
-        }
-        
-        /* FAQ Content */
-        .faq-content {
-            padding-bottom: 80px;
-        }
-        
-        .category-card {
-            background: rgba(31, 41, 55, 0.5);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            border: 1px solid rgba(55, 65, 81, 0.5);
-            margin-bottom: 24px;
-            overflow: hidden;
-            transition: all 0.3s;
-        }
-        
-        .category-card:hover {
-            border-color: rgba(59, 130, 246, 0.4);
-        }
-        
-        .category-header {
-            padding: 24px 28px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            user-select: none;
-            transition: background 0.3s;
-        }
-        
-        .category-header:hover {
-            background: rgba(59, 130, 246, 0.05);
-        }
-        
-        .category-title-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-        
-        .category-icon {
-            font-size: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            border-radius: 12px;
-        }
-        
-        .category-title-text h2 {
-            font-size: 24px;
-            color: #ffffff;
-            margin-bottom: 4px;
-        }
-        
-        .category-count {
-            font-size: 14px;
-            color: #9ca3af;
-        }
-        
-        .category-toggle {
-            font-size: 24px;
-            color: #6b7280;
-            transition: transform 0.3s;
-        }
-        
-        .category-card.active .category-toggle {
-            transform: rotate(180deg);
-        }
-        
-        .category-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease;
-        }
-        
-        .category-card.active .category-content {
-            max-height: 5000px;
-        }
-        
-        .faq-item {
-            border-top: 1px solid rgba(55, 65, 81, 0.5);
-        }
-        
-        .faq-question {
-            padding: 20px 28px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 16px;
-            user-select: none;
-            transition: background 0.3s;
-        }
-        
-        .faq-question:hover {
-            background: rgba(59, 130, 246, 0.05);
-        }
-        
-        .faq-question-text {
-            flex: 1;
-            font-size: 17px;
-            font-weight: 600;
-            color: #e5e7eb;
-            line-height: 1.5;
-        }
-        
-        .faq-question-icon {
-            font-size: 18px;
-            color: #6b7280;
-            transition: transform 0.3s;
-            flex-shrink: 0;
-        }
-        
-        .faq-item.active .faq-question-icon {
-            transform: rotate(180deg);
-        }
+    /* Header */
+    header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo img { width: 32px; height: 32px; }
+    .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+    header nav { display: flex; gap: 32px; }
+    header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; transition: color 0.2s; }
+    header nav a:hover { color: #9B6BFF; }
 
-        .faq-question-icon::before {
-            content: '+';
-        }
+    /* Breadcrumb */
+    .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+    .breadcrumb-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; }
+    .breadcrumb-inner a { color: #6b7280; text-decoration: none; transition: color 0.2s; }
+    .breadcrumb-inner a:hover { color: #9B6BFF; }
+    .breadcrumb-sep { color: #d1d5db; }
+    .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
 
-        .faq-item.active .faq-question-icon::before {
-            content: '−';
-        }       
-        
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-        
-        .faq-item.active .faq-answer {
-            max-height: 1000px;
-        }
-        
-        .faq-answer-content {
-            padding: 0 28px 24px 28px;
-            color: #d1d5db;
-            font-size: 16px;
-            line-height: 1.7;
-        }
-        
-        .faq-answer-content strong {
-            color: #ffffff;
-        }
-        
-        /* Help CTA Section */
-        .help-cta {
-            background: rgba(31, 41, 55, 0.5);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            border: 2px solid rgba(59, 130, 246, 0.3);
-            padding: 48px;
-            text-align: center;
-            margin-top: 40px;
-        }
-        
-        .help-cta h3 {
-            font-size: 28px;
-            color: #ffffff;
-            margin-bottom: 12px;
-        }
-        
-        .help-cta p {
-            color: #9ca3af;
-            margin-bottom: 24px;
-            font-size: 16px;
-        }
-        
-        .help-cta-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            color: white;
-            padding: 12px 32px;
-            border-radius: 24px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        
-        .help-cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
-        }
-        
-        /* Footer */
-        .footer {
-            background: rgba(17, 24, 39, 0.8);
-            border-top: 1px solid #374151;
-            padding: 48px 0 24px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 48px;
-            margin-bottom: 32px;
-        }
-        
-        .footer-brand {
-            display: flex;
-            align-items: center;
-            color: #3b82f6;
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-        
-        .footer-desc {
-            color: #9ca3af;
-            line-height: 1.6;
-            margin-bottom: 16px;
-        }
-        
-        .footer h4 {
-            color: #ffffff;
-            margin-bottom: 16px;
-            font-size: 16px;
-        }
-        
-        .footer ul {
-            list-style: none;
-        }
-        
-        .footer ul li {
-            margin-bottom: 12px;
-        }
-        
-        .footer ul a {
-            color: #9ca3af;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer ul a:hover {
-            color: #3b82f6;
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid #374151;
-            margin-top: 32px;
-            padding-top: 32px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-        
-        .footer-bottom .copyright {
-            color: #9ca3af;
-            font-size: 14px;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .page-title {
-                font-size: 36px;
-            }
-            
-            .page-subtitle {
-                font-size: 18px;
-            }
-            
-            .stats-row {
-                flex-direction: column;
-                gap: 16px;
-            }
-            
-            .category-icon {
-                width: 40px;
-                height: 40px;
-                font-size: 24px;
-            }
-            
-            .category-title-text h2 {
-                font-size: 20px;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-            
-            .help-cta {
-                padding: 32px 24px;
-            }
-        }
-        
-        .highlight {
-            background: rgba(251, 191, 36, 0.2);
-            padding: 2px 4px;
-            border-radius: 3px;
-        }
-    </style>
+    /* Hero */
+    .hero-section { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px 40px; border-bottom: 1px solid #e5e7eb; text-align: center; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    .page-title { font-size: 36px; font-weight: 700; color: #1a1a1a; margin-bottom: 10px; line-height: 1.3; }
+    .page-subtitle { font-size: 17px; color: #6b7280; margin-bottom: 24px; }
+    .stats-row { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+    .stat-item { display: flex; align-items: center; gap: 6px; color: #6b7280; font-size: 14px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 20px; padding: 6px 14px; }
+    .stat-icon { font-size: 16px; }
+
+    /* Search */
+    .search-section { padding: 32px 24px 0; }
+    .search-container { position: relative; max-width: 680px; margin: 0 auto 12px; }
+    .search-input { width: 100%; padding: 14px 20px 14px 48px; background: #ffffff; border: 2px solid #e5e7eb; border-radius: 12px; color: #1a1a1a; font-size: 15px; transition: all 0.2s; font-family: 'Inter', sans-serif; }
+    .search-input:focus { outline: none; border-color: #9B6BFF; box-shadow: 0 0 0 3px rgba(155,107,255,0.1); }
+    .search-input::placeholder { color: #9ca3af; }
+    .search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); font-size: 18px; color: #9ca3af; pointer-events: none; }
+    .no-results { display: none; text-align: center; padding: 32px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; margin: 16px auto; max-width: 680px; }
+    .no-results h3 { color: #374151; font-size: 18px; margin-bottom: 6px; }
+    .no-results p  { color: #6b7280; font-size: 14px; }
+
+    /* FAQ Content */
+    .faq-content { padding: 32px 24px 80px; }
+
+    /* Category cards */
+    .category-card { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 14px; margin-bottom: 16px; overflow: hidden; transition: box-shadow 0.2s, border-color 0.2s; }
+    .category-card:hover { border-color: #c4b5fd; box-shadow: 0 2px 12px rgba(155,107,255,0.08); }
+    .category-card.active { border-color: #9B6BFF; }
+    .category-header { padding: 20px 24px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; transition: background 0.2s; }
+    .category-header:hover { background: #faf5ff; }
+    .category-title-wrapper { display: flex; align-items: center; gap: 14px; }
+    .category-icon { font-size: 22px; width: 44px; height: 44px; background: #ede9fe; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .category-title-text h2 { font-size: 18px; color: #1a1a1a; margin-bottom: 2px; }
+    .category-count { font-size: 13px; color: #6b7280; }
+    .category-toggle { font-size: 20px; color: #9B6BFF; transition: transform 0.3s; font-weight: 700; }
+    .category-card.active .category-toggle { transform: rotate(180deg); }
+    .category-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .category-card.active .category-content { max-height: 5000px; }
+
+    /* FAQ items */
+    .faq-item { border-top: 1px solid #f3f4f6; }
+    .faq-question { padding: 18px 24px; cursor: pointer; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; user-select: none; transition: background 0.2s; }
+    .faq-question:hover { background: #faf5ff; }
+    .faq-question-text { flex: 1; font-size: 15px; font-weight: 600; color: #1a1a1a; line-height: 1.5; }
+    .faq-question-icon { font-size: 18px; color: #9B6BFF; transition: transform 0.3s; flex-shrink: 0; font-weight: 700; line-height: 1; margin-top: 2px; }
+    .faq-item.active .faq-question-icon { transform: rotate(180deg); }
+    .faq-question-icon::before { content: '+'; }
+    .faq-item.active .faq-question-icon::before { content: '−'; }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .faq-item.active .faq-answer { max-height: 1000px; }
+    .faq-answer-content { padding: 0 24px 20px 24px; color: #374151; font-size: 15px; line-height: 1.75; border-left: 3px solid #ede9fe; margin: 0 24px 0 64px; }
+    .faq-answer-content strong { color: #1a1a1a; }
+    .faq-answer-content a { color: #9B6BFF; text-decoration: none; }
+    .faq-answer-content a:hover { text-decoration: underline; }
+    .faq-answer-content ul, .faq-answer-content ol { padding-left: 20px; margin: 8px 0; }
+    .faq-answer-content li { margin-bottom: 4px; }
+
+    /* Highlight for search matches */
+    .highlight { background: #fef08a; padding: 1px 3px; border-radius: 3px; color: #1a1a1a; }
+
+    /* Help CTA */
+    .help-cta { background: #faf5ff; border: 1px solid #e9d5ff; border-radius: 14px; padding: 40px 32px; text-align: center; margin-top: 32px; }
+    .help-cta h3 { font-size: 24px; color: #1a1a1a; margin-bottom: 10px; }
+    .help-cta p { color: #6b7280; margin-bottom: 20px; font-size: 15px; }
+    .help-cta-btn { display: inline-block; background: #9B6BFF; color: white; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; transition: all 0.2s; }
+    .help-cta-btn:hover { background: #7c3aed; transform: translateY(-1px); }
+
+    /* Footer */
+    footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 48px 24px 32px; }
+    .footer-grid { max-width: 1200px; margin: 0 auto 40px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; }
+    .footer-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .footer-brand img  { width: 28px; height: 28px; }
+    .footer-brand span { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 17px; color: #1a1a1a; }
+    .footer-desc    { font-size: 13px; color: #6b7280; line-height: 1.6; margin-bottom: 12px; max-width: 300px; }
+    .footer-contact { font-size: 13px; color: #6b7280; }
+    .footer-contact a { color: #9B6BFF; text-decoration: none; }
+    .footer-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 700; color: #1a1a1a; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 8px; }
+    .footer-links a { color: #6b7280; text-decoration: none; font-size: 13px; transition: color 0.2s; }
+    .footer-links a:hover { color: #9B6BFF; }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; border-top: 1px solid #e5e7eb; padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-size: 13px; color: #6b7280; }
+    .footer-socials { display: flex; gap: 14px; }
+    .footer-socials a { color: #9ca3af; transition: color 0.2s; }
+    .footer-socials a:hover { color: #9B6BFF; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        header nav { display: none; }
+        .page-title { font-size: 26px; }
+        .page-subtitle { font-size: 15px; }
+        .stats-row { gap: 8px; }
+        .faq-answer-content { margin: 0 12px; padding: 0 16px 16px; }
+        .category-header { padding: 16px 18px; }
+        .faq-question { padding: 14px 18px; }
+        .footer-grid { grid-template-columns: 1fr; }
+        .footer-bottom { flex-direction: column; text-align: center; }
+        .help-cta { padding: 28px 20px; }
+    }
+    @media (max-width: 968px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+</style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="container">
-            <div class="nav-content">
-                <a href="/" class="logo">
-                    <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo" width="35" height="35"/>&nbsp;
-                    Pirai AI
-                </a>
-                <ul class="nav-links">
-                    <li><a href="/#process">Process</a></li>                    
-                    <li><a href="/#efficiency">Efficiency</a></li>    
-                    <li><a href="/#testimonials">Evidence</a></li>      
-                    <li><a href="/#platforms">Platforms</a></li>            
-                    <li><a href="/#pricing">Pricing</a></li> 
-                </ul>
-                <a href="/#demo" class="nav-cta">Get Early Access</a>
-            </div>
-        </div>
-    </nav>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-    <!-- Hero Section -->
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo">
+                <span class="logo-text">Pirai AI</span>
+            </a>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/blog">All Articles</a>
+                <a href="/docs">Documentation</a>
+                <a href="/#demo">Get Demo</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-inner">
+            <a href="/">Home</a>
+            <span class="breadcrumb-sep">›</span>
+            <span class="breadcrumb-current">FAQ</span>
+        </div>
+    </div>
+
+    <!-- Hero -->
     <section class="hero-section">
         <div class="container">
             <h1 class="page-title">Frequently Asked Questions</h1>
             <p class="page-subtitle">Everything you need to know about Pirai AI's survey automation platform</p>
-            
             <div class="stats-row">
-                <div class="stat-item">
-                    <span class="stat-icon">📚</span>
-                    <span>34 Questions Answered</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-icon">🗂️</span>
-                    <span>10 Categories</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-icon">⚡</span>
-                    <span>< 30 Second Read Time</span>
-                </div>
+                <div class="stat-item"><span class="stat-icon">📚</span><span>34 Questions Answered</span></div>
+                <div class="stat-item"><span class="stat-icon">🗂️</span><span>10 Categories</span></div>
+                <div class="stat-item"><span class="stat-icon">⚡</span><span>&lt; 30 Second Read Time</span></div>
             </div>
         </div>
     </section>
@@ -840,7 +475,7 @@
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-content">
-                                For assistance, questions, or support inquiries, please contact us at <strong><a href="mailto:admin@piraiai.com" style="color:#3b82f6 !important;">admin@piraiai.com</a></strong>. Our team is ready to help with any questions about conversions, platform compatibility, technical issues, enterprise pricing, or agency support.
+                                For assistance, questions, or support inquiries, please contact us at <strong><a href="/cdn-cgi/l/email-protection#82e3e6efebecc2f2ebf0e3ebe3ebace1edef" style="color:#3b82f6 !important;"><span class="__cf_email__" data-cfemail="543530393d3a14243d26353d353d7a373b39">[email&#160;protected]</span></a></strong>. Our team is ready to help with any questions about conversions, platform compatibility, technical issues, enterprise pricing, or agency support.
                             </div>
                         </div>
                     </div>
@@ -1027,7 +662,7 @@
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-content">
-                                Pirai AI accepts Word and PDF files up to <strong>5MB</strong>, which accommodates surveys with hundreds of questions. If you have an exceptionally large document, consider splitting it into logical sections or reach out to <a href="mailto:admin@piraiai.com" style="color:#3b82f6 !important;">admin@piraiai.com</a> for assistance with enterprise-scale conversions.
+                                Pirai AI accepts Word and PDF files up to <strong>5MB</strong>, which accommodates surveys with hundreds of questions. If you have an exceptionally large document, consider splitting it into logical sections or reach out to <a href="/cdn-cgi/l/email-protection#dabbbeb7b3b49aaab3a8bbb3bbb3f4b9b5b7" style="color:#3b82f6 !important;"><span class="__cf_email__" data-cfemail="442520292d2a04342d36252d252d6a272b29">[email&#160;protected]</span></a> for assistance with enterprise-scale conversions.
                             </div>
                         </div>
                     </div>
@@ -1104,7 +739,7 @@
                         </div>
                         <div class="faq-answer">
                             <div class="faq-answer-content">
-                                Yes! Agencies and consultants use Pirai AI to <strong>accelerate survey programming for clients</strong>. Convert client specifications to multiple platform formats quickly, handle multi-regional deployments with multilingual support, and deliver projects faster while maintaining quality. Contact <a href="mailto:admin@piraiai.com" style="color:#3b82f6 !important;">admin@piraiai.com</a> for enterprise pricing and agency support.
+                                Yes! Agencies and consultants use Pirai AI to <strong>accelerate survey programming for clients</strong>. Convert client specifications to multiple platform formats quickly, handle multi-regional deployments with multilingual support, and deliver projects faster while maintaining quality. Contact <a href="/cdn-cgi/l/email-protection#28494c4541466858415a49414941064b4745" style="color:#3b82f6 !important;"><span class="__cf_email__" data-cfemail="a5c4c1c8cccbe5d5ccd7c4ccc4cc8bc6cac8">[email&#160;protected]</span></a> for enterprise pricing and agency support.
                             </div>
                         </div>
                     </div>
@@ -1229,120 +864,82 @@
     </section>
 
     <!-- Footer -->
-	<footer class="footer">
-		<div class="container">
-			<div class="footer-content">
-				<div>
-					<div class="footer-brand">
-						<img src="https://piraiai.com/logo.png" alt="Pirai AI Logo" width="35" height="35"/>&nbsp;
-						<span>Pirai AI</span>
-					</div>
-					<p class="footer-desc">
-						Universal platform automation transforming documents to 20+ platforms across research, education, healthcare, and enterprise. Deploy globally in 50+ languages with enterprise-grade reliability.
-					</p>
-					<div style="margin-top: 16px;">
-						<p style="color: #9ca3af; font-size: 14px; margin-bottom: 8px;">
-							<strong style="color: #60a5fa;">📧 Contact:</strong> admin@piraiai.com
-						</p>
-						<p style="color: #9ca3af; font-size: 14px;">
-							<strong style="color: #22c55e;">🚀 Universal Access:</strong> Join our exclusive beta program
-						</p>
-					</div>
-				</div>
-				
-				<div class="footer-section">
-					<h3>Platforms</h3>
-					<ul class="footer-links">
-						<li><a href="/#platforms">All 20+ Platforms</a></li>
-						<li><a href="/#process">How It Works</a></li>
-						<li><a href="/#features">Features</a></li>
-						<li><a href="/#pricing">Pricing</a></li>
-                        <li><a href="/faq">FAQ</a></li>
-                        <li><a href="/blog">Blog</a></li>
-                        <li><a href="/gethelp">Get Help</a></li>                        
-						<li><a href="/#demo">Universal Access</a></li>
-					</ul>
-				</div>
-				
-				<div class="footer-section">
-					<h3>Free Tools</h3>
-					<ul class="footer-links">
-                        <li><a href="https://qstar.piraiai.com" target="_blank">QStar (Beta)</a></li>
-                        <li><a href="https://chromewebstore.google.com/detail/qualtrics-api-toolkit-by/lloepmlcmkeohopokcedejdelohoilip" target="_blank">Qualtrics API Toolkit</a></li>
-                        <li><a href="/qsf-to-excel">QSF to Excel WorkBook</a></li>
-						<li><a href="/textiq-to-excel">Text IQ JSON to Excel Book</a></li>
-                        <li><a href="/embedded-data-generator">Embedded Data Generator</a></li>
-						<li><a href="/pirai-csv-comparator">CSV Comparator</a></li>
-                        <li><a href="/qualtrics-toolkit" style="color: #3b82f6;">Toolkit Hub</a></li>                         
-					</ul>
-				</div>
-				
-				<div class="footer-section">
-					<h3>Company</h3>
-					<ul class="footer-links">
-						<li><a href="/about">About Us</a></li>						
-						<li><a href="/#demo">Contact Us</a></li>
-						<li><a href="/privacy">Privacy Policy</a></li>
-						<li><a href="/terms">Terms of Service</a></li>
-                        <li><a href="/security">Security Overview</a></li>
-						<li><a href="https://www.linkedin.com/company/pirai-ai/" target="_blank">LinkedIn</a></li>
-					</ul>
-				</div>
-			</div>
-			
-			<div class="footer-bottom">
-				<div class="copyright">
-					© <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved. | Built with enterprise-grade security and privacy protection.
-				</div>
-				<div style="display: flex; gap: 16px; align-items: center;">
-					<a href="https://www.linkedin.com/company/pirai-ai/" target="_blank" style="color: #9ca3af; transition: color 0.3s;">
-						<svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-							<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-						</svg>
-					</a>
-                    <a href="https://www.youtube.com/@PiraiAI" target="_blank" style="color: #9ca3af; transition: color 0.3s;">
-                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M23.498 6.186a2.87 2.87 0 0 0-2.02-2.034C19.65 3.74 12 3.74 12 3.74s-7.65 0-9.478.412A2.87 2.87 0 0 0 .502 6.186C.088 8.02.088 12 .088 12s0 3.98.414 5.814a2.87 2.87 0 0 0 2.02 2.034C4.35 20.26 12 20.26 12 20.26s7.65 0 9.478-.412a2.87 2.87 0 0 0 2.02-2.034C23.912 15.98 23.912 12 23.912 12s0-3.98-.414-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                        </svg>
-                    </a>                    
-					<span style="color: #6b7280; font-size: 12px;">Follow our journey</span>
-				</div>
-			</div>
-		</div>
-	</footer>
+	    <footer>
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand">
+                    <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo">
+                    <span>Pirai AI</span>
+                </div>
+                <p class="footer-desc">Universal platform automation transforming documents to 20+ platforms across research, education, healthcare and enterprise. Deploy globally in 50+ languages.</p>
+                <p class="footer-contact">📧 <a href="mailto:admin@piraiai.com">admin@piraiai.com</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Product</h3>
+                <ul class="footer-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#process">How It Works</a></li>
+                    <li><a href="/#features">Features</a></li>
+                    <li><a href="/#pricing">Pricing</a></li>
+                    <li><a href="/faq" style="color: #9B6BFF; font-weight: 600;">FAQ</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/gethelp">Get Help</a></li>
+                    <li><a href="/#demo">Early Access</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Free Tools</h3>
+                <ul class="footer-links">
+                    <li><a href="https://qstar.piraiai.com" target="_blank">QStar (Beta)</a></li>
+                    <li><a href="https://chromewebstore.google.com/detail/qualtrics-api-toolkit-by/lloepmlcmkeohopokcedejdelohoilip" target="_blank">Qualtrics API Toolkit</a></li>
+                    <li><a href="/qsf-to-excel">QSF to Excel</a></li>
+                    <li><a href="/textiq-to-excel">Text IQ to Excel</a></li>
+                    <li><a href="/embedded-data-generator">Embedded Data Generator</a></li>
+                    <li><a href="/pirai-csv-comparator">CSV Comparator</a></li>
+                    <li><a href="/qualtrics-toolkit">Toolkit Hub</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul class="footer-links">
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/#demo">Contact Us</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/terms">Terms of Service</a></li>
+                    <li><a href="/security">Security Overview</a></li>
+                    <li><a href="https://www.linkedin.com/company/pirai-ai/" target="_blank">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p>
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/company/pirai-ai/" target="_blank" aria-label="LinkedIn">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </a>
+                <a href="https://www.youtube.com/@PiraiAI" target="_blank" aria-label="YouTube">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
 
-    <script>
+        <script>
         // Toggle category accordion
         function toggleCategory(header) {
             const card = header.parentElement;
             const isActive = card.classList.contains('active');
-            
-            // Close all categories
-            document.querySelectorAll('.category-card').forEach(c => {
-                c.classList.remove('active');
-            });
-            
-            // Open clicked category if it wasn't active
-            if (!isActive) {
-                card.classList.add('active');
-            }
+            document.querySelectorAll('.category-card').forEach(c => c.classList.remove('active'));
+            if (!isActive) card.classList.add('active');
         }
 
         // Toggle individual FAQ items
         function toggleFAQ(question) {
             const item = question.parentElement;
             const isActive = item.classList.contains('active');
-            
-            // Close all FAQ items in this category
             const categoryContent = question.closest('.category-content');
-            categoryContent.querySelectorAll('.faq-item').forEach(faq => {
-                faq.classList.remove('active');
-            });
-            
-            // Open clicked item if it wasn't active
-            if (!isActive) {
-                item.classList.add('active');
-            }
+            categoryContent.querySelectorAll('.faq-item').forEach(faq => faq.classList.remove('active'));
+            if (!isActive) item.classList.add('active');
         }
 
         // Search functionality
@@ -1352,9 +949,7 @@
 
         searchInput.addEventListener('input', function(e) {
             const searchTerm = e.target.value.toLowerCase().trim();
-            
             if (searchTerm === '') {
-                // Reset view
                 categoryCards.forEach(card => {
                     card.style.display = 'block';
                     card.classList.remove('active');
@@ -1367,60 +962,47 @@
                 removeHighlights();
                 return;
             }
-
             let hasResults = false;
-
             categoryCards.forEach(card => {
                 const categoryHasResults = filterCategory(card, searchTerm);
                 if (categoryHasResults) {
                     hasResults = true;
                     card.style.display = 'block';
-                    card.classList.add('active'); // Auto-expand categories with results
+                    card.classList.add('active');
                 } else {
                     card.style.display = 'none';
                 }
             });
-
             noResults.style.display = hasResults ? 'none' : 'block';
         });
 
         function filterCategory(card, searchTerm) {
             const faqItems = card.querySelectorAll('.faq-item');
             let categoryHasResults = false;
-
             faqItems.forEach(item => {
                 const questionText = item.querySelector('.faq-question-text').textContent.toLowerCase();
                 const answerText = item.querySelector('.faq-answer-content').textContent.toLowerCase();
-                
                 if (questionText.includes(searchTerm) || answerText.includes(searchTerm)) {
                     item.style.display = 'block';
-                    item.classList.add('active'); // Auto-expand matching items
+                    item.classList.add('active');
                     categoryHasResults = true;
-                    
-                    // Highlight matching text
                     highlightText(item, searchTerm);
                 } else {
                     item.style.display = 'none';
                     item.classList.remove('active');
                 }
             });
-
             return categoryHasResults;
         }
 
         function highlightText(item, searchTerm) {
             const questionEl = item.querySelector('.faq-question-text');
             const answerEl = item.querySelector('.faq-answer-content');
-            
             [questionEl, answerEl].forEach(el => {
                 const originalText = el.getAttribute('data-original') || el.textContent;
-                if (!el.getAttribute('data-original')) {
-                    el.setAttribute('data-original', originalText);
-                }
-                
+                if (!el.getAttribute('data-original')) el.setAttribute('data-original', originalText);
                 const regex = new RegExp(`(${searchTerm})`, 'gi');
-                const highlightedText = originalText.replace(regex, '<span class="highlight">$1</span>');
-                el.innerHTML = highlightedText;
+                el.innerHTML = originalText.replace(regex, '<span class="highlight">$1</span>');
             });
         }
 
@@ -1434,39 +1016,31 @@
         // Open first category by default
         window.addEventListener('load', function() {
             const firstCategory = document.querySelector('.category-card');
-            if (firstCategory) {
-                firstCategory.classList.add('active');
-            }
-        });
+            if (firstCategory) firstCategory.classList.add('active');
 
-        // Handle URL hash navigation (e.g., faq.html#matrix-questions)
-        function handleHashNavigation() {
+            // Handle URL hash navigation
             const hash = window.location.hash.substring(1);
             if (hash) {
                 const targetElement = document.getElementById(hash);
                 if (targetElement) {
-                    // Open the category
                     const categoryCard = targetElement.closest('.category-card');
-                    if (categoryCard) {
-                        categoryCard.classList.add('active');
-                    }
-                    
-                    // Open the FAQ item
-                    const faqItem = targetElement.closest('.faq-item');
+                    if (categoryCard) categoryCard.classList.add('active');
+                    const faqItem = targetElement.classList.contains('faq-item')
+                        ? targetElement
+                        : targetElement.closest('.faq-item');
                     if (faqItem) {
                         faqItem.classList.add('active');
+                        setTimeout(() => targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
                     }
-                    
-                    // Scroll to element
-                    setTimeout(() => {
-                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    }, 300);
                 }
             }
-        }
+        });
 
-        window.addEventListener('load', handleHashNavigation);
-        window.addEventListener('hashchange', handleHashNavigation);
+        // Scroll header effect
+        window.addEventListener('scroll', () => {
+            const hdr = document.querySelector('header');
+            if (hdr) hdr.style.boxShadow = window.scrollY > 50 ? '0 2px 8px rgba(0,0,0,0.08)' : 'none';
+        });
     </script>
 </body>
 </html>
