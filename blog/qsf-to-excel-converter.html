@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Convert a QSF File to Excel: A Complete Guide to Qualtrics Survey Analysis - Pirai AI Blog</title>
+    <meta name="description" content="Learn how to convert a Qualtrics QSF file to Excel and unlock 13 sheets of survey data: questions, logic, embedded data, API integrations, JavaScript, and more. Free browser-based tool.">
+    <meta name="keywords" content="QSF to Excel, convert QSF file, Qualtrics survey to Excel, export QSF, read QSF file, QSF converter, Qualtrics export to Excel, QSF file analysis, Qualtrics survey documentation, QSF without Qualtrics">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://piraiai.com/blog/qsf-to-excel-converter">
+    <meta property="og:title" content="How to Convert a QSF File to Excel: A Complete Guide to Qualtrics Survey Analysis">
+    <meta property="og:description" content="Turn any Qualtrics QSF file into a structured 13-sheet Excel workbook. Audit questions, logic, embedded data, API integrations, and custom JavaScript. No Qualtrics account needed.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="og:site_name" content="Pirai AI Blog">
+    <meta property="article:published_time" content="2026-03-08T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta property="article:section" content="Tool Guide">
+    <meta property="article:tag" content="QSF">
+    <meta property="article:tag" content="Qualtrics">
+    <meta property="article:tag" content="Survey Tools">
+    <meta property="article:tag" content="Excel">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://piraiai.com/blog/qsf-to-excel-converter">
+    <meta name="twitter:title" content="How to Convert a QSF File to Excel: Pirai AI">
+    <meta name="twitter:description" content="Turn any QSF file into a 13-sheet Excel workbook. Questions, logic, embedded data, API integrations, JavaScript: all extracted in seconds.">
+
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link rel="canonical" href="https://piraiai.com/blog/qsf-to-excel-converter">
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How to Convert a QSF File to Excel: A Complete Guide to Qualtrics Survey Analysis",
+      "description": "Learn how to convert a Qualtrics QSF file to Excel and unlock 13 sheets of survey data: questions, logic, embedded data, API integrations, JavaScript, and more.",
+      "author": { "@type": "Person", "name": "Arun Raj" },
+      "publisher": { "@type": "Organization", "name": "Pirai AI", "url": "https://piraiai.com" },
+      "datePublished": "2026-03-08",
+      "url": "https://piraiai.com/blog/qsf-to-excel-converter"
+    }
+    </script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        h1,h2,h3,h4,h5,h6 { font-family: 'Space Grotesk', sans-serif; }
+
+        /* Header */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #1a1a1a; }
+        .logo img { width: 32px; height: 32px; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; }
+        .blog-label { color: #6b7280; font-weight: 400; margin-left: 8px; }
+        nav a { margin-left: 32px; text-decoration: none; color: #4b5563; font-size: 15px; font-weight: 500; transition: color 0.2s; }
+        nav a:hover { color: #9B6BFF; }
+
+        /* Breadcrumb */
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; }
+        .breadcrumb-container a { color: #6b7280; text-decoration: none; transition: color 0.2s; }
+        .breadcrumb-container a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            padding: 48px 24px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-tag {
+            display: inline-block;
+            background: #ede9fe;
+            color: #7c3aed;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .article-title {
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1.15;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            max-width: 820px;
+        }
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 14px;
+            color: #6b7280;
+            flex-wrap: wrap;
+        }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+
+        /* Content layout */
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px 80px;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 64px;
+            align-items: start;
+        }
+
+        /* Article */
+        .article-content { max-width: 700px; }
+
+        .article-content p {
+            font-size: 18px;
+            color: #374151;
+            margin-bottom: 24px;
+            line-height: 1.75;
+        }
+        .article-content h2 {
+            font-size: 30px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-top: 56px;
+            margin-bottom: 16px;
+            padding-left: 16px;
+            border-left: 4px solid #9B6BFF;
+            line-height: 1.25;
+        }
+        .article-content h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-top: 36px;
+            margin-bottom: 12px;
+        }
+        .article-content h4 {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-top: 24px;
+            margin-bottom: 8px;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 24px;
+            padding-left: 24px;
+        }
+        .article-content li {
+            font-size: 18px;
+            color: #374151;
+            margin-bottom: 10px;
+            line-height: 1.65;
+        }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+        .article-content a { color: #9B6BFF; text-decoration: none; border-bottom: 1px solid #e9d5ff; transition: border-color 0.2s; }
+        .article-cta a, .article-cta a:hover { border-bottom: none !important; text-decoration: none !important; }
+        .article-content a:hover { border-color: #9B6BFF; }
+
+        /* Highlight box */
+        .highlight-box {
+            background: #f5f3ff;
+            border-left: 4px solid #9B6BFF;
+            padding: 24px 28px;
+            margin: 32px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .highlight-box h4 { font-size: 17px; color: #1a1a1a; margin-bottom: 10px; }
+        .highlight-box p { font-size: 16px; color: #374151; margin-bottom: 0; }
+        .highlight-box ul { margin-bottom: 0; }
+        .highlight-box li { font-size: 16px; margin-bottom: 6px; }
+
+        /* Info box */
+        .info-box {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin: 28px 0;
+        }
+        .info-box p { font-size: 16px; color: #166534; margin-bottom: 0; }
+        .info-box strong { color: #14532d; }
+
+        /* Warning box */
+        .warning-box {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin: 28px 0;
+        }
+        .warning-box p { font-size: 16px; color: #92400e; margin-bottom: 0; }
+
+        /* Steps */
+        .steps { margin: 32px 0; }
+        .step {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 28px;
+            align-items: flex-start;
+        }
+        .step-num {
+            background: #9B6BFF;
+            color: #ffffff;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .step-content h4 { font-size: 17px; color: #1a1a1a; margin-bottom: 6px; }
+        .step-content p { font-size: 16px; color: #374151; margin-bottom: 0; line-height: 1.65; }
+
+        /* Sheet cards */
+        .sheet-group { margin: 32px 0; }
+        .sheet-group-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #9B6BFF;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e9d5ff;
+        }
+        .sheet-card {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin-bottom: 12px;
+            transition: border-color 0.2s;
+        }
+        .sheet-card:hover { border-color: #c4b5fd; }
+        .sheet-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+        .sheet-badge {
+            background: #ede9fe;
+            color: #7c3aed;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 12px;
+            white-space: nowrap;
+        }
+        .sheet-name { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 700; color: #1a1a1a; }
+        .sheet-card p { font-size: 15px; color: #6b7280; margin-bottom: 0; line-height: 1.6; }
+        .sheet-card strong { color: #374151; }
+
+        /* Persona cards */
+        .persona-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 28px 0; }
+        .persona-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 10px; padding: 20px; }
+        .persona-icon { font-size: 28px; margin-bottom: 10px; }
+        .persona-card h4 { font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px; }
+        .persona-card p { font-size: 14px; color: #6b7280; margin-bottom: 0; line-height: 1.55; }
+
+        /* Comparison table */
+        .compare-table { width: 100%; border-collapse: collapse; margin: 28px 0; font-size: 15px; border-radius: 10px; overflow: hidden; border: 1px solid #e5e7eb; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .compare-table th { background: #f9fafb; padding: 14px 18px; text-align: left; font-weight: 700; color: #1a1a1a; border-bottom: 2px solid #e5e7eb; }
+        .compare-table td { padding: 14px 18px; border-bottom: 1px solid #f3f4f6; color: #374151; vertical-align: top; }
+        .compare-table tr:last-child td { border-bottom: none; }
+        .compare-table tr:hover td { background: #f9fafb; }
+        .compare-table .tool-name { font-weight: 700; color: #1a1a1a; white-space: nowrap; }
+        .badge-purple { display: inline-block; background: #ede9fe; color: #7c3aed; padding: 2px 10px; border-radius: 10px; font-size: 12px; font-weight: 600; }
+        .badge-gray { display: inline-block; background: #f3f4f6; color: #6b7280; padding: 2px 10px; border-radius: 10px; font-size: 12px; font-weight: 600; }
+
+        /* Article CTA */
+        .article-cta {
+            background: linear-gradient(135deg, #9B6BFF, #BFA8FF);
+            padding: 36px 40px;
+            border-radius: 12px;
+            margin: 48px 0 32px;
+            color: #ffffff;
+        }
+        .article-cta h3 { font-size: 22px; margin-bottom: 10px; color: #ffffff; }
+        .article-cta p { font-size: 16px; opacity: 0.95; margin-bottom: 20px; color: #ffffff; }
+        .cta-btn-white {
+            display: inline-block;
+            background: #ffffff;
+            color: #9B6BFF !important;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: transform 0.2s;
+            border: none;
+        }
+        .cta-btn-white:hover { transform: translateY(-2px); }
+        .cta-btn-outline {
+            display: inline-block;
+            background: transparent;
+            color: #ffffff !important;
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            border: 2px solid rgba(255,255,255,1);
+            margin-left: 12px;
+            transition: all 0.2s;
+        }
+        .cta-btn-outline:hover { border-color: #ffffff; background: rgba(255,255,255,0.1); }
+
+        /* Sidebar */
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; padding: 24px; border-radius: 10px; margin-bottom: 20px; border: 1px solid #e5e7eb; }
+        .sidebar-section h3 { font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 16px; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 10px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; line-height: 1.45; transition: color 0.2s; display: block; }
+        .toc-list a:hover { color: #9B6BFF; }
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 28px 24px; border-radius: 10px; text-align: center; color: #ffffff; margin-bottom: 20px; }
+        .cta-box h3 { font-size: 18px; margin-bottom: 10px; }
+        .cta-box p { font-size: 14px; margin-bottom: 18px; opacity: 0.95; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 11px 22px; border-radius: 7px; text-decoration: none; font-weight: 700; font-size: 14px; transition: transform 0.2s; }
+        .cta-button:hover { transform: translateY(-2px); }
+        .sidebar-tools { list-style: none; padding: 0; }
+        .sidebar-tools li { margin-bottom: 8px; }
+        .sidebar-tools a { color: #9B6BFF; text-decoration: none; font-size: 14px; font-weight: 500; transition: opacity 0.2s; }
+        .sidebar-tools a:hover { opacity: 0.75; }
+
+        /* Related articles */
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 56px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-size: 26px; font-weight: 700; margin-bottom: 28px; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .related-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 10px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; }
+        .related-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.07); border-color: #c4b5fd; }
+        .related-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #9B6BFF; margin-bottom: 8px; display: block; }
+        .related-card h3 { font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px; line-height: 1.4; }
+        .related-card p { font-size: 13px; color: #6b7280; margin-bottom: 0; line-height: 1.5; }
+
+        /* Footer */
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .content-wrapper { grid-template-columns: 1fr; }
+            .sidebar { position: static; }
+            .article-title { font-size: 32px; }
+            .related-grid { grid-template-columns: 1fr; }
+            .persona-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 640px) {
+            .header-container nav { display: none; }
+            .article-title { font-size: 28px; }
+            .article-content h2 { font-size: 24px; }
+            .breadcrumb { padding: 12px 16px; }
+            .breadcrumb-container { font-size: 12px; }
+            .article-cta { padding: 24px; }
+            .article-content { overflow-x: hidden; }
+            .cta-btn-white { display: block; width: 100%; text-align: center; margin-left: 0; margin-bottom: 10px; box-sizing: border-box; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo">
+                <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo">
+                <span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span>
+            </a>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/blog">All Articles</a>
+                <a href="/docs">Documentation</a>
+                <a href="/#demo">Get Demo</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="/">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="/blog">Blog</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">How to Convert a QSF File to Excel</span>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="hero-container">
+            <div><span class="article-tag">Tutorial</span></div>
+            <h1 class="article-title">How to Convert a QSF File to Excel: A Complete Guide to Qualtrics Survey Analysis</h1>
+            <div class="article-meta">
+                <span class="author">Arun Raj</span>
+                <span class="separator">•</span>
+                <span>March 8, 2026</span>
+                <span class="separator">•</span>
+                <span>8 min read</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content-wrapper">
+
+        <article class="article-content">
+
+            <p>If you work with Qualtrics regularly, you've likely accumulated QSF files: exported surveys sitting in a downloads folder, inherited from a colleague, or received from a client. They contain everything: every question, every logic rule, every embedded variable, every API integration. The problem is that all of that information is locked inside a deeply nested JSON structure that is not designed to be read by humans.</p>
+
+            <p>Short of importing the survey back into Qualtrics and clicking through every screen, there has been no straightforward way to review, document, or audit a QSF file. Until now.</p>
+
+            <p>The <strong>Pirai AI QSF to Excel Converter</strong> reads your QSF file and produces a structured 13-sheet Excel workbook with every layer of your survey organised into readable, shareable spreadsheets. This guide explains exactly what you get, who it's for, and how to use it.</p>
+
+            <div class="info-box">
+                <p><strong>New to QSF files?</strong> Read our <a href="/blog/qsf-file-guide">complete guide to Qualtrics Survey Format</a> first. It covers what a QSF file is, how to export one from Qualtrics, and common use cases.</p>
+            </div>
+
+            <!-- What does it produce -->
+            <h2 id="what-it-produces">What the Converter Produces</h2>
+
+            <p>Upload a <code>.qsf</code> file and the converter generates a single Excel workbook containing 13 dedicated sheets. Each sheet targets a specific layer of your survey, from basic question metadata right through to custom JavaScript embedded at the question level.</p>
+
+            <p>Everything runs in your browser. No file is uploaded to any server, no account is required, and no Qualtrics licence is needed to read the output. Your survey data stays entirely on your machine.</p>
+
+            <div class="highlight-box">
+                <h4>What the 13-sheet workbook covers</h4>
+                <ul>
+                    <li>Survey metadata and architecture statistics</li>
+                    <li>Full question inventory with types, selectors, and flags</li>
+                    <li>All answer choices with default selection states</li>
+                    <li>Survey block structure and question groupings</li>
+                    <li>Branch logic and conditional flow elements</li>
+                    <li>Display logic conditions with parsed human-readable strings</li>
+                    <li>Embedded data variables and their types</li>
+                    <li>API integrations (web service calls, methods, URLs, response mappings)</li>
+                    <li>Email trigger configurations and their logic conditions</li>
+                    <li>Validation rules per question</li>
+                    <li>Recode value mappings with auto-detected purpose</li>
+                    <li>Custom JavaScript code per question, fully extracted</li>
+                    <li>A flow summary dashboard with counts across all components</li>
+                </ul>
+            </div>
+
+            <!-- How to use it -->
+            <h2 id="how-to-use">How to Use the Tool</h2>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <h4>Export your QSF file from Qualtrics</h4>
+                        <p>In Qualtrics, open the survey you want to analyse. Go to <strong>Tools → Import/Export → Export Survey</strong>. This downloads a <code>.qsf</code> file to your computer. If you've received a QSF from someone else, skip this step.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <h4>Upload to the converter</h4>
+                        <p>Open the <a href="/qsf-to-excel">QSF to Excel Converter</a> and click the upload area or drag your <code>.qsf</code> file in. The tool reads the file immediately. You'll see the survey name confirmed once it's loaded.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <h4>Click Convert and download</h4>
+                        <p>Click the Convert button. Processing takes a few seconds regardless of survey size. Once complete, your Excel workbook downloads automatically, named after your survey.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <p><strong>Want to explore before uploading?</strong> The tool includes a sample preview mode that shows you the structure of a typical output without needing your own QSF file.</p>
+            </div>
+
+            <!-- The 13 sheets -->
+            <h2 id="the-sheets">The 13 Sheets: What Each One Contains</h2>
+
+            <p>The workbook is organised into four logical clusters. Here's what each sheet gives you and who benefits most from it.</p>
+
+            <!-- Group 1 -->
+            <div class="sheet-group">
+                <div class="sheet-group-title">Survey Foundation</div>
+
+                <div class="sheet-card">
+                    <div class="sheet-card-header">
+                        <span class="sheet-badge">Sheet 1</span>
+                        <span class="sheet-name">Survey Overview</span>
+                    </div>
+                    <p>Survey ID, name, owner, brand ID, status, creation date, last modified date, and language, all in one place. Below the metadata sits an <strong>architecture summary</strong>: total questions, API integrations, embedded data variables, survey blocks, and branch logic element counts. Useful for a quick complexity assessment before you start a detailed review.</p>
+                </div>
+
+                <div class="sheet-card">
+                    <div class="sheet-card-header">
+                        <span class="sheet-badge">Sheet 2</span>
+                        <span class="sheet-name">Questions Detail</span>
+                    </div>
+                    <p>Every question in the survey with its Question ID, export tag, question text (HTML stripped), question type, selector, sub-selector, validation status, and flags for whether it has display logic, custom JavaScript, and answer choices. This is the starting point for any survey audit or documentation exercise.</p>
+                </div>
+
+                <div class="sheet-card">
+                    <div class="sheet-card-header">
+                        <span class="sheet-badge">Sheet 7</span>
+                        <span class="sheet-name">Question Choices</span>
+                    </div>
+                    <p>Every answer choice across every question: Choice ID, display text, and whether it is selected by default. Useful for reviewing label consistency, validating recode mappings, or documenting response scales for a research report.</p>
+                </div>
+
+                <div class="sheet-card">
+                    <div class="sheet-card-header">
+                        <span class="sheet-badge">Sheet 5</span>
+                        <span class="sheet-name">Survey Blocks</span>
+                    </div>
+                    <p>Block IDs, types, descriptions, sub-types, element counts, and the full list of Question IDs included in each block. Gives you a structural map of how the survey is organised, which is essential when reviewing a large survey you haven't built yourself.</p>
+                </div>
+            </div>
+
+            <!-- Group 2 -->
+            <div class="sheet-group">
+                <div class="sheet-group-title">Logic and Flow</div>
+
+                <div class="sheet-card">
+                    <div class="sheet-card-header">
+                        <span class="sheet-badge">Sheet 6</span>
+                        <span class="sheet-name">Branch Logic</span>
+                    </div>
+                    <p>All branch elements from the survey flow, including Flow ID, description, logic type, the number of sub-elements, and the context showing which parent element they belong to. Branch logic controls routing at the survey level, determining which blocks respondents see based on earlier answers.</p>
+                </div>
+
+                <div class="sheet-card">
+                    <div class="sheet-card-header">
+                        <span class="sheet-badge">Sheet 9</span>
+                        <span class="sheet-name">Display Logic</span>
+                    </div>
+                    <p>Every question that has a display logic rule, with the condition count and a parsed human-readable condition string. Instead of reading raw JSON like <code>{"Type":"BooleanExpression"...}</code>, you see something like <strong>IF: Question [QID5] EqualTo Yes</strong>. This makes logic coverage reviews significantly faster.</p>
+                </div>
+
+                <div class="sheet-card">
+                    <div class="sheet-card-header">
+                        <span class="sheet-badge">Sheet 8</span>
+                        <span class="sheet-name">Flow Summary</span>
+                    </div>
+                    <p>A single-page dashboard with counts for every component type: web service calls, embedded data variables, branch elements, blocks, questions, display logic rules, email triggers, validation rules, recode mappings, and questions with JavaScript. The fastest way to understand what you're dealing with before diving deeper.</p>
+                </div>
+            </div>
+
+            <!-- Group 3 -->
+            <div class="sheet-group">
+                <div class="sheet-group-title">Data and Validation</div>
+
+                <div class="sheet-card">
+                    <div class="sheet-card-header">
+                        <span class="sheet-badge">Sheet 4</span>
+                        <span class="sheet-name">Embedded Data</span>
+                    </div>
+                    <p>All embedded data elements from the survey flow, including the Flow ID, field name, description, type, variable type, and default value. Embedded data variables are how Qualtrics manages data outside of direct question responses: piped values, hidden tracking fields, recipient attributes, and system variables. Seeing them all in one place reveals the full data architecture of a survey.</p>
+                </div>
+
+                <div class="sheet-card">
+                    <div class="sheet-card-header">
+                        <span class="sheet-badge">Sheet 11</span>
+                        <span class="sheet-name">Validation Rules</span>
+                    </div>
+                    <p>Per-question validation settings: force response, force response type, validation type, content type (email, number, date, phone, zip), minimum and maximum values or lengths, and any custom error messages. QA teams use this sheet to confirm that required fields are marked correctly and that input constraints are consistent before fieldwork goes live.</p>
+                </div>
+
+                <div class="sheet-card">
+                    <div class="sheet-card-header">
+                        <span class="sheet-badge">Sheet 12</span>
+                        <span class="sheet-name">Recode Values</span>
+                    </div>
+                    <p>Every choice-to-value mapping across the survey, with the original choice text and recoded value side by side. The converter also auto-detects the likely purpose of each mapping: binary (1/0), numeric scoring, or data transformation, which helps analysts understand how the data is structured before they run it through a stats package.</p>
+                </div>
+            </div>
+
+            <!-- Group 4 -->
+            <div class="sheet-group">
+                <div class="sheet-group-title">Integrations and Automation</div>
+
+                <div class="sheet-card">
+                    <div class="sheet-card-header">
+                        <span class="sheet-badge">Sheet 3</span>
+                        <span class="sheet-name">API Integrations</span>
+                    </div>
+                    <p>Every web service call in the survey flow, including the HTTP method, URL (up to 120 characters), content type, number of headers, body parameter count, and response mapping count, with the flow context showing where in the survey each call is triggered. Complex Qualtrics surveys often use web services to look up data, generate distribution links, or write to external systems. This sheet documents all of it.</p>
+                </div>
+
+                <div class="sheet-card">
+                    <div class="sheet-card-header">
+                        <span class="sheet-badge">Sheet 10</span>
+                        <span class="sheet-name">Email Triggers</span>
+                    </div>
+                    <p>All automated email trigger configurations: trigger name, action type, event type, recipient and sender details, subject line, message, whether a report is included, condition count, and a parsed logic summary showing what conditions fire the trigger. Useful for documenting workflow automations attached to a survey, especially when handing over to a new team.</p>
+                </div>
+
+                <div class="sheet-card">
+                    <div class="sheet-card-header">
+                        <span class="sheet-badge">Sheet 13</span>
+                        <span class="sheet-name">JavaScript Code</span>
+                    </div>
+                    <p>Every question with custom JavaScript attached. The full code extracted into a cell, along with flags for which event hooks are used, specifically <strong>OnLoad</strong>, <strong>OnReady</strong>, and <strong>OnUnload</strong>. Many Qualtrics surveys contain custom JS that has never been documented anywhere outside the platform itself. Extracting it into Excel makes it reviewable, shareable, and searchable without needing Qualtrics access.</p>
+                </div>
+            </div>
+
+            <!-- Who is it for -->
+            <h2 id="who-its-for">Who Gets the Most Value From This</h2>
+
+            <div class="persona-grid">
+                <div class="persona-card">
+                    <div class="persona-icon">🔬</div>
+                    <h4>Researchers inheriting a survey</h4>
+                    <p>When you take over a complex survey you didn't build, this workbook replaces hours of clicking through Qualtrics screens to understand what's there.</p>
+                </div>
+                <div class="persona-card">
+                    <div class="persona-icon">🔄</div>
+                    <h4>Teams migrating platforms</h4>
+                    <p>Before moving a survey to a new platform, you need to understand exactly what you're migrating. The Excel workbook becomes your migration specification.</p>
+                </div>
+                <div class="persona-card">
+                    <div class="persona-icon">✅</div>
+                    <h4>QA teams before go-live</h4>
+                    <p>Review validation rules, display logic coverage, and required fields systematically using spreadsheet tools rather than clicking through each question manually.</p>
+                </div>
+            </div>
+
+            <p>Survey admins documenting a library of surveys, consultants delivering work to clients, and project managers creating audit trails will also find the workbook useful, particularly in any situation where you need a human-readable record of what a survey contains.</p>
+
+            <!-- Two different jobs -->
+            <h2 id="two-tools-two-jobs">Two Different Jobs: Reading vs. Deploying</h2>
+
+            <p>It's worth being clear about what this tool does and does not do, because the distinction matters for choosing the right tool.</p>
+
+            <div style="overflow-x:auto; -webkit-overflow-scrolling:touch; margin: 28px 0;">
+            <table class="compare-table" style="margin:0;">
+                <thead>
+                    <tr>
+                        <th>Tool</th>
+                        <th>What it does</th>
+                        <th>Output</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="tool-name">QSF to Excel <span class="badge-purple">Free</span></td>
+                        <td>Reads an existing QSF file and extracts its contents into a structured workbook for documentation, auditing, and analysis</td>
+                        <td>13-sheet Excel workbook</td>
+                    </tr>
+                    <tr>
+                        <td class="tool-name">Pirai AI Platform <span class="badge-purple">platform.piraiai.com</span></td>
+                        <td>Converts a QSF file or a Word, PDF, or Excel document into a platform-ready survey file for deployment on Qualtrics, QuestionPro, REDCap, and 20+ other platforms</td>
+                        <td>Survey-ready import file for your target platform</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <p>If you need to <strong>understand or document</strong> a survey you already have, use the QSF to Excel converter. If you need to <strong>deploy or migrate</strong> a survey, whether from a QSF, a Word document, a PDF, or an Excel spec, the <a href="https://platform.piraiai.com" target="_blank">Pirai AI platform</a> handles the conversion and produces the correct import file for whichever platform you're targeting.</p>
+
+            <p>For more on how the platform handles Word and Excel survey specifications, the <a href="/docs/excel-spec-format">Excel Specification Format Guide</a> and <a href="/docs/word-spec-format">Word Specification Format Guide</a> walk through those workflows in detail.</p>
+
+            <!-- Related tools -->
+            <h2 id="related-tools">Related Free Tools</h2>
+
+            <p>The QSF to Excel converter is part of a broader set of free tools available in the <a href="/qualtrics-toolkit">Pirai AI Toolkit Hub</a>. A few that complement this one:</p>
+
+            <ul>
+                <li><a href="/blog/extract-qualtrics-dashboard-mappings">Extract Qualtrics Dashboard Field Mappings</a>: useful if you need to document what's in your Qualtrics dashboards rather than your surveys, this tool does the equivalent job for field types and data source mappings.</li>
+                <li><a href="/textiq-to-excel">Text iQ JSON to Excel</a>, which converts Qualtrics Text iQ analysis exports into readable Excel format, useful when your survey includes open-text responses that you've run through sentiment analysis.</li>
+                <li><a href="/embedded-data-generator">Embedded Data Generator</a>, which builds embedded data variable sets from CSV files, complementing the embedded data visibility you get from the QSF converter.</li>
+            </ul>
+
+            <p>All tools process data in your browser. No files leave your machine.</p>
+
+            <!-- CTA -->
+            <div class="article-cta">
+                <h3>Try the QSF to Excel Converter</h3>
+                <p>Upload any Qualtrics QSF file and get a 13-sheet Excel workbook in seconds. Free, no account required, runs entirely in your browser.</p>
+                <a href="/qsf-to-excel" class="cta-btn-white" style="border-bottom:none !important;">Convert Your QSF File</a>
+                <a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white" style="border-bottom:none !important;">Deploy to a Platform →</a>
+            </div>
+
+            <h2 id="frequently-asked">Frequently Asked Questions</h2>
+
+            <h3>Does it work with all QSF files?</h3>
+            <p>Yes. The converter handles QSF files from any version of Qualtrics. Both array and object formats of the survey block payload are supported. If a particular sheet comes back empty, for example, the API Integrations sheet, it simply means that component isn't present in your survey.</p>
+
+            <h3>What if a sheet is empty?</h3>
+            <p>Empty sheets indicate that your survey doesn't use that feature. A survey with no web service calls will produce an empty API Integrations sheet. A survey with no custom JavaScript will produce an empty JavaScript sheet. That's expected behaviour, not an error.</p>
+
+            <h3>Is the display logic always fully parsed?</h3>
+            <p>For standard BooleanExpression display logic, yes. The converter produces a human-readable condition string. For highly complex or nested custom conditions, it falls back to a truncated JSON string. The condition count is always accurate regardless.</p>
+
+            <h3>Can I use this for surveys with hundreds of questions?</h3>
+            <p>Yes. The converter is designed for production-scale surveys. Large surveys with hundreds of questions, dozens of blocks, and multiple API integrations process correctly. Processing time scales with file size but typically completes in a few seconds.</p>
+
+            <h3>Where can I get my QSF file?</h3>
+            <p>In Qualtrics, go to the survey you want to export, click <strong>Tools → Import/Export → Export Survey</strong>. This downloads the <code>.qsf</code> file to your computer. For more detail, see our <a href="/blog/qsf-file-guide">complete QSF file guide</a>.</p>
+
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="sidebar-section">
+                <h3>In This Article</h3>
+                <ul class="toc-list">
+                    <li><a href="#what-it-produces">What the Converter Produces</a></li>
+                    <li><a href="#how-to-use">How to Use the Tool</a></li>
+                    <li><a href="#the-sheets">The 13 Sheets Explained</a></li>
+                    <li><a href="#who-its-for">Who Gets the Most Value</a></li>
+                    <li><a href="#two-tools-two-jobs">Reading vs. Deploying</a></li>
+                    <li><a href="#related-tools">Related Free Tools</a></li>
+                    <li><a href="#frequently-asked">Frequently Asked Questions</a></li>
+                </ul>
+            </div>
+
+            <div class="cta-box">
+                <h3>Convert Your QSF File</h3>
+                <p>Free, browser-based. No account needed.</p>
+                <a href="/qsf-to-excel" class="cta-button">Try It Now →</a>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Free Toolkit</h3>
+                <ul class="sidebar-tools">
+                    <li><a href="/qsf-to-excel">QSF to Excel Converter</a></li>
+                    <li><a href="/textiq-to-excel">Text iQ to Excel</a></li>
+                    <li><a href="/embedded-data-generator">Embedded Data Generator</a></li>
+                    <li><a href="/pirai-csv-comparator">CSV Comparator</a></li>
+                    <li><a href="/qualtrics-toolkit">View All Tools →</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Related Reading</h3>
+                <ul class="sidebar-tools">
+                    <li><a href="/blog/qsf-file-guide">What is a QSF File?</a></li>
+                    <li><a href="/blog/extract-qualtrics-dashboard-mappings">Extract Dashboard Mappings</a></li>
+                    <li><a href="/docs/excel-spec-format">Excel Spec Format Guide</a></li>
+                    <li><a href="/docs/word-spec-format">Word Spec Format Guide</a></li>
+                </ul>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <!-- Related Articles -->
+    <section class="related-articles">
+        <h2>Related Articles</h2>
+        <div class="related-grid">
+            <a href="/blog/qsf-file-guide" class="related-card">
+                <span class="related-tag">Guide</span>
+                <h3>What is a QSF File? Complete Guide to Qualtrics Survey Format</h3>
+                <p>Everything you need to know about QSF files: what they contain, how to export them, and what to do with them.</p>
+            </a>
+            <a href="/blog/extract-qualtrics-dashboard-mappings" class="related-card">
+                <span class="related-tag">Tutorial</span>
+                <h3>Extract Qualtrics Dashboard Data Field Mappings</h3>
+                <p>Automatically extract all field types, names, and data source mappings from your Qualtrics dashboard.</p>
+            </a>
+            <a href="/blog/pirai-ai-file-formats" class="related-card">
+                <span class="related-tag">Guide</span>
+                <h3>Pirai AI File Upload Guide: Supported Formats & Best Practices</h3>
+                <p>Complete guide to file types supported by Pirai AI and how browser-based processing keeps your data private.</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Scroll header shadow
+        window.addEventListener('scroll', () => {
+            const hdr = document.querySelector('header');
+            if (hdr) hdr.style.boxShadow = window.scrollY > 50 ? '0 2px 8px rgba(0,0,0,0.08)' : 'none';
+        });
+
+        // Active TOC highlighting
+        const headings = document.querySelectorAll('.article-content h2[id], .article-content h3[id]');
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(link => {
+                        link.style.color = link.getAttribute('href') === '#' + entry.target.id ? '#9B6BFF' : '';
+                        link.style.fontWeight = link.getAttribute('href') === '#' + entry.target.id ? '600' : '';
+                    });
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        headings.forEach(h => observer.observe(h));
+    </script>
+
+</body>
+</html>
