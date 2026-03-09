@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extract and Export Qualtrics Basic Transform Task Field Mappings to CSV - Pirai AI Blog</title>
+    <meta name="description" content="Free browser-based tool to extract and export all field mappings from Qualtrics Basic Transform workflow tasks. Compare Dev, Test, and Prod configurations in seconds. No installation required.">
+    <meta name="keywords" content="Qualtrics Basic Transform Task, extract Basic Transform field mappings, Qualtrics workflow documentation, Basic Transform Task CSV export, Qualtrics ETL workflow, Basic Transform Task field mapper, Qualtrics Dev Test Prod comparison, data transformation task Qualtrics">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://piraiai.com/blog/extract-qualtrics-basic-transform-mappings">
+    <meta property="og:title" content="Extract Qualtrics Basic Transform Task Field Mappings to CSV">
+    <meta property="og:description" content="Free browser-based script to extract all field mappings from Qualtrics Basic Transform workflow tasks. Export to CSV, JSON, or clipboard in seconds.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="og:site_name" content="Pirai AI Blog">
+    <meta property="article:published_time" content="2026-03-09T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta property="article:section" content="Tutorial">
+    <meta property="article:tag" content="Qualtrics">
+    <meta property="article:tag" content="Workflow Automation">
+    <meta property="article:tag" content="Basic Transform">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://piraiai.com/blog/extract-qualtrics-basic-transform-mappings">
+    <meta name="twitter:title" content="Extract Qualtrics Basic Transform Task Field Mappings to CSV">
+    <meta name="twitter:description" content="Free browser script to extract and export all Basic Transform field mappings from Qualtrics Workflows in seconds.">
+    <meta name="twitter:image" content="https://piraiai.com/logo.png">
+
+    <link rel="canonical" href="https://piraiai.com/blog/extract-qualtrics-basic-transform-mappings">
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://piraiai.com/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Extract and Export Qualtrics Basic Transform Task Field Mappings to CSV",
+      "description": "Free browser-based tool to extract and export all field mappings from Qualtrics Basic Transform workflow tasks.",
+      "author": { "@type": "Person", "name": "Arun Raj" },
+      "publisher": { "@type": "Organization", "name": "Pirai AI", "url": "https://piraiai.com" },
+      "datePublished": "2026-03-09",
+      "url": "https://piraiai.com/blog/extract-qualtrics-basic-transform-mappings"
+    }
+    </script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        /* Header */
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        header nav { display: flex; gap: 32px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; transition: color 0.2s; }
+        header nav a:hover { color: #9B6BFF; }
+
+        /* Breadcrumb */
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; transition: color 0.2s; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+
+        /* Hero */
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+
+        /* Content Wrapper */
+        .content-wrapper { max-width: 1200px; margin: 48px auto; padding: 0 24px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+
+        /* Article Content */
+        .article-content { max-width: 680px; overflow-x: hidden; }
+        .article-content p { font-size: 18px; color: #374151; margin-bottom: 24px; line-height: 1.7; }
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-top: 32px; margin-bottom: 12px; }
+        .article-content h4 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; margin: 24px 0 12px; color: #1a1a1a; }
+        .article-content a { color: #9B6BFF; text-decoration: none; border-bottom: 1px solid rgba(155, 107, 255, 0.3); transition: all 0.2s; }
+        .article-content a:hover { border-bottom-color: #9B6BFF; }
+        .article-content ul, .article-content ol { margin-bottom: 24px; padding-left: 24px; }
+        .article-content li { font-size: 18px; color: #374151; margin-bottom: 12px; }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; margin: 32px 0; background: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; }
+        @media (max-width: 640px) { table { display: block; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; } }
+        th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid #f3f4f6; font-size: 15px; }
+        th { background: #f9fafb; font-weight: 600; color: #1a1a1a; border-bottom: 2px solid #e5e7eb; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover { background: #f9fafb; }
+
+        /* Highlight Box */
+        .highlight-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 24px; margin: 32px 0; border-radius: 4px; }
+        .highlight-box h4 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 600; color: #1a1a1a; margin-bottom: 12px; }
+        .highlight-box p { font-size: 16px; color: #374151; margin-bottom: 0; }
+        .highlight-box ul { margin: 8px 0 0 20px; }
+        .highlight-box li { font-size: 16px; color: #374151; margin-bottom: 6px; }
+
+        /* Step Box */
+        .step-box { background: #f9fafb; border-left: 4px solid #9B6BFF; border-radius: 8px; padding: 24px; margin: 24px 0; }
+        .step-number { display: inline-block; background: #9B6BFF; color: white; width: 35px; height: 35px; line-height: 35px; text-align: center; border-radius: 50%; font-weight: 700; margin-right: 12px; font-size: 18px; font-family: 'Space Grotesk', sans-serif; }
+        .step-box h4 { display: inline; font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: #1a1a1a; }
+        .step-box p { margin: 12px 0 8px 47px; font-size: 16px; color: #374151; line-height: 1.7; }
+        .step-box ul { margin: 8px 0 8px 47px; }
+        .step-box li { font-size: 16px; color: #374151; margin-bottom: 6px; }
+
+        /* Code Block */
+        .code-block { background: #1e1e1e; color: #d4d4d4; padding: 24px; border-radius: 8px; overflow-x: auto; margin: 24px 0; position: relative; font-family: 'Courier New', Courier, monospace; font-size: 14px; line-height: 1.5; }
+        .code-block pre { margin: 0; white-space: pre; overflow-x: auto; }
+        .copy-button { position: absolute; top: 12px; right: 12px; background: #9B6BFF; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600; transition: all 0.2s; font-family: 'Inter', sans-serif; z-index: 2; }
+        .copy-button:hover { background: #8855eb; transform: translateY(-1px); }
+        .copy-button.copied { background: #22c55e; }
+
+        /* Command Box */
+        .command-box { background: #1e1e1e; color: #22c55e; padding: 20px; border-radius: 8px; font-family: 'Courier New', monospace; margin: 24px 0; font-size: 14px; line-height: 1.8; }
+        .command-box .comment { color: #6b7280; }
+
+        /* Alert Boxes */
+        .alert { padding: 16px 20px; border-radius: 8px; margin: 24px 0; border-left: 4px solid; font-size: 15px; line-height: 1.6; }
+        .alert-info { background: #dbeafe; border-left-color: #3b82f6; color: #1e40af; }
+        .alert-success { background: #d1fae5; border-left-color: #22c55e; color: #065f46; }
+        .alert-warning { background: #fef3c7; border-left-color: #f59e0b; color: #92400e; }
+
+        /* Feature List */
+        .feature-list { list-style: none; padding: 0; margin: 24px 0; }
+        .feature-list li { padding: 8px 0 8px 32px; position: relative; font-size: 17px; color: #374151; line-height: 1.7; }
+        .feature-list li:before { content: "✓"; position: absolute; left: 0; color: #22c55e; font-weight: bold; font-size: 20px; }
+
+        /* Use case cards */
+        .use-case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0; }
+        .use-case-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; }
+        .use-case-icon { font-size: 24px; margin-bottom: 10px; }
+        .use-case-card h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
+        .use-case-card p { font-size: 14px; color: #6b7280; margin: 0; line-height: 1.6; }
+
+        /* Troubleshooting Box */
+        .troubleshooting-box { background: #fef3c7; border: 2px solid #f59e0b; border-radius: 8px; padding: 24px; margin: 24px 0; }
+        .troubleshooting-box h4 { color: #92400e; font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; margin-bottom: 12px; }
+        .troubleshooting-box p { color: #92400e; font-size: 16px; margin-bottom: 8px; line-height: 1.6; }
+        .troubleshooting-box p:last-child { margin-bottom: 0; }
+
+        /* CSV Output example */
+        .csv-example { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; margin: 24px 0; font-family: 'Courier New', monospace; font-size: 13px; color: #374151; overflow-x: auto; }
+        .csv-example .csv-header { color: #7c3aed; font-weight: 600; }
+
+        /* Article CTA */
+        .article-cta { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 36px 40px; border-radius: 12px; margin: 48px 0 32px; text-align: center; }
+        .article-cta h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+        .article-cta p { font-size: 16px; color: #ffffff; opacity: 0.95; margin-bottom: 20px; }
+        .article-cta a { border-bottom: none !important; }
+        .cta-btn-white { display: inline-block; background: #ffffff; color: #9B6BFF !important; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-btn-white:hover { transform: translateY(-2px); }
+
+        /* Video placeholder */
+        .video-placeholder { width: 100%; max-width: 560px; height: 315px; background: #1e1e1e; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; margin: 32px 0; }
+        .video-placeholder .play-icon { font-size: 48px; }
+        .video-placeholder .video-label { font-family: 'Space Grotesk', sans-serif; font-size: 15px; color: #9B6BFF; font-weight: 600; }
+        .video-placeholder .video-sub { font-size: 13px; color: #6b7280; }
+
+        /* Sidebar */
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a1a1a; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; transition: color 0.2s; border-bottom: none; display: block; }
+        .toc-list a:hover { color: #9B6BFF; border-bottom: none; }
+        .toc-list a.active { color: #9B6BFF; font-weight: 600; }
+        .toc-indent { padding-left: 14px; }
+
+        /* CTA Box */
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 32px; border-radius: 8px; text-align: center; color: #ffffff; margin-bottom: 24px; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .cta-box p { font-size: 14px; margin-bottom: 20px; opacity: 0.95; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-button:hover { transform: translateY(-2px); border-bottom: none; }
+
+        /* Related Articles */
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; border-bottom: none; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); border-bottom: none; }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: #1a1a1a; margin-bottom: 8px; }
+        .related-card p { font-size: 14px; color: #6b7280; margin: 0; }
+
+        /* Footer */
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .content-wrapper { grid-template-columns: 1fr; }
+            .sidebar { position: static; }
+            .article-title { font-size: 32px; }
+            .related-grid { grid-template-columns: 1fr; }
+            .use-case-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 640px) {
+            header nav { display: none; }
+            .article-title { font-size: 28px; }
+            .article-content h2 { font-size: 24px; }
+            .breadcrumb { padding: 12px 16px; }
+            .breadcrumb-container { font-size: 12px; }
+            .article-cta { padding: 24px; }
+            .article-content { overflow-x: hidden; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo">
+                <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo">
+                <span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span>
+            </a>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/blog">All Articles</a>
+                <a href="/docs">Documentation</a>
+                <a href="/#demo">Get Demo</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="/">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="/blog">Blog</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Extract Qualtrics Basic Transform Task Field Mappings</span>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="hero-container">
+            <h1 class="article-title">Extract and Export Qualtrics Basic Transform Task Field Mappings to CSV</h1>
+            <div class="article-meta">
+                <span class="author">Arun Raj</span>
+                <span class="separator">•</span>
+                <span>March 9, 2026</span>
+                <span class="separator">•</span>
+                <span>8 min read</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content-wrapper">
+
+        <article class="article-content">
+
+            <p>Documenting field mappings in Qualtrics workflows can be tedious, especially when working with Basic Transform tasks that have dozens of fields. This free browser-based tool extracts your complete Basic Transform configuration in seconds.</p>
+
+            <h2 id="the-challenge">The Challenge</h2>
+
+            <p>When working with Basic Transform tasks in Qualtrics Workflows, you regularly need to:</p>
+
+            <ul class="feature-list">
+                <li>Compare configurations across environments (Dev, Test, and Prod)</li>
+                <li>Document which source fields map to which destination fields</li>
+                <li>Track which fields are marked as Required</li>
+                <li>Create audit trails before deployment</li>
+                <li>Share mapping documentation with your team</li>
+            </ul>
+
+            <p>Manually copying this information is time-consuming and error-prone. A single missed field or transposed name can cause data flow failures in production.</p>
+
+            <h2 id="the-solution">The Solution</h2>
+
+            <p>A simple JavaScript tool that runs directly in your browser and extracts all Basic Transform field mappings instantly:</p>
+
+            <ul class="feature-list">
+                <li>All field mappings (Source to Destination)</li>
+                <li>Required field status for every row</li>
+                <li>Field type information</li>
+                <li>Export to CSV, JSON, or clipboard</li>
+            </ul>
+
+            <h3>Watch the Demo</h3>
+            <div class="video-placeholder">
+                <!-- PLACEHOLDER: replace this div with the YouTube iframe when ready -->
+                <!-- <iframe width="560" height="315"
+                    src="https://www.youtube.com/embed/VIDEO_ID"
+                    title="Extract Qualtrics Basic Transform Mappings - Pirai AI"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                    style="max-width: 100%; border-radius: 8px;">
+                </iframe> -->
+                <div class="play-icon">▶</div>
+                <div class="video-label">Video coming soon</div>
+                <!-- <div class="video-sub">Replace this placeholder with your YouTube embed</div> -->
+            </div>
+
+            <h2 id="how-to-use">How to Use</h2>
+
+            <div class="step-box">
+                <span class="step-number">1</span>
+                <h4>Open Basic Transform Configuration</h4>
+                <p>Navigate to your Qualtrics Workflow and open the Basic Transform task. Make sure the field mapping table is visible on screen before running the script.</p>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">2</span>
+                <h4>Open the Browser Console</h4>
+                <p><strong>Right-click anywhere on the mapping table</strong> and select <strong>Inspect</strong> or <strong>Inspect Element</strong> from the context menu.</p>
+                <p>In the developer tools panel that opens, click the <strong>Console</strong> tab.</p>
+                <div class="alert alert-info">
+                    <strong>Why right-click on the table?</strong> This ensures the correct DOM elements are loaded in the inspector before the script runs, making extraction more reliable.
+                </div>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">3</span>
+                <h4>Copy and Run the Extraction Script</h4>
+                <p>Click the Copy Script button below, paste it into the console, and press <strong>Enter</strong>. The script runs immediately and stores your mappings in memory.</p>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">4</span>
+                <h4>Export Your Data</h4>
+                <p>After the extraction script runs, call one of these export commands in the console:</p>
+                <div class="command-box">
+                    <span class="comment">// Download as CSV file</span><br>
+                    downloadBasicTransformCSV()<br><br>
+                    <span class="comment">// Copy CSV to clipboard</span><br>
+                    copyBasicTransformCSV()<br><br>
+                    <span class="comment">// View as JSON</span><br>
+                    getBasicTransformJSON()
+                </div>
+            </div>
+
+            <h2 id="the-script">The Script</h2>
+
+            <div class="code-block">
+                <button class="copy-button" onclick="copyScript('main-script')">Copy Script</button>
+                <pre id="main-script">// ============================================================================
+// Qualtrics Basic Transform Field Mapper Extractor v1.0
+// ============================================================================
+// Extracts field mapping configuration from "Basic Transform" workflow task
+// Compatible with Qualtrics Workflow Editor
+// ============================================================================
+
+(function() {
+    console.log('🚀 Qualtrics Basic Transform Extractor v1.0');
+    console.log('📋 Extracting field mappings...');
+
+    // Find all mapping rows
+    const rows = document.querySelectorAll('tbody._2rtpf tr._Q2IPs');
+    
+    if (rows.length === 0) {
+        console.error('❌ No mapping rows found. Make sure you are on the Basic Transform configuration screen.');
+        return;
+    }
+
+    const mappings = [];
+    
+    rows.forEach((row, index) => {
+        try {
+            // Extract Required checkbox (3rd column)
+            const requiredCheckbox = row.querySelector('td:nth-child(3) input[type="checkbox"]');
+            const isRequired = requiredCheckbox ? requiredCheckbox.checked : false;
+            
+            // Extract Source Field (4th column - button with span._rR2lD)
+            const sourceFieldButton = row.querySelector('td:nth-child(4) button[data-testid="source-field-selector"] span._rR2lD');
+            const sourceField = sourceFieldButton ? sourceFieldButton.textContent.trim() : '';
+            
+            // Extract Destination Field Name (5th column - input)
+            const destFieldInput = row.querySelector('td:nth-child(5) input[data-testid="destination-name-input"]');
+            const destFieldName = destFieldInput ? destFieldInput.value.trim() : '';
+            
+            // Extract Field Type (6th column - button with span containing field type)
+            const fieldTypeButton = row.querySelector('td:nth-child(6) button[data-testid="source-field-type-selector-button"] span._8kwlb');
+            const fieldType = fieldTypeButton ? fieldTypeButton.textContent.trim() : '';
+            
+            mappings.push({
+                index: index + 1,
+                required: isRequired,
+                sourceField: sourceField,
+                destinationFieldName: destFieldName,
+                fieldType: fieldType
+            });
+            
+        } catch (error) {
+            console.warn(`⚠️ Error extracting row ${index + 1}:`, error);
+        }
+    });
+
+    // Store in global variable
+    window.basicTransformMappings = mappings;
+    
+    console.log(`✅ Extracted ${mappings.length} field mappings`);
+    console.log('📊 Data stored in: window.basicTransformMappings');
+    
+    return mappings;
+})();
+
+// ============================================================================
+// EXPORT FUNCTIONS
+// ============================================================================
+
+function downloadBasicTransformCSV() {
+    if (!window.basicTransformMappings || window.basicTransformMappings.length === 0) {
+        console.error('❌ No mappings found. Please run the extraction script first.');
+        return;
+    }
+    
+    // Create CSV content
+    let csv = '"Index","Required","Source Field","Destination Field Name","Field Type"\n';
+    
+    window.basicTransformMappings.forEach(mapping => {
+        const required = mapping.required ? 'Yes' : 'No';
+        csv += `"${mapping.index}","${required}","${mapping.sourceField}","${mapping.destinationFieldName}","${mapping.fieldType}"\n`;
+    });
+    
+    // Download CSV
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'basic_transform_mappings.csv';
+    link.click();
+    
+    console.log('✅ CSV downloaded: basic_transform_mappings.csv');
+}
+
+function copyBasicTransformCSV() {
+    if (!window.basicTransformMappings || window.basicTransformMappings.length === 0) {
+        console.error('❌ No mappings found. Please run the extraction script first.');
+        return;
+    }
+    
+    // Create CSV content
+    let csv = '"Index","Required","Source Field","Destination Field Name","Field Type"\n';
+    
+    window.basicTransformMappings.forEach(mapping => {
+        const required = mapping.required ? 'Yes' : 'No';
+        csv += `"${mapping.index}","${required}","${mapping.sourceField}","${mapping.destinationFieldName}","${mapping.fieldType}"\n`;
+    });
+    
+    // Copy to clipboard
+    navigator.clipboard.writeText(csv).then(() => {
+        console.log('✅ CSV copied to clipboard');
+    }).catch(err => {
+        console.error('❌ Failed to copy to clipboard:', err);
+    });
+}
+
+function getBasicTransformJSON() {
+    if (!window.basicTransformMappings || window.basicTransformMappings.length === 0) {
+        console.error('❌ No mappings found. Please run the extraction script first.');
+        return null;
+    }
+    
+    console.log(JSON.stringify(window.basicTransformMappings, null, 2));
+    return window.basicTransformMappings;
+}
+
+// ============================================================================
+// USAGE INSTRUCTIONS
+// ============================================================================
+console.log(`
+╔════════════════════════════════════════════════════════════════════╗
+║  Qualtrics Basic Transform Extractor v1.0 - Ready!                ║
+╠════════════════════════════════════════════════════════════════════╣
+║                                                                    ║
+║  📥 DOWNLOAD CSV:                                                  ║
+║     downloadBasicTransformCSV()                                    ║
+║                                                                    ║
+║  📋 COPY TO CLIPBOARD:                                             ║
+║     copyBasicTransformCSV()                                        ║
+║                                                                    ║
+║  🔍 VIEW JSON:                                                     ║
+║     getBasicTransformJSON()                                        ║
+║                                                                    ║
+║  💾 ACCESS DATA:                                                   ║
+║     window.basicTransformMappings                                  ║
+║                                                                    ║
+╚════════════════════════════════════════════════════════════════════╝
+`);</pre>
+            </div>
+
+            <h2 id="csv-output">CSV Output Format</h2>
+
+            <p>The exported CSV includes five columns covering everything you need to document or compare a Basic Transform configuration:</p>
+
+            <div class="csv-example">
+                <span class="csv-header">"Index","Required","Source Field","Destination Field Name","Field Type"</span><br>
+                "1","No","Customer_Age_Range","Customer_Age_Range","Text value"<br>
+                "2","No","Customer_Loyalty_Tier","Customer_Loyalty_Tier","Text value"<br>
+                "3","Yes","Foot_Traffic_Volume","Foot_Traffic_Volume","Number"<br>
+                "4","No","Transaction_Date","Transaction_Date","Date"
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Column</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Index</strong></td>
+                        <td>Row order in the mapping table, useful for spotting field order differences across environments</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Required</strong></td>
+                        <td>Yes or No, captures which fields are mandatory for the transform to complete</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Source Field</strong></td>
+                        <td>The incoming field name from the data source</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Destination Field Name</strong></td>
+                        <td>The target field name written to the output</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Field Type</strong></td>
+                        <td>Data type (Text value, Number, Date, etc.)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="comparing-environments">Comparing Across Environments (Dev, Test, and Prod)</h2>
+
+            <p>One of the most powerful use cases is comparing Basic Transform configurations across different Qualtrics environments before deployment. Configuration drift between Dev, Test, and Prod is one of the most common causes of workflow failures that are difficult to diagnose.</p>
+
+            <div class="step-box">
+                <span class="step-number">1</span>
+                <h4>Extract from Development Environment</h4>
+                <p>Open your workflow in the Dev environment, run the extraction script, and download the CSV. Save it as <code>basic_transform_mappings_DEV.csv</code>.</p>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">2</span>
+                <h4>Extract from Test Environment</h4>
+                <p>Repeat the process in Test and save as <code>basic_transform_mappings_TEST.csv</code>.</p>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">3</span>
+                <h4>Extract from Production Environment</h4>
+                <p>Extract from Prod and save as <code>basic_transform_mappings_PROD.csv</code>.</p>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">4</span>
+                <h4>Compare with Pirai AI CSV Comparator</h4>
+                <p>Upload two CSV files to the <a href="/pirai-csv-comparator">Pirai AI CSV Comparator</a> to instantly identify mismatches. The tool shows differences row by row so you can spot missing fields, type mismatches, required flag changes, and naming inconsistencies without needing Excel or any external service. Your data stays in the browser.</p>
+            </div>
+
+            <h3>What to Look for During Comparison</h3>
+
+            <div class="highlight-box">
+                <h4>Common configuration drift patterns</h4>
+                <ul>
+                    <li><strong>Missing fields</strong> — present in Dev but absent in Prod</li>
+                    <li><strong>Field type mismatches</strong> — Text value in Dev, Number in Prod for the same field</li>
+                    <li><strong>Required status changes</strong> — a field mandatory in one environment but optional in another</li>
+                    <li><strong>Name discrepancies</strong> — Store_Location in Dev became Store_Region in Prod without documentation</li>
+                    <li><strong>Index order differences</strong> — fields in a different sequence, which can affect downstream processing</li>
+                </ul>
+            </div>
+
+            <h2 id="use-cases">Use Cases</h2>
+
+            <div class="use-case-grid">
+                <div class="use-case-card">
+                    <div class="use-case-icon">📄</div>
+                    <h4>Workflow Documentation</h4>
+                    <p>Create comprehensive mapping records for team onboarding and knowledge transfer.</p>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon">🔄</div>
+                    <h4>Environment Migrations</h4>
+                    <p>Compare configurations when promoting workflows from Test to Production.</p>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon">✅</div>
+                    <h4>Audit and Compliance</h4>
+                    <p>Maintain reproducible records of field mapping configurations for audit trails.</p>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon">📋</div>
+                    <h4>Template Creation</h4>
+                    <p>Document successful workflow patterns to replicate across projects.</p>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon">🔍</div>
+                    <h4>Troubleshooting</h4>
+                    <p>Quickly identify mapping discrepancies when debugging data flow issues.</p>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon">🚀</div>
+                    <h4>Pre-Deployment Validation</h4>
+                    <p>Verify all field mappings match before pushing changes to Production.</p>
+                </div>
+            </div>
+
+            <h2 id="key-features">Key Features</h2>
+
+            <h3>Runs in Your Browser</h3>
+            <p>Your data never leaves your machine. The script extracts information directly from the Qualtrics page you are viewing. No installation, no server, no account needed.</p>
+
+            <h3>Multiple Export Formats</h3>
+            <p>Download a CSV file for Excel or Google Sheets, copy CSV directly to the clipboard for quick pasting, or view the full JSON output for developer workflows.</p>
+
+            <h3>Complete Field Information</h3>
+            <p>Every row includes the field index (order), required status, source field name, destination field name, and field type. Nothing is truncated or omitted.</p>
+
+            <h2 id="best-practices">Best Practices</h2>
+
+            <h3>Version Control Your Exports</h3>
+            <p>Save extracted CSVs with environment and date stamps so you have a full history of configuration changes:</p>
+            <div class="command-box">
+                basic_transform_mappings_PROD_2026-03-09.csv<br>
+                basic_transform_mappings_TEST_2026-03-09.csv<br>
+                basic_transform_mappings_DEV_2026-03-09.csv
+            </div>
+
+            <h3>Document Changes</h3>
+            <p>When you find discrepancies between environments, note whether they are intentional. A Required flag that differs between Dev and Prod may be deliberate, or it may be a deployment oversight.</p>
+
+            <h3>Regular Audits</h3>
+            <p>Extract and archive configurations monthly to catch configuration drift early, before it causes data pipeline failures.</p>
+
+            <h3>Pre-Deployment Checklist</h3>
+            <p>Always compare Dev/Test/Prod CSVs before deploying workflow changes. Use the <a href="/pirai-csv-comparator">CSV Comparator</a> to make this a fast, repeatable step in your deployment process.</p>
+
+            <h2 id="troubleshooting">Troubleshooting</h2>
+
+            <div class="troubleshooting-box">
+                <h4>No mapping rows found</h4>
+                <p>Make sure you are on the Basic Transform configuration screen with the field mapping table visible. The script targets specific DOM selectors that only appear on that screen.</p>
+            </div>
+
+            <div class="troubleshooting-box">
+                <h4>Empty CSV after export</h4>
+                <p>Run the main extraction script first before calling any export function. The export functions read from <code>window.basicTransformMappings</code>, which is only populated after the extraction script runs.</p>
+            </div>
+
+            <div class="troubleshooting-box">
+                <h4>Script not working</h4>
+                <p>Clear your browser console and paste the script again. Ensure you are using a modern browser (Chrome, Edge, or Firefox). Internet Explorer is not supported.</p>
+            </div>
+
+            <div class="alert alert-success">
+                <strong>Important notes:</strong> This is a browser-based tool requiring no installation. Your data stays private and everything runs locally in your browser. Works with all Qualtrics licence types and requires no API key.
+            </div>
+
+            <!-- Article CTA -->
+            <div class="article-cta">
+                <h3>Automate Your Survey Workflow</h3>
+                <p>Pirai AI converts Word, PDF, and Excel questionnaires into Qualtrics and 20+ other platforms automatically. No manual scripting required.</p>
+                <a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Try Pirai AI Free</a>
+            </div>
+
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="sidebar-section">
+                <h3>In This Article</h3>
+                <ul class="toc-list">
+                    <li><a href="#the-challenge">The Challenge</a></li>
+                    <li><a href="#the-solution">The Solution</a></li>
+                    <li><a href="#how-to-use">How to Use</a></li>
+                    <li><a href="#the-script">The Script</a></li>
+                    <li><a href="#csv-output">CSV Output Format</a></li>
+                    <li><a href="#comparing-environments">Comparing Environments</a></li>
+                    <li><a href="#use-cases">Use Cases</a></li>
+                    <li><a href="#key-features">Key Features</a></li>
+                    <li><a href="#best-practices">Best Practices</a></li>
+                    <li><a href="#troubleshooting">Troubleshooting</a></li>
+                </ul>
+            </div>
+
+            <div class="cta-box">
+                <h3>Survey Automation</h3>
+                <p>Convert Word, PDF, and Excel surveys to Qualtrics and 20+ platforms automatically.</p>
+                <a href="https://platform.piraiai.com" target="_blank" class="cta-button">Try Pirai AI Free</a>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Free Qualtrics Tools</h3>
+                <ul class="toc-list">
+                    <li><a href="/pirai-csv-comparator">CSV Comparator</a></li>
+                    <li><a href="/qsf-to-excel">QSF to Excel Converter</a></li>
+                    <li><a href="/embedded-data-generator">Embedded Data Generator</a></li>
+                    <li><a href="/qualtrics-toolkit">Full Qualtrics Toolkit</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Related Tutorials</h3>
+                <ul class="toc-list">
+                    <li><a href="/blog/extract-qualtrics-xm-directory-mappings">Extract XM Directory Mappings</a></li>
+                    <li><a href="/blog/extract-qualtrics-dashboard-mappings">Extract Dashboard Field Mappings</a></li>
+                </ul>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <!-- Related Articles -->
+    <section class="related-articles">
+        <h2>Related Articles</h2>
+        <div class="related-grid">
+            <a href="/blog/extract-qualtrics-xm-directory-mappings" class="related-card">
+                <h3>Extract Qualtrics XM Directory Contact Mappings</h3>
+                <p>Free browser script to extract all contact and transaction field mappings from the Update XM Directory Contacts task.</p>
+            </a>
+            <a href="/blog/extract-qualtrics-dashboard-mappings" class="related-card">
+                <h3>Extract Qualtrics Dashboard Data Field Mappings</h3>
+                <p>Automatically extract all field types, names, and data source mappings from your Qualtrics Dashboard.</p>
+            </a>
+            <a href="/blog/qsf-to-excel-converter" class="related-card">
+                <h3>How to Convert a QSF File to Excel</h3>
+                <p>Turn any Qualtrics QSF file into a structured 13-sheet Excel workbook for auditing, documentation, and analysis.</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Copy script functionality
+        function copyScript(id) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            const text = el.textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = el.parentElement.querySelector('.copy-button');
+                if (btn) {
+                    btn.textContent = 'Copied!';
+                    btn.classList.add('copied');
+                    setTimeout(() => {
+                        btn.textContent = 'Copy Script';
+                        btn.classList.remove('copied');
+                    }, 2000);
+                }
+            }).catch(() => {
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+            });
+        }
+
+        // Active TOC highlighting
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        const sections = document.querySelectorAll('h2[id]');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(link => link.classList.remove('active'));
+                    const active = document.querySelector(`.toc-list a[href="#${entry.target.id}"]`);
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+
+        sections.forEach(s => observer.observe(s));
+    </script>
+
+</body>
+</html>

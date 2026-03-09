@@ -134,7 +134,13 @@
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
     <lastmod>2026-03-08</lastmod>
-  </url>  
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/extract-qualtrics-basic-transform-mappings</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-03-09</lastmod>
+  </url>     
   
 
   <!-- Add each new article as you publish -->
