@@ -782,6 +782,12 @@
             margin: 0;
         }
         .platform-cta-buttons { display: flex; gap: 12px; flex-wrap: wrap; flex-shrink: 0; }
+        @media (max-width: 640px) {
+            .platform-cta { flex-direction: column; }
+            .platform-cta-buttons { width: 100%; flex-direction: column; }
+            .platform-cta-buttons .btn-primary,
+            .platform-cta-buttons .btn-secondary { width: 100%; text-align: center; }
+        }
         .btn-primary {
             display: inline-block;
             background: #ffffff;
@@ -997,6 +1003,7 @@
             <h2 id="quick-reference">📋 Quick Reference</h2>
             <p class="section-intro">Find your platform below to see which Pirai AI file to download and which import method to use.</p>
 
+            <div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
             <table class="ref-table">
                 <thead>
                     <tr>
@@ -1075,6 +1082,7 @@
                     </tr>
                 </tbody>
             </table>
+            </div>
         </div>
 
         <!-- Platform Steps -->
