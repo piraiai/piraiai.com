@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- =====================
+         PRIMARY SEO
+    ===================== -->
+    <title>How to Import Your Survey into Qualtrics, QuestionPro, SurveyMonkey & More | Pirai AI</title>
+    <meta name="description" content="Step-by-step instructions for importing converted surveys into Qualtrics (QSF & Advanced Format), QuestionPro, SurveyMonkey, Google Forms, Microsoft Forms, REDCap, Zoho Survey, SurveySparrow, Alchemer, and Forsta. Official import guide by Pirai AI." />
+    <meta name="keywords" content="how to import survey into Qualtrics, import QSF file Qualtrics, QuestionPro Word import, SurveyMonkey paste questions, Google Forms Apps Script survey, Microsoft Forms Word import, Zoho Survey import, Alchemer Word import, Forsta survey import, survey file import guide, Pirai AI import guide" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="author" content="Pirai AI" />
+    <link rel="canonical" href="https://piraiai.com/docs/import-guide" />
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png" />
+
+    <!-- =====================
+         OPEN GRAPH
+    ===================== -->
+    <meta property="og:title" content="How to Import Your Survey into Qualtrics, QuestionPro, SurveyMonkey & More" />
+    <meta property="og:description" content="Step-by-step import instructions for 9 survey platforms. Convert your document with Pirai AI, then follow our official guide to get your survey live in minutes." />
+    <meta property="og:url" content="https://piraiai.com/docs/import-guide" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Pirai AI" />
+    <meta property="og:image" content="https://piraiai.com/logo.png" />
+    <meta property="article:publisher" content="https://piraiai.com" />
+    <meta property="article:author" content="Pirai AI Team" />
+    <meta property="article:section" content="Documentation" />
+    <meta property="article:tag" content="Qualtrics" />
+    <meta property="article:tag" content="QuestionPro" />
+    <meta property="article:tag" content="SurveyMonkey" />
+    <meta property="article:tag" content="Google Forms" />
+    <meta property="article:tag" content="Survey Import" />
+
+    <!-- =====================
+         TWITTER CARD
+    ===================== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="How to Import Your Survey into Qualtrics, QuestionPro & More | Pirai AI" />
+    <meta name="twitter:description" content="Official step-by-step import guide for 9 survey platforms. Qualtrics QSF, QuestionPro Word import, SurveyMonkey paste, Google Forms Apps Script, and more." />
+    <meta name="twitter:image" content="https://piraiai.com/logo.png" />
+    <meta name="twitter:site" content="@PiraiAI" />
+
+    <!-- =====================
+         JSON-LD SCHEMA
+    ===================== -->
+
+    <!-- HowTo Schema — signals to Google this is a step-by-step guide -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Import Your Converted Survey into Survey Platforms",
+      "description": "After converting your survey document with Pirai AI, follow these steps to import your file into your target survey platform including Qualtrics, QuestionPro, SurveyMonkey, Google Forms, Microsoft Forms, Zoho Survey, SurveySparrow, Alchemer, and Forsta.",
+      "image": "https://piraiai.com/logo.png",
+      "totalTime": "PT5M",
+      "estimatedCost": {
+        "@type": "MonetaryAmount",
+        "currency": "USD",
+        "value": "0"
+      },
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "Pirai AI Platform",
+          "url": "https://platform.piraiai.com"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Convert your survey document with Pirai AI",
+          "text": "Upload your Word, PDF, Excel, TXT, CSV, QSF, XML, or JSON file to platform.piraiai.com. Select your target platform and download the converted survey file.",
+          "url": "https://piraiai.com/docs/import-guide#quick-reference"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Identify your file type and import method",
+          "text": "Use the Quick Reference table to confirm which Pirai AI file to download for your platform and whether to use file upload, copy-paste, or Apps Script.",
+          "url": "https://piraiai.com/docs/import-guide#quick-reference"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Follow the platform-specific import steps",
+          "text": "Select your platform from the tab navigation and follow the step-by-step import instructions to get your survey live.",
+          "url": "https://piraiai.com/docs/import-guide#platform-steps"
+        }
+      ]
+    }
+    </script>
+
+    <!-- TechArticle Schema — establishes this as authoritative technical documentation -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "How to Import Your Survey into Qualtrics, QuestionPro, SurveyMonkey and More",
+      "description": "Official Pirai AI documentation covering step-by-step survey import instructions for 9 platforms including Qualtrics QSF import, Qualtrics Advanced Format, QuestionPro Word import, SurveyMonkey paste, Google Forms Apps Script, Microsoft Forms, Zoho Survey, SurveySparrow, Alchemer, and Forsta.",
+      "image": "https://piraiai.com/logo.png",
+      "author": {
+        "@type": "Organization",
+        "name": "Pirai AI",
+        "url": "https://piraiai.com",
+        "logo": "https://piraiai.com/logo.png",
+        "sameAs": [
+          "https://www.youtube.com/@PiraiAI",
+          "https://platform.piraiai.com"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Pirai AI",
+        "url": "https://piraiai.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://piraiai.com/logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://piraiai.com/docs/import-guide"
+      },
+      "keywords": "Qualtrics import, QuestionPro Word import, SurveyMonkey paste questions, Google Forms Apps Script, Microsoft Forms import, Zoho Survey import, Alchemer Word import, Forsta survey import, survey file import",
+      "articleSection": "Documentation",
+      "inLanguage": "en-US",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Pirai AI",
+        "url": "https://piraiai.com"
+      }
+    }
+    </script>
+
+    <!-- FAQPage Schema — targets featured snippet / People Also Ask boxes -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I import a QSF file into Qualtrics?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To import a QSF file into Qualtrics, go to the Survey tab, click Tools, then select Import Survey. Browse for your .qsf file and click Import. Qualtrics will load all questions and structure into the Survey editor."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I import a Word document into QuestionPro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In QuestionPro, create a new blank survey, then expand the Add Question menu and select Add from MS Word. Upload your .docx file and QuestionPro will parse it and create questions automatically. This option is only available for blank surveys."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I add questions to SurveyMonkey from a document?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In SurveyMonkey, click Create Survey and select Paste Your Content. Paste your formatted question content into the Import Questions screen. SurveyMonkey will automatically detect question types and answer options. Click Add Questions when done."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I create a Google Form from a script?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Open a Google Form, click the three-dot menu and select Apps Script. Delete the default code and paste your Pirai AI generated script. Click Save, then Run. Grant the required permissions and your Google Form will be created automatically."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I import a Word document into Microsoft Forms?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Go to forms.office.com, select Quick Import, then Upload from this device. Select your Word document, choose Form or Quiz, and Microsoft Forms will convert it automatically. Use Start Review to check the conversion results."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I import a survey into Zoho Survey?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In Zoho Survey, click Create Survey and select Import Survey. Choose Import Document and upload your .docx or .txt file. Zoho will automatically detect question types and build your survey."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I import a survey into REDCap?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To import a survey into REDCap, first create a new empty project. Then go to Project Setup, click Data Dictionary under Design your data collection instruments, choose your Pirai AI CSV file, click Upload File, review the summary, and click Commit Changes to apply the Data Dictionary to your project."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What file format does REDCap use for survey import?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "REDCap uses a CSV Data Dictionary file for importing survey structure. Pirai AI exports a REDCap-compatible CSV Data Dictionary that can be uploaded directly through the Data Dictionary tab in your REDCap project."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What file types does Pirai AI support for survey conversion?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pirai AI supports DOCX, PDF, TXT, XLSX, CSV, QSF, XML, and JSON file uploads. You can also paste your questionnaire text directly into the platform. Pirai AI converts these into platform-ready files for over 20 survey platforms."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- BreadcrumbList Schema — improves search result appearance -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://piraiai.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Documentation",
+          "item": "https://piraiai.com/docs"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Platform Import Guide",
+          "item": "https://piraiai.com/docs/import-guide"
+        }
+      ]
+    }
+    </script>
+
+    <!-- SoftwareApplication Schema — establishes Pirai AI as the tool behind this guide -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Pirai AI",
+      "url": "https://platform.piraiai.com",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "AI-powered survey automation platform that converts documents into survey platform files for Qualtrics, QuestionPro, SurveyMonkey, Google Forms, Microsoft Forms, Zoho Survey, SurveySparrow, Alchemer, Forsta, and 20+ other platforms.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Free to try"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Pirai AI",
+        "url": "https://piraiai.com"
+      }
+    }
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+        /* =====================
+           RESET & BASE
+        ===================== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.7;
+            font-size: 18px;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #1a1a1a;
+        }
+
+        /* =====================
+           NAVIGATION
+        ===================== */
+        .nav {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #1a1a1a;
+        }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+        }
+        .docs-label { color: #6b7280; font-weight: 400; margin-left: 8px; }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #4b5563;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: #9B6BFF; }
+
+        /* =====================
+           BREADCRUMB
+        ===================== */
+        .breadcrumb {
+            background: #f9fafb;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 12px 24px;
+        }
+        .breadcrumb-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #6b7280;
+        }
+        .breadcrumb a { color: #6b7280; text-decoration: none; transition: color 0.2s; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+
+        /* =====================
+           HERO
+        ===================== */
+        .hero {
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            padding: 48px 24px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            max-width: 800px;
+        }
+        .hero-subtitle {
+            font-size: 20px;
+            color: #6b7280;
+            max-width: 680px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 14px;
+            color: #6b7280;
+            flex-wrap: wrap;
+        }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, #9B6BFF, #BFA8FF);
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            letter-spacing: 0.3px;
+        }
+
+        /* =====================
+           MAIN LAYOUT
+        ===================== */
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 24px;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 48px;
+            align-items: start;
+        }
+        .article-content { min-width: 0; }
+
+        /* =====================
+           BANNER
+        ===================== */
+        .learning-path-banner {
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border: 1px solid #c4b5fd;
+            border-left: 4px solid #9B6BFF;
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+        .learning-path-banner .banner-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+        .learning-path-banner p {
+            font-size: 16px;
+            color: #374151;
+            margin: 0;
+            line-height: 1.6;
+        }
+        .learning-path-banner strong { color: #6b21a8; }
+
+        /* =====================
+           QUICK REFERENCE TABLE
+        ===================== */
+        .quick-ref {
+            margin-bottom: 48px;
+        }
+        .quick-ref h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        .section-intro {
+            font-size: 16px;
+            color: #6b7280;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+        .ref-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+        }
+        .ref-table thead tr {
+            background: #f3f4f6;
+        }
+        .ref-table th {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #6b7280;
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .ref-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #f3f4f6;
+            vertical-align: middle;
+            font-size: 14px;
+            color: #374151;
+        }
+        .ref-table tr:last-child td { border-bottom: none; }
+        .ref-table tr:hover td { background: #fafafa; }
+        .platform-name {
+            font-weight: 600;
+            color: #1a1a1a;
+            font-size: 14px;
+        }
+        .file-tag {
+            display: inline-block;
+            background: #f0fdf4;
+            color: #15803d;
+            border: 1px solid #bbf7d0;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+        }
+        .method-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 12px;
+        }
+        .method-upload {
+            background: #eff6ff;
+            color: #1d4ed8;
+            border: 1px solid #bfdbfe;
+        }
+        .method-paste {
+            background: #fff7ed;
+            color: #c2410c;
+            border: 1px solid #fed7aa;
+        }
+        .method-script {
+            background: #f0fdf4;
+            color: #15803d;
+            border: 1px solid #bbf7d0;
+        }
+        .ref-link {
+            color: #9B6BFF;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .ref-link:hover { text-decoration: underline; }
+
+        /* =====================
+           SECTION HEADINGS
+        ===================== */
+        .article-content h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-top: 56px;
+            margin-bottom: 8px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        .article-content h2:first-of-type { margin-top: 0; }
+
+        /* =====================
+           TABS
+        ===================== */
+        .tab-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 32px;
+            margin-top: 24px;
+        }
+        .tab-btn {
+            background: #f3f4f6;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #4b5563;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .tab-btn:hover {
+            background: #f0ebff;
+            border-color: #c4b5fd;
+            color: #6b21a8;
+        }
+        .tab-btn.active {
+            background: #9B6BFF;
+            border-color: #9B6BFF;
+            color: #ffffff;
+        }
+
+        /* =====================
+           PLATFORM PANELS
+        ===================== */
+        .platform-panel { display: none; }
+        .platform-panel.active { display: block; }
+
+        .platform-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .platform-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+        .platform-desc {
+            font-size: 15px;
+            color: #6b7280;
+            line-height: 1.5;
+        }
+        .platform-badges {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            flex-shrink: 0;
+            align-items: flex-start;
+        }
+
+        /* File callout box */
+        .file-callout {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-left: 4px solid #22c55e;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .file-callout .fc-icon { font-size: 20px; flex-shrink: 0; }
+        .file-callout p {
+            font-size: 14px;
+            color: #166534;
+            margin: 0;
+            line-height: 1.5;
+        }
+        .file-callout strong { color: #14532d; }
+
+        /* Warning callout */
+        .warning-callout {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            border-left: 4px solid #f59e0b;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .warning-callout .fc-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+        .warning-callout p {
+            font-size: 14px;
+            color: #92400e;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Steps */
+        .steps-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 24px;
+        }
+        .steps-list li {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            align-items: flex-start;
+        }
+        .step-num {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #9B6BFF, #BFA8FF);
+            color: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            margin-top: 2px;
+        }
+        .step-text {
+            font-size: 15px;
+            color: #374151;
+            line-height: 1.6;
+            padding-top: 3px;
+        }
+        .step-text strong { color: #1a1a1a; }
+        .step-text code {
+            background: #f3f4f6;
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+            padding: 1px 6px;
+            font-size: 13px;
+            color: #9B6BFF;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* Sub-section divider inside a tab */
+        .sub-section {
+            margin-top: 36px;
+            padding-top: 28px;
+            border-top: 1px dashed #e5e7eb;
+        }
+        .sub-section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Official docs link */
+        .official-docs {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 10px 16px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            color: #4b5563;
+            transition: all 0.2s;
+            margin-top: 8px;
+        }
+        .official-docs:hover {
+            border-color: #9B6BFF;
+            color: #9B6BFF;
+            background: #f5f3ff;
+        }
+
+        /* =====================
+           PLATFORM CTA BAND
+        ===================== */
+        .platform-cta {
+            background: linear-gradient(135deg, #9B6BFF 0%, #BFA8FF 100%);
+            border-radius: 12px;
+            padding: 36px 40px;
+            margin-top: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .platform-cta-text h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+        .platform-cta-text p {
+            font-size: 15px;
+            color: rgba(255,255,255,0.85);
+            margin: 0;
+        }
+        .platform-cta-buttons { display: flex; gap: 12px; flex-wrap: wrap; flex-shrink: 0; }
+        .btn-primary {
+            display: inline-block;
+            background: #ffffff;
+            color: #9B6BFF;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            white-space: nowrap;
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.15); }
+        .btn-secondary {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            border: 1px solid rgba(255,255,255,0.4);
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+        .btn-secondary:hover { background: rgba(255,255,255,0.25); }
+
+        /* =====================
+           SIDEBAR
+        ===================== */
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section {
+            background: #f9fafb;
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+        .sidebar-section h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+        }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 4px; }
+        .toc-list a {
+            color: #4b5563;
+            text-decoration: none;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 8px;
+            border-radius: 6px;
+            transition: background 0.15s, color 0.15s;
+        }
+        .toc-list a:hover { color: #9B6BFF; background: #f3f0ff; }
+        .toc-list .toc-icon { font-size: 14px; flex-shrink: 0; }
+        .toc-divider { height: 1px; background: #e5e7eb; margin: 8px 0; }
+
+        .cta-box {
+            background: linear-gradient(135deg, #9B6BFF, #BFA8FF);
+            padding: 28px 24px;
+            border-radius: 8px;
+            text-align: center;
+            color: #ffffff;
+        }
+        .cta-box h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        .cta-box p { font-size: 14px; margin-bottom: 18px; opacity: 0.92; line-height: 1.5; }
+        .cta-button {
+            display: inline-block;
+            background: #ffffff;
+            color: #9B6BFF;
+            padding: 10px 22px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            transition: transform 0.2s;
+        }
+        .cta-button:hover { transform: translateY(-2px); }
+
+        .support-box {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .support-box h3 { font-size: 14px; font-weight: 700; margin-bottom: 10px; color: #1a1a1a; }
+        .support-box p { font-size: 13px; color: #6b7280; margin-bottom: 14px; line-height: 1.5; }
+        .support-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #f5f3ff;
+            color: #6b21a8;
+            padding: 10px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .support-link:hover { background: #ede9fe; }
+
+        /* =====================
+           FOOTER
+        ===================== */
+        .footer {
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            padding: 32px 24px;
+            text-align: center;
+            margin-top: 80px;
+        }
+        .footer p { color: #6b7280; font-size: 14px; }
+
+        /* =====================
+           RESPONSIVE
+        ===================== */
+        @media (max-width: 968px) {
+            .content-wrapper { grid-template-columns: 1fr; }
+            .sidebar { position: static; }
+        }
+        @media (max-width: 640px) {
+            .nav-links { display: none; }
+            .article-title { font-size: 28px; }
+            .hero { padding: 40px 16px; }
+            .hero-subtitle { font-size: 16px; }
+            .content-wrapper { padding: 32px 16px; }
+            .breadcrumb { padding: 10px 16px; }
+            .breadcrumb-container { font-size: 12px; }
+            .platform-cta { padding: 28px 24px; }
+            .ref-table { font-size: 13px; }
+            .ref-table th, .ref-table td { padding: 10px 12px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- NAV -->
+<nav class="nav">
+    <div class="nav-content">
+        <a href="/" class="logo">
+            <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo" />
+            <span class="logo-text">Pirai AI <span class="docs-label">/ Docs</span></span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/docs">Documentation</a></li>
+            <li><a href="/#demo">Get Demo</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+    <div class="breadcrumb-container">
+        <a href="/">Home</a>
+        <span class="breadcrumb-separator">›</span>
+        <a href="/docs">Documentation</a>
+        <span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">Platform Import Guide</span>
+    </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-container">
+        <h1 class="article-title">Platform Import Guide</h1>
+        <p class="hero-subtitle">
+            You've converted your survey with Pirai AI. Now get it live. Step-by-step import instructions for every supported platform.
+        </p>
+        <div class="article-meta">
+            <span class="author">Pirai AI Team</span>
+            <span class="separator">•</span>
+            <span>10 platforms</span>
+            <span class="separator">•</span>
+            <span>Post-conversion guide</span>
+            <span class="separator">•</span>
+            <span class="badge">📥 Import Guide</span>
+        </div>
+    </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<div class="content-wrapper">
+
+    <article class="article-content">
+
+        <!-- Banner -->
+        <div class="learning-path-banner">
+            <div class="banner-icon">💡</div>
+            <p>
+                <strong>Before you start:</strong> Download your converted file from the Pirai AI platform first. The file type you need depends on your target platform. Use the quick reference table below to confirm which file to download before following the import steps.
+            </p>
+        </div>
+
+        <!-- Quick Reference Table -->
+        <div class="quick-ref">
+            <h2 id="quick-reference">📋 Quick Reference</h2>
+            <p class="section-intro">Find your platform below to see which Pirai AI file to download and which import method to use.</p>
+
+            <table class="ref-table">
+                <thead>
+                    <tr>
+                        <th>Platform</th>
+                        <th>Pirai AI File</th>
+                        <th>Import Method</th>
+                        <th>Jump To</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="platform-name">Qualtrics (QSF)</span></td>
+                        <td><span class="file-tag">.qsf</span></td>
+                        <td><span class="method-tag method-upload">⬆ File Upload</span></td>
+                        <td><a class="ref-link" href="#" onclick="switchTab('qualtrics'); return false;">View steps →</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="platform-name">Qualtrics (Advanced Format)</span></td>
+                        <td><span class="file-tag">.txt / .docx</span></td>
+                        <td><span class="method-tag method-upload">⬆ File Upload</span></td>
+                        <td><a class="ref-link" href="#" onclick="switchTab('qualtrics'); return false;">View steps →</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="platform-name">QuestionPro</span></td>
+                        <td><span class="file-tag">.docx</span></td>
+                        <td><span class="method-tag method-upload">⬆ File Upload</span></td>
+                        <td><a class="ref-link" href="#" onclick="switchTab('questionpro'); return false;">View steps →</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="platform-name">SurveyMonkey</span></td>
+                        <td><span class="file-tag">.txt</span></td>
+                        <td><span class="method-tag method-paste">📋 Copy &amp; Paste</span></td>
+                        <td><a class="ref-link" href="#" onclick="switchTab('surveymonkey'); return false;">View steps →</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="platform-name">Google Forms</span></td>
+                        <td><span class="file-tag">.txt (Apps Script)</span></td>
+                        <td><span class="method-tag method-script">⚙ Apps Script</span></td>
+                        <td><a class="ref-link" href="#" onclick="switchTab('googleforms'); return false;">View steps →</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="platform-name">REDCap</span></td>
+                        <td><span class="file-tag">.csv</span></td>
+                        <td><span class="method-tag method-upload">⬆ File Upload</span></td>
+                        <td><a class="ref-link" href="#" onclick="switchTab('redcap'); return false;">View steps →</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="platform-name">Microsoft Forms</span></td>
+                        <td><span class="file-tag">.docx / .pdf</span></td>
+                        <td><span class="method-tag method-upload">⬆ File Upload</span></td>
+                        <td><a class="ref-link" href="#" onclick="switchTab('microsoftforms'); return false;">View steps →</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="platform-name">Zoho Survey</span></td>
+                        <td><span class="file-tag">.docx / .txt</span></td>
+                        <td><span class="method-tag method-upload">⬆ File Upload</span></td>
+                        <td><a class="ref-link" href="#" onclick="switchTab('zoho'); return false;">View steps →</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="platform-name">SurveySparrow</span></td>
+                        <td><span class="file-tag">.txt</span></td>
+                        <td><span class="method-tag method-paste">📋 Copy &amp; Paste</span></td>
+                        <td><a class="ref-link" href="#" onclick="switchTab('surveysparrow'); return false;">View steps →</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="platform-name">Alchemer</span></td>
+                        <td><span class="file-tag">.txt</span></td>
+                        <td><span class="method-tag method-paste">📋 Copy &amp; Paste</span></td>
+                        <td><a class="ref-link" href="#" onclick="switchTab('alchemer'); return false;">View steps →</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="platform-name">Forsta</span></td>
+                        <td><span class="file-tag">.txt</span> &nbsp;<span class="file-tag">.docx</span> &nbsp;<span class="file-tag">.xml</span></td>
+                        <td><span class="method-tag method-upload">⬆ File Upload</span></td>
+                        <td><a class="ref-link" href="#" onclick="switchTab('forsta'); return false;">View steps →</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Platform Steps -->
+        <h2 id="platform-steps">🗂 Step-by-Step Import Instructions</h2>
+        <p class="section-intro">Select your platform below to see the full import steps.</p>
+
+        <!-- Tab Navigation -->
+        <div class="tab-nav" id="tabNav">
+            <button class="tab-btn active" onclick="switchTab('qualtrics')">Qualtrics</button>
+            <button class="tab-btn" onclick="switchTab('questionpro')">QuestionPro</button>
+            <button class="tab-btn" onclick="switchTab('surveymonkey')">SurveyMonkey</button>
+            <button class="tab-btn" onclick="switchTab('googleforms')">Google Forms</button>
+            <button class="tab-btn" onclick="switchTab('microsoftforms')">Microsoft Forms</button>
+            <button class="tab-btn" onclick="switchTab('redcap')">REDCap</button>
+            <button class="tab-btn" onclick="switchTab('zoho')">Zoho Survey</button>
+            <button class="tab-btn" onclick="switchTab('surveysparrow')">SurveySparrow</button>
+            <button class="tab-btn" onclick="switchTab('alchemer')">Alchemer</button>
+            <button class="tab-btn" onclick="switchTab('forsta')">Forsta</button>
+        </div>
+
+        <!-- ===== QUALTRICS ===== -->
+        <div class="platform-panel active" id="panel-qualtrics">
+            <div class="platform-header">
+                <div>
+                    <div class="platform-title">Qualtrics</div>
+                    <div class="platform-desc">Qualtrics supports two Pirai AI file types: QSF for a complete survey import, and Advanced Format (TXT/DOCX) for importing question content. Both use the same Tools &rarr; Import Survey path.</div>
+                </div>
+                <div class="platform-badges">
+                    <span class="method-tag method-upload">⬆ File Upload</span>
+                </div>
+            </div>
+
+            <!-- QSF -->
+            <div class="sub-section-title">Path 1: QSF Import</div>
+            <div class="file-callout">
+                <div class="fc-icon">📥</div>
+                <p><strong>Your Pirai AI file:</strong> Download the <strong>.qsf</strong> file from the platform. This creates a complete ready-to-use survey in your Qualtrics account.</p>
+            </div>
+            <ol class="steps-list">
+                <li><span class="step-num">1</span><span class="step-text">Log in to your Qualtrics account and navigate to the <strong>Survey</strong> tab of an existing or new project.</span></li>
+                <li><span class="step-num">2</span><span class="step-text">Click <strong>Tools</strong> in the top toolbar, then select <strong>Import Survey</strong> from the dropdown.</span></li>
+                <li><span class="step-num">3</span><span class="step-text">Click <strong>Browse</strong> and select your <code>.qsf</code> file downloaded from Pirai AI.</span></li>
+                <li><span class="step-num">4</span><span class="step-text">Click <strong>Import</strong>. Qualtrics will load the survey and all questions and structure will appear in the Survey editor.</span></li>
+                <li><span class="step-num">5</span><span class="step-text">Review the imported questions, add any logic or display conditions, then publish when ready.</span></li>
+            </ol>
+            <div class="warning-callout">
+                <div class="fc-icon">⚠️</div>
+                <p>Importing a QSF through the Survey tab creates a new survey in your account. It will not overwrite an existing survey. QSF import is not available for Employee Experience project types (Engagement, Lifecycle, 360, etc.).</p>
+            </div>
+
+            <!-- Advanced Format -->
+            <div class="sub-section">
+                <div class="sub-section-title">Path 2: Advanced Format (TXT / DOCX) Import</div>
+                <div class="file-callout">
+                    <div class="fc-icon">📥</div>
+                    <p><strong>Your Pirai AI file:</strong> Download the <strong>.txt</strong> or <strong>.docx</strong> Advanced Format file from the platform.</p>
+                </div>
+                <ol class="steps-list">
+                    <li><span class="step-num">1</span><span class="step-text">In Qualtrics, open the <strong>Survey</strong> tab and click <strong>Tools → Import Survey</strong>.</span></li>
+                    <li><span class="step-num">2</span><span class="step-text">Select your <code>.txt</code> or <code>.docx</code> Advanced Format file and click <strong>Import</strong>.</span></li>
+                    <li><span class="step-num">3</span><span class="step-text">Qualtrics will parse the question structure and populate the survey editor. Review all imported questions for accuracy.</span></li>
+                    <li><span class="step-num">4</span><span class="step-text">Configure any display logic, skip logic, or embedded data fields as needed, then publish.</span></li>
+                </ol>
+            </div>
+
+            <a href="https://www.qualtrics.com/support/survey-platform/survey-module/survey-tools/import-and-export-surveys/#ImportingASurvey" target="_blank" rel="noopener" class="official-docs">
+                📄 Qualtrics Official Import Documentation ↗
+            </a>
+        </div>
+
+        <!-- ===== QUESTIONPRO ===== -->
+        <div class="platform-panel" id="panel-questionpro">
+            <div class="platform-header">
+                <div>
+                    <div class="platform-title">QuestionPro</div>
+                    <div class="platform-desc">QuestionPro supports direct Word document import, allowing you to upload your Pirai AI converted file and have questions populated automatically.</div>
+                </div>
+                <div class="platform-badges">
+                    <span class="method-tag method-upload">⬆ File Upload</span>
+                </div>
+            </div>
+            <div class="file-callout">
+                <div class="fc-icon">📥</div>
+                <p><strong>Your Pirai AI file:</strong> Download the <strong>.docx</strong> Word document file from the platform.</p>
+            </div>
+            <ol class="steps-list">
+                <li><span class="step-num">1</span><span class="step-text">Log in to your QuestionPro account and go to the <strong>Surveys</strong> page.</span></li>
+                <li><span class="step-num">2</span><span class="step-text">Click <strong>New Survey</strong>, enter a survey name, and click <strong>Create Survey</strong>.</span></li>
+                <li><span class="step-num">3</span><span class="step-text">In the blank survey editor, expand the <strong>Add Question</strong> menu and select <strong>Add from MS Word</strong>.</span></li>
+                <li><span class="step-num">4</span><span class="step-text">On the pop-up, select your Pirai AI <code>.docx</code> file and click <strong>Import</strong>. QuestionPro will parse the document and create questions automatically.</span></li>
+                <li><span class="step-num">5</span><span class="step-text">Review all imported questions, adjust question types if needed, and configure any logic or branching before publishing.</span></li>
+            </ol>
+            <div class="warning-callout">
+                <div class="fc-icon">⚠️</div>
+                <p>The <strong>Add from MS Word</strong> option is only available for blank surveys. Make sure you start from a new, empty survey before attempting the import.</p>
+            </div>
+            <a href="https://www.questionpro.com/help/create-survey-word-template.html" target="_blank" rel="noopener" class="official-docs">
+                📄 QuestionPro Official Import Documentation ↗
+            </a>
+        </div>
+
+        <!-- ===== SURVEYMONKEY ===== -->
+        <div class="platform-panel" id="panel-surveymonkey">
+            <div class="platform-header">
+                <div>
+                    <div class="platform-title">SurveyMonkey</div>
+                    <div class="platform-desc">SurveyMonkey uses a copy-and-paste bulk question builder. You paste your formatted question content directly into the builder and SurveyMonkey creates the questions automatically.</div>
+                </div>
+                <div class="platform-badges">
+                    <span class="method-tag method-paste">📋 Copy &amp; Paste</span>
+                </div>
+            </div>
+            <div class="file-callout">
+                <div class="fc-icon">📥</div>
+                <p><strong>Your Pirai AI file:</strong> Download the <strong>.txt</strong> plain text file from the platform. Open it to copy the formatted question content.</p>
+            </div>
+            <ol class="steps-list">
+                <li><span class="step-num">1</span><span class="step-text">Open your Pirai AI <code>.txt</code> file, select all the content, and copy it.</span></li>
+                <li><span class="step-num">2</span><span class="step-text">In SurveyMonkey, click <strong>Create Survey</strong> and select <strong>Paste Your Content</strong>.</span></li>
+                <li><span class="step-num">3</span><span class="step-text">On the <strong>Import Questions</strong> screen, paste your copied content. Use the <strong>Preview</strong> section on the right to check how questions are being recognised in real time.</span></li>
+                <li><span class="step-num">4</span><span class="step-text">Once done, click <strong>Add Questions</strong> to create your survey. You can then give it a title, edit question types, and customise as needed.</span></li>
+            </ol>
+            <div class="warning-callout">
+                <div class="fc-icon">⚠️</div>
+                <p>SurveyMonkey's paste importer recognises <strong>Multiple Choice</strong> and <strong>Single Textbox</strong> question types. After import you can edit, switch question types, and add additional formatting directly in the survey editor.</p>
+            </div>
+            <a href="https://help.surveymonkey.com/en/surveymonkey/create/copy-paste-questions/#create" target="_blank" rel="noopener" class="official-docs">
+                📄 SurveyMonkey Official Import Documentation ↗
+            </a>
+        </div>
+
+        <!-- ===== GOOGLE FORMS ===== -->
+        <div class="platform-panel" id="panel-googleforms">
+            <div class="platform-header">
+                <div>
+                    <div class="platform-title">Google Forms</div>
+                    <div class="platform-desc">Google Forms does not support direct file import. Pirai AI generates a Google Apps Script file that automates the creation of your entire form. Open the Apps Script editor, paste the script, and run it to build your form automatically.</div>
+                </div>
+                <div class="platform-badges">
+                    <span class="method-tag method-script">⚙ Apps Script</span>
+                </div>
+            </div>
+            <div class="file-callout">
+                <div class="fc-icon">📥</div>
+                <p><strong>Your Pirai AI file:</strong> Download the <strong>.txt</strong> file from the platform. It contains the complete Apps Script code pre-populated with all your survey questions and answer options.</p>
+            </div>
+            <div class="warning-callout">
+                <div class="fc-icon">⚠️</div>
+                <p>You will need a Google account to access Apps Script. The script creates a new Google Form automatically when executed. No manual question entry is required.</p>
+            </div>
+            <ol class="steps-list">
+                <li><span class="step-num">1</span><span class="step-text">Open your Pirai AI <code>.txt</code> file and select all the script content, then copy it.</span></li>
+                <li><span class="step-num">2</span><span class="step-text">Open an existing Google Form or create a blank one at <strong>forms.google.com</strong>.</span></li>
+                <li><span class="step-num">3</span><span class="step-text">Click the <strong>three-dot menu (⁝)</strong> in the top-right corner of the form and select <strong>Apps Script</strong>.</span></li>
+                <li><span class="step-num">4</span><span class="step-text">The Apps Script editor will open. Delete any existing default code in the editor, then paste your copied script.</span></li>
+                <li><span class="step-num">5</span><span class="step-text">Click <strong>Save</strong> (disk icon), then click <strong>Run</strong> (play button) to execute the script.</span></li>
+                <li><span class="step-num">6</span><span class="step-text">When prompted, grant the necessary permissions for the script to access Google Forms on your behalf.</span></li>
+                <li><span class="step-num">7</span><span class="step-text">Return to your Google Form. All questions and answer options will have been created automatically.</span></li>
+            </ol>
+        </div>
+
+        <!-- ===== MICROSOFT FORMS ===== -->
+        <div class="platform-panel" id="panel-microsoftforms">
+            <div class="platform-header">
+                <div>
+                    <div class="platform-title">Microsoft Forms</div>
+                    <div class="platform-desc">Microsoft Forms has a native convert feature that imports Word or PDF documents directly and builds the form from your question content.</div>
+                </div>
+                <div class="platform-badges">
+                    <span class="method-tag method-upload">⬆ File Upload</span>
+                </div>
+            </div>
+            <div class="file-callout">
+                <div class="fc-icon">📥</div>
+                <p><strong>Your Pirai AI file:</strong> Download the <strong>.docx</strong> Word document file from the platform.</p>
+            </div>
+            <ol class="steps-list">
+                <li><span class="step-num">1</span><span class="step-text">Go to <strong>forms.office.com</strong> and sign in with your Microsoft account.</span></li>
+                <li><span class="step-num">2</span><span class="step-text">Select <strong>Quick Import</strong> then <strong>Upload from this device</strong>.</span></li>
+                <li><span class="step-num">3</span><span class="step-text">Select your Pirai AI <code>.docx</code> file from your device and choose <strong>Form</strong> or <strong>Quiz</strong> depending on your use case.</span></li>
+                <li><span class="step-num">4</span><span class="step-text">Microsoft Forms will convert the file. The new form is autosaved under <strong>Recent</strong> and <strong>My Forms</strong> with the same title as the original document.</span></li>
+                <li><span class="step-num">5</span><span class="step-text">When conversion is complete, select <strong>Start Review</strong> to check the results. Three types of feedback may appear: <strong>Missing content</strong>, <strong>Uncertain conversion</strong>, and <strong>Unsupported question type</strong>.</span></li>
+                <li><span class="step-num">6</span><span class="step-text">For each flagged item, select the highlighted issue, resolve it, and click <strong>Resolved</strong>. Once all issues are addressed your form is ready to share.</span></li>
+            </ol>
+            <div class="warning-callout">
+                <div class="fc-icon">⚠️</div>
+                <p>Microsoft Forms only supports <strong>Multiple Choice</strong> and <strong>Open Text</strong> question types on import. File size limit is 10MB. This feature is not available for US Government Cloud accounts.</p>
+            </div>
+            <a href="https://support.microsoft.com/en-au/office/convert-a-word-or-pdf-form-or-quiz-to-microsoft-forms-66b7e9bc-eb0d-4c65-b7e6-f9f92dcd71cb" target="_blank" rel="noopener" class="official-docs">
+                📄 Microsoft Official Import Documentation ↗
+            </a>
+        </div>
+
+        <!-- ===== REDCAP ===== -->
+        <div class="platform-panel" id="panel-redcap">
+            <div class="platform-header">
+                <div>
+                    <div class="platform-title">REDCap</div>
+                    <div class="platform-desc">REDCap uses a Data Dictionary CSV upload to populate a project with fields and instruments. Pirai AI exports a CSV in the correct REDCap Data Dictionary format, ready to upload directly into a new project.</div>
+                </div>
+                <div class="platform-badges">
+                    <span class="method-tag method-upload">⬆ File Upload</span>
+                </div>
+            </div>
+            <div class="file-callout">
+                <div class="fc-icon">📥</div>
+                <p><strong>Your Pirai AI file:</strong> Download the <strong>REDCap Data Dictionary .csv</strong> file from the platform.</p>
+            </div>
+
+            <div class="sub-section-title">Step 1: Create a New Project</div>
+            <ol class="steps-list">
+                <li><span class="step-num">1</span><span class="step-text">Log in to REDCap and click <strong>New Project</strong> from the top menu.</span></li>
+                <li><span class="step-num">2</span><span class="step-text">On the Create a New REDCap Project screen, enter a <strong>Project Title</strong> and select the <strong>Purpose</strong> from the dropdown.</span></li>
+                <li><span class="step-num">3</span><span class="step-text">Under Project Creation Option, ensure <strong>Empty project (blank slate)</strong> is selected.</span></li>
+                <li><span class="step-num">4</span><span class="step-text">Click <strong>Create Project</strong>.</span></li>
+            </ol>
+            <div class="warning-callout">
+                <div class="fc-icon">⚠️</div>
+                <p>You must have permission to create projects in REDCap. If you do not have this access, contact your REDCap administrator. If you selected Research as the project purpose, complete all required fields before proceeding.</p>
+            </div>
+
+            <div class="sub-section">
+                <div class="sub-section-title">Step 2: Upload the Data Dictionary</div>
+                <ol class="steps-list">
+                    <li><span class="step-num">1</span><span class="step-text">On the <strong>Project Setup</strong> tab, under <strong>Design your data collection instruments</strong>, click the <strong>Data Dictionary</strong> button.</span></li>
+                    <li><span class="step-num">2</span><span class="step-text">On the Data Dictionary tab, under <strong>Upload your Data Dictionary file (CSV file format only)</strong>, confirm the correct <strong>Format for min/max validation values for date and datetime fields</strong> is selected from the dropdown.</span></li>
+                    <li><span class="step-num">3</span><span class="step-text">Click <strong>Choose File</strong>, browse to your Pirai AI <code>.csv</code> file, and select it. Click <strong>Open</strong>.</span></li>
+                    <li><span class="step-num">4</span><span class="step-text">Click <strong>Upload File</strong>. REDCap will validate the file and display a summary of the fields to be imported.</span></li>
+                    <li><span class="step-num">5</span><span class="step-text">Review the upload summary carefully. If no errors are shown, click <strong>Commit Changes</strong> to apply the Data Dictionary to your project.</span></li>
+                    <li><span class="step-num">6</span><span class="step-text">Once committed, you will see a <strong>Changes Made Successfully</strong> confirmation. From here you can go to the <strong>Online Designer</strong> to review instruments or continue in <strong>Project Setup</strong>.</span></li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- ===== ZOHO SURVEY ===== -->
+        <div class="platform-panel" id="panel-zoho">
+            <div class="platform-header">
+                <div>
+                    <div class="platform-title">Zoho Survey</div>
+                    <div class="platform-desc">Zoho Survey supports direct Word document import. Upload your file and Zoho automatically assigns question types and populates all answer options.</div>
+                </div>
+                <div class="platform-badges">
+                    <span class="method-tag method-upload">⬆ File Upload</span>
+                </div>
+            </div>
+            <div class="file-callout">
+                <div class="fc-icon">📥</div>
+                <p><strong>Your Pirai AI file:</strong> Download the <strong>.docx</strong> or <strong>.txt</strong> file from the platform.</p>
+            </div>
+            <ol class="steps-list">
+                <li><span class="step-num">1</span><span class="step-text">Log in to Zoho Survey and click <strong>Create Survey</strong>.</span></li>
+                <li><span class="step-num">2</span><span class="step-text">From the creation options, select <strong>Import Survey</strong>.</span></li>
+                <li><span class="step-num">3</span><span class="step-text">Choose <strong>Import Document</strong> and upload your Pirai AI <code>.docx</code> or <code>.txt</code> file.</span></li>
+                <li><span class="step-num">4</span><span class="step-text">Zoho Survey will parse the document, automatically detect question types, and build your survey.</span></li>
+                <li><span class="step-num">5</span><span class="step-text">Review the imported survey in the builder, customise question types or formatting as needed, and launch when ready.</span></li>
+            </ol>
+            <a href="https://www.zoho.com/survey/import-survey.html" target="_blank" rel="noopener" class="official-docs">
+                📄 Zoho Survey Official Import Documentation ↗
+            </a>
+        </div>
+
+        <!-- ===== SURVEYSPARROW ===== -->
+        <div class="platform-panel" id="panel-surveysparrow">
+            <div class="platform-header">
+                <div>
+                    <div class="platform-title">SurveySparrow</div>
+                    <div class="platform-desc">SurveySparrow uses a bulk question builder where you paste formatted question content. The platform auto-detects question types and answer choices from your pasted text.</div>
+                </div>
+                <div class="platform-badges">
+                    <span class="method-tag method-paste">📋 Copy &amp; Paste</span>
+                </div>
+            </div>
+            <div class="file-callout">
+                <div class="fc-icon">📥</div>
+                <p><strong>Your Pirai AI file:</strong> Download the <strong>.txt</strong> plain text file from the platform. Open it to copy the formatted question content.</p>
+            </div>
+            <ol class="steps-list">
+                <li><span class="step-num">1</span><span class="step-text">Log in to SurveySparrow and create a new survey.</span></li>
+                <li><span class="step-num">2</span><span class="step-text">Inside the survey builder, locate the <strong>Bulk Add Questions</strong> or automated formatting option.</span></li>
+                <li><span class="step-num">3</span><span class="step-text">Open your Pirai AI <code>.txt</code> file, select all the content, and copy it.</span></li>
+                <li><span class="step-num">4</span><span class="step-text">Paste the content into the bulk question field. SurveySparrow will automatically structure the question types and answer choices.</span></li>
+                <li><span class="step-num">5</span><span class="step-text">Review all generated questions for accuracy, make any adjustments, and publish your survey.</span></li>
+            </ol>
+            <a href="https://support.surveysparrow.com/hc/en/articles/15949811325725-Generate-Bulk-Questions-with-Automated-Formatting" target="_blank" rel="noopener" class="official-docs">
+                📄 SurveySparrow Official Documentation ↗
+            </a>
+        </div>
+
+        <!-- ===== ALCHEMER ===== -->
+        <div class="platform-panel" id="panel-alchemer">
+            <div class="platform-header">
+                <div>
+                    <div class="platform-title">Alchemer</div>
+                    <div class="platform-desc">Alchemer uses a paste-based Word import with specific syntax formatting. Pirai AI generates content in Alchemer-compatible syntax. Paste the content directly into the importer to build your survey.</div>
+                </div>
+                <div class="platform-badges">
+                    <span class="method-tag method-paste">📋 Copy &amp; Paste</span>
+                </div>
+            </div>
+            <div class="file-callout">
+                <div class="fc-icon">📥</div>
+                <p><strong>Your Pirai AI file:</strong> Download the <strong>.txt</strong> Alchemer-formatted file from the platform.</p>
+            </div>
+            <ol class="steps-list">
+                <li><span class="step-num">1</span><span class="step-text">Log in to Alchemer and click <strong>Create Survey</strong> on your dashboard.</span></li>
+                <li><span class="step-num">2</span><span class="step-text">Give your survey a name and select <strong>Import from Word</strong>.</span></li>
+                <li><span class="step-num">3</span><span class="step-text">Open your Pirai AI <code>.txt</code> file, select all the content, and copy it.</span></li>
+                <li><span class="step-num">4</span><span class="step-text">Paste the content into the Alchemer import field and click <strong>Start Building</strong>.</span></li>
+                <li><span class="step-num">5</span><span class="step-text">Alchemer will create your survey. Review all questions and make any final adjustments before publishing.</span></li>
+            </ol>
+            <div class="warning-callout">
+                <div class="fc-icon">⚠️</div>
+                <p>Alchemer's importer uses specific syntax: radio buttons require <code>()</code> formatting and new pages use <code>::NewPage::</code>. Pirai AI generates content in the correct Alchemer syntax automatically.</p>
+            </div>
+            <a href="https://help.alchemer.com/help/import-from-word" target="_blank" rel="noopener" class="official-docs">
+                📄 Alchemer Official Import Documentation ↗
+            </a>
+        </div>
+
+        <div class="platform-panel" id="panel-forsta">
+            <div class="platform-header">
+                <div>
+                    <div class="platform-title">Forsta</div>
+                    <div class="platform-desc">Pirai AI supports three Forsta file formats: bConvert (.txt), Word (.docx), and XML (.xml). Each uses a slightly different import path in the Forsta portal.</div>
+                </div>
+                <div class="platform-badges">
+                    <span class="method-tag method-upload">⬆ File Upload</span>
+                </div>
+            </div>
+
+            <!-- bConvert -->
+            <div class="sub-section-title">Path 1: bConvert (.txt)</div>
+            <div class="file-callout">
+                <div class="fc-icon">📥</div>
+                <p><strong>Your Pirai AI file:</strong> Download the <strong>bConvert .txt</strong> file from the platform.</p>
+            </div>
+            <ol class="steps-list">
+                <li><span class="step-num">1</span><span class="step-text">In the Forsta portal, click <strong>New Survey</strong>.</span></li>
+                <li><span class="step-num">2</span><span class="step-text">In the New Survey window, click <strong>More Options</strong> and select <strong>Import File</strong>.</span></li>
+                <li><span class="step-num">3</span><span class="step-text">Drag and drop your <code>.txt</code> bConvert file into the box, or click <strong>Browse</strong> to locate the file on your device.</span></li>
+                <li><span class="step-num">4</span><span class="step-text">Scroll down, enter a project name, and click <strong>Create Survey</strong>.</span></li>
+                <li><span class="step-num">5</span><span class="step-text">Once uploaded successfully you will be redirected to the Survey Editor where you can review and edit your survey.</span></li>
+            </ol>
+
+            <!-- Word -->
+            <div class="sub-section">
+                <div class="sub-section-title">Path 2: Word Document (.docx)</div>
+                <div class="file-callout">
+                    <div class="fc-icon">📥</div>
+                    <p><strong>Your Pirai AI file:</strong> Download the <strong>Forsta Word .docx</strong> file from the platform.</p>
+                </div>
+                <div class="warning-callout">
+                    <div class="fc-icon">⚠️</div>
+                    <p>You must have <strong>survey:build</strong> permissions to access the Word Importer. The Word Importer is only available when creating a new survey.</p>
+                </div>
+                <ol class="steps-list">
+                    <li><span class="step-num">1</span><span class="step-text">In the Forsta portal, click <strong>New Survey</strong>.</span></li>
+                    <li><span class="step-num">2</span><span class="step-text">In the New Survey menu, click the <strong>Start with Word</strong> tile.</span></li>
+                    <li><span class="step-num">3</span><span class="step-text">Drag and drop your <code>.docx</code> file into the file field, or click <strong>Browse</strong> to upload it from your device.</span></li>
+                    <li><span class="step-num">4</span><span class="step-text">Enter a name for your survey, then click <strong>Survey Options</strong> to configure language, Portal, and URL settings if needed.</span></li>
+                    <li><span class="step-num">5</span><span class="step-text">Click <strong>Create Survey</strong> to build your survey from the Word document.</span></li>
+                </ol>
+            </div>
+
+            <!-- XML -->
+            <div class="sub-section">
+                <div class="sub-section-title">Path 3: Forsta XML (.xml)</div>
+                <div class="file-callout">
+                    <div class="fc-icon">📥</div>
+                    <p><strong>Your Pirai AI file:</strong> Download the <strong>Forsta XML .xml</strong> file from the platform.</p>
+                </div>
+                <ol class="steps-list">
+                    <li><span class="step-num">1</span><span class="step-text">In the Forsta portal, click <strong>New Survey</strong>.</span></li>
+                    <li><span class="step-num">2</span><span class="step-text">In the New Survey window, click <strong>More Options</strong> and select <strong>Import File</strong>.</span></li>
+                    <li><span class="step-num">3</span><span class="step-text">Drag and drop your <code>.xml</code> file into the box, or click <strong>Browse</strong> to locate the file on your device.</span></li>
+                    <li><span class="step-num">4</span><span class="step-text">Scroll down, enter a project name, and click <strong>Create Survey</strong>. The upload may take a few minutes for larger files.</span></li>
+                    <li><span class="step-num">5</span><span class="step-text">Once complete you will be redirected to the Survey Editor. If any elements were flagged, a <strong>survey load error</strong> will appear. Click <strong>Fix XML</strong> to review and resolve.</span></li>
+                    <li><span class="step-num">6</span><span class="step-text">Use the system <strong>warning tags</strong> to guide you through any required updates, then publish when all warnings are cleared.</span></li>
+                </ol>
+                <div class="warning-callout">
+                    <div class="fc-icon">⚠️</div>
+                    <p>Forsta Plus XML import requires <strong>v18 or later</strong> files. Older versions will not be converted and will prompt a system error. XML files will include language translations where applicable.</p>
+                </div>
+            </div>
+
+            <a href="https://forstasurveys.zendesk.com/hc/en-us/articles/4409469922331-Survey-Importer" target="_blank" rel="noopener" class="official-docs">
+                📄 Forsta Official Import Documentation ↗
+            </a>
+        </div>
+
+        <!-- CTA -->
+        <div class="platform-cta">
+            <div class="platform-cta-text">
+                <h3>Haven't converted your survey yet?</h3>
+                <p>Upload your file (DOCX, PDF, TXT, XLSX, CSV, QSF, XML, JSON) or paste your questionnaire directly. Get a platform-ready file in minutes.</p>
+            </div>
+            <div class="platform-cta-buttons">
+                <a href="https://platform.piraiai.com" target="_blank" rel="noopener" class="btn-primary">Open Platform →</a>
+                <a href="/docs" class="btn-secondary">View All Docs</a>
+            </div>
+        </div>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="sidebar-section">
+            <h3>In This Guide</h3>
+            <ul class="toc-list">
+                <li>
+                    <a href="#quick-reference">
+                        <span class="toc-icon">→</span>
+                        Quick Reference Table
+                    </a>
+                </li>
+                <div class="toc-divider"></div>
+                <li>
+                    <a href="#platform-steps" onclick="switchTab('qualtrics')">
+                        <span class="toc-icon">→</span>
+                        Qualtrics
+                    </a>
+                </li>
+                <li>
+                    <a href="#platform-steps" onclick="switchTab('questionpro')">
+                        <span class="toc-icon">→</span>
+                        QuestionPro
+                    </a>
+                </li>
+                <li>
+                    <a href="#platform-steps" onclick="switchTab('surveymonkey')">
+                        <span class="toc-icon">→</span>
+                        SurveyMonkey
+                    </a>
+                </li>
+                <li>
+                    <a href="#platform-steps" onclick="switchTab('googleforms')">
+                        <span class="toc-icon">→</span>
+                        Google Forms
+                    </a>
+                </li>
+                <li>
+                    <a href="#platform-steps" onclick="switchTab('microsoftforms')">
+                        <span class="toc-icon">→</span>
+                        Microsoft Forms
+                    </a>
+                </li>
+                <li>
+                    <a href="#platform-steps" onclick="switchTab('redcap')">
+                        <span class="toc-icon">→</span>
+                        REDCap
+                    </a>
+                </li>
+                <li>
+                    <a href="#platform-steps" onclick="switchTab('zoho')">
+                        <span class="toc-icon">→</span>
+                        Zoho Survey
+                    </a>
+                </li>
+                <li>
+                    <a href="#platform-steps" onclick="switchTab('surveysparrow')">
+                        <span class="toc-icon">→</span>
+                        SurveySparrow
+                    </a>
+                </li>
+                <li>
+                    <a href="#platform-steps" onclick="switchTab('alchemer')">
+                        <span class="toc-icon">→</span>
+                        Alchemer
+                    </a>
+                </li>
+                <li>
+                    <a href="#platform-steps" onclick="switchTab('forsta')">
+                        <span class="toc-icon">→</span>
+                        Forsta
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="cta-box">
+            <h3>Try Pirai AI Now</h3>
+            <p>Convert your survey document to any of these platforms in minutes.</p>
+            <a href="https://platform.piraiai.com" target="_blank" rel="noopener" class="cta-button">Open Platform →</a>
+        </div>
+
+        <div class="support-box">
+            <h3>🆘 Need help?</h3>
+            <p>Can't find your platform or having trouble with the import? Our team is here to help.</p>
+            <a href="/docs" class="support-link">← Back to All Docs</a>
+        </div>
+
+    </aside>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p>
+</footer>
+
+<script>
+    function switchTab(platform) {
+        // Update buttons
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        const buttons = document.querySelectorAll('.tab-btn');
+        const platformMap = ['qualtrics','questionpro','surveymonkey','googleforms','microsoftforms','redcap','zoho','surveysparrow','alchemer','forsta'];
+        const idx = platformMap.indexOf(platform);
+        if (idx > -1) buttons[idx].classList.add('active');
+
+        // Update panels
+        document.querySelectorAll('.platform-panel').forEach(p => p.classList.remove('active'));
+        const panel = document.getElementById('panel-' + platform);
+        if (panel) panel.classList.add('active');
+
+        // Scroll to steps section
+        document.getElementById('platform-steps').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+</script>
+
+</body>
+</html>

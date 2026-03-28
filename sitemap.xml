@@ -227,7 +227,14 @@
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
     <lastmod>2026-02-21</lastmod>
-  </url>       
+  </url>      
+  <url>
+    <loc>https://piraiai.com/docs/import-guide</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-03-28</lastmod>
+  </url>  
+
   <!-- SPECIALIZED TOOLS - Medium-high priority -->
   <url>
     <loc>https://piraiai.com/qsf-to-excel</loc>
