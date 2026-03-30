@@ -691,6 +691,46 @@
                 <p>When a transaction field is marked <strong>Yes</strong>, it becomes available as <code>${tr://Field/field_name}</code> in all subsequent workflow tasks including email personalisation, conditional branches, web service calls. If a downstream task is failing unexpectedly, check this column first. A field used in an email template that was not marked Make Piped Text will silently fail.</p>
             </div>
 
+            <!-- ===================== COMPARING ENVIRONMENTS ===================== -->
+            <h2 id="comparing-environments">Comparing Across Environments (Dev, Test, and Prod)</h2>
+
+            <p>One of the most powerful use cases for these CSV exports is comparing XM Directory Contacts task configurations across Qualtrics environments before deployment. Configuration drift between Dev, Test, and Prod is one of the most common causes of workflow failures that are difficult to diagnose.</p>
+
+            <div class="step-box">
+                <span class="step-number">1</span>
+                <h4>Extract from Development Environment</h4>
+                <p>Run both scripts in your Dev environment and download both CSVs. Save them as <code>xm_contact_mappings_DEV.csv</code> and <code>xm_transaction_mappings_DEV.csv</code>.</p>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">2</span>
+                <h4>Extract from Test Environment</h4>
+                <p>Repeat the process in Test and save as <code>xm_contact_mappings_TEST.csv</code> and <code>xm_transaction_mappings_TEST.csv</code>.</p>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">3</span>
+                <h4>Extract from Production Environment</h4>
+                <p>Extract from Prod and save as <code>xm_contact_mappings_PROD.csv</code> and <code>xm_transaction_mappings_PROD.csv</code>.</p>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">4</span>
+                <h4>Compare with Pirai AI CSV Comparator</h4>
+                <p>Upload two CSV files to the <a href="/pirai-csv-comparator">Pirai AI CSV Comparator</a> to instantly identify mismatches. The tool shows differences row by row so you can spot missing fields, Make Piped Text status changes, XM Directory field name discrepancies, and source field mismatches without needing Excel or any external service. Your data stays in the browser.</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Common configuration drift patterns</h4>
+                <ul>
+                    <li><strong>Missing contact fields</strong> : a source field mapped in Dev but absent in Prod</li>
+                    <li><strong>Make Piped Text changes</strong> : a transaction field marked Yes in Dev but No in Prod, breaking downstream email personalisation</li>
+                    <li><strong>XM Directory field name discrepancies</strong> : field renamed between environments without documentation</li>
+                    <li><strong>Source field name differences</strong> : casing or piped text syntax differences between environments</li>
+                    <li><strong>Index order differences</strong> : fields in a different sequence, which can affect downstream processing</li>
+                </ul>
+            </div>
+
             <!-- ===================== TROUBLESHOOTING ===================== -->
             <h2 id="troubleshooting">Troubleshooting</h2>
 
@@ -820,6 +860,7 @@
                     <li><a href="#part-2">Part 2: Transaction Mappings</a></li>
                     <li class="toc-indent"><a href="#part-2">Steps 6–8</a></li>
                     <li><a href="#understanding-output">Understanding Output</a></li>
+                    <li><a href="#comparing-environments">Comparing Environments</a></li>
                     <li><a href="#troubleshooting">Troubleshooting</a></li>
                     <li><a href="#advanced-usage">Advanced Usage</a></li>
                 </ul>

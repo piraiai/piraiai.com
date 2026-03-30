@@ -1162,6 +1162,45 @@
                 <li>Different field names if sources use different naming conventions</li>
             </ul>
 
+            <h2 id="comparing-environments">Comparing Across Environments (Dev, Test, and Prod)</h2>
+
+            <p>One of the most powerful use cases for your extracted CSV is comparing Dashboard Data field mapping configurations across Qualtrics environments. Configuration drift between Dev, Test, and Prod is one of the most common causes of dashboard data issues that are difficult to trace.</p>
+
+            <div class="step-box">
+                <span class="step-number">1</span>
+                <h4>Extract from Development Environment</h4>
+                <p>Run the script in your Dev environment and download the CSV. Save it as <code>dashboard_field_mappings_DEV.csv</code>.</p>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">2</span>
+                <h4>Extract from Test Environment</h4>
+                <p>Repeat the process in Test and save as <code>dashboard_field_mappings_TEST.csv</code>.</p>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">3</span>
+                <h4>Extract from Production Environment</h4>
+                <p>Extract from Prod and save as <code>dashboard_field_mappings_PROD.csv</code>.</p>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">4</span>
+                <h4>Compare with Pirai AI CSV Comparator</h4>
+                <p>Upload two CSV files to the <a href="/pirai-csv-comparator">Pirai AI CSV Comparator</a> to instantly identify mismatches. The tool shows differences row by row so you can spot missing fields, field type changes, unmapped sources, and naming discrepancies without needing Excel or any external service. Your data stays in the browser.</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Common configuration drift patterns</h4>
+                <ul>
+                    <li><strong>Missing fields</strong> : a field mapped in Dev but absent in Prod</li>
+                    <li><strong>Field type mismatches</strong> : Date in Dev, Text Set in Prod for the same field</li>
+                    <li><strong>Unmapped sources</strong> : a data source mapped in one environment but showing "Not mapped" in another</li>
+                    <li><strong>Field name discrepancies</strong> : naming differences between environments causing broken dashboard widgets</li>
+                    <li><strong>Index order differences</strong> : fields in a different sequence, which can affect dashboard display logic</li>
+                </ul>
+            </div>
+
             <h2 id="troubleshooting">Troubleshooting</h2>
 
             <div class="troubleshooting-box">
@@ -1259,6 +1298,7 @@
                     <li><a href="#why-extract">Why Extract Field Mappings?</a></li>
                     <li><a href="#how-to-extract">How to Extract</a></li>
                     <li><a href="#understanding-output">Understanding Output</a></li>
+                    <li><a href="#comparing-environments">Comparing Environments</a></li>
                     <li><a href="#troubleshooting">Troubleshooting</a></li>
                     <li><a href="#advanced-usage">Advanced Usage</a></li>
                     <li><a href="#use-cases">Use Cases</a></li>
