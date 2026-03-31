@@ -736,7 +736,24 @@
             border-color: rgba(255, 255, 255, 0.3);
             background: rgba(255, 255, 255, 0.05);
         }
-        
+        /* Hero Trust Badge — No AI Training */
+        .hero-trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 16px 0 20px 0;
+            padding: 10px 16px;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 8px;
+            max-width: 600px;
+        }
+        .hero-trust-badge .badge-icon { font-size: 15px; flex-shrink: 0; }
+        .hero-trust-badge .badge-text { font-size: 13px; color: #c4b5fd; font-weight: 500; line-height: 1.4; }
+        .hero-trust-badge .badge-text strong { color: #ffffff; font-weight: 600; }
+        .hero-trust-badge .badge-link { font-size: 12px; color: #8b5cf6; text-decoration: none; white-space: nowrap; border-left: 1px solid rgba(139, 92, 246, 0.3); padding-left: 10px; margin-left: 4px; transition: color 0.2s; }
+        .hero-trust-badge .badge-link:hover { color: #c4b5fd; }        
+                
         /* Features Section */
         .features {
             padding: 80px 0;
@@ -3989,7 +4006,10 @@
                         <a href="https://platform.piraiai.com" class="btn-primary">Convert Now</a>
                         <a href="#platforms" class="btn-secondary">View Supported Platforms</a>
                     </div>
-
+                    <div class="hero-trust-badge">                        
+                        <span class="badge-text"><strong>Your documents are never used to train AI models.</strong> We process your content to convert it — nothing more.</span>
+                        <a href="/privacy#ai-data-use" class="badge-link">Learn more →</a>
+                    </div>
                     <div class="hero-highlight">
                         <h3>Perfect Starting Point</h3>
                         <p>Pirai AI handles tedious data entry and format conversion in any language. You focus on strategic elements — logic flows, advanced features, and platform-specific optimizations.</p>
