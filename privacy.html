@@ -304,6 +304,91 @@
             font-size: 14px;
         }
         
+        /* Section 1.4 — AI No Training Box */
+        .ai-no-training-box {
+            position: relative;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.07));
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin: 28px 0;
+            overflow: hidden;
+        }
+
+        .ai-no-training-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #8b5cf6, #3b82f6);
+        }
+
+        .ai-no-training-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .ai-no-training-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, #8b5cf6, #3b82f6);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .ai-no-training-box h3 {
+            font-size: 18px !important;
+            color: #c4b5fd !important;
+            margin: 0 !important;
+        }
+
+        .ai-no-training-commitment {
+            font-size: 15px;
+            color: #e5e7eb;
+            line-height: 1.7;
+            margin-bottom: 22px;
+            padding: 14px 18px;
+            background: rgba(139, 92, 246, 0.09);
+            border-radius: 8px;
+            border-left: 3px solid #8b5cf6;
+        }
+
+        .ai-no-training-list {
+            list-style: none !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        .ai-no-training-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 11px 0;
+            border-bottom: 1px solid rgba(55, 65, 81, 0.4);
+            color: #d1d5db;
+            line-height: 1.6;
+            margin: 0 !important;
+        }
+
+        .ai-no-training-list li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .ai-check {
+            color: #a78bfa;
+            font-weight: 700;
+            font-size: 14px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
@@ -360,7 +445,7 @@
             <div class="page-header">
                 <h1 class="page-title">Privacy Policy</h1>
                 <p class="page-subtitle">Your privacy and data security are our top priorities</p>
-                <p class="last-updated">Last updated: June 17, 2025</p>
+                <p class="last-updated">Last updated: March 31, 2026</p>
             </div>
 
             <div class="content-card">
@@ -394,6 +479,36 @@
                     <li><strong>Document Files:</strong> Word documents, survey specifications, exported files</li>
                     <li><strong>Generated Content:</strong> AI-processed survey formats, automated outputs</li>
                 </ul>
+
+                <!-- Section 1.4 — AI Training Policy (added March 2026) -->
+                <div class="ai-no-training-box">
+                    <div class="ai-no-training-header">
+                        <div class="ai-no-training-icon">🔒</div>
+                        <h3>1.4 How Your Documents Are Used — And What We Don't Do</h3>
+                    </div>
+                    <p class="ai-no-training-commitment">
+                        When you upload a document to Pirai AI, it is used for one purpose only: to convert it into your target survey format. Your documents are <strong>never</strong> used to train, fine-tune, or improve any AI model.
+                    </p>
+                    <ul class="ai-no-training-list">
+                        <li>
+                            <span class="ai-check">✓</span>
+                            <div><strong>Your document is processed, not stored for training.</strong> When you upload a Word, PDF, or Excel file, our AI reads and structures its content into a standardised Excel format, which is then used to generate your survey platform output. That is the full extent of how your document is used.</div>
+                        </li>
+                        <li>
+                            <span class="ai-check">✓</span>
+                            <div><strong>No AI model learns from your content.</strong> Pirai AI processes documents through the OpenAI API. Our OpenAI organisation has all data-sharing controls explicitly disabled, which means your questionnaire content, survey logic, and uploaded files are excluded from any model training or improvement programmes at the API level.</div>
+                        </li>
+                        <li>
+                            <span class="ai-check">✓</span>
+                            <div><strong>Your intellectual property stays yours.</strong> Your survey instruments, research design, and questionnaire logic belong entirely to you. We make no claim over them and use them only to deliver your conversion.</div>
+                        </li>
+                        <li>
+                            <span class="ai-check">✓</span>
+                            <div><strong>No respondent data, ever.</strong> We process only the documents you upload. We have no access to survey responses or participant data at any point.</div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- End Section 1.4 -->
 
                 <h2>2. How We Use Your Information</h2>
 
@@ -545,11 +660,12 @@
                         <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M23.498 6.186a2.87 2.87 0 0 0-2.02-2.034C19.65 3.74 12 3.74 12 3.74s-7.65 0-9.478.412A2.87 2.87 0 0 0 .502 6.186C.088 8.02.088 12 .088 12s0 3.98.414 5.814a2.87 2.87 0 0 0 2.02 2.034C4.35 20.26 12 20.26 12 20.26s7.65 0 9.478-.412a2.87 2.87 0 0 0 2.02-2.034C23.912 15.98 23.912 12 23.912 12s0-3.98-.414-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                         </svg>
-                    </a>                        
+                    </a>                    
 					<span style="color: #6b7280; font-size: 12px;">Follow our journey</span>
 				</div>
 			</div>
 		</div>
 	</footer>
+
 </body>
 </html>
