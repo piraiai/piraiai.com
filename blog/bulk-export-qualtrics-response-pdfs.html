@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulk Export Qualtrics Individual Response Reports to PDF - Pirai AI</title>
+    <meta name="description" content="Free browser script to bulk export all Qualtrics individual response reports to PDF in one go. Three-stage workflow: queue, download, and clean up. No installation required.">
+    <meta name="keywords" content="Qualtrics bulk PDF export, download all Qualtrics responses PDF, Qualtrics response report export, Qualtrics Data Analytics PDF, Qualtrics browser script, Qualtrics automation, bulk download Qualtrics PDFs">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://piraiai.com/blog/bulk-export-qualtrics-response-pdfs">
+    <meta property="og:title" content="Bulk Export Qualtrics Individual Response Reports to PDF">
+    <meta property="og:description" content="Stop clicking Export to PDF one response at a time. This free three-stage browser script queues, downloads, and cleans up all your Qualtrics response PDFs automatically.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="og:site_name" content="Pirai AI Blog">
+    <meta property="article:published_time" content="2026-03-31T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta property="article:section" content="Tutorial">
+    <meta property="article:tag" content="Qualtrics">
+    <meta property="article:tag" content="PDF Export">
+    <meta property="article:tag" content="Workflow Automation">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://piraiai.com/blog/bulk-export-qualtrics-response-pdfs">
+    <meta name="twitter:title" content="Bulk Export Qualtrics Individual Response Reports to PDF">
+    <meta name="twitter:description" content="Free browser script to bulk export all Qualtrics individual response reports to PDF. No installation, no API key required.">
+    <meta name="twitter:image" content="https://piraiai.com/logo.png">
+
+    <link rel="canonical" href="https://piraiai.com/blog/bulk-export-qualtrics-response-pdfs">
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://piraiai.com/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        /* Header */
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        header nav { display: flex; gap: 32px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; transition: color 0.2s; }
+        header nav a:hover { color: #9B6BFF; }
+
+        /* Breadcrumb */
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; transition: color 0.2s; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+
+        /* Hero */
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+
+        /* Content Wrapper */
+        .content-wrapper { max-width: 1200px; margin: 48px auto; padding: 0 24px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+
+        /* Article Content */
+        .article-content { max-width: 680px; overflow-x: hidden; }
+        .article-content p { font-size: 18px; color: #374151; margin-bottom: 24px; line-height: 1.7; }
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-top: 32px; margin-bottom: 12px; }
+        .article-content h4 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; margin: 24px 0 12px; color: #1a1a1a; }
+        .article-content a { color: #9B6BFF; text-decoration: none; border-bottom: 1px solid rgba(155, 107, 255, 0.3); transition: all 0.2s; }
+        .article-content a:hover { border-bottom-color: #9B6BFF; }
+        .article-content ul, .article-content ol { margin-bottom: 24px; padding-left: 24px; }
+        .article-content li { font-size: 18px; color: #374151; margin-bottom: 12px; }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; margin: 32px 0; background: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; }
+        @media (max-width: 640px) { table { display: block; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; } }
+        th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid #f3f4f6; font-size: 15px; }
+        th { background: #f9fafb; font-weight: 600; color: #1a1a1a; border-bottom: 2px solid #e5e7eb; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover { background: #f9fafb; }
+
+        /* Highlight Box */
+        .highlight-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 24px; margin: 32px 0; border-radius: 4px; }
+        .highlight-box h4 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 600; color: #1a1a1a; margin-bottom: 12px; }
+        .highlight-box p { font-size: 16px; color: #374151; margin-bottom: 0; }
+
+        /* Step Box */
+        .step-box { background: #f9fafb; border-left: 4px solid #9B6BFF; border-radius: 8px; padding: 24px; margin: 24px 0; }
+        .step-number { display: inline-block; background: #9B6BFF; color: white; width: 35px; height: 35px; line-height: 35px; text-align: center; border-radius: 50%; font-weight: 700; margin-right: 12px; font-size: 18px; font-family: 'Space Grotesk', sans-serif; }
+        .step-box h4 { display: inline; font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: #1a1a1a; }
+        .step-box p { margin: 12px 0 8px 47px; font-size: 16px; color: #374151; line-height: 1.7; }
+
+        /* Part Banner - three-stage flow */
+        .part-banner { display: flex; gap: 0; margin: 40px 0 0; border-radius: 8px 8px 0 0; overflow: hidden; border: 1px solid #e5e7eb; border-bottom: none; }
+        .part-tab { flex: 1; padding: 14px 20px; text-align: center; font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 600; background: #f3f4f6; color: #6b7280; }
+        .part-tab.active { background: #9B6BFF; color: #ffffff; }
+        .part-tab.done { background: #d1fae5; color: #065f46; }
+        .part-tab.optional { background: #f3f4f6; color: #9ca3af; font-style: italic; }
+        .part-content { border: 1px solid #e5e7eb; border-radius: 0 0 8px 8px; padding: 0; margin-bottom: 32px; }
+
+        /* Warning banner */
+        .warning-banner { background: #fef3c7; border: 2px solid #f59e0b; border-radius: 8px; padding: 18px 20px; margin: 24px 0; display: flex; gap: 12px; align-items: flex-start; }
+        .warning-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+        .warning-banner strong { color: #92400e; font-size: 16px; display: block; margin-bottom: 4px; }
+        .warning-banner p { color: #92400e; font-size: 15px; margin: 0; line-height: 1.6; }
+
+        /* Code Block */
+        .code-block { background: #1e1e1e; color: #d4d4d4; padding: 24px; border-radius: 8px; overflow-x: auto; margin: 24px 0; position: relative; font-family: 'Courier New', Courier, monospace; font-size: 14px; line-height: 1.5; }
+        .code-block pre { margin: 0; white-space: pre; overflow-x: auto; }
+        .copy-button { position: absolute; top: 12px; right: 12px; background: #9B6BFF; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600; transition: all 0.2s; font-family: 'Inter', sans-serif; z-index: 2; }
+        .copy-button:hover { background: #8855eb; transform: translateY(-1px); }
+        .copy-button.copied { background: #22c55e; }
+
+        /* Command Box */
+        .command-box { background: #1e1e1e; color: #22c55e; padding: 20px; border-radius: 8px; font-family: 'Courier New', monospace; margin: 24px 0; font-size: 14px; line-height: 1.8; }
+        .command-box code { color: #22c55e; }
+        .command-box .comment { color: #6b7280; }
+
+        /* Alert Boxes */
+        .alert { padding: 16px 20px; border-radius: 8px; margin: 24px 0; border-left: 4px solid; font-size: 15px; }
+        .alert-success { background: #d1fae5; border-left-color: #22c55e; color: #065f46; }
+        .alert-info { background: #dbeafe; border-left-color: #3b82f6; color: #1e40af; }
+        .alert-warning { background: #fef3c7; border-left-color: #f59e0b; color: #92400e; }
+
+        /* Feature List */
+        .feature-list { list-style: none; padding: 0; margin: 24px 0; }
+        .feature-list li { padding: 8px 0 8px 32px; position: relative; font-size: 17px; color: #374151; line-height: 1.7; }
+        .feature-list li:before { content: "✓"; position: absolute; left: 0; color: #22c55e; font-weight: bold; font-size: 20px; }
+
+        /* Troubleshooting Box */
+        .troubleshooting-box { background: #fef3c7; border: 2px solid #f59e0b; border-radius: 8px; padding: 24px; margin: 24px 0; }
+        .troubleshooting-box h4 { color: #92400e; font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; margin-bottom: 12px; }
+        .troubleshooting-box ul { margin: 12px 0 12px 20px; }
+        .troubleshooting-box li { margin: 8px 0; color: #92400e; font-size: 16px; }
+
+        /* Advanced Accordion */
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; font-weight: 400; transition: transform 0.2s; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 2000px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 16px; }
+        .accordion-body ul { margin: 0 0 16px 20px; }
+        .accordion-body li { font-size: 16px; color: #374151; margin-bottom: 8px; }
+
+        /* Sidebar */
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a1a1a; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; transition: color 0.2s; border-bottom: none; display: block; }
+        .toc-list a:hover { color: #9B6BFF; border-bottom: none; }
+        .toc-indent { padding-left: 14px; }
+
+        /* Sidebar stat cards */
+        .stat-cards { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+        .stat-card { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 18px; display: flex; align-items: center; gap: 12px; }
+        .stat-icon { font-size: 18px; flex-shrink: 0; }
+        .stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #9B6BFF; }
+        .stat-label { font-size: 12px; color: #6b7280; }
+
+        /* CTA Box */
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 32px; border-radius: 8px; text-align: center; color: #ffffff; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .cta-box p { font-size: 14px; margin-bottom: 20px; opacity: 0.95; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.2s; border-bottom: none; }
+        .cta-button:hover { transform: translateY(-2px); border-bottom: none; }
+
+        /* Related Articles */
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; border-bottom: none; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); border-bottom: none; }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: #1a1a1a; margin-bottom: 8px; }
+        .related-card p { font-size: 14px; color: #6b7280; }
+
+        /* Footer */
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .content-wrapper { grid-template-columns: 1fr; }
+            .sidebar { position: static; }
+            .article-title { font-size: 32px; }
+            .related-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 640px) {
+            header nav { display: none; }
+            .article-title { font-size: 28px; }
+            .article-content h2 { font-size: 24px; }
+            .breadcrumb { padding: 12px 16px; }
+            .breadcrumb-container { font-size: 12px; }
+            .part-banner { flex-direction: column; border-radius: 8px 8px 0 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo">
+                <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo">
+                <span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span>
+            </a>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/blog">All Articles</a>
+                <a href="/docs">Documentation</a>
+                <a href="/qualtrics-toolkit">Free Tools</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="/">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="/blog">Blog</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Bulk Export Qualtrics Individual Response Reports to PDF</span>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="hero-container">
+            <h1 class="article-title">Bulk Export Qualtrics Individual Response Reports to PDF</h1>
+            <div class="article-meta">
+                <span class="author">Arun Raj</span>
+                <span class="separator">•</span>
+                <span>March 31, 2026</span>
+                <span class="separator">•</span>
+                <span>8 min read</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content-wrapper">
+
+        <article class="article-content">
+
+            <!-- ===================== THE CHALLENGE ===================== -->
+            <h2 id="the-challenge">The Challenge</h2>
+
+            <p>Qualtrics lets you export any individual response as a formatted PDF, but only one at a time. There is no native "export all as PDF" button. Every export requires navigating through the same four clicks: open the row's action menu, select Export to PDF, confirm the modal, then close the Manage Downloads dialog.</p>
+
+            <p>For surveys with dozens or hundreds of responses, this becomes a serious time problem:</p>
+
+            <ul class="feature-list">
+                <li>50 responses requires 200+ clicks and up to 30 minutes of manual work</li>
+                <li>PDF exports are processed server-side and queued asynchronously, so you cannot simply loop and grab files immediately</li>
+                <li>There is no Qualtrics API endpoint for triggering individual response PDF exports</li>
+                <li>The Manage Downloads queue accumulates old jobs and needs manual cleanup</li>
+                <li>Interrupting the process mid-way leaves partial exports in an unknown state</li>
+            </ul>
+
+            <p>This guide gives you a <strong>free three-stage browser script</strong> that handles the entire process automatically: queueing every export, downloading all the files, and cleaning up the jobs queue, without leaving the page.</p>
+
+            <!-- ===================== THE SOLUTION ===================== -->
+            <h2 id="the-solution">The Solution</h2>
+
+            <p>Three lightweight JavaScript scripts that run directly in your browser console. No installation, no API key, no external service. Your data never leaves your machine.</p>
+
+            <ul class="feature-list">
+                <li>Automatically loops every visible response row and queues a PDF export</li>
+                <li>Opens the Manage Downloads modal and triggers all available file downloads</li>
+                <li>Deletes completed jobs from the queue to keep it clean (optional)</li>
+                <li>Logs every action to the console with a summary at each stage</li>
+                <li>Handles modal timing and DOM re-renders automatically</li>
+            </ul>
+
+            <div class="warning-banner">
+                <div class="warning-icon">⚠️</div>
+                <div>
+                    <strong>This is a three-stage process. Run each script in order.</strong>
+                    <p>Because Qualtrics processes PDF exports asynchronously on its servers, queueing and downloading must happen in separate steps. Running Stage 2 immediately after Stage 1 without waiting may result in fewer files if Qualtrics has not yet finished generating all PDFs.</p>
+                </div>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Stage</th>
+                        <th>What it does</th>
+                        <th>When to run</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Stage 1:</strong> Queue Exports</td>
+                        <td>Loops every response row and triggers Export to PDF for each</td>
+                        <td>Immediately, on the Data &amp; Analytics page</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stage 2:</strong> Download Files</td>
+                        <td>Opens Manage Downloads and clicks every available download button</td>
+                        <td>After a short wait for Qualtrics to process the exports</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stage 3:</strong> Clean Up (optional)</td>
+                        <td>Deletes all completed jobs from the Manage Downloads queue</td>
+                        <td>After confirming all PDFs are in your Downloads folder</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ===================== HOW TO USE ===================== -->
+            <h2 id="how-to-use">How to Use</h2>
+
+            <h3>Watch the Demo</h3>
+            <div style="margin: 32px 0;">
+                <!-- VIDEO PLACEHOLDER -->
+                <div style="background: #f3f4f6; border: 2px dashed #d1d5db; border-radius: 8px; padding: 48px 24px; text-align: center; color: #6b7280;">
+                    <div style="font-size: 48px; margin-bottom: 16px;">▶</div>
+                    <div style="font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: #1a1a1a; margin-bottom: 8px;">Demo Video Coming Soon</div>
+                    <div style="font-size: 15px;">A walkthrough of the full three-stage export process will be added here.</div>
+                </div>
+            </div>
+
+            <!-- ===================== STAGE 1 ===================== -->
+            <h2 id="stage-1">Stage 1: Queue PDF Exports</h2>
+
+            <div class="part-banner">
+                <div class="part-tab active">▶ Stage 1: Queue Exports</div>
+                <div class="part-tab">Stage 2: Download Files</div>
+                <div class="part-tab optional">Stage 3: Clean Up</div>
+            </div>
+            <div class="part-content">
+
+                <div class="step-box">
+                    <span class="step-number">1</span>
+                    <h4>Navigate to the Data &amp; Analytics Page</h4>
+                    <p>Open your Qualtrics survey and click the <strong>Data &amp; Analytics</strong> tab. Make sure the response table is fully loaded and all rows are visible before running the script.</p>
+                    <p>The script targets the response rows on the current page. If your survey has more responses than fit on one page, see the <a href="#pagination">Pagination</a> note below.</p>
+                </div>
+
+                <div class="step-box">
+                    <span class="step-number">2</span>
+                    <h4>Open the Browser Console</h4>
+                    <p><strong>Right-click anywhere on the response table</strong> and select <strong>Inspect</strong> or <strong>Inspect Element</strong> from the context menu.</p>
+                    <p>In the developer tools panel that opens, click the <strong>Console</strong> tab.</p>
+                    <div class="alert alert-info">
+                        <strong>Why right-click on the table?</strong> This sets the correct page context in the inspector before the script runs, making DOM access more reliable.
+                    </div>
+                </div>
+
+                <div class="step-box">
+                    <span class="step-number">3</span>
+                    <h4>Copy and Run the Stage 1 Script</h4>
+                    <p>Click the Copy Script button below, paste it into the console, and press <strong>Enter</strong>. The script runs automatically and you do not need to call any additional functions.</p>
+
+                    <div class="code-block">
+                        <button class="copy-button" onclick="copyScript('stage1-script')">Copy Script</button>
+                        <pre id="stage1-script">
+/* STAGE 1 SCRIPT PLACEHOLDER */
+/**
+ * Qualtrics Bulk Response PDF Exporter — STAGE 1: Queue Exports
+ * Loops through every response row and queues a PDF export for each.
+ * After this completes, run Stage 2 to download the queued files.
+ *
+ * Developed by Pirai AI — piraiai.com
+ */
+
+(async () => {
+
+    // ============================================================================
+    // HELPERS
+    // ============================================================================
+
+    function waitForElement(selector, timeoutMs = 10000) {
+        return new Promise((resolve, reject) => {
+            const el = document.querySelector(selector);
+            if (el) { resolve(el); return; }
+
+            const observer = new MutationObserver(() => {
+                const found = document.querySelector(selector);
+                if (found) {
+                    observer.disconnect();
+                    resolve(found);
+                }
+            });
+            observer.observe(document.body, { childList: true, subtree: true });
+
+            setTimeout(() => {
+                observer.disconnect();
+                reject(new Error(`Timed out waiting for: ${selector}`));
+            }, timeoutMs);
+        });
+    }
+
+    function findByText(text) {
+        return Array.from(document.querySelectorAll('*')).find(el =>
+            el.textContent.trim() === text && el.offsetParent !== null
+        ) || null;
+    }
+
+    const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+    function getActionButtons() {
+        return Array.from(
+            document.querySelectorAll('td.actions-column button[aria-label="record actions"]')
+        );
+    }
+
+    // ============================================================================
+    // PREFLIGHT CHECK
+    // ============================================================================
+
+    const initialButtons = getActionButtons();
+    if (initialButtons.length === 0) {
+        console.error('❌ No response rows found.');
+        console.error('   Make sure you are on the Data & Analytics page with the response table visible.');
+        return;
+    }
+
+    const totalRows = initialButtons.length;
+    console.log(`📊 Found ${totalRows} response rows. Queueing PDF exports...\n`);
+
+    // ============================================================================
+    // MAIN LOOP — Queue a PDF export for every row
+    // ============================================================================
+
+    let successCount = 0;
+    let failCount = 0;
+
+    for (let i = 0; i < totalRows; i++) {
+        console.log(`--- Queueing Row ${i + 1} of ${totalRows} ---`);
+
+        // Re-query each iteration — DOM re-renders after each export action.
+        const buttons = getActionButtons();
+        if (i >= buttons.length) {
+            console.warn(`⚠️  Row ${i + 1}: button no longer in DOM, skipping.`);
+            failCount++;
+            continue;
+        }
+
+        const button = buttons[i];
+
+        try {
+            button.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            await sleep(300);
+            button.click();
+            console.log(`   🔘 Opened action menu`);
+            await sleep(1000);
+
+            // Find "Export to PDF" in the dropdown
+            const allOptions = Array.from(
+                document.querySelectorAll('[role="option"], [role="menuitem"]')
+            ).filter(el => el.textContent.includes('PDF') && el.offsetParent !== null);
+
+            const target = findByText('Export to PDF') || allOptions[0] || null;
+
+            if (!target) {
+                console.warn(`   ⚠️  "Export to PDF" option not found for row ${i + 1}`);
+                document.body.click();
+                await sleep(500);
+                failCount++;
+                continue;
+            }
+
+            target.click();
+            console.log(`   ✅ Clicked "Export to PDF"`);
+
+            // Wait for the export confirmation modal
+            let exportBtn;
+            try {
+                exportBtn = await waitForElement('[data-testid="pdf-export-export-btn"]', 5000);
+            } catch {
+                console.warn(`   ⚠️  Export modal did not appear for row ${i + 1}`);
+                const closeEl = document.querySelector('[data-testid="pdf-export-close-btn"], [aria-label="Close"]');
+                if (closeEl) closeEl.click();
+                failCount++;
+                continue;
+            }
+
+            exportBtn.click();
+            console.log(`   🚀 Export queued`);
+            await sleep(3000);
+
+            // Close the "Manage Downloads" dialog that appears after queuing
+            try {
+                const closeBtn = await waitForElement('[data-testid="pdf-export-close-btn"]', 5000);
+                closeBtn.click();
+                console.log(`   ✔️  Dismissed dialog`);
+            } catch {
+                // Dialog may not appear for every row
+            }
+
+            successCount++;
+            await sleep(2000);
+
+        } catch (err) {
+            console.error(`   ❌ Error on row ${i + 1}: ${err.message}`);
+            failCount++;
+            try {
+                const closeEl = document.querySelector('[data-testid="pdf-export-close-btn"], [aria-label="Close"]');
+                if (closeEl) closeEl.click();
+                else document.body.click();
+            } catch { /* ignore */ }
+            await sleep(1000);
+        }
+    }
+
+    // ============================================================================
+    // SUMMARY — prompt user to run Stage 2
+    // ============================================================================
+
+    console.log(`
+╔════════════════════════════════════════════════════════════╗
+║  STAGE 1 COMPLETE — PDF Exports Queued                     ║
+╠════════════════════════════════════════════════════════════╣
+║  Total rows:    ${String(totalRows).padEnd(42)}║
+║  Queued:        ${String(successCount).padEnd(42)}║
+║  Skipped/Error: ${String(failCount).padEnd(42)}║
+╠════════════════════════════════════════════════════════════╣
+║                                                            ║
+║  ▶  NEXT STEP: Run the Stage 2 script to download all     ║
+║     queued PDF files from the Manage Downloads modal.     ║
+║                                                            ║
+║  Paste the Stage 2 script into this console and press     ║
+║  Enter. Stay on this Data & Analytics page.               ║
+║                                                            ║
+╚════════════════════════════════════════════════════════════╝
+`);
+
+})();</pre>
+                    </div>
+                </div>
+
+                <div class="step-box">
+                    <span class="step-number">4</span>
+                    <h4>Wait for the Stage 1 Summary</h4>
+                    <p>The script loops through every row on the page. Watch the console for per-row progress logs. When it finishes you will see a summary box:</p>
+                    <div class="command-box">
+                        <code>╔══════════════════════════════════════════════════════════╗</code><br>
+                        <code>║  STAGE 1 COMPLETE — PDF Exports Queued                   ║</code><br>
+                        <code>╠══════════════════════════════════════════════════════════╣</code><br>
+                        <code>║  Total rows:    50                                        ║</code><br>
+                        <code>║  Queued:        50                                        ║</code><br>
+                        <code>║  Skipped/Error: 0                                         ║</code><br>
+                        <code>╚══════════════════════════════════════════════════════════╝</code>
+                    </div>
+                    <div class="alert alert-warning">
+                        <strong>Do not navigate away from the page.</strong> Stay on the Data &amp; Analytics tab while Stage 1 runs and while you wait for Stage 2.
+                    </div>
+                </div>
+
+                <div class="step-box">
+                    <span class="step-number">5</span>
+                    <h4>Wait for Qualtrics to Process the Exports</h4>
+                    <p>After Stage 1 completes, Qualtrics begins generating the PDF files on its servers. For simple surveys this typically takes a few seconds per response. For surveys with many questions or complex display logic, allow a minute or two before running Stage 2.</p>
+                    <div class="alert alert-info">
+                        <strong>How to check if exports are ready:</strong> Open Export &amp; Import → Manage Previous Downloads. When you see Download buttons next to each Response Report, they are ready.
+                    </div>
+                </div>
+
+            </div><!-- end part-content -->
+
+            <!-- ===================== STAGE 2 ===================== -->
+            <h2 id="stage-2">Stage 2: Download the Files</h2>
+
+            <div class="part-banner">
+                <div class="part-tab done">✓ Stage 1: Queue Exports Done</div>
+                <div class="part-tab active">▶ Stage 2: Download Files</div>
+                <div class="part-tab optional">Stage 3: Clean Up</div>
+            </div>
+            <div class="part-content">
+
+                <div class="step-box">
+                    <span class="step-number">6</span>
+                    <h4>Copy and Run the Stage 2 Script</h4>
+                    <p>Paste the Stage 2 script into the same console and press <strong>Enter</strong>. The script opens the Manage Downloads modal automatically and clicks every available download button.</p>
+
+                    <div class="code-block">
+                        <button class="copy-button" onclick="copyScript('stage2-script')">Copy Script</button>
+                        <pre id="stage2-script">
+/* STAGE 2 SCRIPT PLACEHOLDER */
+/**
+ * Qualtrics Bulk Response PDF Exporter — STAGE 2: Download Queued Files
+ * Opens the Manage Previous Downloads modal and downloads every queued PDF.
+ * Run this after Stage 1 has finished queueing all exports.
+ *
+ * Stay on the Data & Analytics page before running this script.
+ *
+ * Developed by Pirai AI — piraiai.com
+ */
+
+(async () => {
+
+    // ============================================================================
+    // HELPERS
+    // ============================================================================
+
+    function waitForElement(selector, timeoutMs = 10000) {
+        return new Promise((resolve, reject) => {
+            const el = document.querySelector(selector);
+            if (el) { resolve(el); return; }
+
+            const observer = new MutationObserver(() => {
+                const found = document.querySelector(selector);
+                if (found) {
+                    observer.disconnect();
+                    resolve(found);
+                }
+            });
+            observer.observe(document.body, { childList: true, subtree: true });
+
+            setTimeout(() => {
+                observer.disconnect();
+                reject(new Error(`Timed out waiting for: ${selector}`));
+            }, timeoutMs);
+        });
+    }
+
+    const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+    // ============================================================================
+    // STEP 1: Open the Export & Import menu
+    // ============================================================================
+
+    console.log('📋 STAGE 2: Downloading queued PDF files...\n');
+
+    const exportMenuBtn = document.querySelector('[data-testid="export-and-import-menu"]');
+    if (!exportMenuBtn) {
+        console.error('❌ Could not find the Export & Import menu button.');
+        console.error('   Make sure you are on the Data & Analytics page.');
+        return;
+    }
+
+    exportMenuBtn.click();
+    console.log('✅ Opened Export & Import menu');
+    await sleep(1000);
+
+    // ============================================================================
+    // STEP 2: Click "Manage Previous Downloads..."
+    // ============================================================================
+
+    const manageOption = Array.from(document.querySelectorAll('*')).find(el =>
+        el.textContent.trim() === 'Manage Previous Downloads...' && el.offsetParent !== null
+    );
+
+    if (!manageOption) {
+        console.error('❌ Could not find "Manage Previous Downloads..." option.');
+        document.body.click(); // close menu
+        return;
+    }
+
+    manageOption.click();
+    console.log('✅ Clicked "Manage Previous Downloads..."');
+
+    // ============================================================================
+    // STEP 3: Wait for the Manage Downloads modal
+    // ============================================================================
+
+    try {
+        await waitForElement('#pdf-export-modal', 15000);
+        console.log('📊 Manage Downloads modal opened\n');
+    } catch {
+        console.error('❌ Manage Downloads modal did not appear within 15 seconds.');
+        console.error('   The exports from Stage 1 may still be processing. Wait a moment and try again.');
+        return;
+    }
+
+    await sleep(1000); // let the modal fully render
+
+    // ============================================================================
+    // STEP 4: Find all download buttons in the modal
+    // ============================================================================
+
+    const downloadButtons = Array.from(
+        document.querySelectorAll('[data-testid^="pdf-export-download-button-"]')
+    );
+
+    if (downloadButtons.length === 0) {
+        console.warn('⚠️  No download buttons found in the modal.');
+        console.warn('   The exports may still be processing. Wait a few moments and run Stage 2 again.');
+        return;
+    }
+
+    console.log(`📁 Found ${downloadButtons.length} files ready to download\n`);
+
+    // ============================================================================
+    // STEP 5: Click each download button
+    // ============================================================================
+
+    let successCount = 0;
+    let failCount = 0;
+
+    for (let i = 0; i < downloadButtons.length; i++) {
+        const button = downloadButtons[i];
+        console.log(`--- Downloading file ${i + 1} of ${downloadButtons.length} ---`);
+
+        try {
+            button.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            await sleep(300);
+            button.click();
+            console.log(`   ⬇️  Download triggered`);
+            successCount++;
+            await sleep(1000);
+        } catch (err) {
+            console.error(`   ❌ Error downloading file ${i + 1}: ${err.message}`);
+            failCount++;
+        }
+    }
+
+    // ============================================================================
+    // STEP 6: Close the modal
+    // ============================================================================
+
+    await sleep(500);
+    try {
+        const closeBtn = document.querySelector('[data-testid="pdf-export-close-btn"]');
+        if (closeBtn) {
+            closeBtn.click();
+            console.log('\n✅ Closed Manage Downloads modal');
+        }
+    } catch { /* ignore */ }
+
+    // ============================================================================
+    // SUMMARY
+    // ============================================================================
+
+    console.log(`
+╔════════════════════════════════════════════════════════════╗
+║  STAGE 2 COMPLETE — Downloads Triggered                    ║
+╠════════════════════════════════════════════════════════════╣
+║  Files found:   ${String(downloadButtons.length).padEnd(42)}║
+║  Triggered:     ${String(successCount).padEnd(42)}║
+║  Errors:        ${String(failCount).padEnd(42)}║
+╠════════════════════════════════════════════════════════════╣
+║                                                            ║
+║  📁 Check your Downloads folder for the PDF files.        ║
+║                                                            ║
+║  If some exports were still processing when Stage 2 ran,  ║
+║  wait a moment and run Stage 2 again to pick them up.     ║
+║                                                            ║
+╚════════════════════════════════════════════════════════════╝
+`);
+
+})();</pre>
+                    </div>
+                </div>
+
+                <div class="step-box">
+                    <span class="step-number">7</span>
+                    <h4>Confirm Downloads</h4>
+                    <p>When Stage 2 finishes you will see a summary in the console. Open your browser's <strong>Downloads folder</strong> and confirm the PDF files are there.</p>
+                    <p>Files are named by Qualtrics using the response ID, for example: <code>Response_Report_R_d4HCfnbqgWogD54.pdf</code>. Each filename maps directly back to a row in the Data &amp; Analytics table.</p>
+                    <div class="alert alert-warning">
+                        <strong>Some exports not ready yet?</strong> If the Manage Downloads modal shows fewer files than expected, some exports may still be processing. Wait a moment and run Stage 2 again and it will pick up any newly completed files.
+                    </div>
+                </div>
+
+            </div><!-- end part-content -->
+
+            <!-- ===================== STAGE 3 ===================== -->
+            <h2 id="stage-3">Stage 3: Clean Up Jobs (Optional)</h2>
+
+            <div class="part-banner">
+                <div class="part-tab done">✓ Stage 1: Queue Exports Done</div>
+                <div class="part-tab done">✓ Stage 2: Download Files Done</div>
+                <div class="part-tab active">▶ Stage 3: Clean Up</div>
+            </div>
+            <div class="part-content">
+
+                <div class="step-box">
+                    <span class="step-number">8</span>
+                    <h4>Run the Stage 3 Script</h4>
+                    <p>Stage 3 is optional but recommended. Qualtrics keeps completed export jobs in the Manage Downloads queue indefinitely. Running Stage 3 deletes all jobs, keeping the queue clean for next time.</p>
+                    <div class="alert alert-info">
+                        <strong>Only run Stage 3 after you have confirmed all PDFs are in your Downloads folder.</strong> Deleted jobs cannot be recovered, but the underlying response data in Qualtrics is not affected.
+                    </div>
+                    <p>If the Manage Downloads modal is still open from Stage 2, Stage 3 will use it directly. If you closed it, the script reopens it automatically.</p>
+
+                    <div class="code-block">
+                        <button class="copy-button" onclick="copyScript('stage3-script')">Copy Script</button>
+                        <pre id="stage3-script">
+/* STAGE 3 SCRIPT PLACEHOLDER */
+/**
+ * Qualtrics Bulk Response PDF Exporter — STAGE 3: Delete Queued Jobs
+ * Deletes all Response Report jobs from the Manage Downloads modal.
+ * Run this after Stage 2 has finished downloading all PDFs.
+ *
+ * Can be run with the modal already open (faster), or from scratch —
+ * the script will open the modal automatically if it is not visible.
+ *
+ * Developed by Pirai AI — piraiai.com
+ */
+
+(async () => {
+
+    // ============================================================================
+    // HELPERS
+    // ============================================================================
+
+    function waitForElement(selector, timeoutMs = 10000) {
+        return new Promise((resolve, reject) => {
+            const el = document.querySelector(selector);
+            if (el) { resolve(el); return; }
+
+            const observer = new MutationObserver(() => {
+                const found = document.querySelector(selector);
+                if (found) {
+                    observer.disconnect();
+                    resolve(found);
+                }
+            });
+            observer.observe(document.body, { childList: true, subtree: true });
+
+            setTimeout(() => {
+                observer.disconnect();
+                reject(new Error(`Timed out waiting for: ${selector}`));
+            }, timeoutMs);
+        });
+    }
+
+    const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+    // ============================================================================
+    // STEP 1: Ensure the Manage Downloads modal is open
+    // ============================================================================
+
+    console.log('🗑️  STAGE 3: Deleting all downloaded jobs...\n');
+
+    const modalAlreadyOpen = !!document.querySelector('#pdf-export-modal');
+
+    if (!modalAlreadyOpen) {
+        console.log('   Modal not open — opening via Export & Import menu...');
+
+        const exportMenuBtn = document.querySelector('[data-testid="export-and-import-menu"]');
+        if (!exportMenuBtn) {
+            console.error('❌ Could not find the Export & Import menu button.');
+            console.error('   Make sure you are on the Data & Analytics page.');
+            return;
+        }
+
+        exportMenuBtn.click();
+        await sleep(1000);
+
+        const manageOption = Array.from(document.querySelectorAll('*')).find(el =>
+            el.textContent.trim() === 'Manage Previous Downloads...' && el.offsetParent !== null
+        );
+
+        if (!manageOption) {
+            console.error('❌ Could not find "Manage Previous Downloads..." option.');
+            document.body.click();
+            return;
+        }
+
+        manageOption.click();
+
+        try {
+            await waitForElement('#pdf-export-modal', 15000);
+            console.log('   ✅ Manage Downloads modal opened\n');
+        } catch {
+            console.error('❌ Manage Downloads modal did not appear.');
+            return;
+        }
+
+        await sleep(800);
+
+    } else {
+        console.log('   ✅ Modal already open\n');
+    }
+
+    // ============================================================================
+    // STEP 2: Count rows before starting
+    // ============================================================================
+
+    // Fresh count from live DOM — always re-query, never cache across deletions.
+    function getDeleteButtons() {
+        return Array.from(
+            document.querySelectorAll('#pdf-export-modal tr.pdf-export-row button[aria-label="Delete Job"]')
+        ).filter(btn => btn.offsetParent !== null);
+    }
+
+    const initialCount = getDeleteButtons().length;
+
+    if (initialCount === 0) {
+        console.log('ℹ️  No jobs found in the Manage Downloads modal. Nothing to delete.');
+        return;
+    }
+
+    console.log(`📋 Found ${initialCount} job(s) to delete.\n`);
+
+    // ============================================================================
+    // STEP 3: Delete each job one at a time
+    //
+    // After each deletion the row is removed from the DOM, so the index always
+    // stays at 0 — we always delete the first remaining button.
+    // ============================================================================
+
+    let deletedCount = 0;
+    let failCount = 0;
+
+    for (let i = 0; i < initialCount; i++) {
+        // Always grab the first visible delete button — list shrinks after each click.
+        const deleteButtons = getDeleteButtons();
+
+        if (deleteButtons.length === 0) {
+            console.log(`   ℹ️  No more delete buttons found after ${deletedCount} deletions.`);
+            break;
+        }
+
+        const btn = deleteButtons[0];
+
+        // Extract the Response ID from the sibling type cell for logging.
+        const row = btn.closest('tr.pdf-export-row');
+        const typeCell = row ? row.querySelector('td.pdf-export-job-type') : null;
+        const jobLabel = typeCell ? typeCell.textContent.trim() : `Job ${i + 1}`;
+
+        console.log(`--- Deleting ${i + 1} of ${initialCount}: ${jobLabel} ---`);
+
+        try {
+            btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            await sleep(200);
+            btn.click();
+            console.log(`   🗑️  Deleted`);
+            deletedCount++;
+            // Wait for the row to be removed from the DOM before proceeding.
+            await sleep(600);
+        } catch (err) {
+            console.error(`   ❌ Error deleting job ${i + 1}: ${err.message}`);
+            failCount++;
+            await sleep(400);
+        }
+    }
+
+    // ============================================================================
+    // STEP 4: Verify and close
+    // ============================================================================
+
+    await sleep(500);
+
+    const remaining = getDeleteButtons().length;
+
+    if (remaining > 0) {
+        console.warn(`\n⚠️  ${remaining} job(s) still remain in the modal. You may need to run Stage 3 again.`);
+    }
+
+    // Close the modal
+    try {
+        const closeBtn = document.querySelector('[data-testid="pdf-export-close-btn"]');
+        if (closeBtn) {
+            closeBtn.click();
+            console.log('\n✅ Closed Manage Downloads modal');
+        }
+    } catch { /* ignore */ }
+
+    // ============================================================================
+    // SUMMARY
+    // ============================================================================
+
+    console.log(`
+╔════════════════════════════════════════════════════════════╗
+║  STAGE 3 COMPLETE — Jobs Deleted                           ║
+╠════════════════════════════════════════════════════════════╣
+║  Jobs found:    ${String(initialCount).padEnd(42)}║
+║  Deleted:       ${String(deletedCount).padEnd(42)}║
+║  Errors:        ${String(failCount).padEnd(42)}║
+║  Remaining:     ${String(remaining).padEnd(42)}║
+╚════════════════════════════════════════════════════════════╝
+`);
+
+})();</pre>
+                    </div>
+                </div>
+
+                <div class="step-box">
+                    <span class="step-number">9</span>
+                    <h4>Confirm Deletion</h4>
+                    <p>The console will log each deleted job by its Response Report ID, then display a summary. The Manage Downloads modal will be empty and automatically closed.</p>
+                    <div class="alert alert-success">
+                        Done. Your response PDFs are in your Downloads folder and the Manage Downloads queue is clear.
+                    </div>
+                </div>
+
+            </div><!-- end part-content -->
+
+            <!-- ===================== OUTPUT ===================== -->
+            <h2 id="understanding-output">Understanding Your Output</h2>
+
+            <p>Each downloaded file is a self-contained PDF of a single survey response, formatted exactly as you would see if you opened the response individually in Qualtrics.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Column</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Filename</strong></td>
+                        <td>Named by Qualtrics as <code>Response_Report_R_XXXXXXXXXXXX.pdf</code> where the suffix is the unique response ID</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Contents</strong></td>
+                        <td>All questions and answers for that response, formatted exactly as Qualtrics renders them in the individual response view</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Traceability</strong></td>
+                        <td>The response ID in the filename matches the <code>Response ID</code> column in the Data &amp; Analytics table, making it easy to cross-reference</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="highlight-box" id="pagination">
+                <h4>What about pagination?</h4>
+                <p>The Data &amp; Analytics table shows up to 50 responses per page by default (configurable via the page size dropdown). Stage 1 only processes the rows currently visible on screen. If you have more than 50 responses, run Stage 1 on each page in turn, then run Stage 2 and Stage 3 once at the end after all pages have been queued.</p>
+            </div>
+
+            <!-- ===================== TROUBLESHOOTING ===================== -->
+            <h2 id="troubleshooting">Troubleshooting</h2>
+
+            <div class="troubleshooting-box">
+                <h4>Stage 1: No response rows found</h4>
+                <ul>
+                    <li>Confirm you are on the <strong>Data &amp; Analytics</strong> tab with the response table fully loaded</li>
+                    <li>Scroll through the table to ensure all rows have rendered before running the script</li>
+                    <li>Refresh the page and try again</li>
+                </ul>
+            </div>
+
+            <div class="troubleshooting-box">
+                <h4>Stage 1: "Export to PDF" option not found for some rows</h4>
+                <ul>
+                    <li>This can occur if Qualtrics's action menu closes before the script can click it. The row will be logged as skipped.</li>
+                    <li>Rerun Stage 1; the script re-queries the DOM fresh each iteration and will attempt the skipped rows again</li>
+                    <li>Avoid interacting with the browser while Stage 1 is running</li>
+                </ul>
+            </div>
+
+            <div class="troubleshooting-box">
+                <h4>Stage 2: No download buttons found in the modal</h4>
+                <ul>
+                    <li>Qualtrics may still be processing the exports. Wait 30 to 60 seconds and run Stage 2 again.</li>
+                    <li>For large or complex surveys, processing can take several minutes. Check the Manage Downloads modal manually to see if the Download buttons have appeared yet.</li>
+                </ul>
+            </div>
+
+            <div class="troubleshooting-box">
+                <h4>Stage 2: Downloads not saving to my folder</h4>
+                <ul>
+                    <li>Check that your browser is not blocking downloads from <code>qualtrics.com</code>. Look for a blocked download notification in the browser's address bar.</li>
+                    <li>Temporarily disable any pop-up or download blockers and run Stage 2 again</li>
+                    <li>In Chrome, go to Settings → Privacy and Security → Site Settings → Additional permissions → Automatic downloads and allow qualtrics.com</li>
+                </ul>
+            </div>
+
+            <div class="troubleshooting-box">
+                <h4>Stage 3: Jobs not deleting or modal not opening</h4>
+                <ul>
+                    <li>Make sure you are still on the Data &amp; Analytics page — navigating away breaks the script's ability to find the Export &amp; Import menu</li>
+                    <li>If some jobs remain after Stage 3, run the script again — it always deletes from the top of the list and will pick up anything that was missed</li>
+                </ul>
+            </div>
+
+            <!-- ===================== ADVANCED ===================== -->
+            <h2 id="advanced-usage">Advanced Usage</h2>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    Running Stage 2 multiple times for large batches
+                    <span class="accordion-icon">+</span>
+                </div>
+                <div class="accordion-body">
+                    <p>If you queued exports for a large number of responses, Qualtrics may finish generating them in batches rather than all at once. Stage 2 only downloads files that have a Download button at the moment it runs. Files still processing are skipped.</p>
+                    <p>You can safely run Stage 2 multiple times. Each run opens the Manage Downloads modal and downloads whatever is available. Run it once after a short wait, then again a minute later to catch any stragglers, until the summary shows no new files.</p>
+                </div>
+            </div>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    Handling multiple pages of responses
+                    <span class="accordion-icon">+</span>
+                </div>
+                <div class="accordion-body">
+                    <p>By default, Qualtrics shows 50 responses per page. To bulk export more than 50 responses:</p>
+                    <ul>
+                        <li>Run Stage 1 on page 1, wait for the summary, then navigate to page 2 and run Stage 1 again</li>
+                        <li>Repeat for each page. Qualtrics queues all jobs centrally in Manage Downloads regardless of which page they came from.</li>
+                        <li>Once all pages have been queued, run Stage 2 once (or multiple times) to download everything</li>
+                        <li>Run Stage 3 once at the end to clean up all jobs</li>
+                    </ul>
+                    <p>You can also increase the page size to 100 responses via the dropdown at the top of the Data &amp; Analytics table, which reduces the number of Stage 1 runs needed.</p>
+                </div>
+            </div>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    Organising downloaded files by response ID
+                    <span class="accordion-icon">+</span>
+                </div>
+                <div class="accordion-body">
+                    <p>Qualtrics names files using the response ID (e.g. <code>Response_Report_R_d4HCfnbqgWogD54.pdf</code>). To link each PDF back to respondent data:</p>
+                    <ul>
+                        <li>Export your Data &amp; Analytics data as CSV — it includes a <code>Response ID</code> column</li>
+                        <li>Use the response ID to join the PDF filename to the corresponding row of survey data in Excel or any data tool</li>
+                        <li>This is useful for attaching individual PDFs to CRM records, case management systems, or audit packages</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    Best practices before running on a large dataset
+                    <span class="accordion-icon">+</span>
+                </div>
+                <div class="accordion-body">
+                    <p>A few habits worth following when exporting a large number of responses:</p>
+                    <ul>
+                        <li>Do a test run on a single page with a small number of rows before committing to a full export</li>
+                        <li>Check the Manage Downloads modal manually after Stage 1 to confirm jobs are appearing before running Stage 2</li>
+                        <li>Avoid navigating away from the Data &amp; Analytics page during any stage, as the scripts rely on remaining in this context</li>
+                        <li>Run Stage 3 only after you have verified all PDFs are saved. Deleted jobs cannot be recovered, though the underlying response data is unaffected.</li>
+                        <li>Use the browser's Downloads panel (Ctrl+J in Chrome) to monitor files as they arrive during Stage 2</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box" style="margin-top: 40px;">
+                <h4>Need to convert surveys into Qualtrics?</h4>
+                <p>This tool automates your Qualtrics response PDF exports. If you also need to convert Word, PDF or Excel questionnaires into <a href="/blog/qsf-file-guide">QSF files</a> for Qualtrics import, <a href="https://platform.piraiai.com">Pirai AI</a> handles that automatically across <a href="/blog/survey-platform-migration-guide">20+ survey platforms</a> with no manual scripting required.</p>
+            </div>
+
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="sidebar-section">
+                <h3>In This Guide</h3>
+                <ul class="toc-list">
+                    <li><a href="#the-challenge">The Challenge</a></li>
+                    <li><a href="#the-solution">The Solution</a></li>
+                    <li><a href="#how-to-use">How to Use</a></li>
+                    <li><a href="#stage-1">Stage 1: Queue Exports</a></li>
+                    <li class="toc-indent"><a href="#stage-1">Steps 1–5</a></li>
+                    <li><a href="#stage-2">Stage 2: Download Files</a></li>
+                    <li class="toc-indent"><a href="#stage-2">Steps 6–7</a></li>
+                    <li><a href="#stage-3">Stage 3: Clean Up</a></li>
+                    <li class="toc-indent"><a href="#stage-3">Steps 8–9</a></li>
+                    <li><a href="#understanding-output">Understanding Output</a></li>
+                    <li><a href="#troubleshooting">Troubleshooting</a></li>
+                    <li><a href="#advanced-usage">Advanced Usage</a></li>
+                </ul>
+            </div>
+
+            <div class="stat-cards">
+                <div class="stat-card">
+                    <div class="stat-icon">📄</div>
+                    <div>
+                        <div class="stat-num">3 scripts</div>
+                        <div class="stat-label">Complete end-to-end workflow</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⚡</div>
+                    <div>
+                        <div class="stat-num">Under 2 min</div>
+                        <div class="stat-label">Setup and script run time</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🔧</div>
+                    <div>
+                        <div class="stat-num">No install</div>
+                        <div class="stat-label">Runs in your browser</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <h3>Automate Your Survey Workflow</h3>
+                <p>Pirai AI converts Word, PDF, and Excel questionnaires into Qualtrics and 20+ other platforms automatically. No manual programming required.</p>
+                <a href="https://platform.piraiai.com" class="cta-button">Try Pirai AI Free</a>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <!-- Related Articles -->
+    <div class="related-articles">
+        <h2>Related Articles</h2>
+        <div class="related-grid">
+            <a href="/blog/extract-qualtrics-xm-directory-mappings" class="related-card">
+                <h3>Extract Qualtrics XM Directory Contact Mappings</h3>
+                <p>Free browser script to extract all contact and transaction field mappings from the Update XM Directory Contacts task.</p>
+            </a>
+            <a href="/blog/extract-qualtrics-basic-transform-mappings" class="related-card">
+                <h3>Extract Qualtrics Basic Transform Task Field Mappings</h3>
+                <p>Extract your complete Basic Transform field mapping configuration to CSV in seconds, no manual copying required.</p>
+            </a>
+            <a href="/blog/extract-qualtrics-add-contacts-transactions-xmd" class="related-card">
+                <h3>Extract Qualtrics Add Contacts and Transactions to XMD Mappings</h3>
+                <p>Free browser script to extract all field mappings from the Add Contacts and Transactions to XMD task.</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p>
+        <p style="margin-top: 8px; font-size: 13px;">This guide is provided for educational purposes. Qualtrics is a trademark of Qualtrics LLC. Not affiliated with or endorsed by Qualtrics.</p>
+    </footer>
+
+    <script>
+        function copyScript(elementId) {
+            const codeBlock = document.getElementById(elementId);
+            const button = event.target;
+            const textarea = document.createElement('textarea');
+            textarea.value = codeBlock.textContent;
+            textarea.style.cssText = 'position:fixed;opacity:0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                const orig = button.textContent;
+                button.textContent = '✓ Copied!';
+                button.classList.add('copied');
+                setTimeout(() => {
+                    button.textContent = orig;
+                    button.classList.remove('copied');
+                }, 2000);
+            } catch (e) {
+                alert('Copy failed. Select the script manually and press Ctrl+C.');
+            }
+            document.body.removeChild(textarea);
+        }
+
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('open'));
+            document.querySelectorAll('.accordion-icon').forEach(i => i.textContent = '+');
+            if (!isOpen) {
+                body.classList.add('open');
+                icon.textContent = '−';
+            }
+        }
+    </script>
+
+</body>
+</html>
