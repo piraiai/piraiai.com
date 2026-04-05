@@ -11,24 +11,42 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <title>Free CSV Comparator for Qualtrics SDS | Pirai AI | Data Validation Tool</title>
+    <title>Free CSV Comparator Online | Compare Two CSV Files Instantly | Pirai AI</title>
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Pirai AI",
-      "url": "https://piraiai.com",
-      "logo": "https://piraiai.com/logo.png"
-    }
-    </script>    
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Pirai AI CSV Comparator",
+        "url": "https://piraiai.com/pirai-csv-comparator",
+        "description": "Free online tool to compare two CSV files, find missing records, detect duplicates, track field-level changes, and validate Qualtrics Supplemental Data Sources. Up to 100,000 rows with 100% client-side processing.",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web Browser",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "featureList": ["Compare CSV files up to 100,000 rows","Find missing and new records","Detect duplicate entries","Track field-level changes between files","Qualtrics SDS validation","100% client-side no file uploads","Export results to CSV and report"],
+        "publisher": { "@type": "Organization", "name": "Pirai AI", "url": "https://piraiai.com", "logo": "https://piraiai.com/logo.png" }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "How do I compare two CSV files online for free?", "acceptedAnswer": { "@type": "Answer", "text": "Upload your two CSV files, select the unique identifier field such as ID or Email, and click Compare. Results appear instantly with tabs for matched records, missing records, new records, field-level changes, and duplicates. No account or server upload required." } },
+          { "@type": "Question", "name": "Is my data safe when using this CSV comparison tool?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. All processing happens entirely in your browser. Your CSV files are never uploaded to any server, stored, or retained. The tool is GDPR and HIPAA friendly by design." } },
+          { "@type": "Question", "name": "How many rows can this CSV comparator handle?", "acceptedAnswer": { "@type": "Answer", "text": "The tool supports up to 100,000 rows per file. Files over 25,000 rows are automatically processed using a background web worker for better browser performance." } },
+          { "@type": "Question", "name": "Can I validate a Qualtrics Supplemental Data Source with this tool?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. A dedicated Qualtrics SDS Validation panel checks your file against SDS limits: maximum 100,000 rows, maximum 30 columns, maximum 5 searchable fields, and zero duplicate records." } },
+          { "@type": "Question", "name": "What is the difference between this tool and a text diff tool?", "acceptedAnswer": { "@type": "Answer", "text": "A text diff tool compares files line by line in order. This CSV comparator is record-aware: it matches rows by a unique identifier you choose, correctly identifying missing records, new records, and field-level changes even when row order differs between files." } }
+        ]
+      }
+    ]
+    </script>
     
     <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
 	<link rel="apple-touch-icon" href="https://piraiai.com/logo.png">
-	<meta name="description" content="Free CSV comparison tool for Qualtrics Supplemental Data Sources. Validate SDS files, find duplicates, compare datasets instantly in your browser.">
+	<meta name="description" content="Free online CSV comparator. Compare two CSV files instantly, find missing records, detect duplicates, track field changes, and validate Qualtrics SDS files. Up to 100K rows. No uploads — 100% private.">
     
     <!-- Open Graph for social sharing -->
-    <meta property="og:title" content="Free CSV Comparator for Qualtrics SDS - Pirai AI">
-    <meta property="og:description" content="Compare CSV files instantly for Qualtrics SDS validation. Find duplicates, missing records, and ensure data quality.">
+    <meta property="og:title" content="Free CSV Comparator Online — Compare Two CSV Files Instantly | Pirai AI">
+    <meta property="og:description" content="Compare two CSV files online for free. Find missing records, detect duplicates, track field-level changes, and validate Qualtrics SDS files. Up to 100K rows. No uploads required.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://piraiai.com/pirai-csv-comparator">
     <meta property="og:image" content="https://piraiai.com/logo.png">
@@ -305,6 +323,50 @@
         @media (max-width: 968px) {
             .footer-grid { grid-template-columns: 1fr 1fr; }
         }
+
+        /* ── SEO Content Sections ── */
+        .seo-wrapper { border-top: 1px solid #e5e7eb; }
+        .seo-wrapper.seo-alt { background: #f9fafb; }
+        .seo-section { max-width: 1200px; margin: 0 auto; padding: 64px 24px; }
+        .seo-h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-bottom: 10px; line-height: 1.3; }
+        .seo-lead { font-size: 16px; color: #6b7280; max-width: 740px; margin-bottom: 40px; line-height: 1.75; }
+        .how-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; counter-reset: step-counter; }
+        .how-step { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px 20px; position: relative; counter-increment: step-counter; }
+        .how-step::before { content: counter(step-counter); position: absolute; top: -12px; left: 20px; background: #9B6BFF; color: #fff; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .how-step h3 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px; margin-top: 4px; }
+        .how-step p { font-size: 13px; color: #6b7280; line-height: 1.65; }
+        .usecase-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+        .usecase-card { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px 20px; transition: border-color 0.2s, box-shadow 0.2s; }
+        .usecase-card:hover { border-color: #9B6BFF; box-shadow: 0 4px 16px rgba(155,107,255,0.1); }
+        .usecase-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+        .usecase-card p { font-size: 13px; color: #6b7280; line-height: 1.65; }
+        .seo-table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid #e5e7eb; }
+        .seo-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        .seo-table thead tr { background: #f3f4f6; }
+        .seo-table th { padding: 14px 16px; text-align: left; font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; color: #1a1a1a; }
+        .seo-table th:not(:first-child) { text-align: center; }
+        .seo-table td { padding: 12px 16px; border-top: 1px solid #e5e7eb; color: #374151; }
+        .seo-table td:not(:first-child) { text-align: center; }
+        .seo-table tbody tr:hover { background: #f9fafb; }
+        .seo-yes { color: #9B6BFF; font-size: 16px; font-weight: 700; }
+        .seo-no { color: #dc2626; font-size: 16px; }
+        .seo-part { color: #d97706; font-size: 12px; }
+        .seo-pirai-col { color: #9B6BFF; font-weight: 700; }
+        .faq-list { display: flex; flex-direction: column; gap: 8px; max-width: 860px; }
+        .faq-item { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 10px; overflow: hidden; }
+        .faq-btn { width: 100%; background: none; border: none; padding: 18px 22px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; text-align: left; gap: 14px; }
+        .faq-btn span { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; color: #1a1a1a; line-height: 1.4; }
+        .faq-arrow { color: #9ca3af; font-size: 18px; flex-shrink: 0; transition: transform 0.2s; display: inline-block; }
+        .faq-item.open .faq-arrow { transform: rotate(180deg); }
+        .faq-item.open { border-color: #9B6BFF; }
+        .faq-answer { display: none; padding: 0 22px 18px; font-size: 14px; color: #6b7280; line-height: 1.75; }
+        .faq-item.open .faq-answer { display: block; }
+        .related-strip { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 28px; }
+        .related-strip h3 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 700; color: #1a1a1a; margin-bottom: 18px; }
+        .related-links { display: flex; flex-wrap: wrap; gap: 8px; }
+        .related-link { display: inline-flex; align-items: center; gap: 6px; background: #f9fafb; border: 1px solid #e5e7eb; color: #374151; text-decoration: none; padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 500; transition: border-color 0.2s, color 0.2s, background 0.2s; }
+        .related-link:hover { border-color: #9B6BFF; color: #9B6BFF; background: #faf5ff; }
+        @media (max-width: 768px) { .seo-h2 { font-size: 22px; } .how-steps { grid-template-columns: 1fr; } .usecase-grid { grid-template-columns: 1fr; } .seo-table th, .seo-table td { padding: 10px 12px; font-size: 13px; } .seo-section { padding: 48px 20px; } }
     </style>
 </head>
 <body>
@@ -547,6 +609,103 @@
             </div>
         </div>
     </section>
+
+    <!-- SEO CONTENT SECTIONS -->
+
+    <div class="seo-wrapper">
+        <div class="seo-section">
+            <h2 class="seo-h2">How to Compare Two CSV Files Online, Step by Step</h2>
+            <p class="seo-lead">Comparing CSV files manually in Excel is slow and error-prone the moment your data exceeds a few hundred rows. This tool handles up to 100,000 rows entirely in your browser. No upload, no account, no waiting.</p>
+            <div class="how-steps">
+                <div class="how-step"><h3>Upload Your Two CSV Files</h3><p>Click either drop zone to browse for your original (File 1) and updated (File 2) CSV or TSV files. Files stay on your device. Nothing is sent to a server.</p></div>
+                <div class="how-step"><h3>Select a Unique Identifier Field</h3><p>Choose the column that uniquely identifies each record, such as ResponseID, Email, Participant_ID, or any primary key shared by both files.</p></div>
+                <div class="how-step"><h3>Run the Comparison</h3><p>Click Compare. Files over 25,000 rows are automatically routed to an optimised web worker so your browser stays responsive throughout processing.</p></div>
+                <div class="how-step"><h3>Review Results by Tab</h3><p>Results appear across five tabs: Matched Records, Missing in File 2, New in File 2, Field-Level Changes, and Duplicates. Each tab is independently browsable.</p></div>
+                <div class="how-step"><h3>Export Your Difference Report</h3><p>Download a full CSV export of all results, or generate a plain-text summary report to share with your team or attach to a data audit.</p></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="seo-wrapper seo-alt">
+        <div class="seo-section">
+            <h2 class="seo-h2">When Do You Need to Compare CSV Files?</h2>
+            <p class="seo-lead">Any time two versions of the same dataset need to stay in sync, or a file needs validating before import, a proper CSV diff tool saves significant manual effort.</p>
+            <div class="usecase-grid">
+                <div class="usecase-card"><h3>Qualtrics SDS Validation</h3><p>Before importing a Supplemental Data Source, verify your updated file has the correct records, no duplicate contact IDs, and all embedded data fields populated. The built-in SDS validation panel checks row limits, column counts, and searchable field limits automatically.</p></div>
+                <div class="usecase-card"><h3>Data Migration QA</h3><p>When migrating contacts or response data between systems, run a before-and-after comparison to confirm nothing was dropped, duplicated, or silently modified during the transfer.</p></div>
+                <div class="usecase-card"><h3>Panel and Respondent Management</h3><p>Compare weekly or monthly panel extracts to identify new opt-ins, opt-outs, and changes to profiling fields like job title, region, or quota segment, without needing Excel formulas or scripts.</p></div>
+                <div class="usecase-card"><h3>Research Data Reconciliation</h3><p>Reconcile baseline and follow-up datasets in clinical or academic studies, checking which participants completed both waves and whether demographic fields remain consistent.</p></div>
+                <div class="usecase-card"><h3>Duplicate Detection</h3><p>Surface duplicate entries within a single file or across two files. This is a common data quality issue when combining extracts from multiple sources before loading into a CRM or survey platform.</p></div>
+                <div class="usecase-card"><h3>Field-Level Change Auditing</h3><p>Track exactly which fields changed between two dataset versions. Useful for auditing data corrections, identifying unexpected overwrites, or producing a changelog for clients or compliance teams.</p></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="seo-wrapper">
+        <div class="seo-section">
+            <h2 class="seo-h2">How It Compares to Other CSV Diff Tools</h2>
+            <p class="seo-lead">Most generic CSV diff tools do a simple line-by-line text comparison that breaks when row order differs between files. Here is how this tool stacks up on the features that matter most.</p>
+            <div class="seo-table-wrap">
+                <table class="seo-table">
+                    <thead><tr><th>Feature</th><th class="seo-pirai-col">Pirai AI CSV Comparator</th><th>Generic Text Diff Tools</th><th>Manual Excel Comparison</th></tr></thead>
+                    <tbody>
+                        <tr><td>Record-aware matching (by ID, not row order)</td><td><span class="seo-yes">✓</span></td><td><span class="seo-no">✗</span></td><td><span class="seo-part">Manual setup required</span></td></tr>
+                        <tr><td>Supports up to 100,000 rows</td><td><span class="seo-yes">✓</span></td><td><span class="seo-part">Varies, often crashes</span></td><td><span class="seo-no">✗</span></td></tr>
+                        <tr><td>Field-level change tracking</td><td><span class="seo-yes">✓</span></td><td><span class="seo-no">✗</span></td><td><span class="seo-part">Formulas required</span></td></tr>
+                        <tr><td>Duplicate detection</td><td><span class="seo-yes">✓</span></td><td><span class="seo-no">✗</span></td><td><span class="seo-part">Conditional formatting</span></td></tr>
+                        <tr><td>Qualtrics SDS validation panel</td><td><span class="seo-yes">✓</span></td><td><span class="seo-no">✗</span></td><td><span class="seo-no">✗</span></td></tr>
+                        <tr><td>100% client-side, no server upload</td><td><span class="seo-yes">✓</span></td><td><span class="seo-part">Often uploads to server</span></td><td><span class="seo-yes">✓</span></td></tr>
+                        <tr><td>Export difference report</td><td><span class="seo-yes">✓</span></td><td><span class="seo-part">Limited</span></td><td><span class="seo-part">Manual copy-paste</span></td></tr>
+                        <tr><td>No account or login required</td><td><span class="seo-yes">✓</span></td><td><span class="seo-yes">✓</span></td><td><span class="seo-yes">✓</span></td></tr>
+                        <tr><td>Free to use</td><td><span class="seo-yes">✓</span></td><td><span class="seo-yes">✓</span></td><td><span class="seo-yes">✓</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="seo-wrapper seo-alt">
+        <div class="seo-section">
+            <h2 class="seo-h2">Frequently Asked Questions</h2>
+            <p class="seo-lead">Common questions about comparing CSV files online and using this tool.</p>
+            <div class="faq-list">
+                <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false"><span>How do I compare two CSV files online for free?</span><span class="faq-arrow">▾</span></button><div class="faq-answer">Upload your two CSV files, select the unique identifier field (such as ID or Email), and click Compare. Results appear instantly across five tabs: matched records, missing records, new records, field-level changes, and duplicates. No account or server upload required.</div></div>
+                <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false"><span>Is my data safe when using this CSV comparison tool?</span><span class="faq-arrow">▾</span></button><div class="faq-answer">Yes. All processing happens entirely in your browser using client-side JavaScript. Your CSV files are never uploaded to any server, stored, or retained. The tool is GDPR and HIPAA friendly by design. We literally cannot access your files.</div></div>
+                <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false"><span>How many rows can this CSV comparator handle?</span><span class="faq-arrow">▾</span></button><div class="faq-answer">The tool supports up to 100,000 rows per file. Files over 25,000 rows are automatically processed using a background web worker, keeping your browser fully responsive while crunching through large datasets using chunked, memory-optimised algorithms.</div></div>
+                <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false"><span>Can I validate a Qualtrics Supplemental Data Source with this tool?</span><span class="faq-arrow">▾</span></button><div class="faq-answer">Yes. After comparing, a dedicated Qualtrics SDS Validation panel checks your file against SDS limits: maximum 100,000 rows, maximum 30 columns, maximum 5 searchable fields, and zero duplicate records. Each check shows pass, warn, or fail so you can fix issues before import.</div></div>
+                <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false"><span>What is the difference between this and a text diff tool?</span><span class="faq-arrow">▾</span></button><div class="faq-answer">A text diff tool compares files line by line in order, which breaks completely when row order differs between files. This CSV comparator is record-aware: it matches rows by a unique identifier, correctly identifying missing records, new records, and field-level changes even when row order is completely different.</div></div>
+                <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false"><span>Can I compare CSV files with different column orders?</span><span class="faq-arrow">▾</span></button><div class="faq-answer">Yes. The tool works at the field level, not the column-position level. It identifies common fields between both files by name, so column order differences do not affect the comparison results.</div></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="seo-wrapper">
+        <div class="seo-section">
+            <div class="related-strip">
+                <h3>More Free Tools for Qualtrics Practitioners</h3>
+                <div class="related-links">
+                    <a href="/qualtrics-toolkit" class="related-link">Qualtrics Toolkit Hub</a>
+                    <a href="/qsf-to-excel" class="related-link">QSF to Excel Converter</a>
+                    <a href="/embedded-data-generator" class="related-link">Embedded Data Generator</a>
+                    <a href="/textiq-to-excel" class="related-link">Text iQ to Excel</a>
+                    <a href="/dashboard-field-mapper" class="related-link">Dashboard Field Mapper</a>
+                    <a href="/basic-transform-task-mapper" class="related-link">Transform Task Mapper</a>
+                    <a href="https://chromewebstore.google.com/detail/mpjjfdgfkkiilopjdhjeeleoaoddmdef" target="_blank" class="related-link">CSV Comparator Chrome Extension</a>
+                    <a href="/" class="related-link">Pirai AI Survey Automation</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleFaq(btn) {
+            var item = btn.closest('.faq-item');
+            var isOpen = item.classList.contains('open');
+            item.classList.toggle('open', !isOpen);
+            btn.setAttribute('aria-expanded', String(!isOpen));
+        }
+    </script>
+
 
     <!-- Footer -->
 	    <footer>
@@ -2331,7 +2490,8 @@ Visit piraiai.com for more survey automation tools
             if (event.reason?.message?.includes('memory') || event.reason?.message?.includes('quota')) {
                 cleanupMemory();
                               alert('Memory limit reached. Try with smaller files or refresh the page.');
-            }
+    
+        }
         });
 
         console.log('🌙 Pirai AI Enhanced CSV Comparator v2.1 loaded successfully');
