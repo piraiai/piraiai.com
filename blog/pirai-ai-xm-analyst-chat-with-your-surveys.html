@@ -11,15 +11,15 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pirai AI XM Analyst: Chat with Your Surveys Using AI</title>
-    <meta name="description" content="XM Analyst is a free Chrome extension that lets you chat with your Qualtrics, QuestionPro and SurveySparrow surveys using AI. Analyse logic, fields and structure in plain English, instantly.">
-    <meta name="keywords" content="Qualtrics AI, XM Analyst, survey analysis AI, Qualtrics Chrome extension, QuestionPro AI, SurveySparrow AI, survey logic analysis, Qualtrics embedded data, Pirai AI, XM Community tools, survey intelligence">
+    <title>Pirai AI XM Analyst: Chat with Your Surveys Using AI Qualtrics, Forsta, Medallia and More</title>
+    <meta name="description" content="XM Analyst is a free Chrome extension that lets you chat with your surveys using AI. Supports Qualtrics, QuestionPro, SurveySparrow via API and Forsta, Medallia, LimeSurvey via file upload. Analyse logic, fields and structure in plain English, instantly.">
+    <meta name="keywords" content="Qualtrics AI, XM Analyst, survey analysis AI, Qualtrics Chrome extension, QuestionPro AI, SurveySparrow AI, Forsta survey analysis, Medallia survey AI, LimeSurvey AI, survey logic analysis, Qualtrics embedded data, Pirai AI, XM Community tools, survey intelligence, Decipher survey, Confirmit AI">
 
     <!-- Open Graph -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://piraiai.com/blog/pirai-ai-xm-analyst-chat-with-your-surveys">
     <meta property="og:title" content="Pirai AI XM Analyst: Chat with Your Surveys Using AI">
-    <meta property="og:description" content="A free Chrome extension that lets you chat with your Qualtrics, QuestionPro and SurveySparrow surveys using AI. Analyse logic, fields and structure in plain English, instantly.">
+    <meta property="og:description" content="Chat with your surveys using AI. Supports Qualtrics, QuestionPro, SurveySparrow via API and Forsta, Medallia, LimeSurvey via file upload. Analyse logic, fields and structure in plain English, instantly.">
     <meta property="og:image" content="https://piraiai.com/logo.png">
     <meta property="og:site_name" content="Pirai AI Blog">
     <meta property="article:published_time" content="2026-04-06T00:00:00Z">
@@ -33,7 +33,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://piraiai.com/blog/pirai-ai-xm-analyst-chat-with-your-surveys">
     <meta name="twitter:title" content="Pirai AI XM Analyst: Chat with Your Surveys Using AI">
-    <meta name="twitter:description" content="Free Chrome extension. Chat with your Qualtrics, QuestionPro and SurveySparrow surveys using AI.">
+    <meta name="twitter:description" content="Free Chrome extension. Chat with your surveys using AI. Qualtrics, QuestionPro, SurveySparrow, Forsta, Medallia, LimeSurvey and more.">
     <meta name="twitter:image" content="https://piraiai.com/logo.png">
 
     <link rel="canonical" href="https://piraiai.com/blog/pirai-ai-xm-analyst-chat-with-your-surveys">
@@ -271,7 +271,7 @@
 
         <h2 id="the-problem">The Problem Every Survey Professional Knows</h2>
 
-        <p>If you work with Qualtrics, QuestionPro or SurveySparrow professionally, you know the drill. A stakeholder asks a simple question: <strong>"What embedded data fields does this survey use?"</strong> You open the survey flow, trace through each element, check embedded data blocks, scan for WebService steps, and fifteen minutes later you have your answer.</p>
+        <p>If you work with Qualtrics, Forsta, Medallia, LimeSurvey or any other survey platform professionally, you know the drill. A stakeholder asks a simple question: <strong>"What embedded data fields does this survey use?"</strong> You open the survey builder, trace through each element, check logic blocks, scan for routing conditions, and fifteen minutes later you have your answer.</p>
 
         <p>Or someone reports a bug. A respondent is not seeing the follow-up block. You trace the display logic, check the branch conditions, review the embedded data values, verify the flow order. Another hour gone.</p>
 
@@ -281,13 +281,13 @@
 
         <h2 id="what-is-xm-analyst">What is XM Analyst?</h2>
 
-        <p>Pirai AI XM Analyst is a free Chrome extension that lets you chat with your surveys using AI. Load one or more surveys from Qualtrics, QuestionPro or SurveySparrow directly via API, or upload a QSF, JSON, XML or TXT file, and ask anything in plain English.</p>
+        <p>Pirai AI XM Analyst is a free Chrome extension that lets you chat with your surveys using AI. Connect to Qualtrics, QuestionPro or SurveySparrow via API, or upload a survey file from any platform including Forsta, Medallia, LimeSurvey, Decipher and Confirmit. Ask anything in plain English.</p>
 
         <p>The AI reads the complete survey structure including questions, logic, flow, embedded data, JavaScript and settings, then answers instantly. No digging, no tracing, no guesswork.</p>
 
         <ul class="feature-list">
             <li>Connect directly to Qualtrics, QuestionPro and SurveySparrow via API</li>
-            <li>Upload QSF, JSON, XML or TXT survey files</li>
+            <li>Upload survey files from Forsta, Medallia, LimeSurvey, Decipher, Confirmit and any XML-based platform</li>
             <li>Load multiple surveys and compare them in the same session</li>
             <li>Ask questions in plain English, get structured formatted answers</li>
             <li>Session memory so you can ask follow-up questions without re-loading</li>
@@ -362,6 +362,15 @@
 
         <div class="use-case-card">
             <div class="use-case-header">
+                <div class="use-case-icon">📁</div>
+                <div class="use-case-title">Any Platform via File Upload</div>
+            </div>
+            <div class="use-case-question"><strong>Ask:</strong> "Summarise this survey and list all routing conditions"</div>
+            <p>Not on Qualtrics? No problem. Export your survey from Forsta, Medallia, LimeSurvey, Decipher or Confirmit as an XML file and upload it directly. XM Analyst reads the full survey structure including questions, routing logic and conditions, then answers your questions in plain English. Any platform that exports XML or a structured code file works.</p>
+        </div>
+
+        <div class="use-case-card">
+            <div class="use-case-header">
                 <div class="use-case-icon">🔗</div>
                 <div class="use-case-title">Cross-Survey Comparison</div>
             </div>
@@ -386,38 +395,101 @@
         <table>
             <thead>
                 <tr>
-                    <th>Platform</th>
                     <th>Connection</th>
-                    <th>What is loaded</th>
+                    <th>Platforms</th>
+                    <th>Analysis depth</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td><strong>Qualtrics</strong></td>
-                    <td>API (survey-definitions endpoint)</td>
-                    <td>Full QSF including flow, logic, embedded data, JavaScript</td>
+                    <td><strong>API Full</strong></td>
+                    <td>Qualtrics</td>
+                    <td>Complete QSF including flow, logic, embedded data, JavaScript, version history. All audit and comparison features available.</td>
                 </tr>
                 <tr>
-                    <td><strong>QuestionPro</strong></td>
-                    <td>API (region-aware)</td>
-                    <td>Survey metadata + all questions paginated</td>
+                    <td><strong>API Partial</strong></td>
+                    <td>QuestionPro, SurveySparrow</td>
+                    <td>Survey metadata and all questions. Question-level analysis, summary and comparison available. Logic audit not available via API.</td>
                 </tr>
                 <tr>
-                    <td><strong>SurveySparrow</strong></td>
-                    <td>API (region-aware)</td>
-                    <td>Survey details + all questions paginated</td>
+                    <td><strong>File Upload Full</strong></td>
+                    <td>Forsta, Medallia, LimeSurvey, Decipher, Confirmit, any XML export</td>
+                    <td>Full survey structure including routing, logic and conditions. AI reads the complete file and answers any question about it.</td>
                 </tr>
                 <tr>
-                    <td><strong>File upload</strong></td>
-                    <td>QSF, JSON, XML, TXT</td>
-                    <td>Raw file content sent directly to AI</td>
+                    <td><strong>File Upload Basic</strong></td>
+                    <td>Any platform (JSON, TXT export)</td>
+                    <td>Question content and structure. Depth depends on how much the exported file contains.</td>
                 </tr>
             </tbody>
         </table>
 
         <div class="alert alert-info">
-            <strong>Multi-survey sessions:</strong> Load surveys from different platforms into the same chat session. Ask the AI to compare a Qualtrics survey with a QuestionPro survey side by side in one conversation.
+            <strong>Multi-survey sessions:</strong> Load surveys from different platforms into the same chat session. Upload a Forsta XML alongside a Qualtrics QSF and ask the AI to compare them side by side in one conversation.
         </div>
+
+        <h2 id="features-by-platform">Features by Platform</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Qualtrics API</th>
+                    <th>QuestionPro and SurveySparrow API</th>
+                    <th>XML File Upload</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Question analysis and summary</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                </tr>
+                <tr>
+                    <td>Embedded data audit</td>
+                    <td>✅</td>
+                    <td>No</td>
+                    <td>✅</td>
+                </tr>
+                <tr>
+                    <td>Display and skip logic review</td>
+                    <td>✅</td>
+                    <td>No</td>
+                    <td>✅</td>
+                </tr>
+                <tr>
+                    <td>Piped text validation</td>
+                    <td>✅</td>
+                    <td>No</td>
+                    <td>✅</td>
+                </tr>
+                <tr>
+                    <td>JavaScript extraction</td>
+                    <td>✅</td>
+                    <td>No</td>
+                    <td>✅</td>
+                </tr>
+                <tr>
+                    <td>Pre-launch checklist</td>
+                    <td>✅</td>
+                    <td>Partial</td>
+                    <td>✅</td>
+                </tr>
+                <tr>
+                    <td>Cross-survey comparison</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                </tr>
+                <tr>
+                    <td>Version comparison</td>
+                    <td>✅</td>
+                    <td>No</td>
+                    <td>Manual upload</td>
+                </tr>
+            </tbody>
+        </table>
 
         <h2 id="privacy">Your Data Stays Private</h2>
 
@@ -476,6 +548,7 @@
                 <li class="toc-indent"><a href="#use-cases">Launch Readiness</a></li>
                 <li class="toc-indent"><a href="#use-cases">Cross-Survey Comparison</a></li>
                 <li><a href="#platforms">Supported Platforms</a></li>
+                <li><a href="#features-by-platform">Features by Platform</a></li>
                 <li><a href="#privacy">Privacy</a></li>
                 <li><a href="#get-started">Get Started</a></li>
             </ul>
@@ -485,8 +558,8 @@
             <div class="stat-card">
                 <div class="stat-icon">🔗</div>
                 <div>
-                    <div class="stat-num">3 platforms</div>
-                    <div class="stat-label">Qualtrics, QuestionPro, SurveySparrow</div>
+                    <div class="stat-num">Any platform</div>
+                    <div class="stat-label">API or file upload</div>
                 </div>
             </div>
             <div class="stat-card">
@@ -515,7 +588,7 @@
         <div class="cta-box">
             <h3>Install XM Analyst Free</h3>
             <p>Chat with your surveys. Available now on the Chrome Web Store.</p>
-            <a href="https://chromewebstore.google.com/detail/pirai-ai-xm-analyst/npfmcihniagjmgmmgigjicfdaofafkkl" target="_blank" class="cta-button">Install Free on Chrome →</a>
+            <a href="https://chromewebstore.google.com" class="cta-button">Install Free on Chrome →</a>
         </div>
 
     </aside>
@@ -544,7 +617,7 @@
 <!-- Footer -->
 <footer>
     <p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p>
-    <p style="margin-top: 8px; font-size: 13px;">Qualtrics, QuestionPro and SurveySparrow are trademarks of their respective owners. Pirai AI XM Analyst is not affiliated with or endorsed by any survey platform.</p>
+    <p style="margin-top: 8px; font-size: 13px;">Qualtrics, QuestionPro, SurveySparrow, Forsta, Medallia and LimeSurvey are trademarks of their respective owners. Pirai AI XM Analyst is not affiliated with or endorsed by any survey platform.</p>
 </footer>
 
 </body>
