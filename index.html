@@ -4167,23 +4167,23 @@
                     </div> -->
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" data-target="1096">0</div>
+                    <div class="stat-number" data-target="1355">0</div>
                     <div class="stat-label">Survey Projects</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" data-target="170.8" data-suffix="K">0</div>
+                    <div class="stat-number" data-target="202" data-suffix="K" data-nodecimal="true">0</div>
                     <div class="stat-label" title="Questions & Answers">Q&A Converted</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" data-target="1133" data-suffix="">0</div>
+                    <div class="stat-number" data-target="1333" data-suffix="">0</div>
                     <div class="stat-label">Hours Saved</div>
                 </div>      
                 <div class="stat-card">
-                    <div class="stat-number" data-target="141.6" data-suffix="">0</div>
+                    <div class="stat-number" data-target="166.6" data-suffix="">0</div>
                     <div class="stat-label">Work Days Saved</div>
                 </div> 
                 <div class="stat-card">
-                    <div class="stat-number" data-target="500" data-suffix="">0</div>
+                    <div class="stat-number" data-target="550" data-suffix="">0</div>
                     <div class="stat-label">RESEARCHERS+</div>
                 </div>   
                 <div class="stat-card">
@@ -6046,7 +6046,8 @@ See the dramatic difference in survey creation time
                         const currentValue = anim.animations[0].currentValue;
                         if (suffix) {
                             // Format with 1 decimal place and add suffix
-                            stat.innerHTML = currentValue.toFixed(1) + suffix;
+                            const noDecimal = stat.getAttribute('data-nodecimal');
+                            stat.innerHTML = (noDecimal ? Math.round(currentValue) : currentValue.toFixed(1)) + suffix;
                         } else {
                             // Round to whole number
                             stat.innerHTML = Math.round(currentValue);
