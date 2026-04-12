@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extract and Export Qualtrics Load Responses Into Survey Task Field Mappings to CSV - Pirai AI Blog</title>
+    <meta name="description" content="Free browser-based tool to extract and export all field mappings from the Qualtrics Load Responses Into Survey workflow task. Document your survey data mapping configuration in seconds. No installation required.">
+    <meta name="keywords" content="Qualtrics Load Responses Into Survey, extract survey field mappings, Qualtrics workflow task documentation, Load Responses CSV export, Qualtrics data mapper, survey field mapping extractor, Qualtrics workflow automation, compare dev prod Qualtrics mappings">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://piraiai.com/blog/extract-qualtrics-load-responses-into-survey-mappings">
+    <meta property="og:title" content="Extract Qualtrics Load Responses Into Survey Task Field Mappings to CSV">
+    <meta property="og:description" content="Free browser-based script to extract all field mappings from the Qualtrics Load Responses Into Survey task. Export to CSV in seconds and compare Dev vs Prod configurations.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="og:site_name" content="Pirai AI Blog">
+    <meta property="article:published_time" content="2026-04-12T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta property="article:section" content="Tutorial">
+    <meta property="article:tag" content="Qualtrics">
+    <meta property="article:tag" content="Workflow Automation">
+    <meta property="article:tag" content="Survey Data">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://piraiai.com/blog/extract-qualtrics-load-responses-into-survey-mappings">
+    <meta name="twitter:title" content="Extract Qualtrics Load Responses Into Survey Task Field Mappings to CSV">
+    <meta name="twitter:description" content="Free browser script to extract and export all field mappings from the Qualtrics Load Responses Into Survey task. Compare Dev vs Prod with CSV Comparator.">
+    <meta name="twitter:image" content="https://piraiai.com/logo.png">
+
+    <link rel="canonical" href="https://piraiai.com/blog/extract-qualtrics-load-responses-into-survey-mappings">
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://piraiai.com/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Extract and Export Qualtrics Load Responses Into Survey Task Field Mappings to CSV",
+      "description": "Free browser-based tool to extract and export all field mappings from the Qualtrics Load Responses Into Survey workflow task.",
+      "author": { "@type": "Person", "name": "Arun Raj" },
+      "publisher": { "@type": "Organization", "name": "Pirai AI", "url": "https://piraiai.com" },
+      "datePublished": "2026-04-12",
+      "url": "https://piraiai.com/blog/extract-qualtrics-load-responses-into-survey-mappings"
+    }
+    </script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        /* Header */
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        header nav { display: flex; gap: 32px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; transition: color 0.2s; }
+        header nav a:hover { color: #9B6BFF; }
+
+        /* Breadcrumb */
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; transition: color 0.2s; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+
+        /* Hero */
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+
+        /* Content Wrapper */
+        .content-wrapper { max-width: 1200px; margin: 48px auto; padding: 0 24px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+
+        /* Article Content */
+        .article-content { max-width: 680px; overflow-x: hidden; }
+        .article-content p { font-size: 18px; color: #374151; margin-bottom: 24px; line-height: 1.7; }
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-top: 32px; margin-bottom: 12px; }
+        .article-content h4 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; margin: 24px 0 12px; color: #1a1a1a; }
+        .article-content a { color: #9B6BFF; text-decoration: none; border-bottom: 1px solid rgba(155, 107, 255, 0.3); transition: all 0.2s; }
+        .article-content a:hover { border-bottom-color: #9B6BFF; }
+        .article-content ul, .article-content ol { margin-bottom: 24px; padding-left: 24px; }
+        .article-content li { font-size: 18px; color: #374151; margin-bottom: 12px; }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; margin: 32px 0; background: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; }
+        @media (max-width: 640px) { table { display: block; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; } }
+        th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid #f3f4f6; font-size: 15px; }
+        th { background: #f9fafb; font-weight: 600; color: #1a1a1a; border-bottom: 2px solid #e5e7eb; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover { background: #f9fafb; }
+
+        /* Highlight Box */
+        .highlight-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 24px; margin: 32px 0; border-radius: 4px; }
+        .highlight-box h4 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 600; color: #1a1a1a; margin-bottom: 12px; }
+        .highlight-box p { font-size: 16px; color: #374151; margin-bottom: 0; }
+        .highlight-box ul { margin: 8px 0 0 20px; }
+        .highlight-box li { font-size: 16px; color: #374151; margin-bottom: 6px; }
+
+        /* Step Box */
+        .step-box { background: #f9fafb; border-left: 4px solid #9B6BFF; border-radius: 8px; padding: 24px; margin: 24px 0; }
+        .step-number { display: inline-block; background: #9B6BFF; color: white; width: 35px; height: 35px; line-height: 35px; text-align: center; border-radius: 50%; font-weight: 700; margin-right: 12px; font-size: 18px; font-family: 'Space Grotesk', sans-serif; }
+        .step-box h4 { display: inline; font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: #1a1a1a; }
+        .step-box p { margin: 12px 0 8px 47px; font-size: 16px; color: #374151; line-height: 1.7; }
+        .step-box ul { margin: 8px 0 8px 47px; }
+        .step-box li { font-size: 16px; color: #374151; margin-bottom: 6px; }
+
+        /* Code Block */
+        .code-block { background: #1e1e1e; color: #d4d4d4; padding: 24px; border-radius: 8px; overflow-x: auto; margin: 24px 0; position: relative; font-family: 'Courier New', Courier, monospace; font-size: 14px; line-height: 1.5; }
+        .code-block pre { margin: 0; white-space: pre; overflow-x: auto; }
+        .copy-button { position: absolute; top: 12px; right: 12px; background: #9B6BFF; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600; transition: all 0.2s; font-family: 'Inter', sans-serif; z-index: 2; }
+        .copy-button:hover { background: #8855eb; transform: translateY(-1px); }
+        .copy-button.copied { background: #22c55e; }
+
+        /* Command Box */
+        .command-box { background: #1e1e1e; color: #22c55e; padding: 20px; border-radius: 8px; font-family: 'Courier New', monospace; margin: 24px 0; font-size: 14px; line-height: 1.8; }
+        .command-box .comment { color: #6b7280; }
+
+        /* Alert Boxes */
+        .alert { padding: 16px 20px; border-radius: 8px; margin: 24px 0; border-left: 4px solid; font-size: 15px; line-height: 1.6; }
+        .alert-info { background: #dbeafe; border-left-color: #3b82f6; color: #1e40af; }
+        .alert-success { background: #d1fae5; border-left-color: #22c55e; color: #065f46; }
+        .alert-warning { background: #fef3c7; border-left-color: #f59e0b; color: #92400e; }
+
+        /* Feature List */
+        .feature-list { list-style: none; padding: 0; margin: 24px 0; }
+        .feature-list li { padding: 8px 0 8px 32px; position: relative; font-size: 17px; color: #374151; line-height: 1.7; }
+        .feature-list li:before { content: "✓"; position: absolute; left: 0; color: #22c55e; font-weight: bold; font-size: 20px; }
+
+        /* Use case cards */
+        .use-case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0; }
+        .use-case-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; }
+        .use-case-icon { font-size: 24px; margin-bottom: 10px; }
+        .use-case-card h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
+        .use-case-card p { font-size: 14px; color: #6b7280; margin: 0; line-height: 1.6; }
+
+        /* Troubleshooting Box */
+        .troubleshooting-box { background: #fef3c7; border: 2px solid #f59e0b; border-radius: 8px; padding: 24px; margin: 24px 0; }
+        .troubleshooting-box h4 { color: #92400e; font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; margin-bottom: 12px; }
+        .troubleshooting-box p { color: #92400e; font-size: 16px; margin-bottom: 8px; line-height: 1.6; }
+        .troubleshooting-box p:last-child { margin-bottom: 0; }
+
+        /* CSV Output example */
+        .csv-example { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; margin: 24px 0; font-family: 'Courier New', monospace; font-size: 13px; color: #374151; overflow-x: auto; }
+        .csv-example .csv-header { color: #7c3aed; font-weight: 600; }
+
+        /* Comparator highlight */
+        .comparator-box { background: #f0fdf4; border: 2px solid #22c55e; border-radius: 8px; padding: 24px; margin: 32px 0; }
+        .comparator-box h4 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: #065f46; margin-bottom: 10px; }
+        .comparator-box p { font-size: 16px; color: #065f46; margin-bottom: 8px; line-height: 1.6; }
+        .comparator-box p:last-child { margin-bottom: 0; }
+        .comparator-box a { color: #065f46; font-weight: 600; border-bottom: 1px solid rgba(6, 95, 70, 0.4); }
+        .comparator-box a:hover { border-bottom-color: #065f46; }
+
+        /* Article CTA */
+        .article-cta { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 36px 40px; border-radius: 12px; margin: 48px 0 32px; text-align: center; }
+        .article-cta h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+        .article-cta p { font-size: 16px; color: #ffffff; opacity: 0.95; margin-bottom: 20px; }
+        .article-cta a { border-bottom: none !important; }
+        .cta-btn-white { display: inline-block; background: #ffffff; color: #9B6BFF !important; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-btn-white:hover { transform: translateY(-2px); }
+
+        /* Sidebar */
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a1a1a; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; transition: color 0.2s; border-bottom: none; display: block; }
+        .toc-list a:hover { color: #9B6BFF; border-bottom: none; }
+        .toc-list a.active { color: #9B6BFF; font-weight: 600; }
+        .toc-indent { padding-left: 14px; }
+
+        /* CTA Box */
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 32px; border-radius: 8px; text-align: center; color: #ffffff; margin-bottom: 24px; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .cta-box p { font-size: 14px; margin-bottom: 20px; opacity: 0.95; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-button:hover { transform: translateY(-2px); border-bottom: none; }
+
+        /* Related Articles */
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; border-bottom: none; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); border-bottom: none; }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: #1a1a1a; margin-bottom: 8px; }
+        .related-card p { font-size: 14px; color: #6b7280; margin: 0; }
+
+        /* Footer */
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .content-wrapper { grid-template-columns: 1fr; }
+            .sidebar { position: static; }
+            .article-title { font-size: 32px; }
+            .related-grid { grid-template-columns: 1fr; }
+            .use-case-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 640px) {
+            header nav { display: none; }
+            .article-title { font-size: 28px; }
+            .article-content h2 { font-size: 24px; }
+            .breadcrumb { padding: 12px 16px; }
+            .breadcrumb-container { font-size: 12px; }
+            .article-cta { padding: 24px; }
+            .article-content { overflow-x: hidden; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo">
+                <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo">
+                <span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span>
+            </a>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/blog">All Articles</a>
+                <a href="/docs">Documentation</a>
+                <a href="/qualtrics-toolkit">Free Tools</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="/">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="/blog">Blog</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Extract Qualtrics Load Responses Into Survey Task Field Mappings</span>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="hero-container">
+            <h1 class="article-title">Extract and Export Qualtrics Load Responses Into Survey Task Field Mappings to CSV</h1>
+            <div class="article-meta">
+                <span class="author">Arun Raj</span>
+                <span class="separator">•</span>
+                <span>April 12, 2026</span>
+                <span class="separator">•</span>
+                <span>7 min read</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content-wrapper">
+
+        <article class="article-content">
+
+            <p>The <strong>Load Responses Into Survey</strong> task in Qualtrics Workflows lets you map source data fields directly to destination survey question fields. When you have dozens of mappings across multiple environments like Dev and Prod, manually tracking which source field maps to which survey question becomes error-prone and time-consuming.</p>
+
+            <p>This free browser-based script extracts your complete field mapping configuration in seconds, exporting it as a clean CSV you can use for documentation, auditing, and environment comparison.</p>
+
+            <h2 id="the-challenge">The Challenge</h2>
+
+            <p>When working with the Load Responses Into Survey task in Qualtrics Workflows, you regularly need to:</p>
+
+            <ul class="feature-list">
+                <li>Document which source fields map to which destination survey question fields</li>
+                <li>Audit configurations across Dev, Test, and Production environments</li>
+                <li>Verify that a newly cloned workflow has the same mappings as the source</li>
+                <li>Hand over workflow documentation to another team or stakeholder</li>
+                <li>Spot-check whether field mappings survived a survey version update</li>
+            </ul>
+
+            <p>Qualtrics provides no built-in export for task-level field mapping configurations. The only way to see them is to open each workflow task manually and scroll through the mapping table, which can have 20+ rows per task across multiple workflows.</p>
+
+            <h2 id="the-solution">The Solution</h2>
+
+            <div class="highlight-box">
+                <h4>🚀 One Script, Instant Export</h4>
+                <p>Run a single JavaScript snippet in your browser console while the Load Responses Into Survey task is open. The script reads every row of the data mapper table and exports it as a structured CSV with no API key, no installation, and no data ever leaving your browser.</p>
+            </div>
+
+            <p>The script uses stable <code>data-testid</code> attributes from the Qualtrics DOM, making it resilient to UI updates. It reads the selected source field and destination survey field from each row, skipping any empty placeholder rows automatically.</p>
+
+            <h2 id="how-to-use">How to Use</h2>
+
+            <div class="step-box">
+                <span class="step-number">1</span>
+                <h4>Open the Workflow Task</h4>
+                <p>In Qualtrics, navigate to <strong>Workflows</strong> and open the workflow containing your Load Responses Into Survey task. Click the task to open its configuration panel.</p>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">2</span>
+                <h4>Open the Browser Console</h4>
+                <p>Right-click anywhere on the mapping table and select <strong>Inspect</strong> or <strong>Inspect Element</strong> from the context menu. In the developer tools panel that opens, click the <strong>Console</strong> tab.</p>
+                <div class="alert alert-info" style="margin-top: 12px;">
+                    <strong>Why right-click on the table?</strong> This ensures the correct DOM elements are loaded in the inspector before the script runs, making extraction more reliable.
+                </div>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">3</span>
+                <h4>Paste and Run the Script</h4>
+                <p>Download the script below, paste the full contents into the console, and press <strong>Enter</strong>. You'll see a confirmation banner listing the available export commands.</p>
+            </div>
+
+            <div class="step-box">
+                <span class="step-number">4</span>
+                <h4>Export Your Data</h4>
+                <p>Call one of these export commands in the console:</p>
+                <div class="command-box">
+                    <span class="comment">// Download as CSV file (with timestamp)</span><br>
+                    downloadLRISCSV()<br><br>
+                    <span class="comment">// Copy CSV to clipboard</span><br>
+                    copyLRISCSV()<br><br>
+                    <span class="comment">// View as JSON object</span><br>
+                    getLRISJSON()<br><br>
+                    <span class="comment">// List all mappings in the console</span><br>
+                    listLRISRows()
+                </div>
+            </div>
+
+            <h2 id="the-script">The Script</h2>
+
+            <p>Download the script file and paste its contents into the browser console while the Load Responses Into Survey task is open. The script is self-contained and requires no external dependencies.</p>
+
+            <div class="alert alert-info">
+                <strong>Note:</strong> The script must be run while the Load Responses Into Survey task configuration panel is open and visible on screen. The field mapping table needs to be rendered in the DOM for extraction to work.
+            </div>
+
+            <div class="code-block">
+                <button class="copy-button" onclick="copyScript('main-script')">Copy Script</button>
+                <pre id="main-script">
+// ============================================================================
+// QUALTRICS LOAD RESPONSES INTO SURVEY - AUTOMATION TOOLKIT
+// Version: 1.0
+// Task: "Load responses into survey" workflow task
+// Developed by Pirai AI — piraiai.com
+// ============================================================================
+
+// ============================================================================
+// UTILITY: RESILIENT SELECTORS
+// ============================================================================
+
+const LRIS_SELECTORS = {
+    // Main grid container
+    grid: [
+        'div[role="grid"][aria-label="data-mapper-table"]',
+        'div[data-testid="data-mapper-table-test-id"]'
+    ],
+    // Data rows only (skip the header row which has role="rowgroup" with _hjyK0 _DoXPg)
+    rows: [
+        'div[role="rowgroup"]:not(._DoXPg) div[role="row"]',
+        'div[role="row"][data-testid^="data-mapper-table-test-id-row"]'
+    ],
+    // Source field button inside a row
+    sourceButton: [
+        'button[data-testid^="source-field-dropdown-"]',
+        'div[data-testid^="data-mapper-table-test-id-cell"][data-testid*="sourceFieldColumn"] button[role="combobox"]'
+    ],
+    // Destination field button inside a row
+    destButton: [
+        'button[data-testid^="destination-field-selector-"]',
+        'div[data-testid^="data-mapper-table-test-id-cell"][data-testid*="destinationFieldColumn"] button[role="combobox"]'
+    ],
+    // The visible label text inside a combobox button
+    buttonLabel: ['span._PZnC8', 'span[class*="PZnC8"]'],
+    // Add field button
+    addFieldButton: [
+        'button[data-testid="add-field-btn"]',
+        'button._O2hNj._ZUle5'
+    ],
+    // Clear all button
+    clearAllButton: [
+        'button[data-testid="clear-field-mappings-btn"]'
+    ],
+    // More/ellipsis button per row for delete
+    moreButton: [
+        'button[aria-label="more"]',
+        'button[aria-haspopup="listbox"]'
+    ]
+};
+
+function lrisFind(parent, selectorArray) {
+    for (const selector of selectorArray) {
+        try {
+            const el = parent.querySelector(selector);
+            if (el) return el;
+        } catch (e) { continue; }
+    }
+    return null;
+}
+
+function lrisFindAll(parent, selectorArray) {
+    for (const selector of selectorArray) {
+        try {
+            const els = parent.querySelectorAll(selector);
+            if (els.length > 0) return els;
+        } catch (e) { continue; }
+    }
+    return [];
+}
+
+function lrisGetButtonText(btn) {
+    if (!btn) return '';
+    for (const selector of LRIS_SELECTORS.buttonLabel) {
+        const span = btn.querySelector(selector);
+        if (span) return span.textContent.trim();
+    }
+    return btn.textContent.trim();
+}
+
+function lrisGetGrid() {
+    for (const selector of LRIS_SELECTORS.grid) {
+        try {
+            const el = document.querySelector(selector);
+            if (el) return el;
+        } catch (e) { continue; }
+    }
+    return null;
+}
+
+function lrisGetRows() {
+    const grid = lrisGetGrid();
+    if (!grid) {
+        console.warn('⚠️ Data mapper grid not found');
+        return [];
+    }
+
+    // Always get ALL rows from the data rowgroup (second rowgroup) — this captures
+    // every row including duplicate source field rows and the first unnamed row
+    const rowgroups = grid.querySelectorAll('div[role="rowgroup"]');
+    if (rowgroups.length >= 2) {
+        const allRows = Array.from(rowgroups[1].querySelectorAll('div[role="row"]'));
+        if (allRows.length > 0) return allRows;
+    }
+
+    // Fallback: rows with data-testid (may miss the first row and duplicates)
+    return Array.from(grid.querySelectorAll('div[role="row"][data-testid^="data-mapper-table-test-id-row"]'));
+}
+
+// ============================================================================
+// EXTRACTION FUNCTIONS
+// ============================================================================
+
+function extractLRISMappings() {
+    const mappings = [];
+    const rows = lrisGetRows();
+
+    if (rows.length === 0) {
+        console.warn('⚠️ No mapping rows found — make sure you are on the Load Responses Into Survey task');
+        return mappings;
+    }
+
+    rows.forEach((row, index) => {
+        try {
+            const sourceBtn = lrisFind(row, LRIS_SELECTORS.sourceButton);
+            const destBtn   = lrisFind(row, LRIS_SELECTORS.destButton);
+
+            const sourceField = lrisGetButtonText(sourceBtn);
+            const destField   = lrisGetButtonText(destBtn);
+
+            // Skip placeholder/empty rows
+            if (!sourceField || sourceField === 'Select source field...') return;
+
+            mappings.push({
+                index: mappings.length + 1,
+                sourceField,
+                destinationSurveyField: destField
+            });
+        } catch (error) {
+            console.warn(`Error processing row ${index}:`, error);
+        }
+    });
+
+    return mappings;
+}
+
+function downloadLRISCSV() {
+    const mappings = extractLRISMappings();
+
+    if (mappings.length === 0) {
+        console.error('❌ No mappings found to export');
+        return;
+    }
+
+    const headers = ['Index', 'Source Field', 'Destination Survey Field'];
+    const csvRows = [headers.map(h => `"${h}"`).join(',')];
+
+    mappings.forEach(m => {
+        csvRows.push([
+            `"${m.index}"`,
+            `"${m.sourceField.replace(/"/g, '""')}"`,
+            `"${m.destinationSurveyField.replace(/"/g, '""')}"`
+        ].join(','));
+    });
+
+    const csvContent = csvRows.join('\n');
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    const timestamp = new Date().toISOString().slice(0, 19).replace(/:/g, '-');
+
+    link.setAttribute('href', url);
+    link.setAttribute('download', `load_responses_mappings_${timestamp}.csv`);
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+
+    console.log(`✅ Downloaded CSV with ${mappings.length} field mappings`);
+}
+
+function copyLRISCSV() {
+    const mappings = extractLRISMappings();
+
+    if (mappings.length === 0) {
+        console.error('❌ No mappings found to copy');
+        return;
+    }
+
+    const headers = ['Index', 'Source Field', 'Destination Survey Field'];
+    const csvRows = [headers.map(h => `"${h}"`).join(',')];
+
+    mappings.forEach(m => {
+        csvRows.push([
+            `"${m.index}"`,
+            `"${m.sourceField.replace(/"/g, '""')}"`,
+            `"${m.destinationSurveyField.replace(/"/g, '""')}"`
+        ].join(','));
+    });
+
+    navigator.clipboard.writeText(csvRows.join('\n')).then(() => {
+        console.log(`✅ Copied ${mappings.length} field mappings to clipboard`);
+    });
+}
+
+function getLRISJSON() {
+    const mappings = extractLRISMappings();
+    console.log(JSON.stringify(mappings, null, 2));
+    return mappings;
+}
+
+function listLRISRows() {
+    const rows = lrisGetRows();
+
+    console.log(`\n╔════════════════════════════════════════════════════════╗`);
+    console.log(`║  Current Mapping Rows: ${String(rows.length).padEnd(31)}║`);
+    console.log(`╚════════════════════════════════════════════════════════╝\n`);
+
+    if (rows.length === 0) {
+        console.log('ℹ️ No rows found\n');
+        return [];
+    }
+
+    const rowData = [];
+    rows.forEach((row, index) => {
+        const sourceBtn = lrisFind(row, LRIS_SELECTORS.sourceButton);
+        const destBtn   = lrisFind(row, LRIS_SELECTORS.destButton);
+        const source    = lrisGetButtonText(sourceBtn) || '(empty)';
+        const dest      = lrisGetButtonText(destBtn)   || '(empty)';
+        console.log(`[${index}] Source: ${source} → Destination: ${dest}`);
+        rowData.push({ index, source, dest });
+    });
+
+    console.log('');
+    return rowData;
+}
+
+// ============================================================================
+// USAGE GUIDE
+// ============================================================================
+
+console.log(`
+╔══════════════════════════════════════════════════════════════════╗
+║  QUALTRICS LOAD RESPONSES INTO SURVEY TOOLKIT v1.0             ║
+╠══════════════════════════════════════════════════════════════════╣
+║                                                                  ║
+║  📥 EXTRACT FUNCTIONS:                                           ║
+║    downloadLRISCSV()   - Download mappings as CSV               ║
+║    copyLRISCSV()       - Copy to clipboard                      ║
+║    listLRISRows()      - View current rows in console           ║
+║    getLRISJSON()       - View as JSON                           ║
+║                                                                  ║
+║  CSV columns: Index, Source Field, Destination Survey Field     ║
+║                                                                  ║
+╚══════════════════════════════════════════════════════════════════╝
+`);                    
+                </pre>
+            </div>
+
+            <h2 id="csv-output">CSV Output Format</h2>
+
+            <p>The exported CSV contains three columns, making it easy to import into Excel, Google Sheets, or any data tool for further analysis:</p>
+
+            <div class="csv-example">
+<span class="csv-header">"Index","Source Field","Destination Survey Field"</span>
+"1","DistributionChannel1","test_flag"
+"2","Q1","Overall Satisfaction"
+"3","DistributionChannel1","test"
+"4","Duration (in seconds)1","Click to write the question text - Click to write Statement 1"
+"5","StartDate","Start Date"
+"6","EndDate","End Date"
+"7","Status","Survey Response type (info found here)"
+"8","IPAddress","IP Address"
+"9","Progress","Progress (percentage)"
+"10","Finished","Finished (boolean for whether or not the survey is complete)"
+"11","RecordedDate","Recorded Date"
+"12","LocationLatitude","Latitude"
+"13","LocationLongitude","Longitude"
+"14","RecipientLastName","Recipient last name"
+"15","RecipientFirstName","Recipient first name"
+"16","RecipientEmail","Recipient email"
+"17","ExternalReference","External data reference"
+"18","UserLanguage","User language"
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Column</th>
+                        <th>Description</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Index</strong></td>
+                        <td>Row number in the mapping table</td>
+                        <td>1, 2, 3…</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Source Field</strong></td>
+                        <td>The incoming data field being mapped</td>
+                        <td>Q1, StartDate, RecipientEmail</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Destination Survey Field</strong></td>
+                        <td>The target survey question or field</td>
+                        <td>Overall Satisfaction, Start Date</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Rows where the source field shows <em>"Select source field…"</em> (placeholder, unset rows) are automatically skipped. Only fully configured mappings are included in the export.</p>
+
+            <h2 id="comparing-environments">Comparing Dev vs Prod Mappings</h2>
+
+            <p>One of the most valuable uses of this script is <strong>environment comparison</strong>. When you maintain parallel Qualtrics environments, typically a Dev and a Prod instance, it's easy for field mappings to drift out of sync after a survey update, a cloning operation, or a manual change made directly in production.</p>
+
+            <p>The workflow is simple:</p>
+
+            <ol>
+                <li>Run <code>downloadLRISCSV()</code> on the <strong>Dev</strong> environment and save as <code>load_responses_dev.csv</code></li>
+                <li>Run <code>downloadLRISCSV()</code> on the <strong>Prod</strong> environment and save as <code>load_responses_prod.csv</code></li>
+                <li>Upload both files to the <a href="/pirai-csv-comparator">Pirai AI CSV Comparator</a></li>
+                <li>Instantly see which rows differ, which are missing, and which are identical</li>
+            </ol>
+
+            <div class="comparator-box">
+                <h4>🔍 Free CSV Comparator Tool</h4>
+                <p>The <a href="/pirai-csv-comparator">Pirai AI CSV Comparator</a> is a free browser-based tool that highlights differences between two CSV files row by row. No data is uploaded to any server and everything runs locally in your browser.</p>
+                <p>Perfect for auditing Load Responses mappings across Dev, Test, and Production Qualtrics environments before go-live.</p>
+            </div>
+
+            <h2 id="use-cases">Use Cases</h2>
+
+            <div class="use-case-grid">
+                <div class="use-case-card">
+                    <div class="use-case-icon">📋</div>
+                    <h4>Workflow Documentation</h4>
+                    <p>Generate a complete field mapping register for handover documentation, change management records, or onboarding new team members.</p>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon">🔄</div>
+                    <h4>Environment Sync Audit</h4>
+                    <p>Extract mappings from Dev and Prod, then compare with the CSV Comparator to catch any configuration drift before release.</p>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon">🛡️</div>
+                    <h4>Post-Migration Verification</h4>
+                    <p>After cloning a workflow or updating a survey, confirm that all field mappings survived intact with a before/after CSV comparison.</p>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon">🔍</div>
+                    <h4>QA &amp; Regression Testing</h4>
+                    <p>Build a baseline CSV of your known-good configuration and re-extract after each deployment to verify nothing has changed unexpectedly.</p>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon">📊</div>
+                    <h4>Mapping Inventory</h4>
+                    <p>Maintain a living spreadsheet of all field mappings across multiple workflows and surveys in your Qualtrics account.</p>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon">⚡</div>
+                    <h4>Rapid Troubleshooting</h4>
+                    <p>When a survey response isn't loading correctly, export the current mappings to quickly identify which source field may be misconfigured.</p>
+                </div>
+            </div>
+
+            <h2 id="key-features">Key Features</h2>
+
+            <ul class="feature-list">
+                <li>Extracts all configured source field → destination survey field mappings in one pass</li>
+                <li>Automatically skips placeholder rows where no source field has been selected</li>
+                <li>Uses stable <code>data-testid</code> attributes with resilient fallback selectors</li>
+                <li>Exports to CSV with timestamp in the filename for version tracking</li>
+                <li>Works entirely in the browser with no data sent to any server</li>
+                <li>Compatible with all Qualtrics licence types and requires no API key</li>
+                <li>CSV output is ready to feed directly into the Pirai AI CSV Comparator</li>
+            </ul>
+
+            <h2 id="best-practices">Best Practices</h2>
+
+            <h3>Naming Your Exports</h3>
+            <p>The script automatically appends a timestamp to the filename (e.g., <code>load_responses_mappings_2026-04-12T10-30-00.csv</code>). For environment comparison, rename the files clearly, for example <code>load_responses_dev_20260412.csv</code> and <code>load_responses_prod_20260412.csv</code>, before uploading to the CSV Comparator.</p>
+
+            <h3>When to Run the Extraction</h3>
+            <p>Run the extraction <strong>after</strong> you have finished configuring the task and while the mapping table is fully visible. The script reads the live DOM, so all rows need to be rendered. If the task panel is collapsed or the page hasn't fully loaded, wait for it to settle before running.</p>
+
+            <h3>Keeping a Mapping Register</h3>
+            <p>Consider maintaining a shared spreadsheet that tracks the mapping exports by date and environment. Paste the CSV contents into a new tab each time you make a configuration change and you'll have a full audit trail with zero extra effort.</p>
+
+            <h2 id="troubleshooting">Troubleshooting</h2>
+
+            <div class="troubleshooting-box">
+                <h4>⚠️ "No mapping rows found"</h4>
+                <p><strong>Cause:</strong> The Load Responses Into Survey task panel is not open, or the mapping table has not finished rendering.</p>
+                <p><strong>Fix:</strong> Make sure the task configuration is open and the field mapping table is visible on screen before running the script. Wait a moment for the page to fully load, then try again.</p>
+            </div>
+
+            <div class="troubleshooting-box">
+                <h4>⚠️ "Data mapper grid not found"</h4>
+                <p><strong>Cause:</strong> The script cannot locate the mapping grid, which typically means you are on a different task or screen.</p>
+                <p><strong>Fix:</strong> Navigate to the Load Responses Into Survey task specifically. The script only works on the data mapper screen for this task type and will not extract mappings from other task types (use the appropriate toolkit for those).</p>
+            </div>
+
+            <div class="troubleshooting-box">
+                <h4>⚠️ Some rows are missing from the CSV</h4>
+                <p><strong>Cause:</strong> Rows where the source field shows "Select source field…" are intentionally skipped as these are unconfigured placeholder rows.</p>
+                <p><strong>Fix:</strong> If a row you expected is missing, check that its source field has been selected in the Qualtrics UI. Rows with a selected source field but no destination will still be included in the export.</p>
+            </div>
+
+            <div class="alert alert-success">
+                <strong>Privacy &amp; security:</strong> This is a browser-based tool requiring no installation. Your Qualtrics data stays completely private and everything runs locally in your browser tab. No data is transmitted to any external server. Works with all Qualtrics licence types and requires no API key.
+            </div>
+
+            <!-- Article CTA -->
+            <div class="article-cta">
+                <h3>Automate Your Survey Workflow</h3>
+                <p>Pirai AI converts Word, PDF, and Excel questionnaires into Qualtrics and 20+ other platforms automatically. No manual programming required.</p>
+                <a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Try Pirai AI Free</a>
+            </div>
+
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="sidebar-section">
+                <h3>In This Article</h3>
+                <ul class="toc-list">
+                    <li><a href="#the-challenge">The Challenge</a></li>
+                    <li><a href="#the-solution">The Solution</a></li>
+                    <li><a href="#how-to-use">How to Use</a></li>
+                    <li><a href="#the-script">The Script</a></li>
+                    <li><a href="#csv-output">CSV Output Format</a></li>
+                    <li><a href="#comparing-environments">Comparing Dev vs Prod</a></li>
+                    <li><a href="#use-cases">Use Cases</a></li>
+                    <li><a href="#key-features">Key Features</a></li>
+                    <li><a href="#best-practices">Best Practices</a></li>
+                    <li><a href="#troubleshooting">Troubleshooting</a></li>
+                </ul>
+            </div>
+
+            <div class="cta-box">
+                <h3>Survey Automation</h3>
+                <p>Convert Word, PDF, and Excel surveys to Qualtrics and 20+ platforms automatically.</p>
+                <a href="https://platform.piraiai.com" target="_blank" class="cta-button">Try Pirai AI Free</a>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Free Qualtrics Tools</h3>
+                <ul class="toc-list">
+                    <li><a href="/pirai-csv-comparator">CSV Comparator</a></li>
+                    <li><a href="/qsf-to-excel">QSF to Excel Converter</a></li>
+                    <li><a href="/embedded-data-generator">Embedded Data Generator</a></li>
+                    <li><a href="/qualtrics-toolkit">Full Qualtrics Toolkit</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Related Tutorials</h3>
+                <ul class="toc-list">
+                    <li><a href="/blog/extract-qualtrics-xm-directory-mappings">Extract XM Directory Contact Mappings</a></li>
+                    <li><a href="/blog/extract-qualtrics-add-contacts-transactions-xmd">Extract Add Contacts &amp; Transactions to XMD Mappings</a></li>
+                    <li><a href="/blog/extract-qualtrics-basic-transform-mappings">Extract Basic Transform Task Mappings</a></li>
+                    <li><a href="/blog/extract-qualtrics-dashboard-mappings">Extract Dashboard Field Mappings</a></li>
+                </ul>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <!-- Related Articles -->
+    <section class="related-articles">
+        <h2>Related Articles</h2>
+        <div class="related-grid">
+            <a href="/blog/extract-qualtrics-xm-directory-mappings" class="related-card">
+                <h3>Extract Qualtrics XM Directory Contact &amp; Transaction Mappings</h3>
+                <p>Free browser script to extract all contact and transaction field mappings from the Update XM Directory Contacts workflow task.</p>
+            </a>
+            <a href="/blog/extract-qualtrics-add-contacts-transactions-xmd" class="related-card">
+                <h3>Extract Qualtrics Add Contacts and Transactions to XMD Mappings</h3>
+                <p>Extract all field mappings from the Add Contacts and Transactions to XMD task and export to CSV in seconds.</p>
+            </a>
+            <a href="/blog/extract-qualtrics-basic-transform-mappings" class="related-card">
+                <h3>Extract Qualtrics Basic Transform Task Mappings</h3>
+                <p>Automatically extract all source field, destination field, and field type mappings from the Qualtrics Basic Transform workflow task.</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Copy script functionality
+        function copyScript(id) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            const text = el.textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = el.parentElement.querySelector('.copy-button');
+                if (btn) {
+                    btn.textContent = 'Copied!';
+                    btn.classList.add('copied');
+                    setTimeout(() => {
+                        btn.textContent = 'Copy Script';
+                        btn.classList.remove('copied');
+                    }, 2000);
+                }
+            }).catch(() => {
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+            });
+        }
+
+        // Active TOC highlighting
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        const sections = document.querySelectorAll('h2[id]');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(link => link.classList.remove('active'));
+                    const active = document.querySelector(`.toc-list a[href="#${entry.target.id}"]`);
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+
+        sections.forEach(s => observer.observe(s));
+    </script>
+
+</body>
+</html>

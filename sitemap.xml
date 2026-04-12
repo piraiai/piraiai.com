@@ -171,7 +171,12 @@
     <changefreq>monthly</changefreq>
     <lastmod>2026-04-06</lastmod>
   </url>   
-    
+  <url>
+    <loc>https://piraiai.com/blog/extract-qualtrics-load-responses-into-survey-mappings</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-12</lastmod>
+  </url>      
 
   <!-- Add each new article as you publish -->
   <!-- Documentation SECTION - Medium-High priority -->
