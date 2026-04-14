@@ -9,7 +9,20 @@
     <loc>https://piraiai.com/</loc>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
-    <lastmod>2025-01-26</lastmod>
+    <lastmod>2026-04-13</lastmod>
+  </url>
+  <!-- LLM Discovery Files -->
+  <url>
+    <loc>https://piraiai.com/llms.txt</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-13</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/llms-full.txt</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-13</lastmod>
   </url>
   <!-- Flow - Highest priority -->
   <url>
