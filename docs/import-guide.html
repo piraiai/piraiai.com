@@ -8,7 +8,7 @@
          PRIMARY SEO
     ===================== -->
     <title>How to Import Your Survey into Qualtrics, QuestionPro, SurveyMonkey & More | Pirai AI</title>
-    <meta name="description" content="Step-by-step instructions for importing converted surveys into Qualtrics (QSF & Advanced Format), QuestionPro, SurveyMonkey, Google Forms, Microsoft Forms, REDCap, Zoho Survey, SurveySparrow, Alchemer, and Forsta. Official import guide by Pirai AI." />
+    <meta name="description" content="Step-by-step instructions for importing converted surveys into Qualtrics (QSF & Advanced Format), QuestionPro, SurveyMonkey, Google Forms, Microsoft Forms, REDCap, Zoho Survey, SurveySparrow, Alchemer, Forsta, Crowdtech, Culture Amp, and SurveyVista. Official import guide by Pirai AI." />
     <meta name="keywords" content="how to import survey into Qualtrics, import QSF file Qualtrics, QuestionPro Word import, SurveyMonkey paste questions, Google Forms Apps Script survey, Microsoft Forms Word import, Zoho Survey import, Alchemer Word import, Forsta survey import, survey file import guide, Pirai AI import guide" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="author" content="Pirai AI" />
@@ -976,7 +976,7 @@
         <div class="article-meta">
             <span class="author">Pirai AI Team</span>
             <span class="separator">•</span>
-            <span>10 platforms</span>
+            <span>13 platforms</span>
             <span class="separator">•</span>
             <span>Post-conversion guide</span>
             <span class="separator">•</span>
@@ -1080,6 +1080,24 @@
                         <td><span class="method-tag method-upload">⬆ File Upload</span></td>
                         <td><a class="ref-link" href="#" onclick="switchTab('forsta'); return false;">View steps →</a></td>
                     </tr>
+                    <tr>
+                        <td><span class="platform-name">Crowdtech</span></td>
+                        <td><span class="file-tag">.ctsurvey</span></td>
+                        <td><span class="method-tag method-upload">⬆ File Upload</span></td>
+                        <td><a class="ref-link" href="#" onclick="switchTab('crowdtech'); return false;">View steps →</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="platform-name">Culture Amp</span></td>
+                        <td><span class="file-tag">.xlsx</span></td>
+                        <td><span class="method-tag method-upload">⬆ File Upload</span></td>
+                        <td><a class="ref-link" href="#" onclick="switchTab('cultureamp'); return false;">View steps →</a></td>
+                    </tr>
+                    <tr>
+                        <td><span class="platform-name">SurveyVista</span></td>
+                        <td><span class="file-tag">.csv</span></td>
+                        <td><span class="method-tag method-upload">⬆ File Upload</span></td>
+                        <td><a class="ref-link" href="#" onclick="switchTab('surveyvista'); return false;">View steps →</a></td>
+                    </tr>
                 </tbody>
             </table>
             </div>
@@ -1101,6 +1119,9 @@
             <button class="tab-btn" onclick="switchTab('surveysparrow')">SurveySparrow</button>
             <button class="tab-btn" onclick="switchTab('alchemer')">Alchemer</button>
             <button class="tab-btn" onclick="switchTab('forsta')">Forsta</button>
+            <button class="tab-btn" onclick="switchTab('crowdtech')">Crowdtech</button>
+            <button class="tab-btn" onclick="switchTab('cultureamp')">Culture Amp</button>
+            <button class="tab-btn" onclick="switchTab('surveyvista')">SurveyVista</button>
         </div>
 
         <!-- ===== QUALTRICS ===== -->
@@ -1473,6 +1494,86 @@
             </a>
         </div>
 
+        <!-- ===== CROWDTECH ===== -->
+        <div class="platform-panel" id="panel-crowdtech">
+            <div class="platform-header">
+                <div>
+                    <div class="platform-title">Crowdtech</div>
+                    <div class="platform-desc">Crowdtech supports direct survey file import through its Download Center. Upload your Pirai AI XML file and the system will guide you through selecting which survey elements to include.</div>
+                </div>
+                <div class="platform-badges">
+                    <span class="method-tag method-upload">⬆ File Upload</span>
+                </div>
+            </div>
+            <div class="file-callout">
+                <div class="fc-icon">📥</div>
+                <p><strong>Your Pirai AI file:</strong> Download the <strong>Crowdtech .ctsurvey</strong> file from the platform.</p>
+            </div>
+            <ol class="steps-list">
+                <li><span class="step-num">1</span><span class="step-text">In the Crowdtech menu, go to <strong>Download Center</strong> then select <strong>Import Survey</strong> in the Survey environment where you want to import.</span></li>
+                <li><span class="step-num">2</span><span class="step-text">Upload your <code>.ctsurvey</code> file by dragging it into the upload field, or click the <strong>plus icon</strong> to browse and select it from your device.</span></li>
+                <li><span class="step-num">3</span><span class="step-text">Select the parts you want to include in the import. The system will auto-select <strong>Question and Answer Texts</strong>. You can also choose from quotas, data enrichment (column names), confirmation messages, filters, variables, groups, emails, and translations.</span></li>
+                <li><span class="step-num">4</span><span class="step-text">Enter a name for the new survey.</span></li>
+                <li><span class="step-num">5</span><span class="step-text">Choose a layout for the survey.</span></li>
+                <li><span class="step-num">6</span><span class="step-text">Click <strong>Import</strong>. Your new survey will be available under <strong>Manage</strong> and <strong>Home</strong> in the Crowdtech menu.</span></li>
+            </ol>
+            <a href="https://guide.crowdtech.com/hc/en-gb/articles/9034488236572-Import-Survey" target="_blank" rel="noopener" class="official-docs">
+                📄 Crowdtech Official Import Documentation ↗
+            </a>
+        </div>
+
+        <!-- ===== CULTURE AMP ===== -->
+        <div class="platform-panel" id="panel-cultureamp">
+            <div class="platform-header">
+                <div>
+                    <div class="platform-title">Culture Amp</div>
+                    <div class="platform-desc">Culture Amp supports direct Excel file import for survey questions. Upload your Pirai AI Excel file through the Questions page and the system will validate the content automatically.</div>
+                </div>
+                <div class="platform-badges">
+                    <span class="method-tag method-upload">⬆ File Upload</span>
+                </div>
+            </div>
+            <div class="file-callout">
+                <div class="fc-icon">📥</div>
+                <p><strong>Your Pirai AI file:</strong> Download the <strong>Culture Amp .xlsx</strong> file from the platform.</p>
+            </div>
+            <ol class="steps-list">
+                <li><span class="step-num">1</span><span class="step-text">Log in to Culture Amp and navigate to <strong>Survey</strong> then the <strong>Questions</strong> page.</span></li>
+                <li><span class="step-num">2</span><span class="step-text">Click <strong>Import Questions</strong> and upload your <code>.xlsx</code> file from Pirai AI.</span></li>
+                <li><span class="step-num">3</span><span class="step-text">The system will validate your file automatically. If any errors are found, review the messages shown, correct the issues, and re-upload.</span></li>
+                <li><span class="step-num">4</span><span class="step-text">Once validation passes, your questions will be imported into the survey ready for review and publishing.</span></li>
+            </ol>
+            <a href="https://support.cultureamp.com" target="_blank" rel="noopener" class="official-docs">
+                📄 Culture Amp Official Documentation ↗
+            </a>
+        </div>
+
+        <!-- ===== SURVEYVISTA ===== -->
+        <div class="platform-panel" id="panel-surveyvista">
+            <div class="platform-header">
+                <div>
+                    <div class="platform-title">SurveyVista</div>
+                    <div class="platform-desc">SurveyVista supports CSV file import through the Survey Import interface. Upload your Pirai AI CSV file to create a new survey in seconds.</div>
+                </div>
+                <div class="platform-badges">
+                    <span class="method-tag method-upload">⬆ File Upload</span>
+                </div>
+            </div>
+            <div class="file-callout">
+                <div class="fc-icon">📥</div>
+                <p><strong>Your Pirai AI file:</strong> Download the <strong>SurveyVista .csv</strong> file from the platform.</p>
+            </div>
+            <ol class="steps-list">
+                <li><span class="step-num">1</span><span class="step-text">Log in to SurveyVista and navigate to the <strong>Surveys</strong> tab.</span></li>
+                <li><span class="step-num">2</span><span class="step-text">Click <strong>Import Survey</strong> in the top-right corner. The Survey Import interface will appear.</span></li>
+                <li><span class="step-num">3</span><span class="step-text">Click <strong>Upload Files</strong> and select your Pirai AI <code>.csv</code> file, or drag and drop it directly into the designated drop zone.</span></li>
+                <li><span class="step-num">4</span><span class="step-text">Click <strong>Import Survey</strong> to complete the import. Your survey will be created and ready to review.</span></li>
+            </ol>
+            <a href="https://help.surveyvista.com" target="_blank" rel="noopener" class="official-docs">
+                📄 SurveyVista Official Documentation ↗
+            </a>
+        </div>
+
         <!-- CTA -->
         <div class="platform-cta">
             <div class="platform-cta-text">
@@ -1560,6 +1661,24 @@
                         Forsta
                     </a>
                 </li>
+                <li>
+                    <a href="#platform-steps" onclick="switchTab('crowdtech')">
+                        <span class="toc-icon">→</span>
+                        Crowdtech
+                    </a>
+                </li>
+                <li>
+                    <a href="#platform-steps" onclick="switchTab('cultureamp')">
+                        <span class="toc-icon">→</span>
+                        Culture Amp
+                    </a>
+                </li>
+                <li>
+                    <a href="#platform-steps" onclick="switchTab('surveyvista')">
+                        <span class="toc-icon">→</span>
+                        SurveyVista
+                    </a>
+                </li>
             </ul>
         </div>
 
@@ -1589,7 +1708,7 @@
         // Update buttons
         document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
         const buttons = document.querySelectorAll('.tab-btn');
-        const platformMap = ['qualtrics','questionpro','surveymonkey','googleforms','microsoftforms','redcap','zoho','surveysparrow','alchemer','forsta'];
+        const platformMap = ['qualtrics','questionpro','surveymonkey','googleforms','microsoftforms','redcap','zoho','surveysparrow','alchemer','forsta','crowdtech','cultureamp','surveyvista'];
         const idx = platformMap.indexOf(platform);
         if (idx > -1) buttons[idx].classList.add('active');
 
