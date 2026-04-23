@@ -79,6 +79,62 @@
         .section-header h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; padding-left: 16px; border-left: 4px solid #9B6BFF; margin-bottom: 8px; }
         .section-header p { font-size: 16px; color: #6b7280; padding-left: 20px; }
 
+        /* Search + Filter Bar */
+        .search-filter {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+        .search-box {
+            flex: 1;
+            min-width: 260px;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.2s;
+        }
+        .search-box input:focus {
+            outline: none;
+            border-color: #9B6BFF;
+        }
+        .filter-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .filter-tag {
+            padding: 8px 16px;
+            background: #f3f4f6;
+            border: 1px solid #e5e7eb;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #4b5563;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+        .filter-tag:hover,
+        .filter-tag.active {
+            background: #9B6BFF;
+            color: #ffffff;
+            border-color: #9B6BFF;
+        }
+        .no-results {
+            display: none;
+            text-align: center;
+            padding: 48px 24px;
+            color: #6b7280;
+            font-size: 15px;
+            grid-column: 1 / -1;
+        }
+
         /* Tools Grid */
         .tools-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 48px; }
 
@@ -232,9 +288,25 @@
             <p>Professional-grade tools that work entirely in your browser. No uploads, no data storage, complete privacy.</p>
         </div>
 
+        <!-- Search + Filter Bar -->
+        <div class="search-filter">
+            <div class="search-box">
+                <input type="text" id="toolSearch" placeholder="Search tools..." aria-label="Search tools">
+            </div>
+            <div class="filter-tags">
+                <button class="filter-tag active" data-filter="all">All</button>
+                <button class="filter-tag" data-filter="api">API</button>
+                <button class="filter-tag" data-filter="dashboard">Dashboard</button>
+                <button class="filter-tag" data-filter="workflow">Workflow Tasks</button>
+                <button class="filter-tag" data-filter="compare">Compare</button>
+                <button class="filter-tag" data-filter="survey">Survey</button>
+                <button class="filter-tag" data-filter="data-analysis">Data &amp; Analysis</button>
+            </div>
+        </div>
+
         <div class="tools-grid">
             <!-- Qualtrics API Toolkit -->
-            <div class="tool-card">
+            <div class="tool-card" data-category="api">
                 <span class="status-badge badge-live">Live</span>
                 <span class="tool-icon">🔧</span>
                 <h3 class="tool-title">Qualtrics API Toolkit <span class="chrome-badge">Chrome</span></h3>
@@ -270,7 +342,7 @@
                 </div>
             </div>             -->
             <!-- Response PDF Bulk Exporter -->
-            <div class="tool-card">
+            <div class="tool-card" data-category="data-analysis">
                 <span class="status-badge badge-free">Free</span>
                 <span class="tool-icon">📄</span>
                 <h3 class="tool-title">Response PDF Bulk Exporter</h3>
@@ -285,9 +357,26 @@
                 <div class="tool-actions">
                     <a href="/blog/bulk-export-qualtrics-response-pdfs" class="btn-primary">View Guide</a>
                 </div>
-            </div>            
+            </div> 
+            <!-- Data & Analysis Table Excel Exporter -->
+            <div class="tool-card" data-category="data-analysis">
+                <span class="status-badge badge-free">Free</span>
+                <span class="tool-icon">📊</span>
+                <h3 class="tool-title">Data &amp; Analysis Table Exporter</h3>
+                <p class="tool-description">Export the Qualtrics Data &amp; Analysis table to Excel directly from your browser, including in-progress responses with session-level columns not available in the standard export.</p>
+                <ul class="tool-features">
+                    <li>Exports in-progress responses with Survey Session ID, Last Question, Progress and Expires</li>
+                    <li>Respects any filter applied in the Data &amp; Analysis tab</li>
+                    <li>Auto-paginates through all pages into a single Excel file</li>
+                    <li>Auto-sized columns and Export Info sheet included</li>
+                    <li>Runs directly in your browser</li>
+                </ul>
+                <div class="tool-actions">
+                    <a href="/blog/export-qualtrics-data-table-excel" class="btn-primary">View Guide</a>
+                </div>
+            </div>                       
             <!-- Add Contacts and Transactions to XMD Mapper -->
-            <div class="tool-card">
+            <div class="tool-card" data-category="workflow">
                 <span class="status-badge badge-free">Free</span>
                 <span class="tool-icon">📥</span>
                 <h3 class="tool-title">Add Contacts and Transactions to XMD Mapper</h3>
@@ -305,7 +394,7 @@
             </div>            
 
             <!-- Dashboard Field Mapper -->
-            <div class="tool-card">
+            <div class="tool-card" data-category="dashboard">
                 <span class="status-badge badge-free">Free</span>
                 <span class="tool-icon">🗺️</span>
                 <h3 class="tool-title">Dashboard Field Mapper</h3>
@@ -323,7 +412,7 @@
             </div>
 
             <!-- XM Directory Mapper -->
-            <div class="tool-card">
+            <div class="tool-card" data-category="workflow">
                 <span class="status-badge badge-free">Free</span>
                 <span class="tool-icon">🗂️</span>
                 <h3 class="tool-title">XM Directory Mapper</h3>
@@ -341,7 +430,7 @@
             </div>
             
             <!-- Basic Transform Mapper -->
-            <div class="tool-card">
+            <div class="tool-card" data-category="workflow">
                 <span class="status-badge badge-free">Free</span>
                 <span class="tool-icon">🔄</span>
                 <h3 class="tool-title">Basic Transform Mapper</h3>
@@ -359,7 +448,7 @@
             </div> 
             
             <!-- Load Responses Into Survey Mapper -->
-            <div class="tool-card">
+            <div class="tool-card" data-category="workflow">
                 <span class="status-badge badge-free">Free</span>
                 <span class="tool-icon">📊</span>
                 <h3 class="tool-title">Load Responses Into Survey Mapper</h3>
@@ -377,7 +466,7 @@
             </div>             
 
             <!-- CSV Comparator -->
-            <div class="tool-card">
+            <div class="tool-card" data-category="compare">
                 <span class="status-badge badge-live">Live</span>
                 <span class="tool-icon">📊</span>
                 <h3 class="tool-title">CSV Comparator <span class="chrome-badge">Chrome</span></h3>
@@ -395,14 +484,14 @@
             </div>
 
             <!-- CSV Comparator Demo Video -->
-            <div class="video-card">
+            <div class="video-card" data-category="compare">
                 <h3>CSV Comparator in Action</h3>
                 <p>Watch the Chrome extension working directly in your browser</p>
                 <iframe height="220" src="https://www.youtube.com/embed/5a_1SSiah1s?si=9JyUeLUQcxLlnPkK" title="CSV Comparator Chrome Extension Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
 
             <!-- Embedded Data Generator -->
-            <div class="tool-card">
+            <div class="tool-card" data-category="survey">
                 <span class="status-badge badge-live">Live</span>
                 <span class="tool-icon">⚡</span>
                 <h3 class="tool-title">Embedded Data Generator <span class="chrome-badge">Chrome</span></h3>
@@ -421,14 +510,14 @@
             </div>
 
             <!-- Embedded Data Generator Demo Video -->
-            <div class="video-card">
+            <div class="video-card" data-category="survey">
                 <h3>Embedded Data Generator in Action</h3>
                 <p>Watch the Chrome extension working directly inside Qualtrics</p>
                 <iframe height="220" src="https://www.youtube.com/embed/ohWVQRuFUq0?si=5eKrK9KWCBPhRsDL" title="Embedded Data Generator Chrome Extension Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
 
             <!-- Text IQ to Excel -->
-            <div class="tool-card">
+            <div class="tool-card" data-category="dashboard">
                 <span class="status-badge badge-live">Live</span>
                 <span class="tool-icon">🎯</span>
                 <h3 class="tool-title">Text IQ JSON to Excel</h3>
@@ -445,7 +534,7 @@
             </div>
 
             <!-- QSF to Excel -->
-            <div class="tool-card">
+            <div class="tool-card" data-category="survey">
                 <span class="status-badge badge-live">Live</span>
                 <span class="tool-icon">📁</span>
                 <h3 class="tool-title">QSF to Excel Converter</h3>
@@ -462,7 +551,7 @@
             </div>
 
             <!-- Survey Template Generator — Coming Soon -->
-            <div class="tool-card coming-soon">
+            <div class="tool-card coming-soon" data-category="survey">
                 <span class="status-badge badge-soon">Coming Soon</span>
                 <span class="tool-icon">📋</span>
                 <h3 class="tool-title">Survey Template Generator</h3>
@@ -478,9 +567,9 @@
                 </div>
             </div>
 
-        </div>
+            <div class="no-results" id="noResults">No tools found. Try a different search or category.</div>
 
-        <!-- Quick Actions -->
+        </div>
         <div class="quick-actions">
             <h3>Need Something Specific?</h3>
             <p>We are continuously expanding the toolkit based on user feedback. If there is a tool that would save your team time, let us know.</p>
@@ -556,5 +645,54 @@
         </div>
     </footer>
 
+    <script>
+        (function () {
+            const searchInput = document.getElementById('toolSearch');
+            const filterButtons = document.querySelectorAll('.filter-tag');
+            const toolCards = document.querySelectorAll('.tools-grid [data-category]');
+            const noResults = document.getElementById('noResults');
+
+            let activeFilter = 'all';
+            let searchTerm = '';
+
+            function applyFilters() {
+                let visibleCount = 0;
+
+                toolCards.forEach(card => {
+                    const category = card.dataset.category;
+                    const isVideoCard = card.classList.contains('video-card');
+
+                    const categoryMatch = activeFilter === 'all' || category === activeFilter;
+
+                    let searchMatch = true;
+                    if (searchTerm && !isVideoCard) {
+                        const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
+                        const desc = card.querySelector('p')?.textContent.toLowerCase() || '';
+                        searchMatch = title.includes(searchTerm) || desc.includes(searchTerm);
+                    }
+
+                    const show = categoryMatch && (isVideoCard || searchMatch);
+                    card.style.display = show ? '' : 'none';
+                    if (show && !isVideoCard) visibleCount++;
+                });
+
+                noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+            }
+
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    activeFilter = btn.dataset.filter;
+                    applyFilters();
+                });
+            });
+
+            searchInput.addEventListener('input', () => {
+                searchTerm = searchInput.value.toLowerCase().trim();
+                applyFilters();
+            });
+        })();
+    </script>
 </body>
 </html>
