@@ -206,6 +206,12 @@
         footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
         footer p { color: #6b7280; font-size: 14px; }
 
+        /* Video */
+        .video-placeholder { width: 100%; max-width: 560px; height: 315px; background: #1e1e1e; border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; margin: 32px 0; }
+        .video-placeholder .play-icon { font-size: 48px; }
+        .video-placeholder .video-label { font-family: 'Space Grotesk', sans-serif; font-size: 15px; color: #9B6BFF; font-weight: 600; }
+        .video-placeholder .video-sub { font-size: 13px; color: #6b7280; }
+
         /* Responsive */
         @media (max-width: 968px) {
             .content-wrapper { grid-template-columns: 1fr; }
@@ -276,11 +282,11 @@
 
         <article class="article-content">
 
-            <p>The Qualtrics Data & Analysis table gives you a live view of your responses, including in-progress sessions with details like Survey Session ID, Last Question, and Progress percentage. This free browser script lets you capture that exact view as a formatted Excel file, across all pages and respecting any filter you have applied.</p>
+            <p>The Qualtrics Data &amp; Analysis table gives you a live view of your responses, including in-progress sessions with details like Survey Session ID, Last Question, and Progress percentage. This free browser script lets you capture that exact view as a formatted Excel file, across all pages and respecting any filter you have applied.</p>
 
             <h2 id="the-challenge">The Challenge</h2>
 
-            <p>When you open the Data and Analysis tab in Qualtrics and filter the Data & Analysis table to show responses in progress, you have access to session-level detail that is genuinely useful for fieldwork management. The built-in Export Data function is optimised for completed responses, so this script fills the gap for teams who want to work with the filtered table view directly, including columns like Survey Session ID, Last Question, Progress percentage, and Expires.</p>
+            <p>When you open the Data and Analysis tab in Qualtrics and filter the Data &amp; Analysis table to show responses in progress, you have access to session-level detail that is genuinely useful for fieldwork management. The built-in Export Data function is optimised for completed responses, so this script fills the gap for teams who want to work with the filtered table view directly, including columns like Survey Session ID, Last Question, Progress percentage, and Expires.</p>
 
             <ul class="feature-list">
                 <li>In-progress responses are not available through the standard data export</li>
@@ -305,6 +311,10 @@
             </ul>
 
             <h2 id="how-to-use">How to Use</h2>
+
+            <div class="video-placeholder">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/qsv8TRCfC2Y?si=dIIrdKpjL3qFycon" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="max-width: 100%; border-radius: 8px;"></iframe>
+            </div>
 
             <div class="step-box">
                 <span class="step-number">1</span>
@@ -596,6 +606,7 @@ Ready! Run: downloadAllPagesExcel()
 `);
 
 })();                    
+                                    
                 </pre>
             </div>
 
