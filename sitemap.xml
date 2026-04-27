@@ -197,6 +197,24 @@
     <lastmod>2026-04-23</lastmod>
   </url>        
 
+  <url>
+    <loc>https://piraiai.com/blog/convert-import-google-forms</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-27</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/convert-import-qualtrics</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-27</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/convert-import-questionpro</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-27</lastmod>
+  </url>    
   <!-- Add each new article as you publish -->
   <!-- Documentation SECTION - Medium-High priority -->
   <url>
