@@ -214,7 +214,26 @@
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
     <lastmod>2026-04-27</lastmod>
-  </url>    
+  </url>  
+  <url>
+    <loc>https://piraiai.com/blog/convert-import-alchemer</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-29</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/convert-import-microsoft-forms</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-29</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/convert-import-zoho-survey</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-04-29</lastmod>
+  </url>
+  
   <!-- Add each new article as you publish -->
   <!-- Documentation SECTION - Medium-High priority -->
   <url>
