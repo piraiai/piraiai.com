@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Bulk Edit Your Survey Excel File | Pirai AI Docs</title>
+    <meta name="description" content="Learn how to export, bulk edit, and re-import the Pirai AI Excel intermediate format from the Review Workspace. Update question text, types, answer options, recode values, and blocks in bulk — then validate and finalize your platform file." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://piraiai.com/docs/bulk-edit-excel" />
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png" />
+
+    <meta property="og:title" content="How to Bulk Edit Your Survey Excel File | Pirai AI Docs" />
+    <meta property="og:description" content="Export, bulk edit, and re-import your survey Excel file from the Pirai AI Review Workspace. Complete step-by-step guide." />
+    <meta property="og:url" content="https://piraiai.com/docs/bulk-edit-excel" />
+    <meta property="og:type" content="article" />
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Lucide Icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.383.0/umd/lucide.min.js"></script>
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.7;
+            font-size: 18px;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Space Grotesk', sans-serif; color: #1a1a1a; }
+
+        /* SVG icon utility */
+        .icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .icon svg { display: block; }
+
+        /* NAV */
+        .nav {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #1a1a1a; flex-shrink: 0; }
+        .logo img { width: 32px; height: 32px; flex-shrink: 0; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; white-space: nowrap; }
+        .docs-label { color: #6b7280; font-weight: 400; margin-left: 8px; }
+        .nav-links { display: flex; list-style: none; gap: 32px; flex-shrink: 0; }
+        .nav-links a { text-decoration: none; color: #4b5563; font-size: 15px; font-weight: 500; transition: color 0.2s; white-space: nowrap; }
+        .nav-links a:hover { color: #9B6BFF; }
+
+        /* BREADCRUMB */
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; transition: color 0.2s; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+
+        /* HERO */
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .hero-subtitle { font-size: 20px; color: #6b7280; max-width: 680px; line-height: 1.6; margin-bottom: 20px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+        .badge { display: inline-flex; align-items: center; gap: 6px; background: linear-gradient(135deg, #9B6BFF, #BFA8FF); color: #ffffff; font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.3px; }
+
+        /* LAYOUT */
+        .content-wrapper { max-width: 1200px; margin: 0 auto; padding: 48px 24px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; align-items: start; }
+        .article-content { min-width: 0; }
+
+        /* BANNER */
+        .learning-path-banner { background: linear-gradient(135deg, #f5f3ff, #ede9fe); border: 1px solid #c4b5fd; border-left: 4px solid #9B6BFF; border-radius: 8px; padding: 20px 24px; margin-bottom: 48px; display: flex; align-items: flex-start; gap: 16px; }
+        .learning-path-banner p { font-size: 16px; color: #374151; margin: 0; line-height: 1.6; }
+        .learning-path-banner strong { color: #6b21a8; }
+        .banner-icon-wrap { width: 36px; height: 36px; background: #ede9fe; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+
+        /* SECTION HEADINGS */
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 56px; margin-bottom: 8px; padding-bottom: 12px; border-bottom: 2px solid #e5e7eb; display: flex; align-items: center; gap: 10px; }
+        .article-content h2:first-of-type { margin-top: 0; }
+        .h2-icon { width: 28px; height: 28px; background: #f3f0ff; border-radius: 6px; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .section-intro { font-size: 16px; color: #6b7280; margin-bottom: 28px; line-height: 1.6; }
+
+        /* WORKFLOW STEPS */
+        .workflow-steps { display: flex; flex-direction: column; gap: 0; margin-bottom: 48px; }
+        .workflow-step { display: flex; gap: 20px; align-items: flex-start; }
+        .workflow-step-left { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
+        .wf-num { width: 40px; height: 40px; background: linear-gradient(135deg, #9B6BFF, #BFA8FF); color: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; flex-shrink: 0; z-index: 1; }
+        .wf-line { width: 2px; flex: 1; min-height: 24px; background: linear-gradient(to bottom, #c4b5fd, #e5e7eb); margin: 4px 0; }
+        .workflow-step:last-child .wf-line { display: none; }
+        .wf-content { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 10px; padding: 18px 22px; margin-bottom: 16px; flex: 1; }
+        .wf-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px; }
+        .wf-content p { font-size: 14px; color: #6b7280; margin: 0; line-height: 1.5; }
+        .wf-path { display: inline-flex; align-items: center; gap: 6px; background: #f3f4f6; border: 1px solid #e5e7eb; border-radius: 6px; padding: 3px 10px; font-size: 12px; font-weight: 600; color: #374151; margin-top: 8px; font-family: 'Space Grotesk', sans-serif; }
+        .wf-path .arrow { color: #9B6BFF; }
+
+        /* DETAILED STEPS */
+        .steps-list { list-style: none; padding: 0; margin-bottom: 24px; }
+        .steps-list li { display: flex; gap: 16px; margin-bottom: 16px; align-items: flex-start; }
+        .step-num { flex-shrink: 0; width: 28px; height: 28px; background: linear-gradient(135deg, #9B6BFF, #BFA8FF); color: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; margin-top: 2px; }
+        .step-text { font-size: 15px; color: #374151; line-height: 1.6; padding-top: 3px; }
+        .step-text strong { color: #1a1a1a; }
+        .step-text code { background: #f3f4f6; border: 1px solid #e5e7eb; border-radius: 4px; padding: 1px 6px; font-size: 13px; color: #9B6BFF; font-family: 'Courier New', monospace; }
+
+        /* CALLOUTS */
+        .callout { border-radius: 8px; padding: 14px 18px; margin-bottom: 24px; display: flex; align-items: flex-start; gap: 12px; }
+        .callout-icon { width: 32px; height: 32px; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+        .callout p { font-size: 14px; margin: 0; line-height: 1.6; }
+        .callout strong { font-weight: 600; }
+
+        .callout-green { background: #f0fdf4; border: 1px solid #bbf7d0; border-left: 4px solid #22c55e; }
+        .callout-green .callout-icon { background: #dcfce7; }
+        .callout-green p { color: #166534; }
+        .callout-green strong { color: #14532d; }
+
+        .callout-amber { background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #f59e0b; }
+        .callout-amber .callout-icon { background: #fef9c3; }
+        .callout-amber p { color: #92400e; }
+        .callout-amber strong { color: #78350f; }
+
+        .callout-blue { background: #eff6ff; border: 1px solid #bfdbfe; border-left: 4px solid #3b82f6; }
+        .callout-blue .callout-icon { background: #dbeafe; }
+        .callout-blue p { color: #1e40af; }
+        .callout-blue strong { color: #1e3a8a; }
+
+        /* SCENARIO GRID */
+        .scenario-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px; }
+        .scenario-card { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 20px; transition: border-color 0.2s, box-shadow 0.2s; display: flex; gap: 14px; align-items: flex-start; }
+        .scenario-card:hover { border-color: #c4b5fd; box-shadow: 0 2px 12px rgba(155, 107, 255, 0.08); }
+        .scenario-card-icon { width: 36px; height: 36px; background: #f3f0ff; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+        .scenario-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px; }
+        .scenario-card p { font-size: 13px; color: #6b7280; line-height: 1.5; margin: 0; }
+
+        /* COLUMN REFERENCE TABLE */
+        .col-table { width: 100%; border-collapse: collapse; font-size: 14px; border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; margin-bottom: 24px; }
+        .col-table thead tr { background: #f3f4f6; }
+        .col-table th { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: #6b7280; padding: 10px 14px; text-align: left; border-bottom: 1px solid #e5e7eb; }
+        .col-table td { padding: 11px 14px; border-bottom: 1px solid #f3f4f6; vertical-align: top; font-size: 13px; color: #374151; line-height: 1.5; }
+        .col-table tr:last-child td { border-bottom: none; }
+        .col-table tr:hover td { background: #fafafa; }
+        .col-label { font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #1a1a1a; font-size: 13px; }
+        .col-letter { display: inline-block; background: #f0ebff; color: #6b21a8; border: 1px solid #c4b5fd; border-radius: 4px; padding: 1px 7px; font-family: 'Courier New', monospace; font-size: 12px; font-weight: 700; margin-right: 4px; }
+        .req-tag { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 10px; }
+        .req-required { background: #fee2e2; color: #991b1b; }
+        .req-conditional { background: #fff7ed; color: #c2410c; }
+        .req-optional { background: #f0fdf4; color: #15803d; }
+
+        /* EDIT BLOCKS */
+        .edit-block { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 24px; margin-bottom: 20px; }
+        .edit-block-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+        .edit-block-icon { width: 36px; height: 36px; background: #f3f0ff; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .edit-block h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin: 0; }
+        .edit-block p { font-size: 14px; color: #374151; margin-bottom: 12px; line-height: 1.6; }
+        .edit-block p:last-child { margin-bottom: 0; }
+        .edit-block ul { margin: 0 0 12px 0; padding-left: 20px; }
+        .edit-block ul li { font-size: 14px; color: #374151; margin-bottom: 6px; line-height: 1.5; }
+
+        /* EXCEL EXAMPLES */
+        .example-label { font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #9B6BFF; margin-bottom: 8px; }
+        .excel-example { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 6px; overflow-x: auto; margin-bottom: 12px; }
+        .excel-example table { border-collapse: collapse; font-size: 12px; white-space: nowrap; width: 100%; }
+        .excel-example th { background: #f3f4f6; color: #6b7280; font-weight: 700; font-family: 'Space Grotesk', sans-serif; font-size: 11px; padding: 6px 10px; border-bottom: 1px solid #e5e7eb; text-align: left; }
+        .excel-example td { padding: 5px 10px; border-bottom: 1px solid #f3f4f6; font-size: 12px; color: #374151; font-family: 'Courier New', monospace; }
+        .excel-example tr:last-child td { border-bottom: none; }
+        .excel-example td.highlight { background: #fef9c3; color: #713f12; font-weight: 700; }
+        .excel-example td.new-row { background: #f0fdf4; color: #15803d; }
+        .excel-example td.empty { color: #d1d5db; font-style: italic; }
+
+        /* MISTAKES TABLE */
+        .mistakes-table { width: 100%; border-collapse: collapse; font-size: 14px; border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; margin-bottom: 24px; }
+        .mistakes-table thead tr { background: #fef2f2; }
+        .mistakes-table th { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: #991b1b; padding: 10px 14px; text-align: left; border-bottom: 1px solid #fecaca; }
+        .mistakes-table td { padding: 11px 14px; border-bottom: 1px solid #f3f4f6; vertical-align: top; font-size: 13px; color: #374151; line-height: 1.5; }
+        .mistakes-table tr:last-child td { border-bottom: none; }
+        .mistakes-table tr:hover td { background: #fafafa; }
+        .mistake-label { font-weight: 600; color: #991b1b; font-size: 13px; }
+        .fix-label { color: #15803d; font-weight: 600; font-size: 13px; }
+
+        /* VALIDATION STATES */
+        .validation-states { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+        .val-card { border-radius: 10px; padding: 20px; display: flex; gap: 14px; align-items: flex-start; }
+        .val-success { background: #f0fdf4; border: 1px solid #bbf7d0; }
+        .val-fail { background: #fef2f2; border: 1px solid #fecaca; }
+        .val-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .val-success .val-icon { background: #dcfce7; }
+        .val-fail .val-icon { background: #fee2e2; }
+        .val-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+        .val-success h3 { color: #15803d; }
+        .val-fail h3 { color: #991b1b; }
+        .val-card p { font-size: 13px; line-height: 1.5; margin: 0; }
+        .val-success p { color: #166534; }
+        .val-fail p { color: #991b1b; }
+
+        /* CTA BAND */
+        .platform-cta { background: linear-gradient(135deg, #9B6BFF 0%, #BFA8FF 100%); border-radius: 12px; padding: 36px 40px; margin-top: 64px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+        .platform-cta-text h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 6px; }
+        .platform-cta-text p { font-size: 15px; color: rgba(255,255,255,0.85); margin: 0; }
+        .platform-cta-buttons { display: flex; gap: 12px; flex-wrap: wrap; flex-shrink: 0; }
+        .btn-primary { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s, box-shadow 0.2s; white-space: nowrap; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.15); }
+        .btn-secondary { display: inline-block; background: rgba(255,255,255,0.15); color: #ffffff; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 15px; border: 1px solid rgba(255,255,255,0.4); transition: background 0.2s; white-space: nowrap; }
+        .btn-secondary:hover { background: rgba(255,255,255,0.25); }
+
+        /* SIDEBAR */
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; padding: 24px; border-radius: 8px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 16px; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 4px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 6px; transition: background 0.15s, color 0.15s; }
+        .toc-list a:hover { color: #9B6BFF; background: #f3f0ff; }
+        .toc-icon { width: 16px; height: 16px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+        .toc-divider { height: 1px; background: #e5e7eb; margin: 8px 0; }
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 28px 24px; border-radius: 8px; text-align: center; color: #ffffff; margin-bottom: 24px; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 10px; color: #ffffff; }
+        .cta-box p { font-size: 14px; margin-bottom: 18px; opacity: 0.92; line-height: 1.5; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 10px 22px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 14px; transition: transform 0.2s; }
+        .cta-button:hover { transform: translateY(-2px); }
+        .support-box { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; }
+        .support-box h3 { font-size: 14px; font-weight: 700; margin-bottom: 10px; color: #1a1a1a; }
+        .support-box p { font-size: 13px; color: #6b7280; margin-bottom: 14px; line-height: 1.5; }
+        .support-link { display: flex; align-items: center; gap: 8px; background: #f5f3ff; color: #6b21a8; padding: 10px 14px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600; transition: background 0.2s; margin-bottom: 8px; }
+        .support-link:last-child { margin-bottom: 0; }
+        .support-link:hover { background: #ede9fe; }
+
+        /* OFFICIAL DOCS LINK */
+        .official-docs { display: inline-flex; align-items: center; gap: 8px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 10px 16px; text-decoration: none; font-size: 14px; font-weight: 600; color: #4b5563; transition: all 0.2s; margin-top: 24px; }
+        .official-docs:hover { border-color: #9B6BFF; color: #9B6BFF; background: #f5f3ff; }
+
+        /* FOOTER */
+        .footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 24px; text-align: center; font-size: 14px; color: #6b7280; margin-top: 48px; }
+
+        /* TABLE SCROLL WRAPPER */
+        .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 24px; border-radius: 8px; }
+        .table-scroll .col-table,
+        .table-scroll .mistakes-table { margin-bottom: 0; border-radius: 0; }
+
+        /* RESPONSIVE — tablet */
+        @media (max-width: 968px) {
+            .content-wrapper { grid-template-columns: 1fr; }
+            .sidebar { position: static; }
+        }
+
+        /* RESPONSIVE — mobile */
+        @media (max-width: 640px) {
+            /* Nav */
+            .nav-links { display: none; }
+            .nav-content { padding: 0 16px; }
+
+            /* Breadcrumb */
+            .breadcrumb { padding: 10px 16px; }
+            .breadcrumb-container { font-size: 12px; }
+
+            /* Hero */
+            .hero { padding: 32px 16px; }
+            .article-title { font-size: 26px; }
+            .hero-subtitle { font-size: 16px; }
+            .article-meta { gap: 8px; font-size: 13px; }
+
+            /* Layout */
+            .content-wrapper { padding: 28px 16px; gap: 32px; }
+
+            /* Section headings */
+            .article-content h2 { font-size: 22px; }
+
+            /* Cards */
+            .scenario-grid { grid-template-columns: 1fr; }
+            .validation-states { grid-template-columns: 1fr; }
+
+            /* Tables — make them horizontally scrollable */
+            .col-table,
+            .mistakes-table,
+            .excel-example table { font-size: 13px; }
+            .col-table th,
+            .col-table td,
+            .mistakes-table th,
+            .mistakes-table td { padding: 8px 10px; }
+
+            /* Workflow */
+            .wf-content { padding: 14px 16px; }
+            .wf-content h3 { font-size: 15px; }
+
+            /* Banner */
+            .learning-path-banner { padding: 16px; }
+            .learning-path-banner p { font-size: 14px; }
+
+            /* Edit blocks */
+            .edit-block { padding: 18px 16px; }
+
+            /* CTA band */
+            .platform-cta { padding: 24px 20px; flex-direction: column; }
+            .platform-cta-buttons { width: 100%; flex-direction: column; }
+            .platform-cta-buttons .btn-primary,
+            .platform-cta-buttons .btn-secondary { width: 100%; text-align: center; }
+
+            /* Callouts */
+            .callout { padding: 12px 14px; }
+            .callout p { font-size: 13px; }
+
+            /* Steps */
+            .step-text { font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+    <div class="nav-content">
+        <a href="https://piraiai.com" class="logo">
+            <img src="https://piraiai.com/logo.png" alt="Pirai AI" />
+            <span class="logo-text">Pirai AI <span class="docs-label">/ Docs</span></span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="https://piraiai.com/">Home</a></li>
+            <li><a href="https://piraiai.com/blog">Blog</a></li>
+            <li><a href="https://piraiai.com/docs">Documentation</a></li>
+            <li><a href="https://piraiai.com/qualtrics-toolkit">Free Tools</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+    <div class="breadcrumb-container">
+        <a href="https://piraiai.com/">Home</a>
+        <span class="breadcrumb-separator">›</span>
+        <a href="https://piraiai.com/docs">Documentation</a>
+        <span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">Bulk Edit Excel Guide</span>
+    </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="hero-container">
+        <h1 class="article-title">How to Bulk Edit Your Survey Excel File</h1>
+        <p class="hero-subtitle">Export your converted survey as Excel, make bulk edits locally, re-import, validate, and finalise your platform file — all from the Review Workspace.</p>
+        <div class="article-meta">
+            <span class="author">Arun Raj</span>
+            <span class="separator">•</span>
+            <span>May 2026</span>
+            <span class="separator">•</span>
+            <span>10 min read</span>
+            <span class="separator">•</span>
+            <span class="badge">Workflow Guide</span>
+        </div>
+    </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content-wrapper">
+    <article class="article-content">
+
+        <!-- BANNER -->
+        <div class="learning-path-banner">
+            <div class="banner-icon-wrap">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+            <p>This guide is for users who have already completed an AI conversion and want to make <strong>bulk edits</strong> to the intermediate Excel file before generating a platform-specific output. For first-time conversions, see the <a href="https://piraiai.com/docs/how-to-guide" style="color:#6b21a8;font-weight:600;">Platform How-To Guide</a>.</p>
+        </div>
+
+        <!-- SECTION 1: OVERVIEW -->
+        <h2 id="overview">
+            <span class="h2-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            </span>
+            Overview
+        </h2>
+        <p class="section-intro">After Pirai AI processes your survey document, the result is stored as a structured 7-column Excel file — the universal intermediate format that powers all platform exports. The bulk edit workflow lets you download this file, edit it in Excel, and re-upload it to update your survey before generating any platform output.</p>
+        <p style="font-size:15px;color:#374151;margin-bottom:24px;line-height:1.7;">This is the recommended approach when you need to make changes across multiple questions simultaneously — such as renaming block sections, correcting question types, adding or removing answer options at scale, or adjusting recode values across the entire survey.</p>
+
+        <div class="scenario-grid">
+            <div class="scenario-card">
+                <div class="scenario-card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                </div>
+                <div>
+                    <h3>Correct question text</h3>
+                    <p>Fix typos, rephrase questions, or update wording across multiple items at once.</p>
+                </div>
+            </div>
+            <div class="scenario-card">
+                <div class="scenario-card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+                </div>
+                <div>
+                    <h3>Change question types</h3>
+                    <p>Switch a TE:Essay to MC:SingleAnswer, or convert a single-answer to multiple-answer.</p>
+                </div>
+            </div>
+            <div class="scenario-card">
+                <div class="scenario-card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </div>
+                <div>
+                    <h3>Add or remove answer options</h3>
+                    <p>Insert new choices, delete outdated options, or reorganise answer rows for any question.</p>
+                </div>
+            </div>
+            <div class="scenario-card">
+                <div class="scenario-card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <div>
+                    <h3>Rename blocks</h3>
+                    <p>Reorganise survey sections by renaming Block Name values across all rows in bulk.</p>
+                </div>
+            </div>
+            <div class="scenario-card">
+                <div class="scenario-card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg>
+                </div>
+                <div>
+                    <h3>Update recode values</h3>
+                    <p>Resequence or standardise numeric codes across all answer options in the survey.</p>
+                </div>
+            </div>
+            <div class="scenario-card">
+                <div class="scenario-card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <div>
+                    <h3>Extend matrix questions</h3>
+                    <p>Add new statements or scale points to an existing matrix question block.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 2: WORKFLOW -->
+        <h2 id="workflow">
+            <span class="h2-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </span>
+            The Bulk Edit Workflow
+        </h2>
+        <p class="section-intro">The complete workflow consists of five steps. Each step is described in detail in the sections that follow.</p>
+
+        <div class="workflow-steps">
+            <div class="workflow-step">
+                <div class="workflow-step-left"><div class="wf-num">1</div><div class="wf-line"></div></div>
+                <div class="wf-content">
+                    <h3>Navigate to the Review Workspace</h3>
+                    <p>Access your converted survey from your conversion history.</p>
+                    <div class="wf-path">History <span class="arrow">›</span> Workspace</div>
+                </div>
+            </div>
+            <div class="workflow-step">
+                <div class="workflow-step-left"><div class="wf-num">2</div><div class="wf-line"></div></div>
+                <div class="wf-content">
+                    <h3>Export the Excel file</h3>
+                    <p>Open the table editor and download the current survey data as an Excel file.</p>
+                    <div class="wf-path">Edit with Table View <span class="arrow">›</span> Export Excel</div>
+                </div>
+            </div>
+            <div class="workflow-step">
+                <div class="workflow-step-left"><div class="wf-num">3</div><div class="wf-line"></div></div>
+                <div class="wf-content">
+                    <h3>Edit the file locally</h3>
+                    <p>Open the downloaded file in Microsoft Excel or Google Sheets and make your bulk changes.</p>
+                    <div class="wf-path">Local Excel / Google Sheets</div>
+                </div>
+            </div>
+            <div class="workflow-step">
+                <div class="workflow-step-left"><div class="wf-num">4</div><div class="wf-line"></div></div>
+                <div class="wf-content">
+                    <h3>Import and validate</h3>
+                    <p>Upload the edited file back into the Table View. Validation runs automatically.</p>
+                    <div class="wf-path">Import Excel <span class="arrow">›</span> Validation</div>
+                </div>
+            </div>
+            <div class="workflow-step">
+                <div class="workflow-step-left"><div class="wf-num">5</div><div class="wf-line"></div></div>
+                <div class="wf-content">
+                    <h3>Save and finalise</h3>
+                    <p>Confirm changes and generate your platform-specific output file.</p>
+                    <div class="wf-path">Save Changes <span class="arrow">›</span> Finalize &amp; Download</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3: NAVIGATE -->
+        <h2 id="navigate">
+            <span class="h2-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+            </span>
+            Step 1 — Navigate to the Review Workspace
+        </h2>
+        <p class="section-intro">Your Review Workspace is where all conversion history, editing tools, and download options are accessible.</p>
+
+        <ol class="steps-list">
+            <li><span class="step-num">1</span><span class="step-text">Log in to <strong>platform.piraiai.com</strong> and open the main navigation.</span></li>
+            <li><span class="step-num">2</span><span class="step-text">Click <strong>History</strong> in the left sidebar to view all past conversions.</span></li>
+            <li><span class="step-num">3</span><span class="step-text">Locate the conversion you want to edit and click <strong>Workspace</strong> to open the Review Workspace for that survey.</span></li>
+        </ol>
+
+        <div class="callout callout-blue">
+            <div class="callout-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+            <p>The Review Workspace displays your survey in <strong>Qualtrics View</strong> by default. All editing tools — including the Table View and AI Editor — are accessible from the toolbar at the top of the workspace.</p>
+        </div>
+
+        <!-- SECTION 4: EXPORT -->
+        <h2 id="export">
+            <span class="h2-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </span>
+            Step 2 — Export the Excel File
+        </h2>
+        <p class="section-intro">The Export Excel function downloads the current state of your survey as a 7-column Pirai AI intermediate Excel file.</p>
+
+        <ol class="steps-list">
+            <li><span class="step-num">1</span><span class="step-text">In the Review Workspace toolbar, click the <strong>table icon</strong> (Edit with Table View). The Table View panel will open displaying all survey rows.</span></li>
+            <li><span class="step-num">2</span><span class="step-text">Click the <strong>Export Excel</strong> button in the Table View header. The file will download to your local machine immediately.</span></li>
+            <li><span class="step-num">3</span><span class="step-text">The downloaded file is named based on your survey identifier (e.g., <code>survey-questionnaire.xlsx</code>). Save it to a working folder before making edits.</span></li>
+        </ol>
+
+        <div class="callout callout-green">
+            <div class="callout-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <p><strong>What you receive:</strong> A 7-column Excel file with headers in Row 1 and all survey data from Row 2 onwards. This file accurately reflects the current state of your survey, including any edits already applied via the AI Editor.</p>
+        </div>
+
+        <!-- SECTION 5: EDIT -->
+        <h2 id="edit">
+            <span class="h2-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            </span>
+            Step 3 — Edit the File Locally
+        </h2>
+        <p class="section-intro">Open the exported file in Microsoft Excel or Google Sheets. The Pirai AI Excel format uses a strict 7-column structure. All edits must conform to this structure to pass validation on re-import.</p>
+
+        <h3 style="font-size:18px;margin-bottom:12px;margin-top:28px;">The 7-Column Structure</h3>
+        <div class="table-scroll">
+        <table class="col-table">
+            <thead>
+                <tr><th>Column</th><th>Name</th><th>Requirement</th><th>Editing Notes</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="col-letter">A</span></td>
+                    <td><span class="col-label">Block Name</span></td>
+                    <td><span class="req-tag req-required">Required</span></td>
+                    <td>Fill in for every row. Use Find &amp; Replace to rename a block across all rows at once.</td>
+                </tr>
+                <tr>
+                    <td><span class="col-letter">B</span></td>
+                    <td><span class="col-label">Question ID</span></td>
+                    <td><span class="req-tag req-required">Required</span></td>
+                    <td>Must be unique per question. All rows for the same question share the same ID. Do not duplicate IDs across different questions.</td>
+                </tr>
+                <tr>
+                    <td><span class="col-letter">C</span></td>
+                    <td><span class="col-label">Question Text</span></td>
+                    <td><span class="req-tag req-required">Required</span></td>
+                    <td>Only the first row of each question contains text. Continuation rows (answer options) leave this column empty.</td>
+                </tr>
+                <tr>
+                    <td><span class="col-letter">D</span></td>
+                    <td><span class="col-label">Question Type</span></td>
+                    <td><span class="req-tag req-required">Required</span></td>
+                    <td>Must use exact supported values. For Matrix questions, the type appears on every row. For all other types, leave blank on continuation rows.</td>
+                </tr>
+                <tr>
+                    <td><span class="col-letter">E</span></td>
+                    <td><span class="col-label">Answer Option Text</span></td>
+                    <td><span class="req-tag req-conditional">Conditional</span></td>
+                    <td>Required for MC, Matrix, RankOrder, ConstantSum, and TE:Form question types. Leave empty for TE:SingleLine and TE:Essay.</td>
+                </tr>
+                <tr>
+                    <td><span class="col-letter">F</span></td>
+                    <td><span class="col-label">Recode Value</span></td>
+                    <td><span class="req-tag req-conditional">Conditional</span></td>
+                    <td>Required for most question types with answer options. Values must be unique within each question. Use sequential integers starting from 1.</td>
+                </tr>
+                <tr>
+                    <td><span class="col-letter">G</span></td>
+                    <td><span class="col-label">Matrix Type</span></td>
+                    <td><span class="req-tag req-conditional">Conditional</span></td>
+                    <td>Only used for Matrix questions. Value must be exactly <code>Statement</code> or <code>Scale Point</code>. Leave empty for all other question types.</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <div class="callout callout-amber">
+            <div class="callout-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </div>
+            <p><strong>Do not alter the column headers in Row 1</strong> or change the order of the 7 columns. The platform uses column positions and exact header names to parse the file. Any structural change to the header row will cause the import to fail.</p>
+        </div>
+
+        <h3 style="font-size:18px;margin-bottom:20px;margin-top:36px;">Common Editing Scenarios</h3>
+
+        <!-- Rename blocks -->
+        <div class="edit-block">
+            <div class="edit-block-header">
+                <div class="edit-block-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <h3>Renaming Block Names</h3>
+            </div>
+            <p>Block Names group questions into survey sections. To rename a block, update column A for every row that belongs to that block. The most efficient method is Excel's <strong>Find &amp; Replace</strong> (Ctrl+H on Windows / Cmd+H on Mac).</p>
+            <p>Search for the existing block name exactly as it appears (e.g., <code>Block 1</code>) and replace with your new name (e.g., <code>Demographics</code>). Ensure all rows for that block are updated consistently — inconsistent naming across rows of the same question will cause a validation error.</p>
+        </div>
+
+        <!-- Change question type -->
+        <div class="edit-block">
+            <div class="edit-block-header">
+                <div class="edit-block-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+                </div>
+                <h3>Changing a Question Type</h3>
+            </div>
+            <p>To change a question type, update column D on the question's first row. For most types, continuation rows leave column D empty — this does not need to change.</p>
+            <p>For <strong>Matrix questions</strong>, column D must contain <code>Matrix</code> on every row (statements and scale points), and column G must be populated. If you are converting a question to or from Matrix type, add or remove the Matrix Type column values accordingly and restructure the rows so all Statements appear before all Scale Points.</p>
+            <div class="callout callout-amber" style="margin-top:12px;margin-bottom:0;">
+                <div class="callout-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                </div>
+                <p>When changing from a question type that requires answer options (e.g., <code>MC:SingleAnswer</code>) to one that does not (e.g., <code>TE:Essay</code>), delete all continuation rows for that question — only the single header row should remain.</p>
+            </div>
+        </div>
+
+        <!-- Add answer options -->
+        <div class="edit-block">
+            <div class="edit-block-header">
+                <div class="edit-block-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </div>
+                <h3>Adding Answer Options</h3>
+            </div>
+            <p>To add a new answer option to an existing question, insert a new row directly below the last existing option row for that question. Populate the row as follows:</p>
+            <ul>
+                <li><strong>Column A (Block Name):</strong> Same value as the other rows for this question.</li>
+                <li><strong>Column B (Question ID):</strong> Same ID as the other rows for this question.</li>
+                <li><strong>Column C (Question Text):</strong> Leave empty.</li>
+                <li><strong>Column D (Question Type):</strong> Leave empty (except for Matrix questions, where it must be <code>Matrix</code>).</li>
+                <li><strong>Column E (Answer Option Text):</strong> Enter the new answer option text.</li>
+                <li><strong>Column F (Recode Value):</strong> Assign the next sequential integer (e.g., if existing options go up to 4, use 5).</li>
+                <li><strong>Column G (Matrix Type):</strong> Leave empty unless this is a Matrix question.</li>
+            </ul>
+            <div class="example-label" style="margin-top:16px;">Example — Adding a fifth option to Q3</div>
+            <div class="table-scroll">
+            <div class="excel-example">
+                <table>
+                    <thead>
+                        <tr><th>Block Name</th><th>Question ID</th><th>Question Text</th><th>Question Type</th><th>Answer Option Text</th><th>Recode Value</th><th>Matrix Type</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Block 1</td><td>Q3</td><td>How easy was it to get started?</td><td>MC:SingleAnswer</td><td>Very easy</td><td>1</td><td class="empty">—</td></tr>
+                        <tr><td>Block 1</td><td>Q3</td><td class="empty">—</td><td class="empty">—</td><td>Easy</td><td>2</td><td class="empty">—</td></tr>
+                        <tr><td>Block 1</td><td>Q3</td><td class="empty">—</td><td class="empty">—</td><td>Neutral</td><td>3</td><td class="empty">—</td></tr>
+                        <tr><td>Block 1</td><td>Q3</td><td class="empty">—</td><td class="empty">—</td><td>Difficult</td><td>4</td><td class="empty">—</td></tr>
+                        <tr><td class="new-row">Block 1</td><td class="new-row">Q3</td><td class="empty new-row">—</td><td class="empty new-row">—</td><td class="new-row">Very difficult</td><td class="new-row">5</td><td class="empty new-row">—</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+            <p style="font-size:13px;color:#6b7280;margin-top:4px;">The highlighted row is the newly added option. It follows immediately after the existing Q3 options with no blank rows in between.</p>
+        </div>
+
+        <!-- Remove answer options -->
+        <div class="edit-block">
+            <div class="edit-block-header">
+                <div class="edit-block-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </div>
+                <h3>Removing Answer Options</h3>
+            </div>
+            <p>To remove an answer option, delete the entire row for that option. Do not leave an empty row in its place — blank rows break the row continuity that the validator uses to group options with their parent question.</p>
+            <p>After deleting a row, review the remaining Recode Values in column F to ensure they remain sequential. If values are non-sequential (e.g., 1, 2, 4 after removing option 3), renumber them to restore the sequence.</p>
+        </div>
+
+        <!-- Update recode values -->
+        <div class="edit-block">
+            <div class="edit-block-header">
+                <div class="edit-block-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg>
+                </div>
+                <h3>Updating Recode Values</h3>
+            </div>
+            <p>Recode values in column F are numeric codes used by the target platform for data analysis. They must be unique within each question's set of answer options.</p>
+            <p>To standardise recode values across an entire survey, sort the file by Question ID (column B), then manually review and update column F for each question block. Recode values are typically sequential integers starting from 1, but custom values (e.g., 10, 20, 30) are supported as long as they are unique within each question.</p>
+        </div>
+
+        <!-- Extend matrix -->
+        <div class="edit-block">
+            <div class="edit-block-header">
+                <div class="edit-block-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </div>
+                <h3>Extending a Matrix Question</h3>
+            </div>
+            <p>Matrix questions require all Statement rows to appear before all Scale Point rows within the same Question ID block. When adding new statements or scale points, insert them in the correct position and ensure the Matrix Type column (G) is set correctly.</p>
+            <div class="example-label" style="margin-top:16px;">Matrix structure — correct row order</div>
+            <div class="table-scroll">
+            <div class="excel-example">
+                <table>
+                    <thead>
+                        <tr><th>Block Name</th><th>Question ID</th><th>Question Text</th><th>Question Type</th><th>Answer Option Text</th><th>Recode Value</th><th>Matrix Type</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Block 2</td><td>Q5</td><td>Rate each of the following</td><td>Matrix</td><td>The product is easy to use</td><td>1</td><td class="highlight">Statement</td></tr>
+                        <tr><td>Block 2</td><td>Q5</td><td class="empty">—</td><td>Matrix</td><td>The product meets my needs</td><td>2</td><td class="highlight">Statement</td></tr>
+                        <tr><td class="new-row">Block 2</td><td class="new-row">Q5</td><td class="empty new-row">—</td><td class="new-row">Matrix</td><td class="new-row">I would recommend this product</td><td class="new-row">3</td><td class="highlight new-row">Statement</td></tr>
+                        <tr><td>Block 2</td><td>Q5</td><td class="empty">—</td><td>Matrix</td><td>Strongly Disagree</td><td>1</td><td class="highlight">Scale Point</td></tr>
+                        <tr><td>Block 2</td><td>Q5</td><td class="empty">—</td><td>Matrix</td><td>Disagree</td><td>2</td><td class="highlight">Scale Point</td></tr>
+                        <tr><td>Block 2</td><td>Q5</td><td class="empty">—</td><td>Matrix</td><td>Agree</td><td>3</td><td class="highlight">Scale Point</td></tr>
+                        <tr><td>Block 2</td><td>Q5</td><td class="empty">—</td><td>Matrix</td><td>Strongly Agree</td><td>4</td><td class="highlight">Scale Point</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+            <p style="font-size:13px;color:#6b7280;margin-top:4px;">The new statement (highlighted in green) is inserted before all Scale Point rows. All Statements must appear before all Scale Points for the same Question ID.</p>
+        </div>
+
+        <!-- Reorder questions -->
+        <div class="edit-block">
+            <div class="edit-block-header">
+                <div class="edit-block-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+                </div>
+                <h3>Reordering Questions</h3>
+            </div>
+            <p>To change the order of questions in your survey, cut and paste the complete set of rows for a question — including its header row and all continuation rows — to the desired position in the sheet. Ensure the entire question block (all rows sharing the same Question ID) is moved together. Splitting a question's rows across different positions will cause a validation error.</p>
+        </div>
+
+        <!-- SECTION 6: IMPORT -->
+        <h2 id="import">
+            <span class="h2-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            </span>
+            Step 4 — Import and Validate
+        </h2>
+        <p class="section-intro">Once your edits are complete, save the file in <code>.xlsx</code> format and upload it back to the platform. Validation runs automatically on import.</p>
+
+        <ol class="steps-list">
+            <li><span class="step-num">1</span><span class="step-text">In the Review Workspace, click the <strong>table icon</strong> to re-open the Table View panel.</span></li>
+            <li><span class="step-num">2</span><span class="step-text">Click <strong>Import Excel</strong>. A file picker will appear.</span></li>
+            <li><span class="step-num">3</span><span class="step-text">Select your edited <code>.xlsx</code> file and confirm. The platform will immediately run structural validation against the file.</span></li>
+            <li><span class="step-num">4</span><span class="step-text">Review the validation result. If validation passes, the <strong>Save Changes</strong> button will become active. If validation fails, an error message will identify the specific issue to correct.</span></li>
+        </ol>
+
+        <div class="validation-states">
+            <div class="val-card val-success">
+                <div class="val-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                    <h3>Validation Passed</h3>
+                    <p>The file structure is correct. The Save Changes button is now active. Review the Table View to confirm your edits appear as expected, then proceed to save.</p>
+                </div>
+            </div>
+            <div class="val-card val-fail">
+                <div class="val-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </div>
+                <div>
+                    <h3>Validation Failed</h3>
+                    <p>An error message will describe the issue and reference the affected row or column. Correct the specific problem in your local file and re-import. You do not need to re-export — only fix and import again.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 7: COMMON MISTAKES -->
+        <h2 id="mistakes">
+            <span class="h2-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </span>
+            Common Mistakes to Avoid
+        </h2>
+        <p class="section-intro">The following errors are most frequently encountered during re-import. Checking for these before uploading will save time.</p>
+
+        <div class="table-scroll">
+        <table class="mistakes-table">
+            <thead>
+                <tr><th>Mistake</th><th>Why it fails</th><th>How to fix it</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="mistake-label">Blank rows between option rows</span></td>
+                    <td>The validator treats a blank row as the end of a question block. Options after the blank row become orphaned.</td>
+                    <td><span class="fix-label">Delete all empty rows</span> within a question's row group. No blank rows should appear between a question's header and its last option.</td>
+                </tr>
+                <tr>
+                    <td><span class="mistake-label">Duplicate Question IDs</span></td>
+                    <td>Two different questions sharing the same ID are treated as one question, causing data merge errors.</td>
+                    <td><span class="fix-label">Assign unique IDs</span> to each question. All rows for the same question share one ID; different questions must have different IDs.</td>
+                </tr>
+                <tr>
+                    <td><span class="mistake-label">Question Type on continuation rows</span></td>
+                    <td>For non-Matrix types, Question Type should only appear on the first row. Repeating it on option rows creates duplicate question entries.</td>
+                    <td><span class="fix-label">Clear column D</span> on all rows except the first row of each non-Matrix question.</td>
+                </tr>
+                <tr>
+                    <td><span class="mistake-label">Scale Points before Statements in Matrix</span></td>
+                    <td>The converter reads Matrix rows in order. Scale Points appearing before Statements produce incorrect question structure.</td>
+                    <td><span class="fix-label">Move all Statement rows</span> above all Scale Point rows for the same Question ID.</td>
+                </tr>
+                <tr>
+                    <td><span class="mistake-label">Duplicate recode values within a question</span></td>
+                    <td>Duplicate recode values within a question cause ambiguous data coding on the target platform.</td>
+                    <td><span class="fix-label">Renumber column F</span> so each option within a question has a unique value.</td>
+                </tr>
+                <tr>
+                    <td><span class="mistake-label">Modified column headers</span></td>
+                    <td>The importer matches columns by exact header name in Row 1. Any change breaks the mapping.</td>
+                    <td><span class="fix-label">Restore the original headers</span> in this exact order: Block Name, Question ID, Question Text, Question Type, Answer Option Text, Recode Value, Matrix Type.</td>
+                </tr>
+                <tr>
+                    <td><span class="mistake-label">File saved as .xls instead of .xlsx</span></td>
+                    <td>The importer requires the modern Excel format. The legacy .xls format is not accepted.</td>
+                    <td><span class="fix-label">Use File › Save As</span> in Excel and select <code>.xlsx</code> format before importing.</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <!-- SECTION 8: SAVE AND FINALISE -->
+        <h2 id="finalise">
+            <span class="h2-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+            </span>
+            Step 5 — Save Changes and Finalise
+        </h2>
+        <p class="section-intro">Once validation passes, save your changes to update the survey in the workspace, then generate your final platform output.</p>
+
+        <ol class="steps-list">
+            <li><span class="step-num">1</span><span class="step-text">Click <strong>Save Changes</strong> in the Table View header. This commits your imported Excel data as the current survey version in the workspace.</span></li>
+            <li><span class="step-num">2</span><span class="step-text">Close the Table View panel by clicking the <strong>X</strong> button. You will return to the Review Workspace.</span></li>
+            <li><span class="step-num">3</span><span class="step-text">Review your updated survey in the Qualtrics View or Survey Preview to confirm the edits are reflected correctly.</span></li>
+            <li><span class="step-num">4</span><span class="step-text">When satisfied, click <strong>Finalize &amp; Download</strong> in the top-right toolbar. Select your target platform and download the converted platform file.</span></li>
+        </ol>
+
+        <div class="callout callout-green">
+            <div class="callout-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <p><strong>Note:</strong> The Save Changes step updates the survey stored in your workspace. If you return to this workspace from History, your edited version will be the active version. You can repeat the export-edit-import cycle as many times as needed before finalising.</p>
+        </div>
+
+        <a href="https://piraiai.com/docs/excel-spec-format" class="official-docs">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Full Excel Specification Format Reference
+            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+
+        <!-- CTA -->
+        <div class="platform-cta">
+            <div class="platform-cta-text">
+                <h3>Ready to edit your survey?</h3>
+                <p>Open the platform, navigate to History, and access your Review Workspace to get started.</p>
+            </div>
+            <div class="platform-cta-buttons">
+                <a href="https://platform.piraiai.com" target="_blank" rel="noopener" class="btn-primary">Open Platform →</a>
+                <a href="/docs" class="btn-secondary">View All Docs</a>
+            </div>
+        </div>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="sidebar-section">
+            <h3>In This Guide</h3>
+            <ul class="toc-list">
+                <li>
+                    <a href="#overview">
+                        <span class="toc-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                        </span>
+                        Overview
+                    </a>
+                </li>
+                <div class="toc-divider"></div>
+                <li>
+                    <a href="#workflow">
+                        <span class="toc-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                        </span>
+                        The Workflow
+                    </a>
+                </li>
+                <li><a href="#navigate"><span class="toc-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>1. Navigate to Workspace</a></li>
+                <li><a href="#export"><span class="toc-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>2. Export Excel</a></li>
+                <li><a href="#edit"><span class="toc-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>3. Edit Locally</a></li>
+                <li><a href="#import"><span class="toc-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>4. Import &amp; Validate</a></li>
+                <li><a href="#finalise"><span class="toc-icon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>5. Save &amp; Finalise</a></li>
+                <div class="toc-divider"></div>
+                <li>
+                    <a href="#mistakes">
+                        <span class="toc-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                        </span>
+                        Common Mistakes
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="cta-box">
+            <h3>Try Pirai AI Now</h3>
+            <p>Convert your survey document to any platform in minutes.</p>
+            <a href="https://platform.piraiai.com" target="_blank" rel="noopener" class="cta-button">Open Platform →</a>
+        </div>
+
+        <div class="support-box">
+            <h3>Need help?</h3>
+            <p>Having trouble with Excel validation or the import process? Our team is here to help.</p>
+            <a href="mailto:admin@piraiai.com" class="support-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Contact Support
+            </a>
+            <a href="/docs" class="support-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                Back to All Docs
+            </a>
+        </div>
+
+    </aside>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
