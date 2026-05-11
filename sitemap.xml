@@ -273,8 +273,20 @@
     <loc>https://piraiai.com/blog/convert-word-document-to-google-form</loc>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-04-29</lastmod>
-  </url>  
+    <lastmod>2026-05-11</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/convert-word-document-to-microsoft-forms</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-05-11</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/convert-word-document-to-redcap</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-05-11</lastmod>
+  </url>      
   
   <!-- Add each new article as you publish -->
   <!-- Documentation SECTION - Medium-High priority -->
