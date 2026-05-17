@@ -298,9 +298,39 @@
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
     <lastmod>2026-05-13</lastmod>
-  </url>    
-        
-  
+  </url>
+
+  <url>
+    <loc>https://piraiai.com/blog/convert-excel-csv-to-google-forms</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-05-13</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/convert-google-doc-to-google-form</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-05-13</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/convert-pdf-to-google-form</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-05-13</lastmod>
+  </url>
+    <url>
+    <loc>https://piraiai.com/blog/convert-word-doc-to-google-form-online-free</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-05-13</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/convert-word-doc-to-google-form-without-losing-formatting</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-05-13</lastmod>
+  </url>            
+
   <!-- Add each new article as you publish -->
   <!-- Documentation SECTION - Medium-High priority -->
   <url>
