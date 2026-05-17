@@ -50,39 +50,155 @@
          ================================================================ -->
     <script type="application/ld+json">
     {
-      "@context":"https://schema.org",
-      "@graph":[
-        {"@type":"BreadcrumbList","itemListElement":[
-          {"@type":"ListItem","position":1,"name":"Home","item":"https://piraiai.com"},
-          {"@type":"ListItem","position":2,"name":"Blog","item":"https://piraiai.com/blog"},
-          {"@type":"ListItem","position":3,"name":'Convert Word Doc to Google Form Without Losing Formatting',"item":"https://piraiai.com/blog/convert-word-doc-to-google-form-without-losing-formatting"}
-        ]},
-        {"@type":"TechArticle","headline":'Convert Word Doc to Google Form Without Losing Formatting',"description":'Convert a Word document to Google Form without losing formatting. Pirai AI preserves question types, answer options, and survey structure automatically. No manual reformatting needed.',
-          "author":{"@type":"Person","name":"Arun Raj","url":"https://piraiai.com"},
-          "publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},
-          "datePublished":"2026-05-13","dateModified":"2026-05-13",
-          "url":"https://piraiai.com/blog/convert-word-doc-to-google-form-without-losing-formatting","image":"https://piraiai.com/logo.png",
-          "keywords":'convert word doc to google form without losing formatting, convert word to google forms preserve formatting, word to google form keep formatting, convert word quiz to google form formatting preserved, word document to google form correct question types, preserve survey structure google forms, convert docx to google form question types, word to google form automatic question type detection, convert word survey to google form without reformatting',"proficiencyLevel":"Beginner"},
-        {"@type":"SoftwareApplication","name":"Pirai AI Survey Converter",
-          "applicationCategory":"Survey Automation, Document Conversion",
-          "operatingSystem":"Web","url":"https://platform.piraiai.com",
-          "description":"AI-powered tool that converts Word, PDF, Excel, CSV, and other files into Google Forms via a generated Apps Script. No coding, no add-on, no Google Docs step required.",
-          "featureList":["Convert Word (.docx) to Google Forms directly","Convert PDF to Google Forms","Convert Excel to Google Forms","Convert CSV to Google Forms","No Google Workspace add-on","No intermediate Google Docs step","Free for academic researchers"],
-          "offers":{"@type":"Offer","price":"0","priceCurrency":"USD","description":"Free for academic researchers"},
-          "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"200"}},
-        {"@type":"HowTo","name":'Convert Word Doc to Google Form Without Losing Formatting',"totalTime":"PT10M",
-          "step":[
-            {"@type":"HowToStep","position":1,"name":"Upload your document","text":"Go to platform.piraiai.com and upload your file.","url":"https://piraiai.com/blog/convert-word-doc-to-google-form-without-losing-formatting#step-1"},
-            {"@type":"HowToStep","position":2,"name":"Select Google Forms","text":"Choose Google Forms. Pirai AI generates a ready-to-run Apps Script.","url":"https://piraiai.com/blog/convert-word-doc-to-google-form-without-losing-formatting#step-2"},
-            {"@type":"HowToStep","position":3,"name":"Paste script and run","text":"Paste the script in the Google Forms Apps Script editor and click Run.","url":"https://piraiai.com/blog/convert-word-doc-to-google-form-without-losing-formatting#step-3"}
-          ]},
-        {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":'How do I convert a Word doc to Google Form without losing formatting?',"acceptedAnswer":{"@type":"Answer","text":'Upload your Word document to platform.piraiai.com, select Google Forms, and download the Apps Script. The script creates each question in Google Forms with the correct question type already set: multiple choice, checkboxes, linear scale, grid, and more. No manual question type selection needed after import.'}},
-{"@type":"Question","name":'Why does formatting get lost when converting Word to Google Forms manually?',"acceptedAnswer":{"@type":"Answer","text":'When you copy and paste from Word into Google Forms, the formatting context is lost. Multiple choice options become plain text, grids collapse, and rating scales lose their structure. Pirai AI reads your document structure before conversion and maps each element to the correct Google Forms question type in the generated Apps Script.'}},
-{"@type":"Question","name":'Does Pirai AI detect question types automatically?',"acceptedAnswer":{"@type":"Answer","text":'Yes. Pirai AI analyses your Word document and identifies multiple choice, checkbox, rating scale, matrix, open-ended, and other question types based on document structure. The generated Apps Script creates each question with the correct type in Google Forms.'}},
-{"@type":"Question","name":'Can I convert a Word quiz to Google Forms with answer options intact?',"acceptedAnswer":{"@type":"Answer","text":'Yes. Pirai AI preserves all answer options from your Word document in the Google Forms Apps Script. Each option is added to the correct question type automatically.'}},
-{"@type":"Question","name":'Does Pirai AI support matrix and grid questions for Google Forms?',"acceptedAnswer":{"@type":"Answer","text":'Yes. Matrix and grid questions in your Word document are converted to Multiple Choice Grid or Checkbox Grid question types in Google Forms via the generated Apps Script.'}}]}
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://piraiai.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://piraiai.com/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Convert Word Doc to Google Form Without Losing Formatting",
+          "item": "https://piraiai.com/blog/convert-word-doc-to-google-form-without-losing-formatting"
+        }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "Convert Word Doc to Google Form Without Losing Formatting",
+      "description": "Convert a Word document to Google Form without losing formatting. Pirai AI preserves question types, answer options, and survey structure automatically. No manual reformatting needed.",
+      "author": {
+        "@type": "Person",
+        "name": "Arun Raj",
+        "url": "https://piraiai.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Pirai AI",
+        "url": "https://piraiai.com"
+      },
+      "datePublished": "2026-05-13",
+      "dateModified": "2026-05-13",
+      "url": "https://piraiai.com/blog/convert-word-doc-to-google-form-without-losing-formatting",
+      "image": "https://piraiai.com/logo.png",
+      "keywords": "convert word doc to google form without losing formatting, convert word to google forms preserve formatting, word to google form keep formatting, convert word quiz to google form formatting preserved, word document to google form correct question types, preserve survey structure google forms, convert docx to google form question types, word to google form automatic question type detection, convert word survey to google form without reformatting",
+      "proficiencyLevel": "Beginner"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Pirai AI Survey Converter",
+      "applicationCategory": "Survey Automation, Document Conversion",
+      "operatingSystem": "Web",
+      "url": "https://platform.piraiai.com",
+      "description": "AI-powered tool that converts Word, PDF, Excel, CSV, and other files into Google Forms via a generated Apps Script. No coding, no add-on, no Google Docs step required.",
+      "featureList": [
+        "Convert Word (.docx) to Google Forms directly",
+        "Convert PDF to Google Forms",
+        "Convert Excel to Google Forms",
+        "Convert CSV to Google Forms",
+        "No Google Workspace add-on",
+        "No intermediate Google Docs step",
+        "Free for academic researchers"
+      ],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Free for academic researchers"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "200"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "name": "Convert Word Doc to Google Form Without Losing Formatting",
+      "totalTime": "PT10M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Upload your document",
+          "text": "Go to platform.piraiai.com and upload your file.",
+          "url": "https://piraiai.com/blog/convert-word-doc-to-google-form-without-losing-formatting#step-1"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Select Google Forms",
+          "text": "Choose Google Forms. Pirai AI generates a ready-to-run Apps Script.",
+          "url": "https://piraiai.com/blog/convert-word-doc-to-google-form-without-losing-formatting#step-2"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Paste script and run",
+          "text": "Paste the script in the Google Forms Apps Script editor and click Run.",
+          "url": "https://piraiai.com/blog/convert-word-doc-to-google-form-without-losing-formatting#step-3"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I convert a Word doc to Google Form without losing formatting?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Upload your Word document to platform.piraiai.com, select Google Forms, and download the Apps Script. The script creates each question in Google Forms with the correct question type already set: multiple choice, checkboxes, linear scale, grid, and more. No manual question type selection needed after import."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does formatting get lost when converting Word to Google Forms manually?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "When you copy and paste from Word into Google Forms, the formatting context is lost. Multiple choice options become plain text, grids collapse, and rating scales lose their structure. Pirai AI reads your document structure before conversion and maps each element to the correct Google Forms question type in the generated Apps Script."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Pirai AI detect question types automatically?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Pirai AI analyses your Word document and identifies multiple choice, checkbox, rating scale, matrix, open-ended, and other question types based on document structure. The generated Apps Script creates each question with the correct type in Google Forms."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I convert a Word quiz to Google Forms with answer options intact?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Pirai AI preserves all answer options from your Word document in the Google Forms Apps Script. Each option is added to the correct question type automatically."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Pirai AI support matrix and grid questions for Google Forms?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Matrix and grid questions in your Word document are converted to Multiple Choice Grid or Checkbox Grid question types in Google Forms via the generated Apps Script."
+          }
+        }
       ]
     }
+  ]
+}
     </script>
 
     <style>
