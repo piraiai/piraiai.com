@@ -4194,7 +4194,7 @@
                     <div class="stat-label">RESEARCHERS</div>
                 </div>   
                 <div class="stat-card">
-                    <div class="stat-number" data-target="90%" data-suffix="%">0</div>
+                    <div class="stat-number" data-target="90" data-suffix="%" data-nodecimal="true">0</div>
                     <div class="stat-label">Success Rate</div>
                 </div>                
                 <div class="stat-card">
@@ -5949,9 +5949,20 @@ See the dramatic difference in survey creation time
                     startAnimations();
                 }
             });
-        }, { threshold: 0.3 });
+        }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
 
         observer.observe(section);
+
+        // Fallback: trigger if section is already visible on load (common on tablets/desktop)
+        setTimeout(() => {
+            if (!animationTriggered) {
+                const rect = section.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    animationTriggered = true;
+                    startAnimations();
+                }
+            }
+        }, 300);
 
         function startAnimations() {
             // Animate markers appearing with delay
