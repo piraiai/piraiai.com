@@ -270,6 +270,19 @@
     <lastmod>2026-04-29</lastmod>
   </url>
   <url>
+    <loc>  https://piraiai.com/blog/convert-import-intellisurvey</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-05-24</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/convert-import-smartsurvey</loc>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-05-24</lastmod>
+  </url> 
+  
+  <url>
     <loc>https://piraiai.com/blog/convert-word-document-to-google-form</loc>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
