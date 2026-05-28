@@ -349,7 +349,36 @@
     <changefreq>monthly</changefreq>
     <lastmod>2026-05-13</lastmod>
   </url>
-          
+  <url>
+    <loc>https://piraiai.com/blog/convert-pdf-to-redcap</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-05-28</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/convert-excel-to-redcap</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-05-28</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/convert-qualtrics-to-redcap</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-05-28</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/redcap-data-dictionary-generator</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-05-28</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/convert-crf-to-redcap</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-05-28</lastmod>
+  </url>
 
   <!-- Add each new article as you publish -->
   <!-- Documentation SECTION - Medium-High priority -->
