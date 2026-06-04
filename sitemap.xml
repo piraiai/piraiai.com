@@ -445,6 +445,48 @@
     <changefreq>monthly</changefreq>
     <lastmod>2026-06-01</lastmod>
   </url>  
+  <url>
+    <loc>https://piraiai.com/blog/surveymonkey-to-qualtrics</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/redcap-to-qualtrics</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/google-forms-to-qualtrics</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/surveymonkey-to-redcap</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/qualtrics-to-google-forms</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/limesurvey-to-qualtrics</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/csv-comparator-online-free</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-01</lastmod>
+  </url>  
   <!-- Add each new article as you publish -->
   <!-- Documentation SECTION - Medium-High priority -->
   <url>
