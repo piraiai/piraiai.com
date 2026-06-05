@@ -487,6 +487,30 @@
     <changefreq>monthly</changefreq>
     <lastmod>2026-06-01</lastmod>
   </url>  
+  <url>
+    <loc>https://piraiai.com/blog/convert-import-kahoot</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/convert-import-moodle</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/convert-import-respondus</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/convert-import-learnworlds</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-01</lastmod>
+  </url>  
   <!-- Add each new article as you publish -->
   <!-- Documentation SECTION - Medium-High priority -->
   <url>
