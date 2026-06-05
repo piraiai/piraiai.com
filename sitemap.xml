@@ -511,6 +511,18 @@
     <changefreq>monthly</changefreq>
     <lastmod>2026-06-01</lastmod>
   </url>  
+  <url>
+    <loc>https://piraiai.com/blog/what-is-an-lss-file</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-01</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/lss-file-guide</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-01</lastmod>
+  </url>  
   <!-- Add each new article as you publish -->
   <!-- Documentation SECTION - Medium-High priority -->
   <url>
