@@ -1429,14 +1429,21 @@
                 <p>You will need a Google account to access Apps Script. The script creates a new Google Form automatically when executed. No manual question entry is required.</p>
             </div>
             <ol class="steps-list">
-                <li><span class="step-num">1</span><span class="step-text">Open your Pirai AI <code>.txt</code> file and select all the script content, then copy it.</span></li>
-                <li><span class="step-num">2</span><span class="step-text">Open an existing Google Form or create a blank one at <strong>forms.google.com</strong>.</span></li>
-                <li><span class="step-num">3</span><span class="step-text">Click the <strong>three-dot menu (⁝)</strong> in the top-right corner of the form and select <strong>Apps Script</strong>.</span></li>
-                <li><span class="step-num">4</span><span class="step-text">The Apps Script editor will open. Delete any existing default code in the editor, then paste your copied script.</span></li>
-                <li><span class="step-num">5</span><span class="step-text">Click <strong>Save</strong> (disk icon), then click <strong>Run</strong> (play button) to execute the script.</span></li>
-                <li><span class="step-num">6</span><span class="step-text">When prompted, grant the necessary permissions for the script to access Google Forms on your behalf.</span></li>
-                <li><span class="step-num">7</span><span class="step-text">Return to your Google Form. All questions and answer options will have been created automatically.</span></li>
+                <li><span class="step-num">1</span><span class="step-text">Open your Pirai AI <code>.txt</code> file in any text editor. Select all the script content (Ctrl+A or Cmd+A) and copy it (Ctrl+C or Cmd+C).</span></li>
+                <li><span class="step-num">2</span><span class="step-text">Go to <strong>script.google.com</strong> and sign in with your Google account. Click <strong>New project</strong> in the top-left corner.</span></li>
+                <li><span class="step-num">3</span><span class="step-text">In the Apps Script editor, delete the default placeholder code (<code>function myFunction() {}</code>), then paste your copied Pirai AI script.</span></li>
+                <li><span class="step-num">4</span><span class="step-text">Click the <strong>Save project</strong> icon (floppy disk) at the top of the screen to save your script.</span></li>
+                <li><span class="step-num">5</span><span class="step-text">In the toolbar above your code, confirm the function dropdown shows <strong>createFormFromPiraiData</strong>. Then click the <strong>Run</strong> button (play arrow icon).</span></li>
+                <li><span class="step-num">6</span><span class="step-text"><strong>Grant permissions (one-time only):</strong> Click <strong>Review permissions</strong> in the pop-up. Select your Google account. Click <strong>Advanced</strong>, then <strong>Go to project (unsafe)</strong>. Click <strong>Allow</strong>.</span></li>
+                <li><span class="step-num">7</span><span class="step-text">Check the <strong>Execution log</strong> at the bottom of the screen. Copy the form URL from the log and open it in a new tab to see your completed Google Form with all questions created automatically.</span></li>
             </ol>
+            <div style="margin-top:24px;">
+                <p style="font-size:14px;font-weight:600;color:#1a1a1a;margin-bottom:12px;">Video walkthrough</p>
+                <div style="padding:56.25% 0 0 0;position:relative;border-radius:8px;overflow:hidden;">
+                    <iframe src="https://player.vimeo.com/video/1198619004?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="How to Import into Google Forms with Pirai AI"></iframe>
+                </div>
+                <script src="https://player.vimeo.com/api/player.js"></script>
+            </div>
         </div>
 
         <!-- ===== MICROSOFT FORMS ===== -->
