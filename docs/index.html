@@ -178,6 +178,9 @@
             width: 64px;
             height: 64px;
             background: linear-gradient(135deg, #9B6BFF, #BFA8FF);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -261,6 +264,8 @@
 
         .quick-link-icon {
             font-size: 24px;
+            display: flex;
+            align-items: center;
         }
 
         .quick-link-text {
@@ -387,9 +392,28 @@
         <section>
             <h2 class="section-title">Getting Started</h2>
             <div class="docs-grid">
+               <!-- ✅ How Pirai AI Works -->
+                <a href="/how-pirai-ai-works" class="doc-card">
+                    <div class="doc-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="18,4 8,18 15,18 14,28 24,14 17,14" fill="white"/>
+</svg></div>
+                    <h3>How Pirai AI Works</h3>
+                    <p>The complete workflow: upload or paste any document, review with AI, edit in Table View, and download to 27 platforms. Covers Smart Fix, Bulk Edit, pricing, and more.</p>
+                    <div class="doc-meta">
+                        <span class="doc-badge">Overview</span>
+                        <span>Full workflow guide</span>
+                    </div>
+                </a>
+
                <!-- ✅ NEW: Platform How-To Guide (Video) -->
                 <a href="/docs/how-to-guide" class="doc-card">
-                    <div class="doc-icon">📺</div>
+                    <div class="doc-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="4" y="8" width="24" height="16" rx="2.5" stroke="white" stroke-width="2"/>
+  <circle cx="16" cy="16" r="4" stroke="white" stroke-width="2"/>
+  <circle cx="16" cy="16" r="1.5" fill="white"/>
+  <line x1="10" y1="26" x2="22" y2="26" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <line x1="16" y1="24" x2="16" y2="26" stroke="white" stroke-width="2"/>
+</svg></div>
                     <h3>Platform How-To Guide</h3>
                     <p>Learn the AI-powered survey converter through 6 official step-by-step videos. Covers navigation, core conversion workflow, Smart Fix, history management, and more.</p>
                     <div class="doc-meta">
@@ -400,7 +424,11 @@
 
                 <!-- Platform Import Guide -->
                 <a href="/docs/import-guide" class="doc-card">
-                    <div class="doc-icon">📥</div>
+                    <div class="doc-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="5" y="20" width="22" height="7" rx="2" stroke="white" stroke-width="2"/>
+  <line x1="16" y1="5" x2="16" y2="18" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <polyline points="10,13 16,19 22,13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div>
                     <h3>Platform Import Guide</h3>
                     <p>Step-by-step import instructions for 10 platforms including Qualtrics, QuestionPro, REDCap, SurveyMonkey, Google Forms, Microsoft Forms, and more.</p>
                     <div class="doc-meta">
@@ -411,7 +439,13 @@
                 
                 <!-- Bulk Edit Excel Guide -->
                 <a href="/docs/bulk-edit-excel-guide" class="doc-card">
-                    <div class="doc-icon">📊</div>
+                    <div class="doc-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="4" y="4" width="24" height="24" rx="2.5" stroke="white" stroke-width="2"/>
+  <line x1="4" y1="11" x2="28" y2="11" stroke="white" stroke-width="1.5"/>
+  <line x1="4" y1="18" x2="28" y2="18" stroke="white" stroke-width="1.5"/>
+  <line x1="13" y1="4" x2="13" y2="28" stroke="white" stroke-width="1.5"/>
+  <line x1="21" y1="4" x2="21" y2="28" stroke="white" stroke-width="1.5"/>
+</svg></div>
                     <h3>Bulk Edit Excel Guide</h3>
                     <p>Export your converted survey as Excel, make bulk edits locally, re-import, validate, and finalise your platform file — all from the Review Workspace.</p>
                     <div class="doc-meta">
@@ -422,7 +456,11 @@
 
                 <!-- AI Editor Prompt Templates -->
                 <a href="/docs/ai-editor-prompts" class="doc-card">
-                    <div class="doc-icon">💬</div>
+                    <div class="doc-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M5 6h22a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H10l-6 4V8a2 2 0 0 1 2-2z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+  <line x1="10" y1="12" x2="22" y2="12" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="10" y1="17" x2="18" y2="17" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+</svg></div>
                     <h3>AI Editor Prompt Templates</h3>
                     <p>Master AI-powered survey editing with 100+ standardized prompt templates. Copy, paste, and automate edits from simple text updates to complex matrix operations.</p>
                     <div class="doc-meta">
@@ -433,7 +471,12 @@
                 
                 <!-- Quick Start Training Guide -->
                 <!-- <a href="/docs/training-guide" class="doc-card">
-                    <div class="doc-icon">🚀</div>
+                    <div class="doc-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M16 4c4 0 8 4 8 10l-3 3-2-1-3 3-1-2-3 3c-2-2-2-4-2-4 0-4 2-7 6-12z" stroke="white" stroke-width="1.8" stroke-linejoin="round"/>
+  <circle cx="17" cy="13" r="2" stroke="white" stroke-width="1.8"/>
+  <path d="M8 20l4 4" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <path d="M7 24l2-5 4 4-5 2z" fill="white"/>
+</svg></div>
                     <h3>Legacy Platform - Quick Start Training Guide</h3>
                     <p>Master the 2-step Pirai AI workflow: Document to Excel to any platform. Complete guide with AI editing, platform migration, and troubleshooting for 20+ platforms.</p>
                     <div class="doc-meta">
@@ -450,7 +493,13 @@
             <div class="docs-grid">
                 <!-- Excel Spec Guide -->
                 <a href="/docs/excel-spec-format" class="doc-card">
-                    <div class="doc-icon">📊</div>
+                    <div class="doc-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="4" y="4" width="24" height="24" rx="2.5" stroke="white" stroke-width="2"/>
+  <line x1="4" y1="11" x2="28" y2="11" stroke="white" stroke-width="1.5"/>
+  <line x1="4" y1="18" x2="28" y2="18" stroke="white" stroke-width="1.5"/>
+  <line x1="13" y1="4" x2="13" y2="28" stroke="white" stroke-width="1.5"/>
+  <line x1="21" y1="4" x2="21" y2="28" stroke="white" stroke-width="1.5"/>
+</svg></div>
                     <h3>Excel Specification Format</h3>
                     <p>Master the 7-column template that enables seamless conversion to any platform. Comprehensive guide covering all question types, validation rules, and best practices.</p>
                     <div class="doc-meta">
@@ -461,7 +510,12 @@
 
                 <!-- Word Spec Guide -->
                 <a href="/docs/word-spec-format" class="doc-card">
-                    <div class="doc-icon">📄</div>
+                    <div class="doc-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M8 4h11l7 7v17a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" stroke="white" stroke-width="2"/>
+  <path d="M19 4v7h7" stroke="white" stroke-width="1.8"/>
+  <line x1="11" y1="17" x2="21" y2="17" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="11" y1="21" x2="21" y2="21" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+</svg></div>
                     <h3>Word Specification Format</h3>
                     <p>Learn the bracket notation and structured table approach for creating Word-based survey specifications. Perfect for natural document flow.</p>
                     <div class="doc-meta">
@@ -479,7 +533,13 @@
 
                 <!-- Question Types Hub -->
                 <a href="/docs/question-types" class="doc-card">
-                    <div class="doc-icon">🎯</div>
+                    <div class="doc-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="16" cy="16" r="11" stroke="white" stroke-width="2"/>
+  <circle cx="16" cy="16" r="7" stroke="white" stroke-width="2"/>
+  <circle cx="16" cy="16" r="3" fill="white"/>
+  <line x1="26" y1="6" x2="19" y2="13" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <polyline points="23,6 26,6 26,9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div>
                     <h3>Question Types Overview</h3>
                     <p>Complete reference guide for all 10+ Pirai AI question types. Browse by category and learn Excel formatting, platform support, and best practices for each type.</p>
                     <div class="doc-meta">
@@ -497,7 +557,9 @@
             <div class="docs-grid">
                 <!-- Qualtrics API Toolkit Guide -->
                 <a href="/docs/qualtrics-api-toolkit" class="doc-card">
-                    <div class="doc-icon">🔧</div>
+                    <div class="doc-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M26 8a6 6 0 0 1-8 8L8 26a2 2 0 0 1-3-3L15 13A6 6 0 0 1 23 5l-4 4 1 3 3 1 4-4z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+</svg></div>
                     <h3>Qualtrics API Toolkit</h3>
                     <p>Transform complex API operations into simple CSV uploads. No coding required - master advanced Qualtrics operations with our free Chrome extension.</p>
                     <div class="doc-meta">
@@ -508,7 +570,10 @@
 
                 <!-- CSV Comparator -->
                 <a href="/docs/csv-comparator-guide" class="doc-card">
-                    <div class="doc-icon">🔍</div>
+                    <div class="doc-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="14" cy="14" r="8" stroke="white" stroke-width="2"/>
+  <line x1="20" y1="20" x2="27" y2="27" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+</svg></div>
                     <h3>CSV Comparator</h3>
                     <p>Compare CSV files instantly with field-level precision. Perfect for Qualtrics SDS validation, data quality checks, and tracking changes. 100% private - browser-based tool.</p>
                     <div class="doc-meta">
@@ -524,27 +589,27 @@
             <h2>Quick Links</h2>
             <div class="links-grid">
                 <a href="/#process" class="quick-link">
-                    <span class="quick-link-icon">⚡</span>
+                    <span class="quick-link-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><polygon points="13,2 5,13 11,13 10,22 19,10 13,10" fill="#9B6BFF"/></svg></span>
                     <span class="quick-link-text">How It Works</span>
                 </a>
                 <a href="/#platforms" class="quick-link">
-                    <span class="quick-link-icon">🔗</span>
+                    <span class="quick-link-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1.5 1.5" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1.5-1.5" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round"/></svg></span>
                     <span class="quick-link-text">Supported Platforms</span>
                 </a>
                 <a href="/blog" class="quick-link">
-                    <span class="quick-link-icon">📚</span>
+                    <span class="quick-link-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="7" height="16" rx="1.5" stroke="#9B6BFF" stroke-width="1.8"/><rect x="13" y="4" width="7" height="16" rx="1.5" stroke="#9B6BFF" stroke-width="1.8"/><line x1="3" y1="9" x2="10" y2="9" stroke="#9B6BFF" stroke-width="1.5"/><line x1="14" y1="9" x2="20" y2="9" stroke="#9B6BFF" stroke-width="1.5"/></svg></span>
                     <span class="quick-link-text">Blog & Insights</span>
                 </a>
                 <a href="/docs/faq" class="quick-link">
-                    <span class="quick-link-icon">❓</span>
+                    <span class="quick-link-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="#9B6BFF" stroke-width="1.8"/><path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 2-2.5 2-2.5 4" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="1" fill="#9B6BFF"/></svg></span>
                     <span class="quick-link-text">FAQ</span>
                 </a>
                 <a href="/qualtrics-toolkit" class="quick-link">
-                    <span class="quick-link-icon">🛠️</span>
+                    <span class="quick-link-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6a4 4 0 0 1-5.5 5.5L6 20a1.5 1.5 0 0 1-2-2l8.5-8.5A4 4 0 0 1 18 4l-3 3 1 2 2 1 3-3z" stroke="#9B6BFF" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
                     <span class="quick-link-text">Free Tools</span>
                 </a>
                 <a href="mailto:admin@piraiai.com" class="quick-link">
-                    <span class="quick-link-icon">💬</span>
+                    <span class="quick-link-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H7l-4 3V6a2 2 0 0 1 2-2z" stroke="#9B6BFF" stroke-width="1.8" stroke-linejoin="round"/><line x1="8" y1="10" x2="16" y2="10" stroke="#9B6BFF" stroke-width="1.5" stroke-linecap="round"/><line x1="8" y1="14" x2="13" y2="14" stroke="#9B6BFF" stroke-width="1.5" stroke-linecap="round"/></svg></span>
                     <span class="quick-link-text">Get Support</span>
                 </a>
             </div>
