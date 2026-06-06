@@ -4751,124 +4751,332 @@ See the dramatic difference in survey creation time
             </div>
         </div>
     </section>
- 
-    <section id="pricing" class="pricing-section">
+    <!-- ============================================================ -->
+    <!-- PRICING SECTION: REPLACEMENT                                -->
+    <!-- Drop in place of existing <section id="pricing"> block       -->
+    <!-- ============================================================ -->
+
+    <style>
+    /* ── New pricing overrides ── */
+    .pricing-section-new {
+        padding: 70px 0 90px;
+        background: #f8f9fa;
+        text-align: center;
+    }
+    .pricing-section-new .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+    .pricing-section-new h2 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #2d3748;
+        margin-bottom: 0.5rem;
+    }
+    .pricing-new-sub {
+        font-size: 1rem;
+        color: #9ca3af;
+        margin-bottom: 2.5rem;
+    }
+
+    /* Free row */
+    .pricing-free-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+        margin-bottom: 1.25rem;
+    }
+    .pc-new {
+        background: #fff;
+        border-radius: 16px;
+        padding: 1.5rem;
+        border: 2px solid #e2e8f0;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        transition: box-shadow 0.2s, transform 0.2s;
+        position: relative;
+        overflow: hidden;
+    }
+    .pc-new:hover { box-shadow: 0 10px 36px rgba(0,0,0,0.11); transform: translateY(-3px); }
+    .pc-new.popular { border-color: #6B3FCC; background: linear-gradient(160deg,#faf8ff,#f0e9ff); }
+    .pc-new.popular::after { content:'MOST POPULAR'; position:absolute; top:16px; right:-28px; background:#6B3FCC; color:#fff; font-size:9px; font-weight:700; letter-spacing:0.8px; padding:5px 40px; transform:rotate(35deg); }
+    .pc-new.best { border-color: #2d7d46; }
+    .pc-new.enterprise-new { border-color: #2d3748; background: linear-gradient(160deg,#f7fafc,#edf2f7); }
+
+    .pc-new-tier { font-size: 0.68rem; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; margin-bottom:0.3rem; }
+    .pc-new-tier.free-tier { color:#48bb78; }
+    .pc-new-tier.credit-tier { color:#6B3FCC; }
+    .pc-new-tier.best-tier { color:#2d7d46; }
+    .pc-new-tier.enterprise-tier { color:#2d3748; }
+
+    .pc-new-name { font-size:1.6rem; font-weight:800; color:#2d3748; margin-bottom:0.1rem; }
+    .pc-new-price { font-size:2rem; font-weight:800; color:#2d3748; margin-bottom:0.1rem; }
+    .pc-new-price .per { font-size:0.85rem; font-weight:400; color:#9ca3af; }
+    .pc-new-tagline { font-size:0.85rem; color:#9ca3af; margin-bottom:1rem; }
+    .pc-new-features { list-style:none; padding:0; margin:0.75rem 0 1.25rem; flex:1; }
+    .pc-new-features li { display:flex; align-items:flex-start; gap:8px; font-size:0.875rem; color:#4a5568; padding:4px 0; line-height:1.5; }
+    .pc-new-features li i { color:#48bb78; font-style:normal; font-weight:700; flex-shrink:0; margin-top:1px; }
+    .pc-new-features li i.star { color:#6B3FCC; }
+    .pc-new-features li i.ent { color:#2d3748; }
+    .pc-new hr { border:none; border-top:1px solid #e2e8f0; margin:0.75rem 0; }
+
+    /* Credit packs row */
+    .pricing-packs-row {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 1.25rem;
+        margin-bottom: 1.25rem;
+    }
+
+    /* Enterprise full width */
+    .pricing-enterprise-row { margin-bottom: 1.25rem; }
+    .pc-new.enterprise-new { display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:start; }
+    .pc-new.enterprise-new .ent-left { display:flex; flex-direction:column; }
+    .pc-new.enterprise-new .ent-right { display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; }
+    .ent-feature-group { background:#fff; border:1px solid #e2e8f0; border-radius:10px; padding:0.9rem 1rem; }
+    .ent-feature-group h4 { font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.8px; color:#6B3FCC; margin-bottom:0.5rem; }
+    .ent-feature-group ul { list-style:none; padding:0; margin:0; }
+    .ent-feature-group ul li { font-size:0.82rem; color:#4a5568; padding:2px 0; display:flex; gap:6px; align-items:flex-start; }
+    .ent-feature-group ul li::before { content:"✓"; color:#48bb78; font-weight:700; flex-shrink:0; }
+
+    /* Buttons */
+    .btn-free-new { display:block; text-align:center; background:#f0fff4; color:#276749; border:1.5px solid #9ae6b4; border-radius:8px; padding:0.65rem 1rem; font-weight:700; font-size:0.9rem; text-decoration:none; margin-top:auto; transition:background 0.2s; }
+    .btn-free-new:hover { background:#c6f6d5; }
+    .btn-credit-new { display:block; text-align:center; background:#6B3FCC; color:#fff; border-radius:8px; padding:0.65rem 1rem; font-weight:700; font-size:0.9rem; text-decoration:none; margin-top:auto; transition:background 0.2s; }
+    .btn-credit-new:hover { background:#5a32b0; }
+    .btn-ent-new { display:inline-block; background:#2d3748; color:#fff; border-radius:8px; padding:0.75rem 2rem; font-weight:700; font-size:0.95rem; text-decoration:none; transition:background 0.2s; }
+    .btn-ent-new:hover { background:#1a202c; }
+
+    /* Trust strip */
+    .pricing-trust { display:flex; justify-content:center; flex-wrap:wrap; gap:1.5rem; margin:1.5rem 0 0.5rem; }
+    .trust-item { display:flex; align-items:center; gap:6px; font-size:0.83rem; color:#718096; }
+    .trust-item svg { flex-shrink:0; }
+
+    /* Coming soon */
+    .pricing-coming { background:linear-gradient(135deg,#f3eeff,#ede9fe); border:1px solid #d8c5ff; border-radius:12px; padding:1rem 1.5rem; margin-top:1.25rem; text-align:center; font-size:0.9rem; color:#6B3FCC; font-weight:500; }
+
+    /* Mobile */
+    @media (max-width:900px) {
+        .pricing-free-row,
+        .pricing-packs-row { grid-template-columns:1fr; }
+        .pc-new.enterprise-new { grid-template-columns:1fr; }
+        .pc-new.enterprise-new .ent-right { grid-template-columns:1fr; }
+    }
+    </style>
+
+    <section id="pricing" class="pricing-section-new">
         <div class="container">
             <h2>Simple, Transparent Pricing</h2>
-            <p class="pricing-subtitle">Convert hundreds of questions free - upgrade for more power</p>
+            <p class="pricing-new-sub">Free credits reset every day &nbsp;·&nbsp; No subscription &nbsp;·&nbsp; Credits never expire</p>
 
-            <div class="pricing-grid-3">
+            <!-- FREE ROW -->
+            <div class="pricing-free-row">
 
-                <!-- ══════════════════ FREE ══════════════════ -->
-                <div class="pc free">
-                    <div class="pc-tier free">Starter</div>
-                    <div class="pc-name">Free</div>
-                    <div class="pc-price"><span class="amt">$0</span><span class="per">/ forever</span></div>
-                    <p class="pc-tagline">2 conversions per day · no credit card</p>
-                    <span class="pc-limit">✦ Up to 50K tokens per document</span>
-
-                    <div class="pc-chips-label">Export to 20+ Platforms</div>
-                    <!-- <div class="pc-chips">
-                        <span class="chip">Qualtrics</span>
-                        <span class="chip">QuestionPro</span>
-                        <span class="chip">Forsta (Decipher)</span>
-                        <span class="chip">Forsta (Confirmit)</span>
-                        <span class="chip">Forsta (Word)</span>
-                        <span class="chip">Forsta (BConvert)</span>
-                        <span class="chip">SurveyMonkey</span>
-                        <span class="chip">SurveySparrow</span>
-                        <span class="chip">ZohoSurvey</span>
-                        <span class="chip">Alchemer</span>
-                        <span class="chip">Dimensions</span>
-                        <span class="chip">Microsoft Forms</span>
-                        <span class="chip">Google Forms</span>
-                        <span class="chip">REDCap</span>
-                        <span class="chip">Qualtrics Advanced (TXT)</span>
-                    </div> -->
-
+                <div class="pc-new">
+                    <div class="pc-new-tier free-tier">Daily Free</div>
+                    <div class="pc-new-name">Free Credits</div>
+                    <div class="pc-new-price"><span>1-2</span> <span class="per">credits / day</span></div>
+                    <p class="pc-new-tagline">Resets every day &nbsp;·&nbsp; No credit card</p>
                     <hr>
-
-                    <ul class="pc-features">
-                        <li><i class="fi">✓</i> Universal Structured Excel output</li>
-                        <li><i class="fi">✓</i> Smart Fix Assistant</li>
-                        <li><i class="fi">✓</i> Assign to Expert Agent - Support</li>
-                        <li><i class="fi">✓</i> Conversion History</li>
-                        <li><i class="fi">✓</i> Download converted document to any platform</li>
-                        <li><i class="fi">✓</i> Quality Check - AI Structural Error Detection</li>
-                        <li><i class="fi">✓</i> Skip Error Feature - export error-free questions</li>
-                        <li><i class="fi">✓</i> Import: Word (DOCX), TXT, PDF, QSF, XML</li>    
-                        <li><i class="fi">✓</i> 10 Supported Question Types <a href="/docs/question-types" target="_blank" style="font-size:0.75rem; color:#48bb78; text-decoration:none; margin-left:4px;">View all →</a></li>                     
-                        <li><i class="fi">✓</i> 2 conversions / day</li> 
+                    <ul class="pc-new-features">
+                        <li><i>✓</i> All 27 platform outputs</li>
+                        <li><i>✓</i> Smart Fix Assistant</li>
+                        <li style="color:#9ca3af;"><i style="color:#9ca3af;">✗</i> <s>AI Survey Editor</s> <span style="font-size:0.72rem;background:#f3eeff;color:#6B3FCC;font-weight:700;padding:2px 7px;border-radius:10px;margin-left:4px;">Enterprise only · Coming to $9.99 soon</span></li>
+                        <li><i>✓</i> Table View + Bulk Excel edit</li>
+                        <li><i>✓</i> Conversion History</li>
+                        <li><i>✓</i> Word, PDF, Excel, CSV, QSF, XML, JSON</li>
+                        <li><i>✓</i> Scanned PDF processing</li>
                     </ul>
-
-                    <a href="https://platform.piraiai.com" class="btn-free">Get Started Free →</a>
+                    <a href="https://platform.piraiai.com" class="btn-free-new">Get Started Free →</a>
                 </div>
 
-                <!-- ══════════════════ PRO ══════════════════ -->
-                <div class="pc pro">
-                    <div class="pc-tier pro">Pro</div>
-                    <div class="pc-name">PRO</div>
-                    <div class="pc-price"><span class="amt" style="font-size:1.6rem;color:#6B3FCC;">Contact Us</span></div>
-                    <p class="pc-tagline">Everything in Free, plus unlimited power</p>
-                    <span class="pc-limit">✦ Up to 125K tokens per document</span>
-                    <div class="pc-chips-label">Export to 20+ Platforms</div>
+                <div class="pc-new">
+                    <div class="pc-new-tier free-tier">Refer a Friend</div>
+                    <div class="pc-new-name">3 Free Credits</div>
+                    <div class="pc-new-price"><span>Free</span></div>
+                    <p class="pc-new-tagline">Per successful referral</p>
                     <hr>
-
-                    <ul class="pc-features">
-                        <li class="highlight"><i class="fi">✦</i> Conversational AI Editor - update structure &amp; fix errors via natural language</li>
-                        <li><i class="fi">✓</i> PDF with image-based questionnaire processing</li>
-                        <li><i class="fi">✓</i> Accept Pirai AI Excel format as import</li>
-                        <li><i class="fi">✓</i> Edit Structured Excel Template directly</li>
-                        <li><i class="fi">✓</i> Import: Excel (.xlsx)</li>                        
-                        <li><i class="fi">✓</i> Universal Structured Excel output</li>
-                        <li><i class="fi">✓</i> Smart Fix Assistant</li>
-                        <li><i class="fi">✓</i> Assign to Expert Agent - Support</li>
-                        <li><i class="fi">✓</i> Quality Check &amp; Skip Error Feature</li>  
-                        <li><i class="fi">✓</i> 10+ Question Types <span style="font-size:0.72rem; background:#ede9fe; color:#6B3FCC; font-weight:700; padding:2px 7px; border-radius:10px; margin-left:4px;">Coming Soon</span></li>
-                        <li><i class="fi">✓</i> 5 conversions</li>                
+                    <ul class="pc-new-features">
+                        <li><i>✓</i> Share your referral link</li>
+                        <li><i>✓</i> Friend completes a real conversion (5+ questions)</li>
+                        <li><i>✓</i> Earn 3 credits after 1-hour verification</li>
+                        <li><i>✓</i> No limit on referrals</li>
                     </ul>
-
-                    <a href="#demo" class="btn-pro">Get PRO Access →</a>
+                    <a href="https://platform.piraiai.com" class="btn-free-new">Get Your Referral Link →</a>
                 </div>
 
-                <!-- ══════════════════ ENTERPRISE ══════════════════ -->
-                <div class="pc enterprise">
-                    <div class="pc-tier enterprise">Enterprise</div>
-                    <div class="pc-name">Enterprise</div>
-                    <div class="pc-price"><span class="amt" style="font-size:1.6rem;">Custom</span></div>
-                    <p class="pc-tagline">For agencies, universities &amp; research orgs</p>
-                    <span class="pc-limit">✦ Up to 520K tokens per document</span>
-                    <div class="pc-chips-label">Export to 20+ Platforms</div>
+            </div><!-- /.pricing-free-row -->
+
+            <!-- CREDIT PACKS ROW -->
+            <div class="pricing-packs-row">
+
+                <div class="pc-new">
+                    <div class="pc-new-tier credit-tier">Starter Pack</div>
+                    <div class="pc-new-price">$2.99</div>
+                    <p class="pc-new-tagline">5 credits &nbsp;·&nbsp; $0.60 per credit</p>
                     <hr>
-
-                    <ul class="pc-features">
-                        <li class="highlight"><i class="fi">✦</i> Voice-activated Conversational AI - customize logics hands-free</li>
-                        <li class="highlight"><i class="fi">✦</i> Translation CSV Template export (platform-native translation import)</li>
-                        <li class="highlight"><i class="fi">✦</i> Bulk Display Logic &amp; Skip Logic support</li>
-                        <li class="highlight"><i class="fi">✦</i> Direct Platform Integration</li>
-                        <li class="highlight"><i class="fi">✦</i> Custom Integration support</li>
-                        <li class="highlight"><i class="fi">✦</i> Preview Features - early access</li>
-                        <li class="highlight"><i class="fi">✦</i> Custom Question Types</li>
-                        <li><i class="fi">✓</i> Priority Support</li>
-                        <li><i class="fi">✓</i> Everything in PRO</li>
-                        <li><i class="fi">✓</i> Import: CSV</li>            
-                        <li><i class="fi">✓</i> Unlimited conversions</li>
-                        <li><i class="fi"></i> </li>    
-                        <li><i class="fi"></i> </li>                            
+                    <ul class="pc-new-features">
+                        <li><i>✓</i> Everything in Free</li>
+                        <li><i>✓</i> Credits never expire</li>
+                        <li><i>✓</i> Secure checkout via Stripe</li>
+                        <li><i>✓</i> 100% money-back guarantee</li>
                     </ul>
-
-                    <a href="#demo" class="btn-enterprise">Contact Sales →</a>
+                    <a href="https://platform.piraiai.com" class="btn-credit-new">Buy Now →</a>
                 </div>
 
-            </div><!-- /.pricing-grid-3 -->
+                <div class="pc-new popular">
+                    <div class="pc-new-tier credit-tier">Most Popular</div>
+                    <div class="pc-new-price">$6.99</div>
+                    <p class="pc-new-tagline">15 credits &nbsp;·&nbsp; $0.47 per credit</p>
+                    <hr>
+                    <ul class="pc-new-features">
+                        <li><i>✓</i> Everything in Free</li>
+                        <li><i>✓</i> Credits never expire</li>
+                        <li><i>✓</i> Re-download to any platform anytime</li>
+                        <li><i>✓</i> Secure checkout via Stripe</li>
+                        <li><i>✓</i> 100% money-back guarantee</li>
+                    </ul>
+                    <a href="https://platform.piraiai.com" class="btn-credit-new">Buy Now →</a>
+                </div>
 
-            <p class="pricing-note">
-                All plans include 50+ language support &amp; enterprise-grade security.
-                Need a custom quote? <a href="#demo">Talk to us →</a>
+                <div class="pc-new best">
+                    <div class="pc-new-tier best-tier">Best Value</div>
+                    <div class="pc-new-price">$9.99</div>
+                    <p class="pc-new-tagline">30 credits &nbsp;·&nbsp; $0.33 per credit</p>
+                    <hr>
+                    <ul class="pc-new-features">
+                        <li><i>✓</i> Everything in Free</li>
+                        <li><i>✓</i> Credits never expire</li>
+                        <li><i>✓</i> Re-download to any platform anytime</li>
+                        <li><i>✓</i> Secure checkout via Stripe</li>
+                        <li><i>✓</i> 100% money-back guarantee</li>
+                    </ul>
+                    <a href="https://platform.piraiai.com" class="btn-credit-new">Buy Now →</a>
+                </div>
+
+            </div><!-- /.pricing-packs-row -->
+
+            <!-- ENTERPRISE ROW -->
+            <div class="pricing-enterprise-row">
+                <div class="pc-new enterprise-new">
+
+                    <div class="ent-left">
+                        <div class="pc-new-tier enterprise-tier">Enterprise</div>
+                        <div class="pc-new-name">Enterprise</div>
+                        <div class="pc-new-price" style="font-size:1.6rem;">Custom</div>
+                        <p class="pc-new-tagline">For agencies, universities &amp; research organisations</p>
+                        <hr>
+                        <ul class="pc-new-features">
+                            <li><i class="star">✦</i> Custom converter development</li>
+                            <li><i class="star">✦</i> Browser extension support</li>
+                            <li><i class="star">✦</i> Dedicated storage: your data in an isolated environment</li>
+                            <li><i class="star">✦</i> Custom data retention policy: set your own retention period</li>
+                            <li><i class="star">✦</i> Team access: multiple users under one account</li>
+                            <li><i class="star">✦</i> Role-based permissions: control who can convert and download</li>
+                            <li><i class="star">✦</i> Bulk Display Logic &amp; Skip Logic support</li>
+                            <li><i class="star">✦</i> Direct platform integration</li>
+                            <li><i class="star">✦</i> Translation CSV Template export</li>
+                            <li><i class="star">✦</i> Custom question types</li>
+                            <li><i class="star">✦</i> Preview features: early access</li>
+                            <li><i>✓</i> Everything in credit packs</li>
+                            <li><i>✓</i> Unlimited conversions</li>
+                            <li><i>✓</i> Priority support &amp; onboarding</li>
+                            <li><i>✓</i> Custom integration support</li>
+                            <li><i>✓</i> Up to 520K tokens per document</li>
+                        </ul>
+                        <div style="margin-top:auto;">
+                            <a href="#demo" class="btn-ent-new">Contact Sales →</a>
+                        </div>
+                    </div>
+
+                    <div class="ent-right">
+                        <div class="ent-feature-group">
+                            <h4>Custom &amp; Extensions</h4>
+                            <ul>
+                                <li>Custom converter development</li>
+                                <li>Browser extension support</li>
+                                <li>Custom integration support</li>
+                                <li>Platform-specific output formats</li>
+                            </ul>
+                        </div>
+                        <div class="ent-feature-group">
+                            <h4>Dedicated Storage</h4>
+                            <ul>
+                                <li>Isolated data environment</li>
+                                <li>Your data never shared</li>
+                                <li>Custom storage region</li>
+                                <li>GDPR &amp; HIPAA ready</li>
+                            </ul>
+                        </div>
+                        <div class="ent-feature-group">
+                            <h4>Data Retention Policy</h4>
+                            <ul>
+                                <li>Set your own retention period</li>
+                                <li>Auto-purge on schedule</li>
+                                <li>Audit trail &amp; logs</li>
+                                <li>Compliance reporting</li>
+                            </ul>
+                        </div>
+                        <div class="ent-feature-group">
+                            <h4>Team Access</h4>
+                            <ul>
+                                <li>Multiple user accounts</li>
+                                <li>Role-based permissions</li>
+                                <li>Shared conversion history</li>
+                                <li>Team usage analytics</li>
+                            </ul>
+                        </div>
+                        <div class="ent-feature-group">
+                            <h4>Security &amp; Compliance</h4>
+                            <ul>
+                                <li>OpenAI data-sharing disabled</li>
+                                <li>No training on your data</li>
+                                <li>SSO support</li>
+                                <li>Enterprise SLA</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div><!-- /.pricing-enterprise-row -->
+
+            <!-- TRUST STRIP -->
+            <div class="pricing-trust">
+                <span class="trust-item">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1l1.8 3.6L14 5.6l-3 2.9.7 4.1L8 10.5l-3.7 2.1.7-4.1L2 5.6l4.2-.9L8 1z" fill="#48bb78"/></svg>
+                    Credits never expire
+                </span>
+                <span class="trust-item">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="3" y="7" width="10" height="8" rx="1.5" stroke="#718096" stroke-width="1.5"/><path d="M5 7V5a3 3 0 0 1 6 0v2" stroke="#718096" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    Secure checkout via Stripe
+                </span>
+                <span class="trust-item">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="#718096" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="#718096" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    100% money-back guarantee
+                </span>
+                <span class="trust-item">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="#718096" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="#718096" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    No subscription required
+                </span>
+                <span class="trust-item">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="#718096" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="#718096" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    50+ language support
+                </span>
+            </div>
+
+            <p class="pricing-note" style="margin-top:1.5rem;">
+                Need a custom quote for your organisation? <a href="#demo">Talk to us →</a>
             </p>
 
         </div>
-    </section>    
+    </section>
+    <!-- ============================================================ -->
+    <!-- END PRICING SECTION                                          -->
+    <!-- ============================================================ -->
 
     <!-- Adaptive AI Value Proposition Section -->
     <section class="adaptive-ai-section">
