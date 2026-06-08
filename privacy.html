@@ -510,6 +510,42 @@
                 </div>
                 <!-- End Section 1.4 -->
 
+                <!-- Section 1.5 — Pirai AI Flow Chrome Extension -->
+                <h2 id="flow">1.5 Pirai AI Flow — Chrome Extension</h2>
+                <p>Pirai AI Flow is a Chrome extension that works as a side panel assistant for Qualtrics dashboards. This section describes the additional data practices specific to the extension.</p>
+
+                <h3>Data Collected by the Extension</h3>
+                <ul>
+                    <li><strong>Email address</strong> — collected for authentication via one-time passcode (OTP). No password is stored.</li>
+                    <li><strong>Qualtrics dashboard data</strong> — field definitions, widget configurations, filter settings, and page layouts are read from your Qualtrics dashboard and sent to our backend for AI processing.</li>
+                    <li><strong>Chat messages</strong> — natural language prompts you type are sent to our backend to generate widget and filter specifications.</li>
+                    <li><strong>Authentication tokens</strong> — stored locally in your browser's <code>chrome.storage.local</code> to maintain your session. Tokens are cleared on logout.</li>
+                </ul>
+
+                <h3>Data the Extension Does NOT Collect</h3>
+                <ul>
+                    <li><strong>Qualtrics credentials</strong> — we never access, store, or transmit your Qualtrics username or password.</li>
+                    <li><strong>Survey response data</strong> — the extension reads dashboard metadata (field names, widget types) but does not access individual survey responses or respondent data.</li>
+                    <li><strong>Browsing history</strong> — the extension only operates on <code>*.qualtrics.com</code> pages. It does not track, read, or store your activity on any other websites.</li>
+                </ul>
+
+                <h3>XSRF Token Usage</h3>
+                <p>The extension reads a security token (XSRF-TOKEN) from your Qualtrics session cookies. This token is used exclusively to authenticate API requests back to Qualtrics on your behalf (e.g., creating widgets and filters). The token is never sent to Pirai AI servers or any third party.</p>
+
+                <h3>Permissions</h3>
+                <ul>
+                    <li><strong>activeTab</strong> — to detect when you are on a Qualtrics dashboard page.</li>
+                    <li><strong>scripting</strong> — to read the XSRF token from Qualtrics cookies and inject a field reference panel into the dashboard page.</li>
+                    <li><strong>storage</strong> — to persist authentication tokens locally between sessions.</li>
+                    <li><strong>sidePanel</strong> — the extension's user interface renders as a Chrome side panel.</li>
+                    <li><strong>Host access to *.qualtrics.com</strong> — to read dashboard data and create widgets/filters via the Qualtrics API.</li>
+                    <li><strong>Host access to flowapi.piraiai.com</strong> — to communicate with the Pirai AI backend for authentication and AI processing.</li>
+                </ul>
+
+                <h3>Data Retention</h3>
+                <p>Chat session history is stored on our backend for your convenience and is associated with your authenticated account. You may start a new session at any time. Authentication tokens stored locally are cleared when you log out of the extension.</p>
+                <!-- End Section 1.5 -->
+
                 <h2>2. How We Use Your Information</h2>
 
                 <h3>2.1 Service Provision</h3>
