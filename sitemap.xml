@@ -57,7 +57,18 @@
     <changefreq>weekly</changefreq>
     <lastmod>2025-12-06</lastmod>
   </url>
-
+  <url>
+    <loc>https://piraiai.com/blog/what-is-google-forms</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/pirai-ai-google-forms-apps-script-guide</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-01</lastmod>
+  </url>
   <url>
     <loc>https://piraiai.com/blog/enterprise-automation-hub</loc>
     <priority>0.6</priority>
