@@ -1196,7 +1196,13 @@
                         <td><span class="file-tag">.txt</span></td>
                         <td><span class="method-tag method-paste">📋 Copy &amp; Paste</span></td>
                         <td><a class="ref-link" href="#" onclick="switchSection('survey'); switchTab('smartsurvey'); return false;">View steps →</a></td>
-                    </tr>
+                        </tr>
+                        <tr>
+                            <td><span class="platform-name">SurveyToGo</span></td>
+                            <td><span class="file-tag">.xml</span></td>
+                            <td><span class="method-tag method-upload">⬆ File Upload</span></td>
+                            <td><a class="ref-link" href="#" onclick="switchSection('survey'); switchTab('surveytogo'); return false;">View steps →</a></td>
+                        </tr>
 
                     <!-- Assessment Tools Group -->
                     <tr>
@@ -1261,10 +1267,10 @@
 
         <!-- Survey Platform Tabs -->
         <div class="tab-nav" id="tabNav-survey">
-            <button class="tab-btn active" onclick="switchTab('qualtrics')">Qualtrics</button>
+            <button class="tab-btn active" onclick="switchTab('googleforms')">Google Forms</button>
+            <button class="tab-btn" onclick="switchTab('qualtrics')">Qualtrics</button>
             <button class="tab-btn" onclick="switchTab('questionpro')">QuestionPro</button>
             <button class="tab-btn" onclick="switchTab('surveymonkey')">SurveyMonkey</button>
-            <button class="tab-btn" onclick="switchSection('survey'); switchTab('googleforms')">Google Forms</button>
             <button class="tab-btn" onclick="switchSection('survey'); switchTab('microsoftforms')">Microsoft Forms</button>
             <button class="tab-btn" onclick="switchSection('survey'); switchTab('redcap')">REDCap</button>
             <button class="tab-btn" onclick="switchSection('survey'); switchTab('zoho')">Zoho Survey</button>
@@ -1277,6 +1283,7 @@
             <button class="tab-btn" onclick="switchTab('unicom')">UNICOM Intelligence</button>
             <button class="tab-btn" onclick="switchTab('intellisurvey')">IntelliSurvey</button>
             <button class="tab-btn" onclick="switchTab('smartsurvey')">SmartSurvey</button>
+            <button class="tab-btn" onclick="switchTab('surveytogo')">SurveyToGo</button>
         </div>
 
         <!-- Assessment Tool Tabs -->
@@ -1299,7 +1306,44 @@
         </div>
 
         <!-- ===== QUALTRICS ===== -->
-        <div class="platform-panel active" id="panel-qualtrics">
+        <div class="platform-panel active" id="panel-googleforms">
+            <div class="platform-header">
+                <div>
+                    <div class="platform-title">Google Forms</div>
+                    <div class="platform-desc">Google Forms does not support direct file import. Pirai AI generates a Google Apps Script file that automates the creation of your entire form. Open the Apps Script editor, paste the script, and run it to build your form automatically.</div>
+                </div>
+                <div class="platform-badges">
+                    <span class="method-tag method-script">⚙ Apps Script</span>
+                </div>
+            </div>
+            <div class="file-callout">
+                <div class="fc-icon">📥</div>
+                <p><strong>Your Pirai AI file:</strong> Download the <strong>.txt</strong> file from the platform. It contains the complete Apps Script code pre-populated with all your survey questions and answer options.</p>
+            </div>
+            <div class="warning-callout">
+                <div class="fc-icon">⚠️</div>
+                <p>You will need a Google account to access Apps Script. The script creates a new Google Form automatically when executed. No manual question entry is required.</p>
+            </div>
+            <ol class="steps-list">
+                <li><span class="step-num">1</span><span class="step-text">Open your Pirai AI <code>.txt</code> file in any text editor. Select all the script content (Ctrl+A or Cmd+A) and copy it (Ctrl+C or Cmd+C).</span></li>
+                <li><span class="step-num">2</span><span class="step-text">Go to <strong>script.google.com</strong> and sign in with your Google account. Click <strong>New project</strong> in the top-left corner.</span></li>
+                <li><span class="step-num">3</span><span class="step-text">In the Apps Script editor, delete the default placeholder code (<code>function myFunction() {}</code>), then paste your copied Pirai AI script.</span></li>
+                <li><span class="step-num">4</span><span class="step-text">Click the <strong>Save project</strong> icon (floppy disk) at the top of the screen to save your script.</span></li>
+                <li><span class="step-num">5</span><span class="step-text">In the toolbar above your code, confirm the function dropdown shows <strong>createFormFromPiraiData</strong>. Then click the <strong>Run</strong> button (play arrow icon).</span></li>
+                <li><span class="step-num">6</span><span class="step-text"><strong>Grant permissions (one-time only):</strong> Click <strong>Review permissions</strong> in the pop-up. Select your Google account. Click <strong>Advanced</strong>, then <strong>Go to project (unsafe)</strong>. Click <strong>Allow</strong>.</span></li>
+                <li><span class="step-num">7</span><span class="step-text">Check the <strong>Execution log</strong> at the bottom of the screen. Copy the form URL from the log and open it in a new tab to see your completed Google Form with all questions created automatically.</span></li>
+            </ol>
+            <div style="margin-top:24px;">
+                <p style="font-size:14px;font-weight:600;color:#1a1a1a;margin-bottom:12px;">Video walkthrough</p>
+                <div style="padding:56.25% 0 0 0;position:relative;border-radius:8px;overflow:hidden;">
+                    <iframe src="https://player.vimeo.com/video/1198619004?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="How to Import into Google Forms with Pirai AI"></iframe>
+                </div>
+                <script src="https://player.vimeo.com/api/player.js"></script>
+            </div>
+        </div>
+
+
+        <div class="platform-panel" id="panel-qualtrics">
             <div class="platform-header">
                 <div>
                     <div class="platform-title">Qualtrics</div>
@@ -1410,41 +1454,6 @@
         </div>
 
         <!-- ===== GOOGLE FORMS ===== -->
-        <div class="platform-panel" id="panel-googleforms">
-            <div class="platform-header">
-                <div>
-                    <div class="platform-title">Google Forms</div>
-                    <div class="platform-desc">Google Forms does not support direct file import. Pirai AI generates a Google Apps Script file that automates the creation of your entire form. Open the Apps Script editor, paste the script, and run it to build your form automatically.</div>
-                </div>
-                <div class="platform-badges">
-                    <span class="method-tag method-script">⚙ Apps Script</span>
-                </div>
-            </div>
-            <div class="file-callout">
-                <div class="fc-icon">📥</div>
-                <p><strong>Your Pirai AI file:</strong> Download the <strong>.txt</strong> file from the platform. It contains the complete Apps Script code pre-populated with all your survey questions and answer options.</p>
-            </div>
-            <div class="warning-callout">
-                <div class="fc-icon">⚠️</div>
-                <p>You will need a Google account to access Apps Script. The script creates a new Google Form automatically when executed. No manual question entry is required.</p>
-            </div>
-            <ol class="steps-list">
-                <li><span class="step-num">1</span><span class="step-text">Open your Pirai AI <code>.txt</code> file in any text editor. Select all the script content (Ctrl+A or Cmd+A) and copy it (Ctrl+C or Cmd+C).</span></li>
-                <li><span class="step-num">2</span><span class="step-text">Go to <strong>script.google.com</strong> and sign in with your Google account. Click <strong>New project</strong> in the top-left corner.</span></li>
-                <li><span class="step-num">3</span><span class="step-text">In the Apps Script editor, delete the default placeholder code (<code>function myFunction() {}</code>), then paste your copied Pirai AI script.</span></li>
-                <li><span class="step-num">4</span><span class="step-text">Click the <strong>Save project</strong> icon (floppy disk) at the top of the screen to save your script.</span></li>
-                <li><span class="step-num">5</span><span class="step-text">In the toolbar above your code, confirm the function dropdown shows <strong>createFormFromPiraiData</strong>. Then click the <strong>Run</strong> button (play arrow icon).</span></li>
-                <li><span class="step-num">6</span><span class="step-text"><strong>Grant permissions (one-time only):</strong> Click <strong>Review permissions</strong> in the pop-up. Select your Google account. Click <strong>Advanced</strong>, then <strong>Go to project (unsafe)</strong>. Click <strong>Allow</strong>.</span></li>
-                <li><span class="step-num">7</span><span class="step-text">Check the <strong>Execution log</strong> at the bottom of the screen. Copy the form URL from the log and open it in a new tab to see your completed Google Form with all questions created automatically.</span></li>
-            </ol>
-            <div style="margin-top:24px;">
-                <p style="font-size:14px;font-weight:600;color:#1a1a1a;margin-bottom:12px;">Video walkthrough</p>
-                <div style="padding:56.25% 0 0 0;position:relative;border-radius:8px;overflow:hidden;">
-                    <iframe src="https://player.vimeo.com/video/1198619004?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="How to Import into Google Forms with Pirai AI"></iframe>
-                </div>
-                <script src="https://player.vimeo.com/api/player.js"></script>
-            </div>
-        </div>
 
         <!-- ===== MICROSOFT FORMS ===== -->
         <div class="platform-panel" id="panel-microsoftforms">
@@ -1882,6 +1891,38 @@
             </a>
         </div>
 
+
+        <!-- ===== SURVEYTOGO ===== -->
+        <div class="platform-panel" id="panel-surveytogo">
+            <div class="platform-header">
+                <div>
+                    <div class="platform-title">SurveyToGo</div>
+                    <div class="platform-desc">Pirai AI generates a SurveyToGo-compatible XML file using the Dooblo import schema. Import it directly into your SurveyToGo project via the XML Import option.</div>
+                </div>
+                <div class="platform-badges">
+                    <span class="method-tag method-upload">⬆ File Upload</span>
+                </div>
+            </div>
+            <div class="file-callout">
+                <div class="fc-icon">📥</div>
+                <p><strong>Your Pirai AI file:</strong> Download the <strong>SurveyToGo .xml</strong> file from the platform. It is pre-formatted to the SurveyToGo Dooblo import schema (<code>xmlns="http://www.dooblo.net/XMLImportSchema"</code>).</p>
+            </div>
+            <div class="warning-callout">
+                <div class="fc-icon">⚠️</div>
+                <p><strong>Important:</strong> When importing, select <strong>SurveyToGo XML</strong> as the import format — not Triple-S XML. The Pirai AI output uses the SurveyToGo native schema, not the Triple-S format.</p>
+            </div>
+            <ol class="steps-list">
+                <li><span class="step-num">1</span><span class="step-text">Download the <strong>SurveyToGo .xml</strong> file from Pirai AI.</span></li>
+                <li><span class="step-num">2</span><span class="step-text">Open SurveyToGo and navigate to the <strong>Project</strong> where the survey will live.</span></li>
+                <li><span class="step-num">3</span><span class="step-text">Right-click on the Project and choose <strong>Import</strong>. Select <strong>SurveyToGo XML</strong> as the import format.</span></li>
+                <li><span class="step-num">4</span><span class="step-text">Click <strong>...</strong> to browse to your Pirai AI <code>.xml</code> file and select it.</span></li>
+                <li><span class="step-num">5</span><span class="step-text">Click <strong>Import</strong> to generate the new survey. All questions, answer options, and survey structure are imported automatically.</span></li>
+            </ol>
+            <a href="https://support.dooblo.net/hc/en-us/articles/360001182585-How-To-Import-a-Triple-S-survey" target="_blank" rel="noopener" class="official-docs">
+                📄 SurveyToGo Official Import Documentation ↗
+            </a>
+        </div>
+
         <!-- ===== KAHOOT! ===== -->
         <div class="platform-panel" id="panel-kahoot">
             <div class="platform-header">
@@ -2226,6 +2267,12 @@
                         SmartSurvey
                     </a>
                 </li>
+                <li>
+                    <a href="#platform-steps" onclick="switchSection('survey'); switchTab('surveytogo')">
+                        <span class="toc-icon">→</span>
+                        SurveyToGo
+                    </a>
+                </li>
                 <div class="toc-divider"></div>
                 <li style="font-family:'Space Grotesk',sans-serif; font-size:11px; font-weight:700; color:#15803d; text-transform:uppercase; letter-spacing:0.5px; padding: 4px 8px;">Assessment Tools</li>
                 <li>
@@ -2295,7 +2342,7 @@
 </footer>
 
 <script>
-    const surveyPlatforms = ['qualtrics','questionpro','surveymonkey','googleforms','microsoftforms','redcap','zoho','surveysparrow','alchemer','forsta','crowdtech','cultureamp','surveyvista','unicom','intellisurvey','smartsurvey'];
+    const surveyPlatforms = ['googleforms','qualtrics','questionpro','surveymonkey','microsoftforms','redcap','zoho','surveysparrow','alchemer','forsta','crowdtech','cultureamp','surveyvista','unicom','intellisurvey','smartsurvey','surveytogo'];
     const assessmentTools = ['kahoot','moodle','atomicjolt','respondus','learnworlds','pointerpro','braincert'];
 
     function switchSection(section) {
