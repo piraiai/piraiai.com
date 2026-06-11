@@ -1203,6 +1203,18 @@
                             <td><span class="method-tag method-upload">⬆ File Upload</span></td>
                             <td><a class="ref-link" href="#" onclick="switchSection('survey'); switchTab('surveytogo'); return false;">View steps →</a></td>
                         </tr>
+                        <tr>
+                            <td><span class="platform-name">LimeSurvey</span></td>
+                            <td><span class="file-tag">.lss</span></td>
+                            <td><span class="method-tag method-upload">⬆ File Upload</span></td>
+                            <td><a class="ref-link" href="#" onclick="switchSection('survey'); switchTab('limesurvey'); return false;">View steps →</a></td>
+                        </tr>
+                        <tr>
+                            <td><span class="platform-name">Triple-S</span></td>
+                            <td><span class="file-tag">.xml</span></td>
+                            <td><span class="method-tag method-upload">⬆ File Upload</span></td>
+                            <td><a class="ref-link" href="#" onclick="switchSection('survey'); switchTab('triples'); return false;">View steps →</a></td>
+                        </tr>
 
                     <!-- Assessment Tools Group -->
                     <tr>
@@ -1284,6 +1296,8 @@
             <button class="tab-btn" onclick="switchTab('intellisurvey')">IntelliSurvey</button>
             <button class="tab-btn" onclick="switchTab('smartsurvey')">SmartSurvey</button>
             <button class="tab-btn" onclick="switchTab('surveytogo')">SurveyToGo</button>
+            <button class="tab-btn" onclick="switchTab('limesurvey')">LimeSurvey</button>
+            <button class="tab-btn" onclick="switchTab('triples')">Triple-S</button>
         </div>
 
         <!-- Assessment Tool Tabs -->
@@ -1923,6 +1937,85 @@
             </a>
         </div>
 
+        <!-- ===== LIMESURVEY ===== -->
+        <div class="platform-panel" id="panel-limesurvey">
+            <div class="platform-header">
+                <div>
+                    <div class="platform-title">LimeSurvey</div>
+                    <div class="platform-desc">Pirai AI generates a LimeSurvey Structure file (.lss) formatted to the LimeSurvey XML import schema. Import it directly via the LimeSurvey navigation bar.</div>
+                </div>
+                <div class="platform-badges">
+                    <span class="method-tag method-upload">⬆ File Upload</span>
+                </div>
+            </div>
+            <div class="file-callout">
+                <div class="fc-icon">📥</div>
+                <p><strong>Your Pirai AI file:</strong> Download the <strong>LimeSurvey .lss</strong> file from the platform. It is pre-formatted to the LimeSurvey Structure XML schema (XML-format compatible with LimeSurvey 1.90 or later).</p>
+            </div>
+            <div class="warning-callout">
+                <div class="fc-icon">⚠️</div>
+                <p><strong>Before you import:</strong> LimeSurvey accepts .lss (XML structure), .lsa (survey archive), and .txt (Excel text format). The Pirai AI output is an .lss file. The import process intelligently re-numbers survey, groups, questions, answers, and condition IDs automatically.</p>
+            </div>
+            <ol class="steps-list">
+                <li><span class="step-num">1</span><span class="step-text">Download the <strong>LimeSurvey .lss</strong> file from Pirai AI.</span></li>
+                <li><span class="step-num">2</span><span class="step-text">In LimeSurvey, click the <strong>+</strong> button on the Navigation bar.</span></li>
+                <li><span class="step-num">3</span><span class="step-text">Click <strong>Import Survey</strong> from the dropdown options.</span></li>
+                <li><span class="step-num">4</span><span class="step-text">Click <strong>Drop a file here</strong> to browse for your .lss file, or drag and drop it directly.</span></li>
+                <li><span class="step-num">5</span><span class="step-text">Click <strong>Import survey</strong>. A survey structure import summary will confirm whether the import was successful.</span></li>
+            </ol>
+            <a href="https://help.limesurvey.org/portal/en/kb/articles/import-a-survey" target="_blank" rel="noopener" class="official-docs">
+                📄 LimeSurvey Official Import Documentation ↗
+            </a>
+        </div>
+
+        <!-- ===== TRIPLE-S ===== -->
+        <div class="platform-panel" id="panel-triples">
+            <div class="platform-header">
+                <div>
+                    <div class="platform-title">Triple-S (XML/SSS)</div>
+                    <div class="platform-desc">Triple-S is a global open standard for survey data exchange. Pirai AI generates a Triple-S XML file that can be imported into any Triple-S compatible platform including SPSS, Dimensions (UNICOM), Askia, Nebu, ConfirmIT, Voxco, Decipher, Q (Displayr), and WinCross.</div>
+                </div>
+                <div class="platform-badges">
+                    <span class="method-tag method-upload">⬆ File Upload</span>
+                </div>
+            </div>
+            <div class="file-callout">
+                <div class="fc-icon">📥</div>
+                <p><strong>Your Pirai AI file:</strong> Download the <strong>Triple-S .xml</strong> file from the platform. It conforms to the Triple-S Version 2.0 specification for survey metadata and data exchange.</p>
+            </div>
+            <div class="warning-callout">
+                <div class="fc-icon">💡</div>
+                <p><strong>How it works:</strong> Pirai AI converts your document to Triple-S XML. You then import that file into any Triple-S compatible platform — Dimensions, Askia, Voxco, Nebu, ConfirmIT, and others all accept Triple-S as a survey creation input format. Import steps vary by platform; refer to your platform's Triple-S import documentation.</p>
+            </div>
+
+            <h4 style="font-size:14px;font-weight:600;margin:16px 0 10px;">Platforms that support Triple-S import</h4>
+            <div class="table-scroll"><table class="file-table">
+                <thead><tr><th>Platform</th><th>Type</th><th>Triple-S support</th></tr></thead>
+                <tbody>
+                    <tr><td>SPSS Statistics</td><td>Analysis</td><td>Import Triple-S .xml for data analysis</td></tr>
+                    <tr><td>Dimensions (UNICOM)</td><td>Fieldwork / Analysis</td><td>Full Triple-S read and write</td></tr>
+                    <tr><td>Askia</td><td>Fieldwork / Analysis</td><td>Import Triple-S for scripting and analysis</td></tr>
+                    <tr><td>Nebu Dub InterViewer</td><td>Fieldwork</td><td>Triple-S import and export</td></tr>
+                    <tr><td>ConfirmIT (Forsta)</td><td>Survey platform</td><td>Triple-S data exchange</td></tr>
+                    <tr><td>Voxco</td><td>Fieldwork</td><td>Triple-S import support</td></tr>
+                    <tr><td>Decipher (FocusVision)</td><td>Survey platform</td><td>Triple-S export and import</td></tr>
+                    <tr><td>Q / Displayr</td><td>Analysis</td><td>Import Triple-S for cross-tabulation</td></tr>
+                    <tr><td>WinCross</td><td>Analysis</td><td>Triple-S data import</td></tr>
+                    <tr><td>UNCLE</td><td>Analysis</td><td>Triple-S read support</td></tr>
+                </tbody>
+            </table></div>
+
+            <ol class="steps-list" style="margin-top:16px;">
+                <li><span class="step-num">1</span><span class="step-text">Download the <strong>Triple-S .xml</strong> file from Pirai AI.</span></li>
+                <li><span class="step-num">2</span><span class="step-text">Open your Triple-S compatible platform (SPSS, Dimensions, Askia, etc.).</span></li>
+                <li><span class="step-num">3</span><span class="step-text">Navigate to the platform's <strong>Import</strong> or <strong>Open</strong> function and select Triple-S or SSS as the file type.</span></li>
+                <li><span class="step-num">4</span><span class="step-text">Browse to your Pirai AI <code>.xml</code> file and open it. The platform will parse the survey structure and metadata automatically.</span></li>
+            </ol>
+            <a href="https://www.triple-s.org" target="_blank" rel="noopener" class="official-docs">
+                📄 Triple-S Official Standard Documentation ↗
+            </a>
+        </div>
+
         <!-- ===== KAHOOT! ===== -->
         <div class="platform-panel" id="panel-kahoot">
             <div class="platform-header">
@@ -2273,6 +2366,18 @@
                         SurveyToGo
                     </a>
                 </li>
+                <li>
+                    <a href="#platform-steps" onclick="switchSection('survey'); switchTab('limesurvey')">
+                        <span class="toc-icon">→</span>
+                        LimeSurvey
+                    </a>
+                </li>
+                <li>
+                    <a href="#platform-steps" onclick="switchSection('survey'); switchTab('triples')">
+                        <span class="toc-icon">→</span>
+                        Triple-S
+                    </a>
+                </li>
                 <div class="toc-divider"></div>
                 <li style="font-family:'Space Grotesk',sans-serif; font-size:11px; font-weight:700; color:#15803d; text-transform:uppercase; letter-spacing:0.5px; padding: 4px 8px;">Assessment Tools</li>
                 <li>
@@ -2342,7 +2447,7 @@
 </footer>
 
 <script>
-    const surveyPlatforms = ['googleforms','qualtrics','questionpro','surveymonkey','microsoftforms','redcap','zoho','surveysparrow','alchemer','forsta','crowdtech','cultureamp','surveyvista','unicom','intellisurvey','smartsurvey','surveytogo'];
+    const surveyPlatforms = ['googleforms','qualtrics','questionpro','surveymonkey','microsoftforms','redcap','zoho','surveysparrow','alchemer','forsta','crowdtech','cultureamp','surveyvista','unicom','intellisurvey','smartsurvey','surveytogo','limesurvey','triples'];
     const assessmentTools = ['kahoot','moodle','atomicjolt','respondus','learnworlds','pointerpro','braincert'];
 
     function switchSection(section) {
