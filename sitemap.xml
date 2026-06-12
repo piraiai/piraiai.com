@@ -552,6 +552,12 @@
     <changefreq>monthly</changefreq>
     <lastmod>2026-06-01</lastmod>
   </url>  
+  <url>
+    <loc>https://piraiai.com/blog/convert-import-limesurvey</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-08</lastmod>
+  </url>  
   <!-- Add each new article as you publish -->
   <!-- Documentation SECTION - Medium-High priority -->
   <url>
