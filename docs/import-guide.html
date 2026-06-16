@@ -2488,16 +2488,57 @@
         const panel = document.getElementById('panel-' + platform);
         if (panel) panel.classList.add('active');
 
+        // Update URL hash for deep linking (reverse lookup from hashMap)
+        const platformToHash = {
+            'googleforms': 'google-forms', 'microsoftforms': 'microsoft-forms',
+            'zoho': 'zoho-survey', 'cultureamp': 'culture-amp',
+            'atomicjolt': 'atomic-jolt', 'triples': 'triple-s',
+        };
+        const hashValue = platformToHash[platform] || platform;
+        history.replaceState(null, '', '#' + hashValue);
+
         // Scroll to steps section (skip if called from switchSection to avoid double scroll)
         if (!fromSection) {
             document.getElementById('platform-steps').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     }
 
-    // Init: show first survey tab active on load
+    // Hash-to-platform mapping for direct links (e.g., #google-forms)
+    const hashMap = {
+      'qualtrics': 'qualtrics', 'qualtrics-advanced': 'qualtrics',
+      'questionpro': 'questionpro', 'surveymonkey': 'surveymonkey',
+      'google-forms': 'googleforms', 'microsoft-forms': 'microsoftforms',
+      'redcap': 'redcap', 'zoho-survey': 'zoho', 'zoho': 'zoho',
+      'surveysparrow': 'surveysparrow', 'alchemer': 'alchemer',
+      'forsta': 'forsta', 'crowdtech': 'crowdtech',
+      'cultureamp': 'cultureamp', 'culture-amp': 'cultureamp',
+      'surveyvista': 'surveyvista', 'unicom': 'unicom',
+      'intellisurvey': 'intellisurvey', 'smartsurvey': 'smartsurvey',
+      'surveytogo': 'surveytogo', 'limesurvey': 'limesurvey',
+      'triples': 'triples', 'triple-s': 'triples',
+      'kahoot': 'kahoot', 'moodle': 'moodle',
+      'respondus': 'respondus', 'atomic-jolt': 'atomicjolt',
+      'learnworlds': 'learnworlds', 'pointerpro': 'pointerpro',
+      'braincert': 'braincert',
+    };
+
+    // Init: show first survey tab or navigate to hash target
     document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('tabNav-survey').style.display = 'flex';
         document.getElementById('tabNav-assessment').style.display = 'none';
+
+        // Check for hash in URL
+        const hash = window.location.hash.replace('#', '').toLowerCase();
+        if (hash && hashMap[hash]) {
+            const platform = hashMap[hash];
+            const section = assessmentTools.includes(platform) ? 'assessment' : 'survey';
+            switchSection(section);
+            switchTab(platform);
+            // Scroll to the steps section after a short delay for rendering
+            setTimeout(function() {
+                document.getElementById('platform-steps').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
     });
 </script>
 
