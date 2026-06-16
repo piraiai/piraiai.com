@@ -50,6 +50,36 @@
     <changefreq>monthly</changefreq>
     <lastmod>2026-06-01</lastmod>
   </url>
+  <url>
+    <loc>https://piraiai.com/qsf-converter</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-08</lastmod>
+  </url>  
+  <url>
+    <loc>https://piraiai.com/lss-converter</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/redcap-converter</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/google-forms-converter</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-08</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/microsoft-forms-converter</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-08</lastmod>
+  </url>
   <!-- BLOG SECTION - Medium-High priority -->
   <url>
     <loc>https://piraiai.com/blog/</loc>
