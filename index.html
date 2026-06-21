@@ -1085,8 +1085,14 @@
         
         .footer-content {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
             gap: 32px;
+        }
+        @media (max-width: 900px) {
+            .footer-content { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 560px) {
+            .footer-content { grid-template-columns: 1fr; }
         }
         
         .footer-brand {
@@ -6466,6 +6472,19 @@ See the dramatic difference in survey creation time
                         <li><a href="/flow" title="Pirai AI Flow is a Vision based Robotic Dashboard Automation Platform.">Pirai AI Flow (Beta)</a></li>
                         <li><a href="https://qstar.piraiai.com" target="_blank" title="QStar is Survey specification builder to create Standard Universal Specification.">Pirai AI QStar (Beta)</a></li>
                         <!-- <li><a href="https://prep.piraiai.com" target="_blank" title="Pirai AI Prep uses conversational AI to clean your data instantly.">Pirai AI Prep (Beta)</a></li> -->
+					</ul>
+				</div>  
+                <div class="footer-section">
+					<h3>Converters</h3>
+					<ul class="footer-links">
+                        <li><a href="/qsf-converter">QSF Converter</a></li>
+                        <li><a href="/lss-converter">LSS Converter</a></li>
+                        <li><a href="/redcap-converter">REDCap Converter</a></li>
+                        <li><a href="/google-forms-converter">Google Forms Converter</a></li>
+                        <li><a href="/microsoft-forms-converter">Microsoft Forms Converter</a></li>
+                        <li><a href="/kahoot-converter">Kahoot Converter</a></li>
+                        <li><a href="/alchemer-converter">Alchemer Converter</a></li>
+                        <li><a href="/surveymonkey-converter">SurveyMonkey Converter</a></li>
 					</ul>
 				</div>  
 			</div>
