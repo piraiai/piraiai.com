@@ -359,36 +359,48 @@
                         <pre id="xm-script">
 /**
  * Qualtrics XM Directory Mapping Extractor (Contacts + Transactions)
- * Extracts Source Field to XM Directory Field mappings - v2.3
+ * Extracts Source Field to XM Directory Field mappings - v2.4 (Resilient Edition)
  * "Update XM Directory Contacts" workflow task.
  * Run this script on EACH screen (Part 1 and Part 2).
  * Developed by Pirai AI — piraiai.com
- * Last updated: March 6, 2026
+ * Last updated: April 2026
+ *
+ * v2.4 CHANGE: Qualtrics regenerates hashed CSS classnames (e.g. "_2Oqzg") on each
+ * deployment. Row selection now uses stable attributes only (sourceFieldCell,
+ * textInput, role="combobox") instead of hashed row classnames, which were
+ * causing "0 rows found" errors after Qualtrics UI updates.
 */
- 
+
 (function() {
     console.log('=== Qualtrics XM Directory Mapping Extractor Started ===');
+
+    function getRows(table) {
+        if (!table) return [];
+        // Resilient: any <tr> that contains a sourceFieldCell — avoids relying
+        // on hashed row classnames like "_2Oqzg" / "_l2NCb" which change between
+        // Qualtrics deployments.
+        const allRows = table.querySelectorAll('tbody tr');
+        return Array.from(allRows).filter(row => row.querySelector('td.sourceFieldCell'));
+    }
+
     function extractContactMappings() {
         const mappings = [];
-        // Find the contacts data mapper section (not transaction)
         const contactsTable = document.querySelector('.contactsDataMapper table.dataMapperTable');
         if (!contactsTable) {
             console.log('No contacts mapping table found');
             return mappings;
         }
-        const rows = contactsTable.querySelectorAll('tbody tr._2Oqzg');
+        const rows = getRows(contactsTable);
         console.log(`\nFound ${rows.length} contact mapping rows`);
         rows.forEach((row, index) => {
             try {
                 let sourceField = '';
                 let xmDirectoryField = '';
-                // Extract Source Field (left column)
                 const sourceInput = row.querySelector('td.sourceFieldCell input.textInput');
                 if (sourceInput) {
                     sourceField = sourceInput.value.trim();
                 }
-                // Extract XM Directory Field (right column - combobox)
-                const destinationInput = row.querySelector('td:nth-child(2) input[role="combobox"]');
+                const destinationInput = row.querySelector('input[role="combobox"]');
                 if (destinationInput) {
                     xmDirectoryField = destinationInput.value.trim();
                 }
@@ -405,42 +417,40 @@
         });
         return mappings;
     }
+
     function extractTransactionMappings() {
         const mappings = [];
-        // Find the transaction data mapper section
         const transactionTable = document.querySelector('.transactionDataMapper table.dataMapperTable');
         if (!transactionTable) {
             console.log('No transaction mapping table found');
             return mappings;
         }
-        const rows = transactionTable.querySelectorAll('tbody tr._2Oqzg');
+        const rows = getRows(transactionTable);
         console.log(`\nFound ${rows.length} transaction mapping rows`);
         rows.forEach((row, index) => {
             try {
                 let sourceField = '';
                 let xmDirectoryField = '';
                 let makePipedText = false;
-                // Extract Source Field (left column)
                 const sourceInput = row.querySelector('td.sourceFieldCell input.textInput');
                 if (sourceInput) {
                     sourceField = sourceInput.value.trim();
                 }
-                // Extract XM Directory Field (middle column)
                 const secondColumn = row.querySelector('td:nth-child(2)');
                 if (secondColumn) {
-                    // First check for label WITHOUT nested input (Transaction Date case)
                     const standaloneLabel = secondColumn.querySelector('label:not(:has(input))');
                     if (standaloneLabel) {
                         xmDirectoryField = standaloneLabel.textContent.trim();
                     } else {
-                        // Check for label WITH nested input (custom fields case)
                         const labelWithInput = secondColumn.querySelector('label input[type="text"]');
                         if (labelWithInput) {
                             xmDirectoryField = labelWithInput.value.trim();
+                        } else {
+                            const combobox = secondColumn.querySelector('input[role="combobox"]');
+                            if (combobox) xmDirectoryField = combobox.value.trim();
                         }
                     }
                 }
-                // Extract "Make piped text" checkbox status (third column)
                 const checkbox = row.querySelector('td:nth-child(3) input[type="checkbox"]');
                 if (checkbox) {
                     makePipedText = checkbox.checked;
@@ -459,11 +469,13 @@
         });
         return mappings;
     }
+
     function displayAsTable(mappings, type) {
         console.log(`\n=== EXTRACTED ${type.toUpperCase()} MAPPINGS ===\n`);
         console.table(mappings);
         console.log(`\nTotal ${type} mappings: ${mappings.length}`);
     }
+
     function convertToCSV(mappings, includePipedText = false) {
         if (mappings.length === 0) return '';
         let headerRow = '"Index","Source Field","XM Directory Field"';
@@ -483,6 +495,7 @@
         }).join('\n');
         return headerRow + '\n' + dataRows;
     }
+
     function downloadCSV(csv, filename) {
         const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
         const link = document.createElement('a');
@@ -496,6 +509,7 @@
         URL.revokeObjectURL(url);
         console.log(`✓ Downloaded: ${filename}`);
     }
+
     function copyToClipboard(text) {
         const textarea = document.createElement('textarea');
         textarea.value = text;
@@ -514,44 +528,38 @@
             document.body.removeChild(textarea);
         }
     }
+
     console.log('Starting extraction...\n');
-    // Extract both types
     const contactMappings = extractContactMappings();
     const transactionMappings = extractTransactionMappings();
     if (contactMappings.length === 0 && transactionMappings.length === 0) {
         console.error('❌ No mappings found! Make sure you are on the XM Directory mapping dialog.');
         return;
     }
-    // Display results
     if (contactMappings.length > 0) {
         displayAsTable(contactMappings, 'contact');
     }
     if (transactionMappings.length > 0) {
         displayAsTable(transactionMappings, 'transaction');
     }
-    // Prepare CSV data
     const contactCSV = convertToCSV(contactMappings, false);
     const transactionCSV = convertToCSV(transactionMappings, true);
-    // Make data available globally
     window.xmContactMappings = contactMappings;
     window.xmTransactionMappings = transactionMappings;
     window.xmContactCSV = contactCSV;
     window.xmTransactionCSV = transactionCSV;
-    // Contact mapping functions
     window.downloadContactMappingsCSV = function(filename) {
         downloadCSV(contactCSV, filename || 'xm_contact_mappings.csv');
     };
     window.copyContactMappingsCSV = function() {
         return copyToClipboard(contactCSV);
     };
-    // Transaction mapping functions
     window.downloadTransactionMappingsCSV = function(filename) {
         downloadCSV(transactionCSV, filename || 'xm_transaction_mappings.csv');
     };
     window.copyTransactionMappingsCSV = function() {
         return copyToClipboard(transactionCSV);
     };
-    // Combined functions
     window.downloadAllMappingsCSV = function() {
         if (contactMappings.length > 0) {
             downloadCSV(contactCSV, 'xm_contact_mappings.csv');
@@ -579,7 +587,8 @@
     console.log('  7. Download All:  downloadAllMappingsCSV()');
     console.log('  8. View data:     xmContactMappings / xmTransactionMappings');
     console.log('\n✓ Extraction complete! Use the commands above to export the data.');
-})();</pre>
+})();
+                        </pre>
                     </div>
                 </div>
 
