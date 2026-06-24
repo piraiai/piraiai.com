@@ -51,53 +51,155 @@
     <lastmod>2026-06-01</lastmod>
   </url>
   <url>
-    <loc>https://piraiai.com/qsf-converter</loc>
+    <loc>https://piraiai.com/product/qualtrics-converter</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-06-08</lastmod>
-  </url>  
-  <url>
-    <loc>https://piraiai.com/lss-converter</loc>
-    <priority>0.9</priority>
-    <changefreq>monthly</changefreq>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-22</lastmod>
   </url>
   <url>
-    <loc>https://piraiai.com/redcap-converter</loc>
+    <loc>https://piraiai.com/product/lss-converter</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-21</lastmod>
   </url>
   <url>
-    <loc>https://piraiai.com/google-forms-converter</loc>
+    <loc>https://piraiai.com/product/redcap-converter</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-21</lastmod>
   </url>
   <url>
-    <loc>https://piraiai.com/microsoft-forms-converter</loc>
+    <loc>https://piraiai.com/product/google-forms-converter</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-06-08</lastmod>
+    <lastmod>2026-06-21</lastmod>
   </url>
   <url>
-    <loc>https://piraiai.com/kahoot-converter</loc>
+    <loc>https://piraiai.com/product/microsoft-forms-converter</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-06-08</lastmod>
-  </url>  
+    <lastmod>2026-06-21</lastmod>
+  </url>
   <url>
-    <loc>https://piraiai.com/alchemer-converter</loc>
+    <loc>https://piraiai.com/product/kahoot-converter</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-06-08</lastmod>
-  </url>  
+    <lastmod>2026-06-21</lastmod>
+  </url>
   <url>
-    <loc>https://piraiai.com/surveymonkey-converter</loc>
+    <loc>https://piraiai.com/product/alchemer-converter</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
-    <lastmod>2026-06-08</lastmod>
-  </url>  
+    <lastmod>2026-06-21</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/product/surveymonkey-converter</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-21</lastmod>
+  </url>
+  <!-- FORMAT-SPECIFIC PRODUCT PAGES - High priority -->
+  <!-- Google Forms format-specific -->
+  <url>
+    <loc>https://piraiai.com/product/word-to-google-forms</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-21</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/product/pdf-to-google-forms</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-21</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/product/excel-to-google-forms</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-21</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/product/doc-to-google-forms</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-21</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/product/csv-to-google-forms</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-21</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/product/image-to-google-forms</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-21</lastmod>
+  </url>
+  <!-- Qualtrics format-specific -->
+  <url>
+    <loc>https://piraiai.com/product/word-to-qualtrics</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-21</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/product/pdf-to-qualtrics</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-21</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/product/excel-to-qualtrics</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-21</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/product/csv-to-qualtrics</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-21</lastmod>
+  </url>
+  <!-- REDCap format-specific -->
+  <url>
+    <loc>https://piraiai.com/product/word-to-redcap</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-21</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/product/pdf-to-redcap</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-21</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/product/excel-to-redcap</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-21</lastmod>
+  </url>
+  <!-- Microsoft Forms format-specific -->
+  <url>
+    <loc>https://piraiai.com/product/word-to-microsoft-forms</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-21</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/product/pdf-to-microsoft-forms</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-21</lastmod>
+  </url>
+  <!-- SurveyMonkey format-specific -->
+  <url>
+    <loc>https://piraiai.com/product/word-to-surveymonkey</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-21</lastmod>
+  </url>
   <!-- BLOG SECTION - Medium-High priority -->
   <url>
     <loc>https://piraiai.com/blog/</loc>
