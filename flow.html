@@ -238,8 +238,7 @@
         /* ===== Hero ===== */
         .hero { background: linear-gradient(160deg, #faf8ff 0%, #f3eeff 45%, #fff 100%); padding: 72px 0 0; border-bottom: 1px solid var(--border); overflow: hidden; }
         .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; padding-bottom: 64px; }
-        .hero-badge { display: inline-flex; align-items: center; gap: 7px; background: var(--purple-light); color: var(--purple-dark); border: 1px solid #d8c5ff; border-radius: 20px; padding: 5px 14px; font-size: 13px; font-weight: 600; margin-bottom: 22px; }
-        .hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+        .hero-tagline { font-family: var(--font-head); font-size: clamp(15px, 1.6vw, 18px); font-weight: 600; color: var(--purple-dark); margin-bottom: 22px; }
         .hero h1 { font-family: var(--font-head); font-size: clamp(32px, 4.2vw, 52px); font-weight: 700; line-height: 1.12; letter-spacing: -0.01em; margin-bottom: 22px; }
         .hero h1 span { color: var(--purple); }
         .hero-sub { font-size: 18px; color: var(--text-secondary); max-width: 50ch; margin-bottom: 32px; line-height: 1.65; }
@@ -297,7 +296,7 @@
 
         @media (max-width: 980px) {
             .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-            .hero-ctas, .hero-badge { justify-content: center; }
+            .hero-ctas, .hero-tagline { justify-content: center; }
             .hero { text-align: center; padding-top: 48px; }
             .hero-sub { margin-left: auto; margin-right: auto; }
             .mockup-panel { max-width: 380px; }
@@ -484,8 +483,8 @@
         <div class="container">
             <div class="hero-grid">
                 <div>
-                    <div class="hero-badge"><span class="dot"></span> Pirai AI Flow — Beta, in active development</div>
                     <h1>Your Qualtrics dashboard,<br>built by <span>conversation</span>.</h1>
+                    <p class="hero-tagline">The AI that knows what to build, not just how.</p>
                     <p class="hero-sub">Describe the widgets, filters, and layout you need in plain English. Flow reads your dashboard and builds it live, inside Qualtrics, without menus or manual field mapping.</p>
                     <div class="hero-ctas">
                         <a href="#demo" class="btn-primary">Request Early Access</a>
