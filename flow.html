@@ -99,7 +99,7 @@
                         "name": "Is my survey data safe when using Pirai AI Flow?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Pirai AI Flow is designed with data privacy at its core. Your survey data and response data never leave your Qualtrics environment at any point in the process. Flow only accelerates your dashboard configuration. Your data stays exactly where it is, in Qualtrics."
+                            "text": "Flow is a deterministic framework. It reads your dashboard's field names and types to map widgets correctly, but never the response data itself, and nothing you work with is used to train AI models. Configuration happens inside your Qualtrics environment the entire time."
                         }
                     },
                     {
@@ -502,7 +502,7 @@
                         <a href="#demo" class="btn-primary">Request Early Access</a>
                         <a href="#video" class="btn-secondary">Watch Demo</a>
                     </div>
-                    <p class="hero-note"><strong>No data leaves Qualtrics.</strong> Flow only configures what's already in your environment.</p>
+                    <p class="hero-note"><strong>Flow never touches your response data</strong> — only field names and types, to map widgets correctly. Deterministic by design, nothing is used to train AI models. <a href="https://piraiai.com/privacy#flow" style="color: var(--purple-dark); font-weight: 600;">Learn more →</a></p>
                 </div>
 
                 <div class="mockup-wrap">
@@ -564,8 +564,8 @@
             </div>
             <div>
                 <div class="stat-num">Zero</div>
-                <div class="stat-label">Data leaves Qualtrics</div>
-                <div class="stat-desc">Flow configures, your data never moves</div>
+                <div class="stat-label">Response data accessed</div>
+                <div class="stat-desc">Flow reads field names and types, never your data</div>
             </div>
         </div>
     </div>
@@ -794,7 +794,7 @@
                 </details>
                 <details class="faq-item">
                     <summary>Is my survey data safe when using Pirai AI Flow?</summary>
-                    <p class="faq-a">Pirai AI Flow is designed with data privacy at its core. Your survey data and response data never leave your Qualtrics environment at any point in the process. Flow only accelerates your dashboard configuration. Your data stays exactly where it is, in Qualtrics.</p>
+                    <p class="faq-a">Flow is a deterministic framework — it reads your dashboard's field names and types to map widgets correctly, but never the response data itself, and nothing you work with is used to train AI models. Configuration happens inside your Qualtrics environment the entire time. <a href="https://piraiai.com/privacy#flow" style="color: var(--purple-dark); font-weight: 600;">Learn more →</a></p>
                 </details>
                 <details class="faq-item">
                     <summary>How does Flow know what fields are available?</summary>
