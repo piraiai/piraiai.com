@@ -283,6 +283,13 @@
 
         .mockup-status { margin-top: 12px; font-size: 11px; color: var(--green); font-weight: 600; opacity: 0; animation: bubbleIn .5s ease forwards; }
 
+        .group-box { margin-top: 10px; border: 1.5px dashed var(--app-border); border-radius: 9px; padding: 10px 12px 6px; }
+        .group-box .group-label { font-size: 10.5px; font-weight: 700; color: var(--app-text-2); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .bubble, .build-row, .mockup-status, .float-chip { animation: none !important; opacity: 1 !important; transform: none !important; }
+        }
+
         @keyframes bubbleIn { to { opacity: 1; transform: translateY(0); } }
         @keyframes rowIn { to { opacity: 1; transform: translateX(0); } }
 
@@ -519,10 +526,10 @@
                             <div class="mockup-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
                             <div class="mockup-titles">
                                 <div class="t1">Pirai AI Flow</div>
-                                <div class="t2">CX Manager / Mid-Management · New Page</div>
+                                <div class="t2" id="mockupSubtitle">CX Manager / Mid-Management · New Page</div>
                             </div>
                         </div>
-                        <div class="mockup-body">
+                        <div class="mockup-body" id="mockupBody">
                             <div class="bubble bubble-flow" style="animation-delay:.1s;">Browse a layout, like picking a dashboard template:
                                 <div class="template-row">
                                     <span class="template-chip">Executive Summary</span>
@@ -999,6 +1006,95 @@
                 })
                 .finally(() => { submitBtn.textContent = 'Request Early Access'; });
         });
+
+        // Hero mockup — cycles through three real Flow interactions so the hero
+        // isn't only showing the layout-template flow. Each scene swaps fresh DOM
+        // into #mockupBody, which naturally restarts the bubbleIn/rowIn CSS
+        // animations since they're brand-new elements with their own delays.
+        (function () {
+            const body = document.getElementById('mockupBody');
+            const subtitle = document.getElementById('mockupSubtitle');
+            if (!body || !subtitle) return;
+
+            const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (reduceMotion) return; // leave the first scene static, no auto-advance
+
+            const check = '<svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>';
+
+            const scenes = [
+                {
+                    subtitle: 'CX Manager / Mid-Management · New Page',
+                    holdMs: 6300,
+                    html: `
+                        <div class="bubble bubble-flow" style="animation-delay:.1s;">Browse a layout, like picking a dashboard template:
+                            <div class="template-row">
+                                <span class="template-chip">Executive Summary</span>
+                                <span class="template-chip">Frontline Ops</span>
+                                <span class="template-chip picked">CX Manager</span>
+                                <span class="template-chip">Voice of Customer</span>
+                            </div>
+                        </div>
+                        <div class="bubble bubble-you" style="animation-delay:.7s;">CX Manager — build it</div>
+                        <div class="bubble bubble-flow" style="animation-delay:1.3s;">
+                            Building a CX Manager layout for this page.
+                            <div class="build-list">
+                                <div class="build-row" style="animation-delay:1.7s;"><span class="check">${check}</span><span class="wname">Number Chart</span>&nbsp;<span class="wtype">— Net Promoter Score</span></div>
+                                <div class="build-row" style="animation-delay:2.0s;"><span class="check">${check}</span><span class="wname">Horizontal Bars</span>&nbsp;<span class="wtype">— Driver Comparison</span></div>
+                                <div class="build-row" style="animation-delay:2.3s;"><span class="check">${check}</span><span class="wname">Table</span>&nbsp;<span class="wtype">— Cross-Tab Diagnostic</span></div>
+                                <div class="build-row" style="animation-delay:2.6s;"><span class="check">${check}</span><span class="wname">Vertical Bars</span>&nbsp;<span class="wtype">— Top Box Distribution</span></div>
+                            </div>
+                        </div>
+                        <div class="mockup-status" style="animation-delay:3.0s;">✓ Applied to dashboard — 8 widgets created</div>`
+                },
+                {
+                    subtitle: 'Recommend Widgets · New Page',
+                    holdMs: 5800,
+                    html: `
+                        <div class="bubble bubble-you" style="animation-delay:.1s;">What should I add to this page?</div>
+                        <div class="bubble bubble-flow" style="animation-delay:.7s;">Based on the fields here, I'd suggest:
+                            <div class="build-list">
+                                <div class="build-row" style="animation-delay:1.1s;"><span class="check">${check}</span><span class="wname">Gauge Chart</span>&nbsp;<span class="wtype">— Avg Satisfaction</span></div>
+                                <div class="build-row" style="animation-delay:1.4s;"><span class="check">${check}</span><span class="wname">Donut Chart</span>&nbsp;<span class="wtype">— Response Type</span></div>
+                                <div class="build-row" style="animation-delay:1.7s;"><span class="check">${check}</span><span class="wname">Word Cloud</span>&nbsp;<span class="wtype">— Open Feedback</span></div>
+                            </div>
+                        </div>
+                        <div class="bubble bubble-you" style="animation-delay:2.2s;">Yes, add them</div>
+                        <div class="mockup-status" style="animation-delay:2.7s;">✓ Applied to dashboard — 3 widgets created</div>`
+                },
+                {
+                    subtitle: 'KPI Summary (group) · New Page',
+                    holdMs: 6000,
+                    html: `
+                        <div class="bubble bubble-you" style="animation-delay:.1s;">Create a group: NPS gauge, response count, and a channel breakdown</div>
+                        <div class="bubble bubble-flow" style="animation-delay:.7s;">Creating a group — 3 widgets.
+                            <div class="group-box">
+                                <div class="group-label">KPI Summary</div>
+                                <div class="build-list">
+                                    <div class="build-row" style="animation-delay:1.1s;"><span class="check">${check}</span><span class="wname">Gauge Chart</span>&nbsp;<span class="wtype">— NPS</span></div>
+                                    <div class="build-row" style="animation-delay:1.4s;"><span class="check">${check}</span><span class="wname">Number Chart</span>&nbsp;<span class="wtype">— Response Count</span></div>
+                                    <div class="build-row" style="animation-delay:1.7s;"><span class="check">${check}</span><span class="wname">Vertical Bars</span>&nbsp;<span class="wtype">— by Channel</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mockup-status" style="animation-delay:2.2s;">✓ Group created — KPI Summary</div>`
+                }
+            ];
+
+            let i = 0;
+            function showScene(index) {
+                const scene = scenes[index];
+                subtitle.textContent = scene.subtitle;
+                body.innerHTML = scene.html;
+            }
+            function advance() {
+                i = (i + 1) % scenes.length;
+                showScene(i);
+                setTimeout(advance, scenes[i].holdMs);
+            }
+            // Scene 0 is already on the page for first paint — just schedule the
+            // handoff to scene 1 after its own hold time elapses.
+            setTimeout(advance, scenes[0].holdMs);
+        })();
 
         // Mobile menu
         const hamburger = document.getElementById('hamburger');
