@@ -8,11 +8,11 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
     <!-- End Google Tag Manager -->
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pirai AI Flow: Build Qualtrics Dashboards with Conversational AI</title>
-    
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -38,7 +38,7 @@
                 "@type": "SoftwareApplication",
                 "@id": "https://piraiai.com/flow",
                 "name": "Pirai AI Flow",
-                "description": "Pirai AI Flow is a conversational AI Chrome extension that builds Qualtrics dashboards through natural language. Describe what you want: widgets, filters, page cloning. Flow builds it instantly.",
+                "description": "Pirai AI Flow is a conversational AI Chrome extension that builds and updates Qualtrics dashboards through natural language. Describe what you want: widgets, filters, layouts, page cloning. Flow builds it instantly, inside Qualtrics.",
                 "applicationCategory": "BusinessApplication",
                 "operatingSystem": "Chrome Extension",
                 "offers": {
@@ -49,11 +49,12 @@
                     "description": "Request early access"
                 },
                 "featureList": [
-                    "Conversational widget creation",
+                    "Conversational widget creation and updates",
                     "Natural language filter setup",
                     "Page cloning across dashboards",
                     "Dashboard intelligence queries",
                     "Multi-widget bulk creation",
+                    "Layout templates by audience: Executive, Frontline Ops, CX Manager, Voice of Customer",
                     "Intelligent field mapping",
                     "50-60% dashboard configuration automation"
                 ]
@@ -66,7 +67,7 @@
                         "name": "What is Pirai AI Flow?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Pirai AI Flow is a conversational AI Chrome extension for Qualtrics. You describe what you want on your dashboard in plain English and Flow builds it. Widgets, filters, page cloning, instantly."
+                            "text": "Pirai AI Flow is a conversational AI Chrome extension for Qualtrics. You describe what you want on your dashboard in plain English and Flow builds it. Widgets, filters, layouts, page cloning, instantly."
                         }
                     },
                     {
@@ -82,7 +83,15 @@
                         "name": "What widget types can Flow create?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Flow can create Number Charts, Gauge Charts, Vertical and Horizontal Bar Charts, Line Charts, Breakdown Bars, Donut Charts, Pie Charts, Tables, Record Tables, and Word Clouds, all through natural language description."
+                            "text": "Flow can create Number Charts, Gauge Charts, Vertical and Horizontal Bar Charts, Line Charts, Breakdown Bars, Donut Charts, Pie Charts, Tables, Record Tables, Star Ratings, Response Tickers, and Word Clouds, all through natural language description."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can Flow update widgets that already exist, not just create new ones?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. Flow can change a widget's metric, field, axis, title, columns, and format, and configure full record view, all through the same conversation, without opening Qualtrics' own configuration menus."
                         }
                     },
                     {
@@ -117,7 +126,7 @@
                     {
                         "@type": "HowToStep",
                         "name": "Describe",
-                        "text": "Tell Flow what you want in plain English. Recommend widgets, add filters, clone pages. Just describe it.",
+                        "text": "Tell Flow what you want in plain English. Recommend a layout, add filters, clone pages, or update a widget that already exists.",
                         "position": 2
                     },
                     {
@@ -128,260 +137,300 @@
                     }
                 ],
                 "totalTime": "PT1M"
-            } 
+            }
         ]
     }
     </script>
-    
+
     <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
     <link rel="apple-touch-icon" href="https://piraiai.com/logo.png">
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet"/>
-    
-    <meta name="description" content="Pirai AI Flow builds your Qualtrics dashboard through natural language conversation. Describe widgets, filters, and page cloning. Flow configures everything instantly. 50-60% of dashboard configuration automated.">
-    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+    <meta name="description" content="Pirai AI Flow builds and updates your Qualtrics dashboard through natural language conversation. Describe widgets, filters, layouts, and page cloning. Flow configures everything instantly, inside Qualtrics.">
     <meta name="keywords" content="qualtrics dashboard AI, conversational AI dashboard builder, qualtrics AI assistant, qualtrics dashboard automation, qualtrics widget creator, qualtrics filter automation, qualtrics natural language, AI dashboard configuration, qualtrics power user tools, qualtrics chrome extension, qualtrics productivity, dashboard builder AI, qualtrics XM analytics, NPS dashboard automation, CX dashboard AI, qualtrics conversational AI"/>
-    
-    <!-- Open Graph -->
+
     <meta property="og:title" content="Pirai AI Flow: Build Qualtrics Dashboards with Conversational AI">
-    <meta property="og:description" content="Describe what you want. Flow builds it. Widgets, filters, page cloning, configured instantly through natural language. 50-60% of dashboard configuration automated.">
+    <meta property="og:description" content="Describe what you want. Flow builds it. Widgets, filters, layouts, and page cloning, configured instantly through natural language, inside Qualtrics.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://piraiai.com/flow">
     <meta property="og:image" content="https://piraiai.com/logo.png">
     <meta property="og:site_name" content="Pirai AI Flow"/>
-    
-    <!-- Twitter Card -->
+
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Pirai AI Flow: Build Qualtrics Dashboards with Conversational AI">
-    <meta name="twitter:description" content="Describe what you want. Flow builds it. Widgets, filters, page cloning, instantly through natural language conversation.">
+    <meta name="twitter:description" content="Describe what you want. Flow builds it. Widgets, filters, layouts, and page cloning, instantly through natural language.">
     <meta name="twitter:image" content="https://piraiai.com/logo.png">
-    
+
     <meta name="robots" content="index, follow">
     <meta name="author" content="Pirai AI">
     <link rel="canonical" href="https://piraiai.com/flow">
-    
+
     <!-- reCAPTCHA -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    
+
     <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
         :root {
-            --bg-primary: #0b0b0e;
-            --bg-secondary: #111827;
-            --bg-tertiary: #1f2937;
-            --text-primary: #f6f7fb;
-            --text-secondary: #d1d5db;
-            --text-dim: #9ca3af;
-            --accent-primary: #9B6BFF;
-            --accent-hover: #BFA8FF;
-            --border-color: #374151;
+            --purple: #9B6BFF;
+            --purple-dark: #7C4FE0;
+            --purple-light: #F3EEFF;
+            --ink: #15131c;
+            --text-secondary: #4b5563;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+            --bg-light: #f9fafb;
+            --green: #16a34a;
+            --font-head: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            /* Tokens lifted from the real Flow side panel UI, used only inside the
+               product mockup so it reads as the actual tool, not a marketing illustration */
+            --app-accent: #6b48ff;
+            --app-accent-2: #4299e1;
+            --app-grad: linear-gradient(135deg, #4299e1 0%, #6b48ff 100%);
+            --app-ink: #1a1d2e;
+            --app-text-2: #4a5070;
+            --app-text-3: #8890b0;
+            --app-bg-2: #f7f8fc;
+            --app-bg-3: #eef0f8;
+            --app-border: #e2e5f0;
         }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html, body { overflow-x: hidden; width: 100%; max-width: 100%; }
-        
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-        }
-        
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; width: 100%; }
-        
-        /* Navigation */
-        .nav {
-            position: fixed; top: 0; left: 0; right: 0;
-            background: rgba(17, 24, 39, 0.5);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(55, 65, 81, 0.3);
-            z-index: 1000; transition: all 0.3s;
-        }
-        .nav-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; }
-        .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .nav-brand span { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; color: #ffffff; }
-        .nav-links { display: flex; gap: 32px; list-style: none; margin-left: auto; margin-right: 32px; }
-        .nav-links a { color: #9ca3af; text-decoration: none; transition: color 0.3s; }
-        .nav-links a:hover { color: #ffffff; }
-        .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 4px; padding: 8px; }
-        .hamburger span { width: 25px; height: 3px; background: #9ca3af; border-radius: 2px; transition: all 0.3s ease; }
-        .hamburger:hover span { background: #ffffff; }
-        .mobile-menu { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(11, 11, 14, 0.98); z-index: 1001; padding: 80px 20px 20px; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); color: var(--ink); background: #fff; line-height: 1.6; overflow-x: hidden; }
+        a { color: inherit; }
+        .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+        img { max-width: 100%; display: block; }
+
+        /* ===== Header ===== */
+        header.site { background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; }
+        .header-inner { max-width: 1180px; margin: 0 auto; padding: 0 24px; height: 68px; display: flex; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
+        .logo img { width: 30px; height: 30px; }
+        .logo-text { font-family: var(--font-head); font-weight: 700; font-size: 18px; color: var(--ink); }
+        .logo-divider { width: 1px; height: 18px; background: var(--border); margin: 0 4px; }
+        .logo-product { font-family: var(--font-head); font-weight: 600; font-size: 16px; color: var(--purple-dark); }
+        nav.site-nav { display: flex; gap: 28px; align-items: center; margin-left: 40px; }
+        nav.site-nav a { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color .2s; }
+        nav.site-nav a:hover { color: var(--purple-dark); }
+        .header-right { margin-left: auto; display: flex; align-items: center; gap: 16px; }
+        .nav-cta { background: var(--purple); color: #fff !important; padding: 9px 20px; border-radius: 8px; font-weight: 600; font-size: 14px; text-decoration: none; transition: background .2s; }
+        .nav-cta:hover { background: var(--purple-dark) !important; }
+        .hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; padding: 8px; margin-left: auto; }
+        .hamburger span { width: 22px; height: 2px; background: var(--ink); border-radius: 2px; }
+        .mobile-menu { display: none; position: fixed; inset: 0; background: #fff; z-index: 1001; padding: 24px; }
         .mobile-menu.active { display: block; }
-        .mobile-menu ul { list-style: none; padding: 0; margin: 0; }
-        .mobile-menu li { margin-bottom: 24px; }
-        .mobile-menu a { color: #9ca3af; text-decoration: none; font-size: 24px; font-weight: 500; transition: color 0.3s; }
-        .mobile-menu a:hover { color: #ffffff; }
-        .mobile-menu-close { position: fixed; top: 20px; right: 20px; font-size: 40px; color: #ffffff; cursor: pointer; background: rgba(155, 107, 255, 0.2); border: 2px solid #9B6BFF; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; line-height: 1; z-index: 1002; }
-        .mobile-menu-close:hover { color: #9B6BFF; }
-        .nav-cta { background: #9B6BFF; color: #000000; padding: 8px 24px; border-radius: 24px; text-decoration: none; font-weight: 600; transition: all 0.3s; }
-        .nav-cta:hover { background: #BFA8FF; color: #000000; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(155, 107, 255, 0.4); }
-        
-        /* Hero */
-        .hero {
-            padding: clamp(160px, 12vw, 200px) 0 clamp(80px, 10vw, 120px);
-            text-align: left; position: relative; overflow: hidden;
+        .mobile-menu-top { display: flex; justify-content: flex-end; margin-bottom: 32px; }
+        .mobile-menu-close { font-size: 32px; color: var(--ink); background: none; border: none; cursor: pointer; line-height: 1; }
+        .mobile-menu ul { list-style: none; }
+        .mobile-menu li { margin-bottom: 20px; }
+        .mobile-menu a { color: var(--ink); text-decoration: none; font-size: 22px; font-weight: 600; font-family: var(--font-head); }
+
+        @media (max-width: 880px) {
+            nav.site-nav { display: none; }
+            .header-right .nav-cta { display: none; }
+            .hamburger { display: flex; }
         }
-        .hero .container { position: relative; z-index: 10; }
-        .hero-badge {
-            display: inline-block;
-            background: rgba(155, 107, 255, 0.15);
-            border: 1px solid rgba(155, 107, 255, 0.4);
-            color: #BFA8FF;
-            font-size: 13px;
-            font-weight: 600;
-            padding: 6px 16px;
-            border-radius: 24px;
-            margin-bottom: 24px;
-            letter-spacing: 0.3px;
+
+        /* ===== Hero ===== */
+        .hero { background: linear-gradient(160deg, #faf8ff 0%, #f3eeff 45%, #fff 100%); padding: 72px 0 0; border-bottom: 1px solid var(--border); overflow: hidden; }
+        .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; padding-bottom: 64px; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 7px; background: var(--purple-light); color: var(--purple-dark); border: 1px solid #d8c5ff; border-radius: 20px; padding: 5px 14px; font-size: 13px; font-weight: 600; margin-bottom: 22px; }
+        .hero-badge .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+        .hero h1 { font-family: var(--font-head); font-size: clamp(32px, 4.2vw, 52px); font-weight: 700; line-height: 1.12; letter-spacing: -0.01em; margin-bottom: 22px; }
+        .hero h1 span { color: var(--purple); }
+        .hero-sub { font-size: 18px; color: var(--text-secondary); max-width: 50ch; margin-bottom: 32px; line-height: 1.65; }
+        .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 28px; }
+        .btn-primary { padding: 13px 26px; border-radius: 9px; background: var(--purple); color: #fff; font-weight: 700; text-decoration: none; font-size: 15px; transition: background .2s, transform .2s; display: inline-block; }
+        .btn-primary:hover { background: var(--purple-dark); transform: translateY(-1px); }
+        .btn-secondary { padding: 13px 26px; border-radius: 9px; border: 1px solid var(--border); color: var(--ink); font-weight: 600; text-decoration: none; font-size: 15px; background: #fff; transition: border-color .2s, background .2s; display: inline-block; }
+        .btn-secondary:hover { border-color: var(--purple); background: var(--purple-light); }
+        .hero-note { font-size: 13px; color: var(--text-muted); }
+        .hero-note strong { color: var(--ink); }
+
+        /* ---- Product mockup (the signature element) ---- */
+        .mockup-wrap { position: relative; }
+        .mockup-panel {
+            background: #fff; border: 1px solid var(--app-border); border-radius: 16px;
+            box-shadow: 0 30px 60px -20px rgba(107,72,255,0.25), 0 8px 20px -8px rgba(0,0,0,0.08);
+            overflow: hidden; max-width: 420px; margin: 0 auto;
         }
-        .hero h1 {
-            font-size: clamp(36px, 7.5vw, 72px);
-            font-weight: 800; margin-top: 0; margin-bottom: 32px;
-            color: #f6f7fb; line-height: 1.08; letter-spacing: -0.02em;
+        .mockup-titlebar { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-bottom: 1px solid var(--app-border); background: var(--app-bg-2); }
+        .mockup-icon { width: 26px; height: 26px; border-radius: 7px; background: var(--app-grad); flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+        .mockup-icon svg { width: 14px; height: 14px; fill: #fff; }
+        .mockup-titles { line-height: 1.25; }
+        .mockup-titles .t1 { font-family: var(--font-head); font-size: 12.5px; font-weight: 600; color: var(--app-ink); }
+        .mockup-titles .t2 { font-size: 10.5px; color: var(--app-text-3); }
+        .mockup-body { padding: 16px; background: #fff; min-height: 360px; }
+
+        .bubble { max-width: 88%; opacity: 0; transform: translateY(8px); animation: bubbleIn .5s ease forwards; }
+        .bubble + .bubble { margin-top: 12px; }
+        .bubble-you { margin-left: auto; background: var(--app-accent); color: #fff; border-radius: 12px 12px 3px 12px; padding: 9px 13px; font-size: 12.5px; font-weight: 500; }
+        .bubble-flow { background: var(--app-bg-2); border: 1px solid var(--app-border); color: var(--app-ink); border-radius: 12px 12px 12px 3px; padding: 10px 13px; font-size: 12px; }
+
+        .template-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+        .template-chip { font-size: 10.5px; font-weight: 600; padding: 5px 10px; border-radius: 14px; border: 1px solid var(--app-border); background: #fff; color: var(--app-text-2); }
+        .template-chip.picked { background: var(--app-grad); color: #fff; border-color: transparent; }
+
+        .build-list { margin-top: 8px; display: flex; flex-direction: column; gap: 0; }
+        .build-row { display: flex; align-items: center; gap: 8px; padding: 6px 0; font-size: 11.5px; color: var(--app-ink); opacity: 0; transform: translateX(-6px); animation: rowIn .4s ease forwards; }
+        .build-row .check { width: 15px; height: 15px; border-radius: 50%; background: var(--green); flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+        .build-row .check svg { width: 9px; height: 9px; fill: #fff; }
+        .build-row .wname { font-weight: 600; }
+        .build-row .wtype { color: var(--app-text-3); font-weight: 500; }
+
+        .mockup-status { margin-top: 12px; font-size: 11px; color: var(--green); font-weight: 600; opacity: 0; animation: bubbleIn .5s ease forwards; }
+
+        @keyframes bubbleIn { to { opacity: 1; transform: translateY(0); } }
+        @keyframes rowIn { to { opacity: 1; transform: translateX(0); } }
+
+        .float-chip { position: absolute; background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 8px 12px; font-size: 12px; font-weight: 600; color: var(--purple-dark); box-shadow: 0 12px 24px -8px rgba(0,0,0,0.12); display: flex; align-items: center; gap: 6px; }
+        .float-chip svg { width: 14px; height: 14px; }
+        .float-chip.fc1 { top: -18px; right: 6%; animation: bob 5s ease-in-out infinite; }
+        .float-chip.fc2 { bottom: 6%; left: -28px; animation: bob 5s ease-in-out infinite; animation-delay: -2.5s; }
+        @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        @media (max-width: 720px) { .float-chip { display: none; } }
+
+        @media (max-width: 980px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+            .hero-ctas, .hero-badge { justify-content: center; }
+            .hero { text-align: center; padding-top: 48px; }
+            .hero-sub { margin-left: auto; margin-right: auto; }
+            .mockup-panel { max-width: 380px; }
         }
-        .hero h1 span { color: #9B6BFF; }
-        .hero-subtitle { font-size: clamp(16px, 2.2vw, 20px); color: #d1d5db; margin-bottom: 32px; max-width: 72ch; }
-        .hero-ctas { display: flex; gap: 12px; justify-content: flex-start; flex-wrap: wrap; margin: 24px 0; }
-        .btn-primary { padding: 12px 20px; border-radius: 12px; background: #9B6BFF; color: #000000; font-weight: 800; text-decoration: none; transition: all 0.3s; border: none; cursor: pointer; display: inline-block; box-shadow: 0 12px 28px rgba(18,18,24,.10); font-size: 15px; }
-        .btn-primary:hover { background: #BFA8FF; color: #000000; transform: translateY(-2px); }
-        .btn-secondary { padding: 12px 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.18); color: #f6f7fb; font-weight: 700; text-decoration: none; transition: all 0.3s; background: transparent; display: inline-block; font-size: 15px; }
-        .btn-secondary:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.05); }
 
-        /* Floating elements */
-        .float-element-1 { position: absolute; top: 25%; left: 25%; width: 256px; height: 256px; background: rgba(59, 130, 246, 0.1); border-radius: 50%; filter: blur(60px); animation: float 6s ease-in-out infinite; z-index: 1; pointer-events: none; }
-        .float-element-2 { position: absolute; bottom: 25%; right: 25%; width: 384px; height: 384px; background: rgba(139, 92, 246, 0.1); border-radius: 50%; filter: blur(60px); animation: float 6s ease-in-out infinite; animation-delay: -3s; z-index: 1; pointer-events: none; }
-        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
+        /* ===== Stats bar ===== */
+        .stats-bar { background: #fff; border-bottom: 1px solid var(--border); padding: 28px 24px; }
+        .stats-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center; }
+        .stat-num { font-family: var(--font-head); font-size: 30px; font-weight: 700; color: var(--purple); }
+        .stat-label { font-size: 13px; color: var(--ink); font-weight: 600; margin-top: 2px; }
+        .stat-desc { font-size: 12.5px; color: var(--text-muted); margin-top: 4px; }
+        @media (max-width: 700px) { .stats-inner { grid-template-columns: 1fr; gap: 28px; } }
 
-        /* Section common */
-        .section-title { font-size: 42px; font-weight: 700; text-align: center; margin-bottom: 16px; color: #60a5fa; }
-        .section-subtitle { font-size: 20px; color: #d1d5db; text-align: center; margin-bottom: 48px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        /* ===== Sections (shared) ===== */
+        .section { padding: 80px 0; }
+        .section-alt { background: var(--bg-light); }
+        .section-label { font-size: 12px; font-weight: 700; color: var(--purple); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; }
+        .section-title { font-family: var(--font-head); font-size: clamp(24px, 3.2vw, 36px); font-weight: 700; margin-bottom: 14px; line-height: 1.2; }
+        .section-sub { font-size: 16px; color: var(--text-secondary); max-width: 60ch; line-height: 1.65; }
+        .section-head { margin-bottom: 44px; }
+        .section-head.center { text-align: center; max-width: 640px; margin-left: auto; margin-right: auto; }
+        .section-head.center .section-sub { margin-left: auto; margin-right: auto; }
 
-        /* Shift section */
-        .shift-section { padding: 80px 0; background: rgba(31, 41, 55, 0.3); }
-        .shift-card { background: rgba(31, 41, 55, 0.5); backdrop-filter: blur(10px); border-radius: 16px; padding: 48px; border: 1px solid rgba(155, 107, 255, 0.2); max-width: 800px; margin: 0 auto; text-align: center; }
-        .shift-card p { color: #d1d5db; font-size: 18px; line-height: 1.8; margin-bottom: 16px; }
-        .shift-card p:last-child { margin-bottom: 0; }
-        .shift-card strong { color: #ffffff; }
+        /* ---- The shift ---- */
+        .shift-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .shift-col h3 { font-family: var(--font-head); font-size: 15px; font-weight: 700; margin-bottom: 10px; }
+        .shift-col.old h3 { color: var(--text-muted); }
+        .shift-col.new h3 { color: var(--purple-dark); }
+        .shift-col p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; }
+        .shift-col.new { background: #fff; border: 1px solid var(--purple-light); border-left: 3px solid var(--purple); border-radius: 10px; padding: 24px; }
+        .shift-col.old { padding: 24px; }
+        @media (max-width: 760px) { .shift-grid { grid-template-columns: 1fr; } }
 
-        /* How it works */
-        .process { padding: 80px 0; }
-        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 32px; max-width: 1000px; margin: 0 auto; }
-        .process-step { text-align: center; }
-        .step-icon { width: 64px; height: 64px; background: linear-gradient(135deg, #3b82f6, #06b6d4); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 24px; font-weight: 700; color: white; font-family: 'Space Grotesk', sans-serif; }
-        .process-step h3 { font-size: 20px; margin-bottom: 12px; color: #ffffff; font-weight: 700; }
-        .process-step p { color: #d1d5db; font-size: 16px; }
+        /* ---- How it works ---- */
+        .workflow { max-width: 760px; margin: 0 auto; }
+        .workflow-step { display: grid; grid-template-columns: 56px 1fr; gap: 28px; padding: 32px 0; border-bottom: 1px solid var(--border); }
+        .workflow-step:last-child { border-bottom: none; }
+        .step-number { width: 44px; height: 44px; background: var(--purple); color: #fff; border-radius: 50%; font-family: var(--font-head); font-weight: 700; font-size: 17px; display: flex; align-items: center; justify-content: center; }
+        .step-content h3 { font-family: var(--font-head); font-size: 19px; font-weight: 700; margin-bottom: 6px; }
+        .step-content p { color: var(--text-secondary); font-size: 15px; line-height: 1.65; }
 
-        /* Features */
-        .features { padding: 80px 0; background: rgba(17, 24, 39, 0.3); }
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
-        .feature-card { background: rgba(31, 41, 55, 0.5); backdrop-filter: blur(10px); padding: 32px; border-radius: 16px; border: 1px solid rgba(55, 65, 81, 0.5); transition: all 0.3s; }
-        .feature-card:hover { border-color: #3b82f6; transform: translateY(-4px); }
-        .feature-icon { width: 64px; height: 64px; background: linear-gradient(135deg, #3b82f6, #06b6d4); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px; }
-        .feature-icon svg { width: 28px; height: 28px; color: white; fill: white; }
-        .feature-card h3 { font-size: 20px; margin-bottom: 12px; color: #ffffff; font-weight: 700; }
-        .feature-card p { color: #d1d5db; font-size: 15px; line-height: 1.6; }
+        /* ---- Layout templates ---- */
+        .template-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+        .template-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 22px; transition: border-color .2s, transform .2s; }
+        .template-card:hover { border-color: var(--purple); transform: translateY(-3px); }
+        .template-card .tc-icon { width: 36px; height: 36px; border-radius: 9px; background: var(--purple-light); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+        .template-card .tc-icon svg { width: 18px; height: 18px; color: var(--purple-dark); fill: var(--purple-dark); }
+        .template-card h3 { font-family: var(--font-head); font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+        .template-card p { font-size: 13.5px; color: var(--text-secondary); line-height: 1.6; }
+        @media (max-width: 880px) { .template-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 560px) { .template-grid { grid-template-columns: 1fr; } }
 
-        /* Stats */
-        .impact-section { padding: 80px 0; background: rgba(31, 41, 55, 0.3); }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; max-width: 1000px; margin: 0 auto; }
-        .stat-card { background: linear-gradient(135deg, rgba(17,17,24,0.8), rgba(27,27,36,0.8)); border: 1px solid rgba(155, 107, 255, 0.3); border-radius: 16px; padding: 48px 32px; text-align: center; backdrop-filter: blur(10px); box-shadow: 0 8px 32px rgba(0,0,0,0.2); transition: all 0.3s ease; }
-        .stat-card:hover { transform: translateY(-5px); border-color: rgba(155, 107, 255, 0.6); }
-        .stat-number { font-size: 48px; font-weight: 800; color: #9B6BFF; margin-bottom: 12px; font-family: 'Space Grotesk', sans-serif; }
-        .stat-label { font-size: 18px; color: #d1d5db; font-weight: 600; }
-        .stat-desc { color: #9ca3af; margin-top: 12px; font-size: 14px; }
+        /* ---- Features ---- */
+        .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .feature-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 26px; transition: border-color .2s, transform .2s; }
+        .feature-card:hover { border-color: var(--purple); transform: translateY(-3px); }
+        .feature-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--app-grad); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+        .feature-icon svg { width: 19px; height: 19px; fill: #fff; }
+        .feature-card h3 { font-family: var(--font-head); font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+        .feature-card p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.65; }
+        @media (max-width: 880px) { .feature-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 560px) { .feature-grid { grid-template-columns: 1fr; } }
 
-        /* Video */
-        .video-section { padding: 80px 0; }
-        .video-container { max-width: 800px; margin: 0 auto; background: rgba(31, 41, 55, 0.5); backdrop-filter: blur(10px); border-radius: 16px; padding: 24px; border: 1px solid rgba(55, 65, 81, 0.5); }
-        .video-wrapper { position: relative; width: 100%; height: 0; padding-bottom: 56.25%; border-radius: 12px; overflow: hidden; }
-        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        /* ---- Video ---- */
+        .video-container { max-width: 800px; margin: 0 auto; background: #fff; border-radius: 14px; padding: 16px; border: 1px solid var(--border); box-shadow: 0 20px 40px -16px rgba(0,0,0,0.1); }
+        .video-wrapper { position: relative; width: 100%; height: 0; padding-bottom: 56.25%; border-radius: 9px; overflow: hidden; }
+        .video-wrapper iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
 
-        /* Roadmap */
-        .roadmap-section { padding: 80px 0; background: rgba(17, 24, 39, 0.3); }
-        .roadmap-timeline { max-width: 900px; margin: 48px auto; display: grid; gap: 32px; }
-        .roadmap-item { background: rgba(31, 41, 55, 0.5); backdrop-filter: blur(10px); border-radius: 16px; padding: 32px; border: 1px solid rgba(55, 65, 81, 0.5); display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: center; }
-        .roadmap-badge { padding: 12px 20px; border-radius: 24px; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
-        .badge-current { background: rgba(34, 197, 94, 0.2); color: #22c55e; border: 1px solid rgba(34, 197, 94, 0.3); }
-        .badge-coming { background: rgba(59, 130, 246, 0.2); color: #3b82f6; border: 1px solid rgba(59, 130, 246, 0.3); }
-        .badge-future { background: rgba(155, 107, 255, 0.2); color: #9B6BFF; border: 1px solid rgba(155, 107, 255, 0.3); }
-        .roadmap-content h3 { font-size: 24px; color: #ffffff; margin-bottom: 12px; font-weight: 700; }
-        .roadmap-content p { color: #d1d5db; font-size: 16px; }
+        /* ---- Roadmap ---- */
+        .roadmap-timeline { max-width: 800px; margin: 0 auto; display: grid; gap: 16px; }
+        .roadmap-item { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 26px; display: grid; grid-template-columns: auto 1fr; gap: 22px; align-items: center; }
+        .roadmap-badge { padding: 9px 16px; border-radius: 20px; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
+        .badge-current { background: #dcfce7; color: #166534; }
+        .badge-coming { background: #dbeafe; color: #1e40af; }
+        .badge-future { background: var(--purple-light); color: var(--purple-dark); }
+        .roadmap-content h3 { font-family: var(--font-head); font-size: 19px; margin-bottom: 6px; font-weight: 700; }
+        .roadmap-content p { color: var(--text-secondary); font-size: 14.5px; line-height: 1.6; }
+        @media (max-width: 600px) { .roadmap-item { grid-template-columns: 1fr; } .roadmap-badge { width: fit-content; } }
 
-        /* Conversation demo strip */
-        .demo-strip { padding: 80px 0; }
-        .convo-examples { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto; }
-        .convo-item { background: rgba(31, 41, 55, 0.5); border: 1px solid rgba(55, 65, 81, 0.5); border-radius: 16px; padding: 28px; transition: all 0.3s; }
-        .convo-item:hover { border-color: rgba(155, 107, 255, 0.4); transform: translateY(-3px); }
-        .convo-you { font-size: 13px; color: #9ca3af; font-weight: 600; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .convo-msg { font-size: 15px; color: #ffffff; font-style: italic; margin-bottom: 16px; line-height: 1.5; }
-        .convo-result { font-size: 14px; color: #22c55e; font-weight: 600; }
-
-        /* Demo section */
-        .demo-section { padding: 80px 0; background: linear-gradient(135deg, rgba(31, 41, 55, 0.8), rgba(17, 24, 39, 0.8)); }
-        .demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; max-width: 1200px; margin: 0 auto; }
-        .demo-content h2 { font-size: 36px; font-weight: 700; margin-bottom: 24px; color: #ffffff; }
-        .demo-content p { font-size: 20px; color: #d1d5db; margin-bottom: 32px; }
+        /* ---- Demo / lead form ---- */
+        .demo-section { background: linear-gradient(160deg, #faf8ff 0%, #fff 60%); }
+        .demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+        .demo-content h2 { font-family: var(--font-head); font-size: 30px; font-weight: 700; margin-bottom: 16px; }
+        .demo-content p { font-size: 16px; color: var(--text-secondary); margin-bottom: 26px; line-height: 1.65; }
         .benefits-list { list-style: none; }
-        .benefits-list li { display: flex; align-items: center; margin-bottom: 16px; font-size: 18px; color: #d1d5db; }
-        .benefits-list li::before { content: "✓"; margin-right: 16px; font-size: 24px; color: #22c55e; font-weight: 700; }
-        .lead-form { background: rgba(31, 41, 55, 0.5); backdrop-filter: blur(10px); padding: 32px; border-radius: 16px; border: 1px solid rgba(55, 65, 81, 0.5); }
-        .lead-form h3 { font-size: 24px; font-weight: 700; margin-bottom: 24px; color: #ffffff; }
-        .form-group { margin-bottom: 24px; }
-        .form-group label { display: block; color: #d1d5db; font-weight: 500; margin-bottom: 8px; }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; background: rgba(55, 65, 81, 0.5); border: 1px solid #6b7280; border-radius: 8px; padding: 12px 16px; color: #ffffff; font-size: 16px; }
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3); }
-        .form-group select option { background: #374151; color: white; }
-        .recaptcha-container { margin-bottom: 24px; }
-        .submit-btn { width: 100%; background: linear-gradient(135deg, #22c55e, #3b82f6); color: white; border: none; padding: 16px; border-radius: 8px; font-size: 18px; font-weight: 600; cursor: pointer; transition: all 0.3s; }
-        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(34, 197, 94, 0.3); }
-        .submit-btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
-        .success-message, .error-message { padding: 24px; border-radius: 12px; margin-bottom: 16px; display: none; background: rgba(31, 41, 55, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(55, 65, 81, 0.5); }
-        .success-message { border-color: rgba(16, 185, 129, 0.4); box-shadow: 0 8px 32px rgba(16, 185, 129, 0.15); }
-        .success-message h3 { color: #10b981; }
-        .success-message p { color: #d1d5db; }
+        .benefits-list li { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px; font-size: 14.5px; color: var(--text-secondary); }
+        .benefits-list li svg { width: 16px; height: 16px; color: var(--green); flex-shrink: 0; margin-top: 3px; }
+        .lead-form { background: #fff; padding: 28px; border-radius: 14px; border: 1px solid var(--border); box-shadow: 0 20px 40px -20px rgba(0,0,0,0.12); }
+        .lead-form h3 { font-family: var(--font-head); font-size: 20px; font-weight: 700; margin-bottom: 20px; }
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; color: var(--ink); font-weight: 600; font-size: 13.5px; margin-bottom: 6px; }
+        .form-group input, .form-group select { width: 100%; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 10px 13px; color: var(--ink); font-size: 14.5px; font-family: var(--font-body); }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--purple); box-shadow: 0 0 0 3px var(--purple-light); }
+        .recaptcha-container { margin-bottom: 20px; }
+        .submit-btn { width: 100%; background: var(--purple); color: #fff; border: none; padding: 14px; border-radius: 9px; font-size: 15.5px; font-weight: 700; cursor: pointer; transition: background .2s, transform .2s; }
+        .submit-btn:hover:not(:disabled) { background: var(--purple-dark); transform: translateY(-1px); }
+        .submit-btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+        .success-message, .error-message { padding: 20px; border-radius: 10px; margin-bottom: 16px; display: none; border: 1px solid var(--border); background: #fff; }
+        .success-message { border-color: #bbf7d0; background: #f0fdf4; }
+        .success-message h3 { color: #166534; font-family: var(--font-head); font-size: 17px; margin-bottom: 4px; }
+        .success-message p { color: var(--text-secondary); font-size: 14px; }
+        .error-message { border-color: #fecaca; background: #fef2f2; }
+        .error-message h3 { color: #b91c1c; font-family: var(--font-head); font-size: 17px; margin-bottom: 4px; }
+        .error-message p { color: var(--text-secondary); font-size: 14px; }
         .success-message.show, .error-message.show { display: block; }
+        @media (max-width: 880px) { .demo-grid { grid-template-columns: 1fr; } }
 
-        /* Footer */
-        .footer { background: rgba(17, 24, 39, 0.5); backdrop-filter: blur(10px); border-top: 1px solid #374151; padding: 48px 0; }
+        /* ---- CTA band ---- */
+        .cta-band { background: var(--purple); padding: 64px 24px; text-align: center; color: #fff; }
+        .cta-band h2 { font-family: var(--font-head); font-size: clamp(24px, 3.5vw, 34px); font-weight: 700; margin-bottom: 12px; }
+        .cta-band p { font-size: 16px; opacity: 0.85; margin-bottom: 30px; max-width: 480px; margin-left: auto; margin-right: auto; }
+        .btn-white { background: #fff; color: var(--purple-dark); padding: 14px 30px; border-radius: 9px; font-weight: 700; font-size: 15.5px; text-decoration: none; display: inline-block; transition: transform .2s; }
+        .btn-white:hover { transform: translateY(-1px); }
+
+        /* ===== Footer ===== */
+        .footer { background: var(--bg-light); border-top: 1px solid var(--border); padding: 56px 0 28px; }
         .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; }
-        .footer-brand span { font-size: 24px; font-weight: 700; color: #ffffff; }
-        .footer-desc { color: #9ca3af; margin-top: 16px; max-width: 400px; }
-        .footer-section h3 { color: #ffffff; font-weight: 600; margin-bottom: 16px; }
+        .footer-brand { display: flex; align-items: center; gap: 10px; }
+        .footer-brand span { font-family: var(--font-head); font-size: 20px; font-weight: 700; color: var(--ink); }
+        .footer-desc { color: var(--text-secondary); margin-top: 14px; max-width: 360px; font-size: 14px; line-height: 1.65; }
+        .footer-contact { margin-top: 18px; font-size: 13.5px; color: var(--text-muted); }
+        .footer-contact a { color: var(--purple-dark); text-decoration: none; font-weight: 600; }
+        .footer-section h3 { color: var(--ink); font-weight: 700; margin-bottom: 14px; font-family: var(--font-head); font-size: 14px; }
         .footer-links { list-style: none; }
-        .footer-links li { margin-bottom: 8px; }
-        .footer-links a { color: #9ca3af; text-decoration: none; transition: color 0.3s; }
-        .footer-links a:hover { color: #ffffff; }
-        .footer-bottom { border-top: 1px solid #374151; margin-top: 32px; padding-top: 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
-        .footer-bottom .copyright { color: #9ca3af; font-size: 14px; }
-
-        /* Responsive */
-        @media (max-width: 950px) {
-            .container { padding: 0 16px; max-width: 100%; }
-            .nav-container { gap: 8px; padding: 16px 16px; max-width: 100%; width: 100%; }
-            .nav-links { display: none; }
-            .hamburger { display: flex; margin-right: 8px; order: -1; flex-shrink: 0; }
-            .nav-brand { margin-right: auto; flex-shrink: 1; min-width: 0; }
-            .nav-brand span { font-size: 18px; }
-            .nav-cta { font-size: 14px; padding: 6px 12px; flex-shrink: 0; white-space: nowrap; }
-            .hero { overflow: hidden; padding: 120px 0 60px; }
-            .hero h1 { font-size: clamp(32px, 9vw, 48px); line-height: 1.15; word-wrap: break-word; }
-            .section-title { font-size: 32px; word-wrap: break-word; padding: 0 10px; }
-            .section-subtitle { font-size: 16px; padding: 0 10px; }
-            .features-grid { grid-template-columns: 1fr; }
-            .stats-grid { grid-template-columns: 1fr; }
-            .demo-grid { grid-template-columns: 1fr; }
-            .footer-content { grid-template-columns: 1fr; }
-            .roadmap-timeline { padding: 0; max-width: 100%; }
-            .roadmap-item { grid-template-columns: 1fr; gap: 16px; padding: 24px 16px; align-items: flex-start; }
-            .roadmap-badge { width: fit-content; font-size: 12px; padding: 8px 14px; }
-            .roadmap-content h3 { font-size: 20px; }
-            .roadmap-content p { font-size: 15px; }
-            .shift-card { padding: 32px 20px; }
-            .convo-examples { grid-template-columns: 1fr; }
-            .process-grid { grid-template-columns: 1fr; }
-        }
+        .footer-links li { margin-bottom: 9px; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; transition: color .2s; }
+        .footer-links a:hover { color: var(--purple-dark); }
+        .footer-bottom { border-top: 1px solid var(--border); margin-top: 36px; padding-top: 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .footer-bottom .copyright { color: var(--text-muted); font-size: 13px; }
+        .social-links { display: flex; gap: 14px; align-items: center; }
+        .social-links a { color: var(--text-muted); transition: color .2s; }
+        .social-links a:hover { color: var(--purple-dark); }
+        @media (max-width: 880px) { .footer-content { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 560px) { .footer-content { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -390,217 +439,281 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-container">
-            <div class="hamburger" id="hamburger">
-                <span></span><span></span><span></span>
-            </div>            
-            <a href="/" class="nav-brand">
-                <img src="logo.png" alt="Pirai AI Logo" width="35" height="35" style="margin-right: 8px;"/>
-                <span>Pirai AI</span>
+    <!-- Header -->
+    <header class="site">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <img src="logo.png" alt="Pirai AI Logo">
+                <span class="logo-text">Pirai AI</span>
             </a>
-            <ul class="nav-links">
-                <li style="position: relative;">
-                    <a href="https://platform.piraiai.com" style="padding-right: 40px;">Convert Now</a>
-                    <span style="position: absolute; top: -7px; right: 0; background: #6B3FCC; color: #fff; font-size: 9px; font-weight: 700; padding: 3px 6px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px;">New</span>
-                </li>
-                <li><a href="#video">Watch Demo</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#process">How It Works</a></li>
-            </ul>
-            <a href="#demo" class="nav-cta">Request Access</a>
+            <span class="logo-divider"></span>
+            <span class="logo-product">Flow</span>
+            <nav class="site-nav">
+                <a href="#process">How It Works</a>
+                <a href="#templates">Layouts</a>
+                <a href="#features">Features</a>
+                <a href="#video">Demo</a>
+                <span style="position:relative;display:inline-block;">
+                    <a href="https://platform.piraiai.com" target="_blank" rel="noopener" style="padding-right:18px;">Convert Now</a>
+                    <span style="position:absolute;top:-9px;right:0;background:var(--purple-dark);color:#fff;font-size:8.5px;font-weight:700;padding:2px 5px;border-radius:4px;letter-spacing:0.4px;">NEW</span>
+                </span>
+            </nav>
+            <div class="header-right">
+                <a href="#demo" class="nav-cta">Request Access</a>
+            </div>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
         </div>
-    </nav>
+    </header>
 
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
-        <button class="mobile-menu-close" id="mobileMenuClose">&times;</button>
+        <div class="mobile-menu-top"><button class="mobile-menu-close" id="mobileMenuClose">&times;</button></div>
         <ul>
-            <li style="position: relative;"><a href="https://platform.piraiai.com" style="display: inline-block; position: relative; padding-right: 45px;">Convert Now<span style="position: absolute; top: -2px; right: 0; background: #6B3FCC; color: #fff; font-size: 9px; font-weight: 700; padding: 3px 6px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px;">New</span></a></li>
-            <li><a href="#video">Watch Demo</a></li>
-            <li><a href="#features">Features</a></li>
             <li><a href="#process">How It Works</a></li>
+            <li><a href="#templates">Layouts</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#video">Demo</a></li>
+            <li><a href="https://platform.piraiai.com" target="_blank" rel="noopener">Convert Now</a></li>
             <li><a href="#demo">Request Access</a></li>
         </ul>
     </div>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
-        <div class="float-element-1"></div>
-        <div class="float-element-2"></div>
         <div class="container">
-            <div class="hero-badge">Pirai AI Flow, Now in Active Development</div>
-            <h1>Build your Qualtrics dashboard<br>by having a <span>conversation</span> with AI</h1>
-            <p class="hero-subtitle">
-                Describe what you want. Flow builds it. Widgets, filters, page cloning, configured and live in seconds. No menus. No manual configuration. Just conversation.
-            </p>
-            <div class="hero-ctas">
-                <a href="#demo" class="btn-primary">Request Early Access</a>
-                <a href="#video" class="btn-secondary">Watch Demo</a>
+            <div class="hero-grid">
+                <div>
+                    <div class="hero-badge"><span class="dot"></span> Pirai AI Flow — Beta, in active development</div>
+                    <h1>Your Qualtrics dashboard,<br>built by <span>conversation</span>.</h1>
+                    <p class="hero-sub">Describe the widgets, filters, and layout you need in plain English. Flow reads your dashboard and builds it live, inside Qualtrics, without menus or manual field mapping.</p>
+                    <div class="hero-ctas">
+                        <a href="#demo" class="btn-primary">Request Early Access</a>
+                        <a href="#video" class="btn-secondary">Watch Demo</a>
+                    </div>
+                    <p class="hero-note"><strong>No data leaves Qualtrics.</strong> Flow only configures what's already in your environment.</p>
+                </div>
+
+                <div class="mockup-wrap">
+                    <div class="float-chip fc1">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>
+                        Field-mapped automatically
+                    </div>
+                    <div class="float-chip fc2">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>
+                        Stays inside Qualtrics
+                    </div>
+                    <div class="mockup-panel">
+                        <div class="mockup-titlebar">
+                            <div class="mockup-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+                            <div class="mockup-titles">
+                                <div class="t1">Pirai AI Flow</div>
+                                <div class="t2">CX Manager / Mid-Management · New Page</div>
+                            </div>
+                        </div>
+                        <div class="mockup-body">
+                            <div class="bubble bubble-flow" style="animation-delay:.1s;">Browse a layout, like picking a dashboard template:
+                                <div class="template-row">
+                                    <span class="template-chip">Executive Summary</span>
+                                    <span class="template-chip">Frontline Ops</span>
+                                    <span class="template-chip picked">CX Manager</span>
+                                    <span class="template-chip">Voice of Customer</span>
+                                </div>
+                            </div>
+                            <div class="bubble bubble-you" style="animation-delay:.7s;">CX Manager — build it</div>
+                            <div class="bubble bubble-flow" style="animation-delay:1.3s;">
+                                Building a CX Manager layout for this page.
+                                <div class="build-list">
+                                    <div class="build-row" style="animation-delay:1.7s;"><span class="check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><span class="wname">Number Chart</span>&nbsp;<span class="wtype">— Net Promoter Score</span></div>
+                                    <div class="build-row" style="animation-delay:2.0s;"><span class="check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><span class="wname">Horizontal Bars</span>&nbsp;<span class="wtype">— Driver Comparison</span></div>
+                                    <div class="build-row" style="animation-delay:2.3s;"><span class="check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><span class="wname">Table</span>&nbsp;<span class="wtype">— Cross-Tab Diagnostic</span></div>
+                                    <div class="build-row" style="animation-delay:2.6s;"><span class="check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span><span class="wname">Vertical Bars</span>&nbsp;<span class="wtype">— Top Box Distribution</span></div>
+                                </div>
+                            </div>
+                            <div class="mockup-status" style="animation-delay:3.0s;">✓ Applied to dashboard — 8 widgets created</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- The Shift Section -->
-    <section class="shift-section">
+    <!-- Stats -->
+    <div class="stats-bar">
+        <div class="stats-inner">
+            <div>
+                <div class="stat-num">50–60%</div>
+                <div class="stat-label">Configuration automated</div>
+                <div class="stat-desc">Widgets, filters, layouts, and updates</div>
+            </div>
+            <div>
+                <div class="stat-num">Seconds</div>
+                <div class="stat-label">Not hours</div>
+                <div class="stat-desc">One conversation instead of manual setup</div>
+            </div>
+            <div>
+                <div class="stat-num">Zero</div>
+                <div class="stat-label">Data leaves Qualtrics</div>
+                <div class="stat-desc">Flow configures, your data never moves</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Shift -->
+    <section class="section" id="shift">
         <div class="container">
-            <h2 class="section-title">A New Way to Build Dashboards</h2>
-            <p class="section-subtitle">Dashboard building on any analytics platform takes time and expertise</p>
-            <div class="shift-card">
-                <p>Configuring widgets, setting up filters, mapping fields, arranging layouts. It is a craft that requires deep platform knowledge. That is the reality of any powerful analytics platform.</p>
-                <p>Pirai AI Flow changes the equation. <strong>You describe what you want in plain English. Flow builds it instantly.</strong> No menus, no manual configuration, no repetitive clicking.</p>
-                <p>Qualtrics power users and researchers get back the time to focus on what matters: the insights, not the setup.</p>
+            <div class="section-head center">
+                <div class="section-label">The Shift</div>
+                <h2 class="section-title">From menus to conversation</h2>
+                <p class="section-sub">Configuring a Qualtrics dashboard is a craft: widgets, filters, field mapping, layout. It takes deep platform knowledge and a lot of clicking. Flow changes what that work looks like.</p>
+            </div>
+            <div class="shift-grid">
+                <div class="shift-col old">
+                    <h3>BEFORE</h3>
+                    <p>Open the widget panel. Pick a type. Find the right field in a long list. Set the metric, the axis, the format. Repeat for every widget, every filter, every page. One typo in a field reference and you start over.</p>
+                </div>
+                <div class="shift-col new">
+                    <h3>WITH FLOW</h3>
+                    <p>Describe what you want, or pick a layout built for your audience. Flow reads your dashboard's real fields, picks the right ones, and builds it, live. Want to change something after? Just say so. No menus, either way.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- How It Works -->
-    <section class="process" id="process">
+    <section class="section section-alt" id="process">
         <div class="container">
-            <h2 class="section-title">How It Works</h2>
-            <p class="section-subtitle">Three steps from opening Flow to a built dashboard</p>
-            <div class="process-grid">
-                <div class="process-step">
-                    <div class="step-icon">01</div>
-                    <h3>Connect</h3>
-                    <p>Open Pirai AI Flow on any Qualtrics dashboard page. Flow reads your dashboard structure, pages, and available fields automatically.</p>
+            <div class="section-head center">
+                <div class="section-label">How It Works</div>
+                <h2 class="section-title">Three steps, start to built dashboard</h2>
+                <p class="section-sub">No setup beyond installing the extension and opening a dashboard.</p>
+            </div>
+            <div class="workflow">
+                <div class="workflow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Connect</h3>
+                        <p>Open Pirai AI Flow on any Qualtrics dashboard page. Flow reads the dashboard's structure, pages, and available fields, automatically, with no setup.</p>
+                    </div>
                 </div>
-                <div class="process-step">
-                    <div class="step-icon">02</div>
-                    <h3>Describe</h3>
-                    <p>Tell Flow what you want in plain English. Recommend widgets, add filters, clone pages. Just describe it the way you would ask a colleague.</p>
+                <div class="workflow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Describe</h3>
+                        <p>Tell Flow what you want in plain English, the way you'd ask a colleague. Or browse a layout template built for your audience and let Flow fill in the fields.</p>
+                    </div>
                 </div>
-                <div class="process-step">
-                    <div class="step-icon">03</div>
-                    <h3>Done</h3>
-                    <p>Flow builds it instantly. Widgets configured, filters applied, pages cloned. Review your dashboard and move on.</p>
+                <div class="workflow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Done, or adjusted</h3>
+                        <p>Flow builds it instantly. If something needs changing, the same conversation handles it: relabel a column, swap a metric, enable a detail view. Review and move on.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Conversation Examples -->
-    <section class="demo-strip">
+    <!-- Layout Templates -->
+    <section class="section" id="templates">
         <div class="container">
-            <h2 class="section-title">Just Describe It</h2>
-            <p class="section-subtitle">Flow understands natural language and builds exactly what you ask for</p>
-            <div class="convo-examples">
-                <div class="convo-item">
-                    <div class="convo-you">You say</div>
-                    <div class="convo-msg">"Recommend 5 widgets for quick analysis"</div>
-                    <div class="convo-result">Flow recommends, you confirm, it builds all 5</div>
+            <div class="section-head center">
+                <div class="section-label">Don't Know Where to Start</div>
+                <h2 class="section-title">Pick a layout, like browsing templates</h2>
+                <p class="section-sub">Flow shows every layout it knows, built for a specific audience. Pick one and Flow fills in the real fields from your dashboard, no scoring, no guessing which one is "right" for your data.</p>
+            </div>
+            <div class="template-grid">
+                <div class="template-card">
+                    <div class="tc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg></div>
+                    <h3>Executive Summary</h3>
+                    <p>A clean, high-level overview for leadership: the headline number, top trends, and key takeaways, no diagnostic detail.</p>
                 </div>
-                <div class="convo-item">
-                    <div class="convo-you">You say</div>
-                    <div class="convo-msg">"Add NPS, Finished, Response Type, and Date filters"</div>
-                    <div class="convo-result">4 page filters created and applied instantly</div>
+                <div class="template-card">
+                    <div class="tc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17V7m6 10v-4M3 17h18M5 21h14a2 2 0 002-2V7l-4-4H7L3 7v12a2 2 0 002 2z"/></svg></div>
+                    <h3>Frontline Ops / Team Lead</h3>
+                    <p>Day-to-day operational view, broken down by agent, location, or shift, for the people managing performance on the ground.</p>
                 </div>
-                <div class="convo-item">
-                    <div class="convo-you">You say</div>
-                    <div class="convo-msg">"Clone this page to another dashboard"</div>
-                    <div class="convo-result">Entire page copied. Widgets, filters, layout transferred.</div>
+                <div class="template-card">
+                    <div class="tc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18M7 14l4-4 4 4 5-6"/></svg></div>
+                    <h3>CX Manager / Mid-Management</h3>
+                    <p>Goes one level deeper than the exec view, answering "why is the number what it is" with driver analysis and segment breakdowns.</p>
                 </div>
-                <div class="convo-item">
-                    <div class="convo-you">You say</div>
-                    <div class="convo-msg">"How many pages are in this dashboard?"</div>
-                    <div class="convo-result">Flow queries your dashboard and answers instantly</div>
+                <div class="template-card">
+                    <div class="tc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+                    <h3>Voice of Customer</h3>
+                    <p>Built around open-text feedback: themes, sentiment, and verbatim comments, for teams focused on what customers actually say.</p>
+                </div>
+                <div class="template-card">
+                    <div class="tc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg></div>
+                    <h3>Quality / Compliance</h3>
+                    <p>An audit-style view focused on question-level scrutiny, flags, and individual records, for QA and compliance review.</p>
+                </div>
+                <div class="template-card">
+                    <div class="tc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+                    <h3>Marketing / Growth</h3>
+                    <p>Channel and campaign performance, for teams comparing acquisition sources rather than overall satisfaction.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features -->
-    <section class="features" id="features">
+    <section class="section section-alt" id="features">
         <div class="container">
-            <h2 class="section-title">What Flow Can Do</h2>
-            <p class="section-subtitle">Everything you need to configure a Qualtrics dashboard, through conversation</p>
-            <div class="features-grid">
+            <div class="section-head center">
+                <div class="section-label">What Flow Can Do</div>
+                <h2 class="section-title">Create it, or change it, in the same conversation</h2>
+                <p class="section-sub">Flow doesn't stop at creating widgets. It can read and update what already exists, too.</p>
+            </div>
+            <div class="feature-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
-                    </div>
-                    <h3>Create Widgets</h3>
-                    <p>Describe any chart in plain English and Flow configures and creates it instantly: number charts, bar charts, line charts, breakdown bars, donut charts, tables, and word clouds.</p>
+                    <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg></div>
+                    <h3>Create Any Widget</h3>
+                    <p>Number charts, gauges, bar and line charts, tables, record tables, star ratings, response tickers, word clouds. Describe it, Flow configures it.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/></svg>
-                    </div>
+                    <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg></div>
+                    <h3>Update Existing Widgets</h3>
+                    <p>Relabel a column, change a metric or field, switch an axis, turn on full record view. The same conversation handles the widgets you already built.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/></svg></div>
                     <h3>Add Page Filters</h3>
-                    <p>Tell Flow which filters you need. Flow creates and applies them to your dashboard page in one step: date ranges, NPS scores, response types, distribution channels, and more.</p>
+                    <p>Tell Flow which filters you need; date ranges, NPS scores, response types, distribution channels. Created and applied in one step.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
-                    </div>
+                    <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg></div>
                     <h3>Clone Pages</h3>
-                    <p>Copy entire dashboard pages across dashboards with a single instruction. All widgets, filters, and layouts are transferred and reconfigured for the target dashboard automatically.</p>
+                    <p>Copy an entire page across dashboards with one instruction. Widgets, filters, and layout are transferred and reconfigured automatically.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
-                    </div>
+                    <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+                    <h3>Pick a Layout</h3>
+                    <p>Browse every layout Flow knows, built for a specific audience, and let it fill in the real fields from your dashboard. No scoring, your choice.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></div>
                     <h3>Ask Your Dashboard</h3>
-                    <p>Query your dashboard structure in plain English. Page counts, widget summaries, filter lists. Flow knows your dashboard inside out and answers instantly.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg>
-                    </div>
-                    <h3>Bulk Widget Creation</h3>
-                    <p>Describe multiple widgets at once. Flow recommends a complete set, you confirm with one click, and it builds all of them, with progress tracked in real time.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
-                    </div>
-                    <h3>Intelligent Field Mapping</h3>
-                    <p>Flow understands your available fields and their types. It automatically selects the right field for every widget, with no manual field lookup and no configuration errors.</p>
+                    <p>Query its structure in plain English: page counts, widget summaries, available fields. Flow knows your dashboard and answers instantly.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Impact Stats -->
-    <section class="impact-section">
+    <!-- Video -->
+    <section id="video" class="section">
         <div class="container">
-            <h2 class="section-title">The Impact</h2>
-            <p class="section-subtitle">Real results for Qualtrics power users and research teams</p>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">50–60%</div>
-                    <div class="stat-label">Dashboard Configuration Automated</div>
-                    <p class="stat-desc">Widgets, filters, and page cloning handled through conversation</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">Seconds</div>
-                    <div class="stat-label">Not Hours</div>
-                    <p class="stat-desc">What used to take significant manual effort is done in a single conversation</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">Zero</div>
-                    <div class="stat-label">Configuration Errors</div>
-                    <p class="stat-desc">Intelligent field mapping eliminates manual selection mistakes</p>
-                </div>
+            <div class="section-head center">
+                <div class="section-label">See It Run</div>
+                <h2 class="section-title">Flow, in an actual Qualtrics dashboard</h2>
+                <p class="section-sub">No staged screens, the real side panel against a real dashboard.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Video Section -->
-    <section id="video" class="video-section">
-        <div class="container">
-            <h2 class="section-title">See Flow in Action</h2>
-            <p class="section-subtitle">
-                Watch how Pirai AI Flow automates complete dashboard creation
-            </p>
             <div class="video-container">
                 <div class="video-wrapper">
-                    <iframe 
-                        src="https://player.vimeo.com/video/1192774807?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
-                        frameborder="0" 
-                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" 
+                    <iframe
+                        src="https://player.vimeo.com/video/1192774807?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                        frameborder="0"
+                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
                         allowfullscreen
                         title="Pirai AI Flow">
                     </iframe>
@@ -611,62 +724,64 @@
     <script src="https://player.vimeo.com/api/player.js"></script>
 
     <!-- Roadmap -->
-    <section class="roadmap-section">
+    <section class="section section-alt">
         <div class="container">
-            <h2 class="section-title">Where We Are Headed</h2>
-            <p class="section-subtitle">Pirai AI Flow is in active development. Here is what is available now and what is coming.</p>
+            <div class="section-head center">
+                <div class="section-label">Roadmap</div>
+                <h2 class="section-title">Where Flow is headed</h2>
+            </div>
             <div class="roadmap-timeline">
                 <div class="roadmap-item">
-                    <div class="roadmap-badge badge-current">Available Now</div>
+                    <span class="roadmap-badge badge-current">Now</span>
                     <div class="roadmap-content">
-                        <h3>Conversational Dashboard Configuration</h3>
-                        <p>Create widgets through natural language, add page filters in one step, clone entire pages across dashboards, and query your dashboard structure. Covers 50 to 60 percent of dashboard configuration work.</p>
+                        <h3>Create and update, conversationally</h3>
+                        <p>Every widget type, page filters, page cloning, layout templates, and live updates to widgets that already exist, all through natural language, in beta today.</p>
                     </div>
                 </div>
                 <div class="roadmap-item">
-                    <div class="roadmap-badge badge-coming">Coming Soon</div>
+                    <span class="roadmap-badge badge-coming">Coming</span>
                     <div class="roadmap-content">
-                        <h3>Advanced Widget Configuration and Bulk Operations</h3>
-                        <p>Calculated fields, cross-tab reporting, bulk page operations, and enhanced multi-dashboard workflows. Pushing toward 70 to 80 percent of configuration automated.</p>
+                        <h3>Deeper dashboard intelligence</h3>
+                        <p>Cross-page awareness, so Flow can reason about an entire dashboard's layout, not just the page you're on, and suggest what's missing.</p>
                     </div>
                 </div>
                 <div class="roadmap-item">
-                    <div class="roadmap-badge badge-future">Future Vision</div>
+                    <span class="roadmap-badge badge-future">Future</span>
                     <div class="roadmap-content">
-                        <h3>Natural Language Data Export and Scheduled Builds</h3>
-                        <p>Describe a report and export it. Schedule dashboard builds and updates through conversation. The complete end-to-end Qualtrics dashboard workflow, powered by AI.</p>
+                        <h3>End-to-end dashboard workflows</h3>
+                        <p>Describe a report and export it. Schedule dashboard builds and updates through conversation. The complete Qualtrics dashboard workflow, powered by AI.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Demo Request Section - FORM PRESERVED EXACTLY -->
-    <section id="demo" class="demo-section">
+    <!-- Demo Request -->
+    <section id="demo" class="section demo-section">
         <div class="container">
             <div class="demo-grid">
                 <div class="demo-content">
-                    <h2>Request Early Access to Pirai AI Flow</h2>
-                    <p>Pirai AI Flow is currently in active development. Join the waitlist to be among the first to access the beta.</p>
+                    <h2>Request early access to Pirai AI Flow</h2>
+                    <p>Pirai AI Flow is currently in active development. Join the waitlist to be among the first into the beta.</p>
                     <ul class="benefits-list">
-                        <li>Early access to the beta programme</li>
-                        <li>Priority onboarding and setup support</li>
-                        <li>Direct input into the product roadmap</li>
-                        <li>First access to new features as they launch</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Early access to the beta programme</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Priority onboarding and setup support</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Direct input into the product roadmap</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> First access to new features as they launch</li>
                     </ul>
                 </div>
-                
+
                 <div>
                     <div id="successMessage" class="success-message">
-                        <h3>Request Received</h3>
-                        <p>Thank you for your interest in Pirai AI Flow. We will be in touch with early access details as the beta programme opens.</p>
+                        <h3>Request received</h3>
+                        <p>Thank you for your interest in Pirai AI Flow. We'll be in touch with early access details as the beta programme opens.</p>
                     </div>
-                    
+
                     <div id="errorMessage" class="error-message">
-                        <h3>Submission Error</h3>
-                        <p>We encountered an issue processing your request. Please try again or email us directly at <a href="mailto:admin@piraiai.com" style="color: #ef4444;"><span class="__cf_email__">admin@piraiai.com</span></a></p>
+                        <h3>Submission error</h3>
+                        <p>We hit an issue processing your request. Please try again or email us directly at <a href="mailto:admin@piraiai.com" style="color:#b91c1c;font-weight:600;">admin@piraiai.com</a></p>
                     </div>
-                    
+
                     <div class="lead-form">
                         <h3>Request Early Access</h3>
                         <form id="demoForm" action="https://script.google.com/macros/s/AKfycbzV-TI-s-JN9GCdnVDeGK8uWtkjCZ-bfJ5mqJ-iwp1-KvcZLYfsxVxfeqXUHNjUStwxCg/exec" method="POST">
@@ -674,17 +789,17 @@
                                 <label for="name">Full Name *</label>
                                 <input type="text" id="name" name="name" required>
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="email">Work Email *</label>
                                 <input type="email" id="email" name="email" required>
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="organization">Organization *</label>
                                 <input type="text" id="organization" name="organization" required>
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="role">Your Role</label>
                                 <select id="role" name="role">
@@ -696,29 +811,28 @@
                                     <option value="Other">Other</option>
                                 </select>
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="dashboards">How many dashboards do you build monthly?</label>
                                 <input type="text" id="dashboards" name="dashboards" placeholder="e.g., 5-10 dashboards">
                             </div>
-                            
+
                             <input type="hidden" name="product" value="Pirai AI Flow">
                             <input type="hidden" name="timestamp" id="timestamp">
                             <input type="hidden" name="source" value="flow_landing_page">
-                            
+
                             <!-- Honeypot field -->
                             <input type="text" name="website" style="display: none;" tabindex="-1" autocomplete="off">
-                            
+
                             <!-- reCAPTCHA Widget -->
                             <div class="recaptcha-container">
-                                <div class="g-recaptcha" 
-                                    data-sitekey="6LdyFYsrAAAAAM2Ri3hmTptTNXRNyUdzi3yIa4g0" 
+                                <div class="g-recaptcha"
+                                    data-sitekey="6LdyFYsrAAAAAM2Ri3hmTptTNXRNyUdzi3yIa4g0"
                                     data-callback="enableSubmit"
-                                    data-expired-callback="disableSubmit"
-                                    data-theme="dark">
+                                    data-expired-callback="disableSubmit">
                                 </div>
                             </div>
-                            
+
                             <button type="submit" id="submitBtn" class="submit-btn" disabled>
                                 Request Early Access
                             </button>
@@ -735,49 +849,42 @@
             <div class="footer-content">
                 <div>
                     <div class="footer-brand">
-                        <img src="logo.png" alt="Pirai AI Logo" width="35" height="35"/>&nbsp;
+                        <img src="logo.png" alt="Pirai AI Logo" width="32" height="32"/>
                         <span>Pirai AI</span>
                     </div>
                     <p class="footer-desc">
-                        Universal platform automation transforming documents to 20+ platforms across research, education, healthcare, and enterprise. Deploy globally in 50+ languages with enterprise-grade reliability.
+                        Pirai AI Flow is a conversational AI Chrome extension that builds and updates Qualtrics dashboards through natural language, widgets, filters, layouts, and page cloning, without leaving Qualtrics.
                     </p>
-                    <div style="margin-top: 16px;">
-                        <p style="color: #9ca3af; font-size: 14px; margin-bottom: 8px;">
-                            <strong style="color: #60a5fa;">Contact:</strong> <a href="mailto:admin@piraiai.com" style="color: #9ca3af; text-decoration: none;"><span class="__cf_email__">admin@piraiai.com</span></a>
-                        </p>
-                        <p style="color: #9ca3af; font-size: 14px;">
-                            <strong style="color: #22c55e;">Early Access:</strong> Join our beta programme
-                        </p>
+                    <div class="footer-contact">
+                        <p style="margin-bottom: 6px;"><strong style="color: var(--ink);">Contact:</strong> <a href="mailto:admin@piraiai.com">admin@piraiai.com</a></p>
+                        <p><strong style="color: var(--green);">Early Access:</strong> Join our beta programme</p>
                     </div>
                 </div>
-                
+
                 <div class="footer-section">
-                    <h3>Platforms</h3>
+                    <h3>Flow</h3>
                     <ul class="footer-links">
-                        <li><a href="/#platforms">All 20+ Platforms</a></li>
-                        <li><a href="/#process">How It Works</a></li>
-                        <li><a href="/#features">Features</a></li>
-                        <li><a href="/#pricing">Pricing</a></li>
-                        <li><a href="/faq">FAQ</a></li>
-                        <li><a href="/blog">Blog</a></li>
-                        <li><a href="/gethelp">Get Help</a></li>
-                        <li><a href="/#demo">Universal Access</a></li>
+                        <li><a href="#process">How It Works</a></li>
+                        <li><a href="#templates">Layout Templates</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#video">Demo</a></li>
+                        <li><a href="#demo">Request Access</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3>Free Tools</h3>
                     <ul class="footer-links">
                         <li><a href="https://qstar.piraiai.com" target="_blank">QStar (Beta)</a></li>
                         <li><a href="https://chromewebstore.google.com/detail/qualtrics-api-toolkit-by/lloepmlcmkeohopokcedejdelohoilip" target="_blank">Qualtrics API Toolkit</a></li>
-                        <li><a href="/qsf-to-excel">QSF to Excel WorkBook</a></li>
+                        <li><a href="/qsf-to-excel">QSF to Excel Workbook</a></li>
                         <li><a href="/textiq-to-excel">Text IQ JSON to Excel Book</a></li>
                         <li><a href="/embedded-data-generator">Embedded Data Generator</a></li>
                         <li><a href="/pirai-csv-comparator">CSV Comparator</a></li>
-                        <li><a href="/qualtrics-toolkit" style="color: #3b82f6;">Toolkit Hub</a></li>
+                        <li><a href="/qualtrics-toolkit" style="color: var(--purple-dark); font-weight: 600;">Toolkit Hub</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3>Company</h3>
                     <ul class="footer-links">
@@ -790,101 +897,58 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <div class="copyright">
-                    &copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved. | Built with enterprise-grade security and privacy protection.
+                    &copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved. Built with enterprise-grade security and privacy protection.
                 </div>
-                <div style="display: flex; gap: 16px; align-items: center;">
-                    <a href="https://www.linkedin.com/company/pirai-ai/" target="_blank" style="color: #9ca3af; transition: color 0.3s;">
-                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                        </svg>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/company/pirai-ai/" target="_blank" aria-label="LinkedIn">
+                        <svg width="19" height="19" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                     </a>
-                    <a href="https://www.youtube.com/@PiraiAI" target="_blank" style="color: #9ca3af; transition: color 0.3s;">
-                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M23.498 6.186a2.87 2.87 0 0 0-2.02-2.034C19.65 3.74 12 3.74 12 3.74s-7.65 0-9.478.412A2.87 2.87 0 0 0 .502 6.186C.088 8.02.088 12 .088 12s0 3.98.414 5.814a2.87 2.87 0 0 0 2.02 2.034C4.35 20.26 12 20.26 12 20.26s7.65 0 9.478-.412a2.87 2.87 0 0 0 2.02-2.034C23.912 15.98 23.912 12 23.912 12s0-3.98-.414-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                        </svg>
+                    <a href="https://www.youtube.com/@PiraiAI" target="_blank" aria-label="YouTube">
+                        <svg width="19" height="19" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a2.87 2.87 0 0 0-2.02-2.034C19.65 3.74 12 3.74 12 3.74s-7.65 0-9.478.412A2.87 2.87 0 0 0 .502 6.186C.088 8.02.088 12 .088 12s0 3.98.414 5.814a2.87 2.87 0 0 0 2.02 2.034C4.35 20.26 12 20.26 12 20.26s7.65 0 9.478-.412a2.87 2.87 0 0 0 2.02-2.034C23.912 15.98 23.912 12 23.912 12s0-3.98-.414-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                     </a>
-                    <span style="color: #6b7280; font-size: 12px;">Follow our journey</span>
+                    <span style="color: var(--text-muted); font-size: 12px;">Follow our journey</span>
                 </div>
             </div>
         </div>
     </footer>
-    
+
     <script>
-        // Set timestamp
         document.getElementById('timestamp').value = new Date().toISOString();
-        
-        // reCAPTCHA callbacks
-        function enableSubmit() {
-            document.getElementById('submitBtn').disabled = false;
-        }
-        
-        function disableSubmit() {
-            document.getElementById('submitBtn').disabled = true;
-        }
-        
-        // Form submission handler
+
+        function enableSubmit() { document.getElementById('submitBtn').disabled = false; }
+        function disableSubmit() { document.getElementById('submitBtn').disabled = true; }
+
         document.getElementById('demoForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
             const submitBtn = document.getElementById('submitBtn');
             const successMessage = document.getElementById('successMessage');
             const errorMessage = document.getElementById('errorMessage');
-            
+
             submitBtn.disabled = true;
             submitBtn.textContent = 'Submitting...';
-            
             successMessage.classList.remove('show');
             errorMessage.classList.remove('show');
-            
+
             const formData = new FormData(this);
-            
-            fetch(this.action, {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.result === 'success') {
-                    successMessage.classList.add('show');
-                    this.reset();
-                    grecaptcha.reset();
-                } else {
+            fetch(this.action, { method: 'POST', body: formData })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.result === 'success') {
+                        successMessage.classList.add('show');
+                        this.reset();
+                        if (window.grecaptcha) grecaptcha.reset();
+                    } else {
+                        errorMessage.classList.add('show');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
                     errorMessage.classList.add('show');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                errorMessage.classList.add('show');
-            })
-            .finally(() => {
-                submitBtn.textContent = 'Request Early Access';
-            });
-        });
-        
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-        
-        // Floating header effect
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('.nav');
-            if (window.scrollY > 100) {
-                nav.style.background = 'rgba(17, 24, 39, 0.95)';
-                nav.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
-            } else {
-                nav.style.background = 'rgba(17, 24, 39, 0.5)';
-                nav.style.boxShadow = 'none';
-            }
+                })
+                .finally(() => { submitBtn.textContent = 'Request Early Access'; });
         });
 
         // Mobile menu
@@ -907,13 +971,7 @@
                     document.body.style.overflow = '';
                 });
             });
-            mobileMenu.addEventListener('click', (e) => {
-                if (e.target === mobileMenu) {
-                    mobileMenu.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            });
-        }        
+        }
     </script>
 </body>
 </html>
