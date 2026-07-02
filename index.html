@@ -367,6 +367,185 @@
             color: #ffffff;
         }
 
+        /* Products Mega Menu */
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .nav-dropdown > .nav-dropdown-trigger {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font: inherit;
+            color: #9ca3af;
+            padding: 0;
+            transition: color 0.3s;
+        }
+
+        .nav-dropdown:hover > .nav-dropdown-trigger,
+        .nav-dropdown.active > .nav-dropdown-trigger {
+            color: #ffffff;
+        }
+
+        .nav-dropdown-caret {
+            width: 10px;
+            height: 10px;
+            transition: transform 0.25s ease;
+        }
+
+        .nav-dropdown:hover .nav-dropdown-caret,
+        .nav-dropdown.active .nav-dropdown-caret {
+            transform: rotate(180deg);
+        }
+
+        .mega-menu {
+            position: fixed;
+            top: 96px;
+            left: 50%;
+            transform: translateX(-50%) translateY(8px);
+            width: min(1120px, calc(100vw - 40px));
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+            padding: 32px;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+            z-index: 999;
+        }
+
+        .nav-dropdown.active .mega-menu {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .mega-menu-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr 1.15fr 1fr;
+            gap: 28px;
+        }
+
+        .mega-menu-col h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #6b7280;
+            margin: 0 0 16px 0;
+        }
+
+        .mega-menu-col ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .mega-menu-col li {
+            margin-bottom: 4px;
+        }
+
+        .mega-menu-col a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 6px;
+            border-radius: 8px;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .mega-menu-col a:hover {
+            background: #f5f2ff;
+            color: #6B3FCC;
+        }
+
+        .mega-menu-col a img.mega-icon {
+            width: 18px;
+            height: 18px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .mega-menu-col a .mega-icon-svg {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            color: #9B6BFF;
+        }
+
+        .mega-menu-item-desc {
+            display: block;
+            font-size: 11px;
+            font-weight: 400;
+            color: #9ca3af;
+        }
+
+        .mega-menu-divider {
+            border: none;
+            border-top: 1px solid #e5e7eb;
+            margin: 12px 0;
+        }
+
+        .mega-menu-seeall {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 10px;
+            padding: 8px 6px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #6B3FCC;
+            text-decoration: none;
+        }
+
+        .mega-menu-seeall:hover {
+            text-decoration: underline;
+        }
+
+        .mega-menu-footer {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .mega-menu .mega-menu-cta {
+            background: #7C4DFF;
+            color: #ffffff;
+            padding: 8px 22px;
+            border-radius: 24px;
+            text-decoration: none;
+            font-weight: 800;
+            letter-spacing: 0.01em;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .mega-menu .mega-menu-cta:hover {
+            background: #6B3FCC;
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(155, 107, 255, 0.4);
+        }
+
+        @media (max-width: 950px) {
+            .mega-menu {
+                display: none !important;
+            }
+        }
+
         /* Hamburger Menu */
         .hamburger {
             display: none;
@@ -399,6 +578,8 @@
             background: rgba(11, 11, 14, 0.98);
             z-index: 1001;
             padding: 80px 20px 20px;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         .mobile-menu.active {
@@ -448,6 +629,67 @@
 
         .mobile-menu-close:hover {
             color: #9B6BFF;
+        }
+
+        .mobile-accordion-trigger {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+            background: none;
+            border: none;
+            color: #9ca3af;
+            font-size: 24px;
+            font-weight: 500;
+            font-family: inherit;
+            padding: 0;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .mobile-accordion-trigger:hover {
+            color: #ffffff;
+        }
+
+        .mobile-accordion-caret {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.25s ease;
+        }
+
+        .mobile-accordion.active .mobile-accordion-caret {
+            transform: rotate(180deg);
+        }
+
+        .mobile-accordion-panel {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: none;
+        }
+
+        .mobile-accordion.active .mobile-accordion-panel {
+            display: block;
+            margin-top: 16px;
+        }
+
+        .mobile-accordion-panel li {
+            margin-bottom: 16px;
+        }
+
+        .mobile-accordion-panel a {
+            font-size: 17px;
+            font-weight: 400;
+        }
+
+        .mobile-accordion-label {
+            color: #6b7280;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 10px !important;
+            margin-top: 8px;
         }
 
         .nav-cta {
@@ -1205,7 +1447,7 @@
         /* Responsive Design */
         @media (max-width: 950px) {
             .announcement-banner {
-                font-size: 14px;
+                font-size: 12px;
                 padding: 10px 20px;
                 line-height: 1.4;
             }
@@ -2450,6 +2692,24 @@
             margin-bottom: 48px;
         }
 
+        .platform-grid-rows {
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .platform-grid-rows .platform-category {
+            text-align: left;
+        }
+
+        .platform-grid-rows .platform-category h3 {
+            text-align: left;
+        }
+
+        .platform-footnote {
+            text-align: center;
+            margin-top: 8px;
+        }
+
         .platform-category {
             background: #ffffff;
             backdrop-filter: blur(10px);
@@ -2457,6 +2717,7 @@
             border-radius: 16px;
             padding: 32px;
             text-align: center;
+            min-width: 0;
         }
 
         .platform-category h3 {
@@ -2466,17 +2727,110 @@
             margin-bottom: 20px;
         }
 
+        .platform-list-wrap {
+            position: relative;
+        }
+
+        .platform-list-wrap::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            width: 36px;
+            background: linear-gradient(to right, transparent, #ffffff);
+            pointer-events: none;
+        }
+
         .platform-list {
             display: flex;
-            flex-direction: column;
-            gap: 8px;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 8px 20px 16px 4px;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(155, 107, 255, 0.4) transparent;
+        }
+
+        .platform-list::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .platform-list::-webkit-scrollbar-thumb {
+            background: rgba(155, 107, 255, 0.4);
+            border-radius: 3px;
+        }
+
+        .platform-list::-webkit-scrollbar-track {
+            background: transparent;
         }
 
         .platform-item {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 90px;
             color: #000000;
-            font-size: 14px;
-            padding: 4px 0;
-        }        
+            font-size: 13px;
+            padding: 4px 8px;
+        }
+
+        .platform-item img.brandLogoImg {
+            max-height: 32px;
+            width: auto;
+            max-width: 130px;
+            object-fit: contain;
+        }
+
+        /* Auto-scrolling marquee for the longer platform lists */
+        .platform-list-wrap.has-marquee {
+            overflow: hidden;
+        }
+
+        .platform-list.marquee {
+            overflow-x: hidden;
+            width: max-content;
+            animation: platform-marquee linear infinite;
+        }
+
+        .platform-list.marquee:hover {
+            animation-play-state: paused;
+        }
+
+        .platform-list.marquee[data-count="18"] {
+            animation-duration: 44s;
+        }
+
+        .platform-list.marquee[data-count="10"] {
+            animation-duration: 24s;
+        }
+
+        @keyframes platform-marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .platform-list-wrap.has-marquee {
+                overflow: visible;
+            }
+
+            .platform-list.marquee {
+                animation: none;
+                overflow-x: auto;
+                width: auto;
+                transform: none;
+            }
+
+            .platform-item.marquee-dup {
+                display: none;
+            }
+        }
     </style>  
 <style>
 /* Time Savings Section Styles */
@@ -2513,86 +2867,91 @@
     line-height: 1.6;
 }
 
-.comparison-container {
-    margin-bottom: 64px;
-}
-
-.comparison-grid {
+.split-comparison {
+    position: relative;
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: 32px;
-    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
     max-width: 1000px;
-    margin: 0 auto;
-}
-
-.process-card {
+    margin: 0 auto 64px;
     background: rgba(31, 41, 55, 0.5);
     backdrop-filter: blur(10px);
-    border-radius: 16px;
-    padding: 32px;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(55, 65, 81, 0.5);
-}
-
-.manual-process {
-    border-color: rgba(239, 68, 68, 0.3);
-}
-
-.manual-process:hover {
-    border-color: rgba(239, 68, 68, 0.5);
-    transform: translateY(-4px);
-}
-
-.pirai-process {
-    border-color: rgba(34, 197, 94, 0.3);
-}
-
-.pirai-process:hover {
-    border-color: rgba(34, 197, 94, 0.5);
-    transform: translateY(-4px);
-}
-
-.process-header {
-    text-align: center;
-    margin-bottom: 24px;
-}
-
-.process-icon {
-    font-size: 48px;
-    margin-bottom: 16px;
-    display: block;
-}
-
-.process-header h3 {
-    font-size: 24px;
-    font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 12px;
-}
-
-.total-time {
-    font-size: 18px;
-    font-weight: 600;
-    padding: 8px 16px;
     border-radius: 20px;
-    display: inline-block;
+    border: 1px solid rgba(55, 65, 81, 0.5);
+    overflow: hidden;
 }
 
-.manual-time {
-    background: rgba(239, 68, 68, 0.2);
+.split-comparison::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 1px;
+    background: rgba(55, 65, 81, 0.5);
+    transform: translateX(-50%);
+}
+
+.split-half {
+    padding: 48px 40px;
+    text-align: center;
+}
+
+.split-manual {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), transparent);
+}
+
+.split-pirai {
+    background: linear-gradient(135deg, transparent, rgba(155, 107, 255, 0.08));
+}
+
+.split-icon {
+    margin-bottom: 14px;
+    display: flex;
+    justify-content: center;
+}
+
+.split-label {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #9ca3af;
+    margin-bottom: 14px;
+}
+
+.split-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(52px, 7vw, 84px);
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.split-manual .split-number {
     color: #ef4444;
-    border: 1px solid rgba(239, 68, 68, 0.3);
 }
 
-.pirai-time {
-    background: rgba(34, 197, 94, 0.2);
-    color: #22c55e;
-    border: 1px solid rgba(34, 197, 94, 0.3);
+.split-pirai .split-number {
+    color: #9B6BFF;
 }
 
-.process-breakdown {
-    margin-bottom: 24px;
+.split-unit {
+    font-size: 0.32em;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-left: 6px;
+    opacity: 0.75;
+}
+
+.split-total-label {
+    font-size: 15px;
+    color: #d1d5db;
+    margin-bottom: 28px;
+}
+
+.split-breakdown {
+    text-align: left;
 }
 
 .breakdown-item {
@@ -2609,63 +2968,33 @@
 
 .breakdown-item .task {
     color: #d1d5db;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .breakdown-item .time {
     color: #9ca3af;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 13px;
 }
 
-.process-label {
-    text-align: center;
-    color: #9ca3af;
-    font-size: 14px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+.split-seam {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
 }
 
-.vs-divider {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-}
-
-.vs-circle {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: 700;
-    font-size: 18px;
-}
-
-.speed-indicator {
-    background: linear-gradient(135deg, #22c55e, #16a34a);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 20px;
+.split-seam-badge {
+    background: linear-gradient(135deg, #9B6BFF, #7C4DFF);
+    color: #ffffff;
     font-weight: 700;
     font-size: 14px;
-    text-align: center;
+    padding: 10px 20px;
+    border-radius: 24px;
     white-space: nowrap;
-    animation: pulse-glow 2s ease-in-out infinite;
-}
-
-@keyframes pulse-glow {
-    0%, 100% {
-        box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
-    }
-    50% {
-        box-shadow: 0 6px 20px rgba(34, 197, 94, 0.5);
-    }
+    box-shadow: 0 8px 24px rgba(155, 107, 255, 0.4);
+    border: 3px solid #111827;
 }
 
 .focus-benefits {
@@ -2727,7 +3056,7 @@
 }
 
 .btn-time-savings {
-    background: linear-gradient(135deg, #22c55e, #3b82f6);
+    background: linear-gradient(135deg, #9B6BFF, #7C4DFF);
     color: white;
     padding: 16px 32px;
     border-radius: 24px;
@@ -2740,7 +3069,7 @@
 
 .btn-time-savings:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(34, 197, 94, 0.3);
+    box-shadow: 0 10px 25px rgba(155, 107, 255, 0.4);
     text-decoration: none;
     color: white;
 }
@@ -2755,17 +3084,26 @@
         font-size: 18px;
     }
     
-    .comparison-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
+    .split-comparison {
+        display: block;
     }
-    
-    .vs-divider {
-        order: -1;
-        flex-direction: row;
+
+    .split-comparison::before {
+        display: none;
+    }
+
+    .split-manual {
+        border-bottom: 1px solid rgba(55, 65, 81, 0.5);
+    }
+
+    .split-seam {
+        position: static;
+        transform: none;
+        display: flex;
         justify-content: center;
+        margin: -16px 0;
     }
-    
+
     .benefits-grid {
         grid-template-columns: 1fr;
         gap: 16px;
@@ -2779,8 +3117,8 @@
         font-size: 24px;
     }
     
-    .process-card {
-        padding: 24px;
+    .split-half {
+        padding: 32px 24px;
     }
 }
 
@@ -3983,14 +4321,79 @@
                         <span style="position: absolute; top: -7px; right: 0; background: #6B3FCC; color: #fff; font-size: 9px; font-weight: 700; padding: 3px 6px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px;">New</span>
                     </li>
                     <!-- <li><a href="https://qstar.piraiai.com" target="_blank" title="QStar - Survey Question Helper">QStar</a></li> -->
-                    <li><a href="/how-pirai-ai-works">How It Works</a></li>                    
+                    <li class="nav-dropdown" id="productsDropdown">
+                        <button type="button" class="nav-dropdown-trigger" id="productsDropdownTrigger" aria-expanded="false">
+                            Products
+                            <svg class="nav-dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                        </button>
+                        <div class="mega-menu">
+                            <div class="mega-menu-grid">
+                                <div class="mega-menu-col">
+                                    <h4>Converters</h4>
+                                    <ul>
+                                        <li><a href="/product/qualtrics-converter">Qualtrics</a></li>
+                                        <li><a href="/product/google-forms-converter">Google Forms</a></li>
+                                        <li><a href="/product/microsoft-forms-converter">Microsoft Forms</a></li>
+                                        <li><a href="/product/redcap-converter">REDCap</a></li>
+                                        <li><a href="/product/surveymonkey-converter">SurveyMonkey</a></li>
+                                        <li><a href="/product/lss-converter">LimeSurvey</a></li>
+                                        <li><a href="/product/kahoot-converter">Kahoot</a></li>
+                                        <li><a href="/product/alchemer-converter">Alchemer</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-col">
+                                    <h4>All 25+ Platforms</h4>
+                                    <ul>
+                                        <li><a href="/blog/survey-platform-migration-guide.html">QuestionPro</a></li>
+                                        <li><a href="/blog/survey-platform-migration-guide.html">Forsta</a></li>
+                                        <li><a href="/blog/survey-platform-migration-guide.html">SurveySparrow</a></li>
+                                        <li><a href="/blog/survey-platform-migration-guide.html">Zoho Survey</a></li>
+                                        <li><a href="/blog/survey-platform-migration-guide.html">Dimensions</a></li>
+                                        <li><a href="/blog/survey-platform-migration-guide.html">Crowdtech</a></li>
+                                        <li><a href="/blog/survey-platform-migration-guide.html">Culture Amp</a></li>
+                                        <li><a href="/blog/survey-platform-migration-guide.html">Moodle</a></li>
+                                        <li><a href="/blog/convert-import-intellisurvey">IntelliSurvey</a></li>
+                                    </ul>
+                                    <a class="mega-menu-seeall" href="/blog/survey-platform-migration-guide.html">See full platform list <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                                </div>
+                                <div class="mega-menu-col">
+                                    <h4>Free Tools for Qualtrics</h4>
+                                    <ul>
+                                        <li><a href="https://chromewebstore.google.com/detail/lloepmlcmkeohopokcedejdelohoilip" target="_blank"><span>Qualtrics API Toolkit <span class="mega-menu-item-desc">40+ community installs</span></span></a></li>
+                                        <li><a href="/pirai-csv-comparator"><span>CSV Comparator <span class="mega-menu-item-desc">Compare 2 CSVs + Qualtrics SDS check</span></span></a></li>
+                                        <li><a href="/embedded-data-generator">Embedded Data Generator</a></li>
+                                        <li><a href="/qsf-to-excel">QSF to Excel Converter</a></li>
+                                        <li><a href="/textiq-to-excel">Text IQ JSON to Excel</a></li>
+                                        <li><a href="/blog/export-qualtrics-data-table-excel">Data &amp; Analysis Table Exporter</a></li>
+                                        <li><a href="/blog/extract-qualtrics-dashboard-mappings">Dashboard Field Mapper</a></li>
+                                    </ul>
+                                    <a class="mega-menu-seeall" href="/qualtrics-toolkit">See all free tools <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                                </div>
+                                <div class="mega-menu-col">
+                                    <h4>Products &amp; Resources</h4>
+                                    <ul>
+                                        <li><a href="https://platform.piraiai.com" target="_blank" title="Pirai AI Conversion - convert documents to 25+ survey platforms."><svg class="mega-icon-svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l6 6h-4v8h-4V9H6l6-6z"/><path d="M4 19h16v2H4z"/></svg><span>Conversion <span class="mega-menu-item-desc">Document to Survey Platform</span></span></a></li>
+                                        <li><a href="/flow" title="Pirai AI Flow is a Vision based Robotic Dashboard Automation Platform."><svg class="mega-icon-svg" viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg><span>Flow <span class="mega-menu-item-desc">Qualtrics Dashboard Agent (Beta)</span></span></a></li>
+                                        <li><a href="https://qstar.piraiai.com" target="_blank" title="QStar is Survey specification builder to create Standard Universal Specification."><svg class="mega-icon-svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.9L22 10l-5.5 5 1.6 7-6.1-3.6L5.9 22l1.6-7L2 10l7.1-1.1L12 2z"/></svg><span>QStar <span class="mega-menu-item-desc">Survey Spec Builder (Beta)</span></span></a></li>
+                                    </ul>
+                                    <hr class="mega-menu-divider">
+                                    <ul>
+                                        <li><a href="/how-pirai-ai-works">How It Works</a></li>
+                                        <li><a href="/docs">Docs</a></li>
+                                        <li><a href="/blog">Blog</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mega-menu-footer">
+                                <a class="mega-menu-cta" href="https://platform.piraiai.com/">Convert Now</a>
+                            </div>
+                        </div>
+                    </li>                    
                     <!-- <li><a href="/#efficiency">Efficiency</a></li> -->
                     <!-- <li><a href="/#testimonials">Evidence</a></li> -->
                     <!-- <li><a href="/#platforms">Platforms</a></li> -->
                     <li><a href="/#pricing">Pricing</a></li>                    
                     <!-- <li><a href="/flow" title="Pirai AI Flow is a Vision based Robotic Dashboard Automation Platform.">Flow</a></li> -->
-                    <li><a href="/qualtrics-toolkit">Free Tools</a></li>      
-                    <li><a href="/docs">Docs</a></li>
                     <li><a href="/blog">Blog</a></li>
                 </ul>
                 <a href="#demo" class="nav-cta">Get Demo</a>
@@ -4004,12 +4407,43 @@
         <ul>
             <li style="position: relative;"><a href="https://platform.piraiai.com/" style="display: inline-block; position: relative; padding-right: 45px;">Convert Now<span style="position: absolute; top: -2px; right: 0; background: #6B3FCC; color: #fff; font-size: 9px; font-weight: 700; padding: 3px 6px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px;">New</span></a></li>
             <!-- <li><a href="/#platforms">Platforms</a></li> -->
-            <li><a href="/how-pirai-ai-works">How It Works</a></li> 
+            <li class="mobile-accordion" id="mobileProductsAccordion">
+                <button type="button" class="mobile-accordion-trigger" id="mobileProductsTrigger" aria-expanded="false">
+                    Products
+                    <svg class="mobile-accordion-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+                <ul class="mobile-accordion-panel">
+                    <li class="mobile-accordion-label">Converters</li>
+                    <li><a href="/product/qualtrics-converter">Qualtrics</a></li>
+                    <li><a href="/product/google-forms-converter">Google Forms</a></li>
+                    <li><a href="/product/microsoft-forms-converter">Microsoft Forms</a></li>
+                    <li><a href="/product/redcap-converter">REDCap</a></li>
+                    <li><a href="/product/surveymonkey-converter">SurveyMonkey</a></li>
+                    <li><a href="/product/lss-converter">LimeSurvey</a></li>
+                    <li><a href="/product/kahoot-converter">Kahoot</a></li>
+                    <li><a href="/product/alchemer-converter">Alchemer</a></li>
+                    <li><a href="/blog/survey-platform-migration-guide.html">See full platform list (25+)</a></li>
+                    <li class="mobile-accordion-label">Free Tools for Qualtrics</li>
+                    <li><a href="https://chromewebstore.google.com/detail/lloepmlcmkeohopokcedejdelohoilip" target="_blank">Qualtrics API Toolkit <span class="mega-menu-item-desc">40+ community installs</span></a></li>
+                    <li><a href="/pirai-csv-comparator">CSV Comparator <span class="mega-menu-item-desc">Compare 2 CSVs + Qualtrics SDS check</span></a></li>
+                    <li><a href="/embedded-data-generator">Embedded Data Generator</a></li>
+                    <li><a href="/qsf-to-excel">QSF to Excel Converter</a></li>
+                    <li><a href="/textiq-to-excel">Text IQ JSON to Excel</a></li>
+                    <li><a href="/blog/export-qualtrics-data-table-excel">Data &amp; Analysis Table Exporter</a></li>
+                    <li><a href="/blog/extract-qualtrics-dashboard-mappings">Dashboard Field Mapper</a></li>
+                    <li><a href="/qualtrics-toolkit">See all free tools</a></li>
+                    <li class="mobile-accordion-label">Products</li>
+                    <li><a href="https://platform.piraiai.com" target="_blank">Conversion</a></li>
+                    <li><a href="/flow">Flow (Beta)</a></li>
+                    <li><a href="https://qstar.piraiai.com" target="_blank">QStar (Beta)</a></li>
+                    <li class="mobile-accordion-label">Resources</li>
+                    <li><a href="/how-pirai-ai-works">How It Works</a></li>
+                    <li><a href="/docs">Docs</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                </ul>
+            </li>
             <li><a href="/#pricing">Pricing</a></li>                    
             <!-- <li><a href="/flow" title="Pirai AI Flow is a Vision based Robotic Dashboard Automation Platform.">Flow</a></li> -->
-            <li><a href="/qualtrics-toolkit">Free Tools</a></li>
-            <li><a href="/docs">Docs</a></li>
-            <li><a href="/blog">Blog</a></li>
         </ul>
     </div>
 
@@ -4166,7 +4600,7 @@
             <!-- Stats Grid -->
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-number" data-target="37" data-suffix="+" data-nodecimal="true">0</div>
+                    <div class="stat-number" data-target="60" data-suffix="+" data-nodecimal="true">0</div>
                     <div class="stat-label">Countries</div>
                 </div>
                 <div class="stat-card">
@@ -4176,67 +4610,17 @@
                 <div class="stat-card">
                     <div class="stat-number" data-target="30" data-suffix="+" data-nodecimal="true">0</div>
                     <div class="stat-label">Languages</div>
-                    <!-- <div class="language-tags">
-                        <span class="language-tag">English</span>
-                        <span class="language-tag">Spanish</span>
-                        <span class="language-tag">Hebrew</span>
-                        <span class="language-tag">Arabic</span>
-                        <span class="language-tag">Dutch</span>
-                        <span class="language-tag">Polish</span>                        
-                        <span class="language-tag">French</span>
-                        <span class="language-tag">Chinese</span>                        
-                        <span class="language-tag">Portuguese</span>
-                        <span class="language-tag">Vietnamese</span>                        
-                    </div> -->
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number" data-target="1441">0</div>
-                    <div class="stat-label">Documents Converterd</div>
+                    <div class="stat-number" data-target="600" data-suffix="K+" data-nodecimal="true">0</div>
+                    <div class="stat-label" title="Questions & Answer Options">Q&A Converted</div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number" data-target="238" data-suffix="K" data-nodecimal="true">0</div>
-                    <div class="stat-label" title="Questions & Answers">Q&A Converted</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" data-target="1551" data-suffix="">0</div>
-                    <div class="stat-label">Hours Saved</div>
-                </div>      
-                <div class="stat-card">
-                    <div class="stat-number" data-target="194" data-suffix="">0</div>
-                    <div class="stat-label">Work Days Saved</div>
-                </div> 
                 <div class="stat-card">
                     <div class="stat-number" data-target="700" data-suffix="+" data-nodecimal="true">0</div>
-                    <div class="stat-label">RESEARCHERS</div>
+                    <div class="stat-label">Researchers</div>
                 </div>   
-                <div class="stat-card">
-                    <div class="stat-number" data-target="90" data-suffix="%" data-nodecimal="true">0</div>
-                    <div class="stat-label">Success Rate</div>
-                </div>                
-                <div class="stat-card">
-                    <div class="stat-number" data-target="10" data-suffix="">0</div>
-                    <div class="stat-label">PROCESSING TIME (in Mins)</div>
-                </div>                                                                  
             </div>
         </div>
-        <div class="language-tags">
-            <span class="language-tag">English</span>
-            <span class="language-tag">Spanish</span>
-            <span class="language-tag">Hebrew</span>
-            <span class="language-tag">Arabic</span>
-            <span class="language-tag">Dutch</span>
-            <span class="language-tag">Polish</span>                        
-            <span class="language-tag">French</span>
-            <span class="language-tag">German</span>
-            <span class="language-tag">Chinese</span>
-            <span class="language-tag">Turkish</span>
-            <span class="language-tag">Portuguese</span>
-            <span class="language-tag">Greek</span>
-            <span class="language-tag">Italian</span> 
-            <span class="language-tag">Vietnamese</span>    
-            <span class="language-tag">Indonesian</span>  
-            <span class="language-tag">Kannada</span>           
-        </div>        
     </section>    
 
     <!-- Testimonials Section -->
@@ -4432,10 +4816,11 @@
                 Support for 20+ platforms across research, education, healthcare, and enterprise domains
             </p>
             
-            <div class="platform-grid">                
+            <div class="platform-grid platform-grid-rows">                
                 <div class="platform-category">
-                    <h3>Research & Analytics</h3>
-                    <div class="platform-list">
+                    <h3>Research & Enterprise</h3>
+                    <div class="platform-list-wrap has-marquee">
+                    <div class="platform-list marquee" data-count="18">
                         <div class="platform-item"><img src="./image/qualtrics-logo.png" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="Qualtrics"></div>
                         <div class="platform-item"><img src="./image/questionpro-logo.svg" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="QuestionPro"></div>
                         <div class="platform-item"><img src="./image/forsta-logo.jpg" width="130" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="Forsta"></div>
@@ -4450,14 +4835,36 @@
                         <div class="platform-item"><img src="./image/cultureamp-logo.png" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="Cultureamp"></div>
                         <div class="platform-item"><img src="./image/intellisurvey-logo.png" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="Intellisurvey"></div>
                         <div class="platform-item"><img src="./image/smartsurvey-logo.svg" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="SmartSurvey"></div>                         
-                        <div class="platform-item"><img src="./image/surveyvista-logo.png" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="SurveyVista"></div>                                              
+                        <div class="platform-item"><img src="./image/surveyvista-logo.png" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="SurveyVista"></div>
+                        <div class="platform-item"><img src="./image/microsoft-forms-logo.jpg" width="110" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="Microsoft Forms"></div>
+                        <div class="platform-item"><img src="./image/google-forms-logo.png" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="Google Forms"></div>
+                        <div class="platform-item"><img src="./image/redcap_logo.svg" width="200" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="REDCap"></div>
+                        <div class="platform-item marquee-dup"><img src="./image/qualtrics-logo.png" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="Qualtrics"></div>
+                        <div class="platform-item marquee-dup"><img src="./image/questionpro-logo.svg" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="QuestionPro"></div>
+                        <div class="platform-item marquee-dup"><img src="./image/forsta-logo.jpg" width="130" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="Forsta"></div>
+                        <div class="platform-item marquee-dup"><img src="./image//alchemer-logo.png" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="Alchemer"></div>                        
+                        <div class="platform-item marquee-dup"><img src="./image/surveymonkey_Logo.svg" width="170" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="SurveyMonkey"></div>                        
+                        <div class="platform-item marquee-dup"><img src="./image/surveysparrow-logo.png" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="SurveySparrow"></div>
+                        <div class="platform-item marquee-dup"><img src="./image/crowdtech.svg" width="100" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="CrowdTech"></div>
+                        <div class="platform-item marquee-dup"><img src="./image/zohosurvey-logo.png" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="Zoho Surveys"></div>                        
+                        <div class="platform-item marquee-dup"><img src="./image/limesurvey-logo.svg" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="LimeSurvey"></div>  
+                        <div class="platform-item marquee-dup"><img src="./image/triple-s-logo.gif" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="Triple-S (.sss)"></div>  
+                        <div class="platform-item marquee-dup"><img src="./image/unicomglobal_logo.png" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="Dimensions"></div>                        
+                        <div class="platform-item marquee-dup"><img src="./image/cultureamp-logo.png" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="Cultureamp"></div>
+                        <div class="platform-item marquee-dup"><img src="./image/intellisurvey-logo.png" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="Intellisurvey"></div>
+                        <div class="platform-item marquee-dup"><img src="./image/smartsurvey-logo.svg" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="SmartSurvey"></div>                         
+                        <div class="platform-item marquee-dup"><img src="./image/surveyvista-logo.png" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="SurveyVista"></div>
+                        <div class="platform-item marquee-dup"><img src="./image/microsoft-forms-logo.jpg" width="110" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="Microsoft Forms"></div>
+                        <div class="platform-item marquee-dup"><img src="./image/google-forms-logo.png" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="Google Forms"></div>
+                        <div class="platform-item marquee-dup"><img src="./image/redcap_logo.svg" width="200" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="REDCap"></div>
+                    </div>
                     </div>
                 </div>   
                 <div class="platform-category">
                     <h3>Education & Training</h3>
-                    <div class="platform-list">
+                    <div class="platform-list-wrap has-marquee">
+                    <div class="platform-list marquee" data-count="10">
                         <div class="platform-item"><img src="./image/moodle_logo_TM.svg" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="Moodle"></div>
-                        <!-- <div class="platform-item"><img src="./image/campuscloud-logo.png" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="Moodle"></div> -->
                         <div class="platform-item"><img src="./image/canvas.jpg" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="Canvas"> </div>                        
                         <div class="platform-item"><img src="./image/kahoot_Logo.svg.png" width="120" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="Kahoot"></div>
                         <div class="platform-item"><img src="./image/imslogo.png" width="150" style="background-color:#fff" class="brandLogoImg" alt="IMS"></div>
@@ -4467,25 +4874,23 @@
                         <div class="platform-item"><img src="./image/classmarker-log-main-2x.png" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="ClassMarker"> </div>
                         <div class="platform-item"><img src="./image/atomic-jolt_logo.svg" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="Atomic Jolt"></div>
                         <div class="platform-item"><img src="./image/pointerpro-logo.png" width="140" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="Pointer Pro"></div>
+                        <div class="platform-item marquee-dup"><img src="./image/moodle_logo_TM.svg" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="Moodle"></div>
+                        <div class="platform-item marquee-dup"><img src="./image/canvas.jpg" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="Canvas"> </div>                        
+                        <div class="platform-item marquee-dup"><img src="./image/kahoot_Logo.svg.png" width="120" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="Kahoot"></div>
+                        <div class="platform-item marquee-dup"><img src="./image/imslogo.png" width="150" style="background-color:#fff" class="brandLogoImg" alt="IMS"></div>
+                        <div class="platform-item marquee-dup"><img src="./image/respondus-logo.svg" width="150" style="background-color:#fff" class="brandLogoImg" alt="Respondus"></div>
+                        <div class="platform-item marquee-dup"><img src="./image/learnworlds.svg" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="LearnWorlds"></div>
+                        <div class="platform-item marquee-dup"><img src="./image/bc-logo-blk.png" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="BrainCert"></div>
+                        <div class="platform-item marquee-dup"><img src="./image/classmarker-log-main-2x.png" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="ClassMarker"> </div>
+                        <div class="platform-item marquee-dup"><img src="./image/atomic-jolt_logo.svg" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="Atomic Jolt"></div>
+                        <div class="platform-item marquee-dup"><img src="./image/pointerpro-logo.png" width="140" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="Pointer Pro"></div>
+                    </div>
                     </div>
                 </div>
- 
-                <div class="platform-category">
-                    <h3>Enterprise & Healthcare</h3>
-                    <div class="platform-list">
-                        <div class="platform-item"><img src="./image/microsoft-forms-logo.jpg" width="110" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="Microsoft Forms"></div>
-                        <div class="platform-item"><img src="./image/google-forms-logo.png" width="150" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="Google Forms"></div>
-                        <div class="platform-item"><img src="./image/redcap_logo.svg" width="200" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="REDCap"></div> 
-                        <div class="platform-item" style="color: rgb(75, 85, 99); font-size: 0.9rem; font-style: italic;">+ More platforms coming soon</div>
-                        <div class="platform-item" style="color: rgb(75, 85, 99); font-size: 0.9rem; font-style: italic;">Can’t find your platform? <a href="mailto:admin@piraiai.com" class="email-button">Email us</a>, and we’ll add support.</div>
-                    </div>
-                </div>  
-                <!-- <div class="platform-category">
-                    <h3>Healthcare & Clinical</h3>
-                    <div class="platform-list">
-                        <div class="platform-item"><img src="./image/redcap_logo.svg" width="200" class="brandLogoImg" style="background-color: rgb(255, 255, 255);" alt="REDCap"></div>                        
-                    </div>
-                </div> -->
+            </div>
+            <div class="platform-footnote">
+                <div style="color: #9ca3af; font-size: 0.9rem; font-style: italic;">+ More platforms coming soon</div>
+                <div style="color: #9ca3af; font-size: 0.9rem; font-style: italic; margin-top: 6px;">Can’t find your platform? <a href="mailto:admin@piraiai.com" class="email-button" style="color: #8b5cf6; text-decoration: underline;">Email us</a>, and we’ll add support.</div>
             </div>
         </div>
     </section>    
@@ -4495,19 +4900,19 @@
         <div class="container">
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">🚀</div>
+                    <div class="feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 9.9-1"></path></svg></div>
                     <h3>Eliminate Vendor Lock-in</h3>
                     <p>Migrate between platforms effortlessly. Handle multi-platform projects without rebuilding content from scratch. Future-proof your surveys and forms.</p>
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">🌍</div>
+                    <div class="feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
                     <h3>Global Deployment Ready</h3>
                     <p>Deploy the same survey across multiple regions and platforms simultaneously. Perfect character encoding for 50+ languages with enterprise-grade reliability.</p>
                 </div>
                 
                 <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
+                    <div class="feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg></div>
                     <h3>Universal Format Transformation</h3>
                     <p>Transform documents to any of 20+ platform formats. Perfect for agencies, enterprises, and organizations using multiple survey tools.</p>
                 </div>
@@ -4526,64 +4931,55 @@ See the dramatic difference in survey creation time
                 </p>
             </div>
             
-            <div class="comparison-container">
-                <div class="comparison-grid">
-                    <!-- Manual Process -->
-                    <div class="process-card manual-process">
-                        <div class="process-header">
-                            <div class="process-icon manual-icon">⏳</div>
-                            <h3>Manual Process</h3>
-                            <div class="total-time manual-time">7 Hours Total</div>
+            <div class="split-comparison">
+                <!-- Manual Process -->
+                <div class="split-half split-manual">
+                    <div class="split-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+                    <div class="split-label">Traditional Method</div>
+                    <div class="split-number">7<span class="split-unit">HRS</span></div>
+                    <div class="split-total-label">Manual Process Total</div>
+
+                    <div class="split-breakdown">
+                        <div class="breakdown-item">
+                            <span class="task">Typing questions</span>
+                            <span class="time">2.5 hours</span>
                         </div>
-                        
-                        <div class="process-breakdown">
-                            <div class="breakdown-item">
-                                <span class="task">Typing questions</span>
-                                <span class="time">2.5 hours</span>
-                            </div>
-                            <div class="breakdown-item">
-                                <span class="task">Entering 125 options</span>
-                                <span class="time">3 hours</span>
-                            </div>
-                            <div class="breakdown-item">
-                                <span class="task">Formatting & cleanup</span>
-                                <span class="time">1.5 hours</span>
-                            </div>
+                        <div class="breakdown-item">
+                            <span class="task">Entering 125 options</span>
+                            <span class="time">3 hours</span>
                         </div>
-                        
-                        <div class="process-label">Traditional Method</div>
+                        <div class="breakdown-item">
+                            <span class="task">Formatting & cleanup</span>
+                            <span class="time">1.5 hours</span>
+                        </div>
                     </div>
-                    
-                    <!-- VS Divider -->
-                    <div class="vs-divider">
-                        <div class="vs-circle">VS</div>
-                        <div class="speed-indicator">70x FASTER</div>
-                    </div>
-                    
-                    <!-- Pirai AI Process -->
-                    <div class="process-card pirai-process">
-                        <div class="process-header">
-                            <div class="process-icon pirai-icon">⚡</div>
-                            <h3>Pirai AI Process</h3>
-                            <div class="total-time pirai-time">6 Minutes Total</div>
+                </div>
+
+                <!-- Seam badge -->
+                <div class="split-seam">
+                    <div class="split-seam-badge">70x FASTER</div>
+                </div>
+
+                <!-- Pirai AI Process -->
+                <div class="split-half split-pirai">
+                    <div class="split-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="#9B6BFF"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></div>
+                    <div class="split-label">Pirai AI Automation</div>
+                    <div class="split-number">6<span class="split-unit">MIN</span></div>
+                    <div class="split-total-label">Pirai AI Process Total</div>
+
+                    <div class="split-breakdown">
+                        <div class="breakdown-item">
+                            <span class="task">Upload document</span>
+                            <span class="time">30 seconds</span>
                         </div>
-                        
-                        <div class="process-breakdown">
-                            <div class="breakdown-item">
-                                <span class="task">Upload document</span>
-                                <span class="time">30 seconds</span>
-                            </div>
-                            <div class="breakdown-item">
-                                <span class="task">AI processing</span>
-                                <span class="time">2 seconds</span>
-                            </div>
-                            <div class="breakdown-item">
-                                <span class="task">Quick review</span>
-                                <span class="time">5 minutes</span>
-                            </div>
+                        <div class="breakdown-item">
+                            <span class="task">AI processing</span>
+                            <span class="time">2 seconds</span>
                         </div>
-                        
-                        <div class="process-label">Pirai AI Automation</div>
+                        <div class="breakdown-item">
+                            <span class="task">Quick review</span>
+                            <span class="time">5 minutes</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -4593,27 +4989,27 @@ See the dramatic difference in survey creation time
                 <h3>What Your Team Can Focus On Instead</h3>
                 <div class="benefits-grid">
                     <div class="benefit-item">
-                        <div class="benefit-icon">🔧</div>
+                        <div class="benefit-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg></div>
                         <span>Custom logic & branching development</span>
                     </div>
                     <div class="benefit-item">
-                        <div class="benefit-icon">🔗</div>
+                        <div class="benefit-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></div>
                         <span>API integrations & databases</span>
                     </div>
                     <div class="benefit-item">
-                        <div class="benefit-icon">⚙️</div>
+                        <div class="benefit-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg></div>
                         <span>Advanced survey features</span>
                     </div>
                     <div class="benefit-item">
-                        <div class="benefit-icon">🎨</div>
+                        <div class="benefit-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.5 0 10-4 10-9a9 9 0 0 0-9-9 9.75 9.75 0 0 0-10 9.5c0 3 2 5.5 4.5 5.5H10a2 2 0 0 1 2 2 2 2 0 0 0 2 2z"></path><circle cx="6.5" cy="11.5" r="1"></circle><circle cx="9.5" cy="7.5" r="1"></circle><circle cx="14.5" cy="7.5" r="1"></circle><circle cx="17.5" cy="11.5" r="1"></circle></svg></div>
                         <span>User experience customization</span>
                     </div>
                     <div class="benefit-item">
-                        <div class="benefit-icon">📊</div>
+                        <div class="benefit-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></div>
                         <span>Analytics & reporting dashboards</span>
                     </div>
                     <div class="benefit-item">
-                        <div class="benefit-icon">🚀</div>
+                        <div class="benefit-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path></svg></div>
                         <span>Strategic project delivery</span>
                     </div>
                 </div>
@@ -4721,51 +5117,6 @@ See the dramatic difference in survey creation time
         </div>        
     </section> -->
 
-    <!-- Process Section -->
-    <section id="process" class="process">
-        <div class="container">
-            <h2 class="section-title">Universal Automation Workflow</h2>
-            <p class="section-subtitle">
-                Perfect hybrid approach: AI handles tedious data entry, you focus on platform-specific customization
-            </p>
-            
-            <div class="process-grid">
-                <div class="process-step">
-                    <div class="step-icon">1</div>
-                    <h3>Upload Document</h3>
-                    <p>Upload your Word document with questions, response options, and structure in any language</p>
-                    <div class="time-badge">⏱️ 2 minutes</div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-icon">2</div>
-                    <h3>Pirai AI Processing</h3>
-                    <p>Our AI converts questions, formats response options, and structures content for your selected platform automatically.</p>
-                    <div class="time-badge">⏱️ 3 minutes</div>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-icon">3</div>
-                    <h3>Review & Deploy</h3>
-                    <p>Quick review of generated output, then download platform-ready files for immediate import.</p>
-                    <div class="time-badge">⏱️ 10 minutes</div>
-                </div>
-                
-                <!-- <div class="process-step">
-                    <div class="step-icon">4</div>
-                    <h3>Customize Logic (Optional)</h3>
-                    <p>Add platform-specific features like skip logic, display logic, and advanced workflows as needed</p>
-                    <div class="time-badge">⏱️ Varies by complexity</div>
-                </div> -->
-            </div>
-            
-            <div class="hero-highlight" style="margin-top: 48px; text-align: center; margin-left: auto; margin-right: auto;">
-                <h3>Total Time: 15 minutes for data conversion + your customization time</h3>
-                <p>Traditional Method: Manual recreation from scratch for each platform</p>
-                <div class="savings">Time Savings: Focus on logic and customization, not repetitive data entry</div>
-            </div>
-        </div>
-    </section>
     <!-- ============================================================ -->
     <!-- PRICING SECTION: REPLACEMENT                                -->
     <!-- Drop in place of existing <section id="pricing"> block       -->
@@ -5157,19 +5508,19 @@ See the dramatic difference in survey creation time
                     <h3>Zero Learning Curve for Your Team</h3>
                     <div class="banner-benefits">
                         <div class="benefit-item">
-                            <span class="benefit-icon">📋</span>
+                            <span class="benefit-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"></path><rect x="9" y="3" width="6" height="4" rx="1" ry="1"></rect></svg></span>
                             <span class="benefit-text">Keep your existing templates</span>
                         </div>
                         <div class="benefit-item">
-                            <span class="benefit-icon">👥</span>
+                            <span class="benefit-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span>
                             <span class="benefit-text">No team retraining required</span>
                         </div>
                         <div class="benefit-item">
-                            <span class="benefit-icon">⏰</span>
+                            <span class="benefit-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>
                             <span class="benefit-text">Immediate productivity gains</span>
                         </div>
                         <div class="benefit-item">
-                            <span class="benefit-icon">🔄</span>
+                            <span class="benefit-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg></span>
                             <span class="benefit-text">Seamless integration</span>
                         </div>
                     </div>
@@ -6431,7 +6782,7 @@ See the dramatic difference in survey creation time
 					<h3>Platforms</h3>
 					<ul class="footer-links">
 						<li><a href="/#platforms">All 20+ Platforms</a></li>
-						<li><a href="/#process">How It Works</a></li>
+						<li><a href="/how-pirai-ai-works">How It Works</a></li>
 						<li><a href="/#features">Features</a></li>
 						<li><a href="/#pricing">Pricing</a></li>
                         <li><a href="/faq">FAQ</a></li>
@@ -6720,6 +7071,77 @@ See the dramatic difference in survey creation time
 				document.body.style.overflow = '';
 			}
 		});
+
+		// Products mega menu (JS-controlled, with a close-delay so crossing the
+		// gap between the trigger and the panel doesn't close the menu)
+		const productsDropdown = document.getElementById('productsDropdown');
+		const productsDropdownTrigger = document.getElementById('productsDropdownTrigger');
+		const productsMegaMenu = productsDropdown ? productsDropdown.querySelector('.mega-menu') : null;
+		let productsCloseTimer = null;
+
+		function openProductsMenu() {
+			if (productsCloseTimer) {
+				clearTimeout(productsCloseTimer);
+				productsCloseTimer = null;
+			}
+			productsDropdown.classList.add('active');
+			productsDropdownTrigger.setAttribute('aria-expanded', 'true');
+		}
+
+		function scheduleCloseProductsMenu() {
+			if (productsCloseTimer) clearTimeout(productsCloseTimer);
+			productsCloseTimer = setTimeout(() => {
+				productsDropdown.classList.remove('active');
+				productsDropdownTrigger.setAttribute('aria-expanded', 'false');
+			}, 250);
+		}
+
+		if (productsDropdown && productsDropdownTrigger && productsMegaMenu) {
+			// Hover (mouse users): open on enter, close on leave with a short buffer
+			productsDropdown.addEventListener('mouseenter', openProductsMenu);
+			productsDropdown.addEventListener('mouseleave', scheduleCloseProductsMenu);
+			productsMegaMenu.addEventListener('mouseenter', openProductsMenu);
+			productsMegaMenu.addEventListener('mouseleave', scheduleCloseProductsMenu);
+
+			// Click/tap (touch users, and keyboard-adjacent clicking)
+			productsDropdownTrigger.addEventListener('click', (e) => {
+				e.stopPropagation();
+				if (productsDropdown.classList.contains('active')) {
+					if (productsCloseTimer) clearTimeout(productsCloseTimer);
+					productsDropdown.classList.remove('active');
+					productsDropdownTrigger.setAttribute('aria-expanded', 'false');
+				} else {
+					openProductsMenu();
+				}
+			});
+
+			document.addEventListener('click', (e) => {
+				if (!productsDropdown.contains(e.target)) {
+					if (productsCloseTimer) clearTimeout(productsCloseTimer);
+					productsDropdown.classList.remove('active');
+					productsDropdownTrigger.setAttribute('aria-expanded', 'false');
+				}
+			});
+
+			document.addEventListener('keydown', (e) => {
+				if (e.key === 'Escape') {
+					if (productsCloseTimer) clearTimeout(productsCloseTimer);
+					productsDropdown.classList.remove('active');
+					productsDropdownTrigger.setAttribute('aria-expanded', 'false');
+				}
+			});
+		}
+
+		// Mobile Products accordion
+		const mobileProductsAccordion = document.getElementById('mobileProductsAccordion');
+		const mobileProductsTrigger = document.getElementById('mobileProductsTrigger');
+
+		if (mobileProductsAccordion && mobileProductsTrigger) {
+			mobileProductsTrigger.addEventListener('click', () => {
+				const isActive = mobileProductsAccordion.classList.toggle('active');
+				mobileProductsTrigger.setAttribute('aria-expanded', isActive);
+			});
+		}
     </script>
 
     <!-- Testimonial Carousel Script -->
