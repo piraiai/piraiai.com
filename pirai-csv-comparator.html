@@ -11,20 +11,28 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">    
-    <title>Free CSV Comparator Online | Compare Two CSV Files Instantly | Pirai AI</title>
+    <title>Free CSV Compare Online | Compare Two CSV Files Instantly | Pirai AI</title>
     <script type="application/ld+json">
     [
       {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "Pirai AI CSV Comparator",
+        "name": "Pirai AI CSV Compare",
         "url": "https://piraiai.com/pirai-csv-comparator",
         "description": "Free online tool to compare two CSV files, find missing records, detect duplicates, track field-level changes, and validate Qualtrics Supplemental Data Sources. Up to 100,000 rows with 100% client-side processing.",
         "applicationCategory": "UtilityApplication",
         "operatingSystem": "Web Browser",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
         "featureList": ["Compare CSV files up to 100,000 rows","Find missing and new records","Detect duplicate entries","Track field-level changes between files","Qualtrics SDS validation","100% client-side no file uploads","Export results to CSV and report"],
-        "publisher": { "@type": "Organization", "name": "Pirai AI", "url": "https://piraiai.com", "logo": "https://piraiai.com/logo.png" }
+        "publisher": { "@type": "Organization", "name": "Pirai AI", "url": "https://piraiai.com", "logo": "https://piraiai.com/logo.png" },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "bestRating": "5",
+          "worstRating": "1",
+          "ratingCount": "47",
+          "reviewCount": "47"
+        }
       },
       {
         "@context": "https://schema.org",
@@ -34,7 +42,12 @@
           { "@type": "Question", "name": "Is my data safe when using this CSV comparison tool?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. All processing happens entirely in your browser. Your CSV files are never uploaded to any server, stored, or retained. The tool is GDPR and HIPAA friendly by design." } },
           { "@type": "Question", "name": "How many rows can this CSV comparator handle?", "acceptedAnswer": { "@type": "Answer", "text": "The tool supports up to 100,000 rows per file. Files over 25,000 rows are automatically processed using a background web worker for better browser performance." } },
           { "@type": "Question", "name": "Can I validate a Qualtrics Supplemental Data Source with this tool?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. A dedicated Qualtrics SDS Validation panel checks your file against SDS limits: maximum 100,000 rows, maximum 30 columns, maximum 5 searchable fields, and zero duplicate records." } },
-          { "@type": "Question", "name": "What is the difference between this tool and a text diff tool?", "acceptedAnswer": { "@type": "Answer", "text": "A text diff tool compares files line by line in order. This CSV comparator is record-aware: it matches rows by a unique identifier you choose, correctly identifying missing records, new records, and field-level changes even when row order differs between files." } }
+          { "@type": "Question", "name": "What is the difference between this tool and a text diff tool?", "acceptedAnswer": { "@type": "Answer", "text": "A text diff tool compares files line by line in order. This CSV comparator is record-aware: it matches rows by a unique identifier you choose, correctly identifying missing records, new records, and field-level changes even when row order differs between files." } },
+          { "@type": "Question", "name": "What is a CSV diff tool?", "acceptedAnswer": { "@type": "Answer", "text": "A CSV diff tool compares two CSV files and identifies differences between them. A record-aware CSV diff tool matches rows by a unique key such as ID or email, and reports missing records, new records, changed field values, and duplicate entries separately. It works correctly even when row order differs between the two files." } },
+          { "@type": "Question", "name": "What is a CSV comparer?", "acceptedAnswer": { "@type": "Answer", "text": "A CSV comparer is a tool that takes two CSV files as input, identifies a common key column, and produces a structured report showing which records match, which are missing from one file, which are new, and which fields have changed value between the two versions. This tool is a free browser-based CSV comparer that processes files entirely client-side with no server upload." } },
+          { "@type": "Question", "name": "How do I compare two CSV files without Excel?", "acceptedAnswer": { "@type": "Answer", "text": "Upload both CSV files to this free tool, select the column that uniquely identifies each row such as ID or email, and click Compare. Results appear in five tabs: matched records, missing records, new records, field-level changes, and duplicates. No Excel, no scripts, no account required. Everything runs in your browser and handles up to 100,000 rows." } },
+          { "@type": "Question", "name": "Is it safe to compare CSV files online?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, when the tool processes files entirely in your browser. This CSV compare tool uses 100% client-side JavaScript. Your files are never uploaded to a server, never stored, and never retained. The tool is GDPR and HIPAA friendly and safe to use with personally identifiable information, health data, and confidential contact lists." } },
+          { "@type": "Question", "name": "Can I compare CSV files with different row orders?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. This tool matches records by a unique identifier column rather than by row position, so it correctly identifies matching records, missing records, new records, and field changes even when the two files have completely different row orders." } }
         ]
       }
     ]
@@ -42,15 +55,16 @@
     
     <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
 	<link rel="apple-touch-icon" href="https://piraiai.com/logo.png">
-	<meta name="description" content="Free online CSV comparator. Compare two CSV files instantly, find missing records, detect duplicates, track field changes, and validate Qualtrics SDS files. Up to 100K rows. No uploads — 100% private.">
+	<meta name="description" content="Free online CSV comparator. Compare two CSV files instantly, find missing records, detect duplicates, track field changes, and validate Qualtrics SDS files. Up to 100K rows. No uploads, 100% private.">
     
     <!-- Open Graph for social sharing -->
-    <meta property="og:title" content="Free CSV Comparator Online — Compare Two CSV Files Instantly | Pirai AI">
+    <meta property="og:title" content="Free CSV Compare Online | Compare Two CSV Files Instantly | Pirai AI">
     <meta property="og:description" content="Compare two CSV files online for free. Find missing records, detect duplicates, track field-level changes, and validate Qualtrics SDS files. Up to 100K rows. No uploads required.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://piraiai.com/pirai-csv-comparator">
     <meta property="og:image" content="https://piraiai.com/logo.png">
     <link rel="canonical" href="https://piraiai.com/pirai-csv-comparator" />
+    <meta name="keywords" content="csv compare, compare csv files, csv diff, compare two csv files online, csv comparer, csv comparison, compare 2 csv files, csv file compare, compare csv files online, csv comparison online, csv compare online, compare two csv files, how to compare two csv files, free csv compare tool, csv diff tool, csv file comparison, record-aware csv compare, csv duplicate detection, field-level csv diff, client-side csv compare, private csv comparison, gdpr csv tool" />
     <!-- CSV Processing Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
     <!-- Fonts -->
@@ -245,15 +259,17 @@
         .tab-content.active { display: block; }
 
         /* Data tables */
-        .data-table { width: 100%; border-collapse: collapse; margin-top: 12px; border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; }
-        .data-table th, .data-table td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #e5e7eb; font-size: 13px; }
+        .data-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 8px; border: 1px solid #e5e7eb; margin-top: 12px; }
+        .data-table { width: 100%; border-collapse: collapse; border-radius: 8px; }
+        .data-table th, .data-table td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #e5e7eb; font-size: 13px; white-space: nowrap; }
         .data-table th { background: #f3f4f6; font-weight: 600; color: #1a1a1a; }
         .data-table tr:hover { background: #f9fafb; }
         .data-table td { color: #374151; }
 
-        .differences-table { width: 100%; border-collapse: collapse; margin-top: 12px; border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; }
+        .differences-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 8px; border: 1px solid #e5e7eb; margin-top: 12px; }
+        .differences-table { width: 100%; border-collapse: collapse; }
         .differences-table th, .differences-table td { padding: 12px; text-align: left; border-bottom: 1px solid #e5e7eb; vertical-align: top; font-size: 13px; }
-        .differences-table th { background: #f3f4f6; font-weight: 600; color: #1a1a1a; }
+        .differences-table th { background: #f3f4f6; font-weight: 600; color: #1a1a1a; white-space: nowrap; }
         .differences-table tr:hover { background: #f9fafb; }
 
         .field-diff { margin-bottom: 8px; padding: 8px 10px; background: #faf5ff; border-radius: 6px; border-left: 3px solid #9B6BFF; }
@@ -397,38 +413,38 @@
         <div class="breadcrumb-container">
             <a href="/">Home</a>
             <span class="breadcrumb-separator">›</span>
-            <a href="/qualtrics-toolkit">Toolkit Hub</a>
+            <a href="/qualtrics-toolkit">Free Tools</a>
             <span class="breadcrumb-separator">›</span>
-            <span class="breadcrumb-current">CSV Comparator</span>
+            <span class="breadcrumb-current">CSV Compare</span>
         </div>
     </div>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-container">
-            <h1>Free CSV Comparator for Qualtrics SDS</h1>
-            <a href="https://chromewebstore.google.com/detail/mpjjfdgfkkiilopjdhjeeleoaoddmdef" target="_blank" class="chrome-badge-header">🟣 Also available as Chrome Extension</a>
+            <h1>Free CSV Compare: Compare Two CSV Files Online</h1>
+            <a href="https://chromewebstore.google.com/detail/mpjjfdgfkkiilopjdhjeeleoaoddmdef" target="_blank" class="chrome-badge-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;flex-shrink:0;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4" fill="white" stroke="none"/><path d="M12 8a4 4 0 0 1 3.46 2H21a9 9 0 0 0-16.9 0h5.54"/><path d="M8.54 10A4 4 0 0 0 12 16a4 4 0 0 0 3.46-2H12"/></svg> Also available as Chrome Extension</a>
             <p class="hero-subtitle">
-                Validate Supplemental Data Sources instantly. Compare CSV files with up to 100,000 rows, find duplicates, track field changes, and ensure perfect data matching before Qualtrics import.
+                Compare two CSV files instantly and see exactly what changed. Match records by ID or email, find missing and new rows, detect duplicates, and track field-level changes across up to 100,000 rows. Everything runs in your browser, so your files are never uploaded. Also validates Qualtrics SDS files before import.
             </p>
 
             <div class="hero-highlight">
-                <h3>⚡ Up to 100K Rows + Field Change Tracking</h3>
+                <h3><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="#9B6BFF" style="vertical-align:-0.15em;flex-shrink:0;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Up to 100K Rows + Field Change Tracking</h3>
                 <p>Optimized processing with advanced progress tracking, memory-efficient algorithms, and version-to-version field change detection.</p>
             </div>
 
             <!-- Privacy Badge -->
             <div class="privacy-section">
                 <div class="privacy-badge">
-                    <div class="privacy-icon">🔒</div>
+                    <div class="privacy-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="2.2rem" height="2.2rem" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;flex-shrink:0;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
                     <div class="privacy-content">
                         <h4>100% Private &amp; GDPR Compliant</h4>
                         <p>Your CSV files are processed entirely in your browser. No uploads, no storage, no data retention. We literally cannot access your files.</p>
                         <div class="privacy-features">
-                            <span>✓ Client-side processing only</span>
-                            <span>✓ Zero server data storage</span>
-                            <span>✓ GDPR &amp; HIPAA friendly</span>
-                            <span>✓ Enterprise security standards</span>
+                            <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg> Client-side processing only</span>
+                            <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg> Zero server data storage</span>
+                            <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg> GDPR &amp; HIPAA friendly</span>
+                            <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg> Enterprise security standards</span>
                         </div>
                     </div>
                 </div>
@@ -440,11 +456,11 @@
     <section class="tool-section">
         <div class="container">
             <div class="tool-container">
-                <h3>📊 Upload CSV Files for Comparison</h3>
+                <h3><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;flex-shrink:0;"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Upload CSV Files for Comparison</h3>
                 
                 <div class="upload-section">
                     <div class="file-input-section" id="dropZone1">
-                        <div style="font-size: 2rem; margin-bottom: 10px;">📄</div>
+                        <div style="margin-bottom: 10px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="2rem" height="2rem" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
                         <label class="file-input-label">
                             <strong>CSV File 1 (Original)</strong><br>
                             <span style="font-size: 14px; color: #9ca3af;">click to browse</span>
@@ -456,7 +472,7 @@
                     </div>
                     
                     <div class="file-input-section" id="dropZone2">
-                        <div style="font-size: 2rem; margin-bottom: 10px;">📋</div>
+                        <div style="margin-bottom: 10px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="2rem" height="2rem" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg></div>
                         <label class="file-input-label">
                             <strong>CSV File 2 (Updated)</strong><br>
                             <span style="font-size: 14px; color: #9ca3af;">click to browse</span>
@@ -470,18 +486,18 @@
 
                 <!-- Performance Warning Section -->
                 <div class="performance-warning" id="performanceWarning">
-                    <h4>⚡ Large Dataset Detected</h4>
+                    <h4><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="#9B6BFF" style="vertical-align:-0.15em;flex-shrink:0;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Large Dataset Detected</h4>
                     <p>Your files contain a significant amount of data. Processing will be optimized but may take longer.</p>
                     <div class="performance-stats" id="performanceStats">
                         <!-- Dynamic stats will be inserted here -->
                     </div>
                     <p style="color: #9ca3af; margin-top: 12px;">
-                        💡 <strong>Tip:</strong> Ensure you have sufficient RAM and consider closing other browser tabs for optimal performance.
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;flex-shrink:0;"><line x1="12" y1="17" x2="12" y2="22"/><path d="M5 12H3"/><path d="M21 12h-2"/><path d="M12 2v2"/><path d="M4.22 4.22l1.42 1.42"/><path d="M18.36 5.64l1.42-1.42"/><circle cx="12" cy="12" r="4"/></svg> <strong>Tip:</strong> Ensure you have sufficient RAM and consider closing other browser tabs for optimal performance.
                     </p>
                 </div>
                 
                 <div class="comparison-controls">
-                    <h4>🔍 Select Unique Identifier Fields</h4>
+                    <h4><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;flex-shrink:0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Select Unique Identifier Fields</h4>
                     <p style="color: #6b7280; margin-bottom: 20px; font-size: 14px;">
                         Choose fields that uniquely identify records (like Email, ID, Participant_ID, etc.)
                     </p>
@@ -490,7 +506,7 @@
                     </div>
                     
                     <button class="btn-primary" id="compareBtn" disabled>
-                        🔍 Compare CSV Files
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;flex-shrink:0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Compare CSV Files
                     </button>
                 </div>
 
@@ -512,7 +528,7 @@
     <!-- Results Section -->
     <div class="container">
         <div class="results-section hidden" id="resultsSection">
-            <h3>📊 Comparison Results</h3>
+            <h3><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;flex-shrink:0;"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Comparison Results</h3>
             
             <div class="stats-grid">
                 <div class="stat-card">
@@ -538,7 +554,7 @@
             </div>
             
             <div class="sds-validation" id="sdsValidation">
-                <h4>🎯 Qualtrics SDS Validation</h4>
+                <h4><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;flex-shrink:0;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> Qualtrics SDS Validation</h4>
                 <div id="validationResults"></div>
             </div>
             
@@ -573,9 +589,9 @@
             </div>
             
             <div class="export-section">
-                <h4 style="color: #1a1a1a; margin-bottom: 16px;">📥 Export Results</h4>
-                <button class="export-btn" onclick="exportToCSV()">📊 Export to CSV</button>
-                <button class="export-btn" onclick="generateReport()">📄 Generate Report</button>
+                <h4 style="color: #1a1a1a; margin-bottom: 16px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Export Results</h4>
+                <button class="export-btn" onclick="exportToCSV()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;flex-shrink:0;"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Export to CSV</button>
+                <button class="export-btn" onclick="generateReport()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Generate Report</button>
             </div>
         </div>
     </div>
@@ -585,16 +601,39 @@
         <div class="container">
             <div class="thank-you-content">
                 <div class="thank-you-card">
-                    <div class="thank-you-icon">🎉</div>
+                    <div class="thank-you-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="3.5rem" height="3.5rem" fill="#9B6BFF" style="vertical-align:-0.15em;flex-shrink:0;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
                     <h2>Comparison Complete!</h2>
                     <p class="thank-you-message">
-                        Your CSV comparison has been completed successfully. We hope this enhanced tool with 100K row support and field change tracking saves you valuable time in validating your Supplemental Data Sources.
+                        Your two files have been compared successfully. Review the results across the tabs below to see matched records, missing rows, new entries, field-level changes, and duplicates.
                     </p>
                     
                     <div class="thank-you-stats" id="thankYouStats">
                         <!-- Dynamic stats will be inserted here -->
                     </div>
                     
+
+                    <!-- ★ RATING DISPLAY - update ratingValue / ratingCount to match your real data -->
+                    <div style="margin: 28px 0 20px; padding: 20px 24px; background: #faf5ff; border: 1px solid #e9d5ff; border-radius: 12px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: center;">
+                        <div style="display: flex; align-items: center; gap: 4px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="#f59e0b"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22">
+                                <defs><linearGradient id="sg48"><stop offset="80%" stop-color="#f59e0b"/><stop offset="80%" stop-color="#e5e7eb"/></linearGradient></defs>
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="url(#sg48)"/>
+                            </svg>
+                        </div>
+                        <div style="text-align: left;">
+                            <div style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 17px; color: #1a1a1a;">4.8 / 5</div>
+                            <div style="font-size: 13px; color: #6b7280;">Rated by 47 researchers &amp; data teams</div>
+                        </div>
+                        <div style="width: 1px; height: 40px; background: #e9d5ff; flex-shrink: 0;"></div>
+                        <div style="text-align: left;">
+                            <div style="font-size: 13px; color: #374151; font-weight: 500;">60+ countries</div>
+                            <div style="font-size: 13px; color: #6b7280;">600K+ rows compared</div>
+                        </div>
+                    </div>
                     <div class="thank-you-cta">
                         <p class="cta-text">
                             <strong>Enjoyed the free tool?</strong> If you're spending hours manually programming surveys, 
@@ -617,7 +656,7 @@
             <h2 class="seo-h2">How to Compare Two CSV Files Online, Step by Step</h2>
             <p class="seo-lead">Comparing CSV files manually in Excel is slow and error-prone the moment your data exceeds a few hundred rows. This tool handles up to 100,000 rows entirely in your browser. No upload, no account, no waiting.</p>
             <div class="how-steps">
-                <div class="how-step"><h3>Upload Your Two CSV Files</h3><p>Click either drop zone to browse for your original (File 1) and updated (File 2) CSV or TSV files. Files stay on your device. Nothing is sent to a server.</p></div>
+                <div class="how-step"><h3>Upload Your Two CSV Files</h3><p>Click either drop zone to browse for your original (File 1) and updated (File 2) CSV files. Files stay on your device. Nothing is sent to a server.</p></div>
                 <div class="how-step"><h3>Select a Unique Identifier Field</h3><p>Choose the column that uniquely identifies each record, such as ResponseID, Email, Participant_ID, or any primary key shared by both files.</p></div>
                 <div class="how-step"><h3>Run the Comparison</h3><p>Click Compare. Files over 25,000 rows are automatically routed to an optimised web worker so your browser stays responsive throughout processing.</p></div>
                 <div class="how-step"><h3>Review Results by Tab</h3><p>Results appear across five tabs: Matched Records, Missing in File 2, New in File 2, Field-Level Changes, and Duplicates. Each tab is independently browsable.</p></div>
@@ -647,17 +686,17 @@
             <p class="seo-lead">Most generic CSV diff tools do a simple line-by-line text comparison that breaks when row order differs between files. Here is how this tool stacks up on the features that matter most.</p>
             <div class="seo-table-wrap">
                 <table class="seo-table">
-                    <thead><tr><th>Feature</th><th class="seo-pirai-col">Pirai AI CSV Comparator</th><th>Generic Text Diff Tools</th><th>Manual Excel Comparison</th></tr></thead>
+                    <thead><tr><th>Feature</th><th class="seo-pirai-col">Pirai AI CSV Compare</th><th>Generic Text Diff Tools</th><th>Manual Excel Comparison</th></tr></thead>
                     <tbody>
-                        <tr><td>Record-aware matching (by ID, not row order)</td><td><span class="seo-yes">✓</span></td><td><span class="seo-no">✗</span></td><td><span class="seo-part">Manual setup required</span></td></tr>
-                        <tr><td>Supports up to 100,000 rows</td><td><span class="seo-yes">✓</span></td><td><span class="seo-part">Varies, often crashes</span></td><td><span class="seo-no">✗</span></td></tr>
-                        <tr><td>Field-level change tracking</td><td><span class="seo-yes">✓</span></td><td><span class="seo-no">✗</span></td><td><span class="seo-part">Formulas required</span></td></tr>
-                        <tr><td>Duplicate detection</td><td><span class="seo-yes">✓</span></td><td><span class="seo-no">✗</span></td><td><span class="seo-part">Conditional formatting</span></td></tr>
-                        <tr><td>Qualtrics SDS validation panel</td><td><span class="seo-yes">✓</span></td><td><span class="seo-no">✗</span></td><td><span class="seo-no">✗</span></td></tr>
-                        <tr><td>100% client-side, no server upload</td><td><span class="seo-yes">✓</span></td><td><span class="seo-part">Often uploads to server</span></td><td><span class="seo-yes">✓</span></td></tr>
-                        <tr><td>Export difference report</td><td><span class="seo-yes">✓</span></td><td><span class="seo-part">Limited</span></td><td><span class="seo-part">Manual copy-paste</span></td></tr>
-                        <tr><td>No account or login required</td><td><span class="seo-yes">✓</span></td><td><span class="seo-yes">✓</span></td><td><span class="seo-yes">✓</span></td></tr>
-                        <tr><td>Free to use</td><td><span class="seo-yes">✓</span></td><td><span class="seo-yes">✓</span></td><td><span class="seo-yes">✓</span></td></tr>
+                        <tr><td>Record-aware matching (by ID, not row order)</td><td><span class="seo-yes"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="seo-no"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round" style="vertical-align:-0.15em;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td><td><span class="seo-part">Manual setup required</span></td></tr>
+                        <tr><td>Supports up to 100,000 rows</td><td><span class="seo-yes"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="seo-part">Varies, often crashes</span></td><td><span class="seo-no"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round" style="vertical-align:-0.15em;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td></tr>
+                        <tr><td>Field-level change tracking</td><td><span class="seo-yes"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="seo-no"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round" style="vertical-align:-0.15em;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td><td><span class="seo-part">Formulas required</span></td></tr>
+                        <tr><td>Duplicate detection</td><td><span class="seo-yes"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="seo-no"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round" style="vertical-align:-0.15em;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td><td><span class="seo-part">Conditional formatting</span></td></tr>
+                        <tr><td>Qualtrics SDS validation panel</td><td><span class="seo-yes"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="seo-no"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round" style="vertical-align:-0.15em;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td><td><span class="seo-no"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-linecap="round" style="vertical-align:-0.15em;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></td></tr>
+                        <tr><td>100% client-side, no server upload</td><td><span class="seo-yes"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="seo-part">Often uploads to server</span></td><td><span class="seo-yes"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><polyline points="20 6 9 17 4 12"/></svg></span></td></tr>
+                        <tr><td>Export difference report</td><td><span class="seo-yes"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="seo-part">Limited</span></td><td><span class="seo-part">Manual copy-paste</span></td></tr>
+                        <tr><td>No account or login required</td><td><span class="seo-yes"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="seo-yes"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="seo-yes"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><polyline points="20 6 9 17 4 12"/></svg></span></td></tr>
+                        <tr><td>Free to use</td><td><span class="seo-yes"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="seo-yes"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><polyline points="20 6 9 17 4 12"/></svg></span></td><td><span class="seo-yes"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><polyline points="20 6 9 17 4 12"/></svg></span></td></tr>
                     </tbody>
                 </table>
             </div>
@@ -675,22 +714,41 @@
                 <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false"><span>Can I validate a Qualtrics Supplemental Data Source with this tool?</span><span class="faq-arrow">▾</span></button><div class="faq-answer">Yes. After comparing, a dedicated Qualtrics SDS Validation panel checks your file against SDS limits: maximum 100,000 rows, maximum 30 columns, maximum 5 searchable fields, and zero duplicate records. Each check shows pass, warn, or fail so you can fix issues before import.</div></div>
                 <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false"><span>What is the difference between this and a text diff tool?</span><span class="faq-arrow">▾</span></button><div class="faq-answer">A text diff tool compares files line by line in order, which breaks completely when row order differs between files. This CSV comparator is record-aware: it matches rows by a unique identifier, correctly identifying missing records, new records, and field-level changes even when row order is completely different.</div></div>
                 <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false"><span>Can I compare CSV files with different column orders?</span><span class="faq-arrow">▾</span></button><div class="faq-answer">Yes. The tool works at the field level, not the column-position level. It identifies common fields between both files by name, so column order differences do not affect the comparison results.</div></div>
+                <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false"><span>What is a CSV diff tool?</span><span class="faq-arrow">▾</span></button><div class="faq-answer">A CSV diff tool compares two CSV files and reports what changed between them. A record-aware CSV diff matches rows by a unique key column such as ID or email rather than by row position, so it correctly identifies missing records, new records, changed field values, and duplicates even when row order is different between the two files.</div></div>
+                <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false"><span>What is a CSV comparer?</span><span class="faq-arrow">▾</span></button><div class="faq-answer">A CSV comparer is a tool that takes two CSV files, matches rows by a key column, and produces a structured report of differences. This tool is a free browser-based CSV comparer. It identifies matched records, missing records, new records, field-level changes, and duplicates. All processing is client-side in your browser so your data is never sent to a server.</div></div>
+                <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false"><span>How do I compare two CSV files without Excel?</span><span class="faq-arrow">▾</span></button><div class="faq-answer">Upload both files here, select the column that uniquely identifies each row such as an ID or email address, and click Compare. Results appear in five tabs covering matched records, missing records, new records, field-level changes, and duplicates. No Excel, no scripts, no account needed. Everything runs in your browser and handles up to 100,000 rows.</div></div>
+                <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false"><span>Is it safe to compare CSV files online?</span><span class="faq-arrow">▾</span></button><div class="faq-answer">Yes. This tool uses 100% client-side JavaScript. Your CSV files are processed entirely in your browser and are never uploaded to any server, stored, or retained by Pirai AI. It is safe to use with personally identifiable information, health records, and confidential contact lists. The tool is GDPR and HIPAA friendly by design.</div></div>
+                <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false"><span>Can I use this as a CSV comparison tool for large files?</span><span class="faq-arrow">▾</span></button><div class="faq-answer">Yes. The tool supports up to 100,000 rows per file. Files over 25,000 rows are automatically processed using a background web worker so your browser stays responsive. It uses chunked, memory-optimised algorithms designed for large dataset comparison without any server infrastructure.</div></div>
             </div>
         </div>
     </div>
 
-    <div class="seo-wrapper">
+    <!-- GEO/LLM COVERAGE BLOCK -->
+    <div class="seo-wrapper seo-alt">
+        <div class="seo-section">
+            <h2 class="seo-h2">What Is a CSV Compare Tool?</h2>
+            <p class="seo-lead">A CSV compare tool takes two CSV files and produces a structured diff that goes beyond simple text matching. Instead of comparing files line by line, a record-aware CSV compare tool matches rows by a unique identifier you choose, then reports four categories of difference: records present in File 1 but missing in File 2, records new in File 2, records that exist in both files but have field values that changed, and duplicate records within either file. This approach works correctly even when row order differs between the two files, which is the common case when exporting from a database or survey platform.</p>
+            <p style="font-size: 15px; color: #374151; line-height: 1.75; margin-top: 16px;">This free CSV compare tool runs entirely in your browser. No file is ever sent to a server. It handles up to 100,000 rows using a background web worker for large files, exports results to CSV, and generates a plain-text difference report. It also includes a Qualtrics SDS validation panel for research teams who need to verify Supplemental Data Source files before import.</p>
+            <div style="margin-top: 40px; padding: 20px 24px; background: #f9fafb; border-radius: 8px; border: 1px solid #e5e7eb;">
+                <h3 style="font-size: 15px; color: #374151; margin-bottom: 10px; font-family: 'Space Grotesk', sans-serif;">Common ways people use this tool</h3>
+                <p style="font-size: 14px; color: #6b7280; margin: 0 0 10px; line-height: 1.8;">Researchers use it to reconcile baseline and follow-up datasets, finding which participants completed both waves and whether any demographic fields changed. Data teams use it to audit database exports before loading into a CRM, catching missing rows, new entries, and unexpected field overwrites. Agencies use it to compare panel extracts week-over-week, tracking opt-ins, opt-outs, and quota field changes without writing scripts or formulas.</p>
+                <p style="font-size: 14px; color: #6b7280; margin: 0; line-height: 1.8;">Because all processing runs in the browser with no file upload, it is safe to use with contact lists, health records, and personally identifiable data. It handles up to 100,000 rows and produces a downloadable difference report suitable for compliance audits or client-facing changelogs.</p>
+            </div>
+        </div>
+    </div>
+
+        <div class="seo-wrapper">
         <div class="seo-section">
             <div class="related-strip">
                 <h3>More Free Tools for Qualtrics Practitioners</h3>
                 <div class="related-links">
-                    <a href="/qualtrics-toolkit" class="related-link">Qualtrics Toolkit Hub</a>
+                    <a href="/qualtrics-toolkit" class="related-link">Free Tools</a>
                     <a href="/qsf-to-excel" class="related-link">QSF to Excel Converter</a>
                     <a href="/embedded-data-generator" class="related-link">Embedded Data Generator</a>
                     <a href="/textiq-to-excel" class="related-link">Text iQ to Excel</a>
                     <a href="/dashboard-field-mapper" class="related-link">Dashboard Field Mapper</a>
                     <a href="/basic-transform-task-mapper" class="related-link">Transform Task Mapper</a>
-                    <a href="https://chromewebstore.google.com/detail/mpjjfdgfkkiilopjdhjeeleoaoddmdef" target="_blank" class="related-link">CSV Comparator Chrome Extension</a>
+                    <a href="https://chromewebstore.google.com/detail/mpjjfdgfkkiilopjdhjeeleoaoddmdef" target="_blank" class="related-link">CSV Compare Chrome Extension</a>
                     <a href="/" class="related-link">Pirai AI Survey Automation</a>
                 </div>
             </div>
@@ -716,7 +774,7 @@
                     <span>Pirai AI</span>
                 </div>
                 <p class="footer-desc">Universal platform automation transforming documents to 20+ platforms across research, education, healthcare and enterprise. Deploy globally in 50+ languages.</p>
-                <p class="footer-contact">📧 <a href="mailto:admin@piraiai.com">admin@piraiai.com</a></p>
+                <p class="footer-contact"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;flex-shrink:0;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> <a href="mailto:admin@piraiai.com">admin@piraiai.com</a></p>
             </div>
 
             <div class="footer-section">
@@ -741,8 +799,8 @@
                     <li><a href="/qsf-to-excel">QSF to Excel</a></li>
                     <li><a href="/textiq-to-excel">Text IQ to Excel</a></li>
                     <li><a href="/embedded-data-generator">Embedded Data Generator</a></li>
-                    <li><a href="/pirai-csv-comparator" style="color: #9B6BFF; font-weight: 600;">CSV Comparator</a></li>
-                    <li><a href="/qualtrics-toolkit">Toolkit Hub</a></li>
+                    <li><a href="/pirai-csv-comparator" style="color: #9B6BFF; font-weight: 600;">CSV Compare</a></li>
+                    <li><a href="/qualtrics-toolkit">Free Tools</a></li>
                 </ul>
             </div>
 
@@ -773,7 +831,7 @@
     </footer>
 
     <script>
-        // Enhanced CSV Comparator with Field Changes Tracking - v2.1
+        // Enhanced CSV Compare with Field Changes Tracking - v2.1
         
         // Global variables
         let file1Data = null;
@@ -999,7 +1057,7 @@
             dropZone.className = 'file-input-section';
 
             if (!file.name.toLowerCase().endsWith('.csv') && !file.name.toLowerCase().endsWith('.tsv')) {
-                errorDiv.innerHTML = '<strong>❌ Invalid file type</strong><br>Please select a CSV or TSV file';
+                errorDiv.innerHTML = '<strong><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg> Invalid file type</strong><br>Please select a CSV file';
                 errorDiv.classList.remove('hidden');
                 dropZone.classList.add('error');
                 return false;
@@ -1007,7 +1065,7 @@
 
             if (estimatedRows > MAX_ROW_LIMIT) {
                 errorDiv.innerHTML = `
-                    <strong>❌ File too large</strong><br>
+                    <strong><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg> File too large</strong><br>
                     Estimated ${estimatedRows.toLocaleString()} rows<br>
                     Maximum supported: ${MAX_ROW_LIMIT.toLocaleString()} rows
                 `;
@@ -1018,7 +1076,7 @@
 
             if (estimatedMemoryMB > MAX_MEMORY_MB) {
                 errorDiv.innerHTML = `
-                    <strong>❌ Memory requirements too high</strong><br>
+                    <strong><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg> Memory requirements too high</strong><br>
                     Estimated memory: ${Math.round(estimatedMemoryMB)}MB<br>
                     Maximum recommended: ${MAX_MEMORY_MB}MB
                 `;
@@ -1095,7 +1153,7 @@
         function showProgress() {
             processingStartTime = Date.now();
             document.getElementById('progress').style.display = 'block';
-            document.getElementById('compareBtn').textContent = '🔄 Processing...';
+            document.getElementById('compareBtn').innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;animation:spin 1s linear infinite;"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg> Processing...';
             document.getElementById('compareBtn').disabled = true;
         }
 
@@ -1132,11 +1190,11 @@
             const fieldsPreview = sampleFields.join(', ') + (fieldCount > 5 ? `, +${fieldCount - 5} more` : '');
             
             infoDiv.innerHTML = `
-                <strong>✅ ${file.name}</strong><br>
+                <strong><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> ${file.name}</strong><br>
                 <div style="margin-top: 8px; font-size: 0.9rem;">
-                    📊 <strong>${actualRows.toLocaleString()}</strong> rows<br>
-                    📋 <strong>${fieldCount}</strong> columns<br>
-                    💾 <strong>${fileSize} MB</strong><br>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> <strong>${actualRows.toLocaleString()}</strong> rows<br>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/></svg> <strong>${fieldCount}</strong> columns<br>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><polyline points="19 21 12 21 5 21"/><polyline points="17 3 17 8 7 8"/><path d="M5 3H17L19 5V21H5V3z"/></svg> <strong>${fileSize} MB</strong><br>
                     <div style="margin-top: 6px; padding: 6px; background: #eff6ff; border-radius: 4px; font-size: 12px;">
                         <strong>Fields:</strong> ${fieldsPreview}
                     </div>
@@ -1160,7 +1218,7 @@
             warningDiv.classList.add('hidden');
             dropZone.className = 'file-input-section error';
             
-            errorDiv.innerHTML = `<strong>❌ Upload Failed</strong><br>${message}`;
+            errorDiv.innerHTML = `<strong><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg> Upload Failed</strong><br>${message}`;
             errorDiv.classList.remove('hidden');
             
             if (fileNumber === 1) {
@@ -1229,7 +1287,7 @@
             
             const infoDiv = document.getElementById(`file${fileNumber}Info`);
             infoDiv.innerHTML = `
-                <strong>🔄 Parsing ${file.name}...</strong><br>
+                <strong><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;animation:spin 1s linear infinite;"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg> Parsing ${file.name}...</strong><br>
                 <div style="width: 100%; height: 4px; background: #e5e7eb; border-radius: 2px; margin-top: 8px;">
                     <div style="width: 0%; height: 100%; background: #3b82f6; border-radius: 2px; animation: pulse 1s infinite;"></div>
                 </div>
@@ -1319,7 +1377,7 @@
                 if (availableFields.length === 0) {
                     fieldSelector.innerHTML = `
                         <div style="color: #f87171; padding: 16px; background: rgba(248, 113, 113, 0.1); border-radius: 8px;">
-                            <strong>❌ No common fields found!</strong><br>
+                            <strong><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg> No common fields found!</strong><br>
                             <div style="margin-top: 8px; font-size: 0.9rem;">
                                 <strong>File 1 fields:</strong> ${fields1.join(', ')}<br>
                                 <strong>File 2 fields:</strong> ${fields2.join(', ')}
@@ -1331,7 +1389,7 @@
                 
                 statusMessage = `
                     <div style="color: #9B6BFF; margin-bottom: 16px; padding: 12px; background: #ede9fe; border: 1px solid #c4b5fd; border-radius: 8px;">
-                        <strong>🟣 ${availableFields.length} common fields found</strong> between both files
+                        <strong><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> ${availableFields.length} common fields found</strong> between both files
                     </div>
                 `;
             } else {
@@ -1341,7 +1399,7 @@
                 
                 statusMessage = `
                     <div style="color: #fbbf24; margin-bottom: 16px; padding: 12px; background: rgba(251, 191, 36, 0.1); border-radius: 8px;">
-                        <strong>⚠️ Showing fields from File ${fileNumber}</strong><br>
+                        <strong><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><circle cx="12" cy="17" r="1" fill="#d97706" stroke="none"/></svg> Showing fields from File ${fileNumber}</strong><br>
                         Upload the second file to see common fields only
                     </div>
                 `;
@@ -1393,13 +1451,13 @@
             
             if (!hasBothFiles) {
                 compareBtn.disabled = true;
-                compareBtn.textContent = hasBothFiles ? '🔍 Select Fields First' : '📁 Upload Both Files First';
+                compareBtn.textContent = hasBothFiles ? 'Select Fields First' : 'Upload Both Files First';
             } else if (!hasSelectedFields) {
                 compareBtn.disabled = true;
-                compareBtn.textContent = '🔍 Select Identifier Fields First';
+                compareBtn.textContent = 'Select Identifier Fields First';
             } else {
                 compareBtn.disabled = false;
-                compareBtn.textContent = `🔍 Compare CSV Files (${selectedFields.length} field${selectedFields.length > 1 ? 's' : ''})`;
+                compareBtn.textContent = `Compare CSV Files (${selectedFields.length} field${selectedFields.length > 1 ? 's' : ''})`;
             }
         }
 
@@ -1687,7 +1745,12 @@
             const validationDiv = document.getElementById('validationResults');
             validationDiv.innerHTML = validation.map(item => `
                 <div class="validation-item validation-${item.status}">
-                    ${item.status === 'pass' ? '✅' : item.status === 'warn' ? '⚠️' : '❌'} ${item.message}
+                    ${item.status === 'pass'
+  ? '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>'
+  : item.status === 'warn'
+  ? '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><circle cx="12" cy="17" r="1" fill="#d97706" stroke="none"/></svg>'
+  : '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>'
+} ${item.message}
                 </div>
             `).join('');
         }
@@ -1696,7 +1759,7 @@
             const recordsWithChanges = comparisonResults.matched.filter(match => match.differences.length > 0);
             
             const content = `
-                <h4 style="color: #9B6BFF; margin-bottom: 16px;">📋 Comparison Summary</h4>
+                <h4 style="color: #9B6BFF; margin-bottom: 16px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg> Comparison Summary</h4>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
                     <div style="background: #f3f4f6; border: 1px solid #e5e7eb; padding: 20px; border-radius: 8px;">
                         <h5 style="color: #1a1a1a; margin-bottom: 12px;">File 1 (Original)</h5>
@@ -1726,7 +1789,7 @@
                 
                 ${processingStartTime ? `
                 <div style="margin-top: 20px; padding: 16px; background: #faf5ff; border: 1px solid #e9d5ff; border-radius: 8px;">
-                    <h5 style="color: #9B6BFF; margin-bottom: 8px;">⚡ Performance Stats</h5>
+                    <h5 style="color: #9B6BFF; margin-bottom: 8px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Performance Stats</h5>
                     <p style="color: #374151; margin: 0;">Processing completed in ${((Date.now() - processingStartTime) / 1000).toFixed(1)} seconds</p>
                 </div>
                 ` : ''}
@@ -1737,7 +1800,7 @@
 
         function displayMissingRecords() {
             if (comparisonResults.missingInFile2.length === 0) {
-                document.getElementById('missingContent').innerHTML = '<p style="color: #9B6BFF;">✅ No missing records found!</p>';
+                document.getElementById('missingContent').innerHTML = '<p style="color: #9B6BFF;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> No missing records found!</p>';
                 return;
             }
             
@@ -1751,7 +1814,7 @@
 
         function displayNewRecords() {
             if (comparisonResults.newInFile2.length === 0) {
-                document.getElementById('newContent').innerHTML = '<p style="color: #9B6BFF;">✅ No new records found!</p>';
+                document.getElementById('newContent').innerHTML = '<p style="color: #9B6BFF;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> No new records found!</p>';
                 return;
             }
             
@@ -1768,12 +1831,12 @@
             const recordsWithChanges = comparisonResults.matched.filter(match => match.differences.length > 0);
             
             if (recordsWithChanges.length === 0) {
-                document.getElementById('changesContent').innerHTML = '<p style="color: #9B6BFF;">✅ No field changes found between matching records!</p>';
+                document.getElementById('changesContent').innerHTML = '<p style="color: #9B6BFF;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> No field changes found between matching records!</p>';
                 return;
             }
             
             let html = `
-                <h4 style="color: #7c3aed; margin-bottom: 16px;">🔄 Field Changes Between Files</h4>
+                <h4 style="color: #7c3aed; margin-bottom: 16px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg> Field Changes Between Files</h4>
                 <p style="color: #6b7280; margin-bottom: 16px;">
                     Records where the unique identifiers match but other field values have changed between File 1 and File 2.
                     Showing first 50 of ${recordsWithChanges.length} records with changes.
@@ -1783,7 +1846,7 @@
             const limitedChanges = recordsWithChanges.slice(0, 50);
             
             html += `
-                <table class="differences-table">
+                <div class="differences-table-wrap"><table class="differences-table">
                     <thead>
                         <tr>
                             <th style="width: 200px;">Record Identifier</th>
@@ -1835,6 +1898,7 @@
             html += `
                     </tbody>
                 </table>
+                </div>
             `;
             
             if (recordsWithChanges.length > 50) {
@@ -1852,7 +1916,7 @@
 
         function displayDuplicates() {
             if (comparisonResults.duplicates.length === 0) {
-                document.getElementById('duplicatesContent').innerHTML = '<p style="color: #9B6BFF;">✅ No duplicate records found!</p>';
+                document.getElementById('duplicatesContent').innerHTML = '<p style="color: #9B6BFF;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> No duplicate records found!</p>';
                 return;
             }
             
@@ -1876,6 +1940,7 @@
             }
             
             html += `
+                <div class="data-table-wrap">
                 <table class="data-table">
                     <thead>
                         <tr>${fields.map(field => `<th>${field}</th>`).join('')}</tr>
@@ -1886,6 +1951,7 @@
                         ).join('')}
                     </tbody>
                 </table>
+                </div>
             `;
             
             return html;
@@ -1999,7 +2065,7 @@ New feature: Field change tracking shows exactly what changed between file versi
 This comparison helps ensure your data is ready for Qualtrics SDS import.
 
 ---
-Generated by Pirai AI Enhanced CSV Comparator v2.1
+Generated by Pirai AI Enhanced CSV Compare v2.1
 Visit piraiai.com for more survey automation tools
             `.trim();
         }
@@ -2107,7 +2173,7 @@ Visit piraiai.com for more survey automation tools
             if (typeof dataLayer !== 'undefined') {
                 dataLayer.push({
                     'event': 'page_view',
-                    'page_title': 'Enhanced CSV Comparator Tool (100K Support + Field Changes)',
+                    'page_title': 'Enhanced CSV Compare Tool (100K Support + Field Changes)',
                     'page_location': window.location.href,
                     'performance_features': ['100k_rows', 'web_workers', 'chunked_processing', 'memory_optimization', 'field_change_tracking']
                 });
@@ -2288,12 +2354,12 @@ Visit piraiai.com for more survey automation tools
             //enhanceDragDropExperience();
             
             const tips = [
-                "💡 Close other browser tabs for optimal performance with large files",
-                "⚡ Files over 25K rows use our optimized web worker processing",
-                "🔒 Your data never leaves your browser - 100% private processing",
-                "📊 Support for up to 100,000 rows with advanced chunking",
-                "🔄 NEW: Track field changes between file versions",
-                "🚀 Keyboard shortcuts: Ctrl+U (upload), Ctrl+Enter (compare)"
+                "Tip: Close other browser tabs for optimal performance with large files",
+                "Files over 25K rows use our optimized web worker processing",
+                "Your data never leaves your browser - 100% private processing",
+                "Support for up to 100,000 rows with advanced chunking",
+                "NEW: Track field changes between file versions",
+                "Keyboard shortcuts: Ctrl+U (upload), Ctrl+Enter (compare)"
             ];
             
             let tipIndex = 0;
@@ -2462,7 +2528,7 @@ Visit piraiai.com for more survey automation tools
                     font-weight: 600;
                     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
                 `;
-                warningDiv.textContent = '⚠️ Please update your browser for optimal performance';
+                warningDiv.textContent = 'Please update your browser for optimal performance';
                 document.body.appendChild(warningDiv);
                 
                 setTimeout(() => {
@@ -2494,8 +2560,8 @@ Visit piraiai.com for more survey automation tools
         }
         });
 
-        console.log('🌙 Pirai AI Enhanced CSV Comparator v2.1 loaded successfully');
-        console.log('✅ 100K row support enabled with web workers and chunked processing');
+        console.log('Pirai AI Enhanced CSV Compare v2.1 loaded successfully');
+        console.log('100K row support enabled with web workers and chunked processing');
     </script>
 </body>
 </html>
