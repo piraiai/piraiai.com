@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is a Qualtrics Dashboard? Complete Guide to CX Dashboards (2026) - Pirai AI Blog</title>
+    <meta name="description" content="A Qualtrics dashboard turns your survey data into live charts and tables. This guide covers what a CX dashboard is, how to build one, the 14 widget types, and how to build dashboards faster with AI.">
+    <meta name="keywords" content="qualtrics dashboard, what is a qualtrics dashboard, qualtrics cx dashboard, qualtrics widgets, qualtrics dashboard tutorial, qualtrics dashboard guide, qualtrics vocalize, qualtrics reporting, qualtrics NPS dashboard, qualtrics csat dashboard, qualtrics dashboard examples, how to create qualtrics dashboard, qualtrics dashboard widgets, qualtrics dashboard filters">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://piraiai.com/blog/qualtrics-dashboard-guide">
+    <meta property="og:title" content="What is a Qualtrics Dashboard? Complete Guide to CX Dashboards (2026) - Pirai AI">
+    <meta property="og:description" content="A Qualtrics dashboard turns your survey data into live charts and tables. Learn what a CX dashboard is, how to build one, the 14 widget types, and how to build faster with AI.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="og:site_name" content="Pirai AI Blog">
+    <meta property="article:published_time" content="2026-07-07T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta property="article:section" content="Qualtrics">
+    <meta property="article:tag" content="Qualtrics">
+    <meta property="article:tag" content="Dashboard">
+    <meta property="article:tag" content="CX">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://piraiai.com/blog/qualtrics-dashboard-guide">
+    <meta name="twitter:title" content="What is a Qualtrics Dashboard? Complete Guide (2026)">
+    <meta name="twitter:description" content="Learn what a Qualtrics CX dashboard is, the 14 widget types, how filters work, and how to build dashboards faster with AI.">
+    <meta name="twitter:image" content="https://piraiai.com/logo.png">
+
+    <link rel="canonical" href="https://piraiai.com/blog/qualtrics-dashboard-guide">
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://piraiai.com/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Article",
+                "@id": "https://piraiai.com/blog/qualtrics-dashboard-guide",
+                "headline": "What is a Qualtrics Dashboard? Complete Guide to CX Dashboards (2026)",
+                "description": "A Qualtrics dashboard turns your survey data into live charts and tables. This guide covers what a CX dashboard is, how to build one, the 14 widget types, and how to build dashboards faster with AI.",
+                "author": { "@type": "Person", "name": "Arun Raj" },
+                "publisher": { "@type": "Organization", "name": "Pirai AI", "url": "https://piraiai.com" },
+                "datePublished": "2026-07-07",
+                "dateModified": "2026-07-07",
+                "url": "https://piraiai.com/blog/qualtrics-dashboard-guide",
+                "keywords": ["qualtrics dashboard", "CX dashboard", "qualtrics widgets", "qualtrics reporting"],
+                "articleSection": "Qualtrics"
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "What is a Qualtrics dashboard?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "A Qualtrics dashboard is a dynamic reporting project that turns your survey data into live charts, tables, and visualisations. Dashboards are built inside the CX Dashboards product (formerly called Vocalize) and pull data from one or more survey data sources called fieldsets." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What is the difference between a Qualtrics survey and a dashboard?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "A survey collects data. A dashboard reports on it. Surveys are built in the Survey Builder; dashboards are built in the CX Dashboards product and connect to survey data through a field mapping step." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How many widget types does Qualtrics have?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "Qualtrics CX Dashboards support 14 main widget types: Number Chart, Gauge Chart, Vertical Bars, Horizontal Bars, Line Chart, Breakdown Bar, Donut Chart, Pie Chart, Table, Record Table, Word Cloud, Star Rating, Response Ticker, and Rich Text." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What is a fieldset in Qualtrics?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "A fieldset is the field mapping layer between a survey data source and a dashboard. Each field in a fieldset corresponds to a survey question, embedded data, or metadata, and has a field type (Number Set, Text Set, Open Text, Date, etc.) that determines which widgets it can power." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What is a page filter in a Qualtrics dashboard?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "A page filter lets dashboard viewers slice all the data on a page by a specific field, such as date range, location, distribution channel, or response type. Filters apply to every widget on the page at once and can be locked to specific values by dashboard administrators." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How long does it take to build a Qualtrics dashboard?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "A typical 6-10 widget dashboard page takes an experienced user 30-90 minutes to build manually, including field mapping, widget configuration, and filter setup. AI-assisted tools like Pirai AI Flow can reduce that to minutes for most standard configurations." }
+                    }
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://piraiai.com" },
+                    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://piraiai.com/blog" },
+                    { "@type": "ListItem", "position": 3, "name": "What is a Qualtrics Dashboard?", "item": "https://piraiai.com/blog/qualtrics-dashboard-guide" }
+                ]
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #ffffff; color: #1a1a1a; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+        /* Header */
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; padding: 16px 0; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #1a1a1a; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        nav a { margin-left: 32px; text-decoration: none; color: #4b5563; font-size: 15px; font-weight: 500; transition: color 0.2s; }
+        nav a:hover { color: #9B6BFF; }
+
+        /* Breadcrumb */
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; transition: color 0.2s; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+
+        /* Hero */
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+        .article-tag { background: #f5f3ff; color: #7c3aed; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        /* Layout */
+        .content-wrapper { max-width: 1200px; margin: 0 auto; padding: 48px 24px; display: grid; grid-template-columns: 1fr 320px; gap: 48px; align-items: start; }
+        .article-content { min-width: 0; }
+        .article-content p { font-size: 17px; color: #374151; margin-bottom: 20px; line-height: 1.75; }
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; color: #1a1a1a; margin: 48px 0 16px; padding-top: 16px; border-top: 1px solid #e5e7eb; line-height: 1.25; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #1a1a1a; margin: 32px 0 12px; }
+        .article-content h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #374151; margin: 20px 0 8px; }
+        .article-content ul, .article-content ol { padding-left: 22px; margin-bottom: 20px; }
+        .article-content li { font-size: 17px; color: #374151; margin-bottom: 8px; line-height: 1.7; }
+        .article-content a { color: #9B6BFF; text-decoration: underline; }
+        code.inline { background: #f5f3ff; color: #7c3aed; padding: 2px 7px; border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 14px; }
+
+        /* Content blocks */
+        .highlight-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 24px; margin: 32px 0; border-radius: 0 8px 8px 0; }
+        .highlight-box h4 { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; color: #7c3aed; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .highlight-box p, .highlight-box li { font-size: 17px; color: #374151; margin-bottom: 6px; }
+        .highlight-box ul { padding-left: 20px; margin-bottom: 0; }
+
+        .info-box { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 20px 24px; margin: 28px 0; border-radius: 0 8px 8px 0; }
+        .info-box p { font-size: 15px; color: #1e40af; margin-bottom: 0; }
+        .info-box strong { font-weight: 700; }
+
+        /* Widget grid */
+        .widget-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 24px 0; }
+        .widget-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 18px; }
+        .widget-card h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+        .widget-card p { font-size: 14px; color: #6b7280; margin-bottom: 4px; line-height: 1.5; }
+        .widget-card .wtype { font-size: 12px; font-weight: 600; color: #9B6BFF; }
+
+        /* Comparison table */
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 28px 0; font-size: 15px; }
+        .comparison-table th { background: #f5f3ff; color: #7c3aed; font-family: 'Space Grotesk', sans-serif; font-weight: 700; text-align: left; padding: 12px 16px; border-bottom: 2px solid #e5e7eb; }
+        .comparison-table td { padding: 12px 16px; border-bottom: 1px solid #f3f4f6; color: #374151; vertical-align: top; }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table tr:hover td { background: #fafafa; }
+        .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 28px 0; border-radius: 8px; }
+        .table-wrap .comparison-table { margin: 0; }
+
+        /* Step box */
+        .step-list { margin: 24px 0; }
+        .step { display: flex; gap: 20px; margin-bottom: 28px; }
+        .step-num { width: 36px; height: 36px; border-radius: 50%; background: #9B6BFF; color: #fff; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .step-content h4 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+        .step-content p { font-size: 16px; color: #374151; margin-bottom: 0; line-height: 1.65; }
+
+        /* Field type table */
+        .field-tag { display: inline-block; font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 10px; }
+        .field-tag.numeric { background: #dbeafe; color: #1e40af; }
+        .field-tag.text { background: #dcfce7; color: #166534; }
+        .field-tag.date { background: #fef3c7; color: #92400e; }
+        .field-tag.open { background: #f5f3ff; color: #7c3aed; }
+
+        /* CTA block in article */
+        .article-cta { background: linear-gradient(135deg, #1a1a1a 0%, #2d1b69 100%); border-radius: 12px; padding: 32px; margin: 48px 0; text-align: center; }
+        .article-cta h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+        .article-cta p { font-size: 15px; color: #d1d5db; margin-bottom: 24px; max-width: 420px; margin-left: auto; margin-right: auto; }
+        .cta-button { display: inline-block; background: #fff; color: #2d1b69; text-decoration: none; padding: 12px 28px; border-radius: 8px; font-weight: 700; font-size: 15px; transition: opacity 0.2s; }
+        .cta-button:hover { opacity: 0.9; color: #2d1b69; }
+        .cta-button-secondary { display: inline-block; margin-left: 14px; color: #c4b5fd; text-decoration: none; font-size: 14px; font-weight: 600; border-bottom: 1px solid #c4b5fd; transition: color 0.2s; }
+        .cta-button-secondary:hover { color: #fff; border-color: #fff; }
+
+        /* FAQ section */
+        .faq-item { border-bottom: 1px solid #e5e7eb; padding: 20px 0; }
+        .faq-item:first-child { border-top: 1px solid #e5e7eb; }
+        .faq-q { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 700; color: #1a1a1a; margin-bottom: 10px; }
+        .faq-a { font-size: 16px; color: #374151; line-height: 1.7; }
+
+        /* Sidebar */
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; border-radius: 8px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 16px; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 10px; }
+        .toc-list a { color: #6b7280; text-decoration: none; font-size: 14px; transition: color 0.2s; }
+        .toc-list a:hover { color: #9B6BFF; }
+        .cta-box { background: #1a1a1a; border-radius: 8px; padding: 24px; text-align: center; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; color: #ffffff; margin-bottom: 8px; }
+        .cta-box p { font-size: 14px; color: #9ca3af; margin-bottom: 20px; }
+        .cta-box .cta-btn { display: block; background: #9B6BFF; color: #ffffff; text-decoration: none; padding: 12px 20px; border-radius: 6px; font-weight: 600; font-size: 14px; transition: background 0.2s; margin-bottom: 10px; }
+        .cta-box .cta-btn:hover { background: #7c3aed; }
+        .sidebar-stat { text-align: center; padding: 14px 0; border-top: 1px solid #e5e7eb; }
+        .sidebar-stat:first-of-type { border-top: none; padding-top: 0; }
+        .sidebar-stat-num { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #9B6BFF; }
+        .sidebar-stat-label { font-size: 13px; color: #6b7280; }
+
+        /* Related */
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: #1a1a1a; margin-bottom: 8px; }
+        .related-card p { font-size: 14px; color: #6b7280; }
+
+        /* Footer */
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .content-wrapper { grid-template-columns: 1fr; }
+            .sidebar { position: static; }
+            .article-title { font-size: 32px; }
+            .related-grid { grid-template-columns: 1fr; }
+            .widget-grid { grid-template-columns: 1fr; }
+            .cta-button-secondary { margin-left: 0; margin-top: 12px; display: inline-block; }
+        }
+        @media (max-width: 640px) {
+            .header-container nav { display: none; }
+            .article-title { font-size: 28px; }
+            .article-content h2 { font-size: 24px; }
+            .comparison-table { font-size: 13px; }
+            .comparison-table th, .comparison-table td { padding: 10px 12px; }
+        }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo">
+                <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo">
+                <span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span>
+            </a>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/blog">All Articles</a>
+                <a href="/flow">Pirai AI Flow</a>
+                <a href="/qualtrics-toolkit">Free Tools</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="/">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="/blog">Blog</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">What is a Qualtrics Dashboard?</span>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="hero-container">
+            <div style="margin-bottom:16px;">
+                <span class="article-tag">Guide</span>
+            </div>
+            <h1 class="article-title">What is a Qualtrics Dashboard? Complete Guide to CX Dashboards (2026)</h1>
+            <div class="article-meta">
+                <span class="author">Arun Raj</span>
+                <span class="separator">•</span>
+                <span>July 7, 2026</span>
+                <span class="separator">•</span>
+                <span>12 min read</span>
+            </div>
+        </div>
+    </div>
+
+    <br/>
+
+    <!-- Main Content -->
+    <div class="content-wrapper">
+        <article class="article-content">
+
+            <p>If you collect data in Qualtrics, there comes a point where a spreadsheet of raw responses stops being useful. You need to see trends, compare segments, track NPS over time, and share findings with stakeholders who won't read a CSV. That is what a Qualtrics dashboard is for.</p>
+
+            <p>This guide covers everything you need to know about Qualtrics CX Dashboards: what they are, how they differ from surveys, how to build one, the 14 widget types available, how page filters work, and how AI tools are beginning to change the time it takes to go from raw data to a finished dashboard.</p>
+
+            <!-- What is -->
+            <h2 id="what-is">What is a Qualtrics Dashboard?</h2>
+
+            <p>A <strong>Qualtrics dashboard</strong> is a dynamic reporting project that turns your survey data into live charts, tables, and visualisations. It sits inside the <strong>CX Dashboards</strong> product (previously called Vocalize) and pulls data from one or more connected data sources called <strong>fieldsets</strong>.</p>
+
+            <p>Unlike a static report or exported spreadsheet, a Qualtrics dashboard updates automatically as new responses come in. Every widget on every page reflects your live dataset, filtered and segmented however you configure it.</p>
+
+            <div class="highlight-box">
+                <h4>What a Qualtrics dashboard can show you</h4>
+                <ul>
+                    <li>Overall satisfaction score, NPS, or any numeric metric across all responses</li>
+                    <li>Metric breakdowns by location, channel, date range, or any dimension you've collected</li>
+                    <li>Trends over time — monthly, quarterly, or annual</li>
+                    <li>Individual response records for qualitative review</li>
+                    <li>Word frequency from open-text feedback</li>
+                    <li>Side-by-side driver comparisons across satisfaction sub-questions</li>
+                    <li>Filtered views for specific teams, regions, or audiences</li>
+                </ul>
+            </div>
+
+            <p>Qualtrics officially calls these projects "CX Dashboards" — CX standing for Customer Experience — but the product is versatile and used across employee experience, market research, academic research, healthcare, and more. "CX" is the label Qualtrics uses internally to distinguish this product from other dashboard-style views elsewhere in the platform.</p>
+
+            <!-- Survey vs Dashboard -->
+            <h2 id="survey-vs-dashboard">Survey vs. Dashboard: What's the Difference?</h2>
+
+            <p>This is a common source of confusion for new Qualtrics users. The short answer: a <strong>survey collects data</strong>, a <strong>dashboard reports on it</strong>.</p>
+
+            <div class="table-wrap"><table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Survey</th>
+                        <th>Dashboard</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Built in Survey Builder</td>
+                        <td>Built in CX Dashboards</td>
+                    </tr>
+                    <tr>
+                        <td>Respondents see and interact with it</td>
+                        <td>Stakeholders and analysts review it</td>
+                    </tr>
+                    <tr>
+                        <td>Produces raw response rows</td>
+                        <td>Aggregates and visualises those rows</td>
+                    </tr>
+                    <tr>
+                        <td>Questions, logic, branching</td>
+                        <td>Widgets, filters, pages</td>
+                    </tr>
+                    <tr>
+                        <td>One survey format (.qsf)</td>
+                        <td>Multiple pages, each with multiple widgets</td>
+                    </tr>
+                    <tr>
+                        <td>Configured per question</td>
+                        <td>Configured per field, mapped from survey questions</td>
+                    </tr>
+                </tbody>
+            </table></div>
+
+            <p>Connecting the two requires a field mapping step: you tell the dashboard which survey question corresponds to which dashboard field, and what type of data it holds. Once mapped, the dashboard uses that fieldset as its data source.</p>
+
+            <!-- Key terms -->
+            <h2 id="key-terms">Key Terms You'll Encounter</h2>
+
+            <p>Before building your first dashboard, a few terms are worth understanding clearly. Qualtrics documentation uses these consistently, and the distinctions matter when troubleshooting.</p>
+
+            <h3>Dashboard</h3>
+            <p>The top-level reporting project. A dashboard contains one or more pages. It has its own sharing settings, user roles, and data source connections.</p>
+
+            <h3>Page</h3>
+            <p>A tab within a dashboard. Each page has its own set of widgets and its own page-level filters. Most real-world dashboards have several pages — one for an executive overview, one for trend analysis, one for verbatim feedback, and so on.</p>
+
+            <h3>Widget</h3>
+            <p>The individual chart, table, or text element on a page. Widgets are how data is visualised. Each widget has a type (bar chart, gauge, table, etc.), a metric (what it measures), and usually a field (which data field it measures).</p>
+
+            <h3>Fieldset</h3>
+            <p>The mapped layer between a data source (survey, imported data, tickets) and your dashboard. A fieldset defines every available field, its type, and how it maps to underlying survey questions. You can connect multiple fieldsets to a single dashboard if you're pulling from more than one survey.</p>
+
+            <h3>Field</h3>
+            <p>An individual data point available to your dashboard — a survey question, a piece of embedded data, or survey metadata like response date or distribution channel. Each field has a <strong>field type</strong> that determines which widgets it can power and how it's aggregated.</p>
+
+            <h3>Filter</h3>
+            <p>A control that lets viewers slice the data on a page by a specific field — for example, showing only responses from a specific location, within a particular date range, or from a certain channel. Filters can be exposed to viewers or locked to specific values by dashboard administrators.</p>
+
+            <!-- Field types -->
+            <h2 id="field-types">Field Types: Why They Matter</h2>
+
+            <p>Every field in a Qualtrics fieldset has a <strong>field type</strong>. The field type determines which widgets the field can be used in and what kind of aggregation is possible. Getting field types wrong is the most common source of widget configuration errors.</p>
+
+            <div class="table-wrap"><table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Qualtrics UI Name</th>
+                        <th>What It Holds</th>
+                        <th>Use In Widgets</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="field-tag numeric">Number Set</span></td>
+                        <td>A rating scale with a finite range (e.g. 1–5 satisfaction, 0–10 NPS)</td>
+                        <td>Average, Sum, Min, Max, Top Box, Bottom Box, NPS, Star Rating</td>
+                    </tr>
+                    <tr>
+                        <td><span class="field-tag numeric">Numeric Value</span></td>
+                        <td>Any number without a specified range (duration, age, count)</td>
+                        <td>Average, Sum, Min, Max metrics</td>
+                    </tr>
+                    <tr>
+                        <td><span class="field-tag text">Text Set</span></td>
+                        <td>A categorical field with a finite set of values (channel, location, satisfaction label)</td>
+                        <td>Axis dimensions, data series splits, page filters</td>
+                    </tr>
+                    <tr>
+                        <td><span class="field-tag text">Multi-Answer Text Set</span></td>
+                        <td>A categorical field where respondents can select more than one option</td>
+                        <td>Axis dimensions, filters</td>
+                    </tr>
+                    <tr>
+                        <td><span class="field-tag date">Date</span></td>
+                        <td>A date and time stamp (start date, end date, recorded date)</td>
+                        <td>Time-series x-axis with grouping by day/month/quarter/year</td>
+                    </tr>
+                    <tr>
+                        <td><span class="field-tag open">Open Text</span></td>
+                        <td>Free-text responses</td>
+                        <td>Word Cloud, Response Ticker, Record Table</td>
+                    </tr>
+                    <tr>
+                        <td>Text Value</td>
+                        <td>Short text with many possible values (email, name, external reference)</td>
+                        <td>Record Table, filters only</td>
+                    </tr>
+                </tbody>
+            </table></div>
+
+            <div class="info-box">
+                <p><strong>The most common configuration mistake:</strong> using a Text Set field (like a satisfaction label such as "Dissatisfied / Neutral / Satisfied") as the metric field on a Number Chart or Gauge. That field holds categories, not a number — Average or NPS can't be calculated from it. You need the corresponding Number Set field instead.</p>
+            </div>
+
+            <!-- Widgets -->
+            <h2 id="widget-types">The 14 Qualtrics Widget Types</h2>
+
+            <p>Every Qualtrics dashboard page is built from widgets. A widget is a single visualisation with its own configuration: a type, a metric, a field, and optionally a dimension or breakdown. Here are all 14 widget types available in CX Dashboards.</p>
+
+            <div class="widget-grid">
+                <div class="widget-card">
+                    <div class="wtype">Metric</div>
+                    <h4>Number Chart</h4>
+                    <p>Displays a single large metric value — count, average, NPS, top box. The core "headline number" widget. Supports period-over-period comparison.</p>
+                </div>
+                <div class="widget-card">
+                    <div class="wtype">Metric</div>
+                    <h4>Gauge Chart</h4>
+                    <p>The same as a Number Chart but displayed as a visual arc. Useful for showing a metric relative to a full scale.</p>
+                </div>
+                <div class="widget-card">
+                    <div class="wtype">Chart</div>
+                    <h4>Vertical Bars</h4>
+                    <p>Bar chart with bars going up. Best for trends over time or categorical comparisons. Supports multiple metrics as separate bar series.</p>
+                </div>
+                <div class="widget-card">
+                    <div class="wtype">Chart</div>
+                    <h4>Horizontal Bars</h4>
+                    <p>Bar chart with bars going sideways. Best for ranking items or comparing driver scores side by side with no breakdown dimension.</p>
+                </div>
+                <div class="widget-card">
+                    <div class="wtype">Chart</div>
+                    <h4>Lines</h4>
+                    <p>Line chart for showing trends. Supports a date x-axis with time grouping, and a data series field to plot multiple lines (one per category value).</p>
+                </div>
+                <div class="widget-card">
+                    <div class="wtype">Chart</div>
+                    <h4>Breakdown Bar</h4>
+                    <p>Shows a metric split across categorical values as horizontal stacked or segmented bars. Requires a categorical x-axis field.</p>
+                </div>
+                <div class="widget-card">
+                    <div class="wtype">Chart</div>
+                    <h4>Donut Chart</h4>
+                    <p>A circular chart showing metric distribution across categories. The default choice for composition views — use over Pie Chart unless the user specifically asks for pie.</p>
+                </div>
+                <div class="widget-card">
+                    <div class="wtype">Chart</div>
+                    <h4>Pie Chart</h4>
+                    <p>Same as Donut Chart but a filled circle. Use when the composition view needs to feel proportional rather than comparative.</p>
+                </div>
+                <div class="widget-card">
+                    <div class="wtype">Data</div>
+                    <h4>Table</h4>
+                    <p>A pivot-style grid with rows, column splits, and one or more metric values in cells. Supports up to 3 fields per axis and up to 20 metrics simultaneously.</p>
+                </div>
+                <div class="widget-card">
+                    <div class="wtype">Data</div>
+                    <h4>Record Table</h4>
+                    <p>Lists individual response records as rows, with chosen fields as columns. Does not aggregate — shows raw, individual responses. Supports full record view for expanded detail.</p>
+                </div>
+                <div class="widget-card">
+                    <div class="wtype">Text</div>
+                    <h4>Word Cloud</h4>
+                    <p>Shows word frequency from an Open Text field. Common words appear larger. Only Open Text fields can be used as the data source.</p>
+                </div>
+                <div class="widget-card">
+                    <div class="wtype">Text</div>
+                    <h4>Response Ticker</h4>
+                    <p>A scrolling ticker showing individual open-text responses. Useful on live dashboards or in lobby displays. Only Open Text fields work as columns.</p>
+                </div>
+                <div class="widget-card">
+                    <div class="wtype">Rating</div>
+                    <h4>Star Rating</h4>
+                    <p>A visual star rating display with average score and breakdown by star count. Requires a Number Set or Numeric Value field.</p>
+                </div>
+                <div class="widget-card">
+                    <div class="wtype">Layout</div>
+                    <h4>Rich Text</h4>
+                    <p>A static HTML text block. Used for headers, instructions, section labels, or any descriptive text that doesn't show data.</p>
+                </div>
+            </div>
+
+            <p>Widgets can also be organised into <strong>groups</strong> — a container that visually groups related widgets together on a page, optionally with a visible group border. Groups are useful for separating an executive summary section from a driver analysis section on the same page, for example.</p>
+
+            <!-- How to build -->
+            <h2 id="how-to-build">How to Build a Qualtrics Dashboard</h2>
+
+            <p>The standard process for building a Qualtrics CX Dashboard involves six steps. Each one is a separate part of the platform.</p>
+
+            <div class="step-list">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <h4>Create a dashboard project</h4>
+                        <p>In the Qualtrics homepage, create a new CX Dashboard project. Give it a name and set the default language. This creates the project container — no pages or data yet.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <h4>Connect a data source and map fields</h4>
+                        <p>Go to Data on the dashboard settings. Add a data source (typically a Qualtrics survey). Use the Data Mapper to map survey questions to dashboard fields, assigning each field a type. This is the fieldset — the field layer all widgets will draw from.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <h4>Create pages</h4>
+                        <p>Add pages to your dashboard. Most dashboards have between 3 and 8 pages — an overview page, a trend page, a verbatim page, and role-specific pages. Plan your page structure before building widgets.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <div class="step-content">
+                        <h4>Add and configure widgets</h4>
+                        <p>On each page, add widgets from the widget panel. For each widget, choose the type, set the metric and field, configure any axis or data series fields, and set formatting like decimal places or percent display.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">5</div>
+                    <div class="step-content">
+                        <h4>Add page filters</h4>
+                        <p>Add filters to each page that let viewers slice the data by date, location, channel, response type, or any other field. Filters can be set as viewer-controlled (the viewer can change them) or locked to specific values for role-based access control.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">6</div>
+                    <div class="step-content">
+                        <h4>Share and configure access</h4>
+                        <p>Share the dashboard with specific users or create roles for different audiences. Roles determine which pages a user can see and whether they can edit the dashboard or only view it.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <h2 id="filters">How Page Filters Work</h2>
+
+            <p>Page filters are one of the most powerful features in a Qualtrics dashboard, and also one of the most frequently underused.</p>
+
+            <p>A page filter adds a filter control to a page. When a viewer selects a value, <strong>every widget on the page</strong> updates to reflect only the filtered data. This means a single date-range filter affects your NPS number chart, your satisfaction trend line, your response record table, and your word cloud all at once.</p>
+
+            <h3>What fields can be used as page filters?</h3>
+            <p>Any field in your fieldset can become a page filter, but Text Set, Multi-Answer Text Set, and Date fields are most common. Number Set fields can be filtered too (for example, filtering to show only responses where NPS was below 6). Open Text fields and Numeric Value fields are rarely used as filters.</p>
+
+            <h3>Locked vs. open filters</h3>
+            <p>Dashboard administrators can lock a filter to a specific value that viewers cannot change. This is how role-based dashboards work: a regional manager might see a dashboard filtered to their own region, locked, while the national operations team sees the same dashboard with no filter applied. Same dashboard structure, different data cuts per audience.</p>
+
+            <h3>Filter interaction</h3>
+            <p>Multiple filters on the same page combine as AND logic — a response must match all active filter conditions to be included. There is no built-in OR logic across page filters, though individual widget-level conditions can be configured separately.</p>
+
+            <!-- Common dashboard patterns -->
+            <h2 id="dashboard-patterns">Common Dashboard Layouts by Audience</h2>
+
+            <p>Different stakeholders need different views of the same data. Rather than building one giant dashboard with everything on one page, it's standard practice to design pages (or entire dashboards) around specific audiences.</p>
+
+            <div class="table-wrap"><table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Audience</th>
+                        <th>Typical widgets</th>
+                        <th>Key filters</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Executive / Leadership</strong></td>
+                        <td>Number Charts (NPS, CSAT), trend lines, top-level breakdown bars</td>
+                        <td>Date range, region</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CX Manager / Mid-management</strong></td>
+                        <td>Driver comparison bars, segment cross-tabs, distribution charts</td>
+                        <td>Location, channel, date</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Frontline / Team Lead</strong></td>
+                        <td>Operational tables by agent or location, star ratings, response tickers</td>
+                        <td>Team, location, response type</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Research / Insights team</strong></td>
+                        <td>Word clouds, record tables, full verbatim view, detailed cross-tabs</td>
+                        <td>Date, sentiment, question response</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Marketing / Growth</strong></td>
+                        <td>Channel breakdowns, donut charts by source, acquisition trend lines</td>
+                        <td>Distribution channel, date</td>
+                    </tr>
+                </tbody>
+            </table></div>
+
+            <!-- The problem with building -->
+            <h2 id="the-build-problem">Why Dashboard Configuration Takes So Long</h2>
+
+            <p>A finished Qualtrics dashboard looks simple. Getting there is not.</p>
+
+            <p>Each widget requires multiple configuration decisions: type, metric function, field selection (from a long, often confusingly named list), axis or data series setup, formatting, and labelling. A 10-widget page might require 60-80 individual clicks and inputs. Across a 5-page dashboard, that's several hundred configuration steps, each of which needs to be exactly right — wrong field type on a metric, and the widget silently shows zero or throws an error with no explanation.</p>
+
+            <p>Field mapping adds another layer: before a single widget works, every field you plan to use must be correctly mapped to the right survey question and assigned the right field type. This is done in a separate screen from the dashboard builder, and errors in the mapping flow back into every widget that uses that field.</p>
+
+            <div class="highlight-box">
+                <h4>What makes dashboard configuration time-consuming</h4>
+                <ul>
+                    <li>Finding the right field from a list of 40-100+ options per widget</li>
+                    <li>Getting field types right (Number Set vs Text Set vs Open Text is a common error source)</li>
+                    <li>Configuring multi-metric widgets (extraMetrics, axes, data series rules)</li>
+                    <li>Applying consistent formatting and labelling across pages</li>
+                    <li>Repeating the same setup across similar pages for different audiences</li>
+                    <li>Rebuilding widgets when a survey structure changes</li>
+                </ul>
+            </div>
+
+            <!-- AI section -->
+            <h2 id="ai-dashboards">How AI Is Changing Qualtrics Dashboard Configuration</h2>
+
+            <p>The manual configuration process described above is deterministic: there is a right answer for each widget, and reaching it is mostly a matter of knowing the platform well and clicking carefully. That kind of structured, rule-based work is exactly where AI assistance is most effective.</p>
+
+            <p>Rather than navigating widget panels and field pickers, an AI-assisted approach lets you describe what you want in plain English: "Add a gauge chart for average satisfaction" becomes a configured widget with the right field type, metric function, and label, applied directly to your live dashboard.</p>
+
+            <p>The same applies to updates. Instead of reopening a widget's settings panel to relabel a column or change a metric, you say so: "Change the metric on that chart to top box, scores 4 and 5." The change is applied without menus.</p>
+
+            <div class="article-cta">
+                <h3>Build Qualtrics dashboards through conversation</h3>
+                <p>Pirai AI Flow is a Chrome extension that reads your dashboard's real fields and builds widgets, filters, and layouts from plain English descriptions — inside Qualtrics, without touching your response data.</p>
+                <a href="https://piraiai.com/flow" class="cta-button">Learn about Pirai AI Flow</a>
+                <a href="https://piraiai.com/flow#demo" class="cta-button-secondary">Request early access →</a>
+            </div>
+
+            <!-- FAQ -->
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <div class="faq-q">What is a Qualtrics dashboard?</div>
+                <div class="faq-a">A Qualtrics dashboard is a dynamic reporting project that turns your survey data into live charts, tables, and visualisations. It sits inside the CX Dashboards product and pulls data from one or more connected data sources called fieldsets. Unlike a static report, it updates automatically as new responses come in.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">What is the difference between a Qualtrics survey and a dashboard?</div>
+                <div class="faq-a">A survey collects data — respondents see it and submit responses. A dashboard reports on that data — stakeholders and analysts see live visualisations. Surveys are built in the Survey Builder; dashboards are built in CX Dashboards and connect to survey data through a field mapping step.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">How many widget types does Qualtrics have?</div>
+                <div class="faq-a">Qualtrics CX Dashboards support 14 main widget types: Number Chart, Gauge Chart, Vertical Bars, Horizontal Bars, Lines, Breakdown Bar, Donut Chart, Pie Chart, Table, Record Table, Word Cloud, Star Rating, Response Ticker, and Rich Text. Widgets can also be grouped together into labelled containers on a page.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">What is a fieldset in Qualtrics?</div>
+                <div class="faq-a">A fieldset is the field mapping layer between a data source (usually a survey) and a dashboard. Each field in a fieldset corresponds to a survey question, embedded data element, or metadata field, and has an assigned type that determines which widgets can use it and how it can be aggregated.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">What is a page filter in a Qualtrics dashboard?</div>
+                <div class="faq-a">A page filter lets dashboard viewers slice all the data on a page by a specific field — date range, location, distribution channel, response type, and so on. When a filter value is selected, every widget on the page updates simultaneously. Filters can be left open for viewers to control, or locked to specific values by administrators for role-based access.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">How long does it take to build a Qualtrics dashboard?</div>
+                <div class="faq-a">A typical 6–10 widget page takes an experienced user between 30 and 90 minutes to build manually, including field mapping, widget configuration, and filter setup. A full multi-page dashboard for a CX programme can take several days. AI-assisted tools can reduce standard configurations to minutes.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Can I use a Qualtrics dashboard for employee experience or academic research?</div>
+                <div class="faq-a">Yes. Qualtrics labels these "CX Dashboards" to distinguish them from other dashboard products in the platform, but they work equally well for employee experience (EX) research, academic studies, healthcare surveys, IT feedback programmes, and any other structured data collection. The CX label is a product name, not a use-case restriction.</div>
+            </div>
+
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h3>Table of Contents</h3>
+                <ul class="toc-list">
+                    <li><a href="#what-is">What is a Qualtrics Dashboard?</a></li>
+                    <li><a href="#survey-vs-dashboard">Survey vs. Dashboard</a></li>
+                    <li><a href="#key-terms">Key Terms</a></li>
+                    <li><a href="#field-types">Field Types</a></li>
+                    <li><a href="#widget-types">The 14 Widget Types</a></li>
+                    <li><a href="#how-to-build">How to Build a Dashboard</a></li>
+                    <li><a href="#filters">How Page Filters Work</a></li>
+                    <li><a href="#dashboard-patterns">Dashboard Layouts by Audience</a></li>
+                    <li><a href="#the-build-problem">Why Configuration Takes So Long</a></li>
+                    <li><a href="#ai-dashboards">AI and Dashboard Configuration</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="cta-box">
+                <h3>Build dashboards with AI</h3>
+                <p>Describe what you want. Flow builds it — inside Qualtrics, in seconds.</p>
+                <a href="https://piraiai.com/flow" class="cta-btn">Explore Pirai AI Flow</a>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-stat">
+                    <div class="sidebar-stat-num">14</div>
+                    <div class="sidebar-stat-label">Widget types supported</div>
+                </div>
+                <div class="sidebar-stat">
+                    <div class="sidebar-stat-num">50–60%</div>
+                    <div class="sidebar-stat-label">Configuration automated by Flow</div>
+                </div>
+                <div class="sidebar-stat">
+                    <div class="sidebar-stat-num">Seconds</div>
+                    <div class="sidebar-stat-label">Not hours, with AI assistance</div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Related Articles -->
+    <div class="related-articles">
+        <h2>Related Articles</h2>
+        <div class="related-grid">
+            <a href="/blog/qsf-file-guide" class="related-card">
+                <h3>What is a QSF File?</h3>
+                <p>Complete guide to Qualtrics Survey Format — how to open, create, and convert .qsf files.</p>
+            </a>
+            <a href="/flow" class="related-card">
+                <h3>Pirai AI Flow</h3>
+                <p>The AI Chrome extension that builds and updates Qualtrics dashboards through plain English conversation.</p>
+            </a>
+            <a href="/qualtrics-toolkit" class="related-card">
+                <h3>Free Qualtrics Tools</h3>
+                <p>QSF to Excel, Text IQ export, Embedded Data Generator, CSV Comparator, and more.</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved. &nbsp;|&nbsp; <a href="/privacy" style="color:#9B6BFF;text-decoration:none;">Privacy Policy</a> &nbsp;|&nbsp; <a href="/terms" style="color:#9B6BFF;text-decoration:none;">Terms</a></p>
+    </footer>
+</body>
+</html>
