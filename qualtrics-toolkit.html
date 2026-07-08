@@ -257,7 +257,7 @@
 
             <div class="hero-stats">
                 <div class="hero-stat">
-                    <span class="hero-stat-num">10</span>
+                    <span class="hero-stat-num">12</span>
                     <span class="hero-stat-label">Free Tools</span>
                 </div>
                 <div class="hero-stat">
@@ -324,22 +324,41 @@
                 </div>
             </div>
 
-            <!-- CSV Data Prep & Splitter -->
+            <!-- CSV Splitter -->
             <div class="tool-card" data-category="compare">
                 <span class="status-badge badge-live">Live</span>
-                <span class="tool-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#9B6BFF" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="5" r="3"/><circle cx="11" cy="19" r="3"/><line x1="22" y1="3" x2="11" y2="8"/><line x1="22" y1="21" x2="11" y2="16"/><line x1="2" y1="12" x2="11" y2="5"/><line x1="2" y1="12" x2="11" y2="19"/></svg></span>
-                <h3 class="tool-title">CSV Data Prep &amp; Splitter</h3>
-                <p class="tool-description">Clean, transform, sample, and split CSV files entirely in your browser. Prepare contact lists, panel files, and survey exports for platform import in one step. No file uploads.</p>
+                <span class="tool-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#9B6BFF" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M8 3H3v5"/><path d="M12 22v-8.3a4 4 0 0 0-1.172-2.872L3 3"/><path d="M21 3l-7.828 7.828"/></svg></span>
+                <h3 class="tool-title">CSV Splitter</h3>
+                <p class="tool-description">Split large CSV files by row count, number of files, file size, or column value. Extract random samples by percentage or count. Every output file keeps the header row. Download as ZIP.</p>
                 <ul class="tool-features">
-                    <li>Trim whitespace across all columns globally</li>
-                    <li>8 field transforms: case, prefix, suffix, regex replace</li>
-                    <li>Concatenate fields and add static value columns</li>
-                    <li>Random sample by percentage or exact row count</li>
-                    <li>Split by rows, file size, or column value</li>
-                    <li>Exclude columns from output. UTF-8 encoded ZIP download</li>
+                    <li>Split by row count, file size, or column value</li>
+                    <li>Random sample by percentage or exact count</li>
+                    <li>Export all records as a single clean CSV</li>
+                    <li>Header row preserved in every output file</li>
+                    <li>UTF-8 encoded ZIP download. Up to 500K rows</li>
                 </ul>
                 <div class="tool-actions">
-                    <a href="/tools/csv-splitter" class="btn-primary">Open Tool</a>
+                    <a href="/tools/csv-splitter" class="btn-primary">Open CSV Splitter</a>
+                    <a href="/tools/csv-data-tool" class="btn-secondary">Full Data Tool</a>
+                </div>
+            </div>
+
+            <!-- CSV Cleaner -->
+            <div class="tool-card" data-category="compare">
+                <span class="status-badge badge-live">Live</span>
+                <span class="tool-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#9B6BFF" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
+                <h3 class="tool-title">CSV Cleaner</h3>
+                <p class="tool-description">Trim whitespace, reformat fields, find and replace, apply regex, concatenate columns, add static values, and exclude unwanted columns. Live 5-row preview of every change before download.</p>
+                <ul class="tool-features">
+                    <li>Global trim whitespace across all columns</li>
+                    <li>8 field transforms: case, prefix, suffix, regex replace</li>
+                    <li>Concatenate fields into new columns</li>
+                    <li>Add static value columns (BatchID, Wave, Region)</li>
+                    <li>Exclude columns from output. UTF-8 CSV download</li>
+                </ul>
+                <div class="tool-actions">
+                    <a href="/tools/csv-cleaner" class="btn-primary">Open CSV Cleaner</a>
+                    <a href="/tools/csv-data-tool" class="btn-secondary">Full Data Tool</a>
                 </div>
             </div>
 
@@ -621,6 +640,9 @@
                     <li><a href="/textiq-to-excel">Text IQ to Excel</a></li>
                     <li><a href="/embedded-data-generator">Embedded Data Generator</a></li>
                     <li><a href="/pirai-csv-comparator">CSV Compare</a></li>
+                    <li><a href="/tools/csv-splitter">CSV Splitter</a></li>
+                    <li><a href="/tools/csv-cleaner">CSV Cleaner</a></li>
+                    <li><a href="/tools/csv-data-tool">CSV Data Prep Tool</a></li>
                     <li><a href="/qualtrics-toolkit" style="color: #9B6BFF; font-weight: 600;">Free Tools Hub</a></li>
                 </ul>
             </div>
