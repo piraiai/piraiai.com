@@ -207,6 +207,18 @@
     <changefreq>weekly</changefreq>
     <lastmod>2026-07-07</lastmod>
   </url>  
+  <url>
+    <loc>https://piraiai.com/tools/csv-cleaner</loc>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-07-08</lastmod>
+  </url>  
+  <url>
+    <loc>https://piraiai.com/tools/csv-data-tool</loc>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-07-08</lastmod>
+  </url>      
   <!-- BLOG SECTION - Medium-High priority -->
   <url>
     <loc>https://piraiai.com/blog/</loc>

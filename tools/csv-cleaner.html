@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free CSV Cleaner Online | Clean, Transform &amp; Format CSV Files | Pirai AI</title>
+    <script type="application/ld+json">
+    [
+      {"@context":"https://schema.org","@type":"WebApplication","name":"Pirai AI CSV Cleaner","url":"https://piraiai.com/tools/csv-cleaner","description":"Free online CSV cleaner. Trim whitespace, reformat fields, find and replace values, apply regex, concatenate columns, add static values, and exclude unwanted columns. 100% client-side, no file uploads.","applicationCategory":"UtilityApplication","operatingSystem":"Web Browser","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["Trim whitespace across all columns globally","Randomise row order","UPPERCASE, lowercase, Title Case, Sentence case","Add prefix or suffix to field values","Find and replace (exact match)","Regex find and replace with flags","Concatenate multiple fields into a new column","Add static value columns","Exclude columns from output","Live 5-row preview of all changes","UTF-8 encoded output with BOM","100% client-side, no file uploads"],"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com","logo":"https://piraiai.com/logo.png"}},
+      {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+        {"@type":"Question","name":"How do I clean a CSV file online?","acceptedAnswer":{"@type":"Answer","text":"Upload your CSV, configure one or more transformations (trim whitespace, reformat case, find and replace, regex, concatenate fields, add static columns, exclude columns), preview the result on the first 5 rows, and click Clean and Download. The cleaned file is downloaded as a UTF-8 encoded CSV."}},
+        {"@type":"Question","name":"Can I trim whitespace from all columns at once?","acceptedAnswer":{"@type":"Answer","text":"Yes. The Trim whitespace global toggle removes leading and trailing spaces from every value in every column in one click. No need to configure it per column."}},
+        {"@type":"Question","name":"Is it safe to clean CSV files online?","acceptedAnswer":{"@type":"Answer","text":"Yes. All processing happens entirely in your browser. Your CSV file is never uploaded to any server, stored, or retained. The tool is GDPR and HIPAA friendly and safe to use with personally identifiable information."}},
+        {"@type":"Question","name":"Can I use regex to clean CSV values?","acceptedAnswer":{"@type":"Answer","text":"Yes. Choose the Regex replace operation, enter a JavaScript regex pattern (e.g. \\d+ to match numbers), a replacement string, and flags (g for global, i for case-insensitive). Invalid patterns leave values unchanged rather than throwing an error."}},
+        {"@type":"Question","name":"Can I combine two columns into one?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use the Concatenate fields operation. Choose two or more columns, select a separator (space, comma, underscore, dash, or none), and name the new column. The original columns are kept and the new column is added. You can then exclude the originals using the Columns in output picker."}},
+        {"@type":"Question","name":"Can I exclude columns from the output?","acceptedAnswer":{"@type":"Answer","text":"Yes. The Columns in output picker shows every column as a checkbox pill. Uncheck any column to exclude it from the downloaded file. New columns created by concatenate or static value transforms appear with a NEW badge and can also be excluded."}},
+        {"@type":"Question","name":"What is the output format?","acceptedAnswer":{"@type":"Answer","text":"The output is a single UTF-8 encoded CSV file with a BOM for Excel compatibility and CRLF line endings. All transformations are applied, excluded columns are removed, and the header row reflects the final column set."}}
+      ]}
+    ]
+    </script>
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <meta name="description" content="Free CSV cleaner online. Trim whitespace, reformat fields, find and replace, regex replace, concatenate columns, add static values, and exclude unwanted columns. Live preview. 100% private, no uploads.">
+    <meta name="keywords" content="csv cleaner, clean csv online, trim csv whitespace, csv formatter, csv field transformation, csv find replace, csv regex replace, csv uppercase lowercase, csv concat fields, remove csv columns, format csv online, csv data cleaning, clean csv file, csv whitespace remover, csv column formatter">
+    <meta property="og:title" content="Free CSV Cleaner Online | Clean, Transform &amp; Format CSV Files | Pirai AI">
+    <meta property="og:description" content="Trim whitespace, reformat fields, find and replace, regex, concatenate columns, and exclude fields. Live preview. 100% private, no uploads.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://piraiai.com/tools/csv-cleaner">
+    <link rel="canonical" href="https://piraiai.com/tools/csv-cleaner" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; -webkit-font-smoothing: antialiased; }
+        h1,h2,h3,h4,h5,h6 { font-family: 'Space Grotesk', sans-serif; }
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        header nav { display: flex; gap: 32px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; transition: color 0.2s; }
+        header nav a:hover { color: #9B6BFF; }
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; transition: color 0.2s; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px 40px; border-bottom: 1px solid #e5e7eb; text-align: center; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .hero h1 { font-size: 36px; font-weight: 700; color: #1a1a1a; margin-bottom: 12px; line-height: 1.3; }
+        .hero-subtitle { font-size: 17px; color: #6b7280; margin-bottom: 24px; max-width: 640px; margin-left: auto; margin-right: auto; }
+        .hero-highlight { background: #faf5ff; border: 1px solid #e9d5ff; border-radius: 10px; padding: 16px 20px; margin-bottom: 20px; max-width: 640px; margin-left: auto; margin-right: auto; }
+        .hero-highlight h3 { font-size: 16px; color: #9B6BFF; margin-bottom: 4px; }
+        .hero-highlight p { font-size: 14px; color: #374151; margin: 0; }
+        .privacy-section { max-width: 800px; margin: 0 auto; }
+        .privacy-badge { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 20px 24px; display: flex; align-items: flex-start; gap: 16px; text-align: left; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+        .privacy-content h4 { font-size: 16px; font-weight: 700; color: #9B6BFF; margin-bottom: 6px; }
+        .privacy-content p { font-size: 14px; color: #6b7280; margin-bottom: 12px; }
+        .privacy-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 6px; }
+        .privacy-features span { font-size: 13px; color: #9B6BFF; font-weight: 500; display: flex; align-items: center; gap: 5px; }
+        .tool-section { padding: 48px 24px; background: #ffffff; }
+        .tool-container { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 16px; padding: 40px; max-width: 860px; margin: 0 auto; }
+        .upload-zone { background: #ffffff; border: 2px dashed #d1d5db; border-radius: 12px; padding: 40px 28px; text-align: center; cursor: pointer; transition: all 0.2s; margin-bottom: 28px; }
+        .upload-zone:hover, .upload-zone.dragover { border-color: #9B6BFF; background: #faf5ff; }
+        .upload-zone.has-file { border-color: #9B6BFF; border-style: solid; background: #faf5ff; }
+        .upload-zone h3 { font-size: 16px; color: #1a1a1a; margin-bottom: 6px; }
+        .upload-zone p { font-size: 14px; color: #9ca3af; }
+        .file-badge { display: inline-flex; align-items: center; gap: 8px; background: #ede9fe; border: 1px solid #c4b5fd; border-radius: 8px; padding: 10px 16px; margin-top: 14px; font-size: 14px; color: #7c3aed; font-weight: 600; }
+        /* Clean panel */
+        .clean-section { display: none; }
+        .global-toggles { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+        .toggle-row { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; }
+        .toggle-info { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #374151; }
+        .toggle-info strong { color: #1a1a1a; }
+        .toggle-info span { color: #9ca3af; font-size: 13px; }
+        .toggle-wrap { position: relative; width: 40px; height: 22px; flex-shrink: 0; }
+        .toggle-wrap input { opacity: 0; width: 0; height: 0; position: absolute; }
+        .toggle-track { position: absolute; inset: 0; background: #d1d5db; border-radius: 11px; cursor: pointer; transition: background 0.2s; }
+        .toggle-wrap input:checked + .toggle-track { background: #9B6BFF; }
+        .toggle-track::after { content: ''; position: absolute; left: 3px; top: 3px; width: 16px; height: 16px; border-radius: 50%; background: white; transition: transform 0.2s; }
+        .toggle-wrap input:checked + .toggle-track::after { transform: translateX(18px); }
+        .transform-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+        .transform-row { display: grid; grid-template-columns: 160px 160px 1fr auto; gap: 8px; align-items: center; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 8px; padding: 10px 12px; }
+        .transform-row.new-field { grid-template-columns: 1fr auto; background: #faf5ff; border-color: #e9d5ff; }
+        .new-field-inner { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; align-items: start; width: 100%; }
+        .new-field-label { font-size: 11px; font-weight: 700; color: #7c3aed; text-transform: uppercase; letter-spacing: 0.4px; white-space: nowrap; }
+        .field-badge-new { font-size: 10px; font-weight: 700; background: #7c3aed; color: white; padding: 1px 6px; border-radius: 10px; margin-left: 4px; vertical-align: middle; }
+        .transform-row select, .transform-row input[type=text], .transform-row input[type=number] { border: 1px solid #d1d5db; border-radius: 6px; padding: 7px 10px; font-size: 13px; color: #1a1a1a; font-family: 'Inter', sans-serif; background: #fff; width: 100%; }
+        .transform-row select:focus, .transform-row input:focus { outline: none; border-color: #9B6BFF; }
+        .transform-config { display: flex; gap: 6px; align-items: center; }
+        .btn-remove { background: none; border: none; color: #dc2626; cursor: pointer; padding: 4px; border-radius: 4px; display: flex; align-items: center; flex-shrink: 0; }
+        .btn-remove:hover { background: #fef2f2; }
+        .btn-add { display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 13px; font-weight: 600; color: #7c3aed; background: #faf5ff; border: 1px dashed #c4b5fd; border-radius: 8px; padding: 9px 16px; cursor: pointer; transition: all 0.2s; width: 100%; font-family: 'Inter', sans-serif; }
+        .btn-add:hover { background: #ede9fe; border-color: #9B6BFF; }
+        .section-divider { display: flex; align-items: center; gap: 10px; margin: 16px 0 10px; }
+        .section-divider span { font-size: 11px; font-weight: 700; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+        .section-divider::after { content: ''; flex: 1; height: 1px; background: #e5e7eb; }
+        /* Col picker */
+        .col-picker { margin-top: 20px; padding: 16px 18px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 10px; display: none; }
+        .col-picker-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; flex-wrap: wrap; gap: 8px; }
+        .col-picker-header h5 { font-size: 13px; font-weight: 700; color: #374151; display: flex; align-items: center; gap: 6px; margin: 0; }
+        .col-picker-actions { display: flex; gap: 6px; }
+        .col-picker-actions button { font-size: 12px; color: #7c3aed; background: #ede9fe; border: 1px solid #c4b5fd; border-radius: 6px; cursor: pointer; padding: 4px 10px; font-weight: 600; font-family: 'Inter', sans-serif; }
+        .col-picker-grid { display: flex; flex-wrap: wrap; gap: 6px; max-height: 200px; overflow-y: auto; padding: 2px; }
+        .col-item { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; background: #fff; border: 1px solid #e5e7eb; border-radius: 20px; font-size: 12px; color: #374151; cursor: pointer; transition: border-color 0.15s; user-select: none; }
+        .col-item:hover { border-color: #c4b5fd; background: #faf5ff; }
+        .col-item input[type=checkbox] { accent-color: #9B6BFF; cursor: pointer; width: 13px; height: 13px; }
+        .col-item.is-new { border-color: #c4b5fd; background: #faf5ff; color: #7c3aed; font-weight: 600; }
+        .col-item.is-excluded { opacity: 0.4; }
+        /* Preview table */
+        .preview-block { margin-top: 16px; display: none; }
+        .preview-block h5 { font-size: 13px; font-weight: 700; color: #7c3aed; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+        .preview-wrap { overflow-x: auto; border-radius: 6px; border: 1px solid #e9d5ff; }
+        .preview-table { width: 100%; border-collapse: collapse; font-size: 12px; white-space: nowrap; }
+        .preview-table th { background: #ede9fe; color: #7c3aed; font-weight: 600; padding: 6px 10px; text-align: left; border-bottom: 1px solid #e9d5ff; }
+        .preview-table td { padding: 6px 10px; border-bottom: 1px solid #f3f4f6; color: #374151; }
+        .preview-table tr:last-child td { border-bottom: none; }
+        .preview-table .changed { color: #7c3aed; font-weight: 600; }
+        /* Actions */
+        .clean-actions { display: flex; gap: 10px; margin-top: 20px; }
+        .btn-primary { background: #9B6BFF; color: white; padding: 13px 28px; border-radius: 8px; font-weight: 700; font-size: 15px; transition: all 0.2s; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; font-family: 'Inter', sans-serif; }
+        .btn-primary:hover { background: #7c3aed; }
+        .btn-secondary { border: 1px solid #d1d5db; color: #374151; padding: 10px 20px; border-radius: 8px; font-weight: 600; font-size: 14px; background: #fff; cursor: pointer; transition: all 0.2s; display: inline-flex; align-items: center; gap: 7px; font-family: 'Inter', sans-serif; }
+        .btn-secondary:hover { border-color: #9B6BFF; color: #9B6BFF; }
+        .applied-badge { font-size: 12px; color: #15803d; background: #f0fdf4; border: 1px solid #86efac; border-radius: 6px; padding: 6px 12px; margin-top: 10px; display: none; align-items: center; gap: 6px; }
+        /* Progress / result */
+        .progress { display: none; text-align: center; margin: 20px 0; padding: 24px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; }
+        .progress-text { font-size: 15px; font-weight: 600; color: #1a1a1a; }
+        .spinner { display: inline-block; width: 24px; height: 24px; border: 3px solid #e5e7eb; border-top-color: #9B6BFF; border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: 12px; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .result-panel { background: #f0fdf4; border: 1px solid #86efac; border-radius: 12px; padding: 24px; margin-top: 24px; display: none; text-align: center; }
+        .result-panel h3 { font-size: 20px; color: #15803d; margin-bottom: 8px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        /* SEO */
+        .seo-wrapper { border-top: 1px solid #e5e7eb; }
+        .seo-wrapper.seo-alt { background: #f9fafb; }
+        .seo-section { max-width: 1200px; margin: 0 auto; padding: 64px 24px; }
+        .seo-h2 { font-size: 28px; font-weight: 700; color: #1a1a1a; margin-bottom: 10px; }
+        .seo-lead { font-size: 16px; color: #6b7280; max-width: 740px; margin-bottom: 40px; line-height: 1.75; }
+        .how-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; counter-reset: step-counter; }
+        .how-step { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px 20px; position: relative; counter-increment: step-counter; }
+        .how-step::before { content: counter(step-counter); position: absolute; top: -12px; left: 20px; background: #9B6BFF; color: #fff; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 12px; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .how-step h3 { font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px; margin-top: 4px; }
+        .how-step p { font-size: 13px; color: #6b7280; line-height: 1.65; }
+        .ops-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+        .op-card { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 16px 18px; }
+        .op-card h4 { font-size: 14px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+        .op-card p { font-size: 12px; color: #6b7280; line-height: 1.5; }
+        .faq-list { display: flex; flex-direction: column; gap: 8px; }
+        .faq-item { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 10px; overflow: hidden; }
+        .faq-btn { width: 100%; background: none; border: none; padding: 18px 20px; text-align: left; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 15px; font-weight: 600; color: #1a1a1a; font-family: 'Inter', sans-serif; }
+        .faq-btn:hover { color: #9B6BFF; }
+        .faq-arrow { color: #9B6BFF; font-size: 18px; transition: transform 0.2s; flex-shrink: 0; }
+        .faq-answer { display: none; padding: 0 20px 18px; font-size: 14px; color: #374151; line-height: 1.7; }
+        .faq-item.open .faq-answer { display: block; }
+        .faq-item.open .faq-arrow { transform: rotate(180deg); }
+        .related-strip h3 { font-size: 17px; font-weight: 700; color: #1a1a1a; margin-bottom: 18px; }
+        .related-links { display: flex; flex-wrap: wrap; gap: 8px; }
+        .related-link { display: inline-flex; align-items: center; gap: 6px; background: #f9fafb; border: 1px solid #e5e7eb; color: #374151; text-decoration: none; padding: 8px 14px; border-radius: 8px; font-size: 13px; font-weight: 500; transition: all 0.2s; }
+        .related-link:hover { border-color: #9B6BFF; color: #9B6BFF; background: #faf5ff; }
+        .cross-sell { background: linear-gradient(135deg,#7c3aed 0%,#9B6BFF 100%); padding: 64px 24px; text-align: center; }
+        .cross-sell-inner { max-width: 720px; margin: 0 auto; }
+        .cross-sell h2 { font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700; color: #fff; margin-bottom: 12px; line-height: 1.25; }
+        .cross-sell p { font-size: 16px; color: rgba(255,255,255,0.85); margin-bottom: 28px; }
+        .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .cta-btns a.primary { background:#fff;color:#7c3aed;padding:13px 28px;border-radius:8px;font-weight:700;font-size:15px;text-decoration:none; }
+        .cta-btns a.outline { background:transparent;color:#fff;padding:13px 28px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;border:2px solid rgba(255,255,255,0.5); }
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 48px 24px 32px; }
+        .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; margin-bottom: 40px; }
+        .footer-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+        .footer-brand img { width: 28px; height: 28px; }
+        .footer-brand span { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .footer-desc { font-size: 14px; color: #6b7280; line-height: 1.6; margin-bottom: 14px; max-width: 320px; }
+        .footer-contact { font-size: 13px; color: #6b7280; margin-bottom: 4px; }
+        .footer-contact a { color: #9B6BFF; text-decoration: none; }
+        .footer-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 8px; }
+        .footer-links a { color: #6b7280; text-decoration: none; font-size: 14px; transition: color 0.2s; }
+        .footer-links a:hover { color: #9B6BFF; }
+        .footer-bottom { max-width: 1200px; margin: 0 auto; border-top: 1px solid #e5e7eb; padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+        .footer-bottom p { font-size: 13px; color: #6b7280; }
+        @media (max-width: 768px) { header nav { display: none; } .hero h1 { font-size: 26px; } .tool-container { padding: 20px; } .transform-row { grid-template-columns: 1fr 1fr; } .new-field-inner { grid-template-columns: 1fr; } .footer-grid { grid-template-columns: 1fr; } .clean-actions { flex-direction: column; } }
+    </style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<header>
+    <div class="header-container">
+        <a href="/" class="logo"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span class="logo-text">Pirai AI</span></a>
+        <nav><a href="/">Home</a><a href="/blog">Blog</a><a href="/qualtrics-toolkit">Free Tools</a></nav>
+    </div>
+</header>
+
+<div class="breadcrumb">
+    <div class="breadcrumb-container">
+        <a href="/">Home</a><span class="breadcrumb-separator">›</span>
+        <a href="/qualtrics-toolkit">Free Tools</a><span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">CSV Cleaner</span>
+    </div>
+</div>
+
+<section class="hero">
+    <div class="hero-container">
+        <h1>Free CSV Cleaner Online</h1>
+        <p class="hero-subtitle">Trim whitespace, reformat fields, find and replace, apply regex, concatenate columns, add static values, and exclude unwanted columns. Live preview of every change. No uploads required.</p>
+        <div class="hero-highlight">
+            <h3><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="#9B6BFF" style="vertical-align:-0.15em;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> 8 field operations. Global trim. Regex support. Live preview.</h3>
+            <p>All transformations run in your browser. Preview the first 5 rows before downloading your clean CSV.</p>
+        </div>
+        <div class="privacy-section">
+            <div class="privacy-badge">
+                <div style="flex-shrink:0;margin-top:2px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="2.2rem" height="2.2rem" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+                <div class="privacy-content">
+                    <h4>100% Private. No Uploads.</h4>
+                    <p>Your CSV is processed entirely in your browser. We never see your data. No account required.</p>
+                    <div class="privacy-features">
+                        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg> Client-side only</span>
+                        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg> Zero server storage</span>
+                        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg> GDPR &amp; HIPAA friendly</span>
+                        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg> UTF-8 output</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="tool-section">
+    <div style="max-width:1200px;margin:0 auto;padding:0 24px;">
+        <div class="tool-container">
+            <!-- Upload -->
+            <div class="upload-zone" id="uploadZone">
+                <div style="margin-bottom:12px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="#9ca3af" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+                <h3>Upload CSV File</h3>
+                <p>Click to browse or drag and drop</p>
+                <input type="file" id="fileInput" accept=".csv" style="display:none;">
+                <div class="file-badge" id="fileBadge" style="display:none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    <span id="fileNameDisplay"></span>
+                    <span id="fileStatsDisplay" style="color:#9ca3af;font-weight:400;"></span>
+                </div>
+            </div>
+
+            <!-- Clean section -->
+            <div class="clean-section" id="cleanSection">
+                <p style="font-size:13px;color:#6b7280;margin-bottom:18px;">Configure transformations below. They run top to bottom in the order listed. Preview updates as you type.</p>
+
+                <!-- Global toggles -->
+                <div class="global-toggles">
+                    <div class="toggle-row">
+                        <div class="toggle-info"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h12"/></svg> <strong>Trim whitespace</strong> <span>Remove leading and trailing spaces from every value in all columns</span></div>
+                        <label class="toggle-wrap"><input type="checkbox" id="trimToggle" onchange="renderPreview()"><span class="toggle-track"></span></label>
+                    </div>
+                    <div class="toggle-row">
+                        <div class="toggle-info"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg> <strong>Randomise rows</strong> <span>Shuffle all rows into a random order</span></div>
+                        <label class="toggle-wrap"><input type="checkbox" id="randomiseToggle" onchange="renderPreview()"><span class="toggle-track"></span></label>
+                    </div>
+                </div>
+
+                <!-- Field transforms -->
+                <div class="transform-list" id="transformList"></div>
+                <button class="btn-add" onclick="addTransform('field')" style="margin-bottom:20px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add field transformation
+                </button>
+
+                <!-- New column section -->
+                <div class="section-divider"><span>Add new column</span></div>
+                <div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;">
+                    <button class="btn-add" style="flex:1;min-width:160px;" onclick="addTransform('concat')"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><path d="M8 6H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/><path d="M16 6h3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-3"/><line x1="8" y1="12" x2="16" y2="12"/></svg> Concatenate fields</button>
+                    <button class="btn-add" style="flex:1;min-width:160px;" onclick="addTransform('static')"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add static value field</button>
+                </div>
+
+                <!-- Column picker -->
+                <div class="col-picker" id="colPicker">
+                    <div class="col-picker-header">
+                        <h5><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#374151" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/></svg> Columns in output</h5>
+                        <div class="col-picker-actions"><button onclick="setAllCols(true)">Select all</button><button onclick="setAllCols(false)">Deselect all</button></div>
+                    </div>
+                    <div class="col-picker-grid" id="colPickerGrid"></div>
+                    <p style="font-size:11px;color:#9ca3af;margin-top:8px;">Uncheck columns to exclude them from the output. New columns are highlighted in purple.</p>
+                </div>
+
+                <!-- Preview -->
+                <div class="preview-block" id="previewBlock">
+                    <h5><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> Preview: first 5 rows after transforms</h5>
+                    <div class="preview-wrap"><table class="preview-table" id="previewTable"></table></div>
+                </div>
+
+                <!-- Actions -->
+                <div class="clean-actions">
+                    <button class="btn-primary" onclick="downloadClean()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Clean &amp; Download CSV</button>
+                    <button class="btn-secondary" onclick="resetTool()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg> Start Over</button>
+                </div>
+                <div class="applied-badge" id="appliedBadge">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg> <span id="appliedText"></span>
+                </div>
+            </div>
+
+            <!-- Progress -->
+            <div class="progress" id="progressSection">
+                <div class="spinner"></div>
+                <div class="progress-text">Preparing your clean CSV...</div>
+            </div>
+
+            <!-- Result -->
+            <div class="result-panel" id="resultPanel">
+                <h3><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1.1em" height="1.1em" fill="none" stroke="#15803d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Clean Complete</h3>
+                <p id="resultSummary"></p>
+                <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:12px;">
+                    <button class="btn-primary" style="width:auto;" onclick="triggerDownload()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download CSV</button>
+                    <button class="btn-secondary" onclick="resetTool()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg> Clean Another File</button>
+                </div>
+                <div style="margin-top:24px;padding:18px 20px;background:linear-gradient(135deg,#faf5ff 0%,#ede9fe 100%);border:1px solid #e9d5ff;border-radius:10px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;text-align:left;">
+                    <div style="flex:1;min-width:180px;">
+                        <p style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#9B6BFF;margin-bottom:4px;">Next step</p>
+                        <p style="font-size:14px;font-weight:700;color:#1a1a1a;margin-bottom:3px;">Need to split this clean CSV into smaller files?</p>
+                        <p style="font-size:12px;color:#6b7280;">Split by row count, file size, or column value.</p>
+                    </div>
+                    <a href="/tools/csv-splitter" style="background:#9B6BFF;color:white;padding:10px 20px;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Try CSV Splitter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How it works -->
+<div class="seo-wrapper">
+    <div class="seo-section">
+        <h2 class="seo-h2">How to Clean a CSV File Online</h2>
+        <p class="seo-lead">Upload once, configure transformations, preview the result, and download a clean UTF-8 encoded CSV. Everything runs in your browser.</p>
+        <div class="how-steps">
+            <div class="how-step"><h3>Upload Your CSV</h3><p>Click the upload zone or drag and drop your CSV file. Processed entirely in your browser using PapaParse. Nothing sent to a server.</p></div>
+            <div class="how-step"><h3>Configure Transformations</h3><p>Toggle global trim and randomise, add per-column operations (case, prefix, suffix, find/replace, regex), concatenate fields, or add static value columns.</p></div>
+            <div class="how-step"><h3>Preview and Adjust</h3><p>A live table shows the first 5 rows with changes highlighted in purple. Changed cells update as you type. Exclude columns using the column picker.</p></div>
+            <div class="how-step"><h3>Download Clean CSV</h3><p>Click Clean and Download. Your transformed file is UTF-8 encoded with a BOM for Excel compatibility, CRLF line endings, and only the selected columns.</p></div>
+        </div>
+    </div>
+</div>
+
+<!-- Operations -->
+<div class="seo-wrapper seo-alt">
+    <div class="seo-section">
+        <h2 class="seo-h2">What Can You Do With This CSV Cleaner?</h2>
+        <p class="seo-lead">Eight field operations plus global utilities. Stack as many as you need, in any order.</p>
+        <div class="ops-grid">
+            <div class="op-card"><h4><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h12"/></svg> Trim whitespace</h4><p>Remove leading and trailing spaces from every value in every column globally. The most common cause of mismatched records in joined datasets.</p></div>
+            <div class="op-card"><h4><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="#9B6BFF" style="vertical-align:-0.15em;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Format case</h4><p>Apply UPPERCASE, lowercase, Title Case, or Sentence case to any column. Normalises contact names, region codes, and status values.</p></div>
+            <div class="op-card"><h4><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><polyline points="5 12 10 17 20 7"/></svg> Add prefix or suffix</h4><p>Prepend or append text to every value in a column. Useful for adding country codes, ID prefixes, or batch labels.</p></div>
+            <div class="op-card"><h4><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg> Find and replace</h4><p>Exact string replacement across an entire column. Replace "N/A" with blank, fix known typos, or reformat date strings.</p></div>
+            <div class="op-card"><h4><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> Regex replace</h4><p>JavaScript regex find and replace with configurable flags (g, i, m). Use $1/$2 for capture groups. Invalid patterns leave values unchanged.</p></div>
+            <div class="op-card"><h4><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><path d="M8 6H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/><path d="M16 6h3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-3"/><line x1="8" y1="12" x2="16" y2="12"/></svg> Concatenate fields</h4><p>Combine two or more columns into a new column with a configurable separator. Classic use case: FirstName + LastName = FullName.</p></div>
+            <div class="op-card"><h4><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Static value column</h4><p>Add a new column with the same value in every row. Useful for tagging records with a BatchID, Wave, Region, or Status before import.</p></div>
+            <div class="op-card"><h4><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/></svg> Exclude columns</h4><p>Choose exactly which columns appear in the output using the column picker. Uncheck any column to remove it. Works with original and new columns alike.</p></div>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ -->
+<div class="seo-wrapper">
+    <div class="seo-section">
+        <h2 class="seo-h2">Frequently Asked Questions</h2>
+        <p class="seo-lead">Common questions about cleaning and transforming CSV files online.</p>
+        <div class="faq-list">
+            <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false"><span>How do I clean a CSV file online?</span><span class="faq-arrow">&#9662;</span></button><div class="faq-answer">Upload your CSV, configure one or more transformations (trim whitespace, reformat case, find and replace, regex, concatenate fields, add static columns), preview the result on the first 5 rows, then click Clean and Download.</div></div>
+            <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false"><span>Can I trim whitespace from every column at once?</span><span class="faq-arrow">&#9662;</span></button><div class="faq-answer">Yes. The Trim whitespace global toggle removes leading and trailing spaces from every value in every column in one click. No column-by-column configuration needed.</div></div>
+            <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false"><span>Is it safe to clean CSV files online?</span><span class="faq-arrow">&#9662;</span></button><div class="faq-answer">Yes. All processing happens entirely in your browser. Your file is never uploaded to any server, stored, or retained. The tool is GDPR and HIPAA friendly and safe to use with personally identifiable information and health records.</div></div>
+            <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false"><span>Can I use regex to clean CSV values?</span><span class="faq-arrow">&#9662;</span></button><div class="faq-answer">Yes. Choose Regex replace, enter a JavaScript regex pattern, a replacement string (use $1/$2 for capture groups), and flags (g for global, i for case-insensitive, m for multiline). Invalid patterns leave values unchanged rather than throwing an error.</div></div>
+            <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false"><span>Can I combine two columns into one?</span><span class="faq-arrow">&#9662;</span></button><div class="faq-answer">Yes. Use Concatenate fields. Choose two or more source columns, select a separator, and name the new column. The original columns are kept. You can then exclude them from the output using the column picker.</div></div>
+            <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false"><span>What format is the output file?</span><span class="faq-arrow">&#9662;</span></button><div class="faq-answer">A single UTF-8 encoded CSV file with a BOM for Excel compatibility and CRLF line endings. All transformations are applied, excluded columns are removed, and the header row reflects the final column set.</div></div>
+            <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false"><span>Can I split the clean CSV into multiple files?</span><span class="faq-arrow">&#9662;</span></button><div class="faq-answer">Yes. After cleaning, use the <a href="/tools/csv-splitter" style="color:#9B6BFF;font-weight:600;">CSV Splitter</a> to split by row count, file size, number of files, or column value. Or use the <a href="/tools/csv-data-tool" style="color:#9B6BFF;font-weight:600;">CSV Data Prep Tool</a> to clean and split in one step.</div></div>
+        </div>
+    </div>
+</div>
+
+<!-- Related tools -->
+<div class="seo-wrapper seo-alt">
+    <div class="seo-section">
+        <div class="related-strip">
+            <h3>More Free Tools</h3>
+            <div class="related-links">
+                <a href="/tools/csv-splitter" class="related-link">CSV Splitter</a>
+                <a href="/tools/csv-data-tool" class="related-link">CSV Data Prep Tool</a>
+                <a href="/pirai-csv-comparator" class="related-link">CSV Compare</a>
+                <a href="/qualtrics-toolkit" class="related-link">Free Tools Hub</a>
+                <a href="/qsf-to-excel" class="related-link">QSF to Excel</a>
+                <a href="/embedded-data-generator" class="related-link">Embedded Data Generator</a>
+                <a href="/" class="related-link">Pirai AI Survey Automation</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Cross-sell -->
+<div class="cross-sell">
+    <div class="cross-sell-inner">
+        <p style="font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:14px;">From the makers of this free tool</p>
+        <h2>Convert any survey document to Google Forms, Qualtrics, or 25+ platforms</h2>
+        <p>Upload a Word, PDF, or Excel questionnaire. Pirai AI structures it with AI and exports a platform-ready import file in minutes.</p>
+        <div class="cta-btns">
+            <a href="https://platform.piraiai.com" target="_blank" class="primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg> Try Pirai AI Free</a>
+            <a href="/" class="outline">Learn More</a>
+        </div>
+        <p style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:18px;">Free daily credits &bull; No credit card required &bull; 400+ universities</p>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-grid">
+        <div>
+            <div class="footer-brand"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span>Pirai AI</span></div>
+            <p class="footer-desc">Universal platform automation transforming documents to 27+ platforms across research, education, healthcare and enterprise.</p>
+            <p class="footer-contact"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> <a href="mailto:admin@piraiai.com">admin@piraiai.com</a></p>
+        </div>
+        <div class="footer-section"><h3>Product</h3><ul class="footer-links"><li><a href="/">Home</a></li><li><a href="/#features">Features</a></li><li><a href="/#pricing">Pricing</a></li><li><a href="/faq">FAQ</a></li><li><a href="/blog">Blog</a></li></ul></div>
+        <div class="footer-section"><h3>Free Tools</h3><ul class="footer-links">
+            <li><a href="/tools/csv-splitter">CSV Splitter</a></li>
+            <li><a href="/tools/csv-cleaner" style="color:#9B6BFF;font-weight:600;">CSV Cleaner</a></li>
+            <li><a href="/tools/csv-data-tool">CSV Data Prep Tool</a></li>
+            <li><a href="/pirai-csv-comparator">CSV Compare</a></li>
+            <li><a href="/qsf-to-excel">QSF to Excel</a></li>
+            <li><a href="/embedded-data-generator">Embedded Data Generator</a></li>
+            <li><a href="/qualtrics-toolkit">Free Tools Hub</a></li>
+        </ul></div>
+        <div class="footer-section"><h3>Company</h3><ul class="footer-links"><li><a href="/about">About Us</a></li><li><a href="/privacy">Privacy Policy</a></li><li><a href="/terms">Terms of Service</a></li><li><a href="https://www.linkedin.com/company/pirai-ai/" target="_blank">LinkedIn</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2025 Pirai AI. All rights reserved.</p><p>Built with enterprise-grade security and privacy.</p></div>
+</footer>
+
+<script>
+    let parsedData = null;
+    let baseFileName = 'output';
+    let transforms = [];
+    let excludedCols = new Set();
+    let cleanedBlob = null;
+
+    const uploadZone = document.getElementById('uploadZone');
+    const fileInput = document.getElementById('fileInput');
+    uploadZone.addEventListener('click', () => fileInput.click());
+    uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('dragover'); });
+    uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('dragover'));
+    uploadZone.addEventListener('drop', e => { e.preventDefault(); uploadZone.classList.remove('dragover'); const f = e.dataTransfer.files[0]; if (f) handleFile(f); });
+    fileInput.addEventListener('change', () => { if (fileInput.files[0]) handleFile(fileInput.files[0]); });
+
+    function handleFile(file) {
+        if (!file.name.toLowerCase().endsWith('.csv')) { alert('Please select a CSV file.'); return; }
+        baseFileName = file.name.replace(/\.csv$/i, '');
+        Papa.parse(file, {
+            header: true, skipEmptyLines: true,
+            complete: function(results) {
+                parsedData = { fields: results.meta.fields || [], rows: results.data };
+                uploadZone.classList.add('has-file');
+                document.getElementById('fileBadge').style.display = 'inline-flex';
+                document.getElementById('fileNameDisplay').textContent = file.name;
+                document.getElementById('fileStatsDisplay').textContent = ' | ' + parsedData.rows.length.toLocaleString() + ' rows, ' + parsedData.fields.length + ' cols';
+                document.getElementById('cleanSection').style.display = 'block';
+                excludedCols = new Set();
+                renderColPicker();
+                renderPreview();
+                if (typeof dataLayer !== 'undefined') dataLayer.push({ event: 'csv_cleaner_file_loaded', rows: parsedData.rows.length });
+            },
+            error: err => alert('Error: ' + err.message)
+        });
+    }
+
+    function getEffectiveFields() {
+        const fields = parsedData ? parsedData.fields.slice() : [];
+        transforms.forEach(t => {
+            if ((t.op === 'concat' || t.op === 'static') && t.newName && t.newName.trim())
+                if (!fields.includes(t.newName.trim())) fields.push(t.newName.trim());
+        });
+        return fields;
+    }
+
+    function getOutputFields() { return getEffectiveFields().filter(f => !excludedCols.has(f)); }
+
+    function renderColPicker() {
+        const allFields = getEffectiveFields();
+        const origFields = parsedData ? parsedData.fields : [];
+        const picker = document.getElementById('colPicker');
+        const grid = document.getElementById('colPickerGrid');
+        if (allFields.length === 0) { picker.style.display = 'none'; return; }
+        picker.style.display = 'block';
+        grid.innerHTML = allFields.map(f => {
+            const isNew = !origFields.includes(f);
+            const isExcluded = excludedCols.has(f);
+            return '<label class="col-item' + (isNew ? ' is-new' : '') + (isExcluded ? ' is-excluded' : '') + '" data-col="' + escHtml(f) + '">' +
+                '<input type="checkbox"' + (isExcluded ? '' : ' checked') + ' onchange="colPickerChange(this)">' +
+                '<span>' + escHtml(f) + (isNew ? '<span class="field-badge-new">NEW</span>' : '') + '</span></label>';
+        }).join('');
+    }
+
+    function colPickerChange(checkbox) {
+        var col = checkbox.closest('[data-col]').getAttribute('data-col');
+        toggleColExclusion(col, checkbox.checked);
+    }
+
+    function toggleColExclusion(col, included) { if (included) excludedCols.delete(col); else excludedCols.add(col); renderColPicker(); renderPreview(); }
+    function setAllCols(included) { if (included) excludedCols.clear(); else getEffectiveFields().forEach(f => excludedCols.add(f)); renderColPicker(); renderPreview(); }
+
+    function addTransform(type) {
+        const id = Date.now();
+        if (type === 'concat') transforms.push({ id, op: 'concat', newName: '', joinCols: [parsedData.fields[0]||'', parsedData.fields[1]||parsedData.fields[0]||''], sep: 'space' });
+        else if (type === 'static') transforms.push({ id, op: 'static', newName: '', val: '' });
+        else transforms.push({ id, col: parsedData.fields[0]||'', op: 'trim', val: '', val2: '', val3: '' });
+        renderTransformList(); renderPreview();
+    }
+
+    function removeTransform(id) { transforms = transforms.filter(t => t.id !== id); renderTransformList(); renderPreview(); }
+
+    function updateTransform(id, key, value) {
+        const t = transforms.find(t => t.id === id); if (!t) return;
+        t[key] = value;
+        if (key === 'op' || key === 'col') renderTransformList();
+        else if (key === 'newName') renderColPicker();
+        renderPreview();
+    }
+
+    function updateConcatCol(id, idx, value) {
+        const t = transforms.find(t => t.id === id);
+        if (t && t.joinCols) { t.joinCols[idx] = value; renderPreview(); }
+    }
+
+    function addConcatCol(id) {
+        const t = transforms.find(t => t.id === id);
+        if (t && t.joinCols) { t.joinCols.push(parsedData.fields[0]||''); renderTransformList(); renderPreview(); }
+    }
+
+    function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+    function renderTransformList() {
+        const list = document.getElementById('transformList');
+        if (transforms.length === 0) { list.innerHTML = ''; renderColPicker(); return; }
+        const removeSvg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>';
+        list.innerHTML = transforms.map(t => {
+            const removeBtn = '<button class="btn-remove" onclick="removeTransform(' + t.id + ')" title="Remove">' + removeSvg + '</button>';
+            if (t.op === 'concat') {
+                const joinColSelects = (t.joinCols||['']).map((jc,ji) => {
+                    const opts = parsedData.fields.map(f => '<option value="' + escHtml(f) + '"' + (f===jc?' selected':'') + '>' + escHtml(f) + '</option>').join('');
+                    return '<select onchange="updateConcatCol(' + t.id + ',' + ji + ',this.value)" style="border:1px solid #d1d5db;border-radius:6px;padding:5px 8px;font-size:12px;background:#fff;">' + opts + '</select>';
+                }).join('<span style="color:#9B6BFF;font-weight:700;padding:0 4px;">+</span>');
+                const addColBtn = '<button onclick="addConcatCol(' + t.id + ')" style="font-size:11px;color:#7c3aed;background:#ede9fe;border:none;border-radius:4px;padding:4px 8px;cursor:pointer;">+ field</button>';
+                const sepOpts = [['space',' (space)'],['_','_ (underscore)'],['comma',', (comma)'],['dash','- (dash)'],['none','(none)']].map(s => '<option value="'+s[0]+'"'+(t.sep===s[0]?' selected':'')+'>'+s[1]+'</option>').join('');
+                return '<div class="transform-row new-field"><div class="new-field-inner"><div><span class="new-field-label">New field name</span><br><input type="text" placeholder="e.g. FullName" value="'+escHtml(t.newName||'')+'" oninput="updateTransform('+t.id+',\'newName\',this.value)" style="border:1px solid #c4b5fd;border-radius:6px;padding:6px 10px;font-size:13px;width:100%;margin-top:4px;background:#fff;"></div><div><span class="new-field-label">Separator</span><br><select onchange="updateTransform('+t.id+',\'sep\',this.value)" style="border:1px solid #c4b5fd;border-radius:6px;padding:6px 8px;font-size:13px;width:100%;margin-top:4px;background:#fff;">'+sepOpts+'</select></div><div><span class="new-field-label">Fields to join '+addColBtn+'</span><div style="display:flex;gap:4px;flex-wrap:wrap;margin-top:4px;align-items:center;">'+joinColSelects+'</div></div></div>'+removeBtn+'</div>';
+            }
+            if (t.op === 'static') {
+                return '<div class="transform-row new-field"><div class="new-field-inner"><div><span class="new-field-label">New field name</span><br><input type="text" placeholder="e.g. BatchID" value="'+escHtml(t.newName||'')+'" oninput="updateTransform('+t.id+',\'newName\',this.value)" style="border:1px solid #c4b5fd;border-radius:6px;padding:6px 10px;font-size:13px;width:100%;margin-top:4px;background:#fff;"></div><div><span class="new-field-label">Static value</span><br><input type="text" placeholder="e.g. 2024_Q3" value="'+escHtml(t.val||'')+'" oninput="updateTransform('+t.id+',\'val\',this.value)" style="border:1px solid #c4b5fd;border-radius:6px;padding:6px 10px;font-size:13px;width:100%;margin-top:4px;background:#fff;"></div><div><span class="new-field-label">Applied to</span><br><span style="font-size:12px;color:#7c3aed;padding-top:6px;display:block;">Every row</span></div></div>'+removeBtn+'</div>';
+            }
+            const colOpts = parsedData.fields.map(f => '<option value="'+escHtml(f)+'"'+(f===t.col?' selected':'')+'>'+escHtml(f)+'</option>').join('');
+            const ops = [['trim','Trim whitespace'],['uppercase','UPPERCASE'],['lowercase','lowercase'],['titlecase','Title Case'],['sentencecase','Sentence case'],['prefix','Add prefix'],['suffix','Add suffix'],['replace','Replace value'],['regexreplace','Regex replace']];
+            const opOpts = ops.map(o => '<option value="'+o[0]+'"'+(o[0]===t.op?' selected':'')+'>'+o[1]+'</option>').join('');
+            let cfg = '';
+            if (t.op==='prefix'||t.op==='suffix') cfg='<input type="text" placeholder="'+(t.op==='prefix'?'Prefix':'Suffix')+' text" value="'+escHtml(t.val)+'" oninput="updateTransform('+t.id+',\'val\',this.value)">';
+            else if (t.op==='replace') cfg='<input type="text" placeholder="Find" value="'+escHtml(t.val)+'" oninput="updateTransform('+t.id+',\'val\',this.value)" style="max-width:120px;"><input type="text" placeholder="Replace with" value="'+escHtml(t.val2)+'" oninput="updateTransform('+t.id+',\'val2\',this.value)" style="max-width:120px;">';
+            else if (t.op==='regexreplace') cfg='<input type="text" placeholder="Pattern" value="'+escHtml(t.val)+'" oninput="updateTransform('+t.id+',\'val\',this.value)" style="max-width:100px;" title="JS regex pattern"><input type="text" placeholder="Replace with" value="'+escHtml(t.val2)+'" oninput="updateTransform('+t.id+',\'val2\',this.value)" style="max-width:90px;"><input type="text" placeholder="Flags: g,i,m" value="'+escHtml(t.val3||"g")+'" oninput="updateTransform('+t.id+',\'val3\',this.value)" style="max-width:65px;">';
+            else cfg='<span style="font-size:12px;color:#9ca3af;">No config needed</span>';
+            return '<div class="transform-row"><select onchange="updateTransform('+t.id+',\'col\',this.value)">'+colOpts+'</select><select onchange="updateTransform('+t.id+',\'op\',this.value)">'+opOpts+'</select><div class="transform-config">'+cfg+'</div>'+removeBtn+'</div>';
+        }).join('');
+        renderColPicker();
+    }
+
+    function applyValue(val, t) {
+        let s = String(val === null || val === undefined ? '' : val);
+        if (t.op==='trim') return s.trim();
+        if (t.op==='uppercase') return s.toUpperCase();
+        if (t.op==='lowercase') return s.toLowerCase();
+        if (t.op==='titlecase') return s.split(' ').map(w => w ? w[0].toUpperCase()+w.slice(1).toLowerCase() : '').join(' ');
+        if (t.op==='sentencecase') return s ? s[0].toUpperCase()+s.slice(1).toLowerCase() : s;
+        if (t.op==='prefix') return t.val+s;
+        if (t.op==='suffix') return s+t.val;
+        if (t.op==='replace') return t.val==='' ? s : s.split(t.val).join(t.val2);
+        if (t.op==='regexreplace') { if (!t.val) return s; try { const fl=(t.val3||'g').replace(/[^gimsuy]/g,''); return s.replace(new RegExp(t.val,fl||'g'),t.val2||''); } catch(e) { return s; } }
+        return s;
+    }
+
+    function applyTransforms(rows) {
+        let result = rows.map(row => Object.assign({}, row));
+        if (document.getElementById('trimToggle').checked) {
+            result.forEach(row => Object.keys(row).forEach(k => { if (row[k]!==null&&row[k]!==undefined) row[k]=String(row[k]).trim(); }));
+        }
+        transforms.forEach(t => {
+            if (t.op==='concat') {
+                const name=(t.newName||'').trim(); if (!name) return;
+                const sep=t.sep==='space'?' ':t.sep==='none'?'':t.sep==='comma'?', ':t.sep==='dash'?'-':t.sep==='_'?'_':' ';
+                result.forEach(row => { row[name]=(t.joinCols||[]).map(c=>String(row[c]||'')).join(sep); });
+            } else if (t.op==='static') {
+                const name=(t.newName||'').trim(); if (!name) return;
+                result.forEach(row => { row[name]=t.val||''; });
+            } else {
+                result.forEach(row => { if (t.col in row) row[t.col]=applyValue(row[t.col],t); });
+            }
+        });
+        if (document.getElementById('randomiseToggle').checked) {
+            for (let i=result.length-1;i>0;i--) { const j=Math.floor(Math.random()*(i+1)); [result[i],result[j]]=[result[j],result[i]]; }
+        }
+        return result;
+    }
+
+    function renderPreview() {
+        const hasTx = transforms.length>0||document.getElementById('trimToggle').checked||document.getElementById('randomiseToggle').checked;
+        const block = document.getElementById('previewBlock');
+        const tbl = document.getElementById('previewTable');
+        if (!parsedData||!hasTx) { block.style.display='none'; return; }
+        block.style.display='block';
+        const sample = parsedData.rows.slice(0,5);
+        const xformed = applyTransforms(sample);
+        const affCols = [];
+        transforms.forEach(t => {
+            if (t.op==='concat'||t.op==='static') { if (t.newName&&t.newName.trim()) affCols.push(t.newName.trim()); }
+            else if (t.col) affCols.push(t.col);
+        });
+        const cols = affCols.length>0 ? [...new Set(affCols)].slice(0,6) : getEffectiveFields().slice(0,4);
+        tbl.innerHTML='<thead><tr>'+cols.map(c=>'<th>'+escHtml(c)+'</th>').join('')+'</tr></thead><tbody>'+
+            xformed.map((row,i)=>'<tr>'+cols.map(c=>{
+                const orig=sample[i]?String(sample[i][c]||''):'';
+                const now=String(row[c]||'');
+                const isNew=!parsedData.fields.includes(c);
+                const changed=isNew||(transforms.some(t=>t.col===c)&&orig!==now);
+                return '<td'+(changed?' class="changed"':'')+'>'+escHtml(now)+'</td>';
+            }).join('')+'</tr>').join('')+'</tbody>';
+    }
+
+    function csvEscape(val) {
+        if (val===null||val===undefined) return '';
+        const s=String(val);
+        if (s.includes(',')||s.includes('"')||s.includes('\n')) return '"'+s.replace(/"/g,'""')+'"';
+        return s;
+    }
+
+    function downloadClean() {
+        if (!parsedData) { alert('Please upload a CSV file first.'); return; }
+        document.getElementById('progressSection').style.display='block';
+        setTimeout(() => {
+            const rows = applyTransforms(parsedData.rows);
+            const fields = getOutputFields();
+            const BOM = '\uFEFF';
+            let csv = BOM + fields.map(f=>csvEscape(f)).join(',') + '\r\n';
+            rows.forEach(row => { csv += fields.map(f=>csvEscape(row[f])).join(',') + '\r\n'; });
+            cleanedBlob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            document.getElementById('progressSection').style.display='none';
+            const totalRows = rows.length;
+            const parts = [];
+            if (document.getElementById('trimToggle').checked) parts.push('whitespace trimmed');
+            if (document.getElementById('randomiseToggle').checked) parts.push('rows randomised');
+            const newCols = transforms.filter(t=>(t.op==='concat'||t.op==='static')&&t.newName&&t.newName.trim());
+            const fieldTs = transforms.filter(t=>t.op!=='concat'&&t.op!=='static');
+            if (newCols.length>0) parts.push(newCols.length+' new column'+(newCols.length>1?'s':'')+' added');
+            if (fieldTs.length>0) parts.push(fieldTs.length+' field transformation'+(fieldTs.length>1?'s':'')+' applied');
+            if (excludedCols.size>0) parts.push(excludedCols.size+' column'+(excludedCols.size>1?'s':'')+' excluded');
+            document.getElementById('appliedText').textContent = parts.join(', ') || 'No transformations applied';
+            document.getElementById('appliedBadge').style.display='flex';
+            document.getElementById('resultSummary').textContent = totalRows.toLocaleString()+' rows, '+fields.length+' columns. '+(parts.length?parts.join(', ')+'.':'');
+            document.getElementById('resultPanel').style.display='block';
+            triggerDownload();
+            if (typeof dataLayer!=='undefined') dataLayer.push({event:'csv_cleaner_download',rows:totalRows,transforms:transforms.length});
+        }, 50);
+    }
+
+    function triggerDownload() {
+        if (!cleanedBlob) return;
+        const url=URL.createObjectURL(cleanedBlob);
+        const a=document.createElement('a'); a.href=url; a.download=baseFileName+'_clean.csv'; a.click();
+        setTimeout(()=>URL.revokeObjectURL(url),5000);
+    }
+
+    function resetTool() {
+        parsedData=null; transforms=[]; excludedCols=new Set(); cleanedBlob=null;
+        uploadZone.classList.remove('has-file');
+        document.getElementById('fileBadge').style.display='none';
+        fileInput.value='';
+        document.getElementById('cleanSection').style.display='none';
+        document.getElementById('resultPanel').style.display='none';
+        document.getElementById('progressSection').style.display='none';
+        document.getElementById('appliedBadge').style.display='none';
+        document.getElementById('transformList').innerHTML='';
+        document.getElementById('colPicker').style.display='none';
+        document.getElementById('previewBlock').style.display='none';
+        document.getElementById('trimToggle').checked=false;
+        document.getElementById('randomiseToggle').checked=false;
+        window.scrollTo({top:0,behavior:'smooth'});
+    }
+
+    function toggleFaq(btn) {
+        const item=btn.closest('.faq-item');
+        const isOpen=item.classList.contains('open');
+        item.classList.toggle('open',!isOpen);
+        btn.setAttribute('aria-expanded',String(!isOpen));
+    }
+</script>
+</body>
+</html>
