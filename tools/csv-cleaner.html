@@ -259,6 +259,15 @@
                         <div class="toggle-info"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg> <strong>Randomise rows</strong> <span>Shuffle all rows into a random order</span></div>
                         <label class="toggle-wrap"><input type="checkbox" id="randomiseToggle" onchange="renderPreview()"><span class="toggle-track"></span></label>
                     </div>
+                    <div class="toggle-row" id="dedupRow">
+                        <div class="toggle-info"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><rect x="2" y="7" width="16" height="14" rx="2"/><path d="M6 7V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-2"/></svg> <strong>Remove duplicates</strong> <span>Keep only the first row for each unique combination of selected columns</span></div>
+                        <label class="toggle-wrap"><input type="checkbox" id="dedupToggle" onchange="toggleDedupPanel()"><span class="toggle-track"></span></label>
+                    </div>
+                    <div id="dedupPanel" style="display:none;margin-top:-4px;padding:14px 16px;background:#faf5ff;border:1px solid #e9d5ff;border-radius:8px;">
+                        <p style="font-size:12px;color:#7c3aed;font-weight:600;margin-bottom:10px;">Deduplicate by columns - select one or more key columns:</p>
+                        <div id="dedupColGrid" style="display:flex;flex-wrap:wrap;gap:6px;"></div>
+                        <p style="font-size:11px;color:#9ca3af;margin-top:8px;">Rows where the combined value of selected columns matches a previous row are removed. First occurrence is kept.</p>
+                    </div>
                 </div>
 
                 <!-- Field transforms -->
@@ -459,6 +468,7 @@
                 document.getElementById('cleanSection').style.display = 'block';
                 excludedCols = new Set();
                 renderColPicker();
+                if (document.getElementById('dedupToggle').checked) renderDedupCols();
                 renderPreview();
                 if (typeof dataLayer !== 'undefined') dataLayer.push({ event: 'csv_cleaner_file_loaded', rows: parsedData.rows.length });
             },
@@ -593,14 +603,58 @@
                 result.forEach(row => { if (t.col in row) row[t.col]=applyValue(row[t.col],t); });
             }
         });
+        if (document.getElementById('dedupToggle').checked) {
+            result = applyDedup(result);
+        }
         if (document.getElementById('randomiseToggle').checked) {
             for (let i=result.length-1;i>0;i--) { const j=Math.floor(Math.random()*(i+1)); [result[i],result[j]]=[result[j],result[i]]; }
         }
         return result;
     }
 
+
+    function toggleDedupPanel() {
+        var on = document.getElementById('dedupToggle').checked;
+        document.getElementById('dedupPanel').style.display = on ? 'block' : 'none';
+        if (on) renderDedupCols();
+        renderPreview();
+    }
+
+    function renderDedupCols() {
+        var grid = document.getElementById('dedupColGrid');
+        if (!grid || !parsedData) return;
+        var selected = getDedupCols();
+        grid.innerHTML = parsedData.fields.map(function(f) {
+            var checked = selected.indexOf(f) !== -1;
+            return '<label style="display:inline-flex;align-items:center;gap:6px;padding:5px 10px;background:#fff;border:1px solid '+(checked?'#9B6BFF':'#e5e7eb')+';border-radius:20px;font-size:12px;color:'+(checked?'#7c3aed':'#374151')+';cursor:pointer;user-select:none;" data-col="'+escHtml(f)+'">' +
+                '<input type="checkbox" '+(checked?'checked':'')+' style="accent-color:#9B6BFF;width:13px;height:13px;" onchange="dedupColChange()"> '+escHtml(f)+'</label>';
+        }).join('');
+    }
+
+    function dedupColChange() {
+        renderDedupCols(); renderPreview();
+    }
+
+    function getDedupCols() {
+        var grid = document.getElementById('dedupColGrid');
+        if (!grid) return [];
+        return Array.from(grid.querySelectorAll('input[type=checkbox]:checked'))
+            .map(function(cb) { return cb.closest('[data-col]').getAttribute('data-col'); });
+    }
+
+    function applyDedup(rows) {
+        var cols = getDedupCols();
+        if (!cols.length) return rows;
+        var seen = new Set();
+        return rows.filter(function(row) {
+            var key = cols.map(function(c) { return String(row[c] || ''); }).join('\u0000');
+            if (seen.has(key)) return false;
+            seen.add(key); return true;
+        });
+    }
+
     function renderPreview() {
-        const hasTx = transforms.length>0||document.getElementById('trimToggle').checked||document.getElementById('randomiseToggle').checked;
+        const hasTx = transforms.length>0||document.getElementById('trimToggle').checked||document.getElementById('randomiseToggle').checked||document.getElementById('dedupToggle').checked;
         const block = document.getElementById('previewBlock');
         const tbl = document.getElementById('previewTable');
         if (!parsedData||!hasTx) { block.style.display='none'; return; }
@@ -644,6 +698,10 @@
             const totalRows = rows.length;
             const parts = [];
             if (document.getElementById('trimToggle').checked) parts.push('whitespace trimmed');
+            if (document.getElementById('dedupToggle').checked) {
+                var dc = getDedupCols();
+                if (dc.length) parts.push('duplicates removed by: ' + dc.join(', '));
+            }
             if (document.getElementById('randomiseToggle').checked) parts.push('rows randomised');
             const newCols = transforms.filter(t=>(t.op==='concat'||t.op==='static')&&t.newName&&t.newName.trim());
             const fieldTs = transforms.filter(t=>t.op!=='concat'&&t.op!=='static');
@@ -680,6 +738,9 @@
         document.getElementById('previewBlock').style.display='none';
         document.getElementById('trimToggle').checked=false;
         document.getElementById('randomiseToggle').checked=false;
+        document.getElementById('dedupToggle').checked=false;
+        document.getElementById('dedupPanel').style.display='none';
+        document.getElementById('dedupColGrid').innerHTML='';
         window.scrollTo({top:0,behavior:'smooth'});
     }
 

@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Excel Merger Online | Merge Multiple Excel Files Instantly | Pirai AI</title>
+    <script type="application/ld+json">
+    [
+      {"@context":"https://schema.org","@type":"WebApplication","name":"Pirai AI Excel Merger","url":"https://piraiai.com/tools/excel-merger","description":"Free online Excel merger. Merge multiple Excel files (.xlsx, .xls, .xlsm) using the first sheet of each. Drag to reorder, validate column alignment, map mismatched columns, and download a single merged Excel file. 100% client-side, no uploads.","applicationCategory":"UtilityApplication","operatingSystem":"Web Browser","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["Merge multiple Excel files into one","Reads first sheet from each file","Drag-to-reorder merge sequence","Column match validation","Column mapping for mismatched files","Union merge (include all columns)","Preview merged result (first 5 rows)","Download as merged .xlsx file","100% client-side, no file uploads","Supports .xlsx, .xls, .xlsm, .ods"],"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com","logo":"https://piraiai.com/logo.png"}},
+      {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+        {"@type":"Question","name":"How do I merge multiple Excel files into one?","acceptedAnswer":{"@type":"Answer","text":"Upload two or more Excel files, drag to set the merge order, review column alignment, and click Merge. The tool reads the first sheet of each file and produces a single merged Excel file."}},
+        {"@type":"Question","name":"Which sheet does the Excel merger read from each file?","acceptedAnswer":{"@type":"Answer","text":"The tool reads the first sheet (Sheet1, or whatever the first tab is named) from each uploaded file. The sheet name is shown on each file card after upload."}},
+        {"@type":"Question","name":"What file formats are supported?","acceptedAnswer":{"@type":"Answer","text":"The tool supports .xlsx (Excel 2007+), .xls (Excel 97-2003), .xlsm (macro-enabled workbooks), and .ods (OpenDocument Spreadsheet). All are read client-side using the SheetJS library."}},
+        {"@type":"Question","name":"What happens if my Excel files have different columns?","acceptedAnswer":{"@type":"Answer","text":"The tool detects column mismatches and shows a mapping panel. You can choose Union mode (include all unique columns, blanks for missing values) or use Column Mapping to manually align columns from each file to the base schema."}},
+        {"@type":"Question","name":"Is my data safe when merging Excel files online?","acceptedAnswer":{"@type":"Answer","text":"Yes. All processing happens entirely in your browser using SheetJS. Your Excel files are never uploaded to any server, stored, or retained by Pirai AI. GDPR and HIPAA friendly."}},
+        {"@type":"Question","name":"What is the output format?","acceptedAnswer":{"@type":"Answer","text":"A single .xlsx file named merged_output.xlsx containing one sheet with all merged rows and the aligned column headers."}}
+      ]}
+    ]
+    </script>
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <meta name="description" content="Free Excel merger online. Merge multiple Excel files into one .xlsx file. Reads first sheet from each file. Drag to reorder, validate columns, map mismatches. 100% private, no uploads.">
+    <meta name="keywords" content="excel merger, merge excel files, combine excel files, merge multiple excel, excel file merger, merge xlsx files, combine xlsx online, append excel files, excel merge tool, merge excel online free, join excel files, combine spreadsheets online">
+    <meta property="og:title" content="Free Excel Merger Online | Merge Multiple Excel Files | Pirai AI">
+    <meta property="og:description" content="Merge multiple Excel files into one. Reads first sheet from each file. Drag to reorder, validate columns, map mismatches. 100% private, no uploads.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://piraiai.com/tools/excel-merger">
+    <link rel="canonical" href="https://piraiai.com/tools/excel-merger" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;color:#1a1a1a;background:#fff;-webkit-font-smoothing:antialiased;}
+        h1,h2,h3,h4,h5,h6{font-family:'Space Grotesk',sans-serif;}
+        header{background:#fff;border-bottom:1px solid #e5e7eb;position:sticky;top:0;z-index:100;}
+        .header-container{max-width:1200px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;}
+        .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+        .logo img{width:32px;height:32px;}
+        .logo-text{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;color:#1a1a1a;}
+        header nav{display:flex;gap:32px;}
+        header nav a{color:#6b7280;text-decoration:none;font-weight:500;font-size:15px;transition:color 0.2s;}
+        header nav a:hover{color:#9B6BFF;}
+        .breadcrumb{background:#f9fafb;border-bottom:1px solid #e5e7eb;padding:12px 24px;}
+        .breadcrumb-container{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:8px;font-size:14px;color:#6b7280;}
+        .breadcrumb a{color:#6b7280;text-decoration:none;}
+        .breadcrumb a:hover{color:#9B6BFF;}
+        .breadcrumb-sep{color:#d1d5db;}
+        .breadcrumb-current{color:#1a1a1a;font-weight:500;}
+        .hero{background:linear-gradient(135deg,#f0fdf4 0%,#f9fafb 60%,#f3f4f6 100%);padding:48px 24px 40px;border-bottom:1px solid #e5e7eb;text-align:center;}
+        .hero-container{max-width:1200px;margin:0 auto;}
+        .hero h1{font-size:36px;font-weight:700;color:#1a1a1a;margin-bottom:12px;line-height:1.3;}
+        .hero-subtitle{font-size:17px;color:#6b7280;margin-bottom:24px;max-width:640px;margin-left:auto;margin-right:auto;}
+        .hero-highlight{background:#faf5ff;border:1px solid #e9d5ff;border-radius:10px;padding:16px 20px;margin-bottom:20px;max-width:640px;margin-left:auto;margin-right:auto;}
+        .hero-highlight h3{font-size:16px;color:#9B6BFF;margin-bottom:4px;}
+        .hero-highlight p{font-size:14px;color:#374151;margin:0;}
+        .format-pills{display:flex;justify-content:center;gap:8px;margin-bottom:20px;flex-wrap:wrap;}
+        .format-pill{font-size:12px;font-weight:700;padding:4px 10px;border-radius:20px;border:1px solid;}
+        .format-pill.xlsx{background:#dcfce7;color:#15803d;border-color:#86efac;}
+        .format-pill.xls{background:#dbeafe;color:#1d4ed8;border-color:#93c5fd;}
+        .format-pill.xlsm{background:#fef3c7;color:#92400e;border-color:#fcd34d;}
+        .format-pill.ods{background:#ede9fe;color:#7c3aed;border-color:#c4b5fd;}
+        .privacy-section{max-width:800px;margin:0 auto;}
+        .privacy-badge{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px 24px;display:flex;align-items:flex-start;gap:16px;text-align:left;box-shadow:0 2px 8px rgba(0,0,0,0.04);}
+        .privacy-content h4{font-size:16px;font-weight:700;color:#9B6BFF;margin-bottom:6px;}
+        .privacy-content p{font-size:14px;color:#6b7280;margin-bottom:12px;}
+        .privacy-features{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:6px;}
+        .privacy-features span{font-size:13px;color:#9B6BFF;font-weight:500;display:flex;align-items:center;gap:5px;}
+        .tool-section{padding:48px 24px;}
+        .tool-container{max-width:900px;margin:0 auto;}
+        .upload-zone{background:#f9fafb;border:2px dashed #d1d5db;border-radius:16px;padding:48px 28px;text-align:center;cursor:pointer;transition:all 0.2s;margin-bottom:24px;}
+        .upload-zone:hover,.upload-zone.dragover{border-color:#16a34a;background:#f0fdf4;}
+        .upload-zone h3{font-size:18px;color:#1a1a1a;margin-bottom:8px;margin-top:12px;}
+        .upload-zone p{font-size:14px;color:#9ca3af;margin-bottom:4px;}
+        .upload-formats{font-size:12px;color:#16a34a;font-weight:600;}
+        .file-stack-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+        .file-stack-header h4{font-size:15px;font-weight:700;color:#1a1a1a;display:flex;align-items:center;gap:8px;}
+        .file-count-badge{font-size:11px;font-weight:700;background:#9B6BFF;color:white;padding:2px 8px;border-radius:20px;}
+        .file-list{display:flex;flex-direction:column;gap:8px;margin-bottom:20px;}
+        .file-card{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:14px 16px;display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:12px;transition:box-shadow 0.15s,border-color 0.15s;cursor:grab;user-select:none;}
+        .file-card:active{cursor:grabbing;}
+        .file-card.dragging{opacity:0.5;border-color:#9B6BFF;}
+        .file-card.drag-over{border-color:#9B6BFF;border-style:dashed;background:#faf5ff;}
+        .file-drag-handle{color:#9ca3af;display:flex;align-items:center;flex-shrink:0;}
+        .file-info{min-width:0;}
+        .file-name{font-weight:600;font-size:14px;color:#1a1a1a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:3px;display:flex;align-items:center;gap:6px;}
+        .file-order-num{font-size:11px;font-weight:700;background:#ede9fe;color:#7c3aed;padding:1px 6px;border-radius:10px;flex-shrink:0;}
+        .sheet-badge{font-size:10px;font-weight:600;background:#f0fdf4;color:#15803d;border:1px solid #86efac;padding:1px 6px;border-radius:4px;flex-shrink:0;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+        .file-meta{font-size:12px;color:#9ca3af;display:flex;gap:12px;flex-wrap:wrap;}
+        .file-status{display:flex;align-items:center;gap:4px;font-size:12px;font-weight:600;flex-shrink:0;}
+        .status-match{color:#16a34a;}
+        .status-mismatch{color:#d97706;}
+        .file-remove{background:none;border:none;color:#9ca3af;cursor:pointer;padding:4px;border-radius:4px;display:flex;align-items:center;}
+        .file-remove:hover{color:#dc2626;background:#fef2f2;}
+        .add-more-btn{display:flex;align-items:center;justify-content:center;gap:6px;background:#f9fafb;border:1px dashed #d1d5db;border-radius:8px;padding:10px;font-size:13px;font-weight:600;color:#6b7280;cursor:pointer;transition:all 0.2s;margin-bottom:20px;}
+        .add-more-btn:hover{border-color:#9B6BFF;color:#9B6BFF;background:#faf5ff;}
+        .col-validation{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin-bottom:20px;}
+        .col-validation h4{font-size:14px;font-weight:700;color:#1a1a1a;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+        .col-match-banner{padding:10px 14px;border-radius:8px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:8px;margin-bottom:12px;}
+        .col-match-banner.ok{background:#f0fdf4;border:1px solid #86efac;color:#15803d;}
+        .col-match-banner.warn{background:#fffbeb;border:1px solid #fcd34d;color:#92400e;}
+        .mode-toggle{display:flex;gap:8px;margin-bottom:16px;}
+        .mode-btn{flex:1;padding:9px 16px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.2s;border:2px solid #e5e7eb;background:#fff;color:#6b7280;font-family:'Inter',sans-serif;}
+        .mode-btn.active{border-color:#9B6BFF;background:#faf5ff;color:#7c3aed;}
+        .mapping-table{width:100%;border-collapse:collapse;font-size:13px;}
+        .mapping-table th{background:#f3f4f6;padding:8px 12px;text-align:left;font-weight:700;color:#374151;border-bottom:1px solid #e5e7eb;}
+        .mapping-table td{padding:8px 12px;border-bottom:1px solid #f3f4f6;vertical-align:middle;}
+        .mapping-table tr:last-child td{border-bottom:none;}
+        .mapping-table select{border:1px solid #d1d5db;border-radius:6px;padding:5px 8px;font-size:12px;color:#1a1a1a;background:#fff;font-family:'Inter',sans-serif;width:100%;}
+        .mapping-table select:focus{outline:none;border-color:#9B6BFF;}
+        .col-tag{display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:600;}
+        .col-tag.base{background:#ede9fe;color:#7c3aed;}
+        .preview-block{background:#faf5ff;border:1px solid #e9d5ff;border-radius:10px;padding:16px;margin-bottom:24px;}
+        .preview-block h5{font-size:13px;font-weight:700;color:#7c3aed;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+        .preview-wrap{overflow-x:auto;border-radius:6px;border:1px solid #e9d5ff;}
+        .preview-table{width:100%;border-collapse:collapse;font-size:12px;white-space:nowrap;}
+        .preview-table th{background:#ede9fe;color:#7c3aed;font-weight:600;padding:6px 10px;text-align:left;border-bottom:1px solid #e9d5ff;}
+        .preview-table td{padding:6px 10px;border-bottom:1px solid #f3f4f6;color:#374151;}
+        .preview-table tr:last-child td{border-bottom:none;}
+        .btn-primary{background:#9B6BFF;color:white;padding:14px 28px;border-radius:8px;font-weight:700;font-size:16px;transition:all 0.2s;border:none;cursor:pointer;width:100%;display:flex;align-items:center;justify-content:center;gap:8px;font-family:'Inter',sans-serif;margin-bottom:24px;}
+        .btn-primary:hover{background:#7c3aed;transform:translateY(-1px);}
+        .btn-primary:disabled{opacity:0.5;cursor:not-allowed;transform:none;background:#9ca3af;}
+        .btn-secondary{border:1px solid #d1d5db;color:#374151;padding:10px 20px;border-radius:8px;font-weight:600;font-size:14px;background:#fff;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:7px;font-family:'Inter',sans-serif;}
+        .btn-secondary:hover{border-color:#9B6BFF;color:#9B6BFF;}
+        .progress{display:none;text-align:center;padding:28px;background:#f9fafb;border:1px solid #e5e7eb;border-radius:12px;margin-bottom:20px;}
+        .spinner{display:inline-block;width:28px;height:28px;border:3px solid #e5e7eb;border-top-color:#9B6BFF;border-radius:50%;animation:spin 0.8s linear infinite;margin-bottom:12px;}
+        @keyframes spin{to{transform:rotate(360deg);}}
+        .result-panel{background:#f0fdf4;border:1px solid #86efac;border-radius:12px;padding:24px;display:none;text-align:center;}
+        .result-panel h3{font-size:20px;color:#15803d;margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:8px;}
+        .result-stats{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin:14px 0;}
+        .result-stat{background:#fff;border:1px solid #d1fae5;border-radius:8px;padding:10px 20px;font-size:13px;color:#374151;}
+        .result-stat strong{color:#15803d;font-size:18px;display:block;}
+        .seo-wrapper{border-top:1px solid #e5e7eb;}
+        .seo-wrapper.seo-alt{background:#f9fafb;}
+        .seo-section{max-width:1200px;margin:0 auto;padding:64px 24px;}
+        .seo-h2{font-size:28px;font-weight:700;color:#1a1a1a;margin-bottom:10px;}
+        .seo-lead{font-size:16px;color:#6b7280;max-width:740px;margin-bottom:40px;line-height:1.75;}
+        .how-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;counter-reset:step-counter;}
+        .how-step{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:24px 20px;position:relative;counter-increment:step-counter;}
+        .how-step::before{content:counter(step-counter);position:absolute;top:-12px;left:20px;background:#9B6BFF;color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+        .how-step h3{font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:8px;margin-top:4px;}
+        .how-step p{font-size:13px;color:#6b7280;line-height:1.65;}
+        .usecase-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;}
+        .usecase-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:24px;}
+        .usecase-card h3{font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:8px;}
+        .usecase-card p{font-size:13px;color:#6b7280;line-height:1.65;}
+        .faq-list{display:flex;flex-direction:column;gap:8px;}
+        .faq-item{background:#fff;border:1px solid #e5e7eb;border-radius:10px;overflow:hidden;}
+        .faq-btn{width:100%;background:none;border:none;padding:18px 20px;text-align:left;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:15px;font-weight:600;color:#1a1a1a;font-family:'Inter',sans-serif;}
+        .faq-btn:hover{color:#9B6BFF;}
+        .faq-arrow{color:#9B6BFF;font-size:18px;transition:transform 0.2s;flex-shrink:0;}
+        .faq-answer{display:none;padding:0 20px 18px;font-size:14px;color:#374151;line-height:1.7;}
+        .faq-item.open .faq-answer{display:block;}
+        .faq-item.open .faq-arrow{transform:rotate(180deg);}
+        .related-strip h3{font-size:17px;font-weight:700;color:#1a1a1a;margin-bottom:18px;}
+        .related-links{display:flex;flex-wrap:wrap;gap:8px;}
+        .related-link{display:inline-flex;align-items:center;gap:6px;background:#f9fafb;border:1px solid #e5e7eb;color:#374151;text-decoration:none;padding:8px 14px;border-radius:8px;font-size:13px;font-weight:500;transition:all 0.2s;}
+        .related-link:hover{border-color:#9B6BFF;color:#9B6BFF;background:#faf5ff;}
+        .cross-sell{background:linear-gradient(135deg,#7c3aed 0%,#9B6BFF 100%);padding:64px 24px;text-align:center;}
+        .cross-sell-inner{max-width:720px;margin:0 auto;}
+        .cross-sell h2{font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700;color:#fff;margin-bottom:12px;line-height:1.25;}
+        .cross-sell p{font-size:16px;color:rgba(255,255,255,0.85);margin-bottom:28px;}
+        .cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+        .cta-btns a.primary{background:#fff;color:#7c3aed;padding:13px 28px;border-radius:8px;font-weight:700;font-size:15px;text-decoration:none;}
+        .cta-btns a.outline{background:transparent;color:#fff;padding:13px 28px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;border:2px solid rgba(255,255,255,0.5);}
+        footer{background:#f9fafb;border-top:1px solid #e5e7eb;padding:48px 24px 32px;}
+        .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:40px;}
+        .footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+        .footer-brand img{width:28px;height:28px;}
+        .footer-brand span{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;color:#1a1a1a;}
+        .footer-desc{font-size:14px;color:#6b7280;line-height:1.6;margin-bottom:14px;max-width:320px;}
+        .footer-contact{font-size:13px;color:#6b7280;}
+        .footer-contact a{color:#9B6BFF;text-decoration:none;}
+        .footer-section h3{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;color:#1a1a1a;margin-bottom:14px;text-transform:uppercase;letter-spacing:0.5px;}
+        .footer-links{list-style:none;}
+        .footer-links li{margin-bottom:8px;}
+        .footer-links a{color:#6b7280;text-decoration:none;font-size:14px;transition:color 0.2s;}
+        .footer-links a:hover{color:#9B6BFF;}
+        .footer-bottom{max-width:1200px;margin:0 auto;border-top:1px solid #e5e7eb;padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+        .footer-bottom p{font-size:13px;color:#6b7280;}
+        @media(max-width:768px){header nav{display:none;} .hero h1{font-size:26px;} .footer-grid{grid-template-columns:1fr;} .mode-toggle{flex-direction:column;} .file-card{grid-template-columns:auto 1fr auto auto;}}
+    </style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<header>
+    <div class="header-container">
+        <a href="/" class="logo"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span class="logo-text">Pirai AI</span></a>
+        <nav><a href="/">Home</a><a href="/blog">Blog</a><a href="/qualtrics-toolkit">Free Tools</a></nav>
+    </div>
+</header>
+
+<div class="breadcrumb">
+    <div class="breadcrumb-container">
+        <a href="/">Home</a><span class="breadcrumb-sep">›</span>
+        <a href="/qualtrics-toolkit">Free Tools</a><span class="breadcrumb-sep">›</span>
+        <span class="breadcrumb-current">Excel Merger</span>
+    </div>
+</div>
+
+<section class="hero">
+    <div class="hero-container">
+        <h1>Free Excel Merger Online</h1>
+        <p class="hero-subtitle">Merge multiple Excel files into one. Reads the first sheet from each file. Drag to set merge order, validate column alignment, and download a single merged .xlsx file. No uploads required.</p>
+        <div class="format-pills">
+            <span class="format-pill xlsx">.xlsx</span>
+            <span class="format-pill xls">.xls</span>
+            <span class="format-pill xlsm">.xlsm</span>
+            <span class="format-pill ods">.ods</span>
+        </div>
+        <div class="hero-highlight">
+            <h3><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="#9B6BFF" style="vertical-align:-0.15em;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> First sheet from each file. Drag-to-reorder. Column mapping.</h3>
+            <p>Upload any number of Excel files, validate column alignment, and download a clean merged .xlsx.</p>
+        </div>
+        <div class="privacy-section">
+            <div class="privacy-badge">
+                <div style="flex-shrink:0;margin-top:2px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="2.2rem" height="2.2rem" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+                <div class="privacy-content">
+                    <h4>100% Private. No Uploads.</h4>
+                    <p>Your Excel files are processed entirely in your browser using SheetJS. We never see your data.</p>
+                    <div class="privacy-features">
+                        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg> Client-side only</span>
+                        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg> Zero server storage</span>
+                        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg> GDPR &amp; HIPAA friendly</span>
+                        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;flex-shrink:0;"><polyline points="20 6 9 17 4 12"/></svg> .xlsx output</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="tool-section">
+    <div class="tool-container">
+
+        <div class="upload-zone" id="uploadZone">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="#9ca3af" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            <h3>Upload Excel Files to Merge</h3>
+            <p>Click to browse or drag and drop multiple files</p>
+            <p class="upload-formats">Supports .xlsx, .xls, .xlsm, .ods</p>
+            <input type="file" id="fileInput" accept=".xlsx,.xls,.xlsm,.ods" multiple style="display:none;">
+        </div>
+
+        <div id="fileStackSection" style="display:none;">
+            <div class="file-stack-header">
+                <h4>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg> Files to merge <span class="file-count-badge" id="fileCountBadge">0</span>
+                </h4>
+                <button class="btn-secondary" onclick="clearAll()" style="padding:6px 14px;font-size:13px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg> Clear all</button>
+            </div>
+
+            <div class="file-list" id="fileList"></div>
+
+            <button class="add-more-btn" onclick="document.getElementById('fileInput').click()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                Add more files
+            </button>
+
+            <!-- Column validation -->
+            <div class="col-validation" id="colValidation">
+                <h4>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+                    Column Alignment
+                </h4>
+                <div id="colMatchBanner" class="col-match-banner ok" style="display:none;"></div>
+                <div class="mode-toggle" id="modeToggle" style="display:none;">
+                    <button class="mode-btn active" id="btnStrict" onclick="setMode('strict')">Strict (identical columns)</button>
+                    <button class="mode-btn" id="btnUnion" onclick="setMode('union')">Union (all columns, blanks for missing)</button>
+                    <button class="mode-btn" id="btnMap" onclick="setMode('map')">Column mapping</button>
+                </div>
+                <div id="mappingPanel" style="display:none;"></div>
+            </div>
+
+            <!-- Preview -->
+            <div class="preview-block" id="previewBlock" style="display:none;">
+                <h5><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> Preview: first 5 rows of merged result</h5>
+                <div class="preview-wrap"><table class="preview-table" id="previewTable"></table></div>
+            </div>
+
+            <button class="btn-primary" id="mergeBtn" onclick="startMerge()" disabled>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg> Merge Excel Files
+            </button>
+        </div>
+
+        <div class="progress" id="progressSection">
+            <div class="spinner"></div>
+            <div style="font-size:15px;font-weight:600;color:#1a1a1a;" id="progressText">Merging files...</div>
+        </div>
+
+        <div class="result-panel" id="resultPanel">
+            <h3><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1.1em" height="1.1em" fill="none" stroke="#15803d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Merge Complete</h3>
+            <div class="result-stats" id="resultStats"></div>
+            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:4px;">
+                <button class="btn-primary" style="width:auto;padding:12px 28px;margin-bottom:0;" onclick="downloadResult()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download merged_output.xlsx</button>
+                <button class="btn-secondary" onclick="resetTool()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg> Merge More Files</button>
+            </div>
+            <div style="margin-top:20px;padding:16px 18px;background:linear-gradient(135deg,#faf5ff 0%,#ede9fe 100%);border:1px solid #e9d5ff;border-radius:10px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;text-align:left;">
+                <div style="flex:1;min-width:160px;">
+                    <p style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#9B6BFF;margin-bottom:3px;">Also from Pirai AI</p>
+                    <p style="font-size:14px;font-weight:700;color:#1a1a1a;margin-bottom:2px;">Convert this Excel file to a survey on 27+ platforms</p>
+                    <p style="font-size:12px;color:#6b7280;">Upload to Pirai AI and get a Qualtrics QSF, Google Forms, REDCap or SurveyMonkey file in minutes.</p>
+                </div>
+                <a href="https://platform.piraiai.com" target="_blank" style="background:#9B6BFF;color:white;padding:9px 16px;border-radius:7px;font-weight:700;font-size:13px;text-decoration:none;white-space:nowrap;flex-shrink:0;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg> Try Pirai AI Free</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- How it works -->
+<div class="seo-wrapper">
+    <div class="seo-section">
+        <h2 class="seo-h2">How to Merge Excel Files Online</h2>
+        <p class="seo-lead">Upload your Excel files, set the merge order by dragging, validate column alignment, and download a single merged .xlsx file. Everything runs in your browser.</p>
+        <div class="how-steps">
+            <div class="how-step"><h3>Upload Excel Files</h3><p>Click the upload zone or drag and drop two or more .xlsx, .xls, .xlsm, or .ods files. Each file is parsed in your browser using SheetJS. Nothing sent to a server.</p></div>
+            <div class="how-step"><h3>Set Merge Order</h3><p>Drag the file cards to set the exact merge order. Each card shows the file name, first sheet name, row count, and column count. Rows appear in your specified order in the merged output.</p></div>
+            <div class="how-step"><h3>Validate Columns</h3><p>The tool checks column alignment across all files. If columns match, merge immediately. If not, choose Union mode or use Column Mapping to align mismatched column names.</p></div>
+            <div class="how-step"><h3>Download .xlsx</h3><p>Click Merge. Your files are combined and downloaded as a single .xlsx file with one sheet containing all merged rows and the aligned headers.</p></div>
+        </div>
+    </div>
+</div>
+
+<!-- Use cases -->
+<div class="seo-wrapper seo-alt">
+    <div class="seo-section">
+        <h2 class="seo-h2">When Do You Need to Merge Excel Files?</h2>
+        <p class="seo-lead">Research, survey platforms, and CRM exports all produce data across multiple Excel files that needs to be consolidated.</p>
+        <div class="usecase-grid">
+            <div class="usecase-card"><h3>Combine Survey Exports</h3><p>Survey platforms often export data wave-by-wave or by date range as separate Excel files. Merge all waves into a single dataset for unified analysis.</p></div>
+            <div class="usecase-card"><h3>Consolidate Agent Files</h3><p>Field researchers or call centre agents each maintain their own Excel file. Merge all agent files into a master dataset after collection is complete.</p></div>
+            <div class="usecase-card"><h3>Reunite Split Workbooks</h3><p>Large datasets are sometimes split by region, time period, or team. Merge them back into one file before analysis or re-import into a platform.</p></div>
+            <div class="usecase-card"><h3>Combine CRM Exports</h3><p>CRM exports often come as multiple Excel files segmented by account type, region, or date. Merge all segments before cleaning and re-importing.</p></div>
+            <div class="usecase-card"><h3>Prepare for Platform Import</h3><p>Survey platforms like Qualtrics require a single contact or SDS file. Merge multiple lists into one, then use Pirai AI to convert to the platform format.</p></div>
+            <div class="usecase-card"><h3>Consolidate Database Extracts</h3><p>Multiple database queries or ETL outputs in Excel format can be merged into one file before loading into BI tools or data warehouses.</p></div>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ -->
+<div class="seo-wrapper">
+    <div class="seo-section">
+        <h2 class="seo-h2">Frequently Asked Questions</h2>
+        <p class="seo-lead">Common questions about merging Excel files online.</p>
+        <div class="faq-list">
+            <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false"><span>How do I merge multiple Excel files into one?</span><span class="faq-arrow">&#9662;</span></button><div class="faq-answer">Upload two or more Excel files, drag the cards to set the merge order, review column alignment, and click Merge. The tool reads the first sheet of each file and produces a single .xlsx with all rows combined.</div></div>
+            <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false"><span>Which sheet does the merger read from each file?</span><span class="faq-arrow">&#9662;</span></button><div class="faq-answer">The tool reads the first sheet from each uploaded file, regardless of its name. The sheet name is displayed on the file card after upload so you can confirm it is reading the correct tab.</div></div>
+            <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false"><span>What Excel formats are supported?</span><span class="faq-arrow">&#9662;</span></button><div class="faq-answer">The tool supports .xlsx (Excel 2007 and later), .xls (Excel 97-2003), .xlsm (macro-enabled workbooks, macros are not preserved), and .ods (OpenDocument Spreadsheet). All formats are read client-side using SheetJS.</div></div>
+            <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false"><span>What happens if my Excel files have different columns?</span><span class="faq-arrow">&#9662;</span></button><div class="faq-answer">The tool detects column mismatches automatically. Choose Union mode to include all unique columns from all files (with blanks for missing values), or use Column Mapping to manually align columns from each file to the base schema from File 1.</div></div>
+            <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false"><span>Is my data safe when merging Excel files online?</span><span class="faq-arrow">&#9662;</span></button><div class="faq-answer">Yes. All processing happens entirely in your browser using SheetJS. Your Excel files are never uploaded to any server, stored, or retained by Pirai AI. GDPR and HIPAA friendly.</div></div>
+            <div class="faq-item"><button class="faq-btn" onclick="toggleFaq(this)" aria-expanded="false"><span>What is the output format?</span><span class="faq-arrow">&#9662;</span></button><div class="faq-answer">A single .xlsx file named merged_output.xlsx, containing one sheet with all merged rows. All values are written as text strings to preserve formatting and avoid Excel type inference issues.</div></div>
+        </div>
+    </div>
+</div>
+
+<!-- Related -->
+<div class="seo-wrapper seo-alt">
+    <div class="seo-section">
+        <div class="related-strip">
+            <h3>More Free Tools</h3>
+            <div class="related-links">
+                <a href="/tools/csv-merger" class="related-link">CSV Merger</a>
+                <a href="/tools/csv-cleaner" class="related-link">CSV Cleaner</a>
+                <a href="/tools/csv-splitter" class="related-link">CSV Splitter</a>
+                <a href="/pirai-csv-comparator" class="related-link">CSV Compare</a>
+                <a href="/qsf-to-excel" class="related-link">QSF to Excel</a>
+                <a href="/qualtrics-toolkit" class="related-link">Free Tools Hub</a>
+                <a href="/" class="related-link">Pirai AI Survey Automation</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Cross-sell -->
+<div class="cross-sell">
+    <div class="cross-sell-inner">
+        <p style="font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:14px;">From the makers of this free tool</p>
+        <h2>Convert any survey document to Google Forms, Qualtrics, or 25+ platforms</h2>
+        <p>Upload a Word, PDF, or Excel questionnaire. Pirai AI structures it with AI and exports a platform-ready import file in minutes.</p>
+        <div class="cta-btns">
+            <a href="https://platform.piraiai.com" target="_blank" class="primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg> Try Pirai AI Free</a>
+            <a href="/" class="outline">Learn More</a>
+        </div>
+        <p style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:18px;">Free daily credits &bull; No credit card required &bull; 400+ universities</p>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-grid">
+        <div>
+            <div class="footer-brand"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span>Pirai AI</span></div>
+            <p class="footer-desc">Universal platform automation transforming documents to 27+ platforms across research, education, healthcare and enterprise.</p>
+            <p class="footer-contact"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9B6BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> <a href="mailto:admin@piraiai.com">admin@piraiai.com</a></p>
+        </div>
+        <div class="footer-section"><h3>Product</h3><ul class="footer-links"><li><a href="/">Home</a></li><li><a href="/#features">Features</a></li><li><a href="/#pricing">Pricing</a></li><li><a href="/faq">FAQ</a></li><li><a href="/blog">Blog</a></li></ul></div>
+        <div class="footer-section"><h3>Free Tools</h3><ul class="footer-links">
+            <li><a href="/tools/excel-merger" style="color:#9B6BFF;font-weight:600;">Excel Merger</a></li>
+            <li><a href="/tools/csv-merger">CSV Merger</a></li>
+            <li><a href="/tools/csv-splitter">CSV Splitter</a></li>
+            <li><a href="/tools/csv-cleaner">CSV Cleaner</a></li>
+            <li><a href="/tools/csv-data-tool">CSV Data Prep Tool</a></li>
+            <li><a href="/pirai-csv-comparator">CSV Compare</a></li>
+            <li><a href="/qualtrics-toolkit">Free Tools Hub</a></li>
+        </ul></div>
+        <div class="footer-section"><h3>Company</h3><ul class="footer-links"><li><a href="/about">About Us</a></li><li><a href="/privacy">Privacy Policy</a></li><li><a href="/terms">Terms of Service</a></li><li><a href="https://www.linkedin.com/company/pirai-ai/" target="_blank">LinkedIn</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p><p>Built with enterprise-grade security and privacy.</p></div>
+</footer>
+
+<script>
+    // ── State ─────────────────────────────────────────────────────────────────
+    var files = [];
+    var mergeMode = 'strict';
+    var columnMapping = {};
+    var mergedWB = null;
+    var dragSrcId = null;
+
+    // ── Upload ────────────────────────────────────────────────────────────────
+    var uploadZone = document.getElementById('uploadZone');
+    var fileInput = document.getElementById('fileInput');
+
+    uploadZone.addEventListener('click', function() { fileInput.click(); });
+    uploadZone.addEventListener('dragover', function(e) { e.preventDefault(); uploadZone.classList.add('dragover'); });
+    uploadZone.addEventListener('dragleave', function() { uploadZone.classList.remove('dragover'); });
+    uploadZone.addEventListener('drop', function(e) {
+        e.preventDefault(); uploadZone.classList.remove('dragover');
+        var accepted = Array.from(e.dataTransfer.files).filter(function(f) {
+            return /\.(xlsx|xls|xlsm|ods)$/i.test(f.name);
+        });
+        handleFiles(accepted);
+    });
+    fileInput.addEventListener('change', function() {
+        handleFiles(Array.from(fileInput.files));
+        fileInput.value = '';
+    });
+
+    function handleFiles(newFiles) {
+        if (!newFiles.length) return;
+        var promises = newFiles.map(function(file) {
+            return new Promise(function(resolve) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    try {
+                        var data = new Uint8Array(e.target.result);
+                        var wb = XLSX.read(data, { type: 'array', cellDates: true, raw: false });
+                        var sheetName = wb.SheetNames[0];
+                        var ws = wb.Sheets[sheetName];
+                        var json = XLSX.utils.sheet_to_json(ws, { header: 1, defval: '' });
+                        if (!json.length) { resolve(null); return; }
+                        var headers = json[0].map(function(h) { return String(h || ''); });
+                        var rows = json.slice(1).map(function(row) {
+                            var obj = {};
+                            headers.forEach(function(h, i) { obj[h] = row[i] !== undefined ? String(row[i]) : ''; });
+                            return obj;
+                        });
+                        resolve({
+                            id: 'f_' + Date.now() + '_' + Math.random().toString(36).slice(2),
+                            name: file.name,
+                            size: file.size,
+                            sheetName: sheetName,
+                            totalSheets: wb.SheetNames.length,
+                            rows: rows.length,
+                            fields: headers.filter(function(h) { return h !== ''; }),
+                            data: rows
+                        });
+                    } catch(err) {
+                        console.error('Error reading', file.name, err);
+                        resolve(null);
+                    }
+                };
+                reader.onerror = function() { resolve(null); };
+                reader.readAsArrayBuffer(file);
+            });
+        });
+        Promise.all(promises).then(function(parsed) {
+            parsed.forEach(function(f) { if (f) files.push(f); });
+            render();
+        });
+    }
+
+    // ── Render ────────────────────────────────────────────────────────────────
+    function render() {
+        if (!files.length) {
+            document.getElementById('fileStackSection').style.display = 'none';
+            return;
+        }
+        document.getElementById('fileStackSection').style.display = 'block';
+        document.getElementById('fileCountBadge').textContent = files.length;
+
+        var baseFields = files[0].fields;
+        var allMatch = files.every(function(f) { return JSON.stringify(f.fields) === JSON.stringify(baseFields); });
+
+        document.getElementById('fileList').innerHTML = files.map(function(f, idx) {
+            var match = JSON.stringify(f.fields) === JSON.stringify(baseFields);
+            var sizeFmt = f.size > 1048576 ? (f.size/1048576).toFixed(1)+' MB' : Math.round(f.size/1024)+' KB';
+            var sheetsNote = f.totalSheets > 1 ? ' ('+f.totalSheets+' sheets)' : '';
+            var statusHtml = idx === 0
+                ? '<span class="file-status status-match"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><polyline points="20 6 9 17 4 12"/></svg> Base</span>'
+                : match
+                    ? '<span class="file-status status-match"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><polyline points="20 6 9 17 4 12"/></svg> Match</span>'
+                    : '<span class="file-status status-mismatch"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><circle cx="12" cy="17" r="1" fill="#d97706" stroke="none"/></svg> Mismatch</span>';
+            return '<div class="file-card" draggable="true" id="fc_'+f.id+'" ondragstart="dragStart(event,\''+f.id+'\')" ondragover="dragOver(event,\''+f.id+'\')" ondragleave="dragLeave(event)" ondrop="dragDrop(event,\''+f.id+'\')" ondragend="dragEnd()">'
+                +'<div class="file-drag-handle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="16" y2="18"/></svg></div>'
+                +'<div class="file-info">'
+                +'<div class="file-name"><span class="file-order-num">'+(idx+1)+'</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#16a34a" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>'+escHtml(f.name)+'<span class="sheet-badge">'+escHtml(f.sheetName)+sheetsNote+'</span></div>'
+                +'<div class="file-meta"><span>'+f.rows.toLocaleString()+' rows</span><span>'+f.fields.length+' cols</span><span>'+sizeFmt+'</span></div>'
+                +'</div>'
+                +statusHtml
+                +'<button class="file-remove" onclick="removeFile(\''+f.id+'\')" title="Remove"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>'
+                +'</div>';
+        }).join('');
+
+        renderColValidation(baseFields, allMatch);
+        updateMergeBtn();
+        renderPreview();
+    }
+
+    function renderColValidation(baseFields, allMatch) {
+        var banner = document.getElementById('colMatchBanner');
+        var modeToggle = document.getElementById('modeToggle');
+        if (files.length < 2) { banner.style.display = 'none'; modeToggle.style.display = 'none'; document.getElementById('mappingPanel').style.display = 'none'; return; }
+        banner.style.display = 'flex'; modeToggle.style.display = 'flex';
+        if (allMatch) {
+            banner.className = 'col-match-banner ok';
+            banner.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><polyline points="20 6 9 17 4 12"/></svg> All '+files.length+' files have identical columns. Ready to merge.';
+        } else {
+            banner.className = 'col-match-banner warn';
+            var mismatch = files.filter(function(f) { return JSON.stringify(f.fields) !== JSON.stringify(baseFields); });
+            banner.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round" style="vertical-align:-0.15em;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><circle cx="12" cy="17" r="1" fill="#d97706" stroke="none"/></svg> '+mismatch.length+' file'+(mismatch.length>1?'s':'')+' have different columns. Choose Union or Mapping mode.';
+            if (mergeMode === 'strict') setMode('union');
+        }
+        if (mergeMode === 'map') renderMappingPanel(baseFields);
+        else document.getElementById('mappingPanel').style.display = 'none';
+    }
+
+    function renderMappingPanel(baseFields) {
+        var panel = document.getElementById('mappingPanel');
+        if (files.length < 2) { panel.style.display = 'none'; return; }
+        panel.style.display = 'block';
+        var html = '<p style="font-size:13px;color:#6b7280;margin-bottom:12px;">Map each file\'s columns to the base schema (File 1). Leave blank to fill with empty values.</p>';
+        files.slice(1).forEach(function(f) {
+            if (JSON.stringify(f.fields) === JSON.stringify(baseFields)) return;
+            html += '<div style="margin-bottom:16px;"><p style="font-size:13px;font-weight:700;color:#374151;margin-bottom:8px;">'+escHtml(f.name)+' (sheet: '+escHtml(f.sheetName)+')</p>';
+            html += '<div style="overflow-x:auto;"><table class="mapping-table"><thead><tr><th>Base column (File 1)</th><th>Maps to column in this file</th></tr></thead><tbody>';
+            baseFields.forEach(function(col) {
+                var curMap = columnMapping[f.id] && columnMapping[f.id][col] !== undefined ? columnMapping[f.id][col] : (f.fields.indexOf(col) !== -1 ? col : '');
+                var opts = '<option value="">-- blank --</option>' + f.fields.map(function(fc) {
+                    return '<option value="'+escHtml(fc)+'"'+(fc===curMap?' selected':'')+'>'+escHtml(fc)+'</option>';
+                }).join('');
+                html += '<tr><td><span class="col-tag base">'+escHtml(col)+'</span></td><td><select onchange="updateMapping(\''+f.id+'\',\''+escHtml(col)+'\',this.value)">'+opts+'</select></td></tr>';
+            });
+            html += '</tbody></table></div></div>';
+        });
+        panel.innerHTML = html || '<p style="font-size:13px;color:#16a34a;">All files match the base schema.</p>';
+    }
+
+    function setMode(mode) {
+        mergeMode = mode;
+        ['strict','union','map'].forEach(function(m) {
+            document.getElementById('btn'+m.charAt(0).toUpperCase()+m.slice(1)).classList.toggle('active', m===mode);
+        });
+        var baseFields = files.length > 0 ? files[0].fields : [];
+        if (mode === 'map') renderMappingPanel(baseFields);
+        else document.getElementById('mappingPanel').style.display = 'none';
+        updateMergeBtn(); renderPreview();
+    }
+
+    function updateMapping(fileId, baseCol, fileCol) {
+        if (!columnMapping[fileId]) columnMapping[fileId] = {};
+        columnMapping[fileId][baseCol] = fileCol;
+        renderPreview();
+    }
+
+    // ── Drag to reorder ───────────────────────────────────────────────────────
+    function dragStart(e, id) { dragSrcId = id; e.currentTarget.classList.add('dragging'); }
+    function dragOver(e, id) { e.preventDefault(); if (id !== dragSrcId) e.currentTarget.classList.add('drag-over'); }
+    function dragLeave(e) { e.currentTarget.classList.remove('drag-over'); }
+    function dragEnd() { document.querySelectorAll('.file-card').forEach(function(c) { c.classList.remove('dragging','drag-over'); }); }
+    function dragDrop(e, targetId) {
+        e.preventDefault();
+        if (dragSrcId === targetId) return;
+        var srcIdx = files.findIndex(function(f) { return f.id === dragSrcId; });
+        var tgtIdx = files.findIndex(function(f) { return f.id === targetId; });
+        if (srcIdx === -1 || tgtIdx === -1) return;
+        var moved = files.splice(srcIdx, 1)[0];
+        files.splice(tgtIdx, 0, moved);
+        dragSrcId = null; render();
+    }
+
+    // ── File management ───────────────────────────────────────────────────────
+    function removeFile(id) { files = files.filter(function(f) { return f.id !== id; }); delete columnMapping[id]; render(); }
+    function clearAll() { files = []; columnMapping = {}; mergedWB = null; document.getElementById('fileStackSection').style.display = 'none'; document.getElementById('previewBlock').style.display = 'none'; document.getElementById('resultPanel').style.display = 'none'; fileInput.value = ''; }
+
+    // ── Output fields ─────────────────────────────────────────────────────────
+    function getOutputFields() {
+        if (!files.length) return [];
+        if (mergeMode === 'strict' || mergeMode === 'map') return files[0].fields;
+        var seen = {}, result = [];
+        files.forEach(function(f) { f.fields.forEach(function(col) { if (!seen[col]) { seen[col] = true; result.push(col); } }); });
+        return result;
+    }
+
+    function getMappedRow(row, file, fields) {
+        var out = {};
+        fields.forEach(function(col) {
+            if (mergeMode === 'map' && columnMapping[file.id] && columnMapping[file.id][col] !== undefined) {
+                var src = columnMapping[file.id][col];
+                out[col] = src ? (row[src] || '') : '';
+            } else {
+                out[col] = row[col] !== undefined ? row[col] : '';
+            }
+        });
+        return out;
+    }
+
+    // ── Preview ───────────────────────────────────────────────────────────────
+    function renderPreview() {
+        var block = document.getElementById('previewBlock');
+        if (files.length < 2) { block.style.display = 'none'; return; }
+        var fields = getOutputFields();
+        if (!fields.length) { block.style.display = 'none'; return; }
+        block.style.display = 'block';
+        var previewRows = [];
+        var fileColors = ['#ede9fe','#dcfce7','#fee2e2','#dbeafe','#fef3c7','#fce7f3'];
+        files.forEach(function(f, fi) {
+            f.data.slice(0, 3).forEach(function(row) {
+                if (previewRows.length < 5) previewRows.push({ row: row, file: f, fi: fi });
+            });
+        });
+        var th = '<thead><tr>'+fields.map(function(c) { return '<th>'+escHtml(c)+'</th>'; }).join('')+'<th style="width:80px;color:#9ca3af;">Source</th></tr></thead>';
+        var tb = '<tbody>'+previewRows.map(function(pr) {
+            var mapped = getMappedRow(pr.row, pr.file, mergeMode === 'union' ? pr.file.fields : fields);
+            var cells = fields.map(function(col) {
+                var val = mergeMode === 'union' ? (pr.row[col] || '') : (mapped[col] || '');
+                return '<td>'+escHtml(String(val).substring(0,40))+'</td>';
+            }).join('');
+            var color = fileColors[pr.fi % fileColors.length];
+            return '<tr>'+cells+'<td><span style="background:'+color+';font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;color:#374151;">'+(pr.fi+1)+'</span></td></tr>';
+        }).join('')+'</tbody>';
+        document.getElementById('previewTable').innerHTML = th + tb;
+    }
+
+    // ── Merge btn state ───────────────────────────────────────────────────────
+    function updateMergeBtn() {
+        var btn = document.getElementById('mergeBtn');
+        var baseFields = files.length > 0 ? files[0].fields : [];
+        var allMatch = files.every(function(f) { return JSON.stringify(f.fields) === JSON.stringify(baseFields); });
+        var canMerge = files.length >= 2 && (mergeMode !== 'strict' || allMatch);
+        btn.disabled = !canMerge;
+        btn.innerHTML = canMerge
+            ? '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em;"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg> Merge '+files.length+' Excel Files'
+            : 'Switch to Union or Mapping mode to merge';
+    }
+
+    // ── Merge ─────────────────────────────────────────────────────────────────
+    function startMerge() {
+        document.getElementById('progressSection').style.display = 'block';
+        document.getElementById('resultPanel').style.display = 'none';
+        document.getElementById('progressText').textContent = 'Merging '+files.length+' files...';
+        setTimeout(function() {
+            try {
+                var fields = getOutputFields();
+                var allRows = [fields]; // header row
+                var totalRows = 0;
+                files.forEach(function(f) {
+                    f.data.forEach(function(row) {
+                        if (mergeMode === 'union') {
+                            allRows.push(fields.map(function(col) { return row[col] !== undefined ? row[col] : ''; }));
+                        } else {
+                            var mapped = getMappedRow(row, f, fields);
+                            allRows.push(fields.map(function(col) { return mapped[col] || ''; }));
+                        }
+                        totalRows++;
+                    });
+                });
+                var ws = XLSX.utils.aoa_to_sheet(allRows);
+                // Auto-fit column widths (approximate)
+                var colWidths = fields.map(function(col) { return { wch: Math.min(Math.max(col.length, 10), 40) }; });
+                ws['!cols'] = colWidths;
+                var wb = XLSX.utils.book_new();
+                XLSX.utils.book_append_sheet(wb, ws, 'Merged');
+                mergedWB = wb;
+                document.getElementById('progressSection').style.display = 'none';
+                document.getElementById('resultStats').innerHTML =
+                    '<div class="result-stat"><strong>'+files.length+'</strong>files merged</div>'
+                    +'<div class="result-stat"><strong>'+totalRows.toLocaleString()+'</strong>total rows</div>'
+                    +'<div class="result-stat"><strong>'+fields.length+'</strong>columns</div>';
+                document.getElementById('resultPanel').style.display = 'block';
+                document.getElementById('resultPanel').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                if (typeof dataLayer !== 'undefined') dataLayer.push({ event: 'excel_merger_complete', files: files.length, rows: totalRows, mode: mergeMode });
+            } catch(e) {
+                document.getElementById('progressSection').style.display = 'none';
+                alert('Merge error: ' + e.message);
+            }
+        }, 60);
+    }
+
+    function downloadResult() {
+        if (!mergedWB) return;
+        XLSX.writeFile(mergedWB, 'merged_output.xlsx');
+        if (typeof dataLayer !== 'undefined') dataLayer.push({ event: 'excel_merger_download', mode: mergeMode });
+    }
+
+    function resetTool() {
+        files = []; columnMapping = {}; mergedWB = null;
+        document.getElementById('fileStackSection').style.display = 'none';
+        document.getElementById('previewBlock').style.display = 'none';
+        document.getElementById('resultPanel').style.display = 'none';
+        document.getElementById('progressSection').style.display = 'none';
+        fileInput.value = '';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+    function toggleFaq(btn) { var item = btn.closest('.faq-item'); var isOpen = item.classList.contains('open'); item.classList.toggle('open', !isOpen); btn.setAttribute('aria-expanded', String(!isOpen)); }
+</script>
+</body>
+</html>
