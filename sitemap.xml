@@ -38,12 +38,18 @@
     <changefreq>weekly</changefreq>
     <lastmod>2025-01-26</lastmod>
   </url>  
-  <url>
+  <!-- <url>
     <loc>https://piraiai.com/qualtrics-toolkit</loc>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
     <lastmod>2025-10-10</lastmod>
-  </url>
+  </url> -->
+  <url>
+    <loc>https://piraiai.com/tools</loc>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-07-09</lastmod>
+  </url>  
   <url>
     <loc>https://piraiai.com/how-pirai-ai-works</loc>
     <priority>0.9</priority>
