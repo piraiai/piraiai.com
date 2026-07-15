@@ -134,6 +134,12 @@
     <changefreq>monthly</changefreq>
     <lastmod>2026-07-15</lastmod>
   </url>  
+  <url>
+    <loc>https://piraiai.com/product/forsta-to-qualtrics-migration</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-15</lastmod>
+  </url>  
   <!-- FORMAT-SPECIFIC PRODUCT PAGES - High priority -->
   <!-- Google Forms format-specific -->
   <url>
