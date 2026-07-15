@@ -104,6 +104,36 @@
     <changefreq>monthly</changefreq>
     <lastmod>2026-06-21</lastmod>
   </url>
+<url>
+    <loc>https://piraiai.com/product/forsta-converter</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-15</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/product/questionpro-converter</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-15</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/product/surveysparrow-converter</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-15</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/product/zoho-survey-converter</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-15</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/product/surveytogo-converter</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-15</lastmod>
+  </url>  
   <!-- FORMAT-SPECIFIC PRODUCT PAGES - High priority -->
   <!-- Google Forms format-specific -->
   <url>
