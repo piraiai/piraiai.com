@@ -140,6 +140,220 @@
     <changefreq>monthly</changefreq>
     <lastmod>2026-07-15</lastmod>
   </url>  
+<!-- ============================================================ -->
+<!-- NEW BLOG SITEMAP ENTRIES — July 18, 2026 -->
+<!-- ============================================================ -->
+
+  <!-- ── FEATURE BLOGS ── -->
+  <url>
+    <loc>https://piraiai.com/blog/extract-qualtrics-basic-transform-mappings</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-18</lastmod>
+  </url>
+
+  <url>
+    <loc>https://piraiai.com/blog/extract-qualtrics-add-contacts-transactions-xmd</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-18</lastmod>
+  </url>
+
+  <url>
+    <loc>https://piraiai.com/blog/pirai-ai-survey-advisor</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-18</lastmod>
+  </url>
+
+  <url>
+    <loc>https://piraiai.com/blog/chatgpt-to-qualtrics</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-18</lastmod>
+  </url>
+
+  <!-- ── SEO CLUSTER — CATEGORY OWNERSHIP ── -->
+  <url>
+    <loc>https://piraiai.com/blog/survey-automation</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-18</lastmod>
+  </url>
+
+  <url>
+    <loc>https://piraiai.com/blog/survey-programming-software</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-18</lastmod>
+  </url>
+
+  <url>
+    <loc>https://piraiai.com/blog/ai-survey-automation-platform</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-18</lastmod>
+  </url>
+
+  <!-- ── SEO CLUSTER — AUDIENCE PAGES ── -->
+  <url>
+    <loc>https://piraiai.com/blog/ai-survey-tool-for-researchers</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-18</lastmod>
+  </url>
+
+  <url>
+    <loc>https://piraiai.com/blog/ai-survey-tool-for-market-research</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-18</lastmod>
+  </url>
+
+  <url>
+    <loc>https://piraiai.com/blog/ai-survey-tool-for-healthcare</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-18</lastmod>
+  </url>
+
+  <url>
+    <loc>https://piraiai.com/blog/ai-survey-tool-for-cx-teams</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-18</lastmod>
+  </url>
+
+  <url>
+    <loc>https://piraiai.com/blog/ai-survey-tool-for-survey-programmers</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-18</lastmod>
+  </url>
+
+  <!-- ── SEO CLUSTER — PROBLEM-AWARE PAGES ── -->
+  <url>
+    <loc>https://piraiai.com/blog/how-long-does-survey-programming-take</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-18</lastmod>
+  </url>
+
+  <url>
+    <loc>https://piraiai.com/blog/multi-platform-survey-deployment</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-18</lastmod>
+  </url>
+
+  <!-- ── ACADEMIC AND COMPLIANCE CLUSTER ── -->
+  <url>
+    <loc>https://piraiai.com/blog/irb-compliant-survey-design</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-18</lastmod>
+  </url>
+
+  <url>
+    <loc>https://piraiai.com/blog/gdpr-compliant-survey-design</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-18</lastmod>
+  </url>
+
+  <url>
+    <loc>https://piraiai.com/blog/matrix-questions-mobile-surveys</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-18</lastmod>
+  </url>
+
+  <url>
+    <loc>https://piraiai.com/blog/clinical-trial-survey-redcap</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-18</lastmod>
+  </url>
+
+  <!-- ── FLOW / QUALTRICS DASHBOARD CLUSTER ── -->
+  <url>
+    <loc>https://piraiai.com/blog/pirai-ai-flow-qualtrics-dashboard</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-18</lastmod>
+  </url>
+
+  <url>
+    <loc>https://piraiai.com/blog/ai-qualtrics-dashboard-builder</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-18</lastmod>
+  </url>
+
+  <url>
+    <loc>https://piraiai.com/blog/qualtrics-dashboard-best-practices-cx</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-18</lastmod>
+  </url>
+
+  <url>
+    <loc>https://piraiai.com/blog/build-qualtrics-cx-dashboard-without-manual-config</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-18</lastmod>
+  </url>
+
+  <!-- ── SURVEY PROGRAMMING EFFICIENCY CLUSTER ── -->
+  <url>
+    <loc>https://piraiai.com/blog/automating-market-research-operations</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-18</lastmod>
+  </url>
+
+  <url>
+    <loc>https://piraiai.com/blog/preserve-skip-logic-survey-migration</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-18</lastmod>
+  </url>
+
+  <url>
+    <loc>https://piraiai.com/blog/reduce-survey-scripting-turnaround</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-18</lastmod>
+  </url>
+
+  <!-- ── PLATFORM MIGRATION CLUSTER ── -->
+  <url>
+    <loc>https://piraiai.com/blog/migrate-qualtrics-to-questionpro</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-18</lastmod>
+  </url>
+
+  <url>
+    <loc>https://piraiai.com/blog/migrate-surveymonkey-to-google-forms</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-18</lastmod>
+  </url>
+
+  <url>
+    <loc>https://piraiai.com/blog/forsta-alternatives</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-18</lastmod>
+  </url>
+
+  <url>
+    <loc>https://piraiai.com/blog/migrate-alchemer-to-redcap</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-07-18</lastmod>
+  </url>  
   <!-- FORMAT-SPECIFIC PRODUCT PAGES - High priority -->
   <!-- Google Forms format-specific -->
   <url>

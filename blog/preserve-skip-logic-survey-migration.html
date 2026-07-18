@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Practices for Preserving Skip Logic When Migrating Surveys - Pirai AI Blog</title>
+    <meta name="description" content="Skip logic is the hardest part of survey platform migration. This guide covers what gets lost in manual migration, how different platforms handle branching logic, and how to validate logic after conversion.">
+    <meta name="keywords" content="preserve skip logic survey migration, survey skip logic migration, branching logic survey platform migration, Qualtrics skip logic migration, survey display logic migration, migrate survey logic">
+    <meta property="og:type" content="article"><meta property="og:url" content="https://piraiai.com/blog/preserve-skip-logic-survey-migration">
+    <meta property="og:title" content="Best Practices for Preserving Skip Logic When Migrating Surveys"><meta property="og:description" content="Skip logic is the hardest part of survey platform migration. This guide covers what gets lost in manual migration, how different platforms handle branching logic, and how to validate logic after conversion.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="article:published_time" content="2026-07-18T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Best Practices for Preserving Skip Logic When Migrating Surveys"><meta name="twitter:description" content="Skip logic is the hardest part of survey platform migration. This guide covers what gets lost in manual migration, how different platforms handle branching logic, and how to validate logic after conversion.">
+    <link rel="canonical" href="https://piraiai.com/blog/preserve-skip-logic-survey-migration"><link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Article","headline":"Best Practices for Preserving Skip Logic When Migrating Surveys","description":"Skip logic is the hardest part of survey platform migration. This guide covers what gets lost in manual migration, how different platforms handle branching logic, and how to validate logic after conversion.","author":{"@type":"Person","name":"Arun Raj"},"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},"datePublished":"2026-07-18","url":"https://piraiai.com/blog/preserve-skip-logic-survey-migration"}
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; transition: color 0.2s; margin-left: 32px; }
+        header nav a:hover { color: #9B6BFF; }
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+        .content-wrapper { max-width: 1200px; margin: 48px auto; padding: 0 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+        .article-content { max-width: 680px; overflow-x: hidden; }
+        .article-content p { font-size: 18px; color: #374151; margin-bottom: 24px; line-height: 1.7; }
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-top: 32px; margin-bottom: 12px; }
+        .article-content a { color: #9B6BFF; text-decoration: none; border-bottom: 1px solid rgba(155,107,255,0.3); transition: all 0.2s; }
+        .article-content a:hover { border-bottom-color: #9B6BFF; }
+        .article-content ul, .article-content ol { margin-bottom: 24px; padding-left: 24px; }
+        .article-content li { font-size: 18px; color: #374151; margin-bottom: 12px; line-height: 1.7; }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+        table { width: 100%; border-collapse: collapse; margin: 32px 0; background: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; }
+        @media (max-width: 640px) { table { display: block; overflow-x: auto; white-space: nowrap; } }
+        th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid #f3f4f6; font-size: 15px; }
+        th { background: #f9fafb; font-weight: 600; color: #1a1a1a; border-bottom: 2px solid #e5e7eb; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover { background: #f9fafb; }
+        .highlight-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 24px; margin: 32px 0; border-radius: 4px; }
+        .highlight-box h4 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: #1a1a1a; margin-bottom: 12px; }
+        .highlight-box p, .highlight-box li { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .highlight-box ul { margin: 8px 0 0 20px; }
+        .alert { padding: 16px 20px; border-radius: 8px; margin: 24px 0; border-left: 4px solid; font-size: 15px; line-height: 1.6; }
+        .alert-info { background: #dbeafe; border-left-color: #3b82f6; color: #1e40af; }
+        .alert-warning { background: #fef3c7; border-left-color: #f59e0b; color: #92400e; }
+        .alert-success { background: #d1fae5; border-left-color: #22c55e; color: #065f46; }
+        .step-box { background: #f9fafb; border-left: 4px solid #9B6BFF; border-radius: 8px; padding: 24px; margin: 20px 0; }
+        .step-number { display: inline-block; background: #9B6BFF; color: white; width: 35px; height: 35px; line-height: 35px; text-align: center; border-radius: 50%; font-weight: 700; margin-right: 12px; font-size: 16px; font-family: 'Space Grotesk', sans-serif; }
+        .step-box h4 { display: inline; font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: #1a1a1a; }
+        .step-box p { margin: 12px 0 0 47px; font-size: 16px; color: #374151; line-height: 1.7; }
+        .feature-list { list-style: none; padding: 0; margin: 24px 0; }
+        .feature-list li { padding: 8px 0 8px 32px; position: relative; font-size: 17px; color: #374151; line-height: 1.7; margin-bottom: 4px; }
+        .feature-list li:before { content: "\2713"; position: absolute; left: 0; color: #22c55e; font-weight: bold; font-size: 20px; }
+        .checklist { list-style: none; padding: 0; margin: 24px 0; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; }
+        .checklist li { padding: 14px 20px; border-bottom: 1px solid #f3f4f6; font-size: 16px; color: #374151; display: flex; align-items: flex-start; gap: 12px; }
+        .checklist li:last-child { border-bottom: none; }
+        .checklist li:before { content: "\2610"; font-size: 18px; color: #9B6BFF; flex-shrink: 0; margin-top: 1px; }
+        .article-cta { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 36px 40px; border-radius: 12px; margin: 48px 0 32px; text-align: center; }
+        .article-cta h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+        .article-cta p { font-size: 16px; color: #ffffff; opacity: 0.95; margin-bottom: 20px; }
+        .article-cta a { border-bottom: none !important; }
+        .cta-btn-white { display: inline-block; background: #ffffff; color: #9B6BFF !important; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-btn-white:hover { transform: translateY(-2px); }
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a1a1a; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; transition: color 0.2s; border-bottom: none; display: block; }
+        .toc-list a:hover { color: #9B6BFF; }
+        .toc-list a.active { color: #9B6BFF; font-weight: 600; }
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 32px; border-radius: 8px; text-align: center; color: #ffffff; margin-bottom: 24px; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .cta-box p { font-size: 14px; margin-bottom: 20px; opacity: 0.95; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-button:hover { transform: translateY(-2px); }
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; border-bottom: none; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: #1a1a1a; margin-bottom: 8px; }
+        .related-card p { font-size: 14px; color: #6b7280; margin: 0; }
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+        @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
+</style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header><div class="header-container">
+        <a href="/" class="logo"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span></a>
+        <nav><a href="/">Home</a><a href="/blog">All Articles</a><a href="/docs">Documentation</a><a href="/#demo">Get Demo</a></nav>
+    </div></header>
+    <div class="breadcrumb"><div class="breadcrumb-container">
+        <a href="/">Home</a><span class="breadcrumb-separator">›</span><a href="/blog">Blog</a><span class="breadcrumb-separator">›</span><span class="breadcrumb-current">Preserving Skip Logic in Survey Migration</span>
+    </div></div>
+    <div class="hero"><div class="hero-container">
+        <h1 class="article-title">Best Practices for Preserving Skip Logic When Migrating Surveys</h1>
+        <div class="article-meta"><span class="author">Arun Raj</span><span class="separator">•</span><span>July 18, 2026</span><span class="separator">•</span><span>5 min read</span></div>
+    </div></div>
+    <div class="content-wrapper">
+        <article class="article-content">
+
+            <p>When migrating a survey between platforms, the questions are the easy part. The skip logic is where migrations fail. A question that routes respondents to different sections based on their answer requires the destination platform to have a matching branching capability, the same field references, and the same logic syntax. None of these are guaranteed across platforms.</p>
+
+            <h2 id="why-skip-logic-breaks">Why Skip Logic Breaks in Migration</h2>
+            <p>Skip logic and display logic in survey platforms use internal field references, not the question text itself. When a survey is rebuilt manually in a new platform, those internal references are recreated from scratch. Any error in referencing the correct field or condition produces logic that appears correct in the editor but fails for respondents.</p>
+            <p>The second failure mode is capability mismatch. Qualtrics supports complex nested branching, embedded data conditions, and quota-based routing that platforms like Google Forms or Microsoft Forms do not support at all. Migrating a Qualtrics survey with advanced logic to Google Forms means either losing the logic entirely or restructuring the survey significantly.</p>
+
+            <h2 id="platform-logic-comparison">Logic Capability Comparison Across Platforms</h2>
+            <table>
+                <thead><tr><th>Platform</th><th>Skip Logic</th><th>Display Logic</th><th>Embedded Data Logic</th></tr></thead>
+                <tbody>
+                    <tr><td>Qualtrics</td><td>Advanced, nested</td><td>Full support</td><td>Full support</td></tr>
+                    <tr><td>REDCap</td><td>Branching logic per field</td><td>Field-level conditions</td><td>Calculated fields</td></tr>
+                    <tr><td>SurveyMonkey</td><td>Page-level and question-level</td><td>Limited</td><td>Not supported</td></tr>
+                    <tr><td>Google Forms</td><td>Section-based only</td><td>Not supported</td><td>Not supported</td></tr>
+                    <tr><td>Microsoft Forms</td><td>Basic branching</td><td>Not supported</td><td>Not supported</td></tr>
+                    <tr><td>Alchemer</td><td>Advanced, rule-based</td><td>Full support</td><td>Supported</td></tr>
+                    <tr><td>QuestionPro</td><td>Full support</td><td>Full support</td><td>Supported</td></tr>
+                </tbody>
+            </table>
+
+            <h2 id="what-pirai-ai-preserves">What Pirai AI Preserves During Conversion</h2>
+            <p>Pirai AI focuses on accurate question and answer option conversion — the structural layer that every platform supports. For logic that has a direct equivalent in the target platform, Pirai AI maps it during conversion. For logic that does not exist in the target platform, the conversion produces a clean instrument without the unsupported logic, with a validation flag identifying what was not carried over.</p>
+            <p>This approach is preferable to a conversion that silently creates broken logic in the destination platform. A clean survey with documented logic gaps is easier to work with than a survey where logic appears to exist but behaves incorrectly for respondents.</p>
+
+            <h2 id="best-practices">Best Practices for Logic Preservation</h2>
+            <div class="step-box">
+                <span class="step-number">1</span>
+                <h4>Document all logic before migration</h4>
+                <p>Create a logic map of your source survey before beginning any migration. List every skip condition, display condition, and routing rule with the source question, the condition, and the destination question or section. This becomes your validation reference after conversion.</p>
+            </div>
+            <div class="step-box">
+                <span class="step-number">2</span>
+                <h4>Assess capability compatibility first</h4>
+                <p>Before committing to a target platform, confirm it supports the logic types your survey uses. A Qualtrics survey using embedded data conditions cannot migrate those conditions to Google Forms — that decision should be made before the migration starts, not discovered after.</p>
+            </div>
+            <div class="step-box">
+                <span class="step-number">3</span>
+                <h4>Convert structure first, then add logic</h4>
+                <p>Use Pirai AI to convert the question structure and answer options accurately. Then add logic to the converted survey in the target platform, using your pre-migration logic map as the reference. This is faster than rebuilding questions and logic simultaneously from scratch.</p>
+            </div>
+            <div class="step-box">
+                <span class="step-number">4</span>
+                <h4>Test every logic path before launch</h4>
+                <p>After adding logic to the converted survey, test every branching path with a test respondent. Do not rely on the platform's logic preview — run the survey as a respondent would to confirm every condition routes correctly.</p>
+            </div>
+
+            <div class="alert alert-warning">
+                <strong>Logic is not a one-to-one mapping between platforms.</strong> The most reliable migration strategy is accurate question conversion followed by logic reconstruction in the target platform, rather than attempting to automate logic translation across fundamentally different implementation approaches.
+            </div>
+
+            <h2 id="platforms-that-migrate-cleanly">Platforms That Migrate Most Cleanly</h2>
+            <p>Migrations between platforms with similar logic architectures are the most straightforward. Qualtrics to QuestionPro, Alchemer to Qualtrics, and REDCap to Qualtrics migrations preserve the most logic because the underlying capability sets overlap significantly. See the <a href="/blog/survey-platform-migration-guide">Survey Platform Migration Guide</a> for the full migration route comparison.</p>
+
+            <div class="article-cta">
+                <h3>Convert Your Survey Without Rebuilding From Scratch</h3>
+                <p>From document to platform-ready survey in minutes. No manual programming required.</p>
+                <a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Start Converting Free</a>
+            </div>
+        </article>
+        <aside class="sidebar">
+            <div class="cta-box"><h3>Try Pirai AI Free</h3><p>Convert any document to 27+ survey platforms in minutes.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-button">Start Free</a></div>
+            <div class="sidebar-section"><h3>Related Articles</h3><ul class="toc-list">
+                    <li><a href="/blog/survey-platform-migration-guide">Survey Platform Migration Guide</a></li>
+                    <li><a href="/blog/automating-market-research-operations">Automating MR Operations</a></li>
+                    <li><a href="/blog/multi-platform-survey-deployment">Multi-Platform Survey Deployment</a></li>
+                    <li><a href="/blog/how-long-does-survey-programming-take">How Long Does Programming Take?</a></li>
+            </ul></div>
+        </aside>
+    </div>
+    <section class="related-articles"><h2>Related Articles</h2><div class="related-grid">
+            <a href="/blog/survey-platform-migration-guide" class="related-card">
+                <h3>Survey Platform Migration Guide 2026</h3>
+                <p>Complete guide to migrating surveys across 20+ platforms with step-by-step instructions.</p>
+            </a>
+            <a href="/blog/automating-market-research-operations" class="related-card">
+                <h3>Automating Market Research Operations</h3>
+                <p>The complete guide to automating survey programming, deployment, and dashboard configuration.</p>
+            </a>
+            <a href="/blog/multi-platform-survey-deployment" class="related-card">
+                <h3>Multi-Platform Survey Deployment</h3>
+                <p>Deploy the same survey to 27+ platforms without rebuilding from scratch.</p>
+            </a>
+    </div></section>
+    <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
+    <script>
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        const sections = document.querySelectorAll('h2[id]');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    const active = document.querySelector(`.toc-list a[href="#${entry.target.id}"]`);
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        sections.forEach(s => observer.observe(s));
+    </script>
+</body></html>

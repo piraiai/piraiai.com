@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build Qualtrics Dashboards Through Conversation: Introducing Pirai AI Flow - Pirai AI Blog</title>
+    <meta name="description" content="Pirai AI Flow is a conversational AI Chrome extension that builds and updates Qualtrics dashboards through natural language. 80% time savings. 30+ minutes reduced to 2-3 minutes. Widgets, filters, and page cloning : all through conversation.">
+    <meta name="keywords" content="Pirai AI Flow, Qualtrics dashboard AI, build Qualtrics dashboard conversational AI, Qualtrics dashboard automation, Qualtrics widget automation, Qualtrics filter automation, AI dashboard builder Qualtrics, Qualtrics dashboard natural language, automate Qualtrics dashboard, Qualtrics CX dashboard builder AI">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://piraiai.com/blog/pirai-ai-flow-qualtrics-dashboard">
+    <meta property="og:title" content="Build Qualtrics Dashboards Through Conversation: Introducing Pirai AI Flow">
+    <meta property="og:description" content="Pirai AI Flow builds Qualtrics dashboards through natural language. Describe widgets, filters, layout templates, and page cloning. Flow configures everything instantly, without menus or manual field mapping.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="og:site_name" content="Pirai AI Blog">
+    <meta property="article:published_time" content="2026-07-18T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta property="article:section" content="Thought Leadership">
+    <meta property="article:tag" content="Qualtrics">
+    <meta property="article:tag" content="Dashboard Automation">
+    <meta property="article:tag" content="Pirai AI Flow">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Build Qualtrics Dashboards Through Conversation: Pirai AI Flow">
+    <meta name="twitter:description" content="Describe what you want. Flow builds it. Widgets, filters, page cloning : all through natural language. 80% time savings on Qualtrics dashboard configuration.">
+    <link rel="canonical" href="https://piraiai.com/blog/pirai-ai-flow-qualtrics-dashboard">
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Build Qualtrics Dashboards Through Conversation: Introducing Pirai AI Flow",
+      "description": "Pirai AI Flow is a conversational AI Chrome extension that builds and updates Qualtrics dashboards through natural language.",
+      "author": {"@type": "Person", "name": "Arun Raj"},
+      "publisher": {"@type": "Organization", "name": "Pirai AI", "url": "https://piraiai.com"},
+      "datePublished": "2026-07-18",
+      "url": "https://piraiai.com/blog/pirai-ai-flow-qualtrics-dashboard"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Pirai AI Flow?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Pirai AI Flow is a conversational AI Chrome extension that builds and updates Qualtrics dashboards through natural language. Describe the widgets, filters, layout templates, and pages you want. Flow reads your dashboard structure, maps your fields, and configures everything instantly, automating 50 to 60 percent of dashboard configuration through conversation."}
+        },
+        {
+          "@type": "Question",
+          "name": "What widget types can Flow create?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Flow supports Number Charts, Gauge Charts, Vertical Bar Charts, Horizontal Bar Charts, Line Charts, Breakdown Bars, Donut Charts, Pie Charts, Tables, Record Tables, and Word Clouds : all through natural language description."}
+        },
+        {
+          "@type": "Question",
+          "name": "Is my survey data safe with Pirai AI Flow?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Yes. Your survey data and response data never leave your Qualtrics environment at any point. Pirai AI Flow only accelerates your dashboard configuration. Your data stays exactly where it is, in Qualtrics."}
+        },
+        {
+          "@type": "Question",
+          "name": "How much time does Flow save on Qualtrics dashboard creation?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Flow automates 50 to 60 percent of Qualtrics dashboard configuration through conversation. What previously required navigating menus and clicking through configuration panels for every widget is replaced by a single natural language instruction."}
+        },
+        {
+          "@type": "Question",
+          "name": "How does Flow know which fields are available?",
+          "acceptedAnswer": {"@type": "Answer", "text": "When you open Pirai AI Flow on a Qualtrics dashboard, it reads your dashboard structure including available fields and their types. It uses this context to intelligently map fields to the widgets you describe."}
+        }
+      ]
+    }
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; transition: color 0.2s; margin-left: 32px; }
+        header nav a:hover { color: #9B6BFF; }
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+        .content-wrapper { max-width: 1200px; margin: 48px auto; padding: 0 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+        .article-content { max-width: 680px; overflow-x: hidden; }
+        .article-content p { font-size: 18px; color: #374151; margin-bottom: 24px; line-height: 1.7; }
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-top: 32px; margin-bottom: 12px; }
+        .article-content a { color: #9B6BFF; text-decoration: none; border-bottom: 1px solid rgba(155,107,255,0.3); transition: all 0.2s; }
+        .article-content a:hover { border-bottom-color: #9B6BFF; }
+        .article-content ul, .article-content ol { margin-bottom: 24px; padding-left: 24px; }
+        .article-content li { font-size: 18px; color: #374151; margin-bottom: 12px; line-height: 1.7; }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+
+        /* Stat bar */
+        .stat-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; background: #f5f3ff; margin: 32px 0; }
+        .stat-item { padding: 20px 16px; text-align: center; border-right: 1px solid #e5e7eb; }
+        .stat-item:last-child { border-right: none; }
+        .stat-value { font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 700; color: #9B6BFF; display: block; margin-bottom: 4px; }
+        .stat-desc { font-size: 12px; color: #6b7280; line-height: 1.4; }
+
+        /* Highlight box */
+        .highlight-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 24px; margin: 32px 0; border-radius: 4px; }
+        .highlight-box h4 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: #1a1a1a; margin-bottom: 12px; }
+        .highlight-box p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .highlight-box p:last-child { margin-bottom: 0; }
+
+        /* Mode cards */
+        .mode-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 32px 0; }
+        .mode-card { background: #f9fafb; border: 2px solid #e5e7eb; border-radius: 12px; padding: 28px; }
+        .mode-card.featured { border-color: #9B6BFF; background: #f5f3ff; }
+        .mode-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9B6BFF; margin-bottom: 10px; display: block; }
+        .mode-card h4 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; color: #1a1a1a; margin-bottom: 10px; }
+        .mode-card p { font-size: 15px; color: #374151; margin-bottom: 14px; line-height: 1.6; }
+        .mode-stat { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #9B6BFF; }
+        .mode-stat-label { font-size: 13px; color: #6b7280; }
+
+        /* Step boxes */
+        .step-box { background: #f9fafb; border-left: 4px solid #9B6BFF; border-radius: 8px; padding: 24px; margin: 20px 0; }
+        .step-number { display: inline-block; background: #9B6BFF; color: white; width: 35px; height: 35px; line-height: 35px; text-align: center; border-radius: 50%; font-weight: 700; margin-right: 12px; font-size: 16px; font-family: 'Space Grotesk', sans-serif; flex-shrink: 0; }
+        .step-box h4 { display: inline; font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: #1a1a1a; }
+        .step-box p { margin: 12px 0 0 47px; font-size: 16px; color: #374151; line-height: 1.7; }
+
+        /* Widget grid */
+        .widget-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 24px 0; }
+        .widget-pill { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px 16px; text-align: center; }
+        .widget-pill .icon { width: 28px; height: 28px; margin: 0 auto 8px; display: block; }
+        .widget-pill span { font-size: 13px; font-weight: 600; color: #374151; font-family: 'Space Grotesk', sans-serif; }
+
+        /* Conversation example */
+        .convo-example { background: #1e1e1e; border-radius: 12px; overflow: hidden; margin: 32px 0; }
+        .convo-header { background: #2d2d2d; padding: 12px 20px; font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 600; color: #9B6BFF; display: flex; align-items: center; gap: 8px; }
+        .convo-body { padding: 20px; }
+        .convo-msg { margin-bottom: 16px; }
+        .convo-msg:last-child { margin-bottom: 0; }
+        .convo-role { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+        .convo-role.user { color: #9B6BFF; }
+        .convo-role.flow { color: #22c55e; }
+        .convo-text { font-size: 14px; line-height: 1.7; padding: 12px 16px; border-radius: 8px; }
+        .convo-msg.user .convo-text { background: #2a2a2a; color: #d4d4d4; }
+        .convo-msg.flow-resp .convo-text { background: #1a2e1a; color: #86efac; }
+
+        /* Feature list */
+        .feature-list { list-style: none; padding: 0; margin: 24px 0; }
+        .feature-list li { padding: 8px 0 8px 32px; position: relative; font-size: 17px; color: #374151; line-height: 1.7; margin-bottom: 4px; }
+        .feature-list li:before { content: "\2713"; position: absolute; left: 0; color: #22c55e; font-weight: bold; font-size: 20px; }
+
+        /* Comparison table */
+        table { width: 100%; border-collapse: collapse; margin: 32px 0; background: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; }
+        @media (max-width: 640px) { table { display: block; overflow-x: auto; white-space: nowrap; } }
+        th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid #f3f4f6; font-size: 15px; }
+        th { background: #f9fafb; font-weight: 600; color: #1a1a1a; border-bottom: 2px solid #e5e7eb; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover { background: #f9fafb; }
+        .check { color: #22c55e; font-weight: 700; }
+        .cross { color: #ef4444; font-weight: 700; }
+
+        /* Alert */
+        .alert { padding: 16px 20px; border-radius: 8px; margin: 24px 0; border-left: 4px solid; font-size: 15px; line-height: 1.6; }
+        .alert-success { background: #d1fae5; border-left-color: #22c55e; color: #065f46; }
+        .alert-info { background: #dbeafe; border-left-color: #3b82f6; color: #1e40af; }
+
+        /* Accordion FAQ */
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; transition: transform 0.2s; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 400px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
+
+        /* Article CTA */
+        .article-cta { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 36px 40px; border-radius: 12px; margin: 48px 0 32px; text-align: center; }
+        .article-cta h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+        .article-cta p { font-size: 16px; color: #ffffff; opacity: 0.95; margin-bottom: 20px; }
+        .article-cta a { border-bottom: none !important; }
+        .cta-btn-white { display: inline-block; background: #ffffff; color: #9B6BFF !important; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-btn-white:hover { transform: translateY(-2px); }
+
+        /* Sidebar */
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a1a1a; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; transition: color 0.2s; border-bottom: none; display: block; }
+        .toc-list a:hover { color: #9B6BFF; }
+        .toc-list a.active { color: #9B6BFF; font-weight: 600; }
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 32px; border-radius: 8px; text-align: center; color: #ffffff; margin-bottom: 24px; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .cta-box p { font-size: 14px; margin-bottom: 20px; opacity: 0.95; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-button:hover { transform: translateY(-2px); }
+
+        /* Related */
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; border-bottom: none; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: #1a1a1a; margin-bottom: 8px; }
+        .related-card p { font-size: 14px; color: #6b7280; margin: 0; }
+
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+
+        @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } .mode-grid { grid-template-columns: 1fr; } .widget-grid { grid-template-columns: repeat(2, 1fr); } .stat-bar { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } .widget-grid { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo">
+                <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo">
+                <span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span>
+            </a>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/blog">All Articles</a>
+                <a href="/flow">Pirai AI Flow</a>
+                <a href="/#demo">Get Demo</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="/">Home</a><span class="breadcrumb-separator">›</span>
+            <a href="/blog">Blog</a><span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Pirai AI Flow: Qualtrics Dashboard Automation</span>
+        </div>
+    </div>
+
+    <div class="hero">
+        <div class="hero-container">
+            <h1 class="article-title">Build Qualtrics Dashboards Through Conversation: Introducing Pirai AI Flow</h1>
+            <div class="article-meta">
+                <span class="author">Arun Raj</span>
+                <span class="separator">•</span>
+                <span>July 18, 2026</span>
+                <span class="separator">•</span>
+                <span>7 min read</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        <article class="article-content">
+
+            <p>Building a Qualtrics dashboard manually means navigating menus, clicking through widget configuration panels, setting filters field by field, and repeating the same steps across every page. It takes deep platform knowledge and a lot of clicking : and that is before you account for updating widgets that already exist.</p>
+
+            <p>Pirai AI Flow changes that. Describe what you want. Flow builds it. Widgets configured, filters applied, pages cloned : all through conversation, directly inside your Qualtrics environment.</p>
+
+            <div class="stat-bar">
+                <div class="stat-item">
+                    <span class="stat-value">50-60%</span>
+                    <span class="stat-desc">Dashboard configuration automated through conversation</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">Seconds</span>
+                    <span class="stat-desc">Not hours : one conversation instead of manual setup</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">6</span>
+                    <span class="stat-desc">Layout templates built for specific audiences</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">0</span>
+                    <span class="stat-desc">Response data accessed : field names and types only</span>
+                </div>
+            </div>
+
+            <h2 id="the-problem">The Problem with Manual Dashboard Building</h2>
+
+            <p>Qualtrics dashboards are powerful but building them is repetitive. Every widget requires the same sequence: add widget, select type, map field, configure metric, set display options, save. For a dashboard with 20 widgets across four pages, that sequence runs 20 times. Add filters, page cloning, and metric configuration, and the work compounds quickly.</p>
+
+            <p>For CX and EX teams managing multiple dashboards across programmes, this manual configuration work consumes hours that should be spent on analysis and insight. The dashboard is the output. Building it should not be the bottleneck.</p>
+
+            <p>For teams who need to document their dashboard configuration before making changes, the <a href="/blog/extract-qualtrics-dashboard-mappings">Qualtrics Dashboard Field Mapper</a> extracts all field types and data source mappings in seconds. Flow picks up where the mapper leaves off : from documented configuration to rebuilt or new dashboard.</p>
+
+            <h2 id="how-flow-works">How Flow Works</h2>
+
+            <p>Flow is a Chrome extension. No setup beyond installing it and opening a Qualtrics dashboard. It reads your dashboard structure, pages, and available fields automatically, then responds to conversation. No menus, no manual field mapping.</p>
+
+            <div class="step-box">
+                <span class="step-number">1</span>
+                <h4>Connect</h4>
+                <p>Open Pirai AI Flow on any Qualtrics dashboard page. Flow reads the dashboard structure, pages, and available fields automatically. No configuration required.</p>
+            </div>
+            <div class="step-box">
+                <span class="step-number">2</span>
+                <h4>Describe</h4>
+                <p>Tell Flow what you want in plain English, the way you would ask a colleague. Or browse a layout template built for your audience and let Flow fill in the real fields from your dashboard automatically.</p>
+            </div>
+            <div class="step-box">
+                <span class="step-number">3</span>
+                <h4>Done, or Adjusted</h4>
+                <p>Flow builds it instantly. If something needs changing, the same conversation handles it. Relabel a column, swap a metric, enable a detail view. No menus either way.</p>
+            </div>
+
+            <p>Flow reads field names and types to map widgets correctly. Your survey response data never leaves your Qualtrics environment at any point. Nothing is used to train AI models.</p>
+
+            <!-- removed mode grid --><div class="mode-grid" style="display:none">
+                <div class="mode-card featured">
+                    <span class="mode-label">Mode 1</span>
+                    <h4>Conversational AI</h4>
+                    <p>Describe what you want in plain English. Flow reads your dashboard structure, understands your available fields, and builds widgets, filters, and pages from your description.</p>
+                    <div class="mode-stat">50-60%</div>
+                    <div class="mode-stat-label">of configuration automated</div>
+                </div>
+                <div class="mode-card">
+                    <span class="mode-label">Mode 2</span>
+                    <h4>Conversational AI</h4>
+                    <p>Define your entire dashboard through conversation. Flow reads your fields and builds everything automatically.</p>
+                    <div class="mode-stat">50-60%</div>
+                    <div class="mode-stat-label">of configuration automated</div>
+                </div>
+            </div>
+
+            <p>Both modes run as a Chrome extension directly inside your Qualtrics environment. Your survey data and response data never leave Qualtrics at any point. Flow only accelerates the configuration work : it does not access or transmit your data.</p>
+
+            <h2 id="conversational-mode">How Conversational Mode Works</h2>
+
+            <p>When you open Flow on a Qualtrics dashboard, it reads the dashboard structure : pages, available fields, and field types. That context is what makes natural language work. Flow knows what fields exist, so when you describe what you want, it maps your description to the right data automatically.</p>
+
+            <div class="convo-example">
+                <div class="convo-header">
+                    <span>Pirai AI Flow</span>
+                </div>
+                <div class="convo-body">
+                    <div class="convo-msg user">
+                        <div class="convo-role user">You</div>
+                        <div class="convo-text">Add a Number Chart showing overall NPS score for the last 90 days, then a Gauge Chart for CSAT with a target line at 80%.</div>
+                    </div>
+                    <div class="convo-msg flow-resp">
+                        <div class="convo-role flow">Flow</div>
+                        <div class="convo-text">Done. Added a Number Chart mapped to your NPS field with a 90-day date filter applied. Added a Gauge Chart mapped to CSAT with target line set at 80. Both widgets are on Page 1. Want me to clone this page for each region in your Region filter?</div>
+                    </div>
+                    <div class="convo-msg user">
+                        <div class="convo-role user">You</div>
+                        <div class="convo-text">Yes, clone it for North, South, East and West.</div>
+                    </div>
+                    <div class="convo-msg flow-resp">
+                        <div class="convo-role flow">Flow</div>
+                        <div class="convo-text">Done. Created four pages : North, South, East, West : each with the NPS Number Chart and CSAT Gauge Chart, filtered to the corresponding region. Ready for your review.</div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 id="layout-templates">Layout Templates</h2>
+
+            <p>Not sure where to start? Flow includes layout templates built for specific audiences. Browse the layouts, pick the one that fits your stakeholder, and Flow fills in the real fields from your dashboard. No scoring, no guessing which template is right for your data.</p>
+
+            <ul>
+                <li><strong>Executive Summary</strong> : headline number, top trends, and key takeaways. No diagnostic detail.</li>
+                <li><strong>Frontline Ops / Team Lead</strong> : day-to-day operational view broken down by agent, location, or shift.</li>
+                <li><strong>CX Manager / Mid-Management</strong> : one level deeper than the exec view, with driver analysis and segment breakdowns.</li>
+                <li><strong>Voice of Customer</strong> : themes, sentiment, and verbatim comments for teams focused on what customers actually say.</li>
+                <li><strong>Quality / Compliance</strong> : audit-style view with question-level scrutiny, flags, and individual records.</li>
+                <li><strong>Marketing / Growth</strong> : channel and campaign performance for teams comparing acquisition sources.</li>
+            </ul>
+
+            <p>Each template maps to your real dashboard fields automatically. If a field does not exist, Flow tells you rather than guessing.</p>
+
+            <h2 id="what-flow-can-do">What Flow Can Do</h2>
+
+            <p>Flow does not stop at creating widgets. It can read and update what already exists in the same conversation.</p>
+
+            <ul class="feature-list">
+                <li><strong>Create any widget</strong> : describe it in plain English, Flow configures widget type, field mapping, metric, and display settings</li>
+                <li><strong>Update existing widgets</strong> : relabel a column, change a metric or field, switch an axis, turn on full record view, all without reopening menus</li>
+                <li><strong>Add page filters</strong> : tell Flow which filters you need: date ranges, NPS scores, response types, distribution channels. Created and applied in one step</li>
+                <li><strong>Clone pages</strong> : copy an entire page with one instruction. Widgets, filters, and layout transferred and reconfigured automatically</li>
+                <li><strong>Pick a layout template</strong> : browse layouts built for specific audiences, Flow fills in the real fields from your dashboard</li>
+                <li><strong>Ask your dashboard</strong> : query the structure in plain English: page counts, widget summaries, available fields. Flow knows your dashboard and answers instantly</li>
+            </ul>
+
+            <h2 id="widget-types">Supported Widget Types</h2>
+
+            <p>Flow supports the full range of Qualtrics dashboard widgets through conversation. Describe it, Flow configures it:</p>
+
+            <div class="widget-grid">
+                <div class="widget-pill">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2"><rect x="3" y="10" width="4" height="11"/><rect x="10" y="6" width="4" height="15"/><rect x="17" y="13" width="4" height="8"/></svg>
+                    <span>Number Chart</span>
+                </div>
+                <div class="widget-pill">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10"/><path d="M12 12L7.5 7.5" stroke-linecap="round"/><circle cx="12" cy="12" r="1.5" fill="#9B6BFF" stroke="none"/></svg>
+                    <span>Gauge Chart</span>
+                </div>
+                <div class="widget-pill">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2"><rect x="3" y="12" width="4" height="9"/><rect x="10" y="7" width="4" height="14"/><rect x="17" y="4" width="4" height="17"/></svg>
+                    <span>Bar Chart</span>
+                </div>
+                <div class="widget-pill">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2"><polyline points="3 17 8 12 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg>
+                    <span>Line Chart</span>
+                </div>
+                <div class="widget-pill">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5" stroke="#e5e7eb"/></svg>
+                    <span>Donut Chart</span>
+                </div>
+                <div class="widget-pill">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M12 3v9l6.5 3.5"/></svg>
+                    <span>Pie Chart</span>
+                </div>
+                <div class="widget-pill">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+                    <span>Table</span>
+                </div>
+                <div class="widget-pill">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="13" y2="15"/></svg>
+                    <span>Record Table</span>
+                </div>
+                <div class="widget-pill">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2"><path d="M4 9a8 8 0 0 1 16 0c0 4-2 6-8 6s-8-2-8-6z"/><line x1="8" y1="15" x2="7" y2="19"/><line x1="16" y1="15" x2="17" y2="19"/><line x1="12" y1="15" x2="12" y2="19"/></svg>
+                    <span>Word Cloud</span>
+                </div>
+                <div class="widget-pill">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2"><line x1="3" y1="8" x2="14" y2="8" stroke-width="3"/><line x1="3" y1="14" x2="10" y2="14" stroke-width="3"/><line x1="3" y1="20" x2="17" y2="20" stroke-width="3"/></svg>
+                    <span>Breakdown Bar</span>
+                </div>
+                <div class="widget-pill">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <span>Star Rating</span>
+                </div>
+                <div class="widget-pill">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#9B6BFF" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+                    <span>Response Ticker</span>
+                </div>
+            </div>
+
+            <h2 id="flow-vs-manual">Flow vs Manual Dashboard Building</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Manual</th>
+                        <th>With Flow</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Create 10 widgets</td>
+                        <td>15-20 minutes, 86+ clicks</td>
+                        <td>Under 1 minute via conversation</td>
+                    </tr>
+                    <tr>
+                        <td>Apply filters across all pages</td>
+                        <td>Repeat for each page manually</td>
+                        <td>Describe once, Flow applies everywhere</td>
+                    </tr>
+                    <tr>
+                        <td>Clone pages for each region</td>
+                        <td>Clone, rename, re-filter each page</td>
+                        <td>One instruction, all pages created</td>
+                    </tr>
+                    <tr>
+                        <td>Update an existing widget</td>
+                        <td>Find it, open settings, change field, save</td>
+                        <td>"Change the CSAT metric to average score" : done</td>
+                    </tr>
+                    <tr>
+                        <td>Ask what's on the dashboard</td>
+                        <td>Navigate through each page manually</td>
+                        <td>"How many pages does this dashboard have?" : instant answer</td>
+                    </tr>
+                    <tr>
+                        <td>Configuration errors</td>
+                        <td>Common : manual entry mistakes</td>
+                        <td><span class="check">Zero</span> : specification-driven</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2 id="who-its-for">Who Flow Is Built For</h2>
+
+            <p>Flow is designed for the people who spend the most time inside Qualtrics dashboard configuration: CX programme managers building and maintaining dashboards across multiple touchpoints, Qualtrics administrators setting up dashboards for internal stakeholders, research operations teams delivering client dashboards at scale, and insights directors who need to move faster from data to presentation.</p>
+
+            <p>For CX teams already using the Pirai AI platform to convert survey documents and review methodology, Flow extends automation into the dashboard layer. The survey goes in through <a href="https://platform.piraiai.com" target="_blank">platform.piraiai.com</a>, the instrument is reviewed by the <a href="/blog/pirai-ai-survey-advisor">AI Survey Advisor</a>, and the resulting dashboard is built through Flow. The full workflow from document to deployed dashboard, without manual programming at any stage.</p>
+
+            <h2 id="data-privacy">Data Privacy</h2>
+
+            <p>Flow runs as a Chrome extension inside your Qualtrics environment. It reads your dashboard structure : pages, fields, and field types : to enable intelligent configuration. Your survey response data never leaves Qualtrics at any point in the process.</p>
+
+            <div class="alert alert-success">
+                <strong>Your data stays in Qualtrics.</strong> Flow accelerates configuration. It does not access, transmit, or store your survey response data. Everything that runs through Flow stays within your existing Qualtrics security perimeter.
+            </div>
+
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What is Pirai AI Flow?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body">
+                    <p>Pirai AI Flow is a conversational AI Chrome extension that builds and updates Qualtrics dashboards through natural language. Describe the widgets, filters, layout templates, and pages you want. Flow reads your dashboard structure, maps your fields, and configures everything instantly, automating 50 to 60 percent of dashboard configuration through conversation.</p>
+                </div>
+            </div>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What widget types can Flow create?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body">
+                    <p>Flow supports Number Charts, Gauge Charts, Vertical Bar Charts, Horizontal Bar Charts, Line Charts, Breakdown Bars, Donut Charts, Pie Charts, Tables, Record Tables, and Word Clouds : all through natural language description.</p>
+                </div>
+            </div>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Is my survey data safe with Pirai AI Flow?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body">
+                    <p>Yes. Your survey data and response data never leave your Qualtrics environment at any point. Pirai AI Flow only accelerates your dashboard configuration. Your data stays exactly where it is, in Qualtrics.</p>
+                </div>
+            </div>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How does Flow know which fields are available?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body">
+                    <p>When you open Pirai AI Flow on a Qualtrics dashboard, it reads your dashboard structure including available fields and their types. It uses this context to intelligently map fields to the widgets you describe, so you can use natural field names in conversation without worrying about exact Qualtrics variable names.</p>
+                </div>
+            </div>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How is Flow different from the Qualtrics built-in dashboard tools?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body">
+                    <p>Qualtrics provides the dashboard platform and widget library. Flow sits on top of it as a configuration accelerator. You still work inside Qualtrics : Flow just removes the repetitive clicking by letting you describe what you want instead of clicking through every configuration panel manually. Think of it as a co-pilot for your Qualtrics dashboard work.</p>
+                </div>
+            </div>
+
+            <div class="article-cta">
+                <h3>Build Your Next Qualtrics Dashboard in Minutes</h3>
+                <p>Describe what you want. Flow builds it. Widgets, filters, page cloning : all through natural language inside your Qualtrics environment.</p>
+                <a href="/flow" class="cta-btn-white">Learn More About Flow</a>
+            </div>
+
+        </article>
+
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h3>In This Article</h3>
+                <ul class="toc-list">
+                    <li><a href="#the-problem">The Problem</a></li>
+                    <li><a href="#how-flow-works">How Flow Works</a></li>
+                    <li><a href="#conversational-mode">Flow in Action</a></li>
+                    <li><a href="#layout-templates">Layout Templates</a></li>
+                    <li><a href="#what-flow-can-do">What Flow Can Do</a></li>
+                    <li><a href="#widget-types">Widget Types</a></li>
+                    <li><a href="#flow-vs-manual">Flow vs Manual</a></li>
+                    <li><a href="#who-its-for">Who It's For</a></li>
+                    <li><a href="#data-privacy">Data Privacy</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="cta-box">
+                <h3>Try Pirai AI Flow</h3>
+                <p>Build Qualtrics dashboards through conversation. 80% time savings.</p>
+                <a href="/flow" class="cta-button">Learn More</a>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Related Articles</h3>
+                <ul class="toc-list">
+                    <li><a href="/blog/extract-qualtrics-dashboard-mappings">Extract Dashboard Field Mappings</a></li>
+                    <li><a href="/blog/ai-survey-tool-for-cx-teams">AI Survey Tool for CX Teams</a></li>
+                    <li><a href="/blog/pirai-ai-survey-advisor">AI Survey Methodology Review</a></li>
+                    <li><a href="/qualtrics-toolkit">Free Qualtrics Toolkit</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <section class="related-articles">
+        <h2>Related Articles</h2>
+        <div class="related-grid">
+            <a href="/blog/extract-qualtrics-dashboard-mappings" class="related-card">
+                <h3>Extract Qualtrics Dashboard Field Mappings</h3>
+                <p>Free browser script to document all field types and data source mappings from your Qualtrics Dashboard before rebuilding or migrating.</p>
+            </a>
+            <a href="/blog/ai-survey-tool-for-cx-teams" class="related-card">
+                <h3>AI Survey Tool for CX and EX Teams</h3>
+                <p>How CX and EX teams use Pirai AI to convert, review, and deploy survey programmes across Qualtrics and 24+ other platforms.</p>
+            </a>
+            <a href="/blog/pirai-ai-survey-advisor" class="related-card">
+                <h3>Meet the Pirai AI Survey Advisor</h3>
+                <p>Expert-level methodology review on every survey instrument before it reaches respondents. One sentence triggers a full analysis.</p>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        const sections = document.querySelectorAll('h2[id]');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    const active = document.querySelector(`.toc-list a[href="#${entry.target.id}"]`);
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        sections.forEach(s => observer.observe(s));
+    </script>
+</body>
+</html>

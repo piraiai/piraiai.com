@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Design IRB Compliant Surveys: A Complete Guide for Academic Researchers - Pirai AI Blog</title>
+    <meta name="description" content="A complete guide to designing Institutional Review Board compliant surveys. Covers consent language, sensitive question handling, platform selection, data privacy, and converting approved instruments to REDCap, Qualtrics, and more.">
+    <meta name="keywords" content="IRB compliant survey, IRB survey design, institutional review board survey, IRB approved survey instrument, IRB survey requirements, how to design IRB compliant survey, IRB survey checklist, ethics committee survey, academic research survey design, human subjects research survey">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://piraiai.com/blog/irb-compliant-survey-design">
+    <meta property="og:title" content="How to Design IRB Compliant Surveys: A Complete Guide for Academic Researchers">
+    <meta property="og:description" content="Everything academic researchers need to know about designing surveys that meet Institutional Review Board requirements : from consent language to platform selection to data handling.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="og:site_name" content="Pirai AI Blog">
+    <meta property="article:published_time" content="2026-07-18T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta property="article:section" content="Academic Research">
+    <meta property="article:tag" content="IRB">
+    <meta property="article:tag" content="Academic Research">
+    <meta property="article:tag" content="Survey Design">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Design IRB Compliant Surveys: A Complete Guide">
+    <meta name="twitter:description" content="From consent language to platform selection : everything academic researchers need to design surveys that meet IRB requirements.">
+    <link rel="canonical" href="https://piraiai.com/blog/irb-compliant-survey-design">
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "How to Design IRB Compliant Surveys: A Complete Guide for Academic Researchers",
+      "description": "A complete guide to designing Institutional Review Board compliant surveys for academic research.",
+      "author": {"@type": "Person", "name": "Arun Raj"},
+      "publisher": {"@type": "Organization", "name": "Pirai AI", "url": "https://piraiai.com"},
+      "datePublished": "2026-07-18",
+      "url": "https://piraiai.com/blog/irb-compliant-survey-design"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What makes a survey IRB compliant?",
+          "acceptedAnswer": {"@type": "Answer", "text": "An IRB compliant survey protects participants through informed consent, voluntary participation, confidentiality or anonymity, minimal risk design, and equitable subject selection. The instrument wording, data handling procedures, and platform security must all meet the standards set by your institution's IRB or ethics committee."}
+        },
+        {
+          "@type": "Question",
+          "name": "Does converting a survey to a platform change the IRB approval?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Converting a survey from a Word document to a platform format like Qualtrics QSF or REDCap data dictionary does not change the IRB approval, provided the question wording and structure are preserved exactly as approved. Tools that alter, paraphrase, or reorder questions during conversion may require a protocol amendment."}
+        },
+        {
+          "@type": "Question",
+          "name": "Which platform is better for IRB research: REDCap or Qualtrics?",
+          "acceptedAnswer": {"@type": "Answer", "text": "REDCap is purpose-built for academic and clinical research with built-in audit trails, data access controls, and HIPAA-compliant infrastructure through institutional servers. Qualtrics offers more survey design flexibility and advanced logic but requires institutional licensing and security configuration for sensitive research. The choice depends on your research type, institutional access, and data sensitivity requirements."}
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between anonymity and confidentiality in surveys?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Anonymity means no one, including the researcher, can link a response to a specific participant. Confidentiality means the researcher knows who responded but protects that information from disclosure. Most online surveys can only offer confidentiality, not anonymity, because IP addresses and metadata are typically recorded by the platform."}
+        },
+        {
+          "@type": "Question",
+          "name": "Do international research ethics boards have different requirements from US IRBs?",
+          "acceptedAnswer": {"@type": "Answer", "text": "Yes. While the core principles : respect for persons, beneficence, and justice : are shared across most frameworks, specific requirements differ. GDPR adds data minimisation, right to erasure, and data residency requirements for European research. UK Research Integrity (UKRI) and other national bodies have their own consent and data handling standards. Cross-cultural research often requires approval from multiple ethics bodies."}
+        }
+      ]
+    }
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; transition: color 0.2s; margin-left: 32px; }
+        header nav a:hover { color: #9B6BFF; }
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+        .content-wrapper { max-width: 1200px; margin: 48px auto; padding: 0 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+        .article-content { max-width: 680px; overflow-x: hidden; }
+        .article-content p { font-size: 18px; color: #374151; margin-bottom: 24px; line-height: 1.7; }
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-top: 32px; margin-bottom: 12px; }
+        .article-content a { color: #9B6BFF; text-decoration: none; border-bottom: 1px solid rgba(155,107,255,0.3); transition: all 0.2s; }
+        .article-content a:hover { border-bottom-color: #9B6BFF; }
+        .article-content ul, .article-content ol { margin-bottom: 24px; padding-left: 24px; }
+        .article-content li { font-size: 18px; color: #374151; margin-bottom: 12px; line-height: 1.7; }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+        table { width: 100%; border-collapse: collapse; margin: 32px 0; background: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; }
+        @media (max-width: 640px) { table { display: block; overflow-x: auto; white-space: nowrap; } }
+        th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid #f3f4f6; font-size: 15px; }
+        th { background: #f9fafb; font-weight: 600; color: #1a1a1a; border-bottom: 2px solid #e5e7eb; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover { background: #f9fafb; }
+        .highlight-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 24px; margin: 32px 0; border-radius: 4px; }
+        .highlight-box h4 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: #1a1a1a; margin-bottom: 12px; }
+        .highlight-box p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .highlight-box p:last-child { margin-bottom: 0; }
+        .highlight-box ul { margin: 8px 0 0 20px; }
+        .highlight-box li { font-size: 16px; color: #374151; margin-bottom: 6px; }
+        .alert { padding: 16px 20px; border-radius: 8px; margin: 24px 0; border-left: 4px solid; font-size: 15px; line-height: 1.6; }
+        .alert-info { background: #dbeafe; border-left-color: #3b82f6; color: #1e40af; }
+        .alert-warning { background: #fef3c7; border-left-color: #f59e0b; color: #92400e; }
+        .alert-success { background: #d1fae5; border-left-color: #22c55e; color: #065f46; }
+        .checklist { list-style: none; padding: 0; margin: 24px 0; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; }
+        .checklist li { padding: 14px 20px; border-bottom: 1px solid #f3f4f6; font-size: 16px; color: #374151; display: flex; align-items: flex-start; gap: 12px; }
+        .checklist li:last-child { border-bottom: none; }
+        .checklist li:before { content: "\2610"; font-size: 18px; color: #9B6BFF; flex-shrink: 0; margin-top: 1px; }
+        .principles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 28px 0; }
+        .principle-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 10px; padding: 20px; }
+        .principle-card h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #9B6BFF; margin-bottom: 8px; }
+        .principle-card p { font-size: 14px; color: #374151; margin: 0; line-height: 1.6; }
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; transition: transform 0.2s; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 600px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 12px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
+        .article-cta { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 36px 40px; border-radius: 12px; margin: 48px 0 32px; text-align: center; }
+        .article-cta h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+        .article-cta p { font-size: 16px; color: #ffffff; opacity: 0.95; margin-bottom: 20px; }
+        .article-cta a { border-bottom: none !important; }
+        .cta-btn-white { display: inline-block; background: #ffffff; color: #9B6BFF !important; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-btn-white:hover { transform: translateY(-2px); }
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a1a1a; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; transition: color 0.2s; border-bottom: none; display: block; }
+        .toc-list a:hover { color: #9B6BFF; }
+        .toc-list a.active { color: #9B6BFF; font-weight: 600; }
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 32px; border-radius: 8px; text-align: center; color: #ffffff; margin-bottom: 24px; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .cta-box p { font-size: 14px; margin-bottom: 20px; opacity: 0.95; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-button:hover { transform: translateY(-2px); }
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; border-bottom: none; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: #1a1a1a; margin-bottom: 8px; }
+        .related-card p { font-size: 14px; color: #6b7280; margin: 0; }
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+        @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } .principles-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo">
+                <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo">
+                <span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span>
+            </a>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/blog">All Articles</a>
+                <a href="/docs">Documentation</a>
+                <a href="/#demo">Get Demo</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="/">Home</a><span class="breadcrumb-separator">›</span>
+            <a href="/blog">Blog</a><span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">IRB Compliant Survey Design</span>
+        </div>
+    </div>
+
+    <div class="hero">
+        <div class="hero-container">
+            <h1 class="article-title">How to Design IRB Compliant Surveys: A Complete Guide for Academic Researchers</h1>
+            <div class="article-meta">
+                <span class="author">Arun Raj</span>
+                <span class="separator">•</span>
+                <span>July 18, 2026</span>
+                <span class="separator">•</span>
+                <span>8 min read</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        <article class="article-content">
+
+            <p>Getting IRB approval for a survey study is only the first step. The instrument you deploy to participants must match the instrument your ethics board approved : exactly. Every question, every answer option, every consent statement. Any deviation may require a protocol amendment, delay your data collection, or invalidate your results.</p>
+
+            <p>This guide covers how to design a survey that meets IRB requirements from the start, what the most common compliance issues are, how platform choice affects your obligations, and how to get your approved instrument into a platform without altering a word.</p>
+
+            <h2 id="belmont-principles">The Three Belmont Principles Applied to Surveys</h2>
+
+            <p>IRB requirements in the United States are grounded in the Belmont Report (1979), which established three core principles for research involving human subjects. Understanding how each principle applies to survey design helps you build compliance into the instrument rather than retrofitting it after approval.</p>
+
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <h4>Respect for Persons</h4>
+                    <p>Participants must give informed, voluntary consent. They must be able to withdraw at any time without penalty. Survey design must make this autonomy visible : not buried in small print.</p>
+                </div>
+                <div class="principle-card">
+                    <h4>Beneficence</h4>
+                    <p>Research should maximise benefits and minimise harm. Question wording, sensitive topic handling, and survey length all affect participant wellbeing and must be considered in the instrument design.</p>
+                </div>
+                <div class="principle-card">
+                    <h4>Justice</h4>
+                    <p>Benefits and burdens of research should be distributed fairly. Subject selection criteria, language accessibility, and demographic scope all fall under this principle.</p>
+                </div>
+            </div>
+
+            <div class="alert alert-info">
+                <strong>International equivalents:</strong> The Declaration of Helsinki covers clinical research globally. GDPR adds data minimisation and right-to-erasure requirements for research involving EU residents. UK researchers follow UKRI and institutional ethics committees. Cross-cultural research often requires approval from multiple ethics bodies simultaneously.
+            </div>
+
+            <h2 id="informed-consent">Designing the Informed Consent Section</h2>
+
+            <p>Informed consent in a survey context is not a signature on a form : it is a section of the survey instrument itself. IRBs typically require the consent section to include specific elements, and the exact wording is usually approved as part of the protocol. Changing it after approval requires an amendment.</p>
+
+            <h3>Required elements in most IRB-approved consent sections</h3>
+
+            <ul>
+                <li><strong>Study title and principal investigator</strong> : name, title, institutional affiliation, and contact information</li>
+                <li><strong>Purpose of the study</strong> : plain language description of what the research aims to learn</li>
+                <li><strong>What participation involves</strong> : time required, types of questions, how data will be used</li>
+                <li><strong>Voluntary participation statement</strong> : explicit statement that participation is voluntary and refusal has no consequences</li>
+                <li><strong>Right to withdraw</strong> : participants may stop at any time without penalty</li>
+                <li><strong>Confidentiality or anonymity statement</strong> : what data is collected and how it will be protected</li>
+                <li><strong>Risks and benefits</strong> : honest description of any potential discomfort and what participants or society may gain</li>
+                <li><strong>Contact for questions</strong> : researcher contact and IRB contact for concerns about rights</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h4>Confidentiality vs anonymity: a critical distinction</h4>
+                <p>Most online surveys can only offer <strong>confidentiality</strong>, not <strong>anonymity</strong>. Anonymity means no one : including the researcher : can link a response to a specific participant. Confidentiality means the researcher knows who responded but protects that information.</p>
+                <p>Online platforms typically record IP addresses, completion timestamps, and sometimes device identifiers. Unless you have explicitly disabled all identifiable metadata collection, your survey is confidential : not anonymous. Your consent language must reflect this accurately, or your IRB may flag it.</p>
+            </div>
+
+            <h2 id="question-design">Question Design Requirements for IRB Compliance</h2>
+
+            <p>IRB reviewers look at question wording carefully. Several common design patterns raise compliance flags that can delay approval or require revision.</p>
+
+            <h3>Leading questions</h3>
+            <p>Questions that imply a preferred answer bias respondents and undermine research validity. IRBs flag these because they affect data quality and may cause participants to feel pressured toward particular responses. The <a href="/blog/pirai-ai-survey-advisor">AI Survey Advisor</a> flags leading questions automatically, including capitalisation that directs respondents (e.g., "ONE area") and phrasing that implies the correct answer.</p>
+
+            <h3>Sensitive question handling</h3>
+            <p>Questions about mental health, trauma, substance use, sexuality, immigration status, or other sensitive topics require specific handling in IRB-approved protocols. The survey instrument must include a trigger warning before sensitive sections, optional skip logic that allows participants to bypass questions they are not comfortable answering, and signposting to support resources where relevant.</p>
+
+            <h3>Scale design consistency</h3>
+            <p>Inconsistent scale labels across sections : for example, using 1-5 in one section and 1-7 in another, or reversing the direction of a scale mid-survey : confuse respondents and affect data quality. IRBs increasingly flag scale inconsistency as a methodological concern, particularly for validated instruments where scale fidelity is part of the approval.</p>
+
+            <h3>Age and demographic categories</h3>
+            <p>Demographic questions, particularly age brackets, must be granular enough to support the analysis described in your protocol. An age range of "56+" when your analysis requires age-specific subgroup comparisons will be flagged. The approved demographic categories in your protocol must match exactly what appears in the deployed instrument.</p>
+
+            <h2 id="platform-choice">Platform Choice and IRB Obligations</h2>
+
+            <p>The platform you use to deploy your survey affects your IRB obligations, particularly around data storage, security, and participant privacy. This is an area many researchers underestimate.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Platform</th>
+                        <th>IRB Considerations</th>
+                        <th>Best for</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>REDCap</strong></td>
+                        <td>Hosted on institutional servers, built-in audit trails, HIPAA-compliant infrastructure, data access controls</td>
+                        <td>Clinical research, sensitive data, longitudinal studies, healthcare surveys</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Qualtrics</strong></td>
+                        <td>Requires institutional licensing, data residency options vary, advanced anonymisation features available</td>
+                        <td>Experience management, complex logic, large-scale academic surveys</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Google Forms</strong></td>
+                        <td>Data stored on Google servers, GDPR compliance requires institutional Google Workspace agreement, limited anonymisation controls</td>
+                        <td>Low-risk pilot studies, classroom research, non-sensitive data collection</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Microsoft Forms</strong></td>
+                        <td>Tied to institutional Microsoft 365 agreements, data residency within institutional tenant</td>
+                        <td>University-administered research using institutional Microsoft accounts</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="alert alert-warning">
+                <strong>Important:</strong> Always confirm your platform choice with your IRB before deploying. Some institutions maintain approved platform lists. Using a non-approved platform : even after IRB approval of the instrument : may require a protocol amendment.
+            </div>
+
+            <h2 id="gdpr-considerations">GDPR and International Research Considerations</h2>
+
+            <p>Researchers collecting data from participants in the European Union must comply with GDPR in addition to their institutional IRB requirements. GDPR introduces obligations that go beyond traditional IRB frameworks.</p>
+
+            <ul>
+                <li><strong>Data minimisation</strong> : only collect the data you need for your stated research purpose. Every question must be justifiable in terms of your research objectives.</li>
+                <li><strong>Right to erasure</strong> : participants have the right to request deletion of their data. Your platform and data handling procedures must support this.</li>
+                <li><strong>Data residency</strong> : data from EU residents must not be transferred outside the EU without appropriate safeguards. Check your platform's data residency options.</li>
+                <li><strong>Explicit consent for sensitive categories</strong> : health data, genetic data, and other special categories require explicit consent under GDPR, which is more stringent than standard IRB consent requirements.</li>
+                <li><strong>Privacy notice</strong> : a separate privacy notice detailing how data will be processed must be provided to participants, in addition to the consent section within the survey.</li>
+            </ul>
+
+            <h2 id="deploying-approved-instrument">Deploying Your IRB-Approved Instrument Without Altering It</h2>
+
+            <p>Once your instrument has been approved, getting it into a platform accurately is critical. Any change to question wording, answer options, or survey structure between the approved document and the deployed survey may constitute an unapproved modification, requiring a protocol amendment before data collection can begin.</p>
+
+            <p>This is where manual platform programming introduces risk. A programmer who paraphrases a question, reorders answer options, or slightly rewrites consent language : even with good intentions : creates a compliance problem. The deployed instrument must match the approved document character for character.</p>
+
+            <p>Pirai AI converts the approved document : Word, PDF, or Excel : directly into the platform file without altering, paraphrasing, or reordering any content. The same text that was approved by your IRB appears in the deployed survey. For <a href="/blog/ai-survey-tool-for-healthcare">healthcare and clinical research</a> using REDCap, Pirai AI generates a REDCap Data Dictionary CSV that preserves all field labels, choice values, and instrument structure exactly as in the source document.</p>
+
+            <div class="highlight-box">
+                <h4>Why exact text preservation matters for IRB compliance</h4>
+                <ul>
+                    <li>Your IRB approved specific wording : any change is technically an unapproved modification</li>
+                    <li>Validated instruments (PHQ-9, GAD-7, SF-36) have psychometric properties tied to exact question wording</li>
+                    <li>Protocol amendments take time and delay data collection</li>
+                    <li>Discrepancies between approved and deployed instruments can invalidate data during audit</li>
+                </ul>
+            </div>
+
+            <p>The <a href="/blog/pirai-ai-survey-advisor">AI Survey Advisor</a> is designed to be used <strong>before</strong> IRB submission : during the instrument design phase. Once your instrument is approved, Pirai AI converts it to the platform format without touching the approved content.</p>
+
+            <h2 id="multilingual-irb">Multilingual Studies and IRB Requirements</h2>
+
+            <p>Research involving non-English-speaking participants requires translated instruments, and those translations must typically be approved by the IRB as part of the protocol. A back-translation procedure : translating from English to the target language, then independently back to English : is the standard for demonstrating translation accuracy.</p>
+
+            <p>For multilingual survey deployment, Pirai AI extracts each language version from the approved bilingual document and deploys it to the target platform without altering the approved translations. See the <a href="/blog/ai-multilingual-survey-tool-global-research">multilingual survey guide</a> for the full workflow. Pirai AI supports 16 languages and preserves all non-Latin scripts and Unicode characters during platform conversion.</p>
+
+            <h2 id="irb-checklist">IRB Survey Design Checklist</h2>
+
+            <p>Use this checklist before submitting your survey instrument for IRB review:</p>
+
+            <ul class="checklist">
+                <li>Informed consent section includes all required elements: purpose, procedures, voluntary participation, right to withdraw, confidentiality statement, risks, benefits, and contact information</li>
+                <li>Consent language accurately describes the data collected : confidentiality if IP or metadata is recorded, not anonymity</li>
+                <li>No leading questions, directive capitalisation, or implied preferred responses</li>
+                <li>Sensitive topic sections include trigger warnings and optional skip logic</li>
+                <li>Scale labels are consistent across all sections and the direction is not reversed mid-survey</li>
+                <li>Demographic categories match the subgroup analysis described in your protocol</li>
+                <li>Survey platform has been confirmed with your IRB or is on the institutional approved list</li>
+                <li>Data residency and storage arrangements comply with GDPR if collecting from EU participants</li>
+                <li>Translated instruments have been back-translated and the back-translation submitted with the protocol</li>
+                <li>The deployed instrument matches the approved document exactly</li>
+            </ul>
+
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    What makes a survey IRB compliant?
+                    <span class="accordion-icon">+</span>
+                </div>
+                <div class="accordion-body">
+                    <p>An IRB compliant survey protects participants through informed consent, voluntary participation, confidentiality or anonymity, minimal risk design, and equitable subject selection. The instrument wording, data handling procedures, and platform security must all meet the standards set by your institution's IRB or ethics committee.</p>
+                </div>
+            </div>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    Does converting a survey to a platform change the IRB approval?
+                    <span class="accordion-icon">+</span>
+                </div>
+                <div class="accordion-body">
+                    <p>Converting a survey from a Word document to a platform format like Qualtrics QSF or REDCap data dictionary does not change the IRB approval, provided the question wording and structure are preserved exactly as approved. Tools that alter, paraphrase, or reorder questions during conversion may require a protocol amendment.</p>
+                </div>
+            </div>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    Which platform is better for IRB research: REDCap or Qualtrics?
+                    <span class="accordion-icon">+</span>
+                </div>
+                <div class="accordion-body">
+                    <p>REDCap is purpose-built for academic and clinical research with built-in audit trails, data access controls, and HIPAA-compliant infrastructure through institutional servers. Qualtrics offers more survey design flexibility and advanced logic but requires institutional licensing and security configuration for sensitive research. The choice depends on your research type, institutional access, and data sensitivity requirements.</p>
+                </div>
+            </div>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    What is the difference between anonymity and confidentiality in surveys?
+                    <span class="accordion-icon">+</span>
+                </div>
+                <div class="accordion-body">
+                    <p>Anonymity means no one, including the researcher, can link a response to a specific participant. Confidentiality means the researcher knows who responded but protects that information from disclosure. Most online surveys can only offer confidentiality because IP addresses and metadata are typically recorded by the platform. Your consent language must accurately describe which applies to your study.</p>
+                </div>
+            </div>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    Do international research ethics boards have different requirements from US IRBs?
+                    <span class="accordion-icon">+</span>
+                </div>
+                <div class="accordion-body">
+                    <p>Yes. While the core principles : respect for persons, beneficence, and justice : are shared across most frameworks, specific requirements differ. GDPR adds data minimisation, right to erasure, and data residency requirements for European research. UK Research Integrity and other national bodies have their own consent and data handling standards. Cross-cultural research often requires approval from multiple ethics bodies.</p>
+                </div>
+            </div>
+
+            <div class="article-cta">
+                <h3>Convert Your IRB-Approved Instrument Without Altering a Word</h3>
+                <p>Pirai AI converts Word, PDF, and Excel survey instruments into Qualtrics, REDCap, and 25+ platforms : preserving every approved question exactly as written.</p>
+                <a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Start Converting Free</a>
+            </div>
+
+        </article>
+
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h3>In This Article</h3>
+                <ul class="toc-list">
+                    <li><a href="#belmont-principles">The Three Belmont Principles</a></li>
+                    <li><a href="#informed-consent">Informed Consent Design</a></li>
+                    <li><a href="#question-design">Question Design Requirements</a></li>
+                    <li><a href="#platform-choice">Platform Choice</a></li>
+                    <li><a href="#gdpr-considerations">GDPR Considerations</a></li>
+                    <li><a href="#deploying-approved-instrument">Deploying Without Altering</a></li>
+                    <li><a href="#multilingual-irb">Multilingual Studies</a></li>
+                    <li><a href="#irb-checklist">IRB Checklist</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="cta-box">
+                <h3>Convert Your IRB Instrument</h3>
+                <p>Exact text preservation. No paraphrasing. REDCap, Qualtrics, and 25+ platforms.</p>
+                <a href="https://platform.piraiai.com" target="_blank" class="cta-button">Start Free</a>
+            </div>
+
+            <div class="sidebar-section">
+                <h3>Related Guides</h3>
+                <ul class="toc-list">
+                    <li><a href="/blog/pirai-ai-survey-advisor">AI Survey Methodology Review</a></li>
+                    <li><a href="/blog/ai-survey-tool-for-researchers">AI Survey Tool for Researchers</a></li>
+                    <li><a href="/blog/ai-survey-tool-for-healthcare">AI Survey Tool for Healthcare</a></li>
+                    <li><a href="/blog/convert-word-to-qualtrics">Convert Word to Qualtrics</a></li>
+                    <li><a href="/blog/ai-multilingual-survey-tool-global-research">Multilingual Survey Guide</a></li>
+                    <li><a href="/blog/survey-platform-migration-guide">Survey Platform Migration</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <section class="related-articles">
+        <h2>Related Articles</h2>
+        <div class="related-grid">
+            <a href="/blog/pirai-ai-survey-advisor" class="related-card">
+                <h3>Meet the Pirai AI Survey Advisor</h3>
+                <p>Expert-level methodology review before IRB submission. Flags leading questions, scale inconsistencies, and demographic category gaps with exact edit instructions.</p>
+            </a>
+            <a href="/blog/ai-survey-tool-for-researchers" class="related-card">
+                <h3>AI Survey Tool for Researchers</h3>
+                <p>How academic researchers at 331 universities use Pirai AI to convert approved instruments into Qualtrics, REDCap, and 25+ platforms without manual programming.</p>
+            </a>
+            <a href="/blog/ai-multilingual-survey-tool-global-research" class="related-card">
+                <h3>Multilingual Survey Deployment</h3>
+                <p>How to deploy IRB-approved multilingual instruments across platforms without altering back-translated content.</p>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        const sections = document.querySelectorAll('h2[id]');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    const active = document.querySelector(`.toc-list a[href="#${entry.target.id}"]`);
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        sections.forEach(s => observer.observe(s));
+    </script>
+</body>
+</html>

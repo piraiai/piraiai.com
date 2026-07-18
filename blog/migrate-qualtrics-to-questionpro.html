@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Migrate from Qualtrics to QuestionPro Without Losing Survey Structure - Pirai AI Blog</title>
+    <meta name="description" content="Step-by-step guide to migrating surveys from Qualtrics to QuestionPro. What carries over, what does not, and how Pirai AI converts QSF files to QuestionPro format without manual rebuilding.">
+    <meta name="keywords" content="migrate Qualtrics to QuestionPro, Qualtrics to QuestionPro migration, export Qualtrics to QuestionPro, convert Qualtrics survey QuestionPro, Qualtrics QuestionPro import, switch from Qualtrics to QuestionPro">
+    <meta property="og:type" content="article"><meta property="og:url" content="https://piraiai.com/blog/migrate-qualtrics-to-questionpro">
+    <meta property="og:title" content="How to Migrate from Qualtrics to QuestionPro Without Losing Survey Structure"><meta property="og:description" content="Step-by-step guide to migrating surveys from Qualtrics to QuestionPro. What carries over, what does not, and how Pirai AI converts QSF files to QuestionPro format without manual rebuilding.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="article:published_time" content="2026-07-18T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Migrate from Qualtrics to QuestionPro Without Losing Survey Structure"><meta name="twitter:description" content="Step-by-step guide to migrating surveys from Qualtrics to QuestionPro. What carries over, what does not, and how Pirai AI converts QSF files to QuestionPro format without manual rebuilding.">
+    <link rel="canonical" href="https://piraiai.com/blog/migrate-qualtrics-to-questionpro"><link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Article","headline":"How to Migrate from Qualtrics to QuestionPro Without Losing Survey Structure","description":"Step-by-step guide to migrating surveys from Qualtrics to QuestionPro. What carries over, what does not, and how Pirai AI converts QSF files to QuestionPro format without manual rebuilding.","author":{"@type":"Person","name":"Arun Raj"},"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},"datePublished":"2026-07-18","url":"https://piraiai.com/blog/migrate-qualtrics-to-questionpro"}
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; transition: color 0.2s; margin-left: 32px; }
+        header nav a:hover { color: #9B6BFF; }
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+        .content-wrapper { max-width: 1200px; margin: 48px auto; padding: 0 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+        .article-content { max-width: 680px; overflow-x: hidden; }
+        .article-content p { font-size: 18px; color: #374151; margin-bottom: 24px; line-height: 1.7; }
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-top: 32px; margin-bottom: 12px; }
+        .article-content a { color: #9B6BFF; text-decoration: none; border-bottom: 1px solid rgba(155,107,255,0.3); transition: all 0.2s; }
+        .article-content a:hover { border-bottom-color: #9B6BFF; }
+        .article-content ul, .article-content ol { margin-bottom: 24px; padding-left: 24px; }
+        .article-content li { font-size: 18px; color: #374151; margin-bottom: 12px; line-height: 1.7; }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+        table { width: 100%; border-collapse: collapse; margin: 32px 0; background: #ffffff; border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; }
+        @media (max-width: 640px) { table { display: block; overflow-x: auto; white-space: nowrap; } }
+        th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid #f3f4f6; font-size: 15px; }
+        th { background: #f9fafb; font-weight: 600; color: #1a1a1a; border-bottom: 2px solid #e5e7eb; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover { background: #f9fafb; }
+        .highlight-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 24px; margin: 32px 0; border-radius: 4px; }
+        .highlight-box h4 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: #1a1a1a; margin-bottom: 12px; }
+        .highlight-box p, .highlight-box li { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .highlight-box ul { margin: 8px 0 0 20px; }
+        .alert { padding: 16px 20px; border-radius: 8px; margin: 24px 0; border-left: 4px solid; font-size: 15px; line-height: 1.6; }
+        .alert-info { background: #dbeafe; border-left-color: #3b82f6; color: #1e40af; }
+        .alert-warning { background: #fef3c7; border-left-color: #f59e0b; color: #92400e; }
+        .alert-success { background: #d1fae5; border-left-color: #22c55e; color: #065f46; }
+        .step-box { background: #f9fafb; border-left: 4px solid #9B6BFF; border-radius: 8px; padding: 24px; margin: 20px 0; }
+        .step-number { display: inline-block; background: #9B6BFF; color: white; width: 35px; height: 35px; line-height: 35px; text-align: center; border-radius: 50%; font-weight: 700; margin-right: 12px; font-size: 16px; font-family: 'Space Grotesk', sans-serif; }
+        .step-box h4 { display: inline; font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: #1a1a1a; }
+        .step-box p { margin: 12px 0 0 47px; font-size: 16px; color: #374151; line-height: 1.7; }
+        .feature-list { list-style: none; padding: 0; margin: 24px 0; }
+        .feature-list li { padding: 8px 0 8px 32px; position: relative; font-size: 17px; color: #374151; line-height: 1.7; margin-bottom: 4px; }
+        .feature-list li:before { content: "\2713"; position: absolute; left: 0; color: #22c55e; font-weight: bold; font-size: 20px; }
+        .checklist { list-style: none; padding: 0; margin: 24px 0; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; }
+        .checklist li { padding: 14px 20px; border-bottom: 1px solid #f3f4f6; font-size: 16px; color: #374151; display: flex; align-items: flex-start; gap: 12px; }
+        .checklist li:last-child { border-bottom: none; }
+        .checklist li:before { content: "\2610"; font-size: 18px; color: #9B6BFF; flex-shrink: 0; margin-top: 1px; }
+        .article-cta { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 36px 40px; border-radius: 12px; margin: 48px 0 32px; text-align: center; }
+        .article-cta h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+        .article-cta p { font-size: 16px; color: #ffffff; opacity: 0.95; margin-bottom: 20px; }
+        .article-cta a { border-bottom: none !important; }
+        .cta-btn-white { display: inline-block; background: #ffffff; color: #9B6BFF !important; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-btn-white:hover { transform: translateY(-2px); }
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a1a1a; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; transition: color 0.2s; border-bottom: none; display: block; }
+        .toc-list a:hover { color: #9B6BFF; }
+        .toc-list a.active { color: #9B6BFF; font-weight: 600; }
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 32px; border-radius: 8px; text-align: center; color: #ffffff; margin-bottom: 24px; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .cta-box p { font-size: 14px; margin-bottom: 20px; opacity: 0.95; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-button:hover { transform: translateY(-2px); }
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; border-bottom: none; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: #1a1a1a; margin-bottom: 8px; }
+        .related-card p { font-size: 14px; color: #6b7280; margin: 0; }
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+        @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
+</style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header><div class="header-container">
+        <a href="/" class="logo"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span></a>
+        <nav><a href="/">Home</a><a href="/blog">All Articles</a><a href="/docs">Documentation</a><a href="/#demo">Get Demo</a></nav>
+    </div></header>
+    <div class="breadcrumb"><div class="breadcrumb-container">
+        <a href="/">Home</a><span class="breadcrumb-separator">›</span><a href="/blog">Blog</a><span class="breadcrumb-separator">›</span><span class="breadcrumb-current">Migrate Qualtrics to QuestionPro</span>
+    </div></div>
+    <div class="hero"><div class="hero-container">
+        <h1 class="article-title">How to Migrate from Qualtrics to QuestionPro Without Losing Survey Structure</h1>
+        <div class="article-meta"><span class="author">Arun Raj</span><span class="separator">•</span><span>July 18, 2026</span><span class="separator">•</span><span>4 min read</span></div>
+    </div></div>
+    <div class="content-wrapper">
+        <article class="article-content">
+
+            <p>Teams migrate from Qualtrics to QuestionPro for a range of reasons: licensing costs, institutional procurement decisions, feature requirements, or a preference for QuestionPro's pricing model. Whatever the reason, the migration challenge is the same: getting existing surveys out of Qualtrics and into QuestionPro without rebuilding every question manually.</p>
+
+            <h2 id="why-teams-migrate">Why Teams Migrate from Qualtrics to QuestionPro</h2>
+            <p>Qualtrics is an enterprise platform with enterprise pricing. For academic institutions, small research teams, and independent researchers, the cost of a Qualtrics licence can be prohibitive when a QuestionPro licence covers the same survey types at a lower cost. QuestionPro also offers academic discounts and a research-focused tier that appeals to university teams.</p>
+            <p>Some teams migrate after Qualtrics changes its pricing structure or removes features from lower licence tiers. Others migrate when an institutional agreement lapses and is not renewed. The surveys do not disappear — but getting them into the new platform requires work.</p>
+
+            <h2 id="what-carries-over">What Carries Over and What Does Not</h2>
+            <table>
+                <thead><tr><th>Survey Element</th><th>Migrates Successfully</th><th>Requires Attention</th></tr></thead>
+                <tbody>
+                    <tr><td>Question text</td><td>Yes</td><td>Verify formatting is preserved</td></tr>
+                    <tr><td>Answer options</td><td>Yes</td><td>Check recode values</td></tr>
+                    <tr><td>Question types</td><td>Most</td><td>Qualtrics-specific types need mapping</td></tr>
+                    <tr><td>Skip logic</td><td>Partial</td><td>Complex nested logic needs manual review</td></tr>
+                    <tr><td>Display logic</td><td>Partial</td><td>Embedded data conditions may not carry</td></tr>
+                    <tr><td>Embedded data</td><td>No direct equivalent</td><td>Requires QuestionPro custom variables setup</td></tr>
+                    <tr><td>Survey flow</td><td>No</td><td>Rebuild in QuestionPro after conversion</td></tr>
+                </tbody>
+            </table>
+
+            <h2 id="migration-process">The Migration Process</h2>
+            <div class="step-box">
+                <span class="step-number">1</span>
+                <h4>Export your Qualtrics survey as a QSF file</h4>
+                <p>In Qualtrics, go to Survey and select Tools, then Import/Export Survey, then Export Survey. Download the QSF file to your device.</p>
+            </div>
+            <div class="step-box">
+                <span class="step-number">2</span>
+                <h4>Convert with Pirai AI</h4>
+                <p>Upload the QSF file to <a href="https://platform.piraiai.com" target="_blank">platform.piraiai.com</a> and select QuestionPro as the target platform. Pirai AI converts the Qualtrics survey structure into a QuestionPro-compatible format, mapping question types and preserving answer option structure.</p>
+            </div>
+            <div class="step-box">
+                <span class="step-number">3</span>
+                <h4>Import into QuestionPro</h4>
+                <p>Follow the QuestionPro import process using the converted file. Review the imported survey against your QSF original to confirm question text and answer options are accurate.</p>
+            </div>
+            <div class="step-box">
+                <span class="step-number">4</span>
+                <h4>Rebuild logic and flow</h4>
+                <p>Using your pre-migration logic documentation as reference, add skip logic and display conditions in QuestionPro. Test every logic path before activating the survey.</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4>Document your Qualtrics surveys before migration</h4>
+                <p>Use the <a href="/blog/qsf-to-excel-converter">QSF to Excel Converter</a> to export your Qualtrics survey into a structured Excel workbook before migration begins. This gives you a complete reference of every question, answer option, recode value, and logic condition in the original survey — useful for validation after the QuestionPro import.</p>
+            </div>
+
+            <p>For the complete platform migration landscape, see the <a href="/blog/survey-platform-migration-guide">Survey Platform Migration Guide</a>.</p>
+
+            <div class="article-cta">
+                <h3>Convert Your Qualtrics Surveys to QuestionPro</h3>
+                <p>From document to platform-ready survey in minutes. No manual programming required.</p>
+                <a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Start Converting Free</a>
+            </div>
+        </article>
+        <aside class="sidebar">
+            <div class="cta-box"><h3>Try Pirai AI Free</h3><p>Convert any document to 27+ survey platforms in minutes.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-button">Start Free</a></div>
+            <div class="sidebar-section"><h3>Related Articles</h3><ul class="toc-list">
+                    <li><a href="/blog/survey-platform-migration-guide">Survey Platform Migration Guide</a></li>
+                    <li><a href="/blog/preserve-skip-logic-survey-migration">Preserving Skip Logic in Migration</a></li>
+                    <li><a href="/blog/qsf-to-excel-converter">QSF to Excel Converter</a></li>
+                    <li><a href="/blog/multi-platform-survey-deployment">Multi-Platform Deployment</a></li>
+            </ul></div>
+        </aside>
+    </div>
+    <section class="related-articles"><h2>Related Articles</h2><div class="related-grid">
+            <a href="/blog/survey-platform-migration-guide" class="related-card">
+                <h3>Survey Platform Migration Guide 2026</h3>
+                <p>The complete guide to migrating surveys across 20+ platforms.</p>
+            </a>
+            <a href="/blog/preserve-skip-logic-survey-migration" class="related-card">
+                <h3>Preserving Skip Logic When Migrating Surveys</h3>
+                <p>What gets lost in logic migration and how to validate after conversion.</p>
+            </a>
+            <a href="/blog/qsf-to-excel-converter" class="related-card">
+                <h3>Convert QSF to Excel</h3>
+                <p>Export any Qualtrics survey to a structured workbook before migration.</p>
+            </a>
+    </div></section>
+    <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
+    <script>
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        const sections = document.querySelectorAll('h2[id]');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    const active = document.querySelector(`.toc-list a[href="#${entry.target.id}"]`);
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        sections.forEach(s => observer.observe(s));
+    </script>
+</body></html>
