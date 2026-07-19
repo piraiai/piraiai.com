@@ -597,6 +597,18 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>  
+  <url>
+    <loc>https://piraiai.com/blog/pirai-ai-vs-formswrite</loc>
+    <lastmod>2026-07-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/pirai-ai-vs-automagical-forms</loc>
+    <lastmod>2026-07-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>  
   <!-- FORMAT-SPECIFIC PRODUCT PAGES - High priority -->
   <!-- Google Forms format-specific -->
   <url>
