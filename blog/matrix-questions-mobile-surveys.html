@@ -18,6 +18,9 @@
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"Article","headline":"How to Format Matrix Questions for Mobile-First Survey Respondents","description":"Matrix questions are the hardest survey question type to render on mobile. This guide covers design best practices, platform handling differences, and alternatives for mobile-first research.","author":{"@type":"Person","name":"Arun Raj"},"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},"datePublished":"2026-07-18","url":"https://piraiai.com/blog/matrix-questions-mobile-surveys"}
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why do matrix questions fail on mobile devices?","acceptedAnswer":{"@type":"Answer","text":"Matrix questions require a grid layout with multiple columns for scale labels and multiple rows for items. On small screens, this grid either overflows horizontally requiring scroll, or renders items so small they are difficult to tap accurately. Both outcomes reduce response quality and increase abandonment rates."}},{"@type":"Question","name":"What is the best alternative to a matrix question on mobile?","acceptedAnswer":{"@type":"Answer","text":"The carousel format presents each matrix item individually as a separate question with the same scale, one at a time. This eliminates the grid entirely and renders well on any screen size. The trade-off is a longer perceived survey since items appear as individual questions rather than grouped in a compact grid."}},{"@type":"Question","name":"How many items should a mobile-friendly matrix have?","acceptedAnswer":{"@type":"Answer","text":"Limit matrix questions to five items or fewer for mobile-first surveys. Beyond five items, the matrix becomes difficult to complete on a small screen. Longer matrices should be split into multiple shorter matrices or converted to individual questions for mobile audiences."}},{"@type":"Question","name":"Which survey platforms handle matrix questions best on mobile?","acceptedAnswer":{"@type":"Answer","text":"Qualtrics offers a mobile-first view that collapses matrix questions to a vertical list on small screens. SurveySparrow uses a conversational format that presents matrix items one at a time. Google Forms and Microsoft Forms do not support native matrix questions and expand them to individual items automatically."}}]}
+    </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
@@ -106,7 +109,16 @@
         footer p { color: #6b7280; font-size: 14px; }
         @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
         @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
-</style>
+
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; transition: transform 0.2s; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 500px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
+    </style>
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -169,6 +181,25 @@
                 </ul>
             </div>
 
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Why do matrix questions fail on mobile devices?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Matrix questions require a grid layout with multiple columns for scale labels and multiple rows for items. On small screens, this grid either overflows horizontally requiring scroll, or renders items so small they are difficult to tap accurately. Both outcomes reduce response quality and increase abandonment rates.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What is the best alternative to a matrix question on mobile?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>The carousel format presents each matrix item individually as a separate question with the same scale, one at a time. This eliminates the grid entirely and renders well on any screen size. The trade-off is a longer perceived survey since items appear as individual questions rather than grouped in a compact grid.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How many items should a mobile-friendly matrix have?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Limit matrix questions to five items or fewer for mobile-first surveys. Beyond five items, the matrix becomes difficult to complete on a small screen. Longer matrices should be split into multiple shorter matrices or converted to individual questions for mobile audiences.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Which survey platforms handle matrix questions best on mobile?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Qualtrics offers a mobile-first view that collapses matrix questions to a vertical list on small screens. SurveySparrow uses a conversational format that presents matrix items one at a time. Google Forms and Microsoft Forms do not support native matrix questions and expand them to individual items automatically.</p></div>
+            </div>
+
             <div class="article-cta">
                 <h3>Convert Your Survey Instruments to Any Platform</h3>
                 <p>From document to platform-ready survey in minutes. No manual programming required.</p>
@@ -201,6 +232,16 @@
     </div></section>
     <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
     <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
         const tocLinks = document.querySelectorAll('.toc-list a');
         const sections = document.querySelectorAll('h2[id]');
         const observer = new IntersectionObserver((entries) => {

@@ -18,6 +18,9 @@
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"Article","headline":"How to Migrate from Alchemer to REDCap: A Practical Guide","description":"A step-by-step guide to migrating surveys from Alchemer (formerly SurveyGizmo) to REDCap. What changes between platforms, how to convert your surveys, and how to import into REDCap correctly.","author":{"@type":"Person","name":"Arun Raj"},"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},"datePublished":"2026-07-18","url":"https://piraiai.com/blog/migrate-alchemer-to-redcap"}
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why would a research team migrate from Alchemer to REDCap?","acceptedAnswer":{"@type":"Answer","text":"The most common reason is compliance. REDCap is purpose-built for clinical and health sciences research with HIPAA-compliant infrastructure, full audit trails, and institutional server hosting. Teams collecting health data or receiving grants that specify REDCap as the required platform need to migrate regardless of their existing Alchemer setup."}},{"@type":"Question","name":"Can I convert my Alchemer survey to a REDCap Data Dictionary automatically?","acceptedAnswer":{"@type":"Answer","text":"Yes. Upload your Alchemer survey document to Pirai AI and select REDCap as the target. Pirai AI generates a REDCap Data Dictionary CSV with field types, variable names, field labels, and choice values mapped from your Alchemer survey, ready to upload via REDCap Project Setup."}},{"@type":"Question","name":"What Alchemer question types do not map directly to REDCap?","acceptedAnswer":{"@type":"Answer","text":"Alchemer slider questions do not have a direct REDCap equivalent and are typically converted to text fields with numeric validation. Alchemer's matrix questions map to individual REDCap fields rather than a grid. Complex Alchemer logic needs to be rebuilt as REDCap branching logic after the Data Dictionary import."}},{"@type":"Question","name":"Is REDCap HIPAA compliant?","acceptedAnswer":{"@type":"Answer","text":"REDCap is hosted on institutional servers, which means compliance depends on how your institution has configured and validated its REDCap installation. Most academic medical centres and research institutions run HIPAA-compliant REDCap environments. Confirm with your REDCap administrator that the project will be hosted on a validated, HIPAA-compliant server before beginning data collection."}}]}
+    </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
@@ -106,7 +109,16 @@
         footer p { color: #6b7280; font-size: 14px; }
         @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
         @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
-</style>
+
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; transition: transform 0.2s; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 500px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
+    </style>
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -168,6 +180,25 @@
 
             <p>For more on REDCap Data Dictionary imports, see the <a href="/blog/convert-word-document-to-redcap">Convert Word to REDCap guide</a>. For the full migration route comparison, see the <a href="/blog/survey-platform-migration-guide">Survey Platform Migration Guide</a>.</p>
 
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Why would a research team migrate from Alchemer to REDCap?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>The most common reason is compliance. REDCap is purpose-built for clinical and health sciences research with HIPAA-compliant infrastructure, full audit trails, and institutional server hosting. Teams collecting health data or receiving grants that specify REDCap as the required platform need to migrate regardless of their existing Alchemer setup.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Can I convert my Alchemer survey to a REDCap Data Dictionary automatically?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes. Upload your Alchemer survey document to Pirai AI and select REDCap as the target. Pirai AI generates a REDCap Data Dictionary CSV with field types, variable names, field labels, and choice values mapped from your Alchemer survey, ready to upload via REDCap Project Setup.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What Alchemer question types do not map directly to REDCap?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Alchemer slider questions do not have a direct REDCap equivalent and are typically converted to text fields with numeric validation. Alchemer's matrix questions map to individual REDCap fields rather than a grid. Complex Alchemer logic needs to be rebuilt as REDCap branching logic after the Data Dictionary import.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Is REDCap HIPAA compliant?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>REDCap is hosted on institutional servers, which means compliance depends on how your institution has configured and validated its REDCap installation. Most academic medical centres and research institutions run HIPAA-compliant REDCap environments. Confirm with your REDCap administrator that the project will be hosted on a validated, HIPAA-compliant server before beginning data collection.</p></div>
+            </div>
+
             <div class="article-cta">
                 <h3>Convert Your Alchemer Surveys to REDCap</h3>
                 <p>From document to platform-ready survey in minutes. No manual programming required.</p>
@@ -200,6 +231,16 @@
     </div></section>
     <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
     <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
         const tocLinks = document.querySelectorAll('.toc-list a');
         const sections = document.querySelectorAll('h2[id]');
         const observer = new IntersectionObserver((entries) => {

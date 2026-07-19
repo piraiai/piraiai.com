@@ -18,6 +18,9 @@
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"Article","headline":"GDPR-Compliant Survey Design for Academic and Research Teams","description":"How to design surveys that comply with GDPR when collecting data from EU residents. Data minimisation, lawful basis, consent language, platform selection, and right to erasure.","author":{"@type":"Person","name":"Arun Raj"},"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},"datePublished":"2026-07-18","url":"https://piraiai.com/blog/gdpr-compliant-survey-design"}
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does GDPR apply to academic research surveys?","acceptedAnswer":{"@type":"Answer","text":"Yes, if the survey collects personal data from individuals in the European Union. This applies regardless of where the researcher or institution is based. A US university collecting data from EU students or participants must comply with GDPR for that data."}},{"@type":"Question","name":"What is the difference between GDPR consent and IRB consent?","acceptedAnswer":{"@type":"Answer","text":"IRB consent covers the ethical treatment of human subjects and is a research governance requirement. GDPR consent is a legal basis for processing personal data under EU law. A survey can have IRB approval and still be GDPR non-compliant if the data processing arrangements are not in order. Both must be addressed separately before collecting data from EU participants."}},{"@type":"Question","name":"Can I use Google Forms for GDPR-compliant research?","acceptedAnswer":{"@type":"Answer","text":"Google Forms can be used for GDPR-compliant research if your organisation has a Google Workspace agreement that includes a data processing agreement with Google and EU data residency is configured. Without these arrangements, the default Google Forms settings do not meet GDPR requirements for research data."}},{"@type":"Question","name":"What types of questions create GDPR risk in a survey?","acceptedAnswer":{"@type":"Answer","text":"Questions that collect unnecessary personal data create GDPR risk under the data minimisation principle. This includes collecting exact dates of birth when age ranges would suffice, collecting names or email addresses for anonymous studies, and open-text questions that could result in participants inadvertently sharing identifying information."}}]}
+    </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
@@ -106,7 +109,16 @@
         footer p { color: #6b7280; font-size: 14px; }
         @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
         @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
-</style>
+
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; transition: transform 0.2s; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 500px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
+    </style>
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -181,6 +193,25 @@
                 <p>GDPR compliance and IRB approval address overlapping but distinct concerns. IRB approval covers the ethical treatment of human subjects. GDPR covers the legal requirements for processing personal data. A survey can have IRB approval and still be non-compliant with GDPR if the data processing arrangements are not in order. Both must be addressed before data collection begins from EU participants.</p>
             </div>
 
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Does GDPR apply to academic research surveys?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes, if the survey collects personal data from individuals in the European Union. This applies regardless of where the researcher or institution is based. A US university collecting data from EU students or participants must comply with GDPR for that data.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What is the difference between GDPR consent and IRB consent?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>IRB consent covers the ethical treatment of human subjects and is a research governance requirement. GDPR consent is a legal basis for processing personal data under EU law. A survey can have IRB approval and still be GDPR non-compliant if the data processing arrangements are not in order. Both must be addressed separately before collecting data from EU participants.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Can I use Google Forms for GDPR-compliant research?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Google Forms can be used for GDPR-compliant research if your organisation has a Google Workspace agreement that includes a data processing agreement with Google and EU data residency is configured. Without these arrangements, the default Google Forms settings do not meet GDPR requirements for research data.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What types of questions create GDPR risk in a survey?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Questions that collect unnecessary personal data create GDPR risk under the data minimisation principle. This includes collecting exact dates of birth when age ranges would suffice, collecting names or email addresses for anonymous studies, and open-text questions that could result in participants inadvertently sharing identifying information.</p></div>
+            </div>
+
             <div class="article-cta">
                 <h3>Convert Your IRB-Approved Instrument Without Altering a Word</h3>
                 <p>From document to platform-ready survey in minutes. No manual programming required.</p>
@@ -213,6 +244,16 @@
     </div></section>
     <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
     <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
         const tocLinks = document.querySelectorAll('.toc-list a');
         const sections = document.querySelectorAll('h2[id]');
         const observer = new IntersectionObserver((entries) => {

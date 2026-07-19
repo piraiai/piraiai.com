@@ -34,6 +34,9 @@
       "url": "https://piraiai.com/blog/how-long-does-survey-programming-take"
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How long does it take to program a 100-question survey manually?","acceptedAnswer":{"@type":"Answer","text":"Manual survey programming takes approximately 3 to 5 minutes per question, meaning a 100-question survey requires 8 to 12 hours of a programmer's time. This estimate excludes review cycles, corrections, and the additional time required for each additional target platform."}},{"@type":"Question","name":"How does Pirai AI reduce survey programming time?","acceptedAnswer":{"@type":"Answer","text":"Pirai AI eliminates the manual data entry phase, which accounts for 70 to 80 percent of programming time. The source document converts to a validated platform file in under 15 minutes for a 100-question survey. Programmers then spend time on logic configuration and QA rather than entering questions and answer options manually."}},{"@type":"Question","name":"Is the time saving consistent across different platforms?","acceptedAnswer":{"@type":"Answer","text":"Yes. The 73% time reduction applies across all 27+ platforms Pirai AI supports. For multi-platform studies, the saving compounds because the same document produces outputs for all required platforms from a single upload rather than requiring separate programming for each."}},{"@type":"Question","name":"What tasks are included in manual survey programming time?","acceptedAnswer":{"@type":"Answer","text":"Manual programming time includes entering question text, configuring question types, adding answer options, setting recode values, applying validation rules, adding skip logic and display conditions, and running a QA pass. The data entry tasks account for the majority of time and are the part Pirai AI automates."}}]}
+    </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
@@ -99,6 +102,15 @@
         footer p { color: #6b7280; font-size: 14px; }
         @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
         @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
+
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; transition: transform 0.2s; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 400px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
     </style>
 </head>
 <body>
@@ -154,6 +166,25 @@
                 <li>Methodology review: AI Survey Advisor reviews wording and structure in seconds</li>
                 <li>73% overall time reduction across all supported platforms and survey sizes</li>
             </ul>
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How long does it take to program a 100-question survey manually?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Manual survey programming takes approximately 3 to 5 minutes per question, meaning a 100-question survey requires 8 to 12 hours of a programmer's time. This estimate excludes review cycles, corrections, and the additional time required for each additional target platform.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How does Pirai AI reduce survey programming time?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Pirai AI eliminates the manual data entry phase, which accounts for 70 to 80 percent of programming time. The source document converts to a validated platform file in under 15 minutes for a 100-question survey. Programmers then spend time on logic configuration and QA rather than entering questions and answer options manually.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Is the time saving consistent across different platforms?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes. The 73% time reduction applies across all 27+ platforms Pirai AI supports. For multi-platform studies, the saving compounds because the same document produces outputs for all required platforms from a single upload rather than requiring separate programming for each.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What tasks are included in manual survey programming time?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Manual programming time includes entering question text, configuring question types, adding answer options, setting recode values, applying validation rules, adding skip logic and display conditions, and running a QA pass. The data entry tasks account for the majority of time and are the part Pirai AI automates.</p></div>
+            </div>
+
             <div class="article-cta">
                 <h3>Try Pirai AI Free</h3>
                 <p>From document to platform-ready survey file in minutes. No manual programming required.</p>
@@ -197,6 +228,16 @@
         <p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p>
     </footer>
     <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
         const tocLinks = document.querySelectorAll('.toc-list a');
         const sections = document.querySelectorAll('h2[id]');
         const observer = new IntersectionObserver((entries) => {

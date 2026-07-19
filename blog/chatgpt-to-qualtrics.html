@@ -22,7 +22,7 @@
     <meta property="og:description" content="ChatGPT made it easy to draft survey questions. Pirai AI gets them into Qualtrics in minutes. No manual programming required.">
     <meta property="og:image" content="https://piraiai.com/logo.png">
     <meta property="og:site_name" content="Pirai AI Blog">
-    <meta property="article:published_time" content="2026-03-27T00:00:00Z">
+    <meta property="article:published_time" content="2026-07-18T00:00:00Z">
     <meta property="article:author" content="Arun Raj">
     <meta property="article:section" content="Guide">
     <meta property="article:tag" content="ChatGPT">
@@ -36,6 +36,9 @@
     <meta name="twitter:description" content="ChatGPT made it easy to draft survey questions. Pirai AI gets them into Qualtrics in minutes.">
     <meta name="twitter:image" content="https://piraiai.com/logo.png">
 
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I paste ChatGPT output directly into Pirai AI?","acceptedAnswer":{"@type":"Answer","text":"Yes. In Pirai AI, select Paste Text as the input method and paste your ChatGPT-generated questionnaire directly. Pirai AI identifies question types, structures the survey, and produces a Qualtrics QSF file without any reformatting required."}},{"@type":"Question","name":"Does Pirai AI change the questions ChatGPT generated?","acceptedAnswer":{"@type":"Answer","text":"No. Pirai AI converts the question text and answer options as written, without paraphrasing or reordering. The AI Survey Advisor can then review the instrument for methodology issues and suggest edits, but those changes require your explicit instruction to implement."}},{"@type":"Question","name":"What Qualtrics question types does Pirai AI support?","acceptedAnswer":{"@type":"Answer","text":"Pirai AI supports all major Qualtrics question types including Multiple Choice, Matrix, Text Entry, Slider, Rank Order, Net Promoter Score, and Descriptive Text. Question types are identified automatically from the source document structure."}},{"@type":"Question","name":"Can I use Pirai AI for platforms other than Qualtrics?","acceptedAnswer":{"@type":"Answer","text":"Yes. Pirai AI supports 27+ platforms. Select any supported platform when converting and Pirai AI produces the correct import file. The same ChatGPT-generated questionnaire can produce a Qualtrics QSF, a REDCap Data Dictionary, a SurveyMonkey TXT file, and other formats from the same upload."}}]}
+    </script>
     <link rel="canonical" href="https://piraiai.com/blog/chatgpt-to-qualtrics">
     <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
     <link rel="apple-touch-icon" href="https://piraiai.com/logo.png">
@@ -49,7 +52,7 @@
       "description": "Learn how to go from ChatGPT-generated survey questions to a live Qualtrics import file in minutes using Pirai AI.",
       "author": { "@type": "Person", "name": "Arun Raj" },
       "publisher": { "@type": "Organization", "name": "Pirai AI", "url": "https://piraiai.com" },
-      "datePublished": "2026-03-27",
+      "datePublished": "2026-07-18",
       "url": "https://piraiai.com/blog/chatgpt-to-qualtrics"
     }
     </script>
@@ -221,6 +224,15 @@
             .article-cta { padding: 24px; }
             .article-content { overflow-x: hidden; }
         }
+
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; transition: transform 0.2s; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 400px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
     </style>
 </head>
 <body>
@@ -239,7 +251,7 @@
                 <a href="/">Home</a>
                 <a href="/blog">All Articles</a>
                 <a href="/docs">Documentation</a>
-                <a href="/qualtrics-toolkit">Free Tools</a>
+                <a href="/#demo">Get Demo</a>
             </nav>
         </div>
     </header>
@@ -262,7 +274,7 @@
             <div class="article-meta">
                 <span class="author">Arun Raj</span>
                 <span class="separator">•</span>
-                <span>March 27, 2026</span>
+                <span>July 18, 2026</span>
                 <span class="separator">•</span>
                 <span>6 min read</span>
             </div>
@@ -452,6 +464,25 @@
             <p>Your survey. Your platform. In minutes.</p>
 
             <!-- Article CTA -->
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Can I paste ChatGPT output directly into Pirai AI?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes. In Pirai AI, select Paste Text as the input method and paste your ChatGPT-generated questionnaire directly. Pirai AI identifies question types, structures the survey, and produces a Qualtrics QSF file without any reformatting required.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Does Pirai AI change the questions ChatGPT generated?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>No. Pirai AI converts the question text and answer options as written, without paraphrasing or reordering. The AI Survey Advisor can then review the instrument for methodology issues and suggest edits, but those changes require your explicit instruction to implement.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What Qualtrics question types does Pirai AI support?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Pirai AI supports all major Qualtrics question types including Multiple Choice, Matrix, Text Entry, Slider, Rank Order, Net Promoter Score, and Descriptive Text. Question types are identified automatically from the source document structure.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Can I use Pirai AI for platforms other than Qualtrics?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes. Pirai AI supports 27+ platforms. Select any supported platform when converting and Pirai AI produces the correct import file. The same ChatGPT-generated questionnaire can produce a Qualtrics QSF, a REDCap Data Dictionary, a SurveyMonkey TXT file, and other formats from the same upload.</p></div>
+            </div>
+
             <div class="article-cta">
                 <h3>Try Pirai AI Free</h3>
                 <p>From ChatGPT to Qualtrics in minutes. No manual programming. No reformatting. Just results.</p>
@@ -522,6 +553,16 @@
 
     <script>
         // Active TOC highlighting
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
         const tocLinks = document.querySelectorAll('.toc-list a');
         const sections = document.querySelectorAll('h2[id]');
         const observer = new IntersectionObserver((entries) => {

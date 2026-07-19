@@ -34,6 +34,9 @@
       "url": "https://piraiai.com/blog/ai-survey-tool-for-market-research"
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does Pirai AI support Forsta and UNICOM Dimensions for market research?","acceptedAnswer":{"@type":"Answer","text":"Yes. Pirai AI produces Forsta XML and UNICOM Dimensions MDD output files from the same document upload. These are two of the most specialised platform formats in professional market research and are not supported by general AI survey tools."}},{"@type":"Question","name":"Can the same client questionnaire be deployed to multiple platforms?","acceptedAnswer":{"@type":"Answer","text":"Yes. Upload the specification once and select any combination of target platforms. Pirai AI generates the correct output file for each platform without reformatting the source document. The same questionnaire can deploy to Qualtrics for one client and Forsta for another from a single upload."}},{"@type":"Question","name":"How does Pirai AI handle multi-language questionnaires?","acceptedAnswer":{"@type":"Answer","text":"Pirai AI processes documents in 16 languages without requiring reformatting between language versions. Each language version can be converted to the target platform format from the same upload workflow."}},{"@type":"Question","name":"What does zero vendor lock-in mean for market research?","acceptedAnswer":{"@type":"Answer","text":"Zero vendor lock-in means the same survey instrument can be deployed to any supported platform without rebuilding. If a client changes platforms, or an agency needs to run the same study on two different platforms simultaneously, the source document converts to both without duplicating the programming work."}}]}
+    </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
@@ -99,6 +102,15 @@
         footer p { color: #6b7280; font-size: 14px; }
         @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
         @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
+
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; transition: transform 0.2s; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 400px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
     </style>
 </head>
 <body>
@@ -154,6 +166,25 @@
                 <li>Processes client documents in 16 languages</li>
                 <li>Zero vendor lock-in — switch platforms without rebuilding instruments</li>
             </ul>
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Does Pirai AI support Forsta and UNICOM Dimensions for market research?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes. Pirai AI produces Forsta XML and UNICOM Dimensions MDD output files from the same document upload. These are two of the most specialised platform formats in professional market research and are not supported by general AI survey tools.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Can the same client questionnaire be deployed to multiple platforms?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes. Upload the specification once and select any combination of target platforms. Pirai AI generates the correct output file for each platform without reformatting the source document. The same questionnaire can deploy to Qualtrics for one client and Forsta for another from a single upload.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How does Pirai AI handle multi-language questionnaires?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Pirai AI processes documents in 16 languages without requiring reformatting between language versions. Each language version can be converted to the target platform format from the same upload workflow.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What does zero vendor lock-in mean for market research?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Zero vendor lock-in means the same survey instrument can be deployed to any supported platform without rebuilding. If a client changes platforms, or an agency needs to run the same study on two different platforms simultaneously, the source document converts to both without duplicating the programming work.</p></div>
+            </div>
+
             <div class="article-cta">
                 <h3>Try Pirai AI Free</h3>
                 <p>From document to platform-ready survey file in minutes. No manual programming required.</p>
@@ -197,6 +228,16 @@
         <p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p>
     </footer>
     <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
         const tocLinks = document.querySelectorAll('.toc-list a');
         const sections = document.querySelectorAll('h2[id]');
         const observer = new IntersectionObserver((entries) => {

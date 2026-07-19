@@ -18,6 +18,9 @@
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"Article","headline":"Importing Clinical Trial Questionnaires into REDCap Safely","description":"How to import clinical trial questionnaires and case report forms into REDCap safely. Field type mapping, validation rules, instrument structure, and how to avoid common import errors.","author":{"@type":"Person","name":"Arun Raj"},"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},"datePublished":"2026-07-18","url":"https://piraiai.com/blog/clinical-trial-survey-redcap"}
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I import a clinical trial CRF into REDCap?","acceptedAnswer":{"@type":"Answer","text":"Convert the CRF document to a REDCap Data Dictionary CSV using Pirai AI, then upload it via Project Setup in REDCap. REDCap validates the file and shows a field summary before you commit the import. After import, add branching logic and validation rules in the Online Designer."}},{"@type":"Question","name":"What REDCap field type should I use for a date field?","acceptedAnswer":{"@type":"Answer","text":"Use a Text field with Date validation applied. REDCap supports multiple date formats including Y-M-D, M-D-Y, and D-M-Y. Select the format that matches your study protocol and is consistent across all date fields in the instrument."}},{"@type":"Question","name":"Can I modify a REDCap Data Dictionary after data collection has begun?","acceptedAnswer":{"@type":"Answer","text":"Modifying a Data Dictionary after data collection has begun is strongly discouraged and may require an IRB amendment. Changing field types or variable names after responses have been collected can corrupt existing data. If changes are necessary, consult your REDCap administrator and IRB before making any modifications."}},{"@type":"Question","name":"Is REDCap HIPAA compliant for clinical trial data?","acceptedAnswer":{"@type":"Answer","text":"REDCap hosted on an institutional server that has been configured and validated for HIPAA compliance is appropriate for clinical trial data. Compliance depends on the institutional infrastructure, not the REDCap software itself. Always confirm with your REDCap administrator and institution's compliance office before collecting clinical data."}}]}
+    </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
@@ -106,7 +109,16 @@
         footer p { color: #6b7280; font-size: 14px; }
         @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
         @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
-</style>
+
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; transition: transform 0.2s; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 500px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
+    </style>
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -178,6 +190,25 @@
 
             <p>For the full guide to REDCap Data Dictionary imports, see <a href="/blog/convert-word-document-to-redcap">How to Convert a Word Document to a REDCap Data Dictionary</a>. For IRB requirements around clinical survey instruments, see the <a href="/blog/irb-compliant-survey-design">IRB Compliant Survey Design Guide</a>.</p>
 
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How do I import a clinical trial CRF into REDCap?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Convert the CRF document to a REDCap Data Dictionary CSV using Pirai AI, then upload it via Project Setup in REDCap. REDCap validates the file and shows a field summary before you commit the import. After import, add branching logic and validation rules in the Online Designer.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What REDCap field type should I use for a date field?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Use a Text field with Date validation applied. REDCap supports multiple date formats including Y-M-D, M-D-Y, and D-M-Y. Select the format that matches your study protocol and is consistent across all date fields in the instrument.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Can I modify a REDCap Data Dictionary after data collection has begun?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Modifying a Data Dictionary after data collection has begun is strongly discouraged and may require an IRB amendment. Changing field types or variable names after responses have been collected can corrupt existing data. If changes are necessary, consult your REDCap administrator and IRB before making any modifications.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Is REDCap HIPAA compliant for clinical trial data?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>REDCap hosted on an institutional server that has been configured and validated for HIPAA compliance is appropriate for clinical trial data. Compliance depends on the institutional infrastructure, not the REDCap software itself. Always confirm with your REDCap administrator and institution's compliance office before collecting clinical data.</p></div>
+            </div>
+
             <div class="article-cta">
                 <h3>Convert Your CRF to REDCap Data Dictionary</h3>
                 <p>From document to platform-ready survey in minutes. No manual programming required.</p>
@@ -210,6 +241,16 @@
     </div></section>
     <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
     <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
         const tocLinks = document.querySelectorAll('.toc-list a');
         const sections = document.querySelectorAll('h2[id]');
         const observer = new IntersectionObserver((entries) => {

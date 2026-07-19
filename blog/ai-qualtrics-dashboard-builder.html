@@ -18,6 +18,9 @@
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"Article","headline":"AI Dashboard Builder vs Manual Qualtrics Dashboard Setup: What the Comparison Actually Means","description":"Comparing AI dashboard building with manual Qualtrics dashboard configuration. What changes when a conversational AI agent handles widget creation, filters, and page cloning in real time.","author":{"@type":"Person","name":"Arun Raj"},"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},"datePublished":"2026-07-18","url":"https://piraiai.com/blog/ai-qualtrics-dashboard-builder"}
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an AI dashboard builder for Qualtrics?","acceptedAnswer":{"@type":"Answer","text":"An AI dashboard builder for Qualtrics is a tool that automates widget creation, filter configuration, and page setup through natural language. Pirai AI Flow is a conversational AI Chrome extension that reads your dashboard structure and builds widgets when you describe them, eliminating the need to navigate configuration panels manually."}},{"@type":"Question","name":"How does Pirai AI Flow differ from manual Qualtrics dashboard configuration?","acceptedAnswer":{"@type":"Answer","text":"Manual configuration requires navigating menus, selecting widget types, finding fields from dropdowns, and repeating the process for every widget. Pirai AI Flow replaces that with conversation. Describe what you want and Flow configures it instantly, including filters and page cloning."}},{"@type":"Question","name":"Does Flow work on all Qualtrics plans?","acceptedAnswer":{"@type":"Answer","text":"Pirai AI Flow works as a Chrome extension on any Qualtrics dashboard regardless of licence type, as long as the dashboard has a connected data source and fields available for mapping."}},{"@type":"Question","name":"Is my survey data safe when using Pirai AI Flow?","acceptedAnswer":{"@type":"Answer","text":"Yes. Flow reads field names and types only, to map widgets correctly. Your survey response data never leaves your Qualtrics environment at any point. Nothing is used to train AI models."}}]}
+    </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
@@ -106,7 +109,16 @@
         footer p { color: #6b7280; font-size: 14px; }
         @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
         @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
-</style>
+
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; transition: transform 0.2s; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 500px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
+    </style>
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -159,6 +171,25 @@
                 <p>A suggestion tool tells you what to build. An AI agent builds it. Flow is the second type. When you describe a widget, it is created in your actual Qualtrics dashboard, not in a mockup or preview. The distinction matters because the value is in the time saved on real configuration work, not in the quality of suggestions.</p>
             </div>
 
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What is an AI dashboard builder for Qualtrics?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>An AI dashboard builder for Qualtrics is a tool that automates widget creation, filter configuration, and page setup through natural language. Pirai AI Flow is a conversational AI Chrome extension that reads your dashboard structure and builds widgets when you describe them, eliminating the need to navigate configuration panels manually.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How does Pirai AI Flow differ from manual Qualtrics dashboard configuration?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Manual configuration requires navigating menus, selecting widget types, finding fields from dropdowns, and repeating the process for every widget. Pirai AI Flow replaces that with conversation. Describe what you want and Flow configures it instantly, including filters and page cloning.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Does Flow work on all Qualtrics plans?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Pirai AI Flow works as a Chrome extension on any Qualtrics dashboard regardless of licence type, as long as the dashboard has a connected data source and fields available for mapping.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Is my survey data safe when using Pirai AI Flow?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes. Flow reads field names and types only, to map widgets correctly. Your survey response data never leaves your Qualtrics environment at any point. Nothing is used to train AI models.</p></div>
+            </div>
+
             <div class="article-cta">
                 <h3>Build Your Next Dashboard Without Manual Configuration</h3>
                 <p>From document to platform-ready survey in minutes. No manual programming required.</p>
@@ -191,6 +222,16 @@
     </div></section>
     <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
     <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
         const tocLinks = document.querySelectorAll('.toc-list a');
         const sections = document.querySelectorAll('h2[id]');
         const observer = new IntersectionObserver((entries) => {

@@ -18,6 +18,9 @@
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"Article","headline":"Qualtrics Dashboard Best Practices for CX Teams","description":"Best practices for building and maintaining Qualtrics CX dashboards. Page hierarchy, widget selection for NPS and CSAT, filter strategy, documentation, and using AI to accelerate configuration.","author":{"@type":"Person","name":"Arun Raj"},"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},"datePublished":"2026-07-18","url":"https://piraiai.com/blog/qualtrics-dashboard-best-practices-cx"}
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many pages should a Qualtrics CX dashboard have?","acceptedAnswer":{"@type":"Answer","text":"There is no fixed number, but a well-structured CX dashboard typically has three to five pages: an Executive Summary, a CX Manager view with driver analysis, a Frontline Ops view broken down by agent or location, a Voice of Customer open-text page, and optionally a Quality or Compliance view. Each page should serve a clearly defined audience."}},{"@type":"Question","name":"What widget is best for displaying NPS in Qualtrics?","acceptedAnswer":{"@type":"Answer","text":"A Number Chart is the primary widget for displaying the overall NPS score. Pair it with a Breakdown Bar to show the distribution of Promoters, Passives, and Detractors, and a Line Chart to show the NPS trend over time."}},{"@type":"Question","name":"Should I clone pages or create separate dashboards for regional breakdowns?","acceptedAnswer":{"@type":"Answer","text":"Clone pages within the same dashboard for regional breakdowns. Separate dashboards create maintenance overhead when the programme changes. Cloning the base page and applying a region filter to each clone keeps the structure manageable. Pirai AI Flow handles page cloning with a single instruction."}},{"@type":"Question","name":"How do I document a Qualtrics dashboard configuration before making changes?","acceptedAnswer":{"@type":"Answer","text":"Use the free Pirai AI Dashboard Field Mapper to extract all field types and data source mappings as a CSV in under two minutes. This gives you a complete reference of the current configuration before any changes are made."}}]}
+    </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
@@ -106,7 +109,16 @@
         footer p { color: #6b7280; font-size: 14px; }
         @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
         @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
-</style>
+
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; transition: transform 0.2s; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 500px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
+    </style>
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -172,6 +184,25 @@
                 </ul>
             </div>
 
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How many pages should a Qualtrics CX dashboard have?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>There is no fixed number, but a well-structured CX dashboard typically has three to five pages: an Executive Summary, a CX Manager view with driver analysis, a Frontline Ops view broken down by agent or location, a Voice of Customer open-text page, and optionally a Quality or Compliance view. Each page should serve a clearly defined audience.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What widget is best for displaying NPS in Qualtrics?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>A Number Chart is the primary widget for displaying the overall NPS score. Pair it with a Breakdown Bar to show the distribution of Promoters, Passives, and Detractors, and a Line Chart to show the NPS trend over time.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Should I clone pages or create separate dashboards for regional breakdowns?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Clone pages within the same dashboard for regional breakdowns. Separate dashboards create maintenance overhead when the programme changes. Cloning the base page and applying a region filter to each clone keeps the structure manageable. Pirai AI Flow handles page cloning with a single instruction.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How do I document a Qualtrics dashboard configuration before making changes?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Use the free Pirai AI Dashboard Field Mapper to extract all field types and data source mappings as a CSV in under two minutes. This gives you a complete reference of the current configuration before any changes are made.</p></div>
+            </div>
+
             <div class="article-cta">
                 <h3>Build Your CX Dashboard Faster with Flow</h3>
                 <p>From document to platform-ready survey in minutes. No manual programming required.</p>
@@ -204,6 +235,16 @@
     </div></section>
     <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
     <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
         const tocLinks = document.querySelectorAll('.toc-list a');
         const sections = document.querySelectorAll('h2[id]');
         const observer = new IntersectionObserver((entries) => {

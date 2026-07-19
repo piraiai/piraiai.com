@@ -34,6 +34,9 @@
       "url": "https://piraiai.com/blog/ai-survey-tool-for-researchers"
     }
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does Pirai AI work with validated research instruments?","acceptedAnswer":{"@type":"Answer","text":"Yes. Pirai AI converts validated instruments from Word or PDF directly, preserving all approved question wording, answer options, and instrument structure exactly as in the source document. This is critical for IRB-approved instruments where any change to the approved text requires a protocol amendment."}},{"@type":"Question","name":"Is my research data secure with Pirai AI?","acceptedAnswer":{"@type":"Answer","text":"Yes. Pirai AI processes all documents 100% client-side in your browser. Your instruments never leave your device and are never used to train AI models. This is an important data protection commitment for researchers working with sensitive or confidential questionnaire content."}},{"@type":"Question","name":"Does Pirai AI support REDCap for academic research?","acceptedAnswer":{"@type":"Answer","text":"Yes. Pirai AI generates REDCap Data Dictionary CSV files from Word, PDF, or Excel instruments. This covers the most time-consuming part of REDCap setup: entering every field manually in the Online Designer or building the Data Dictionary from scratch."}},{"@type":"Question","name":"How does Pirai AI help after IRB approval?","acceptedAnswer":{"@type":"Answer","text":"After IRB approval, Pirai AI converts the approved instrument to the deployment platform without altering any approved content. The AI Survey Advisor is designed to be used before IRB submission, during the instrument design phase, to catch methodology issues before the approval process begins."}}]}
+    </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
@@ -99,6 +102,15 @@
         footer p { color: #6b7280; font-size: 14px; }
         @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
         @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
+
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; transition: transform 0.2s; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 400px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
     </style>
 </head>
 <body>
@@ -154,6 +166,25 @@
                 <li>Your documents are never used to train AI models</li>
                 <li>Supports 16 languages for international and multilingual research programmes</li>
             </ul>
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Does Pirai AI work with validated research instruments?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes. Pirai AI converts validated instruments from Word or PDF directly, preserving all approved question wording, answer options, and instrument structure exactly as in the source document. This is critical for IRB-approved instruments where any change to the approved text requires a protocol amendment.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Is my research data secure with Pirai AI?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes. Pirai AI processes all documents 100% client-side in your browser. Your instruments never leave your device and are never used to train AI models. This is an important data protection commitment for researchers working with sensitive or confidential questionnaire content.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Does Pirai AI support REDCap for academic research?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes. Pirai AI generates REDCap Data Dictionary CSV files from Word, PDF, or Excel instruments. This covers the most time-consuming part of REDCap setup: entering every field manually in the Online Designer or building the Data Dictionary from scratch.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How does Pirai AI help after IRB approval?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>After IRB approval, Pirai AI converts the approved instrument to the deployment platform without altering any approved content. The AI Survey Advisor is designed to be used before IRB submission, during the instrument design phase, to catch methodology issues before the approval process begins.</p></div>
+            </div>
+
             <div class="article-cta">
                 <h3>Try Pirai AI Free</h3>
                 <p>From document to platform-ready survey file in minutes. No manual programming required.</p>
@@ -197,6 +228,16 @@
         <p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p>
     </footer>
     <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
         const tocLinks = document.querySelectorAll('.toc-list a');
         const sections = document.querySelectorAll('h2[id]');
         const observer = new IntersectionObserver((entries) => {

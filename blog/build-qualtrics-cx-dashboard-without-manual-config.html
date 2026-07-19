@@ -18,6 +18,9 @@
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"Article","headline":"How to Build a Qualtrics CX Dashboard Without Manual Configuration","description":"A step-by-step guide to building a Qualtrics CX dashboard using Pirai AI Flow, without navigating widget panels, setting filters by hand, or cloning pages manually.","author":{"@type":"Person","name":"Arun Raj"},"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},"datePublished":"2026-07-18","url":"https://piraiai.com/blog/build-qualtrics-cx-dashboard-without-manual-config"}
     </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What do I need before using Flow to build a dashboard?","acceptedAnswer":{"@type":"Answer","text":"You need Pirai AI Flow installed as a Chrome extension and a Qualtrics dashboard with a data source connected. Flow reads the available fields from the connected data source, so a data connection must be in place before Flow can map widgets correctly."}},{"@type":"Question","name":"How long does it take to build a CX dashboard with Flow?","acceptedAnswer":{"@type":"Answer","text":"A single page with five to ten widgets, filters applied, and regional page clones typically takes two to five minutes through conversation with Flow. A full multi-page CX dashboard for a mid-sized programme takes ten to twenty minutes compared to two to three hours manually."}},{"@type":"Question","name":"Can Flow update an existing dashboard or only create new ones?","acceptedAnswer":{"@type":"Answer","text":"Flow can both create new widgets and update existing ones. You can relabel columns, change metrics, switch fields, and adjust filters through the same conversation. You do not need to delete and rebuild widgets to make changes."}},{"@type":"Question","name":"Does using Flow require technical knowledge?","acceptedAnswer":{"@type":"Answer","text":"No. Flow is designed for CX practitioners, not developers. You describe what you want in plain English and Flow handles the configuration. No Qualtrics scripting knowledge is required."}}]}
+    </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
@@ -106,7 +109,16 @@
         footer p { color: #6b7280; font-size: 14px; }
         @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
         @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
-</style>
+
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; transition: transform 0.2s; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 500px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
+    </style>
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -163,6 +175,25 @@
                 <strong>Your data never leaves Qualtrics.</strong> Flow reads field names and types to map widgets correctly. Your survey response data stays in your Qualtrics environment throughout.
             </div>
 
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What do I need before using Flow to build a dashboard?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>You need Pirai AI Flow installed as a Chrome extension and a Qualtrics dashboard with a data source connected. Flow reads the available fields from the connected data source, so a data connection must be in place before Flow can map widgets correctly.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How long does it take to build a CX dashboard with Flow?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>A single page with five to ten widgets, filters applied, and regional page clones typically takes two to five minutes through conversation with Flow. A full multi-page CX dashboard for a mid-sized programme takes ten to twenty minutes compared to two to three hours manually.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Can Flow update an existing dashboard or only create new ones?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Flow can both create new widgets and update existing ones. You can relabel columns, change metrics, switch fields, and adjust filters through the same conversation. You do not need to delete and rebuild widgets to make changes.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Does using Flow require technical knowledge?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>No. Flow is designed for CX practitioners, not developers. You describe what you want in plain English and Flow handles the configuration. No Qualtrics scripting knowledge is required.</p></div>
+            </div>
+
             <div class="article-cta">
                 <h3>Build Your Dashboard Through Conversation</h3>
                 <p>From document to platform-ready survey in minutes. No manual programming required.</p>
@@ -195,6 +226,16 @@
     </div></section>
     <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
     <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
         const tocLinks = document.querySelectorAll('.toc-list a');
         const sections = document.querySelectorAll('h2[id]');
         const observer = new IntersectionObserver((entries) => {
