@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is a Likert Scale? Survey Design Guide - Pirai AI Blog</title>
+    <meta name="description" content="A Likert scale is a rating scale used in surveys to measure attitudes, opinions, and agreement. Learn the correct Likert format, how many points to use, and how Likert scales differ from Likert-type scales.">
+    <meta name="keywords" content="what is a Likert scale, Likert scale definition, Likert scale survey, 5-point Likert scale, 7-point Likert scale, Likert scale survey design">
+    <meta property="og:type" content="article"><meta property="og:url" content="https://piraiai.com/blog/what-is-likert-scale">
+    <meta property="og:title" content="What is a Likert Scale? Survey Design Guide"><meta property="og:description" content="A Likert scale is a rating scale used in surveys to measure attitudes, opinions, and agreement. Learn the correct Likert format, how many points to use, and how Likert scales differ from Likert-type scales.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="article:published_time" content="2026-07-18T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta property="article:section" content="Glossary">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="What is a Likert Scale? Survey Design Guide"><meta name="twitter:description" content="A Likert scale is a rating scale used in surveys to measure attitudes, opinions, and agreement. Learn the correct Likert format, how many points to use, and how Likert scales differ from Likert-type scales.">
+    <link rel="canonical" href="https://piraiai.com/blog/what-is-likert-scale"><link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What is a Likert Scale? Survey Design Guide","description":"A Likert scale is a rating scale used in surveys to measure attitudes, opinions, and agreement. Learn the correct Likert format, how many points to use, and how Likert scales differ from Likert-type scales.","author":{"@type":"Person","name":"Arun Raj"},"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},"datePublished":"2026-07-18","url":"https://piraiai.com/blog/what-is-likert-scale"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many points should a Likert scale have?","acceptedAnswer":{"@type":"Answer","text":"Five-point scales are the most common in applied research and CX surveys. Seven-point scales are preferred in academic and clinical research where greater precision is needed. Consistency in scale use is more important than the specific number chosen."}},{"@type":"Question","name":"What is the difference between a Likert scale and a rating scale?","acceptedAnswer":{"@type":"Answer","text":"A Likert scale specifically uses agree-disagree response options. A rating scale is broader and includes any scale used to measure intensity, frequency, satisfaction, or quality. NPS and CSAT are rating scales but not Likert scales."}},{"@type":"Question","name":"Should Likert scales have a neutral midpoint?","acceptedAnswer":{"@type":"Answer","text":"Including a neutral midpoint allows respondents who genuinely have no opinion to express that. Removing it forces respondents to take a directional stance, which can be useful when you need clear directional signal."}},{"@type":"Question","name":"How does Pirai AI handle Likert scales during survey conversion?","acceptedAnswer":{"@type":"Answer","text":"Pirai AI identifies Likert scale items in source documents from their structure and maps them to the appropriate question type in the target platform. Matrix questions with consistent scale labels are preserved as matrix question types."}}]}</script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; margin-left: 32px; transition: color 0.2s; }
+        header nav a:hover { color: #9B6BFF; }
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+        .content-wrapper { max-width: 1200px; margin: 48px auto; padding: 0 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+        .article-content { max-width: 680px; overflow-x: hidden; }
+        .article-content p { font-size: 18px; color: #374151; margin-bottom: 24px; line-height: 1.7; }
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-top: 32px; margin-bottom: 12px; }
+        .article-content a { color: #9B6BFF; text-decoration: none; border-bottom: 1px solid rgba(155,107,255,0.3); transition: all 0.2s; }
+        .article-content a:hover { border-bottom-color: #9B6BFF; }
+        .article-content ul, .article-content ol { margin-bottom: 24px; padding-left: 24px; }
+        .article-content li { font-size: 18px; color: #374151; margin-bottom: 10px; line-height: 1.7; }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+        .definition-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 28px; margin: 32px 0; border-radius: 4px; }
+        .definition-box .def-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9B6BFF; margin-bottom: 12px; display: block; }
+        .definition-box p { font-size: 17px; color: #1a1a1a; margin-bottom: 0; font-style: italic; line-height: 1.7; }
+        .related-terms { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 32px 0; }
+        .related-terms h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+        .related-terms ul { padding-left: 0; list-style: none; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+        .related-terms li { margin: 0; }
+        .related-terms a { display: inline-block; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 6px 14px; font-size: 14px; color: #374151; text-decoration: none; border-bottom: none; transition: all 0.2s; }
+        .related-terms a:hover { border-color: #9B6BFF; color: #9B6BFF; border-bottom: none; }
+        .article-cta { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 36px 40px; border-radius: 12px; margin: 48px 0 32px; text-align: center; }
+        .article-cta h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+        .article-cta p { font-size: 16px; color: #ffffff; opacity: 0.95; margin-bottom: 20px; }
+        .article-cta a { border-bottom: none !important; }
+        .cta-btn-white { display: inline-block; background: #ffffff; color: #9B6BFF !important; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-btn-white:hover { transform: translateY(-2px); }
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a1a1a; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; transition: color 0.2s; border-bottom: none; display: block; }
+        .toc-list a:hover { color: #9B6BFF; }
+        .toc-list a.active { color: #9B6BFF; font-weight: 600; }
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 32px; border-radius: 8px; text-align: center; color: #ffffff; margin-bottom: 24px; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .cta-box p { font-size: 14px; margin-bottom: 20px; opacity: 0.95; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-button:hover { transform: translateY(-2px); }
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; border-bottom: none; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
+        .related-card .card-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #9B6BFF; margin-bottom: 8px; display: block; }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
+        .related-card p { font-size: 14px; color: #6b7280; margin: 0; }
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+        @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 400px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header><div class="header-container">
+        <a href="/" class="logo"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span></a>
+        <nav><a href="/">Home</a><a href="/blog">All Articles</a><a href="/docs">Documentation</a><a href="/#demo">Get Demo</a></nav>
+    </div></header>
+    <div class="breadcrumb"><div class="breadcrumb-container">
+        <a href="/">Home</a><span class="breadcrumb-separator">›</span>
+        <a href="/blog">Blog</a><span class="breadcrumb-separator">›</span>
+        <a href="/blog?category=glossary">Glossary</a><span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">What is a Likert Scale? Survey Design Guide</span>
+    </div></div>
+    <div class="hero"><div class="hero-container">
+        <h1 class="article-title">What is a Likert Scale? Survey Design Guide</h1>
+        <div class="article-meta"><span class="author">Arun Raj</span><span class="separator">•</span><span>July 18, 2026</span><span class="separator">•</span><span>3 min read</span><span class="separator">•</span><span style="background:#e5e7eb;color:#374151;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:600;">Glossary</span></div>
+    </div></div>
+    <div class="content-wrapper">
+        <article class="article-content">
+            <div class="definition-box">
+                <span class="def-label">Definition</span>
+                <p>A Likert scale is a psychometric scale used in surveys to measure the degree of agreement or disagreement with a statement, typically using five response options ranging from Strongly Disagree to Strongly Agree, developed by Rensis Likert in 1932.</p>
+            </div>
+
+            <h2 id="likert-vs-likert-type">Likert vs Likert-Type Scale</h2>
+            <p>A true Likert scale is a composite of multiple items designed to measure a single underlying construct, where the scale score is the sum or average of all item scores. What most people call a "Likert scale" in everyday use is technically a Likert-type item  -  a single question with a symmetric agree-disagree response format. The distinction matters in academic research; for applied research and CX surveys, the terms are used interchangeably.</p>
+
+            <h2 id="five-vs-seven-points">5-Point vs 7-Point Likert</h2>
+            <p>The most common choices are five-point and seven-point scales:</p>
+            <ul>
+                <li><strong>5-point scales</strong> are easier for respondents, produce higher response rates, and work well on mobile. They are the standard for most applied research and CX programmes.</li>
+                <li><strong>7-point scales</strong> provide more data granularity and are preferred in academic and clinical research where precision matters.</li>
+                <li><strong>4-point scales</strong> (no neutral midpoint) force a directional response and eliminate the "neither agree nor disagree" escape option.</li>
+            </ul>
+            <p>Consistency across a survey and across research waves is more important than the specific number of points chosen.</p>
+
+            <h2 id="design-best-practices">Design Best Practices</h2>
+            <p>Common Likert scale design errors include: inconsistent scale direction across questions, scale labels that are not symmetric or equidistant, and mixing Likert items with frequency or intensity items in the same matrix without distinguishing the scale type.</p>
+            <p>The <a href="/blog/pirai-ai-survey-advisor">AI Survey Advisor</a> reviews Likert scale design before deployment, flagging scale inconsistencies and reversed-direction errors.</p>
+
+            <h2 id="likert-in-platforms">Likert in Survey Platforms</h2>
+            <p>Major survey platforms handle Likert scales through matrix question types. In Qualtrics, the Matrix Table question type supports full Likert formatting with customisable scale labels. In REDCap, Likert items are implemented as radio button fields. In Google Forms, the Linear Scale or Multiple Choice Grid question types approximate Likert format.</p>
+            <div class="related-terms">
+                <h4>Related Terms</h4>
+                <ul><li><a href="/blog/what-is-net-promoter-score">NPS</a></li><li><a href="/blog/what-is-customer-satisfaction-score">CSAT</a></li><li><a href="/blog/what-is-response-bias">Response Bias</a></li><li><a href="/blog/what-is-straight-lining">Straight-Lining</a></li><li><a href="/blog/what-is-semantic-differential-scale">Semantic Differential Scale</a></li><li><a href="/blog/what-is-survey-validity">Survey Validity</a></li></ul>
+            </div>
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How many points should a Likert scale have?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Five-point scales are the most common in applied research and CX surveys. Seven-point scales are preferred in academic and clinical research where greater precision is needed. Consistency in scale use is more important than the specific number chosen.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What is the difference between a Likert scale and a rating scale?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>A Likert scale specifically uses agree-disagree response options. A rating scale is broader and includes any scale used to measure intensity, frequency, satisfaction, or quality. NPS and CSAT are rating scales but not Likert scales.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Should Likert scales have a neutral midpoint?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Including a neutral midpoint allows respondents who genuinely have no opinion to express that. Removing it forces respondents to take a directional stance, which can be useful when you need clear directional signal.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How does Pirai AI handle Likert scales during survey conversion?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Pirai AI identifies Likert scale items in source documents from their structure and maps them to the appropriate question type in the target platform. Matrix questions with consistent scale labels are preserved as matrix question types.</p></div>
+            </div>
+            <div class="article-cta">
+                <h3>Deploy Your Survey to 27+ Platforms</h3>
+                <p>Convert Word, PDF, and Excel survey instruments to Qualtrics, REDCap, SurveyMonkey, and more. No manual programming required.</p>
+                <a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Start Converting Free</a>
+            </div>
+        </article>
+        <aside class="sidebar">
+            <div class="cta-box"><h3>Try Pirai AI Free</h3><p>Convert any survey document to 27+ platforms in minutes.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-button">Start Free</a></div>
+            <div class="sidebar-section"><h3>In This Article</h3><ul class="toc-list">
+                    <li><a href="#likert-vs-likert-type">Likert vs Likert-Type Scale</a></li>
+                    <li><a href="#five-vs-seven-points">5-Point vs 7-Point Likert</a></li>
+                    <li><a href="#design-best-practices">Design Best Practices</a></li>
+                    <li><a href="#likert-in-platforms">Likert in Survey Platforms</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+            </ul></div>
+            <div class="sidebar-section"><h3>Related Articles</h3><ul class="toc-list">
+                    <li><a href="/blog/what-is-net-promoter-score">What is NPS?</a></li>
+                    <li><a href="/blog/what-is-response-bias">What is Response Bias?</a></li>
+                    <li><a href="/blog/what-is-straight-lining">What is Straight-Lining?</a></li>
+                    <li><a href="/blog/matrix-questions-mobile-surveys">Matrix Questions for Mobile</a></li>
+                    <li><a href="/blog/irb-compliant-survey-design">IRB Compliant Survey Design</a></li>
+            </ul></div>
+        </aside>
+    </div>
+    <section class="related-articles"><h2>Related Articles</h2><div class="related-grid">
+            <a href="/blog/matrix-questions-mobile-surveys" class="related-card"><span class="card-tag">Guide</span><h3>Matrix Questions for Mobile-First Respondents</h3><p>How to format Likert scale matrix questions for mobile devices without losing data quality.</p></a>
+            <a href="/blog/irb-compliant-survey-design" class="related-card"><span class="card-tag">Guide</span><h3>IRB Compliant Survey Design</h3><p>Design requirements for Likert scales in academic research including scale consistency.</p></a>
+            <a href="/blog/pirai-ai-survey-advisor" class="related-card"><span class="card-tag">Thought Leadership</span><h3>Meet the Pirai AI Survey Advisor</h3><p>AI review that flags Likert scale design issues before fieldwork begins.</p></a>
+    </div></section>
+    <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
+    <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        const sections = document.querySelectorAll('h2[id]');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    const active = document.querySelector('.toc-list a[href="#' + entry.target.id + '"]');
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        sections.forEach(s => observer.observe(s));
+    </script>
+</body></html>
