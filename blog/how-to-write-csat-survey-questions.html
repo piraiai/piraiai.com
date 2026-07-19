@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Write CSAT Survey Questions: Examples and Platform Guide - Pirai AI Blog</title>
+    <meta name="description" content="Learn how to write effective CSAT survey questions for Qualtrics, SurveyMonkey, and other platforms. Includes the standard CSAT question, follow-up examples, and configuration guidance.">
+    <meta name="keywords" content="how to write CSAT survey questions, customer satisfaction survey questions, CSAT question examples, CSAT survey design, customer satisfaction question wording, CSAT Qualtrics, satisfaction survey questions">
+    <meta property="og:type" content="article"><meta property="og:url" content="https://piraiai.com/blog/how-to-write-csat-survey-questions">
+    <meta property="og:title" content="How to Write CSAT Survey Questions: Examples and Platform Guide"><meta property="og:description" content="Learn how to write effective CSAT survey questions for Qualtrics, SurveyMonkey, and other platforms. Includes the standard CSAT question, follow-up examples, and configuration guidance.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="article:published_time" content="2026-07-18T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta property="article:section" content="Glossary">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Write CSAT Survey Questions: Examples and Platform Guide"><meta name="twitter:description" content="Learn how to write effective CSAT survey questions for Qualtrics, SurveyMonkey, and other platforms. Includes the standard CSAT question, follow-up examples, and configuration guidance.">
+    <link rel="canonical" href="https://piraiai.com/blog/how-to-write-csat-survey-questions"><link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to Write CSAT Survey Questions: Examples and Platform Guide","description":"Learn how to write effective CSAT survey questions for Qualtrics, SurveyMonkey, and other platforms. Includes the standard CSAT question, follow-up examples, and configuration guidance.","author":{"@type":"Person","name":"Arun Raj"},"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},"datePublished":"2026-07-18","url":"https://piraiai.com/blog/how-to-write-csat-survey-questions"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many questions should a CSAT survey have?","acceptedAnswer":{"@type":"Answer","text":"A post-interaction CSAT survey should have two to four questions: the core satisfaction rating, one open-text follow-up, and optionally a resolution or effort question. Surveys longer than four questions show significantly reduced response rates for unsolicited post-interaction surveys."}},{"@type":"Question","name":"Should CSAT use a 5-point or 10-point scale?","acceptedAnswer":{"@type":"Answer","text":"The 5-point scale (Very Unsatisfied to Very Satisfied) is the most common for CSAT because it is easy for respondents and produces reliable top-two-box scores. The 10-point scale provides more granularity but requires more cognitive effort. Choose based on your existing measurement approach and stick with it for consistency."}},{"@type":"Question","name":"When should I send a CSAT survey?","acceptedAnswer":{"@type":"Answer","text":"For support interactions, send within 2-4 hours of ticket closure while the experience is fresh. For purchase satisfaction, send 24 hours after delivery confirmation. For appointment or visit satisfaction, send within the same day. Response rates drop significantly after 48 hours for transactional CSAT surveys."}},{"@type":"Question","name":"Can Pirai AI convert a CSAT survey to any platform?","acceptedAnswer":{"@type":"Answer","text":"Yes. Upload your CSAT survey document to Pirai AI and select any of the 27+ supported platforms. The satisfaction scale question is mapped to the platform's native rating or satisfaction question type. Open-text follow-ups are mapped to text entry fields. The output is a platform-ready file for direct import."}}]}</script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; margin-left: 32px; transition: color 0.2s; }
+        header nav a:hover { color: #9B6BFF; }
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+        .content-wrapper { max-width: 1200px; margin: 48px auto; padding: 0 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+        .article-content { max-width: 680px; overflow-x: hidden; }
+        .article-content p { font-size: 18px; color: #374151; margin-bottom: 24px; line-height: 1.7; }
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-top: 32px; margin-bottom: 12px; }
+        .article-content a { color: #9B6BFF; text-decoration: none; border-bottom: 1px solid rgba(155,107,255,0.3); transition: all 0.2s; }
+        .article-content a:hover { border-bottom-color: #9B6BFF; }
+        .article-content ul, .article-content ol { margin-bottom: 24px; padding-left: 24px; }
+        .article-content li { font-size: 18px; color: #374151; margin-bottom: 10px; line-height: 1.7; }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+        .definition-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 28px; margin: 32px 0; border-radius: 4px; }
+        .definition-box .def-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9B6BFF; margin-bottom: 12px; display: block; }
+        .definition-box p { font-size: 17px; color: #1a1a1a; margin-bottom: 0; font-style: italic; line-height: 1.7; }
+        .related-terms { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 32px 0; }
+        .related-terms h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+        .related-terms ul { padding-left: 0; list-style: none; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+        .related-terms li { margin: 0; }
+        .related-terms a { display: inline-block; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 6px 14px; font-size: 14px; color: #374151; text-decoration: none; border-bottom: none; transition: all 0.2s; }
+        .related-terms a:hover { border-color: #9B6BFF; color: #9B6BFF; border-bottom: none; }
+        .article-cta { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 36px 40px; border-radius: 12px; margin: 48px 0 32px; text-align: center; }
+        .article-cta h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+        .article-cta p { font-size: 16px; color: #ffffff; opacity: 0.95; margin-bottom: 20px; }
+        .article-cta a { border-bottom: none !important; }
+        .cta-btn-white { display: inline-block; background: #ffffff; color: #9B6BFF !important; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-btn-white:hover { transform: translateY(-2px); }
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a1a1a; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; transition: color 0.2s; border-bottom: none; display: block; }
+        .toc-list a:hover { color: #9B6BFF; }
+        .toc-list a.active { color: #9B6BFF; font-weight: 600; }
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 32px; border-radius: 8px; text-align: center; color: #ffffff; margin-bottom: 24px; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .cta-box p { font-size: 14px; margin-bottom: 20px; opacity: 0.95; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-button:hover { transform: translateY(-2px); }
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; border-bottom: none; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
+        .related-card .card-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #9B6BFF; margin-bottom: 8px; display: block; }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
+        .related-card p { font-size: 14px; color: #6b7280; margin: 0; }
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+        @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 400px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header><div class="header-container">
+        <a href="/" class="logo"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span></a>
+        <nav><a href="/">Home</a><a href="/blog">All Articles</a><a href="/docs">Documentation</a><a href="/#demo">Get Demo</a></nav>
+    </div></header>
+    <div class="breadcrumb"><div class="breadcrumb-container">
+        <a href="/">Home</a><span class="breadcrumb-separator">›</span>
+        <a href="/blog">Blog</a><span class="breadcrumb-separator">›</span>
+        <a href="/blog?category=glossary">Glossary</a><span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">How to Write CSAT Survey Questions: Examples and Platform Guide</span>
+    </div></div>
+    <div class="hero"><div class="hero-container">
+        <h1 class="article-title">How to Write CSAT Survey Questions: Examples and Platform Guide</h1>
+        <div class="article-meta"><span class="author">Arun Raj</span><span class="separator">•</span><span>July 18, 2026</span><span class="separator">•</span><span>3 min read</span><span class="separator">•</span><span style="background:#e5e7eb;color:#374151;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:600;">Glossary</span></div>
+    </div></div>
+    <div class="content-wrapper">
+        <article class="article-content">
+            <div class="definition-box">
+                <span class="def-label">Definition</span>
+                <p>A CSAT survey measures satisfaction with a specific product, service, or interaction. Unlike NPS which measures overall loyalty, CSAT is transactional and should be deployed immediately after a specific experience to capture accurate satisfaction signal.</p>
+            </div>
+
+            <h2 id="essential-questions">Essential Questions to Include</h2>
+            <p>A post-interaction CSAT survey should be short  -  two to four questions maximum. Every additional question reduces the response rate for a survey that respondents did not choose to take. Here are the core questions by use case.</p>
+            <p><strong>Core CSAT question (mandatory)</strong><br>
+            "How satisfied were you with [interaction / product / service]?"<br>
+            Scale options: 1-5 (Very Unsatisfied to Very Satisfied) or 1-10. The 5-point scale is standard for most CX programmes. Use the same scale consistently across all CSAT touchpoints to enable cross-touchpoint comparison.</p>
+            <p><strong>Reason for score (strongly recommended)</strong><br>
+            "What is the main reason for your satisfaction rating?"<br>
+            An open-text field that captures the specific driver behind the score. Essential for identifying actionable improvement areas.</p>
+            <p><strong>Resolution question (support CSAT only)</strong><br>
+            "Was your issue fully resolved today?" (Yes / No)<br>
+            First-contact resolution (FCR) is the strongest predictor of support CSAT. Including this question enables FCR analysis alongside the CSAT score.</p>
+            <p><strong>Effort follow-up (optional)</strong><br>
+            "[Company] made it easy to resolve my issue." (7-point agreement scale)<br>
+            This is the CES 2.0 question. Including it alongside CSAT gives you both a satisfaction measure and an effort measure from the same interaction, which significantly increases the diagnostic value of the survey.</p>
+
+            <h2 id="wording-best-practices">Question Wording Best Practices</h2>
+            <p>Specify the interaction object clearly. "How satisfied were you with your experience today?" is less precise than "How satisfied were you with the support you received from our team today?" The more specific the object of satisfaction, the more actionable the data.</p>
+            <p>Keep scale labels parallel and symmetric. If the negative end is "Very Unsatisfied," the positive end must be "Very Satisfied"  -  not "Completely Satisfied" or "Extremely Satisfied." Non-symmetric labels cause central tendency bias by making the positive end feel more extreme than the negative end.</p>
+            <p>Avoid asking CSAT about the whole company when you mean a specific interaction. "How satisfied are you with [Company]?" measures overall relationship satisfaction, which is closer to NPS territory. For transactional CSAT, specify the touchpoint: "with our checkout experience," "with the response from our support team," "with your delivery today."</p>
+
+            <h2 id="platform-configuration">Platform Configuration</h2>
+            <p><strong>Qualtrics:</strong> Use the Satisfaction scale question type or a standard rating question with custom labels. For automated post-interaction deployment, set up a Qualtrics Workflow triggered by the CRM event (ticket closed, order delivered) that sends a personalised survey link with the interaction details passed as embedded data. Display the interaction date and agent name using piped text in the survey header to increase response rates.</p>
+            <p><strong>SurveyMonkey:</strong> Use the Satisfaction Matrix or Rating Scale question types. SurveyMonkey's NPS + CSAT templates are a useful starting point. For triggered post-interaction surveys, use the SurveyMonkey API or connect to your CRM via Zapier.</p>
+            <p><strong>Google Forms:</strong> Use the Linear Scale (1-5) for the CSAT question with custom labels at each end. Add a Paragraph question for the open-text follow-up. Google Forms does not support automated triggering  -  surveys must be sent manually or via a connected automation tool.</p>
+
+            <h2 id="common-mistakes">Common Mistakes to Avoid</h2>
+            <p><strong>Surveying too long after the interaction.</strong> CSAT is most accurate when collected within 24 hours of the interaction. Surveys sent 48+ hours later capture memory of the experience rather than the experience itself, which reduces both accuracy and response rates.</p>
+            <p><strong>Using inconsistent scales across touchpoints.</strong> Measuring checkout CSAT on a 1-5 scale and support CSAT on a 1-10 scale makes cross-touchpoint comparison impossible. Standardise on one scale across all CSAT measurement points.</p>
+            <p><strong>Conflating CSAT with NPS.</strong> CSAT and NPS measure different things and should not be used interchangeably. Do not substitute CSAT for NPS in strategic loyalty reporting or NPS for CSAT in operational performance monitoring.</p>
+            <p><strong>Not tracking CSAT over time.</strong> A single CSAT score is a snapshot. The value of CSAT comes from tracking it consistently over time across the same touchpoints with the same scale, so that changes in scores reflect real changes in customer experience rather than changes in measurement.</p>
+            <div class="related-terms">
+                <h4>Related Terms</h4>
+                <ul><li><a href="/blog/what-is-customer-satisfaction-score">CSAT</a></li><li><a href="/blog/what-is-net-promoter-score">NPS</a></li><li><a href="/blog/what-is-customer-effort-score">CES</a></li><li><a href="/blog/what-is-likert-scale">Likert Scale</a></li><li><a href="/blog/what-is-response-bias">Response Bias</a></li><li><a href="/blog/what-is-leading-question">Leading Question</a></li></ul>
+            </div>
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How many questions should a CSAT survey have?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>A post-interaction CSAT survey should have two to four questions: the core satisfaction rating, one open-text follow-up, and optionally a resolution or effort question. Surveys longer than four questions show significantly reduced response rates for unsolicited post-interaction surveys.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Should CSAT use a 5-point or 10-point scale?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>The 5-point scale (Very Unsatisfied to Very Satisfied) is the most common for CSAT because it is easy for respondents and produces reliable top-two-box scores. The 10-point scale provides more granularity but requires more cognitive effort. Choose based on your existing measurement approach and stick with it for consistency.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">When should I send a CSAT survey?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>For support interactions, send within 2-4 hours of ticket closure while the experience is fresh. For purchase satisfaction, send 24 hours after delivery confirmation. For appointment or visit satisfaction, send within the same day. Response rates drop significantly after 48 hours for transactional CSAT surveys.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Can Pirai AI convert a CSAT survey to any platform?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes. Upload your CSAT survey document to Pirai AI and select any of the 27+ supported platforms. The satisfaction scale question is mapped to the platform's native rating or satisfaction question type. Open-text follow-ups are mapped to text entry fields. The output is a platform-ready file for direct import.</p></div>
+            </div>
+            <div class="article-cta">
+                <h3>Deploy Your Survey to 27+ Platforms</h3>
+                <p>Convert Word, PDF, and Excel survey instruments to Qualtrics, REDCap, SurveyMonkey, and more. No manual programming required.</p>
+                <a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Start Converting Free</a>
+            </div>
+        </article>
+        <aside class="sidebar">
+            <div class="cta-box"><h3>Try Pirai AI Free</h3><p>Convert any survey document to 27+ platforms in minutes.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-button">Start Free</a></div>
+            <div class="sidebar-section"><h3>In This Article</h3><ul class="toc-list">
+                    <li><a href="#essential-questions">Essential Questions to Include</a></li>
+                    <li><a href="#wording-best-practices">Question Wording Best Practices</a></li>
+                    <li><a href="#platform-configuration">Platform Configuration</a></li>
+                    <li><a href="#common-mistakes">Common Mistakes to Avoid</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+            </ul></div>
+            <div class="sidebar-section"><h3>Related Articles</h3><ul class="toc-list">
+                    <li><a href="/blog/what-is-customer-satisfaction-score">What is CSAT?</a></li>
+                    <li><a href="/blog/how-to-write-nps-survey-questions">How to Write NPS Questions</a></li>
+                    <li><a href="/blog/what-is-customer-effort-score">What is CES?</a></li>
+                    <li><a href="/blog/qualtrics-dashboard-best-practices-cx">Qualtrics Dashboard Best Practices</a></li>
+            </ul></div>
+        </aside>
+    </div>
+    <section class="related-articles"><h2>Related Articles</h2><div class="related-grid">
+            <a href="/blog/what-is-customer-satisfaction-score" class="related-card"><span class="card-tag">Glossary</span><h3>What is CSAT?</h3><p>Full definition of Customer Satisfaction Score, calculation method, and how CSAT differs from NPS and CES.</p></a>
+            <a href="/blog/how-to-write-nps-survey-questions" class="related-card"><span class="card-tag">Guide</span><h3>How to Write NPS Survey Questions</h3><p>NPS question wording, follow-up design, and platform configuration for Qualtrics and SurveyMonkey.</p></a>
+            <a href="/blog/qualtrics-dashboard-best-practices-cx" class="related-card"><span class="card-tag">Guide</span><h3>Qualtrics Dashboard Best Practices</h3><p>Widget selection for CSAT, NPS, and CES dashboards in Qualtrics CX programmes.</p></a>
+    </div></section>
+    <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
+    <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        const sections = document.querySelectorAll('h2[id]');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    const active = document.querySelector('.toc-list a[href="#' + entry.target.id + '"]');
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        sections.forEach(s => observer.observe(s));
+    </script>
+</body></html>
