@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secured Converter: Convert PDF and Word to Google Forms Without Drive Permissions - Pirai AI</title>
+    <meta name="description" content="Pirai AI converts Word, PDF, and Excel documents to Google Forms without accessing your Google Drive. No OAuth permissions, no stored files, no AI training on your content. The secured converter for sensitive documents.">
+    <meta name="keywords" content="secured converter document to Google Forms, convert doc to google forms without drive access, secure pdf to google forms, privacy-first google forms converter, no google drive permission form converter, safe document to google forms">
+    <meta property="og:type" content="article"><meta property="og:url" content="https://piraiai.com/blog/secured-converter-document-to-google-forms">
+    <meta property="og:title" content="Secured Converter: Convert PDF and Word to Google Forms Without Drive Permissions"><meta property="og:description" content="Pirai AI converts Word, PDF, and Excel documents to Google Forms without accessing your Google Drive. No OAuth permissions, no stored files, no AI training on your content. The secured converter for sensitive documents.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="article:published_time" content="2026-07-24T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <link rel="canonical" href="https://piraiai.com/blog/secured-converter-document-to-google-forms"><link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Secured Converter: Convert PDF and Word to Google Forms Without Drive Permissions","description":"Pirai AI converts Word, PDF, and Excel documents to Google Forms without accessing your Google Drive. No OAuth permissions, no stored files, no AI training on your content. The secured converter for sensitive documents.","author":{"@type":"Person","name":"Arun Raj"},"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},"datePublished":"2026-07-24","url":"https://piraiai.com/blog/secured-converter-document-to-google-forms"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does converting a document to Google Forms require Google Drive access?","acceptedAnswer":{"@type":"Answer","text":"Not with Pirai AI. Most document-to-Google Forms tools require you to grant Drive access so they can create the form directly in your account. Pirai AI takes a different approach: it generates a Google Apps Script file you download and run yourself inside Google Forms. Your Google Drive is never accessed by Pirai AI at any point."}},{"@type":"Question","name":"What is a Google Apps Script and how does it create my form?","acceptedAnswer":{"@type":"Answer","text":"Google Apps Script is Google's own JavaScript-based scripting language, built into every Google Forms account. Pirai AI generates a text file containing a pre-built Apps Script that, when you paste it into your form's script editor and click Run, programmatically creates all your questions, answer options, and sections. The script runs under your own Google account with no third-party involvement."}},{"@type":"Question","name":"Is it safe to upload sensitive survey documents to Pirai AI?","acceptedAnswer":{"@type":"Answer","text":"Yes. Documents are processed entirely in-memory and destroyed after conversion. No file is written to a server or retained. OpenAI API training controls are explicitly disabled, so your document content is not used for model training. Pirai AI never accesses your Google Drive, Google Workspace, Qualtrics, REDCap, or any other platform account."}},{"@type":"Question","name":"What types of documents can Pirai AI convert to Google Forms securely?","acceptedAnswer":{"@type":"Answer","text":"Pirai AI accepts Word (.docx), PDF, and Excel (.xlsx) files. All three input types go through the same in-memory processing pipeline with no server-side storage. The output Google Apps Script creates all supported Google Forms question types including multiple choice, checkboxes, short answer, paragraph, linear scale, and multiple choice grid."}}]}</script>
+    <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Convert a Document to Google Forms Without Drive Access",
+  "description": "Convert a Word, PDF, or Excel file to Google Forms using Pirai AI without granting Google Drive permissions.",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Upload your document",
+      "text": "Drag and drop your Word document, PDF, or Excel file onto the Pirai AI platform at platform.piraiai.com. No Google account connection or Drive authorisation is required."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Download the Apps Script file",
+      "text": "Pirai AI reads your document, extracts the survey structure, and generates a Google Apps Script text file. Download this file to your device. Processing is complete - your document is destroyed server-side."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Run the script inside Google Forms",
+      "text": "Open a blank Google Form. Click the three-dot menu (top right) and select Script editor. Paste the Apps Script code. Click Run. Your complete form is created instantly by your own Google account."
+    }
+  ]
+}</script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; margin-left: 32px; transition: color 0.2s; }
+        header nav a:hover { color: #9B6BFF; }
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+        .content-wrapper { max-width: 1200px; margin: 48px auto; padding: 0 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+        .article-content { max-width: 680px; overflow-x: hidden; }
+        .article-content p { font-size: 18px; color: #374151; margin-bottom: 24px; line-height: 1.7; }
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-top: 32px; margin-bottom: 12px; }
+        .article-content a { color: #9B6BFF; text-decoration: none; border-bottom: 1px solid rgba(155,107,255,0.3); transition: all 0.2s; }
+        .article-content a:hover { border-bottom-color: #9B6BFF; }
+        .article-content ul, .article-content ol { margin-bottom: 24px; padding-left: 24px; }
+        .article-content li { font-size: 18px; color: #374151; margin-bottom: 10px; line-height: 1.7; }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+        .definition-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 28px; margin: 32px 0; border-radius: 4px; }
+        .definition-box .def-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9B6BFF; margin-bottom: 12px; display: block; }
+        .definition-box p { font-size: 17px; color: #1a1a1a; margin-bottom: 0; font-style: italic; line-height: 1.7; }
+        .related-terms { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 32px 0; }
+        .related-terms h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+        .related-terms ul { padding-left: 0; list-style: none; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+        .related-terms li { margin: 0; }
+        .related-terms a { display: inline-block; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 6px 14px; font-size: 14px; color: #374151; text-decoration: none; border-bottom: none; transition: all 0.2s; }
+        .related-terms a:hover { border-color: #9B6BFF; color: #9B6BFF; border-bottom: none; }
+        .article-cta { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 36px 40px; border-radius: 12px; margin: 48px 0 32px; text-align: center; }
+        .article-cta h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+        .article-cta p { font-size: 16px; color: #ffffff; opacity: 0.95; margin-bottom: 20px; }
+        .article-cta a { border-bottom: none !important; }
+        .cta-btn-white { display: inline-block; background: #ffffff; color: #9B6BFF !important; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-btn-white:hover { transform: translateY(-2px); }
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a1a1a; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; transition: color 0.2s; border-bottom: none; display: block; }
+        .toc-list a:hover { color: #9B6BFF; }
+        .toc-list a.active { color: #9B6BFF; font-weight: 600; }
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 32px; border-radius: 8px; text-align: center; color: #ffffff; margin-bottom: 24px; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .cta-box p { font-size: 14px; margin-bottom: 20px; opacity: 0.95; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-button:hover { transform: translateY(-2px); }
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; border-bottom: none; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
+        .related-card .card-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #9B6BFF; margin-bottom: 8px; display: block; }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
+        .related-card p { font-size: 14px; color: #6b7280; margin: 0; }
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+        @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 400px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
+        .step-grid { display: flex; flex-direction: column; gap: 0; margin: 32px 0; }
+        .step-box { display: flex; gap: 20px; align-items: flex-start; padding: 24px 0; border-bottom: 1px solid #f3f4f6; }
+        .step-box:last-child { border-bottom: none; }
+        .step-number { flex-shrink: 0; width: 44px; height: 44px; border-radius: 50%; background: #9B6BFF; color: #ffffff; font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+        .step-content h4 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+        .step-content p { font-size: 16px; color: #374151; margin: 0; line-height: 1.6; }
+        .step-content code { background: #f3f4f6; padding: 2px 8px; border-radius: 4px; font-size: 14px; color: #7c3aed; font-family: monospace; }
+        .permission-box { background: #fef2f2; border: 1px solid #fecaca; border-left: 4px solid #dc2626; border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+        .permission-box .perm-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #dc2626; margin-bottom: 10px; display: block; }
+        .permission-box p { font-size: 16px; color: #374151; margin: 0; font-style: italic; }
+        .security-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+        .security-card { background: #f5f3ff; border: 1px solid #ddd6fe; border-radius: 8px; padding: 20px; }
+        .security-card h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: #7c3aed; margin-bottom: 8px; }
+        .security-card p { font-size: 14px; color: #374151; margin: 0; line-height: 1.6; }
+        .audience-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+        .audience-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; }
+        .audience-card h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+        .audience-card p { font-size: 14px; color: #6b7280; margin: 0; line-height: 1.6; }
+        .vs-table { width: 100%; border-collapse: collapse; margin: 24px 0; border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; font-size: 15px; }
+        .vs-table th { padding: 12px 16px; background: #f9fafb; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; color: #6b7280; text-align: left; border-bottom: 2px solid #e5e7eb; }
+        .vs-table th.pirai { background: #f5f3ff; color: #7c3aed; }
+        .vs-table td { padding: 12px 16px; border-bottom: 1px solid #f3f4f6; color: #374151; }
+        .vs-table tr:last-child td { border-bottom: none; }
+        .vs-table td:first-child { font-weight: 600; color: #1a1a1a; }
+        .vs-table td.pirai { background: #fdf9ff; }
+        .check { color: #16a34a; font-weight: 700; }
+        .cross { color: #dc2626; font-weight: 700; }
+        .cta-final { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 36px 40px; border-radius: 12px; margin: 48px 0 32px; text-align: center; }
+        .cta-final h3 { font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+        .cta-final p { font-size: 17px; color: #ffffff; opacity: 0.95; margin-bottom: 24px; }
+        .cta-final a { border-bottom: none !important; }
+        .cta-btn-white { display: inline-block; background: #ffffff; color: #9B6BFF !important; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 16px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-btn-white:hover { transform: translateY(-2px); }
+        @media (max-width: 640px) { .security-grid { grid-template-columns: 1fr; } .audience-grid { grid-template-columns: 1fr; } .cta-final { padding: 24px; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header><div class="header-container">
+        <a href="/" class="logo"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span></a>
+        <nav><a href="/">Home</a><a href="/blog">All Articles</a><a href="/product/google-forms-converter">Google Forms</a><a href="/#demo">Get Demo</a></nav>
+    </div></header>
+    <div class="breadcrumb"><div class="breadcrumb-container">
+        <a href="/">Home</a><span class="breadcrumb-separator">›</span>
+        <a href="/blog">Blog</a><span class="breadcrumb-separator">›</span>
+        <a href="/blog?category=guides">Guides</a><span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">Secured Converter: Document to Google Forms</span>
+    </div></div>
+    <div class="hero"><div class="hero-container">
+        <h1 class="article-title">Secured Converter: Convert PDF and Word to Google Forms Without Drive Permissions</h1>
+        <div class="article-meta"><span class="author">Arun Raj</span><span class="separator">•</span><span>July 24, 2026</span><span class="separator">•</span><span>5 min read</span><span class="separator">•</span><span style="background:#e5e7eb;color:#374151;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:600;">Security Guide</span></div>
+    </div></div>
+    <div class="content-wrapper">
+        <article class="article-content">
+
+            <p>When you install a document-to-Google Forms add-on from the Google Workspace Marketplace, you typically see a permissions screen that reads: <em>"This app wants to see, edit, create, and delete all of your Google Drive files."</em> For individual users this feels uncomfortable. For <a href="/blog/survey-software-for-healthcare">healthcare providers</a>, corporate legal teams, and research institutions, it is a non-starter that IT departments actively block.</p>
+            <p>Pirai AI solves this with a fundamentally different architecture. It generates a Google Apps Script that you run yourself inside your own Google account. Your Drive is never touched. No OAuth, no permissions screen, no third-party access to your files.</p>
+
+            <h2 id="oauth-trap">The OAuth Permission Trap</h2>
+            <div class="permission-box">
+                <span class="perm-label">What you see when installing most form converters</span>
+                <p>"This app wants to: See, edit, create, and delete all of your Google Drive files. View and manage your Google Forms."</p>
+            </div>
+            <p>Most document-to-Google Forms tools work by connecting directly to your Google Drive via OAuth. This is how they create the form inside your account. The problem is that OAuth grants are broad and persistent. Once you approve the permission, the third-party application holds credentials that can access your Drive for as long as the app is installed  -  and sometimes beyond that, until you manually revoke access in your Google account settings.</p>
+            <p>The permission is not malicious by design, but the scope is disproportionate. To convert one document into one Google Form, the application requests access to your entire Drive. If that third-party server is ever compromised, or if the vendor's data handling practices change, the potential exposure is your complete Drive, not just the document you uploaded.</p>
+            <p>Corporate IT departments frequently block Google Workspace Marketplace extensions precisely because of this broad permission scope. The same block that stops a malicious extension also stops legitimate tools that happen to use the same permission model.</p>
+
+            <h2 id="apps-script-approach">The Apps Script Approach: Zero Drive Permissions</h2>
+            <p>Pirai AI never requests access to your Google Drive because it does not need it. Instead of creating the Google Form itself, Pirai AI generates the instructions for creating the form  -  a Google Apps Script file  -  and hands it to you. You run it yourself.</p>
+            <p>Google Apps Script is Google's own built-in scripting language, available inside every Google Forms account. When you run a script in Google Forms, it runs under your own Google account credentials, not under any third-party credentials. The form is created by you, in your account, with no external party involved after you download the script file.</p>
+
+            <h2 id="step-by-step">Step-by-Step: How to Convert a Document Securely</h2>
+            <div class="step-grid">
+                <div class="step-box">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Upload your document to Pirai AI</h4>
+                        <p>Go to <strong>platform.piraiai.com</strong> and drag and drop your Word (.docx), PDF, or Excel (.xlsx) file. No Google account connection. No sign-in with Google. No permissions screen. Just your document and the Pirai AI platform.</p>
+                    </div>
+                </div>
+                <div class="step-box">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Select Google Forms and download the Apps Script</h4>
+                        <p>Choose Google Forms as your target platform. Pirai AI reads your document, extracts every question, answer option, section, and question type, and generates a plain text file containing a pre-built Google Apps Script. Download this file. At this point, Pirai AI's role is complete. Your document has been processed in-memory and destroyed.</p>
+                    </div>
+                </div>
+                <div class="step-box">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Open a blank Google Form and paste the script</h4>
+                        <p>Open a new blank Google Form in your own Google account. Click the three-dot menu in the top-right corner. Select <code>Script editor</code>. A new tab opens showing the Google Apps Script editor.</p>
+                    </div>
+                </div>
+                <div class="step-box">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Replace the default code and click Run</h4>
+                        <p>Select all the default code in the script editor and delete it. Paste the entire content of the Apps Script file you downloaded from Pirai AI. Click the <code>Run</code> button (the triangle play icon). Google will ask you to authorise the script  -  this authorisation is between you and Google, with no third party involved. Your form is built instantly.</p>
+                    </div>
+                </div>
+                <div class="step-box">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h4>Review your completed form</h4>
+                        <p>Switch back to your Google Form tab. All questions, answer options, and sections from your original document are now in the form, ready to review and distribute. The entire process from upload to completed form takes under two minutes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 id="security-pillars">The Four Security Pillars</h2>
+            <div class="security-grid">
+                <div class="security-card">
+                    <h4>Zero Drive Access</h4>
+                    <p>Pirai AI never connects to your Google Workspace account. No OAuth authorisation, no persistent credentials, no access to any file in your Drive beyond the document you upload directly to the platform.</p>
+                </div>
+                <div class="security-card">
+                    <h4>In-Memory Processing</h4>
+                    <p>Your document is processed entirely in temporary memory. It is never written to a database or file server. When conversion is complete, the document is destroyed. Nothing is retained server-side.</p>
+                </div>
+                <div class="security-card">
+                    <h4>No AI Training on Your Content</h4>
+                    <p>Pirai AI uses the OpenAI API with training and tracking controls explicitly disabled. The content of your documents is not used to train any AI model or improve any product.</p>
+                </div>
+                <div class="security-card">
+                    <h4>The Apps Script Shield</h4>
+                    <p>The output is raw text code that runs inside your own Google account. The form is created by your credentials, in your environment. Pirai AI is not present at the point of form creation.</p>
+                </div>
+            </div>
+
+            <h2 id="comparison">How This Compares to Traditional Add-ons</h2>
+            <table class="vs-table">
+                <thead>
+                    <tr>
+                        <th>Security Factor</th>
+                        <th class="pirai">Pirai AI</th>
+                        <th>Traditional Drive Add-ons</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Google Drive access required</td><td class="pirai"><span class="check">No</span></td><td><span class="cross">Yes - read, edit, delete scope</span></td></tr>
+                    <tr><td>OAuth permission grant</td><td class="pirai"><span class="check">None</span></td><td><span class="cross">Required to install</span></td></tr>
+                    <tr><td>Document stored server-side</td><td class="pirai"><span class="check">Never</span></td><td><span class="cross">Varies by vendor</span></td></tr>
+                    <tr><td>AI model training on content</td><td class="pirai"><span class="check">Disabled</span></td><td><span class="cross">Not always confirmed</span></td></tr>
+                    <tr><td>Works without Chrome extension</td><td class="pirai"><span class="check">Yes - web app only</span></td><td><span class="cross">Many require extension install</span></td></tr>
+                    <tr><td>Works on any browser / device</td><td class="pirai"><span class="check">Yes</span></td><td><span class="cross">Often Chrome-only</span></td></tr>
+                    <tr><td>IT department approval risk</td><td class="pirai"><span class="check">Low - no Marketplace install</span></td><td><span class="cross">High - broad Drive scope</span></td></tr>
+                </tbody>
+            </table>
+
+            <h2 id="who-needs-this">Who Needs a Secured Form Converter</h2>
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <h4>Healthcare Professionals</h4>
+                    <p><a href="/blog/survey-software-for-healthcare">Patient intake forms, consent forms, and clinical assessments</a> are sensitive documents. Granting a third-party app full Drive access to convert a patient form creates unnecessary HIPAA exposure. Pirai AI processes the document in-memory with no storage and no Drive access.</p>
+                </div>
+                <div class="audience-card">
+                    <h4>Corporate and Legal Teams</h4>
+                    <p>Survey instruments containing proprietary processes, pricing data, or legal language are not appropriate for upload to tools with unclear retention practices. In-memory processing and no server-side storage removes this risk.</p>
+                </div>
+                <div class="audience-card">
+                    <h4>Academic Researchers</h4>
+                    <p><a href="/blog/irb-compliant-survey-design">IRB-approved questionnaires</a>, validated research instruments, and unpublished survey scales are research assets. No Drive access and no AI training opt-outs mean the instrument is not exposed to any party beyond the researcher.</p>
+                </div>
+                <div class="audience-card">
+                    <h4>Market Research Agencies</h4>
+                    <p>Client survey scripts are typically covered by NDA. An <a href="/blog/survey-software-for-market-research">MR agency</a> uploading a client's proprietary questionnaire needs assurance that the document is not stored or used for training. Pirai AI's architecture provides this directly.</p>
+                </div>
+                <div class="audience-card">
+                    <h4>HR and People Teams</h4>
+                    <p><a href="/blog/how-to-write-employee-engagement-survey-questions">Engagement surveys</a>, <a href="/blog/how-to-write-exit-survey-questions">exit questionnaires</a>, and <a href="/blog/how-to-write-360-feedback-survey-questions">360 feedback instruments</a> reflect internal organisational priorities. These should not be uploaded to tools that retain files or hold active Drive credentials.</p>
+                </div>
+                <div class="audience-card">
+                    <h4>Enterprise IT Environments</h4>
+                    <p>Corporate IT policies frequently block Google Workspace Marketplace extensions with broad Drive scope. Pirai AI requires no Marketplace install, no extension, and no Drive permission - passing security reviews that block traditional add-ons.</p>
+                </div>
+            </div>
+
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Does converting a document to Google Forms require Google Drive access?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Not with Pirai AI. Most document-to-Google Forms tools require you to grant Drive access so they can create the form directly in your account. Pirai AI takes a different approach: it generates a Google Apps Script file you download and run yourself inside Google Forms. Your Google Drive is never accessed by Pirai AI at any point.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What is a Google Apps Script and how does it create my form?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Google Apps Script is Google's own JavaScript-based scripting language, built into every Google Forms account. Pirai AI generates a text file containing a pre-built Apps Script that, when you paste it into your form's script editor and click Run, programmatically creates all your questions, answer options, and sections. The script runs under your own Google account with no third-party involvement.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Is it safe to upload sensitive survey documents to Pirai AI?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes. Documents are processed entirely in-memory and destroyed after conversion. No file is written to a server or retained. OpenAI API training controls are explicitly disabled, so your document content is not used for model training. Pirai AI never accesses your Google Drive, Google Workspace, Qualtrics, REDCap, or any other platform account.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What types of documents can Pirai AI convert to Google Forms securely?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Pirai AI accepts Word (.docx), PDF, and Excel (.xlsx) files. All three input types go through the same in-memory processing pipeline with no server-side storage. The output Google Apps Script creates all supported Google Forms question types including multiple choice, checkboxes, short answer, paragraph, linear scale, and multiple choice grid.</p></div>
+            </div>
+            <div class="cta-final">
+                <h3>Stop Risking Your Data Privacy</h3>
+                <p>Convert your documents to Google Forms for free today - without linking your Google Drive.</p>
+                <a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Try Pirai AI Free - No Drive Access Required</a>
+            </div>
+        </article>
+        <aside class="sidebar">
+            <div class="cta-box"><h3>Convert Without Drive Access</h3><p>Upload your document. Download the Apps Script. Run it yourself.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-button">Start Free</a></div>
+            <div class="sidebar-section"><h3>In This Article</h3><ul class="toc-list">
+                    <li><a href="#oauth-trap">The OAuth Permission Trap</a></li>
+                    <li><a href="#apps-script-approach">The Apps Script Approach</a></li>
+                    <li><a href="#step-by-step">Step-by-Step Guide</a></li>
+                    <li><a href="#security-pillars">Four Security Pillars</a></li>
+                    <li><a href="#comparison">vs Traditional Add-ons</a></li>
+                    <li><a href="#who-needs-this">Who Needs This</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+            </ul></div>
+            <div class="sidebar-section"><h3>Related</h3><ul class="toc-list">
+                    <li><a href="/product/google-forms-converter">Google Forms Converter</a></li>
+                    <li><a href="/blog/pirai-ai-vs-automagical-forms">Pirai AI vs Automagical Forms</a></li>
+                    <li><a href="/blog/pirai-ai-vs-formswrite">Pirai AI vs Formswrite</a></li>
+                    <li><a href="/blog/secure-survey-document-converter">Secure Survey Converter</a></li>
+                    <li><a href="/blog/irb-compliant-survey-design">IRB Compliant Survey Design</a></li>
+            </ul></div>
+        </aside>
+    </div>
+    <section class="related-articles"><h2>Related Articles</h2><div class="related-grid">
+            <a href="/product/google-forms-converter" class="related-card"><span class="card-tag">Product</span><h3>Google Forms Converter</h3><p>Convert Word, PDF, and Excel files to Google Forms using Apps Script with no Drive access required.</p></a>
+            <a href="/blog/pirai-ai-vs-automagical-forms" class="related-card"><span class="card-tag">Comparison</span><h3>Pirai AI vs Automagical Forms</h3><p>Web app vs Chrome extension: how the two tools differ on Drive access, privacy, and platform coverage.</p></a>
+            <a href="/blog/secure-survey-document-converter" class="related-card"><span class="card-tag">Guide</span><h3>Secure Survey Document Converter</h3><p>The full privacy and security guide covering all 27+ platforms, in-memory processing, and AI training opt-outs.</p></a>
+    </div></section>
+    <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
+    <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        const sections = document.querySelectorAll('h2[id]');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    const active = document.querySelector('.toc-list a[href="#' + entry.target.id + '"]');
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        sections.forEach(s => observer.observe(s));
+    </script>
+</body></html>

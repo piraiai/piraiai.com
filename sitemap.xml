@@ -1255,6 +1255,18 @@
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
     <lastmod>2026-07-07</lastmod>
+  </url>  
+  <url>
+    <loc>https://piraiai.com/blog/secure-survey-document-converter</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/secured-converter-document-to-google-forms</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>   
   <!-- Add each new article as you publish -->
   <!-- Documentation SECTION - Medium-High priority -->
