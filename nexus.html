@@ -799,9 +799,13 @@
                             </div>
                             <input type="hidden" name="product" value="Nexus">
                             <div class="recaptcha-container">
-                                <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+                                <div class="g-recaptcha"
+                                    data-sitekey="6LdyFYsrAAAAAM2Ri3hmTptTNXRNyUdzi3yIa4g0"
+                                    data-callback="enableSubmit"
+                                    data-expired-callback="disableSubmit">
+                                </div>
                             </div>
-                            <button type="submit" class="submit-btn">Request Early Access</button>
+                            <button type="submit" id="submitBtn" class="submit-btn" disabled>Request Early Access</button>
                         </form>
                     </div>
                 </div>
@@ -971,24 +975,43 @@
             setTimeout(advance, scenes[0].holdMs);
         })();
 
-        // Form submission
-        const form = document.getElementById('demoForm');
-        if (form) {
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const btn = form.querySelector('.submit-btn');
-                btn.textContent = 'Sending…'; btn.disabled = true;
-                try {
-                    const fd = new FormData(form);
-                    await fetch(form.action, { method: 'POST', body: fd });
-                    document.getElementById('successMessage').classList.add('show');
-                    form.style.display = 'none';
-                } catch {
-                    document.getElementById('errorMessage').classList.add('show');
-                    btn.textContent = 'Request Early Access'; btn.disabled = false;
-                }
-            });
-        }
+        document.getElementById('timestamp') && (document.getElementById('timestamp').value = new Date().toISOString());
+
+        function enableSubmit()  { document.getElementById('submitBtn').disabled = false; }
+        function disableSubmit() { document.getElementById('submitBtn').disabled = true; }
+
+        document.getElementById('demoForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const submitBtn = document.getElementById('submitBtn');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage   = document.getElementById('errorMessage');
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+            successMessage.classList.remove('show');
+            errorMessage.classList.remove('show');
+
+            const formData = new FormData(this);
+            fetch(this.action, { method: 'POST', body: formData })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.result === 'success') {
+                        successMessage.classList.add('show');
+                        this.reset();
+                        if (window.grecaptcha) grecaptcha.reset();
+                    } else {
+                        errorMessage.classList.add('show');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    errorMessage.classList.add('show');
+                })
+                .finally(() => {
+                    submitBtn.textContent = 'Request Early Access';
+                    submitBtn.disabled = false;
+                });
+        });
 
         // Mobile menu
         const hamburger = document.getElementById('hamburger');
