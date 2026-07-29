@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qualtrics Survey Flow: Complete Guide for Advanced Users (2026) - Pirai AI Blog</title>
+    <meta name="description" content="Master Qualtrics Survey Flow  -  blocks, branches, embedded data, randomisers, authenticators, and end-of-survey elements. The complete reference for building advanced survey logic in Qualtrics.">
+    <meta name="keywords" content="qualtrics survey flow, qualtrics survey flow guide, qualtrics branch logic, qualtrics randomiser survey flow, qualtrics embedded data survey flow, qualtrics end of survey, qualtrics survey flow elements, qualtrics blocks">
+    <meta property="og:type" content="article"><meta property="og:url" content="https://piraiai.com/blog/qualtrics-survey-flow-guide">
+    <meta property="og:title" content="Qualtrics Survey Flow: Complete Guide for Advanced Users (2026)"><meta property="og:description" content="Master Qualtrics Survey Flow  -  blocks, branches, embedded data, randomisers, authenticators, and end-of-survey elements. The complete reference for building advanced survey logic in Qualtrics.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="article:published_time" content="2026-07-18T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta property="article:section" content="Glossary">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Qualtrics Survey Flow: Complete Guide for Advanced Users (2026)"><meta name="twitter:description" content="Master Qualtrics Survey Flow  -  blocks, branches, embedded data, randomisers, authenticators, and end-of-survey elements. The complete reference for building advanced survey logic in Qualtrics.">
+    <link rel="canonical" href="https://piraiai.com/blog/qualtrics-survey-flow-guide"><link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Qualtrics Survey Flow: Complete Guide for Advanced Users (2026)","description":"Master Qualtrics Survey Flow  -  blocks, branches, embedded data, randomisers, authenticators, and end-of-survey elements. The complete reference for building advanced survey logic in Qualtrics.","author":{"@type":"Person","name":"Arun Raj"},"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},"datePublished":"2026-07-18","url":"https://piraiai.com/blog/qualtrics-survey-flow-guide"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is Qualtrics Survey Flow?","acceptedAnswer":{"@type":"Answer","text":"Survey Flow is the visual control centre for how a Qualtrics survey runs. It defines the order and conditions under which question blocks, embedded data, branch logic, randomisers, and end-of-survey elements execute. Access it from the Survey tab by clicking 'Survey Flow' in the left sidebar."}},{"@type":"Question","name":"What is the difference between Survey Flow Branch Logic and question Skip Logic?","acceptedAnswer":{"@type":"Answer","text":"Survey Flow Branch Logic routes entire blocks of questions based on conditions  -  supporting embedded data values, quotas, and multi-condition AND/OR logic at the block level. Question Skip Logic routes respondents forward past questions within a block based on a single question's answer. Branch Logic is more powerful and flexible; Skip Logic is better for simple forward-jump scenarios."}},{"@type":"Question","name":"Where should I place Embedded Data elements in Survey Flow?","acceptedAnswer":{"@type":"Answer","text":"Always place Embedded Data elements at the very top of Survey Flow, before any question blocks. This ensures the embedded data field values are set before any question in the survey attempts to reference them in display logic conditions or piped text."}},{"@type":"Question","name":"Can I use Qualtrics Survey Flow to randomise which concepts respondents see?","acceptedAnswer":{"@type":"Answer","text":"Yes. Add a Randomiser element in Survey Flow. Place each concept block inside the Randomiser. Configure how many blocks each respondent sees (e.g. 1 of 5 concepts) and whether distribution should be balanced across respondents. This is the standard setup for sequential monadic concept tests."}}]}</script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; margin-left: 32px; transition: color 0.2s; }
+        header nav a:hover { color: #9B6BFF; }
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+        .content-wrapper { max-width: 1200px; margin: 48px auto; padding: 0 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+        .article-content { max-width: 680px; overflow-x: hidden; }
+        .article-content p { font-size: 18px; color: #374151; margin-bottom: 24px; line-height: 1.7; }
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-top: 32px; margin-bottom: 12px; }
+        .article-content a { color: #9B6BFF; text-decoration: none; border-bottom: 1px solid rgba(155,107,255,0.3); transition: all 0.2s; }
+        .article-content a:hover { border-bottom-color: #9B6BFF; }
+        .article-content ul, .article-content ol { margin-bottom: 24px; padding-left: 24px; }
+        .article-content li { font-size: 18px; color: #374151; margin-bottom: 10px; line-height: 1.7; }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+        .definition-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 28px; margin: 32px 0; border-radius: 4px; }
+        .definition-box .def-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9B6BFF; margin-bottom: 12px; display: block; }
+        .definition-box p { font-size: 17px; color: #1a1a1a; margin-bottom: 0; font-style: italic; line-height: 1.7; }
+        .related-terms { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 32px 0; }
+        .related-terms h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+        .related-terms ul { padding-left: 0; list-style: none; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+        .related-terms li { margin: 0; }
+        .related-terms a { display: inline-block; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 6px 14px; font-size: 14px; color: #374151; text-decoration: none; border-bottom: none; transition: all 0.2s; }
+        .related-terms a:hover { border-color: #9B6BFF; color: #9B6BFF; border-bottom: none; }
+        .article-cta { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 36px 40px; border-radius: 12px; margin: 48px 0 32px; text-align: center; }
+        .article-cta h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+        .article-cta p { font-size: 16px; color: #ffffff; opacity: 0.95; margin-bottom: 20px; }
+        .article-cta a { border-bottom: none !important; }
+        .cta-btn-white { display: inline-block; background: #ffffff; color: #9B6BFF !important; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-btn-white:hover { transform: translateY(-2px); }
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a1a1a; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; transition: color 0.2s; border-bottom: none; display: block; }
+        .toc-list a:hover { color: #9B6BFF; }
+        .toc-list a.active { color: #9B6BFF; font-weight: 600; }
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 32px; border-radius: 8px; text-align: center; color: #ffffff; margin-bottom: 24px; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .cta-box p { font-size: 14px; margin-bottom: 20px; opacity: 0.95; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-button:hover { transform: translateY(-2px); }
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; border-bottom: none; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
+        .related-card .card-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #9B6BFF; margin-bottom: 8px; display: block; }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
+        .related-card p { font-size: 14px; color: #6b7280; margin: 0; }
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+        @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 400px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header><div class="header-container">
+        <a href="/" class="logo"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span></a>
+        <nav><a href="/">Home</a><a href="/blog">All Articles</a><a href="/docs">Documentation</a><a href="/#demo">Get Demo</a></nav>
+    </div></header>
+    <div class="breadcrumb"><div class="breadcrumb-container">
+        <a href="/">Home</a><span class="breadcrumb-separator">›</span>
+        <a href="/blog">Blog</a><span class="breadcrumb-separator">›</span>
+        <a href="/blog?category=glossary">Glossary</a><span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">Qualtrics Survey Flow: Complete Guide for Advanced Users (2026)</span>
+    </div></div>
+    <div class="hero"><div class="hero-container">
+        <h1 class="article-title">Qualtrics Survey Flow: Complete Guide for Advanced Users (2026)</h1>
+        <div class="article-meta"><span class="author">Arun Raj</span><span class="separator">•</span><span>July 18, 2026</span><span class="separator">•</span><span>3 min read</span><span class="separator">•</span><span style="background:#e5e7eb;color:#374151;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:600;">Glossary</span></div>
+    </div></div>
+    <div class="content-wrapper">
+        <article class="article-content">
+            <div class="definition-box">
+                <span class="def-label">Definition</span>
+                <p>Qualtrics Survey Flow is the visual control centre for how a survey runs  -  it determines the order and conditions under which question blocks, embedded data, branching logic, randomisers, and end-of-survey elements execute. Mastering Survey Flow is essential for building surveys that go beyond simple linear question sequences.</p>
+            </div>
+
+            <h2 id="blocks">Question Blocks</h2>
+            <p>Blocks are the fundamental units of Survey Flow. Every question in Qualtrics lives inside a block. By default, a new survey has one block. Add blocks to organise questions into logical groups: an intro block, a screening block, separate content blocks for different survey sections, and a closing block. In Survey Flow, blocks appear in the order they will be presented  -  drag them to reorder. Questions within a block appear in the order set in the survey editor, subject to display and skip logic.</p>
+            <p>Blocks are the unit at which block-level randomisation and block display logic operate. Set block display logic from the block header options  -  show or hide an entire block based on embedded data, prior answers, or quota status without setting conditions on every individual question.</p>
+
+            <h2 id="embedded-data">Embedded Data Elements</h2>
+            <p>Embedded data elements in Survey Flow define the fields that travel with each response throughout the survey. Place them at the top of Survey Flow (before any question blocks) so their values are available to display logic and piped text from the first question. Each embedded data element specifies a field name and where the value comes from: URL parameter, XM Directory contact attribute, static default value, or a value set conditionally by branch logic.</p>
+            <p>After the survey, embedded data values appear in the response data export alongside question answers  -  enabling segmentation and filtering in dashboards without joining to external data files. See the complete <a href="/qualtrics-embedded-data">embedded data guide</a> for setup instructions.</p>
+
+            <h2 id="branch-logic">Branch Logic</h2>
+            <p>Branch Logic in Survey Flow routes respondents to different blocks based on conditions  -  more powerful than skip logic in question editors because it operates at the block level and supports embedded data conditions, quota conditions, and multi-condition AND/OR logic. Add a Branch element, define the condition, then drag the blocks that should appear for respondents meeting that condition inside the branch.</p>
+            <p>For complex routing  -  multiple audience segments each seeing different question sets  -  nested branches create the logical structure. Survey Flow's visual layout makes the branching architecture easier to audit than question-level skip logic scattered across many individual questions.</p>
+
+            <h2 id="randomiser">Randomiser</h2>
+            <p>The Randomiser element randomly selects a subset of blocks from a defined pool and presents them to each respondent. Use for sequential monadic concept testing (show each respondent one of five concepts), for A/B testing survey instrument variants, or for random block rotation in long surveys. Configure the number of blocks to present to each respondent and whether the selection should be evenly distributed across respondents (balanced randomisation) or truly random.</p>
+
+            <h2 id="end-of-survey">End of Survey</h2>
+            <p>The End of Survey element controls what happens when a respondent completes the survey or is terminated early. Configure it to show a custom completion message, redirect to a URL, or (for panel surveys) redirect to the panel provider's completion link. For surveys with multiple end points  -  full completes, screenouts, and over-quota terminations  -  add multiple End of Survey elements at different points in Survey Flow, each configured with the appropriate message and redirect for that outcome.</p>
+
+            <h2 id="authenticator">Authenticator</h2>
+            <p>The Authenticator element restricts survey access to authenticated respondents. It can authenticate against Qualtrics' panel (SSO), a custom contact list, or an external web service. Used for surveys requiring login (employee surveys that should only be accessible to current employees, client surveys restricted to account holders) or for studies requiring pre-screening against an eligibility list.</p>
+
+            <h2 id="web-service">Web Service</h2>
+            <p>The Web Service element calls an external API during the survey and stores the response as embedded data. Use to look up respondent-specific information at survey runtime  -  pulling account details, order history, or eligibility status from a CRM or data warehouse  -  without embedding that data in the survey distribution link. The web service call happens mid-survey, triggered by Survey Flow reaching the element.</p>
+
+            <h2 id="best-practices">Survey Flow Best Practices</h2>
+            <p><strong>Always put Embedded Data elements first.</strong> Place all embedded data elements at the very top of Survey Flow, before any question blocks. This ensures field values are set before any question tries to reference them in piped text or display logic.</p>
+            <p><strong>Name your blocks descriptively.</strong> Default block names (Block 1, Block 2) make Survey Flow hard to read for complex surveys. Rename blocks to reflect their content: "Screener," "Product Battery," "NPS," "Demographic Closeout." This saves time when debugging logic and auditing survey structure before launch.</p>
+            <p><strong>Use Block Display Logic for efficiency.</strong> If multiple questions in a block share the same display condition, set block display logic on the block rather than question display logic on each question individually. This reduces the number of logic conditions to maintain and makes the survey easier to audit.</p>
+            <p><strong>Test every branch path before launch.</strong> Use Qualtrics' Preview Survey feature to test every branch logic path. For each branch condition, verify that the correct blocks appear and that end-of-survey redirects fire correctly. Untested branch logic is the most common cause of mid-field survey errors.</p>
+            <div class="related-terms">
+                <h4>Related Terms</h4>
+                <ul><li><a href="/blog/what-is-embedded-data-qualtrics">Embedded Data</a></li><li><a href="/blog/what-is-skip-logic">Skip Logic</a></li><li><a href="/blog/what-is-response-bias">Response Bias</a></li><li><a href="/blog/what-is-survey-validity">Survey Validity</a></li></ul>
+            </div>
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What is Qualtrics Survey Flow?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Survey Flow is the visual control centre for how a Qualtrics survey runs. It defines the order and conditions under which question blocks, embedded data, branch logic, randomisers, and end-of-survey elements execute. Access it from the Survey tab by clicking 'Survey Flow' in the left sidebar.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What is the difference between Survey Flow Branch Logic and question Skip Logic?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Survey Flow Branch Logic routes entire blocks of questions based on conditions  -  supporting embedded data values, quotas, and multi-condition AND/OR logic at the block level. Question Skip Logic routes respondents forward past questions within a block based on a single question's answer. Branch Logic is more powerful and flexible; Skip Logic is better for simple forward-jump scenarios.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Where should I place Embedded Data elements in Survey Flow?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Always place Embedded Data elements at the very top of Survey Flow, before any question blocks. This ensures the embedded data field values are set before any question in the survey attempts to reference them in display logic conditions or piped text.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Can I use Qualtrics Survey Flow to randomise which concepts respondents see?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes. Add a Randomiser element in Survey Flow. Place each concept block inside the Randomiser. Configure how many blocks each respondent sees (e.g. 1 of 5 concepts) and whether distribution should be balanced across respondents. This is the standard setup for sequential monadic concept tests.</p></div>
+            </div>
+            <div class="article-cta">
+                <h3>Deploy Your Survey to 27+ Platforms</h3>
+                <p>Convert Word, PDF, and Excel survey instruments to Qualtrics, REDCap, SurveyMonkey, and more. No manual programming required.</p>
+                <a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Start Converting Free</a>
+            </div>
+        </article>
+        <aside class="sidebar">
+            <div class="cta-box"><h3>Try Pirai AI Free</h3><p>Convert any survey document to 27+ platforms in minutes.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-button">Start Free</a></div>
+            <div class="sidebar-section"><h3>In This Article</h3><ul class="toc-list">
+                    <li><a href="#blocks">Blocks</a></li>
+                    <li><a href="#embedded-data">Embedded Data Elements</a></li>
+                    <li><a href="#branch-logic">Branch Logic</a></li>
+                    <li><a href="#randomiser">Randomiser</a></li>
+                    <li><a href="#end-of-survey">End of Survey</a></li>
+                    <li><a href="#authenticator">Authenticator</a></li>
+                    <li><a href="#web-service">Web Service</a></li>
+                    <li><a href="#best-practices">Best Practices</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+            </ul></div>
+            <div class="sidebar-section"><h3>Related Articles</h3><ul class="toc-list">
+                    <li><a href="/qualtrics-display-logic">Qualtrics Display Logic</a></li>
+                    <li><a href="/qualtrics-embedded-data">Qualtrics Embedded Data</a></li>
+                    <li><a href="/qualtrics-skip-logic">Qualtrics Skip Logic</a></li>
+                    <li><a href="/qualtrics-question-types">Qualtrics Question Types</a></li>
+                    <li><a href="/document-to-qualtrics">Document to Qualtrics</a></li>
+            </ul></div>
+        </aside>
+    </div>
+    <section class="related-articles"><h2>Related Articles</h2><div class="related-grid">
+            <a href="/qualtrics-display-logic" class="related-card"><span class="card-tag">Guide</span><h3>Qualtrics Display Logic</h3><p>How to use display logic for conditional question presentation within survey blocks.</p></a>
+            <a href="/qualtrics-embedded-data" class="related-card"><span class="card-tag">Guide</span><h3>Qualtrics Embedded Data</h3><p>Complete guide to embedded data setup, sources, and use in Survey Flow.</p></a>
+            <a href="/qualtrics-skip-logic" class="related-card"><span class="card-tag">Guide</span><h3>Qualtrics Skip Logic</h3><p>Skip logic setup and when to use it vs Survey Flow Branch Logic.</p></a>
+    </div></section>
+    <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
+    <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        const sections = document.querySelectorAll('h2[id]');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    const active = document.querySelector('.toc-list a[href="#' + entry.target.id + '"]');
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        sections.forEach(s => observer.observe(s));
+    </script>
+</body></html>

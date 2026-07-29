@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Qualtrics Survey Builder: Build Surveys From Documents Instantly - Pirai AI</title>
+    <meta name="description" content="Use AI to build Qualtrics surveys from Word, PDF, and Excel documents. Pirai AI reads your survey document and generates a QSF file for direct Qualtrics import  -  preserving all question types, matrix structure, and scale labels.">
+    <meta name="keywords" content="ai qualtrics survey builder, ai build qualtrics survey, qualtrics ai survey creator, ai convert document qualtrics, qualtrics survey from document ai, chatgpt qualtrics survey, ai qualtrics qsf generator, build qualtrics survey fast">
+    <meta property="og:type" content="website"><meta property="og:url" content="https://piraiai.com/ai-qualtrics-survey-builder">
+    <meta property="og:title" content="AI Qualtrics Survey Builder: Build Surveys From Documents Instantly"><meta property="og:description" content="Use AI to build Qualtrics surveys from Word, PDF, and Excel documents. Pirai AI reads your survey document and generates a QSF file for direct Qualtrics import  -  preserving all question types, matrix structure, and scale labels.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://piraiai.com/ai-qualtrics-survey-builder"><link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"AI Qualtrics Survey Builder: Build Surveys From Documents Instantly","description":"Use AI to build Qualtrics surveys from Word, PDF, and Excel documents. Pirai AI reads your survey document and generates a QSF file for direct Qualtrics import  -  preserving all question types, matrix structure, and scale labels.","author":{"@type":"Person","name":"Arun Raj"},"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},"datePublished":"2026-07-24","url":"https://piraiai.com/ai-qualtrics-survey-builder"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is Pirai AI different from ChatGPT for building Qualtrics surveys?","acceptedAnswer":{"@type":"Answer","text":"ChatGPT can draft survey questions or write a QSF if carefully prompted, but it generates new content from prompts rather than reading your existing specification document. Pirai AI reads your actual survey document and converts the exact question structure, types, and wording into a QSF  -  preserving the survey as written, which matters for validated instruments, client specifications, and IRB-approved questionnaires."}},{"@type":"Question","name":"Can Pirai AI build a Qualtrics survey from a PDF specification?","acceptedAnswer":{"@type":"Answer","text":"Yes. Upload the PDF at platform.piraiai.com, select Qualtrics, and download the QSF. For text-based PDFs, conversion is immediate. For scanned PDFs, enable Advanced PDF Processing for OCR extraction before conversion."}},{"@type":"Question","name":"Does Pirai AI include display logic and skip logic in the QSF output?","acceptedAnswer":{"@type":"Answer","text":"Display logic and skip logic reference specific question IDs created during the QSF import process, which cannot be known in advance. The question structure, types, and answer options are included in the QSF. Logic is configured in the Qualtrics editor after import  -  which is significantly faster than building the questions manually from scratch before adding logic."}},{"@type":"Question","name":"Is there a free tier for Qualtrics survey conversion?","acceptedAnswer":{"@type":"Answer","text":"Yes. Pirai AI's free tier provides 2 conversions per day with no credit card required. Academic researchers and students converting validated instruments can apply for extended free access."}}]}</script>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; margin-left: 32px; transition: color 0.2s; }
+        header nav a:hover { color: #9B6BFF; }
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+        .content-wrapper { max-width: 1200px; margin: 48px auto; padding: 0 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+        .article-content { max-width: 680px; overflow-x: hidden; }
+        .article-content p { font-size: 18px; color: #374151; margin-bottom: 24px; line-height: 1.7; }
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-top: 32px; margin-bottom: 12px; }
+        .article-content a { color: #9B6BFF; text-decoration: none; border-bottom: 1px solid rgba(155,107,255,0.3); transition: all 0.2s; }
+        .article-content a:hover { border-bottom-color: #9B6BFF; }
+        .article-content ul, .article-content ol { margin-bottom: 24px; padding-left: 24px; }
+        .article-content li { font-size: 18px; color: #374151; margin-bottom: 10px; line-height: 1.7; }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+        .definition-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 28px; margin: 32px 0; border-radius: 4px; }
+        .definition-box .def-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9B6BFF; margin-bottom: 12px; display: block; }
+        .definition-box p { font-size: 17px; color: #1a1a1a; margin-bottom: 0; font-style: italic; line-height: 1.7; }
+        .related-terms { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 32px 0; }
+        .related-terms h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+        .related-terms ul { padding-left: 0; list-style: none; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+        .related-terms li { margin: 0; }
+        .related-terms a { display: inline-block; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 6px 14px; font-size: 14px; color: #374151; text-decoration: none; border-bottom: none; transition: all 0.2s; }
+        .related-terms a:hover { border-color: #9B6BFF; color: #9B6BFF; border-bottom: none; }
+        .article-cta { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 36px 40px; border-radius: 12px; margin: 48px 0 32px; text-align: center; }
+        .article-cta h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+        .article-cta p { font-size: 16px; color: #ffffff; opacity: 0.95; margin-bottom: 20px; }
+        .article-cta a { border-bottom: none !important; }
+        .cta-btn-white { display: inline-block; background: #ffffff; color: #9B6BFF !important; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-btn-white:hover { transform: translateY(-2px); }
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a1a1a; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; transition: color 0.2s; border-bottom: none; display: block; }
+        .toc-list a:hover { color: #9B6BFF; }
+        .toc-list a.active { color: #9B6BFF; font-weight: 600; }
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 32px; border-radius: 8px; text-align: center; color: #ffffff; margin-bottom: 24px; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .cta-box p { font-size: 14px; margin-bottom: 20px; opacity: 0.95; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-button:hover { transform: translateY(-2px); }
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; border-bottom: none; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
+        .related-card .card-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #9B6BFF; margin-bottom: 8px; display: block; }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
+        .related-card p { font-size: 14px; color: #6b7280; margin: 0; }
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+        @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 400px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
+        .tldr-box { background: #f0fdf4; border: 1px solid #86efac; border-left: 4px solid #16a34a; border-radius: 8px; padding: 20px 24px; margin: 0 0 32px; }
+        .tldr-box .tldr-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #16a34a; margin-bottom: 8px; display: block; }
+        .tldr-box p { font-size: 16px; color: #1a1a1a; margin: 0; line-height: 1.6; }
+        .method-grid { display: flex; flex-direction: column; gap: 16px; margin: 24px 0; }
+        .method-card { border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; }
+        .method-header { display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: #f9fafb; }
+        .method-num { width: 36px; height: 36px; border-radius: 50%; background: #e5e7eb; color: #374151; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .method-num.recommended { background: #9B6BFF; color: #ffffff; }
+        .method-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 17px; color: #1a1a1a; }
+        .method-badge { margin-left: auto; padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+        .badge-easy { background: #dcfce7; color: #16a34a; }
+        .badge-medium { background: #fef9c3; color: #854d0e; }
+        .badge-recommended { background: #ede9fe; color: #7c3aed; }
+        .method-body { padding: 16px 20px; }
+        .method-body p { font-size: 15px; color: #374151; margin: 0 0 10px; line-height: 1.6; }
+        .method-body p:last-child { margin: 0; }
+        .method-body code { background: #f3f4f6; padding: 2px 7px; border-radius: 4px; font-size: 13px; color: #7c3aed; font-family: monospace; }
+        .method-body ul { padding-left: 20px; margin: 8px 0 0; }
+        .method-body li { font-size: 15px; color: #374151; margin-bottom: 4px; }
+        .limitation-note { background: #fff7ed; border-left: 3px solid #f97316; padding: 10px 14px; border-radius: 0 6px 6px 0; font-size: 14px; color: #9a3412; margin-top: 10px; }
+        .step-grid { display: flex; flex-direction: column; gap: 0; margin: 24px 0; }
+        .step-box { display: flex; gap: 18px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid #f3f4f6; }
+        .step-box:last-child { border-bottom: none; }
+        .step-num { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: #9B6BFF; color: #ffffff; font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+        .step-content h4 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 700; color: #1a1a1a; margin-bottom: 5px; }
+        .step-content p { font-size: 15px; color: #374151; margin: 0; line-height: 1.6; }
+        .step-content code { background: #f3f4f6; padding: 2px 7px; border-radius: 4px; font-size: 13px; color: #7c3aed; font-family: monospace; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; }
+        .comparison-table th { padding: 12px 16px; text-align: left; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; background: #f9fafb; color: #6b7280; border-bottom: 2px solid #e5e7eb; }
+        .comparison-table th.pirai { background: #f5f3ff; color: #7c3aed; }
+        .comparison-table td { padding: 11px 16px; border-bottom: 1px solid #f3f4f6; color: #374151; }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table td:first-child { font-weight: 600; color: #1a1a1a; }
+        .comparison-table td.pirai { background: #fdf9ff; }
+        .check { color: #16a34a; font-weight: 700; }
+        .cross { color: #dc2626; font-weight: 700; }
+        .partial { color: #d97706; }
+        .wedge-hero { background: linear-gradient(135deg, #f9fafb 0%, #f0ebff 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .wedge-hero-container { max-width: 1200px; margin: 0 auto; }
+        .wedge-badge { display: inline-block; background: #f0ebff; color: #7c3aed; border: 1px solid #ddd6fe; border-radius: 20px; padding: 4px 14px; font-size: 12px; font-weight: 700; margin-bottom: 16px; }
+        .wedge-cta-inline { display: inline-block; background: #9B6BFF; color: #ffffff; padding: 10px 22px; border-radius: 7px; text-decoration: none; font-weight: 700; font-size: 14px; margin-top: 16px; border-bottom: none !important; transition: background 0.2s; }
+        .wedge-cta-inline:hover { background: #8b5cf6; }
+        @media (max-width: 640px) { .method-badge { display: none; } }
+        .platform-grid { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0; }
+        .platform-pill { display: inline-flex; align-items: center; gap: 8px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 8px 14px; font-size: 14px; font-weight: 600; color: #374151; text-decoration: none; transition: all 0.2s; }
+        .platform-pill:hover { border-color: #9B6BFF; color: #7c3aed; background: #f5f3ff; }
+        .platform-pill.featured { border-color: #ddd6fe; background: #f5f3ff; color: #7c3aed; }
+        .workflow-steps { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 24px 0; }
+        .workflow-step { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; text-align: center; }
+        .workflow-step .ws-num { width: 40px; height: 40px; border-radius: 50%; background: #9B6BFF; color: #fff; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
+        .workflow-step h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+        .workflow-step p { font-size: 13px; color: #6b7280; margin: 0; line-height: 1.5; }
+        .link-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 24px 0; }
+        .link-section h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+        .link-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .link-grid a { color: #7c3aed; text-decoration: none; font-size: 14px; font-weight: 500; border-bottom: none; }
+        .link-grid a:hover { text-decoration: underline; }
+        .use-case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+        .use-case-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 18px; }
+        .use-case-card h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+        .use-case-card p { font-size: 13px; color: #6b7280; margin: 0; line-height: 1.5; }
+        @media (max-width: 640px) { .workflow-steps { grid-template-columns: 1fr; } .link-grid { grid-template-columns: 1fr; } .use-case-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header><div class="header-container">
+        <a href="/" class="logo"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span class="logo-text">Pirai AI</span></a>
+        <nav><a href="/">Home</a><a href="/blog">Blog</a><a href="/tools">Free Tools</a><a href="/#demo">Get Demo</a></nav>
+    </div></header>
+    <div class="breadcrumb"><div class="breadcrumb-container">
+        <a href="/">Home</a><span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">AI Qualtrics Survey Builder</span>
+    </div></div>
+    <div class="wedge-hero"><div class="wedge-hero-container">
+        <span class="wedge-badge">Pirai AI</span>
+        <h1 class="article-title">AI Qualtrics Survey Builder: Build Surveys From Documents Instantly</h1>
+        <p class="comparison-subtitle">Use AI to build Qualtrics surveys from Word, PDF, and Excel documents. Pirai AI reads your survey document and generates a QSF file for direct Qualtrics import  -  preserving all question types, matrix structure, and scale labels.</p>
+        <a href="https://platform.piraiai.com" target="_blank" class="wedge-cta-inline">Start Converting Free</a>
+    </div></div>
+    <div class="content-wrapper">
+        <article class="article-content">
+
+            <div class="tldr-box">
+                <span class="tldr-label">What AI Qualtrics Building Means</span>
+                <p>Instead of manually programming every question into Qualtrics  -  selecting types, typing answer options, configuring matrix rows and scale labels  -  Pirai AI reads your survey document and generates a QSF file with all of that structure already built. Import the QSF. Add logic and distribution. Your survey is ready in minutes instead of hours.</p>
+            </div>
+
+            <h2 id="the-qualtrics-programming-problem">The Manual Qualtrics Programming Problem</h2>
+            <p>Every experienced Qualtrics user knows the programming burden. A 40-question survey with matrix questions, NPS, rank order, and open-text follow-ups takes a skilled programmer 4-8 hours to build correctly  -  selecting each question type, typing every answer option exactly as in the specification, configuring matrix rows and scale labels, setting up blocks, and verifying the whole thing in preview mode. For market research agencies running multiple projects simultaneously, this programming backlog is the most common cause of fieldwork delays.</p>
+            <p>For academic researchers without dedicated survey programmers, it means hours taken from research that should be going to analysis and writing. For CX teams managing dozens of survey variants, it creates a maintenance burden that causes inconsistency across instruments.</p>
+
+            <h2 id="how-pirai-builds">How Pirai AI Builds the Qualtrics Survey</h2>
+            <div class="step-grid">
+              <div class="step-box"><div class="step-num">1</div><div class="step-content"><h4>AI reads your survey document</h4><p>Upload your Word, PDF, or Excel specification document. Pirai AI's AI engine reads the document structure  -  identifying questions, question types, answer options, matrix rows, scale labels, section headers, and page breaks  -  even from complex survey layouts with multi-level matrices and mixed question type batteries.</p></div></div>
+              <div class="step-box"><div class="step-num">2</div><div class="step-content"><h4>AI structures and maps to Qualtrics types</h4><p>The extracted content is mapped to Qualtrics question types: matrix questions to Matrix Table, NPS to the native NPS type, rank order to Rank Order Drag-and-Drop, open text to Text Entry. Review in the AI Survey Editor before export  -  fix a label, adjust a scale, remove a test item.</p></div></div>
+              <div class="step-box"><div class="step-num">3</div><div class="step-content"><h4>Download the QSF file</h4><p>Select Qualtrics as the target platform and download the QSF (Qualtrics Survey Format) file. Your document has been processed in-memory and is destroyed. The QSF contains the complete survey structure in Qualtrics' native format.</p></div></div>
+              <div class="step-box"><div class="step-num">4</div><div class="step-content"><h4>Import into Qualtrics</h4><p>In Qualtrics, go to Survey tab > Tools > Import Survey > QSF. Upload the file. Every question, type, answer option, block, and matrix structure appears in the Qualtrics editor. Add display logic, embedded data, and distribution settings. Launch.</p></div></div>
+            </div>
+
+            <h2 id="time-savings">Time Savings Compared to Manual Programming</h2>
+            <table class="comparison-table">
+              <thead><tr><th>Survey Type</th><th>Manual Qualtrics Programming</th><th class="pirai">Pirai AI + Import</th></tr></thead>
+              <tbody>
+                <tr><td>20-question MCQ survey</td><td>2-3 hours</td><td class="pirai">Under 10 minutes</td></tr>
+                <tr><td>40-question research instrument with matrices</td><td>4-8 hours</td><td class="pirai">15-20 minutes</td></tr>
+                <tr><td>60-question brand tracking survey</td><td>Full day</td><td class="pirai">30-45 minutes</td></tr>
+                <tr><td>Validated clinical instrument (PHQ-9, SF-36)</td><td>3-5 hours</td><td class="pirai">10-15 minutes</td></tr>
+              </tbody>
+            </table>
+
+            <h2 id="what-ai-handles">What the AI Handles vs What You Configure in Qualtrics</h2>
+            <p><strong>AI handles (in the QSF):</strong> question text, question types, answer options, matrix rows and scale labels, block structure, page breaks, section headers and descriptive text, recode values.</p>
+            <p><strong>You configure post-import:</strong> display logic and skip logic (references question IDs created during import), embedded data (based on your distribution setup), quotas and randomisation, survey distribution and anonymity settings, dashboard and reporting configuration.</p>
+            <p>This split is intentional  -  the structural layer (which the AI builds) is the time-consuming part. The configuration layer (which you set up post-import) is specific to your Qualtrics environment and distribution plan, and typically takes 30-60 minutes rather than hours.</p>
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How is Pirai AI different from ChatGPT for building Qualtrics surveys?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>ChatGPT can draft survey questions or write a QSF if carefully prompted, but it generates new content from prompts rather than reading your existing specification document. Pirai AI reads your actual survey document and converts the exact question structure, types, and wording into a QSF  -  preserving the survey as written, which matters for validated instruments, client specifications, and IRB-approved questionnaires.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Can Pirai AI build a Qualtrics survey from a PDF specification?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes. Upload the PDF at platform.piraiai.com, select Qualtrics, and download the QSF. For text-based PDFs, conversion is immediate. For scanned PDFs, enable Advanced PDF Processing for OCR extraction before conversion.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Does Pirai AI include display logic and skip logic in the QSF output?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Display logic and skip logic reference specific question IDs created during the QSF import process, which cannot be known in advance. The question structure, types, and answer options are included in the QSF. Logic is configured in the Qualtrics editor after import  -  which is significantly faster than building the questions manually from scratch before adding logic.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Is there a free tier for Qualtrics survey conversion?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes. Pirai AI's free tier provides 2 conversions per day with no credit card required. Academic researchers and students converting validated instruments can apply for extended free access.</p></div>
+            </div>
+            <div class="article-cta">
+                <h3>Convert Your Survey Document Now</h3>
+                <p>Upload once. Export to any platform. No manual re-entry. No Drive access required.</p>
+                <a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Start Free - 2 Conversions/Day</a>
+            </div>
+        </article>
+        <aside class="sidebar">
+            <div class="cta-box"><h3>Try Pirai AI Free</h3><p>2 conversions per day. No credit card.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-button">Start Free</a></div>
+            <div class="sidebar-section"><h3>Quick Links</h3><ul class="toc-list">
+                    <li><a href="/document-to-qualtrics">Document to Qualtrics</a></li>
+                    <li><a href="/qualtrics-question-types">Qualtrics Question Types</a></li>
+                    <li><a href="/product/qualtrics-converter/">Qualtrics Converter</a></li>
+                    <li><a href="/product/word-to-qualtrics/">Word to Qualtrics</a></li>
+                    <li><a href="/product/pdf-to-qualtrics/">PDF to Qualtrics</a></li>
+            </ul></div>
+        </aside>
+    </div>
+    <section class="related-articles"><h2>Related Articles</h2><div class="related-grid">
+            <a href="/document-to-qualtrics" class="related-card"><span class="card-tag">Hub</span><h3>Document to Qualtrics</h3><p>All input formats and conversion routes to Qualtrics QSF.</p></a>
+            <a href="/qualtrics-question-types" class="related-card"><span class="card-tag">Guide</span><h3>Qualtrics Question Types</h3><p>All 20+ Qualtrics question types and how they map from document question structures.</p></a>
+            <a href="/blog/import-questions-into-qualtrics" class="related-card"><span class="card-tag">Guide</span><h3>Import Questions into Qualtrics</h3><p>Four methods for importing questions including the QSF import route.</p></a>
+    </div></section>
+    <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
+    <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
+    </script>
+</body></html>
