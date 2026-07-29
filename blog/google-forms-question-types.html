@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Every Google Forms Question Type Explained (2026 Guide) - Pirai AI Blog</title>
+    <meta name="description" content="All 11 Google Forms question types with examples, when to use each, and which ones to avoid for serious surveys. Includes a decision tree and what Google Forms is missing.">
+    <meta name="keywords" content="google forms question types, all google forms question types, google forms multiple choice, google forms linear scale, google forms grid, google forms short answer, google forms question type guide 2026">
+    <meta property="og:type" content="article"><meta property="og:url" content="https://piraiai.com/blog/google-forms-question-types">
+    <meta property="og:title" content="Every Google Forms Question Type Explained (2026 Guide)"><meta property="og:description" content="All 11 Google Forms question types with examples, when to use each, and which ones to avoid for serious surveys. Includes a decision tree and what Google Forms is missing.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="article:published_time" content="2026-07-18T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta property="article:section" content="Glossary">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Every Google Forms Question Type Explained (2026 Guide)"><meta name="twitter:description" content="All 11 Google Forms question types with examples, when to use each, and which ones to avoid for serious surveys. Includes a decision tree and what Google Forms is missing.">
+    <link rel="canonical" href="https://piraiai.com/blog/google-forms-question-types"><link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Every Google Forms Question Type Explained (2026 Guide)","description":"All 11 Google Forms question types with examples, when to use each, and which ones to avoid for serious surveys. Includes a decision tree and what Google Forms is missing.","author":{"@type":"Person","name":"Arun Raj"},"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},"datePublished":"2026-07-18","url":"https://piraiai.com/blog/google-forms-question-types"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many question types does Google Forms have?","acceptedAnswer":{"@type":"Answer","text":"Google Forms has 11 question types: Short Answer, Paragraph, Multiple Choice, Checkboxes, Dropdown, Linear Scale, Multiple Choice Grid, Checkbox Grid, Date, Time, and File Upload."}},{"@type":"Question","name":"Which Google Forms question type is best for a Likert scale?","acceptedAnswer":{"@type":"Answer","text":"Use Linear Scale for a single Likert item (e.g. one agree-disagree statement). Use Multiple Choice Grid for a battery of Likert items sharing the same scale  -  this displays multiple statements as rows against a shared set of scale point columns, which is the most efficient format for multi-item Likert batteries."}},{"@type":"Question","name":"Can Google Forms do a matrix question?","acceptedAnswer":{"@type":"Answer","text":"Yes, through Multiple Choice Grid (single select per row) and Checkbox Grid (multi-select per row). These display multiple row statements against shared column options in a grid format. They are not as feature-rich as matrix question types in Qualtrics or REDCap  -  there is no row randomisation and grids are harder to read on mobile with more than 5 columns."}},{"@type":"Question","name":"Which Google Forms question type can trigger branching logic?","acceptedAnswer":{"@type":"Answer","text":"Only Multiple Choice and Dropdown questions can trigger section-based branching in Google Forms. All other question types route to the next section by default and cannot be used to conditionally route respondents."}}]}</script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; margin-left: 32px; transition: color 0.2s; }
+        header nav a:hover { color: #9B6BFF; }
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+        .content-wrapper { max-width: 1200px; margin: 48px auto; padding: 0 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+        .article-content { max-width: 680px; overflow-x: hidden; }
+        .article-content p { font-size: 18px; color: #374151; margin-bottom: 24px; line-height: 1.7; }
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-top: 32px; margin-bottom: 12px; }
+        .article-content a { color: #9B6BFF; text-decoration: none; border-bottom: 1px solid rgba(155,107,255,0.3); transition: all 0.2s; }
+        .article-content a:hover { border-bottom-color: #9B6BFF; }
+        .article-content ul, .article-content ol { margin-bottom: 24px; padding-left: 24px; }
+        .article-content li { font-size: 18px; color: #374151; margin-bottom: 10px; line-height: 1.7; }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+        .definition-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 28px; margin: 32px 0; border-radius: 4px; }
+        .definition-box .def-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9B6BFF; margin-bottom: 12px; display: block; }
+        .definition-box p { font-size: 17px; color: #1a1a1a; margin-bottom: 0; font-style: italic; line-height: 1.7; }
+        .related-terms { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 32px 0; }
+        .related-terms h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+        .related-terms ul { padding-left: 0; list-style: none; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+        .related-terms li { margin: 0; }
+        .related-terms a { display: inline-block; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 6px 14px; font-size: 14px; color: #374151; text-decoration: none; border-bottom: none; transition: all 0.2s; }
+        .related-terms a:hover { border-color: #9B6BFF; color: #9B6BFF; border-bottom: none; }
+        .article-cta { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 36px 40px; border-radius: 12px; margin: 48px 0 32px; text-align: center; }
+        .article-cta h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+        .article-cta p { font-size: 16px; color: #ffffff; opacity: 0.95; margin-bottom: 20px; }
+        .article-cta a { border-bottom: none !important; }
+        .cta-btn-white { display: inline-block; background: #ffffff; color: #9B6BFF !important; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-btn-white:hover { transform: translateY(-2px); }
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a1a1a; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; transition: color 0.2s; border-bottom: none; display: block; }
+        .toc-list a:hover { color: #9B6BFF; }
+        .toc-list a.active { color: #9B6BFF; font-weight: 600; }
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 32px; border-radius: 8px; text-align: center; color: #ffffff; margin-bottom: 24px; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .cta-box p { font-size: 14px; margin-bottom: 20px; opacity: 0.95; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-button:hover { transform: translateY(-2px); }
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; border-bottom: none; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
+        .related-card .card-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #9B6BFF; margin-bottom: 8px; display: block; }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
+        .related-card p { font-size: 14px; color: #6b7280; margin: 0; }
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+        @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 400px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header><div class="header-container">
+        <a href="/" class="logo"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span></a>
+        <nav><a href="/">Home</a><a href="/blog">All Articles</a><a href="/docs">Documentation</a><a href="/#demo">Get Demo</a></nav>
+    </div></header>
+    <div class="breadcrumb"><div class="breadcrumb-container">
+        <a href="/">Home</a><span class="breadcrumb-separator">›</span>
+        <a href="/blog">Blog</a><span class="breadcrumb-separator">›</span>
+        <a href="/blog?category=glossary">Glossary</a><span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">Every Google Forms Question Type Explained (2026 Guide)</span>
+    </div></div>
+    <div class="hero"><div class="hero-container">
+        <h1 class="article-title">Every Google Forms Question Type Explained (2026 Guide)</h1>
+        <div class="article-meta"><span class="author">Arun Raj</span><span class="separator">•</span><span>July 18, 2026</span><span class="separator">•</span><span>3 min read</span><span class="separator">•</span><span style="background:#e5e7eb;color:#374151;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:600;">Glossary</span></div>
+    </div></div>
+    <div class="content-wrapper">
+        <article class="article-content">
+            <div class="definition-box">
+                <span class="def-label">Definition</span>
+                <p>Google Forms offers 11 question types covering basic text entry, selection, rating scales, grids, date and time, and file upload. Understanding which type to use for each measurement need is the foundation of building effective forms and surveys.</p>
+            </div>
+
+            <h2 id="short-answer">1. Short Answer</h2>
+            <p>A single-line text field. Best for responses you expect to be brief: names, email addresses, numeric responses, short identifiers, or one-word answers. Google Forms validation can be added to short answer questions to enforce numeric-only responses, email format, URL format, or custom regex patterns. Use Short Answer rather than Paragraph whenever the expected response is a single word, a number, or a short phrase.</p>
+            <p><strong>Best for:</strong> Name, email, age, job title, numeric input, ID fields.<br>
+            <strong>Avoid when:</strong> You want a more than a sentence  -  use Paragraph instead.</p>
+
+            <h2 id="paragraph">2. Paragraph</h2>
+            <p>A multi-line text field for open-ended free-text responses. Use Paragraph for qualitative follow-up questions, NPS or CSAT follow-ups ("What is the main reason for your score?"), feedback comments, and any question where you want a full sentence or more. Paragraph responses are the most time-consuming for respondents  -  limit them to no more than one or two per survey to avoid response fatigue and form abandonment.</p>
+            <p><strong>Best for:</strong> Open-ended feedback, "why" follow-up questions, comments fields.<br>
+            <strong>Avoid when:</strong> A short structured answer is sufficient  -  use Short Answer or a selection type instead.</p>
+
+            <h2 id="multiple-choice">3. Multiple Choice</h2>
+            <p>A single-select question where respondents pick one option from a list displayed as radio buttons. The most common question type in surveys and forms. Use Multiple Choice for categorical questions with mutually exclusive options: gender, age group, job function, yes/no, satisfaction category, and any question where exactly one answer should be selected. Add an "Other" option to allow free-text entry when the option list may not be exhaustive. Multiple Choice questions can also trigger section branching  -  routing respondents to different parts of the form based on their selection.</p>
+            <p><strong>Best for:</strong> Categorical data, yes/no, routing/branching questions.<br>
+            <strong>Avoid when:</strong> Multiple options may apply  -  use Checkboxes instead.</p>
+
+            <h2 id="checkboxes">4. Checkboxes</h2>
+            <p>A multi-select question where respondents can select any number of options. Use Checkboxes for "select all that apply" questions: product features used, channels accessed, topics of interest, barriers experienced. You can set a validation rule requiring respondents to select at least N or at most N options. Note that Checkboxes data exports as a comma-separated string of selected values in a single column  -  if you need each selection in a separate column for analysis, pre-process the export data.</p>
+            <p><strong>Best for:</strong> Multi-select, "all that apply," attribute selection.<br>
+            <strong>Avoid when:</strong> You want respondents to select exactly one option  -  use Multiple Choice.</p>
+
+            <h2 id="dropdown">5. Dropdown</h2>
+            <p>A single-select question displayed as a dropdown menu rather than a list of radio buttons. Functionally identical to Multiple Choice but takes less vertical space when the option list is long (more than 8-10 options). Use Dropdown for country selection, language selection, department lists, or any categorical question with a long option list. Dropdown cannot trigger section branching  -  use Multiple Choice if the question needs to route respondents to different sections.</p>
+            <p><strong>Best for:</strong> Long option lists (countries, departments), saving vertical space.<br>
+            <strong>Avoid when:</strong> The question needs to trigger branching logic  -  use Multiple Choice instead.</p>
+
+            <h2 id="linear-scale">6. Linear Scale</h2>
+            <p>A numeric rating scale from a minimum (0 or 1) to a maximum (2-10), displayed as radio buttons on a horizontal line with optional text labels at each end. The primary question type for Likert scales (1-5 or 1-7 with endpoint labels), NPS (0-10 with "Not at all likely" and "Extremely likely"), and satisfaction ratings. The scale can only be labelled at the endpoints  -  if you need a verbal label at every scale point, use Multiple Choice instead. For a battery of Likert items sharing the same scale, Multiple Choice Grid is more efficient.</p>
+            <p><strong>Best for:</strong> Single Likert items, NPS, satisfaction ratings, simple numeric scales.<br>
+            <strong>Avoid when:</strong> You need verbal labels at every scale point, or you have multiple items sharing the same scale (use Grid).</p>
+
+            <h2 id="multiple-choice-grid">7. Multiple Choice Grid</h2>
+            <p>A matrix question format displaying multiple row statements against a shared set of column options. Respondents select one option per row. The primary question type for Likert scale batteries (where multiple statements share the same agree-disagree scale), satisfaction attribute ratings, and any question where multiple items are rated on the same dimension. Enable "Require a response in each row" to ensure no items are skipped. On mobile, grids with more than 5 columns require horizontal scrolling  -  keep column labels short and scale points to 5 for mobile-first surveys.</p>
+            <p><strong>Best for:</strong> Likert batteries, satisfaction attribute grids, multi-item rating questions.<br>
+            <strong>Avoid when:</strong> The survey is mobile-primary with more than 5 scale points  -  consider splitting into individual Linear Scale questions.</p>
+
+            <h2 id="checkbox-grid">8. Checkbox Grid</h2>
+            <p>The multi-select version of Multiple Choice Grid. Respondents can select multiple options per row. Use for attribute association questions ("Which of the following does each brand represent?"), feature usage matrices ("Which features have you used in the past month?"), or any grid question where more than one selection per row is valid. Less common than Multiple Choice Grid in survey research but useful in product and brand research.</p>
+            <p><strong>Best for:</strong> Attribute association, multi-select matrices, "select all that apply" in grid format.<br>
+            <strong>Avoid when:</strong> You want respondents to select only one option per row  -  use Multiple Choice Grid.</p>
+
+            <h2 id="date-time">9. Date and 10. Time</h2>
+            <p>Date collects a calendar date via a date picker. Time collects a time value. Use Date for birth date, event date, appointment date, or any question requiring a structured date input. Use Time for scheduling or time-of-day questions. Both are displayed as formatted inputs that vary by the respondent's device locale. Add validation to Date questions to restrict the accepted range if required.</p>
+            <p><strong>Best for:</strong> Birth date, event scheduling, appointment booking, date-based research questions.</p>
+
+            <h2 id="file-upload">11. File Upload</h2>
+            <p>Allows respondents to upload files from their device to Google Drive. Requires respondents to be signed into a Google account  -  anonymous respondents cannot use File Upload. Files are uploaded to the form owner's Google Drive. Specify accepted file types and maximum file size in the question settings. Use for portfolio submissions, assignment uploads, evidence collection, and receipt uploads. Not appropriate for anonymous or privacy-sensitive surveys because it links each upload to the respondent's Google account.</p>
+            <p><strong>Best for:</strong> Assignment submission, portfolio collection, evidence upload in known-respondent contexts.<br>
+            <strong>Avoid when:</strong> The survey is anonymous or respondents may not have a Google account.</p>
+
+            <h2 id="whats-missing">What Google Forms Is Missing</h2>
+            <p>Google Forms is a capable free tool for basic surveys and forms, but professional survey research regularly requires question types and features that Google Forms does not support:</p>
+            <ul>
+                <li><strong>Rank order questions</strong>  -  asking respondents to drag and rank items by preference or importance. Google Forms has no rank order type; workarounds using numbered Multiple Choice questions produce unreliable data.</li>
+                <li><strong>NPS question type</strong>  -  while a Linear Scale (0-10) approximates NPS, there is no native NPS type that automatically calculates Promoter/Passive/Detractor groups.</li>
+                <li><strong>Constant sum / budget allocation</strong>  -  distributing a fixed number of points across options. Not available in Google Forms.</li>
+                <li><strong>Semantic differential scales</strong>  -  bipolar adjective pair scales. Not available natively.</li>
+                <li><strong>Slider questions</strong>  -  continuous drag-to-rate inputs.</li>
+                <li><strong>Image choice questions</strong>  -  selecting from images rather than text options.</li>
+                <li><strong>Drill-down / cascading dropdowns</strong>  -  where the second dropdown depends on the first selection.</li>
+            </ul>
+            <p>For surveys requiring any of these question types, <a href="/product/qualtrics-converter/">Qualtrics</a>, <a href="/product/redcap-converter/">REDCap</a>, or <a href="/product/surveymonkey-converter/">SurveyMonkey</a> support them natively. Pirai AI converts your survey document to any of these platforms  -  select the target platform that best supports your question types.</p>
+            <div class="related-terms">
+                <h4>Related Terms</h4>
+                <ul><li><a href="/blog/what-is-likert-scale">Likert Scale</a></li><li><a href="/blog/what-is-net-promoter-score">NPS</a></li><li><a href="/blog/what-is-skip-logic">Skip Logic</a></li><li><a href="/blog/what-is-response-bias">Response Bias</a></li><li><a href="/blog/what-is-open-ended-question">Open-Ended Question</a></li></ul>
+            </div>
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How many question types does Google Forms have?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Google Forms has 11 question types: Short Answer, Paragraph, Multiple Choice, Checkboxes, Dropdown, Linear Scale, Multiple Choice Grid, Checkbox Grid, Date, Time, and File Upload.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Which Google Forms question type is best for a Likert scale?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Use Linear Scale for a single Likert item (e.g. one agree-disagree statement). Use Multiple Choice Grid for a battery of Likert items sharing the same scale  -  this displays multiple statements as rows against a shared set of scale point columns, which is the most efficient format for multi-item Likert batteries.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Can Google Forms do a matrix question?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes, through Multiple Choice Grid (single select per row) and Checkbox Grid (multi-select per row). These display multiple row statements against shared column options in a grid format. They are not as feature-rich as matrix question types in Qualtrics or REDCap  -  there is no row randomisation and grids are harder to read on mobile with more than 5 columns.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Which Google Forms question type can trigger branching logic?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Only Multiple Choice and Dropdown questions can trigger section-based branching in Google Forms. All other question types route to the next section by default and cannot be used to conditionally route respondents.</p></div>
+            </div>
+            <div class="article-cta">
+                <h3>Deploy Your Survey to 27+ Platforms</h3>
+                <p>Convert Word, PDF, and Excel survey instruments to Qualtrics, REDCap, SurveyMonkey, and more. No manual programming required.</p>
+                <a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Start Converting Free</a>
+            </div>
+        </article>
+        <aside class="sidebar">
+            <div class="cta-box"><h3>Try Pirai AI Free</h3><p>Convert any survey document to 27+ platforms in minutes.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-button">Start Free</a></div>
+            <div class="sidebar-section"><h3>In This Article</h3><ul class="toc-list">
+                    <li><a href="#short-answer">Short Answer</a></li>
+                    <li><a href="#paragraph">Paragraph</a></li>
+                    <li><a href="#multiple-choice">Multiple Choice</a></li>
+                    <li><a href="#checkboxes">Checkboxes</a></li>
+                    <li><a href="#dropdown">Dropdown</a></li>
+                    <li><a href="#linear-scale">Linear Scale</a></li>
+                    <li><a href="#multiple-choice-grid">Multiple Choice Grid</a></li>
+                    <li><a href="#checkbox-grid">Checkbox Grid</a></li>
+                    <li><a href="#date-time">Date and Time</a></li>
+                    <li><a href="#file-upload">File Upload</a></li>
+                    <li><a href="#whats-missing">What Google Forms Is Missing</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+            </ul></div>
+            <div class="sidebar-section"><h3>Related Articles</h3><ul class="toc-list">
+                    <li><a href="/survey-to-google-forms">Survey to Google Forms</a></li>
+                    <li><a href="/add-matrix-questions-google-forms">Matrix Questions in Google Forms</a></li>
+                    <li><a href="/add-likert-scale-google-forms">Likert Scale in Google Forms</a></li>
+                    <li><a href="/google-forms-branching-logic">Branching Logic in Google Forms</a></li>
+                    <li><a href="/product/google-forms-converter/">Google Forms Converter</a></li>
+            </ul></div>
+        </aside>
+    </div>
+    <section class="related-articles"><h2>Related Articles</h2><div class="related-grid">
+            <a href="/add-matrix-questions-google-forms" class="related-card"><span class="card-tag">Guide</span><h3>How to Add Matrix Questions to Google Forms</h3><p>The complete guide to matrix questions in Google Forms using Multiple Choice Grid.</p></a>
+            <a href="/add-likert-scale-google-forms" class="related-card"><span class="card-tag">Guide</span><h3>How to Add a Likert Scale in Google Forms</h3><p>Four methods for Likert scales in Google Forms and when to use each.</p></a>
+            <a href="/survey-to-google-forms" class="related-card"><span class="card-tag">Guide</span><h3>Survey to Google Forms</h3><p>How to convert professional surveys to Google Forms preserving all question types.</p></a>
+    </div></section>
+    <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
+    <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        const sections = document.querySelectorAll('h2[id]');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    const active = document.querySelector('.toc-list a[href="#' + entry.target.id + '"]');
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        sections.forEach(s => observer.observe(s));
+    </script>
+</body></html>

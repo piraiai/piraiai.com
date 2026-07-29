@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey to Google Forms: Keep Matrix, Likert, and Logic Intact - Pirai AI</title>
+    <meta name="description" content="The only Google Forms converter that preserves matrix questions, Likert scales, and branching logic. Convert Word, PDF, or Excel surveys to Google Forms without losing complex question types.">
+    <meta name="keywords" content="survey to google forms, convert survey google forms, matrix questions google forms, likert scale google forms, complex survey google forms, survey converter google forms, word survey to google forms">
+    <meta property="og:type" content="article"><meta property="og:url" content="https://piraiai.com/survey-to-google-forms">
+    <meta property="og:title" content="Survey to Google Forms: Keep Matrix, Likert, and Logic Intact"><meta property="og:description" content="The only Google Forms converter that preserves matrix questions, Likert scales, and branching logic. Convert Word, PDF, or Excel surveys to Google Forms without losing complex question types.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="article:published_time" content="2026-07-24T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Survey to Google Forms: Keep Matrix, Likert, and Logic Intact"><meta name="twitter:description" content="The only Google Forms converter that preserves matrix questions, Likert scales, and branching logic. Convert Word, PDF, or Excel surveys to Google Forms without losing complex question types.">
+    <link rel="canonical" href="https://piraiai.com/survey-to-google-forms"><link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Survey to Google Forms: Keep Matrix, Likert, and Logic Intact","description":"The only Google Forms converter that preserves matrix questions, Likert scales, and branching logic. Convert Word, PDF, or Excel surveys to Google Forms without losing complex question types.","author":{"@type":"Person","name":"Arun Raj"},"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},"datePublished":"2026-07-24","url":"https://piraiai.com/survey-to-google-forms"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does Google Forms support matrix questions?","acceptedAnswer":{"@type":"Answer","text":"Yes, through the Multiple Choice Grid and Checkbox Grid question types. These display multiple row statements against a shared set of column options in a grid format. Pirai AI maps matrix questions from your source document to the appropriate Grid question type in the generated Apps Script."}},{"@type":"Question","name":"Will branching logic survive the conversion to Google Forms?","acceptedAnswer":{"@type":"Answer","text":"Section-based branching logic is converted to Google Forms section routing. Google Forms supports one level of conditional section branching  -  if answer X, go to section Y. More complex nested logic is flagged for manual configuration in the Form editor after the script runs."}},{"@type":"Question","name":"Does Pirai AI need access to my Google Drive?","acceptedAnswer":{"@type":"Answer","text":"No. Pirai AI generates a Google Apps Script file you download and run yourself inside your own Google Form. No OAuth connection, no Drive permissions, no third-party access to your account at any point."}},{"@type":"Question","name":"What happens to my survey document after conversion?","acceptedAnswer":{"@type":"Answer","text":"Your document is processed entirely in-memory and destroyed after the Apps Script is generated. No file is stored on Pirai AI's servers. OpenAI API training controls are disabled so your document content is not used for model training."}},{"@type":"Question","name":"Can I convert a Qualtrics QSF file to Google Forms?","acceptedAnswer":{"@type":"Answer","text":"Yes. Upload the QSF file directly to Pirai AI and select Google Forms as the target. Qualtrics question types are mapped to the closest Google Forms equivalents. Note that Qualtrics-specific features like embedded data, quotas, and advanced display logic do not have direct equivalents in Google Forms and are noted in the output."}}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Convert a Survey to Google Forms with Matrix and Likert Questions","step":[{"@type":"HowToStep","position":1,"name":"Upload your survey document","text":"Go to platform.piraiai.com and upload your Word, PDF, or Excel survey file."},{"@type":"HowToStep","position":2,"name":"Select Google Forms","text":"Choose Google Forms as the target platform. Pirai AI identifies matrix questions, Likert scales, and branching logic in your document."},{"@type":"HowToStep","position":3,"name":"Download the Apps Script","text":"Download the Google Apps Script file. Matrix questions are converted to Multiple Choice Grid. Likert scales to Linear Scale or Grid. Branching logic to section-based routing."},{"@type":"HowToStep","position":4,"name":"Run in Google Forms","text":"Open a blank Google Form. Click the three-dot menu, select Script Editor, paste and run the script. Your complete survey is built automatically."}]}</script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; margin-left: 32px; transition: color 0.2s; }
+        header nav a:hover { color: #9B6BFF; }
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+        .content-wrapper { max-width: 1200px; margin: 48px auto; padding: 0 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+        .article-content { max-width: 680px; overflow-x: hidden; }
+        .article-content p { font-size: 18px; color: #374151; margin-bottom: 24px; line-height: 1.7; }
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-top: 32px; margin-bottom: 12px; }
+        .article-content a { color: #9B6BFF; text-decoration: none; border-bottom: 1px solid rgba(155,107,255,0.3); transition: all 0.2s; }
+        .article-content a:hover { border-bottom-color: #9B6BFF; }
+        .article-content ul, .article-content ol { margin-bottom: 24px; padding-left: 24px; }
+        .article-content li { font-size: 18px; color: #374151; margin-bottom: 10px; line-height: 1.7; }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+        .definition-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 28px; margin: 32px 0; border-radius: 4px; }
+        .definition-box .def-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9B6BFF; margin-bottom: 12px; display: block; }
+        .definition-box p { font-size: 17px; color: #1a1a1a; margin-bottom: 0; font-style: italic; line-height: 1.7; }
+        .related-terms { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 32px 0; }
+        .related-terms h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+        .related-terms ul { padding-left: 0; list-style: none; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+        .related-terms li { margin: 0; }
+        .related-terms a { display: inline-block; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 6px 14px; font-size: 14px; color: #374151; text-decoration: none; border-bottom: none; transition: all 0.2s; }
+        .related-terms a:hover { border-color: #9B6BFF; color: #9B6BFF; border-bottom: none; }
+        .article-cta { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 36px 40px; border-radius: 12px; margin: 48px 0 32px; text-align: center; }
+        .article-cta h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+        .article-cta p { font-size: 16px; color: #ffffff; opacity: 0.95; margin-bottom: 20px; }
+        .article-cta a { border-bottom: none !important; }
+        .cta-btn-white { display: inline-block; background: #ffffff; color: #9B6BFF !important; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-btn-white:hover { transform: translateY(-2px); }
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a1a1a; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; transition: color 0.2s; border-bottom: none; display: block; }
+        .toc-list a:hover { color: #9B6BFF; }
+        .toc-list a.active { color: #9B6BFF; font-weight: 600; }
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 32px; border-radius: 8px; text-align: center; color: #ffffff; margin-bottom: 24px; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .cta-box p { font-size: 14px; margin-bottom: 20px; opacity: 0.95; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-button:hover { transform: translateY(-2px); }
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; border-bottom: none; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
+        .related-card .card-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #9B6BFF; margin-bottom: 8px; display: block; }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
+        .related-card p { font-size: 14px; color: #6b7280; margin: 0; }
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+        @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 400px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
+        .tldr-box { background: #f0fdf4; border: 1px solid #86efac; border-left: 4px solid #16a34a; border-radius: 8px; padding: 20px 24px; margin: 0 0 32px; }
+        .tldr-box .tldr-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #16a34a; margin-bottom: 8px; display: block; }
+        .tldr-box p { font-size: 16px; color: #1a1a1a; margin: 0; line-height: 1.6; }
+        .method-grid { display: flex; flex-direction: column; gap: 16px; margin: 24px 0; }
+        .method-card { border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; }
+        .method-header { display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: #f9fafb; }
+        .method-num { width: 36px; height: 36px; border-radius: 50%; background: #e5e7eb; color: #374151; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .method-num.recommended { background: #9B6BFF; color: #ffffff; }
+        .method-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 17px; color: #1a1a1a; }
+        .method-badge { margin-left: auto; padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+        .badge-easy { background: #dcfce7; color: #16a34a; }
+        .badge-medium { background: #fef9c3; color: #854d0e; }
+        .badge-recommended { background: #ede9fe; color: #7c3aed; }
+        .method-body { padding: 16px 20px; }
+        .method-body p { font-size: 15px; color: #374151; margin: 0 0 10px; line-height: 1.6; }
+        .method-body p:last-child { margin: 0; }
+        .method-body code { background: #f3f4f6; padding: 2px 7px; border-radius: 4px; font-size: 13px; color: #7c3aed; font-family: monospace; }
+        .method-body ul { padding-left: 20px; margin: 8px 0 0; }
+        .method-body li { font-size: 15px; color: #374151; margin-bottom: 4px; }
+        .limitation-note { background: #fff7ed; border-left: 3px solid #f97316; padding: 10px 14px; border-radius: 0 6px 6px 0; font-size: 14px; color: #9a3412; margin-top: 10px; }
+        .step-grid { display: flex; flex-direction: column; gap: 0; margin: 24px 0; }
+        .step-box { display: flex; gap: 18px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid #f3f4f6; }
+        .step-box:last-child { border-bottom: none; }
+        .step-num { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: #9B6BFF; color: #ffffff; font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+        .step-content h4 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 700; color: #1a1a1a; margin-bottom: 5px; }
+        .step-content p { font-size: 15px; color: #374151; margin: 0; line-height: 1.6; }
+        .step-content code { background: #f3f4f6; padding: 2px 7px; border-radius: 4px; font-size: 13px; color: #7c3aed; font-family: monospace; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; }
+        .comparison-table th { padding: 12px 16px; text-align: left; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; background: #f9fafb; color: #6b7280; border-bottom: 2px solid #e5e7eb; }
+        .comparison-table th.pirai { background: #f5f3ff; color: #7c3aed; }
+        .comparison-table td { padding: 11px 16px; border-bottom: 1px solid #f3f4f6; color: #374151; }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table td:first-child { font-weight: 600; color: #1a1a1a; }
+        .comparison-table td.pirai { background: #fdf9ff; }
+        .check { color: #16a34a; font-weight: 700; }
+        .cross { color: #dc2626; font-weight: 700; }
+        .partial { color: #d97706; }
+        .wedge-hero { background: linear-gradient(135deg, #f9fafb 0%, #f0ebff 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .wedge-hero-container { max-width: 1200px; margin: 0 auto; }
+        .wedge-badge { display: inline-block; background: #f0ebff; color: #7c3aed; border: 1px solid #ddd6fe; border-radius: 20px; padding: 4px 14px; font-size: 12px; font-weight: 700; margin-bottom: 16px; }
+        .wedge-cta-inline { display: inline-block; background: #9B6BFF; color: #ffffff; padding: 10px 22px; border-radius: 7px; text-decoration: none; font-weight: 700; font-size: 14px; margin-top: 16px; border-bottom: none !important; transition: background 0.2s; }
+        .wedge-cta-inline:hover { background: #8b5cf6; }
+        @media (max-width: 640px) { .method-badge { display: none; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header><div class="header-container">
+        <a href="/" class="logo"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span class="logo-text">Pirai AI</span></a>
+        <nav><a href="/">Home</a><a href="/blog">Blog</a><a href="/tools">Free Tools</a><a href="/product/google-forms-converter/">Google Forms</a></nav>
+    </div></header>
+    <div class="breadcrumb"><div class="breadcrumb-container">
+        <a href="/">Home</a><span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">Survey to Google Forms</span>
+    </div></div>
+    <div class="wedge-hero"><div class="wedge-hero-container">
+        <span class="wedge-badge">Google Forms Guide</span>
+        <h1 class="article-title">Survey to Google Forms: Keep Matrix, Likert, and Logic Intact</h1>
+        <div class="article-meta"><span class="author">Arun Raj</span><span class="separator">•</span><span>July 24, 2026</span><span class="separator">•</span><span>5 min read</span></div>
+        <a href="https://platform.piraiai.com" target="_blank" class="wedge-cta-inline">Convert Your Survey Free</a>
+    </div></div>
+    <div class="content-wrapper">
+        <article class="article-content">
+
+            <div class="tldr-box">
+                <span class="tldr-label">TL;DR</span>
+                <p>Most document-to-Google-Forms converters drop matrix questions, flatten Likert scales, and lose branching logic. Pirai AI preserves all three by generating a Google Apps Script that builds your complete survey structure in Google Forms automatically. No Drive access required.</p>
+            </div>
+
+            <h2 id="what-converters-miss">What Most Converters Miss</h2>
+            <p>Google Forms supports more than most people realise. But the path from a professional survey document to a working Google Form is where most converters fall short. The three features that matter most for real surveys are the three that tools like Formswrite and Automagical Forms handle poorly or not at all.</p>
+            <table class="comparison-table">
+              <thead><tr><th>Survey Feature</th><th>Formswrite</th><th>Automagical Forms</th><th class="pirai">Pirai AI</th></tr></thead>
+              <tbody>
+                <tr><td>Matrix / grid questions</td><td><span class="partial">Partial - quiz focus</span></td><td><span class="cross">Dropped</span></td><td class="pirai"><span class="check">Preserved as Multiple Choice Grid</span></td></tr>
+                <tr><td>Likert scale batteries</td><td><span class="partial">Limited</span></td><td><span class="cross">Flattened</span></td><td class="pirai"><span class="check">Linear Scale or Choice Grid</span></td></tr>
+                <tr><td>Branching / skip logic</td><td><span class="cross">Not converted</span></td><td><span class="cross">Not converted</span></td><td class="pirai"><span class="check">Section-based routing</span></td></tr>
+                <tr><td>Rank order questions</td><td><span class="cross">No</span></td><td><span class="cross">No</span></td><td class="pirai"><span class="check">Yes</span></td></tr>
+                <tr><td>Google Drive access required</td><td><span class="cross">Yes</span></td><td><span class="cross">Yes</span></td><td class="pirai"><span class="check">No - Apps Script only</span></td></tr>
+                <tr><td>Input: Word, PDF, Excel</td><td><span class="check">Yes</span></td><td><span class="partial">Word + PDF</span></td><td class="pirai"><span class="check">All three</span></td></tr>
+              </tbody>
+            </table>
+
+            <h2 id="what-pirai-preserves">What Pirai AI Preserves</h2>
+            <p><strong>Matrix questions.</strong> A matrix question in your Word document  -  where multiple statements share the same rating scale  -  is converted to a Multiple Choice Grid question in Google Forms. The row statements and column scale labels are preserved exactly as written in your source document. For a 20-item Likert battery, this saves the manual creation of 20 separate questions and keeps the visual matrix format that respondents expect.</p>
+            <p><strong>Likert scales.</strong> Single Likert items are converted to Linear Scale questions with the correct numeric range and custom endpoint labels (e.g. "Strongly Disagree" to "Strongly Agree"). Batteries of Likert items sharing the same scale are converted to Multiple Choice Grid questions for efficient display. The scale labels are pulled from the source document, not guessed.</p>
+            <p><strong>Branching logic.</strong> Skip logic and display logic in your survey document is converted to Google Forms section-based routing. Each branch path becomes a section, and the routing condition is set at the question level. Google Forms supports one level of branching per question  -  complex nested logic is flagged in the output for manual configuration in the Form editor after the script runs.</p>
+            <p><strong>Recode values and question IDs.</strong> Numeric recode values assigned to answer options in your source document are preserved in the script for reference, even though Google Forms does not display recode values to respondents. Question IDs from the source document are carried through as comments in the script, making it easier to cross-reference the Google Form against your original survey specification.</p>
+
+            <h2 id="how-to-convert">How to Convert Your Survey to Google Forms</h2>
+            <div class="step-grid">
+              <div class="step-box"><div class="step-num">1</div><div class="step-content"><h4>Upload your survey document</h4><p>Go to <strong>platform.piraiai.com</strong> and upload your Word (.docx), PDF, or Excel (.xlsx) file. Accepted regardless of how complex the survey structure is. No Google account required at this step.</p></div></div>
+              <div class="step-box"><div class="step-num">2</div><div class="step-content"><h4>Review in the AI Survey Editor</h4><p>Pirai AI extracts your survey into a structured Excel preview showing every question, type, answer option, and scale label. Review and edit in the AI Survey Editor before converting. Fix a question label, adjust a scale point, or remove a section without re-uploading.</p></div></div>
+              <div class="step-box"><div class="step-num">3</div><div class="step-content"><h4>Select Google Forms and download the Apps Script</h4><p>Select Google Forms as the target platform. Download the Google Apps Script file (.txt). Your document has been processed in-memory and is destroyed at this point. No Drive access, no OAuth prompt.</p></div></div>
+              <div class="step-box"><div class="step-num">4</div><div class="step-content"><h4>Run the script in your Google Form</h4><p>Open a blank Google Form. Click the three-dot menu (top right) and select <code>Script editor</code>. Delete the default code. Paste the entire script. Click <code>Run</code>. Grant the permission prompt (this is between you and Google). Your complete survey appears in the Form instantly.</p></div></div>
+            </div>
+
+            <h2 id="who-uses-this">Who Uses Survey-to-Google-Forms Conversion</h2>
+            <p><strong>Academic researchers</strong> who need to deploy a validated survey instrument in Google Forms for a student population or low-budget study. Converting a 40-item PHQ-9 or validated education survey from PDF to Google Forms manually takes hours and introduces transcription errors. Pirai AI converts it in minutes with the exact scale labels required.</p>
+            <p><strong>HR and people teams</strong> converting engagement surveys or pulse check instruments from Word documents into Google Forms for staff without access to Qualtrics or Microsoft Forms. The matrix format of most engagement surveys makes manual recreation particularly time-consuming.</p>
+            <p><strong>Healthcare professionals</strong> creating patient intake forms or symptom checklists in Google Forms from existing paper-based instruments. The Apps Script approach means no third-party Drive access is granted, which is important for organisations with data governance requirements around patient-related documents.</p>
+            <p><strong>Educators</strong> converting course evaluation forms, feedback surveys, or assessment instruments into Google Forms for student distribution without rebuilding every question from scratch.</p>
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Does Google Forms support matrix questions?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes, through the Multiple Choice Grid and Checkbox Grid question types. These display multiple row statements against a shared set of column options in a grid format. Pirai AI maps matrix questions from your source document to the appropriate Grid question type in the generated Apps Script.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Will branching logic survive the conversion to Google Forms?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Section-based branching logic is converted to Google Forms section routing. Google Forms supports one level of conditional section branching  -  if answer X, go to section Y. More complex nested logic is flagged for manual configuration in the Form editor after the script runs.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Does Pirai AI need access to my Google Drive?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>No. Pirai AI generates a Google Apps Script file you download and run yourself inside your own Google Form. No OAuth connection, no Drive permissions, no third-party access to your account at any point.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What happens to my survey document after conversion?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Your document is processed entirely in-memory and destroyed after the Apps Script is generated. No file is stored on Pirai AI's servers. OpenAI API training controls are disabled so your document content is not used for model training.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Can I convert a Qualtrics QSF file to Google Forms?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes. Upload the QSF file directly to Pirai AI and select Google Forms as the target. Qualtrics question types are mapped to the closest Google Forms equivalents. Note that Qualtrics-specific features like embedded data, quotas, and advanced display logic do not have direct equivalents in Google Forms and are noted in the output.</p></div>
+            </div>
+            <div class="article-cta">
+                <h3>Convert Your Survey to Google Forms in Minutes</h3>
+                <p>Upload a Word, PDF, or Excel document. Pirai AI preserves matrix questions, Likert scales, and branching logic. No Drive access required.</p>
+                <a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Start Converting Free</a>
+            </div>
+        </article>
+        <aside class="sidebar">
+            <div class="cta-box"><h3>Try Pirai AI Free</h3><p>Convert documents to Google Forms. No Drive access. No install.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-button">Start Free</a></div>
+            <div class="sidebar-section"><h3>Related</h3><ul class="toc-list">
+                    <li><a href="/add-matrix-questions-google-forms">Matrix Questions in Google Forms</a></li>
+                    <li><a href="/add-likert-scale-google-forms">Likert Scale in Google Forms</a></li>
+                    <li><a href="/google-forms-branching-logic">Branching Logic in Google Forms</a></li>
+                    <li><a href="/product/google-forms-converter/">Google Forms Converter</a></li>
+                    <li><a href="/blog/secured-converter-document-to-google-forms">Secured Converter Guide</a></li>
+            </ul></div>
+        </aside>
+    </div>
+    <section class="related-articles"><h2>Related Articles</h2><div class="related-grid">
+            <a href="/add-matrix-questions-google-forms" class="related-card"><span class="card-tag">Guide</span><h3>How to Add Matrix Questions to Google Forms</h3><p>Three methods for matrix questions in Google Forms and how Pirai AI builds them automatically.</p></a>
+            <a href="/add-likert-scale-google-forms" class="related-card"><span class="card-tag">Guide</span><h3>How to Add a Likert Scale in Google Forms</h3><p>Four methods for Likert scales in Google Forms, from Linear Scale to Multiple Choice Grid.</p></a>
+            <a href="/blog/secured-converter-document-to-google-forms" class="related-card"><span class="card-tag">Guide</span><h3>Secured Converter: Document to Google Forms</h3><p>How Pirai AI converts surveys without accessing your Google Drive.</p></a>
+    </div></section>
+    <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
+    <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
+    </script>
+</body></html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Add a Likert Scale in Google Forms (4 Methods) - Pirai AI</title>
+    <meta name="description" content="Google Forms supports Likert scales through Linear Scale and Multiple Choice Grid question types. Learn all 4 methods, when to use each, and how to convert a full Likert survey from a document automatically.">
+    <meta name="keywords" content="likert scale google forms, add likert scale google forms, google forms rating scale, linear scale google forms, google forms 5 point scale, likert google forms, google forms survey scale, agree disagree google forms">
+    <meta property="og:type" content="article"><meta property="og:url" content="https://piraiai.com/add-likert-scale-google-forms">
+    <meta property="og:title" content="How to Add a Likert Scale in Google Forms (4 Methods)"><meta property="og:description" content="Google Forms supports Likert scales through Linear Scale and Multiple Choice Grid question types. Learn all 4 methods, when to use each, and how to convert a full Likert survey from a document automatically.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="article:published_time" content="2026-07-24T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Add a Likert Scale in Google Forms (4 Methods)"><meta name="twitter:description" content="Google Forms supports Likert scales through Linear Scale and Multiple Choice Grid question types. Learn all 4 methods, when to use each, and how to convert a full Likert survey from a document automatically.">
+    <link rel="canonical" href="https://piraiai.com/add-likert-scale-google-forms"><link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to Add a Likert Scale in Google Forms (4 Methods)","description":"Google Forms supports Likert scales through Linear Scale and Multiple Choice Grid question types. Learn all 4 methods, when to use each, and how to convert a full Likert survey from a document automatically.","author":{"@type":"Person","name":"Arun Raj"},"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},"datePublished":"2026-07-24","url":"https://piraiai.com/add-likert-scale-google-forms"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can Google Forms do a 5-point Likert scale?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use a Linear Scale question and set the minimum to 1 and maximum to 5. Add 'Strongly Disagree' as the label for 1 and 'Strongly Agree' as the label for 5. For full verbal anchoring at every point, use Multiple Choice with five labelled answer options instead."}},{"@type":"Question","name":"What is the difference between Linear Scale and Multiple Choice Grid for Likert scales?","acceptedAnswer":{"@type":"Answer","text":"Linear Scale is for a single Likert item with numeric endpoints. Multiple Choice Grid is for a battery of Likert items where multiple statements share the same scale  -  it displays them in a grid with statements as rows and scale points as columns. Use Grid for batteries of 3 or more Likert items to save space."}},{"@type":"Question","name":"Does Google Forms support 7-point Likert scales?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use a Linear Scale question and set the maximum to 7. Or use Multiple Choice with seven labelled answer options. Multiple Choice Grid supports as many columns as you add, so a 7-point scale becomes 7 column headers."}},{"@type":"Question","name":"How does Pirai AI handle Likert scales from a Word document?","acceptedAnswer":{"@type":"Answer","text":"Pirai AI identifies Likert scale items in your document from their structure. Single items are mapped to Linear Scale questions. Batteries of items sharing the same scale are mapped to Multiple Choice Grid questions. The scale labels and range are pulled from the source document and preserved exactly in the Google Apps Script output."}}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Add a Likert Scale in Google Forms","step":[{"@type":"HowToStep","position":1,"name":"Add a Linear Scale question","text":"Click + to add a question. Select Linear Scale from the dropdown. Set the range (1 to 5 or 1 to 7). Add labels for the low and high ends."},{"@type":"HowToStep","position":2,"name":"For a matrix Likert battery, use Multiple Choice Grid","text":"Add a Multiple Choice Grid question. Add each Likert item as a row. Add your scale points (e.g. Strongly Disagree to Strongly Agree) as columns."},{"@type":"HowToStep","position":3,"name":"For document conversion, use Pirai AI","text":"Upload your Word, PDF, or Excel document at platform.piraiai.com. Select Google Forms. Download the Apps Script. Run it in your Google Form to build all Likert items automatically."}]}</script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; margin-left: 32px; transition: color 0.2s; }
+        header nav a:hover { color: #9B6BFF; }
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+        .content-wrapper { max-width: 1200px; margin: 48px auto; padding: 0 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+        .article-content { max-width: 680px; overflow-x: hidden; }
+        .article-content p { font-size: 18px; color: #374151; margin-bottom: 24px; line-height: 1.7; }
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-top: 32px; margin-bottom: 12px; }
+        .article-content a { color: #9B6BFF; text-decoration: none; border-bottom: 1px solid rgba(155,107,255,0.3); transition: all 0.2s; }
+        .article-content a:hover { border-bottom-color: #9B6BFF; }
+        .article-content ul, .article-content ol { margin-bottom: 24px; padding-left: 24px; }
+        .article-content li { font-size: 18px; color: #374151; margin-bottom: 10px; line-height: 1.7; }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+        .definition-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 28px; margin: 32px 0; border-radius: 4px; }
+        .definition-box .def-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9B6BFF; margin-bottom: 12px; display: block; }
+        .definition-box p { font-size: 17px; color: #1a1a1a; margin-bottom: 0; font-style: italic; line-height: 1.7; }
+        .related-terms { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 32px 0; }
+        .related-terms h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+        .related-terms ul { padding-left: 0; list-style: none; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+        .related-terms li { margin: 0; }
+        .related-terms a { display: inline-block; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 6px 14px; font-size: 14px; color: #374151; text-decoration: none; border-bottom: none; transition: all 0.2s; }
+        .related-terms a:hover { border-color: #9B6BFF; color: #9B6BFF; border-bottom: none; }
+        .article-cta { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 36px 40px; border-radius: 12px; margin: 48px 0 32px; text-align: center; }
+        .article-cta h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+        .article-cta p { font-size: 16px; color: #ffffff; opacity: 0.95; margin-bottom: 20px; }
+        .article-cta a { border-bottom: none !important; }
+        .cta-btn-white { display: inline-block; background: #ffffff; color: #9B6BFF !important; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-btn-white:hover { transform: translateY(-2px); }
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a1a1a; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; transition: color 0.2s; border-bottom: none; display: block; }
+        .toc-list a:hover { color: #9B6BFF; }
+        .toc-list a.active { color: #9B6BFF; font-weight: 600; }
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 32px; border-radius: 8px; text-align: center; color: #ffffff; margin-bottom: 24px; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .cta-box p { font-size: 14px; margin-bottom: 20px; opacity: 0.95; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-button:hover { transform: translateY(-2px); }
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; border-bottom: none; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
+        .related-card .card-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #9B6BFF; margin-bottom: 8px; display: block; }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
+        .related-card p { font-size: 14px; color: #6b7280; margin: 0; }
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+        @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 400px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
+        .tldr-box { background: #f0fdf4; border: 1px solid #86efac; border-left: 4px solid #16a34a; border-radius: 8px; padding: 20px 24px; margin: 0 0 32px; }
+        .tldr-box .tldr-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #16a34a; margin-bottom: 8px; display: block; }
+        .tldr-box p { font-size: 16px; color: #1a1a1a; margin: 0; line-height: 1.6; }
+        .method-grid { display: flex; flex-direction: column; gap: 16px; margin: 24px 0; }
+        .method-card { border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; }
+        .method-header { display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: #f9fafb; }
+        .method-num { width: 36px; height: 36px; border-radius: 50%; background: #e5e7eb; color: #374151; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .method-num.recommended { background: #9B6BFF; color: #ffffff; }
+        .method-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 17px; color: #1a1a1a; }
+        .method-badge { margin-left: auto; padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+        .badge-easy { background: #dcfce7; color: #16a34a; }
+        .badge-medium { background: #fef9c3; color: #854d0e; }
+        .badge-recommended { background: #ede9fe; color: #7c3aed; }
+        .method-body { padding: 16px 20px; }
+        .method-body p { font-size: 15px; color: #374151; margin: 0 0 10px; line-height: 1.6; }
+        .method-body p:last-child { margin: 0; }
+        .method-body code { background: #f3f4f6; padding: 2px 7px; border-radius: 4px; font-size: 13px; color: #7c3aed; font-family: monospace; }
+        .method-body ul { padding-left: 20px; margin: 8px 0 0; }
+        .method-body li { font-size: 15px; color: #374151; margin-bottom: 4px; }
+        .limitation-note { background: #fff7ed; border-left: 3px solid #f97316; padding: 10px 14px; border-radius: 0 6px 6px 0; font-size: 14px; color: #9a3412; margin-top: 10px; }
+        .step-grid { display: flex; flex-direction: column; gap: 0; margin: 24px 0; }
+        .step-box { display: flex; gap: 18px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid #f3f4f6; }
+        .step-box:last-child { border-bottom: none; }
+        .step-num { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: #9B6BFF; color: #ffffff; font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+        .step-content h4 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 700; color: #1a1a1a; margin-bottom: 5px; }
+        .step-content p { font-size: 15px; color: #374151; margin: 0; line-height: 1.6; }
+        .step-content code { background: #f3f4f6; padding: 2px 7px; border-radius: 4px; font-size: 13px; color: #7c3aed; font-family: monospace; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; }
+        .comparison-table th { padding: 12px 16px; text-align: left; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; background: #f9fafb; color: #6b7280; border-bottom: 2px solid #e5e7eb; }
+        .comparison-table th.pirai { background: #f5f3ff; color: #7c3aed; }
+        .comparison-table td { padding: 11px 16px; border-bottom: 1px solid #f3f4f6; color: #374151; }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table td:first-child { font-weight: 600; color: #1a1a1a; }
+        .comparison-table td.pirai { background: #fdf9ff; }
+        .check { color: #16a34a; font-weight: 700; }
+        .cross { color: #dc2626; font-weight: 700; }
+        .partial { color: #d97706; }
+        .wedge-hero { background: linear-gradient(135deg, #f9fafb 0%, #f0ebff 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .wedge-hero-container { max-width: 1200px; margin: 0 auto; }
+        .wedge-badge { display: inline-block; background: #f0ebff; color: #7c3aed; border: 1px solid #ddd6fe; border-radius: 20px; padding: 4px 14px; font-size: 12px; font-weight: 700; margin-bottom: 16px; }
+        .wedge-cta-inline { display: inline-block; background: #9B6BFF; color: #ffffff; padding: 10px 22px; border-radius: 7px; text-decoration: none; font-weight: 700; font-size: 14px; margin-top: 16px; border-bottom: none !important; transition: background 0.2s; }
+        .wedge-cta-inline:hover { background: #8b5cf6; }
+        @media (max-width: 640px) { .method-badge { display: none; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header><div class="header-container">
+        <a href="/" class="logo"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span class="logo-text">Pirai AI</span></a>
+        <nav><a href="/">Home</a><a href="/blog">Blog</a><a href="/tools">Free Tools</a><a href="/product/google-forms-converter/">Google Forms</a></nav>
+    </div></header>
+    <div class="breadcrumb"><div class="breadcrumb-container">
+        <a href="/">Home</a><span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">How to Add a Likert Scale in Google Forms (4 Methods)</span>
+    </div></div>
+    <div class="wedge-hero"><div class="wedge-hero-container">
+        <span class="wedge-badge">Google Forms Guide</span>
+        <h1 class="article-title">How to Add a Likert Scale in Google Forms (4 Methods)</h1>
+        <div class="article-meta"><span class="author">Arun Raj</span><span class="separator">•</span><span>July 24, 2026</span><span class="separator">•</span><span>5 min read</span></div>
+        <a href="https://platform.piraiai.com" target="_blank" class="wedge-cta-inline">Convert Your Survey Free</a>
+    </div></div>
+    <div class="content-wrapper">
+        <article class="article-content">
+
+            <div class="tldr-box">
+                <span class="tldr-label">Quick Answer</span>
+                <p>Google Forms supports Likert scales through two native question types: Linear Scale (for single items) and Multiple Choice Grid (for batteries of Likert items sharing the same scale). For converting a Likert survey from a Word or PDF document, Pirai AI maps each question to the correct type automatically via Google Apps Script.</p>
+            </div>
+
+            <h2 id="what-is-likert">What a Likert Scale Requires in Google Forms</h2>
+            <p>A Likert scale asks respondents to rate their level of agreement with a statement, typically on a 5-point or 7-point scale from "Strongly Disagree" to "Strongly Agree." In professional survey platforms this is a single question type. In Google Forms, the right approach depends on whether you have a single Likert item or a battery of items sharing the same scale.</p>
+
+            <h2 id="four-methods">Four Methods for Likert Scales in Google Forms</h2>
+            <div class="method-grid">
+              <div class="method-card">
+                <div class="method-header"><div class="method-num">1</div><div class="method-title">Linear Scale (1-5 or 1-7)</div><span class="method-badge badge-easy">Simplest</span></div>
+                <div class="method-body">
+                  <p>Best for single Likert items where a numeric scale with endpoint labels is sufficient. Quick to set up, renders cleanly on mobile.</p>
+                  <p><strong>How to set it up:</strong> Add a question. Select <code>Linear scale</code> from the dropdown. Set the minimum (1) and maximum (5 or 7). Add a label for the low end (e.g. "Strongly Disagree") and the high end (e.g. "Strongly Agree"). The numbers 1-5 display with the labels at each end.</p>
+                  <div class="limitation-note">Limitation: Only shows numeric labels at the endpoints. Respondents see numbers 1-5 but not verbal labels for each intermediate point. For research requiring full verbal anchoring at every scale point, use Method 2.</div>
+                </div>
+              </div>
+              <div class="method-card">
+                <div class="method-header"><div class="method-num">2</div><div class="method-title">Multiple Choice with Full Labels</div><span class="method-badge badge-medium">Full anchoring</span></div>
+                <div class="method-body">
+                  <p>Use when you need a verbal label for every scale point. Each answer option is a labelled response (e.g. "Strongly Disagree," "Disagree," "Neither," "Agree," "Strongly Agree"). Renders as radio buttons.</p>
+                  <p><strong>How to set it up:</strong> Add a question. Select <code>Multiple choice</code>. Type each scale point as a separate answer option in order from negative to positive. This gives you complete verbal anchoring for each option.</p>
+                  <div class="limitation-note">Limitation: Each Likert item needs its own Multiple Choice question. For a 10-item Likert battery, you create 10 separate questions. This is time-consuming to set up and takes more vertical space in the form compared to a grid format.</div>
+                </div>
+              </div>
+              <div class="method-card">
+                <div class="method-header"><div class="method-num">3</div><div class="method-title">Multiple Choice Grid (Likert Battery)</div><span class="method-badge badge-recommended">Best for batteries</span></div>
+                <div class="method-body">
+                  <p>The most efficient format for a battery of Likert items sharing the same scale. Multiple statements as rows, scale points as columns. Respondents select one option per row in a grid layout.</p>
+                  <p><strong>How to set it up:</strong> Add a question. Select <code>Multiple choice grid</code>. Add each Likert statement as a row (e.g. "I find the product easy to use," "I would recommend this product"). Add each scale point as a column header (e.g. "Strongly Disagree" through "Strongly Agree"). Enable "Require a response in each row."</p>
+                  <div class="limitation-note">Limitation: On mobile, grids with 5+ columns require horizontal scrolling. For mobile-first surveys, consider keeping scale points to 5 maximum and using abbreviated column labels.</div>
+                </div>
+              </div>
+              <div class="method-card">
+                <div class="method-header"><div class="method-num recommended">4</div><div class="method-title">Pirai AI Document Conversion</div><span class="method-badge badge-recommended">Fastest from documents</span></div>
+                <div class="method-body">
+                  <p>If your Likert survey exists in a Word document, PDF, or Excel file, Pirai AI converts it to a Google Apps Script that builds all your Likert questions in Google Forms automatically.</p>
+                  <p>Single Likert items are converted to Linear Scale questions with the correct range and endpoint labels. Likert batteries (multiple items sharing the same scale) are converted to Multiple Choice Grid questions with all row statements and column labels populated from your source document.</p>
+                  <div class="step-grid" style="margin:12px 0;">
+                    <div class="step-box" style="padding:10px 0;"><div class="step-num" style="width:28px;height:28px;font-size:13px;">1</div><div class="step-content"><p>Upload at <strong>platform.piraiai.com</strong>. Select Google Forms.</p></div></div>
+                    <div class="step-box" style="padding:10px 0;"><div class="step-num" style="width:28px;height:28px;font-size:13px;">2</div><div class="step-content"><p>Download the Apps Script. Likert items are pre-coded with correct question types.</p></div></div>
+                    <div class="step-box" style="padding:10px 0;"><div class="step-num" style="width:28px;height:28px;font-size:13px;">3</div><div class="step-content"><p>Open a blank Google Form. Paste the script in <code>Script editor</code>. Click Run.</p></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <h2 id="which-to-use">Decision Guide: Which Method to Pick</h2>
+            <table class="comparison-table">
+              <thead><tr><th>Situation</th><th class="pirai">Best Method</th></tr></thead>
+              <tbody>
+                <tr><td>Single Likert item, numeric scale is fine</td><td class="pirai">Linear Scale (Method 1)</td></tr>
+                <tr><td>Single Likert item, full verbal anchoring needed</td><td class="pirai">Multiple Choice (Method 2)</td></tr>
+                <tr><td>Multiple Likert items sharing the same scale</td><td class="pirai">Multiple Choice Grid (Method 3)</td></tr>
+                <tr><td>Survey document with Likert items to convert</td><td class="pirai">Pirai AI (Method 4)</td></tr>
+                <tr><td>Mobile-first survey with Likert scales</td><td class="pirai">Linear Scale or Method 2 (grids scroll on mobile)</td></tr>
+                <tr><td>Research requiring 7-point scale with all labels</td><td class="pirai">Multiple Choice Grid with 7 columns</td></tr>
+              </tbody>
+            </table>
+
+            <h2 id="tips">Formatting Tips for Likert Scales in Google Forms</h2>
+            <p>For Linear Scale questions, the scale must start at 0 or 1 and end between 2 and 10. A traditional 5-point Likert scale sets minimum to 1 and maximum to 5. A 7-point scale sets minimum to 1 and maximum to 7. You cannot use a 0-10 NPS-style scale with the same question type as a Likert  -  for NPS, use a Linear Scale from 0 to 10 separately.</p>
+            <p>For Multiple Choice Grid, keep column header text short. Long scale labels truncate on mobile. "SD / D / N / A / SA" works better than "Strongly Disagree / Disagree / Neither Agree Nor Disagree / Agree / Strongly Agree" in a grid with 5 columns on a phone screen.</p>
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Can Google Forms do a 5-point Likert scale?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes. Use a Linear Scale question and set the minimum to 1 and maximum to 5. Add 'Strongly Disagree' as the label for 1 and 'Strongly Agree' as the label for 5. For full verbal anchoring at every point, use Multiple Choice with five labelled answer options instead.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What is the difference between Linear Scale and Multiple Choice Grid for Likert scales?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Linear Scale is for a single Likert item with numeric endpoints. Multiple Choice Grid is for a battery of Likert items where multiple statements share the same scale  -  it displays them in a grid with statements as rows and scale points as columns. Use Grid for batteries of 3 or more Likert items to save space.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Does Google Forms support 7-point Likert scales?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes. Use a Linear Scale question and set the maximum to 7. Or use Multiple Choice with seven labelled answer options. Multiple Choice Grid supports as many columns as you add, so a 7-point scale becomes 7 column headers.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How does Pirai AI handle Likert scales from a Word document?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Pirai AI identifies Likert scale items in your document from their structure. Single items are mapped to Linear Scale questions. Batteries of items sharing the same scale are mapped to Multiple Choice Grid questions. The scale labels and range are pulled from the source document and preserved exactly in the Google Apps Script output.</p></div>
+            </div>
+            <div class="article-cta">
+                <h3>Convert Your Survey to Google Forms in Minutes</h3>
+                <p>Upload a Word, PDF, or Excel document. Pirai AI preserves matrix questions, Likert scales, and branching logic. No Drive access required.</p>
+                <a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Start Converting Free</a>
+            </div>
+        </article>
+        <aside class="sidebar">
+            <div class="cta-box"><h3>Try Pirai AI Free</h3><p>Convert documents to Google Forms. No Drive access. No install.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-button">Start Free</a></div>
+            <div class="sidebar-section"><h3>Related</h3><ul class="toc-list">
+                    <li><a href="/survey-to-google-forms">Survey to Google Forms</a></li>
+                    <li><a href="/add-matrix-questions-google-forms">Matrix Questions in Google Forms</a></li>
+                    <li><a href="/google-forms-branching-logic">Branching Logic in Google Forms</a></li>
+                    <li><a href="/product/google-forms-converter/">Google Forms Converter</a></li>
+            </ul></div>
+        </aside>
+    </div>
+    <section class="related-articles"><h2>Related Articles</h2><div class="related-grid">
+            <a href="/add-matrix-questions-google-forms" class="related-card"><span class="card-tag">Guide</span><h3>How to Add Matrix Questions to Google Forms</h3><p>Three methods for matrix questions in Google Forms including Multiple Choice Grid.</p></a>
+            <a href="/survey-to-google-forms" class="related-card"><span class="card-tag">Guide</span><h3>Survey to Google Forms</h3><p>The complete guide to converting professional surveys to Google Forms with all question types intact.</p></a>
+            <a href="/google-forms-branching-logic" class="related-card"><span class="card-tag">Guide</span><h3>Google Forms Branching Logic</h3><p>How conditional section routing works in Google Forms and its limitations.</p></a>
+    </div></section>
+    <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
+    <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
+    </script>
+</body></html>

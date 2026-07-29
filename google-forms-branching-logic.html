@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Forms Branching Logic: Complete Guide (2026) - Pirai AI</title>
+    <meta name="description" content="Master Google Forms branching logic. How to set up section-based skip logic, the limitations of Google Forms conditional routing, workarounds for complex logic, and how Pirai AI converts branching from survey documents.">
+    <meta name="keywords" content="google forms branching logic, google forms skip logic, conditional logic google forms, google forms section branching, google forms routing, skip to section google forms, google forms conditional questions, branching questions google forms">
+    <meta property="og:type" content="article"><meta property="og:url" content="https://piraiai.com/google-forms-branching-logic">
+    <meta property="og:title" content="Google Forms Branching Logic: Complete Guide (2026)"><meta property="og:description" content="Master Google Forms branching logic. How to set up section-based skip logic, the limitations of Google Forms conditional routing, workarounds for complex logic, and how Pirai AI converts branching from survey documents.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="article:published_time" content="2026-07-24T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Google Forms Branching Logic: Complete Guide (2026)"><meta name="twitter:description" content="Master Google Forms branching logic. How to set up section-based skip logic, the limitations of Google Forms conditional routing, workarounds for complex logic, and how Pirai AI converts branching from survey documents.">
+    <link rel="canonical" href="https://piraiai.com/google-forms-branching-logic"><link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Google Forms Branching Logic: Complete Guide (2026)","description":"Master Google Forms branching logic. How to set up section-based skip logic, the limitations of Google Forms conditional routing, workarounds for complex logic, and how Pirai AI converts branching from survey documents.","author":{"@type":"Person","name":"Arun Raj"},"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},"datePublished":"2026-07-24","url":"https://piraiai.com/google-forms-branching-logic"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I add branching logic to Google Forms?","acceptedAnswer":{"@type":"Answer","text":"Add sections for each branch path. Place a Multiple Choice or Dropdown question where the paths diverge. Click the three-dot menu on the question and select 'Go to section based on answer.' Map each answer option to the section respondents should see if they select it. Set section-end routing to control where each path goes after completing a branch."}},{"@type":"Question","name":"Can Google Forms hide individual questions based on earlier answers?","acceptedAnswer":{"@type":"Answer","text":"No. Google Forms branching operates at the section level only. You cannot show or hide individual questions within a section. To show a question conditionally, it must be in its own section that is only shown when a specific answer is selected in a routing question."}},{"@type":"Question","name":"What types of questions can trigger branching in Google Forms?","acceptedAnswer":{"@type":"Answer","text":"Only Multiple Choice and Dropdown questions can trigger section branching. Linear Scale, Short Answer, Paragraph, Grid, Date, and Time questions cannot trigger branching. If your routing question is a text entry or rating scale, you will need to add a separate Multiple Choice routing question."}},{"@type":"Question","name":"How does Pirai AI convert branching logic from a Word document to Google Forms?","acceptedAnswer":{"@type":"Answer","text":"Pirai AI reads the skip logic annotations in your survey document (e.g. 'IF Q3=Yes, SKIP TO Q8') and converts them to Google Forms section routing in the Apps Script output. Simple one-condition branches are converted automatically. Multi-condition or nested logic is flagged for manual configuration. For surveys with complex logic, converting to Qualtrics or REDCap via Pirai AI may be more appropriate than Google Forms."}}]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Set Up Branching Logic in Google Forms","step":[{"@type":"HowToStep","position":1,"name":"Organise your survey into sections","text":"In Google Forms, branching works at the section level. Add a new section for each branch path. Name sections clearly."},{"@type":"HowToStep","position":2,"name":"Add a routing question at the end of a section","text":"The last question in a section can route to different sections based on the answer. Use a Multiple Choice question for routing."},{"@type":"HowToStep","position":3,"name":"Set the section routing","text":"Click the three-dot menu on the routing question. Select Go to section based on answer. Map each answer option to the correct destination section."},{"@type":"HowToStep","position":4,"name":"For document-based surveys, use Pirai AI","text":"Upload your survey document at platform.piraiai.com. Select Google Forms. Pirai AI converts your branching logic to section-based routing in the Apps Script output."}]}</script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; margin-left: 32px; transition: color 0.2s; }
+        header nav a:hover { color: #9B6BFF; }
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+        .content-wrapper { max-width: 1200px; margin: 48px auto; padding: 0 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+        .article-content { max-width: 680px; overflow-x: hidden; }
+        .article-content p { font-size: 18px; color: #374151; margin-bottom: 24px; line-height: 1.7; }
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-top: 32px; margin-bottom: 12px; }
+        .article-content a { color: #9B6BFF; text-decoration: none; border-bottom: 1px solid rgba(155,107,255,0.3); transition: all 0.2s; }
+        .article-content a:hover { border-bottom-color: #9B6BFF; }
+        .article-content ul, .article-content ol { margin-bottom: 24px; padding-left: 24px; }
+        .article-content li { font-size: 18px; color: #374151; margin-bottom: 10px; line-height: 1.7; }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+        .definition-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 28px; margin: 32px 0; border-radius: 4px; }
+        .definition-box .def-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9B6BFF; margin-bottom: 12px; display: block; }
+        .definition-box p { font-size: 17px; color: #1a1a1a; margin-bottom: 0; font-style: italic; line-height: 1.7; }
+        .related-terms { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 32px 0; }
+        .related-terms h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+        .related-terms ul { padding-left: 0; list-style: none; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+        .related-terms li { margin: 0; }
+        .related-terms a { display: inline-block; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 6px 14px; font-size: 14px; color: #374151; text-decoration: none; border-bottom: none; transition: all 0.2s; }
+        .related-terms a:hover { border-color: #9B6BFF; color: #9B6BFF; border-bottom: none; }
+        .article-cta { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 36px 40px; border-radius: 12px; margin: 48px 0 32px; text-align: center; }
+        .article-cta h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+        .article-cta p { font-size: 16px; color: #ffffff; opacity: 0.95; margin-bottom: 20px; }
+        .article-cta a { border-bottom: none !important; }
+        .cta-btn-white { display: inline-block; background: #ffffff; color: #9B6BFF !important; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-btn-white:hover { transform: translateY(-2px); }
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a1a1a; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; transition: color 0.2s; border-bottom: none; display: block; }
+        .toc-list a:hover { color: #9B6BFF; }
+        .toc-list a.active { color: #9B6BFF; font-weight: 600; }
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 32px; border-radius: 8px; text-align: center; color: #ffffff; margin-bottom: 24px; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .cta-box p { font-size: 14px; margin-bottom: 20px; opacity: 0.95; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-button:hover { transform: translateY(-2px); }
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; border-bottom: none; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
+        .related-card .card-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #9B6BFF; margin-bottom: 8px; display: block; }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
+        .related-card p { font-size: 14px; color: #6b7280; margin: 0; }
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+        @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 400px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
+        .tldr-box { background: #f0fdf4; border: 1px solid #86efac; border-left: 4px solid #16a34a; border-radius: 8px; padding: 20px 24px; margin: 0 0 32px; }
+        .tldr-box .tldr-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #16a34a; margin-bottom: 8px; display: block; }
+        .tldr-box p { font-size: 16px; color: #1a1a1a; margin: 0; line-height: 1.6; }
+        .method-grid { display: flex; flex-direction: column; gap: 16px; margin: 24px 0; }
+        .method-card { border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; }
+        .method-header { display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: #f9fafb; }
+        .method-num { width: 36px; height: 36px; border-radius: 50%; background: #e5e7eb; color: #374151; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .method-num.recommended { background: #9B6BFF; color: #ffffff; }
+        .method-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 17px; color: #1a1a1a; }
+        .method-badge { margin-left: auto; padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+        .badge-easy { background: #dcfce7; color: #16a34a; }
+        .badge-medium { background: #fef9c3; color: #854d0e; }
+        .badge-recommended { background: #ede9fe; color: #7c3aed; }
+        .method-body { padding: 16px 20px; }
+        .method-body p { font-size: 15px; color: #374151; margin: 0 0 10px; line-height: 1.6; }
+        .method-body p:last-child { margin: 0; }
+        .method-body code { background: #f3f4f6; padding: 2px 7px; border-radius: 4px; font-size: 13px; color: #7c3aed; font-family: monospace; }
+        .method-body ul { padding-left: 20px; margin: 8px 0 0; }
+        .method-body li { font-size: 15px; color: #374151; margin-bottom: 4px; }
+        .limitation-note { background: #fff7ed; border-left: 3px solid #f97316; padding: 10px 14px; border-radius: 0 6px 6px 0; font-size: 14px; color: #9a3412; margin-top: 10px; }
+        .step-grid { display: flex; flex-direction: column; gap: 0; margin: 24px 0; }
+        .step-box { display: flex; gap: 18px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid #f3f4f6; }
+        .step-box:last-child { border-bottom: none; }
+        .step-num { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: #9B6BFF; color: #ffffff; font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+        .step-content h4 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 700; color: #1a1a1a; margin-bottom: 5px; }
+        .step-content p { font-size: 15px; color: #374151; margin: 0; line-height: 1.6; }
+        .step-content code { background: #f3f4f6; padding: 2px 7px; border-radius: 4px; font-size: 13px; color: #7c3aed; font-family: monospace; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; }
+        .comparison-table th { padding: 12px 16px; text-align: left; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; background: #f9fafb; color: #6b7280; border-bottom: 2px solid #e5e7eb; }
+        .comparison-table th.pirai { background: #f5f3ff; color: #7c3aed; }
+        .comparison-table td { padding: 11px 16px; border-bottom: 1px solid #f3f4f6; color: #374151; }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table td:first-child { font-weight: 600; color: #1a1a1a; }
+        .comparison-table td.pirai { background: #fdf9ff; }
+        .check { color: #16a34a; font-weight: 700; }
+        .cross { color: #dc2626; font-weight: 700; }
+        .partial { color: #d97706; }
+        .wedge-hero { background: linear-gradient(135deg, #f9fafb 0%, #f0ebff 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .wedge-hero-container { max-width: 1200px; margin: 0 auto; }
+        .wedge-badge { display: inline-block; background: #f0ebff; color: #7c3aed; border: 1px solid #ddd6fe; border-radius: 20px; padding: 4px 14px; font-size: 12px; font-weight: 700; margin-bottom: 16px; }
+        .wedge-cta-inline { display: inline-block; background: #9B6BFF; color: #ffffff; padding: 10px 22px; border-radius: 7px; text-decoration: none; font-weight: 700; font-size: 14px; margin-top: 16px; border-bottom: none !important; transition: background 0.2s; }
+        .wedge-cta-inline:hover { background: #8b5cf6; }
+        @media (max-width: 640px) { .method-badge { display: none; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header><div class="header-container">
+        <a href="/" class="logo"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span class="logo-text">Pirai AI</span></a>
+        <nav><a href="/">Home</a><a href="/blog">Blog</a><a href="/tools">Free Tools</a><a href="/product/google-forms-converter/">Google Forms</a></nav>
+    </div></header>
+    <div class="breadcrumb"><div class="breadcrumb-container">
+        <a href="/">Home</a><span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">Google Forms Branching Logic</span>
+    </div></div>
+    <div class="wedge-hero"><div class="wedge-hero-container">
+        <span class="wedge-badge">Google Forms Guide</span>
+        <h1 class="article-title">Google Forms Branching Logic: Complete Guide (2026)</h1>
+        <div class="article-meta"><span class="author">Arun Raj</span><span class="separator">•</span><span>July 24, 2026</span><span class="separator">•</span><span>5 min read</span></div>
+        <a href="https://platform.piraiai.com" target="_blank" class="wedge-cta-inline">Convert Your Survey Free</a>
+    </div></div>
+    <div class="content-wrapper">
+        <article class="article-content">
+
+            <div class="tldr-box">
+                <span class="tldr-label">Quick Answer</span>
+                <p>Google Forms supports section-based branching: if a respondent selects answer X, they skip to section Y. This works at the section level only  -  there is no question-level display logic. For complex surveys with multiple nested branches, Google Forms has real limitations. Pirai AI converts document-based branching logic to the closest Google Forms equivalent automatically.</p>
+            </div>
+
+            <h2 id="how-branching-works">How Branching Logic Works in Google Forms</h2>
+            <p>Google Forms branching routes respondents to different sections based on their answer to a specific question. The branch trigger must be a Multiple Choice or Dropdown question. Linear Scale, Grid, and Short Answer questions cannot trigger branching. The routing is set at the question level  -  one question routes to one of several sections depending on which option the respondent selects.</p>
+            <p>The key constraint is that branching operates at the section level, not the question level. You cannot show or hide individual questions within a section based on earlier answers. To create conditional question paths, you must put each conditional question in its own section or group questions that share the same display condition into the same section.</p>
+
+            <h2 id="setup-step-by-step">Setting Up Branching Logic Step by Step</h2>
+            <div class="step-grid">
+              <div class="step-box"><div class="step-num">1</div><div class="step-content"><h4>Structure your survey into sections</h4><p>Plan your branching paths before building. Each unique path needs its own section. For a survey that routes pet owners to different questions than non-owners, you need at least three sections: shared intro, pet owner questions, non-owner questions, and shared closing. Add sections using the "Add section" button (the horizontal line icon in the right toolbar).</p></div></div>
+              <div class="step-box"><div class="step-num">2</div><div class="step-content"><h4>Add a Multiple Choice routing question</h4><p>Place your routing question at the point where the paths diverge. This must be a Multiple Choice or Dropdown question. The answer options will each route to a different section. Name your routing question clearly so you can identify it when setting up the routing logic.</p></div></div>
+              <div class="step-box"><div class="step-num">3</div><div class="step-content"><h4>Set the routing for each answer</h4><p>Click the three-dot menu on the routing question. Select <code>Go to section based on answer</code>. A dropdown appears next to each answer option. Set each one to the section respondents should see if they select that answer. Set "After section [X]" routing to <code>Go to next section</code>, <code>Submit form</code>, or a specific section as needed.</p></div></div>
+              <div class="step-box"><div class="step-num">4</div><div class="step-content"><h4>Set section-end routing</h4><p>At the bottom of each section, click the section name to expand settings. Set what happens when the respondent reaches the end of the section: continue to next section, go to a specific section, or submit the form. This controls how paths converge back to shared questions after diverging.</p></div></div>
+              <div class="step-box"><div class="step-num">5</div><div class="step-content"><h4>Test every path</h4><p>Click the eye icon (Preview) to open the form as a respondent. Test each possible answer to the routing question and confirm the correct sections appear. Do not publish until every branch path has been tested end-to-end.</p></div></div>
+            </div>
+
+            <h2 id="limitations">Real Limitations of Google Forms Branching</h2>
+            <p><strong>Section-level only, not question-level.</strong> The most significant limitation is that you cannot show or hide individual questions based on earlier answers. Every question in a section appears to every respondent who reaches that section. This forces complex surveys into large numbers of short single-question sections, which becomes unmanageable for surveys with more than 3-4 branch points.</p>
+            <p><strong>Only Multiple Choice and Dropdown can trigger branching.</strong> If your routing question is a text entry, Linear Scale, or Grid question, it cannot trigger branching. You cannot branch on a numeric threshold ("if age is under 18, go to section B")  -  only on specific selected options.</p>
+            <p><strong>No nested conditions.</strong> Google Forms does not support "if X AND Y, then show Z." Each routing question routes based on a single answer selection. Multi-condition display logic (common in Qualtrics) has no equivalent.</p>
+            <p><strong>No embedded data or profile-based routing.</strong> Google Forms cannot route respondents based on information passed via URL parameters or from a respondent database. Every routing decision must come from an in-form question.</p>
+
+            <h2 id="workarounds">Workarounds for Complex Logic</h2>
+            <p>For surveys requiring more than 3-4 branch paths, the most practical workarounds are: splitting the survey into multiple separate Google Forms with a link in the thank-you message directing respondents to the appropriate follow-up form; using Google Forms' section structure to approximate question-level display logic by isolating each conditional question into its own section; or migrating the survey to a platform with true display logic such as Qualtrics, REDCap, or SurveyMonkey.</p>
+
+            <h2 id="pirai-conversion">Converting Branching Logic from Survey Documents</h2>
+            <p>If your survey document contains skip logic or display logic annotations (e.g. "IF Q5=Yes, SKIP TO Q12" or "SHOW Q8 IF Q3=2 OR 3"), Pirai AI converts the branching structure to Google Forms section routing in the Apps Script output. Simple single-condition branches are converted automatically. Complex nested or multi-condition logic is flagged in the script with comments indicating what needs to be manually configured in the Form editor after the script runs.</p>
+            <p>For surveys where the branching logic is too complex for Google Forms to handle well, Pirai AI can convert the same document to Qualtrics or REDCap instead, where full display and skip logic is supported natively. Select a different target platform in the same session without re-uploading.</p>
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How do I add branching logic to Google Forms?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Add sections for each branch path. Place a Multiple Choice or Dropdown question where the paths diverge. Click the three-dot menu on the question and select 'Go to section based on answer.' Map each answer option to the section respondents should see if they select it. Set section-end routing to control where each path goes after completing a branch.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Can Google Forms hide individual questions based on earlier answers?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>No. Google Forms branching operates at the section level only. You cannot show or hide individual questions within a section. To show a question conditionally, it must be in its own section that is only shown when a specific answer is selected in a routing question.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What types of questions can trigger branching in Google Forms?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Only Multiple Choice and Dropdown questions can trigger section branching. Linear Scale, Short Answer, Paragraph, Grid, Date, and Time questions cannot trigger branching. If your routing question is a text entry or rating scale, you will need to add a separate Multiple Choice routing question.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How does Pirai AI convert branching logic from a Word document to Google Forms?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Pirai AI reads the skip logic annotations in your survey document (e.g. 'IF Q3=Yes, SKIP TO Q8') and converts them to Google Forms section routing in the Apps Script output. Simple one-condition branches are converted automatically. Multi-condition or nested logic is flagged for manual configuration. For surveys with complex logic, converting to Qualtrics or REDCap via Pirai AI may be more appropriate than Google Forms.</p></div>
+            </div>
+            <div class="article-cta">
+                <h3>Convert Your Survey to Google Forms in Minutes</h3>
+                <p>Upload a Word, PDF, or Excel document. Pirai AI preserves matrix questions, Likert scales, and branching logic. No Drive access required.</p>
+                <a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Start Converting Free</a>
+            </div>
+        </article>
+        <aside class="sidebar">
+            <div class="cta-box"><h3>Try Pirai AI Free</h3><p>Convert documents to Google Forms. No Drive access. No install.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-button">Start Free</a></div>
+            <div class="sidebar-section"><h3>Related</h3><ul class="toc-list">
+                    <li><a href="/survey-to-google-forms">Survey to Google Forms</a></li>
+                    <li><a href="/add-matrix-questions-google-forms">Matrix Questions in Google Forms</a></li>
+                    <li><a href="/add-likert-scale-google-forms">Likert Scale in Google Forms</a></li>
+                    <li><a href="/product/google-forms-converter/">Google Forms Converter</a></li>
+            </ul></div>
+        </aside>
+    </div>
+    <section class="related-articles"><h2>Related Articles</h2><div class="related-grid">
+            <a href="/survey-to-google-forms" class="related-card"><span class="card-tag">Guide</span><h3>Survey to Google Forms</h3><p>Complete guide to converting surveys including branching logic, matrix, and Likert scales.</p></a>
+            <a href="/add-matrix-questions-google-forms" class="related-card"><span class="card-tag">Guide</span><h3>Matrix Questions in Google Forms</h3><p>How to add matrix questions to Google Forms using the Multiple Choice Grid.</p></a>
+            <a href="/blog/preserve-skip-logic-survey-migration" class="related-card"><span class="card-tag">Guide</span><h3>Preserving Skip Logic in Survey Migration</h3><p>How to document and rebuild skip logic when migrating surveys between platforms.</p></a>
+    </div></section>
+    <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
+    <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
+    </script>
+</body></html>
