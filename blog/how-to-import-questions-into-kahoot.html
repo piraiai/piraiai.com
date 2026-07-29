@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Import Questions into Kahoot (Spreadsheet Guide, 2026) - Pirai AI Blog</title>
+    <meta name="description" content="Full guide to Kahoot's spreadsheet import format. How to structure your .xlsx file, column layout, character limits, and how to convert quiz documents to the right format automatically.">
+    <meta name="keywords" content="how to import questions into kahoot, kahoot import spreadsheet, kahoot import quiz, kahoot spreadsheet format, kahoot xlsx import, import quiz kahoot, kahoot bulk import questions, kahoot import template 2026">
+    <meta property="og:type" content="article"><meta property="og:url" content="https://piraiai.com/blog/how-to-import-questions-into-kahoot">
+    <meta property="og:title" content="How to Import Questions into Kahoot (Spreadsheet Guide, 2026)"><meta property="og:description" content="Full guide to Kahoot's spreadsheet import format. How to structure your .xlsx file, column layout, character limits, and how to convert quiz documents to the right format automatically.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="article:published_time" content="2026-07-18T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta property="article:section" content="Glossary">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Import Questions into Kahoot (Spreadsheet Guide, 2026)"><meta name="twitter:description" content="Full guide to Kahoot's spreadsheet import format. How to structure your .xlsx file, column layout, character limits, and how to convert quiz documents to the right format automatically.">
+    <link rel="canonical" href="https://piraiai.com/blog/how-to-import-questions-into-kahoot"><link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to Import Questions into Kahoot (Spreadsheet Guide, 2026)","description":"Full guide to Kahoot's spreadsheet import format. How to structure your .xlsx file, column layout, character limits, and how to convert quiz documents to the right format automatically.","author":{"@type":"Person","name":"Arun Raj"},"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},"datePublished":"2026-07-18","url":"https://piraiai.com/blog/how-to-import-questions-into-kahoot"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I bulk import questions into Kahoot?","acceptedAnswer":{"@type":"Answer","text":"Kahoot bulk import uses an Excel spreadsheet (.xlsx). Create your spreadsheet using Kahoot's template (downloadable from the import dialog), with one question per row and columns for question text, up to four answers, time limit, and correct answer number. In Kahoot, go to Create > Quiz > Blank Canvas > Import spreadsheet to upload the file."}},{"@type":"Question","name":"What is the maximum number of questions I can import into Kahoot?","acceptedAnswer":{"@type":"Answer","text":"Kahoot's spreadsheet import supports a maximum of 100 questions per upload with a 1MB file size limit. For larger question banks, split into multiple spreadsheets and create separate quizzes, or link multiple quizzes in a Kahoot collection."}},{"@type":"Question","name":"Can I import questions from Google Sheets into Kahoot?","acceptedAnswer":{"@type":"Answer","text":"Yes, by exporting your Google Sheet as .xlsx (File > Download > Microsoft Excel .xlsx) and then importing the .xlsx file into Kahoot. The column structure must match Kahoot's import template. If your Google Sheet is a question bank in a different format, use Pirai AI to convert it to the Kahoot template first."}},{"@type":"Question","name":"Why is my Kahoot import failing?","acceptedAnswer":{"@type":"Answer","text":"The most common reasons are: question text over 95 characters, answer text over 60 characters, missing correct answer in the Correct Answer column, fewer than 2 answer options, or column headers that don't match Kahoot's template. Kahoot's error message identifies the specific rows with issues. Fix them in the spreadsheet and re-upload."}}]}</script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; margin-left: 32px; transition: color 0.2s; }
+        header nav a:hover { color: #9B6BFF; }
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+        .content-wrapper { max-width: 1200px; margin: 48px auto; padding: 0 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+        .article-content { max-width: 680px; overflow-x: hidden; }
+        .article-content p { font-size: 18px; color: #374151; margin-bottom: 24px; line-height: 1.7; }
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-top: 32px; margin-bottom: 12px; }
+        .article-content a { color: #9B6BFF; text-decoration: none; border-bottom: 1px solid rgba(155,107,255,0.3); transition: all 0.2s; }
+        .article-content a:hover { border-bottom-color: #9B6BFF; }
+        .article-content ul, .article-content ol { margin-bottom: 24px; padding-left: 24px; }
+        .article-content li { font-size: 18px; color: #374151; margin-bottom: 10px; line-height: 1.7; }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+        .definition-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 28px; margin: 32px 0; border-radius: 4px; }
+        .definition-box .def-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9B6BFF; margin-bottom: 12px; display: block; }
+        .definition-box p { font-size: 17px; color: #1a1a1a; margin-bottom: 0; font-style: italic; line-height: 1.7; }
+        .related-terms { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 32px 0; }
+        .related-terms h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+        .related-terms ul { padding-left: 0; list-style: none; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+        .related-terms li { margin: 0; }
+        .related-terms a { display: inline-block; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 6px 14px; font-size: 14px; color: #374151; text-decoration: none; border-bottom: none; transition: all 0.2s; }
+        .related-terms a:hover { border-color: #9B6BFF; color: #9B6BFF; border-bottom: none; }
+        .article-cta { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 36px 40px; border-radius: 12px; margin: 48px 0 32px; text-align: center; }
+        .article-cta h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+        .article-cta p { font-size: 16px; color: #ffffff; opacity: 0.95; margin-bottom: 20px; }
+        .article-cta a { border-bottom: none !important; }
+        .cta-btn-white { display: inline-block; background: #ffffff; color: #9B6BFF !important; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-btn-white:hover { transform: translateY(-2px); }
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a1a1a; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; transition: color 0.2s; border-bottom: none; display: block; }
+        .toc-list a:hover { color: #9B6BFF; }
+        .toc-list a.active { color: #9B6BFF; font-weight: 600; }
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 32px; border-radius: 8px; text-align: center; color: #ffffff; margin-bottom: 24px; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .cta-box p { font-size: 14px; margin-bottom: 20px; opacity: 0.95; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-button:hover { transform: translateY(-2px); }
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; border-bottom: none; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
+        .related-card .card-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #9B6BFF; margin-bottom: 8px; display: block; }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
+        .related-card p { font-size: 14px; color: #6b7280; margin: 0; }
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+        @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 400px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header><div class="header-container">
+        <a href="/" class="logo"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span></a>
+        <nav><a href="/">Home</a><a href="/blog">All Articles</a><a href="/docs">Documentation</a><a href="/#demo">Get Demo</a></nav>
+    </div></header>
+    <div class="breadcrumb"><div class="breadcrumb-container">
+        <a href="/">Home</a><span class="breadcrumb-separator">›</span>
+        <a href="/blog">Blog</a><span class="breadcrumb-separator">›</span>
+        <a href="/blog?category=glossary">Glossary</a><span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">How to Import Questions into Kahoot (Spreadsheet Guide, 2026)</span>
+    </div></div>
+    <div class="hero"><div class="hero-container">
+        <h1 class="article-title">How to Import Questions into Kahoot (Spreadsheet Guide, 2026)</h1>
+        <div class="article-meta"><span class="author">Arun Raj</span><span class="separator">•</span><span>July 18, 2026</span><span class="separator">•</span><span>3 min read</span><span class="separator">•</span><span style="background:#e5e7eb;color:#374151;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:600;">Glossary</span></div>
+    </div></div>
+    <div class="content-wrapper">
+        <article class="article-content">
+            <div class="definition-box">
+                <span class="def-label">Definition</span>
+                <p>Kahoot imports questions from an Excel spreadsheet (.xlsx) using a specific column structure: question text, up to four answer options, time limit in seconds, and a correct answer number. The import function is accessed from the quiz editor via the 'Import spreadsheet' button. Questions are limited to 95 characters and answers to 60 characters each.</p>
+            </div>
+
+            <h2 id="what-kahoot-supports">What Kahoot's Import Supports</h2>
+            <p>Kahoot supports bulk question import via Excel spreadsheet only. There is no CSV import, no Word import, no PDF import, and no plain text import. The import function accepts .xlsx files structured to Kahoot's column template, with one question per row.</p>
+            <p>Kahoot's spreadsheet import supports multiple choice questions only  -  up to 4 answer options per question with at least one correct answer marked. True/false questions are formatted as 2-option multiple choice. Open-ended, short answer, and fill-in-the-blank question types are not supported by Kahoot's import.</p>
+
+            <h2 id="spreadsheet-format">The Kahoot Spreadsheet Format</h2>
+            <p>Kahoot's import spreadsheet uses the following column structure (the exact column headers must match Kahoot's template):</p>
+            <table class="comparison-table">
+              <thead><tr><th>Column</th><th>Required?</th><th class="pirai">Limits and Notes</th></tr></thead>
+              <tbody>
+                <tr><td>Question</td><td>Yes</td><td class="pirai">Max 95 characters including spaces</td></tr>
+                <tr><td>Answer 1</td><td>Yes</td><td class="pirai">Max 60 characters. At least 2 answers required.</td></tr>
+                <tr><td>Answer 2</td><td>Yes</td><td class="pirai">Max 60 characters</td></tr>
+                <tr><td>Answer 3</td><td>No</td><td class="pirai">Max 60 characters</td></tr>
+                <tr><td>Answer 4</td><td>No</td><td class="pirai">Max 60 characters</td></tr>
+                <tr><td>Time limit (seconds)</td><td>Yes</td><td class="pirai">5-120 seconds. 20 is the Kahoot default.</td></tr>
+                <tr><td>Correct answer</td><td>Yes</td><td class="pirai">Number (1-4) indicating which answer is correct. At least 1 required.</td></tr>
+                <tr><td>Image link</td><td>No</td><td class="pirai">URL to an image to display with the question</td></tr>
+              </tbody>
+            </table>
+            <p>Download Kahoot's official template from the import dialog in Kahoot's quiz editor. Use it as your base to ensure the column headers match exactly  -  Kahoot's import rejects spreadsheets with column headers that do not match the template.</p>
+
+            <h2 id="how-to-import">How to Import Step by Step</h2>
+            <div class="step-grid">
+              <div class="step-box"><div class="step-num">1</div><div class="step-content"><h4>Log into Kahoot and click Create</h4><p>Go to <strong>kahoot.com</strong>. Click <strong>Create</strong> in the top navigation. Select <strong>Quiz</strong> as the game type.</p></div></div>
+              <div class="step-box"><div class="step-num">2</div><div class="step-content"><h4>Select Blank Canvas</h4><p>Choose <strong>Blank Canvas</strong>  -  not one of the themed templates. This opens the quiz editor where the import function is available.</p></div></div>
+              <div class="step-box"><div class="step-num">3</div><div class="step-content"><h4>Click Import spreadsheet</h4><p>In the bottom right of the quiz editor, click <strong>Import spreadsheet</strong>. A dialog opens with a link to download Kahoot's template and a drag-and-drop upload zone.</p></div></div>
+              <div class="step-box"><div class="step-num">4</div><div class="step-content"><h4>Upload your .xlsx file</h4><p>Drag and drop your spreadsheet or click to browse and upload. Kahoot validates the file. If errors exist, an error message lists the specific rows and issues. Fix them in your spreadsheet and re-upload.</p></div></div>
+              <div class="step-box"><div class="step-num">5</div><div class="step-content"><h4>Click Continue and review</h4><p>Click <strong>Continue</strong> to proceed past any non-critical warnings. Your questions appear in the Kahoot quiz editor. Add images if needed, adjust time limits per question, and click <strong>Save</strong>.</p></div></div>
+            </div>
+
+            <h2 id="from-documents">Converting Quiz Documents to the Right Format</h2>
+            <p>If your questions exist in a Word document, PDF, or Excel question bank (not in the Kahoot spreadsheet format), you have two routes to the correct spreadsheet format:</p>
+            <p><strong>Manual:</strong> Download Kahoot's template. Open your source document alongside it. Copy each question into the Question column. Copy each answer into Answer 1-4. Check character counts for every item. Add time limits. Mark correct answers. For 30 questions, plan 45-60 minutes and expect to catch limit errors after a failed first import.</p>
+            <p><strong>Pirai AI:</strong> Upload your Word, PDF, or Excel document to <strong>platform.piraiai.com</strong>. Select Kahoot as the target platform. Pirai AI reads the document, extracts every question and answer option, and produces the correctly formatted Kahoot spreadsheet  -  including character limit checking with overlong items flagged in the editor before you download. Download the .xlsx and import directly into Kahoot. Total time under 5 minutes for most quizzes.</p>
+
+            <h2 id="troubleshooting">Troubleshooting Kahoot Import Errors</h2>
+            <p><strong>Character limit errors.</strong> The most common. A question exceeds 95 characters or an answer exceeds 60. Open your spreadsheet, find the flagged row, shorten the text, and re-upload. With Pirai AI, these are flagged before download so you fix them in the editor first.</p>
+            <p><strong>Missing correct answer.</strong> The Correct Answer column is empty or contains an invalid value for a row. Every question requires a correct answer number (1, 2, 3, or 4). If your source document has no answer key, add correct answers in the spreadsheet or in Kahoot's editor after import.</p>
+            <p><strong>Too few answer options.</strong> Kahoot requires at least 2 answer options per question. Questions with only one option fail. True/false questions need "True" and "False" as the two answer options.</p>
+            <p><strong>Column header mismatch.</strong> Kahoot's import rejects spreadsheets where column headers do not exactly match the template. Always start from Kahoot's downloaded template rather than creating a spreadsheet from scratch.</p>
+
+            <h2 id="tips">Tips for Large Question Banks</h2>
+            <p>Kahoot limits each spreadsheet import to 100 questions and 1MB. For question banks larger than this, split the spreadsheet into multiple files and import each as a separate quiz. You can then link quizzes in a Kahoot game collection for a longer session.</p>
+            <p>For ongoing question bank management, keep your master question bank in Excel and use Pirai AI or Kahoot's template structure as the export format. This way the source of truth stays in a document you control rather than being locked inside Kahoot's editor.</p>
+            <div class="related-terms">
+                <h4>Related Terms</h4>
+                <ul><li><a href="/blog/what-is-closed-ended-question">Closed-Ended Questions</a></li><li><a href="/blog/what-is-survey-reliability">Question Reliability</a></li><li><a href="/blog/what-is-straight-lining">Response Quality</a></li></ul>
+            </div>
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How do I bulk import questions into Kahoot?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Kahoot bulk import uses an Excel spreadsheet (.xlsx). Create your spreadsheet using Kahoot's template (downloadable from the import dialog), with one question per row and columns for question text, up to four answers, time limit, and correct answer number. In Kahoot, go to Create > Quiz > Blank Canvas > Import spreadsheet to upload the file.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What is the maximum number of questions I can import into Kahoot?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Kahoot's spreadsheet import supports a maximum of 100 questions per upload with a 1MB file size limit. For larger question banks, split into multiple spreadsheets and create separate quizzes, or link multiple quizzes in a Kahoot collection.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Can I import questions from Google Sheets into Kahoot?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes, by exporting your Google Sheet as .xlsx (File > Download > Microsoft Excel .xlsx) and then importing the .xlsx file into Kahoot. The column structure must match Kahoot's import template. If your Google Sheet is a question bank in a different format, use Pirai AI to convert it to the Kahoot template first.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Why is my Kahoot import failing?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>The most common reasons are: question text over 95 characters, answer text over 60 characters, missing correct answer in the Correct Answer column, fewer than 2 answer options, or column headers that don't match Kahoot's template. Kahoot's error message identifies the specific rows with issues. Fix them in the spreadsheet and re-upload.</p></div>
+            </div>
+            <div class="article-cta">
+                <h3>Deploy Your Survey to 27+ Platforms</h3>
+                <p>Convert Word, PDF, and Excel survey instruments to Qualtrics, REDCap, SurveyMonkey, and more. No manual programming required.</p>
+                <a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Start Converting Free</a>
+            </div>
+        </article>
+        <aside class="sidebar">
+            <div class="cta-box"><h3>Try Pirai AI Free</h3><p>Convert any survey document to 27+ platforms in minutes.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-button">Start Free</a></div>
+            <div class="sidebar-section"><h3>In This Article</h3><ul class="toc-list">
+                    <li><a href="#what-kahoot-supports">What Kahoot's Import Supports</a></li>
+                    <li><a href="#spreadsheet-format">The Kahoot Spreadsheet Format</a></li>
+                    <li><a href="#how-to-import">How to Import Step by Step</a></li>
+                    <li><a href="#from-documents">Converting Documents to the Right Format</a></li>
+                    <li><a href="#troubleshooting">Troubleshooting Import Errors</a></li>
+                    <li><a href="#tips">Tips for Large Question Banks</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+            </ul></div>
+            <div class="sidebar-section"><h3>Related Articles</h3><ul class="toc-list">
+                    <li><a href="/document-to-kahoot">Document to Kahoot</a></li>
+                    <li><a href="/blog/convert-pdf-to-kahoot-quiz">PDF to Kahoot Quiz</a></li>
+                    <li><a href="/kahoot-for-teachers">Kahoot for Teachers</a></li>
+                    <li><a href="/product/kahoot-converter/">Kahoot Converter</a></li>
+                    <li><a href="/document-to-survey-converter">All 27+ Platforms</a></li>
+            </ul></div>
+        </aside>
+    </div>
+    <section class="related-articles"><h2>Related Articles</h2><div class="related-grid">
+            <a href="/blog/convert-pdf-to-kahoot-quiz" class="related-card"><span class="card-tag">Guide</span><h3>How to Convert a PDF to a Kahoot Quiz</h3><p>Step-by-step guide for converting PDF quiz documents to Kahoot's import format.</p></a>
+            <a href="/document-to-kahoot" class="related-card"><span class="card-tag">Hub</span><h3>Document to Kahoot</h3><p>Convert Word, PDF, and Excel quiz documents to Kahoot automatically.</p></a>
+            <a href="/kahoot-for-teachers" class="related-card"><span class="card-tag">Guide</span><h3>Kahoot for Teachers</h3><p>How teachers use Pirai AI to build Kahoot games from existing classroom materials.</p></a>
+    </div></section>
+    <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
+    <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        const sections = document.querySelectorAll('h2[id]');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    const active = document.querySelector('.toc-list a[href="#' + entry.target.id + '"]');
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        sections.forEach(s => observer.observe(s));
+    </script>
+</body></html>
