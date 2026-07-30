@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document to REDCap: Convert Any Survey File to a Data Dictionary - Pirai AI</title>
+    <meta name="description" content="Convert Word, PDF, and Excel survey documents to REDCap data dictionary format in minutes. Pirai AI produces a correctly structured CSV for direct import into any REDCap project. Free for academic researchers.">
+    <meta name="keywords" content="document to redcap, convert document redcap, word to redcap, pdf to redcap, excel to redcap, redcap data dictionary from document, redcap converter, import survey redcap, redcap data dictionary generator">
+    <meta property="og:type" content="website"><meta property="og:url" content="https://piraiai.com/document-to-redcap">
+    <meta property="og:title" content="Document to REDCap: Convert Any Survey File to a Data Dictionary"><meta property="og:description" content="Convert Word, PDF, and Excel survey documents to REDCap data dictionary format in minutes. Pirai AI produces a correctly structured CSV for direct import into any REDCap project. Free for academic researchers.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://piraiai.com/document-to-redcap"><link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Document to REDCap: Convert Any Survey File to a Data Dictionary","description":"Convert Word, PDF, and Excel survey documents to REDCap data dictionary format in minutes. Pirai AI produces a correctly structured CSV for direct import into any REDCap project. Free for academic researchers.","author":{"@type":"Person","name":"Arun Raj"},"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},"datePublished":"2026-07-24","url":"https://piraiai.com/document-to-redcap"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I import a survey document into REDCap?","acceptedAnswer":{"@type":"Answer","text":"REDCap imports surveys via a data dictionary CSV through Project Setup > Data Dictionary > Upload File. Upload your Word, PDF, or Excel document to Pirai AI, select REDCap as the target, and download the pre-formatted data dictionary CSV. Upload it into your REDCap project and click Commit Changes."}},{"@type":"Question","name":"What is the REDCap data dictionary format?","acceptedAnswer":{"@type":"Answer","text":"The REDCap data dictionary is a CSV file with specific columns defining every survey field: Variable/Field Name, Form Name, Field Type, Field Label, Choices (for radio/checkbox/dropdown), Branching Logic, Required Field, and Text Validation Type among others. Pirai AI populates all critical columns from your source survey document automatically."}},{"@type":"Question","name":"Can Pirai AI convert a validated clinical instrument to REDCap?","acceptedAnswer":{"@type":"Answer","text":"Yes. Upload the instrument document (Word or PDF) to Pirai AI, select REDCap, and download the data dictionary CSV. The exact item wording and scale labels from the validated instrument are preserved verbatim  -  critical for maintaining the published psychometric properties when deploying in REDCap."}},{"@type":"Question","name":"Can I convert from REDCap to Qualtrics with Pirai AI?","acceptedAnswer":{"@type":"Answer","text":"Yes. Export your REDCap instruments as a data dictionary CSV. Upload to Pirai AI and select Qualtrics as the target. The REDCap field types are mapped to the closest Qualtrics question types and a QSF file is produced for import."}}]}</script>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; margin-left: 32px; transition: color 0.2s; }
+        header nav a:hover { color: #9B6BFF; }
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+        .content-wrapper { max-width: 1200px; margin: 48px auto; padding: 0 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+        .article-content { max-width: 680px; overflow-x: hidden; }
+        .article-content p { font-size: 18px; color: #374151; margin-bottom: 24px; line-height: 1.7; }
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-top: 32px; margin-bottom: 12px; }
+        .article-content a { color: #9B6BFF; text-decoration: none; border-bottom: 1px solid rgba(155,107,255,0.3); transition: all 0.2s; }
+        .article-content a:hover { border-bottom-color: #9B6BFF; }
+        .article-content ul, .article-content ol { margin-bottom: 24px; padding-left: 24px; }
+        .article-content li { font-size: 18px; color: #374151; margin-bottom: 10px; line-height: 1.7; }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+        .definition-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 28px; margin: 32px 0; border-radius: 4px; }
+        .definition-box .def-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9B6BFF; margin-bottom: 12px; display: block; }
+        .definition-box p { font-size: 17px; color: #1a1a1a; margin-bottom: 0; font-style: italic; line-height: 1.7; }
+        .related-terms { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 32px 0; }
+        .related-terms h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+        .related-terms ul { padding-left: 0; list-style: none; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+        .related-terms li { margin: 0; }
+        .related-terms a { display: inline-block; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 6px 14px; font-size: 14px; color: #374151; text-decoration: none; border-bottom: none; transition: all 0.2s; }
+        .related-terms a:hover { border-color: #9B6BFF; color: #9B6BFF; border-bottom: none; }
+        .article-cta { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 36px 40px; border-radius: 12px; margin: 48px 0 32px; text-align: center; }
+        .article-cta h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+        .article-cta p { font-size: 16px; color: #ffffff; opacity: 0.95; margin-bottom: 20px; }
+        .article-cta a { border-bottom: none !important; }
+        .cta-btn-white { display: inline-block; background: #ffffff; color: #9B6BFF !important; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-btn-white:hover { transform: translateY(-2px); }
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a1a1a; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; transition: color 0.2s; border-bottom: none; display: block; }
+        .toc-list a:hover { color: #9B6BFF; }
+        .toc-list a.active { color: #9B6BFF; font-weight: 600; }
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 32px; border-radius: 8px; text-align: center; color: #ffffff; margin-bottom: 24px; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .cta-box p { font-size: 14px; margin-bottom: 20px; opacity: 0.95; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-button:hover { transform: translateY(-2px); }
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; border-bottom: none; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
+        .related-card .card-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #9B6BFF; margin-bottom: 8px; display: block; }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
+        .related-card p { font-size: 14px; color: #6b7280; margin: 0; }
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+        @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 400px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
+        .tldr-box { background: #f0fdf4; border: 1px solid #86efac; border-left: 4px solid #16a34a; border-radius: 8px; padding: 20px 24px; margin: 0 0 32px; }
+        .tldr-box .tldr-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #16a34a; margin-bottom: 8px; display: block; }
+        .tldr-box p { font-size: 16px; color: #1a1a1a; margin: 0; line-height: 1.6; }
+        .method-grid { display: flex; flex-direction: column; gap: 16px; margin: 24px 0; }
+        .method-card { border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; }
+        .method-header { display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: #f9fafb; }
+        .method-num { width: 36px; height: 36px; border-radius: 50%; background: #e5e7eb; color: #374151; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .method-num.recommended { background: #9B6BFF; color: #ffffff; }
+        .method-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 17px; color: #1a1a1a; }
+        .method-badge { margin-left: auto; padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+        .badge-easy { background: #dcfce7; color: #16a34a; }
+        .badge-medium { background: #fef9c3; color: #854d0e; }
+        .badge-recommended { background: #ede9fe; color: #7c3aed; }
+        .method-body { padding: 16px 20px; }
+        .method-body p { font-size: 15px; color: #374151; margin: 0 0 10px; line-height: 1.6; }
+        .method-body p:last-child { margin: 0; }
+        .method-body code { background: #f3f4f6; padding: 2px 7px; border-radius: 4px; font-size: 13px; color: #7c3aed; font-family: monospace; }
+        .method-body ul { padding-left: 20px; margin: 8px 0 0; }
+        .method-body li { font-size: 15px; color: #374151; margin-bottom: 4px; }
+        .limitation-note { background: #fff7ed; border-left: 3px solid #f97316; padding: 10px 14px; border-radius: 0 6px 6px 0; font-size: 14px; color: #9a3412; margin-top: 10px; }
+        .step-grid { display: flex; flex-direction: column; gap: 0; margin: 24px 0; }
+        .step-box { display: flex; gap: 18px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid #f3f4f6; }
+        .step-box:last-child { border-bottom: none; }
+        .step-num { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: #9B6BFF; color: #ffffff; font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+        .step-content h4 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 700; color: #1a1a1a; margin-bottom: 5px; }
+        .step-content p { font-size: 15px; color: #374151; margin: 0; line-height: 1.6; }
+        .step-content code { background: #f3f4f6; padding: 2px 7px; border-radius: 4px; font-size: 13px; color: #7c3aed; font-family: monospace; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; }
+        .comparison-table th { padding: 12px 16px; text-align: left; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; background: #f9fafb; color: #6b7280; border-bottom: 2px solid #e5e7eb; }
+        .comparison-table th.pirai { background: #f5f3ff; color: #7c3aed; }
+        .comparison-table td { padding: 11px 16px; border-bottom: 1px solid #f3f4f6; color: #374151; }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table td:first-child { font-weight: 600; color: #1a1a1a; }
+        .comparison-table td.pirai { background: #fdf9ff; }
+        .check { color: #16a34a; font-weight: 700; }
+        .cross { color: #dc2626; font-weight: 700; }
+        .partial { color: #d97706; }
+        .wedge-hero { background: linear-gradient(135deg, #f9fafb 0%, #f0ebff 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .wedge-hero-container { max-width: 1200px; margin: 0 auto; }
+        .wedge-badge { display: inline-block; background: #f0ebff; color: #7c3aed; border: 1px solid #ddd6fe; border-radius: 20px; padding: 4px 14px; font-size: 12px; font-weight: 700; margin-bottom: 16px; }
+        .wedge-cta-inline { display: inline-block; background: #9B6BFF; color: #ffffff; padding: 10px 22px; border-radius: 7px; text-decoration: none; font-weight: 700; font-size: 14px; margin-top: 16px; border-bottom: none !important; transition: background 0.2s; }
+        .wedge-cta-inline:hover { background: #8b5cf6; }
+        @media (max-width: 640px) { .method-badge { display: none; } }
+        .platform-grid { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0; }
+        .platform-pill { display: inline-flex; align-items: center; gap: 8px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 8px 14px; font-size: 14px; font-weight: 600; color: #374151; text-decoration: none; transition: all 0.2s; }
+        .platform-pill:hover { border-color: #9B6BFF; color: #7c3aed; background: #f5f3ff; }
+        .platform-pill.featured { border-color: #ddd6fe; background: #f5f3ff; color: #7c3aed; }
+        .workflow-steps { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 24px 0; }
+        .workflow-step { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; text-align: center; }
+        .workflow-step .ws-num { width: 40px; height: 40px; border-radius: 50%; background: #9B6BFF; color: #fff; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
+        .workflow-step h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+        .workflow-step p { font-size: 13px; color: #6b7280; margin: 0; line-height: 1.5; }
+        .link-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 24px 0; }
+        .link-section h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+        .link-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .link-grid a { color: #7c3aed; text-decoration: none; font-size: 14px; font-weight: 500; border-bottom: none; }
+        .link-grid a:hover { text-decoration: underline; }
+        .use-case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+        .use-case-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 18px; }
+        .use-case-card h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+        .use-case-card p { font-size: 13px; color: #6b7280; margin: 0; line-height: 1.5; }
+        @media (max-width: 640px) { .workflow-steps { grid-template-columns: 1fr; } .link-grid { grid-template-columns: 1fr; } .use-case-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header><div class="header-container">
+        <a href="/" class="logo"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span class="logo-text">Pirai AI</span></a>
+        <nav><a href="/">Home</a><a href="/blog">Blog</a><a href="/tools">Free Tools</a><a href="/#demo">Get Demo</a></nav>
+    </div></header>
+    <div class="breadcrumb"><div class="breadcrumb-container">
+        <a href="/">Home</a><span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">Document to REDCap</span>
+    </div></div>
+    <div class="wedge-hero"><div class="wedge-hero-container">
+        <span class="wedge-badge">Pirai AI</span>
+        <h1 class="article-title">Document to REDCap: Convert Any Survey File to a Data Dictionary</h1>
+        <p class="comparison-subtitle">Convert Word, PDF, and Excel survey documents to REDCap data dictionary format in minutes. Pirai AI produces a correctly structured CSV for direct import into any REDCap project. Free for academic researchers.</p>
+        <a href="https://platform.piraiai.com" target="_blank" class="wedge-cta-inline">Start Converting Free</a>
+    </div></div>
+    <div class="content-wrapper">
+        <article class="article-content">
+
+            <div class="tldr-box">
+                <span class="tldr-label">How It Works</span>
+                <p>REDCap imports surveys through a data dictionary CSV  -  a structured spreadsheet that defines every field in a project. Pirai AI reads your Word, PDF, or Excel survey document and produces a correctly structured data dictionary CSV for direct import into a new or existing REDCap project. Field types, labels, answer choices, branching logic, and validation rules are all mapped from your source document.</p>
+            </div>
+
+            <h2 id="what-redcap-needs">What REDCap's Import Requires</h2>
+            <p>REDCap does not import Word documents or PDFs directly. Survey instruments must be entered through REDCap's Online Designer (one field at a time) or uploaded as a data dictionary CSV through Project Setup > Data Dictionary > Upload File. The data dictionary format has 18+ columns defining every aspect of each field. Building this manually for a 40-item validated instrument takes hours and introduces transcription errors.</p>
+            <p>Pirai AI generates the data dictionary CSV automatically from your source document  -  preserving exact item wording required for validated instrument fidelity.</p>
+
+            <h2 id="input-formats">Supported Input Formats</h2>
+            <div class="platform-grid">
+                <a href="/product/word-to-redcap/" class="platform-pill featured">Word (.docx)</a>
+                <a href="/product/pdf-to-redcap/" class="platform-pill featured">PDF</a>
+                <a href="/product/excel-to-redcap/" class="platform-pill featured">Excel (.xlsx)</a>
+                <span class="platform-pill">CSV</span>
+                <span class="platform-pill">Scanned PDF (OCR)</span>
+                <span class="platform-pill">Plain text</span>
+                <span class="platform-pill">Qualtrics QSF</span>
+                <span class="platform-pill">SurveyMonkey export</span>
+            </div>
+
+            <h2 id="data-dictionary-columns">The REDCap Data Dictionary: Key Columns</h2>
+            <p>The REDCap data dictionary CSV defines every field in a project. Pirai AI populates the critical columns from your source document:</p>
+            <table class="comparison-table">
+              <thead><tr><th>Column</th><th class="pirai">What Pirai AI Populates From Your Document</th></tr></thead>
+              <tbody>
+                <tr><td>Variable / Field Name</td><td class="pirai">Generated from field label (lowercase, underscored). Editable in the editor.</td></tr>
+                <tr><td>Form Name</td><td class="pirai">Mapped from survey sections or document blocks.</td></tr>
+                <tr><td>Field Type</td><td class="pirai">radio, checkbox, dropdown, text, notes, calc, slider  -  mapped from question structure.</td></tr>
+                <tr><td>Field Label</td><td class="pirai">Exact question text from your document, preserved verbatim.</td></tr>
+                <tr><td>Choices / Calculations</td><td class="pirai">Answer options formatted as "1, Strongly Agree | 2, Agree | ..." per REDCap syntax.</td></tr>
+                <tr><td>Required Field</td><td class="pirai">Mapped where marked as required in source document.</td></tr>
+                <tr><td>Branching Logic</td><td class="pirai">Converted from skip logic annotations in source document where present.</td></tr>
+                <tr><td>Text Validation</td><td class="pirai">Date, integer, number formats mapped where specified in source.</td></tr>
+              </tbody>
+            </table>
+
+            <h2 id="field-types">REDCap Field Types Pirai AI Produces</h2>
+            <div class="platform-grid">
+                <span class="platform-pill featured">radio (single choice)</span>
+                <span class="platform-pill featured">checkbox (multi-select)</span>
+                <span class="platform-pill featured">dropdown</span>
+                <span class="platform-pill featured">text (short answer)</span>
+                <span class="platform-pill featured">notes (paragraph)</span>
+                <span class="platform-pill">yesno</span>
+                <span class="platform-pill">truefalse</span>
+                <span class="platform-pill">slider (visual analog)</span>
+                <span class="platform-pill">calc (calculated field)</span>
+                <span class="platform-pill">descriptive (display text)</span>
+            </div>
+
+            <h2 id="how-to-convert">How to Convert Your Document to REDCap</h2>
+            <div class="step-grid">
+              <div class="step-box"><div class="step-num">1</div><div class="step-content"><h4>Upload your document</h4><p>Go to <strong>platform.piraiai.com</strong>. Upload your Word, PDF, or Excel file. For scanned documents, enable Advanced PDF Processing for OCR extraction.</p></div></div>
+              <div class="step-box"><div class="step-num">2</div><div class="step-content"><h4>Review in the AI Survey Editor</h4><p>Pirai AI extracts all fields with types, labels, and answer choices. Review the extracted structure, correct any field type assignments, and edit variable names before exporting.</p></div></div>
+              <div class="step-box"><div class="step-num">3</div><div class="step-content"><h4>Download the data dictionary CSV</h4><p>Select REDCap as the target platform. Download the data dictionary CSV. Every field is in the correct column structure with answer choices in REDCap's pipe-delimited format.</p></div></div>
+              <div class="step-box"><div class="step-num">4</div><div class="step-content"><h4>Import into REDCap</h4><p>In your REDCap project, go to <strong>Project Setup > Data Dictionary > Upload File</strong>. Upload the CSV. Click <strong>Commit Changes</strong>. All fields appear in the Online Designer instantly.</p></div></div>
+            </div>
+
+            <h2 id="related">Format-Specific and Migration Guides</h2>
+            <div class="link-section">
+                <h4>Format-Specific Conversion</h4>
+                <div class="link-grid">
+                    <a href="/product/word-to-redcap/">Word to REDCap</a>
+                    <a href="/product/pdf-to-redcap/">PDF to REDCap</a>
+                    <a href="/product/excel-to-redcap/">Excel to REDCap</a>
+                    <a href="/blog/convert-import-redcap">Full REDCap conversion guide</a>
+                </div>
+            </div>
+            <div class="link-section">
+                <h4>Migration Into REDCap</h4>
+                <div class="link-grid">
+                    <a href="/blog/redcap-to-qualtrics">REDCap to Qualtrics</a>
+                    <a href="/blog/surveymonkey-to-redcap">SurveyMonkey to REDCap</a>
+                    <a href="/blog/convert-qualtrics-to-redcap">Qualtrics to REDCap</a>
+                    <a href="/blog/convert-crf-to-redcap">CRF to REDCap</a>
+                </div>
+            </div>
+            <div class="link-section">
+                <h4>REDCap Guidance</h4>
+                <div class="link-grid">
+                    <a href="/redcap-for-researchers">REDCap for Researchers</a>
+                    <a href="/redcap-for-clinical-research">REDCap for Clinical Research</a>
+                    <a href="/blog/what-is-a-redcap-data-dictionary">What is a REDCap Data Dictionary?</a>
+                    <a href="/blog/clinical-trial-survey-redcap">Clinical Trial Surveys in REDCap</a>
+                </div>
+            </div>
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How do I import a survey document into REDCap?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>REDCap imports surveys via a data dictionary CSV through Project Setup > Data Dictionary > Upload File. Upload your Word, PDF, or Excel document to Pirai AI, select REDCap as the target, and download the pre-formatted data dictionary CSV. Upload it into your REDCap project and click Commit Changes.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What is the REDCap data dictionary format?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>The REDCap data dictionary is a CSV file with specific columns defining every survey field: Variable/Field Name, Form Name, Field Type, Field Label, Choices (for radio/checkbox/dropdown), Branching Logic, Required Field, and Text Validation Type among others. Pirai AI populates all critical columns from your source survey document automatically.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Can Pirai AI convert a validated clinical instrument to REDCap?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes. Upload the instrument document (Word or PDF) to Pirai AI, select REDCap, and download the data dictionary CSV. The exact item wording and scale labels from the validated instrument are preserved verbatim  -  critical for maintaining the published psychometric properties when deploying in REDCap.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Can I convert from REDCap to Qualtrics with Pirai AI?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes. Export your REDCap instruments as a data dictionary CSV. Upload to Pirai AI and select Qualtrics as the target. The REDCap field types are mapped to the closest Qualtrics question types and a QSF file is produced for import.</p></div>
+            </div>
+            <div class="article-cta">
+                <h3>Convert Your Survey Document Now</h3>
+                <p>Upload once. Export to any platform. No manual re-entry. No Drive access required.</p>
+                <a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Start Free - 2 Conversions/Day</a>
+            </div>
+        </article>
+        <aside class="sidebar">
+            <div class="cta-box"><h3>Try Pirai AI Free</h3><p>2 conversions per day. No credit card.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-button">Start Free</a></div>
+            <div class="sidebar-section"><h3>Quick Links</h3><ul class="toc-list">
+                    <li><a href="/product/word-to-redcap/">Word to REDCap</a></li>
+                    <li><a href="/product/pdf-to-redcap/">PDF to REDCap</a></li>
+                    <li><a href="/product/excel-to-redcap/">Excel to REDCap</a></li>
+                    <li><a href="/redcap-for-researchers">REDCap for Researchers</a></li>
+                    <li><a href="/blog/what-is-a-redcap-data-dictionary">REDCap Data Dictionary Guide</a></li>
+                    <li><a href="/blog/qualtrics-vs-redcap">Qualtrics vs REDCap</a></li>
+            </ul></div>
+        </aside>
+    </div>
+    <section class="related-articles"><h2>Related Articles</h2><div class="related-grid">
+            <a href="/redcap-for-researchers" class="related-card"><span class="card-tag">Guide</span><h3>REDCap for Researchers</h3><p>How academic researchers use REDCap for validated instruments and IRB-compliant data collection.</p></a>
+            <a href="/blog/what-is-a-redcap-data-dictionary" class="related-card"><span class="card-tag">Guide</span><h3>What is a REDCap Data Dictionary?</h3><p>The complete reference for REDCap's data dictionary format  -  all columns, field types, and branching logic syntax.</p></a>
+            <a href="/blog/qualtrics-vs-redcap" class="related-card"><span class="card-tag">Comparison</span><h3>Qualtrics vs REDCap</h3><p>When to use REDCap vs Qualtrics for clinical and academic research surveys.</p></a>
+    </div></section>
+    <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
+    <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
+    </script>
+</body></html>

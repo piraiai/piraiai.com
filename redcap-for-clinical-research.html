@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REDCap for Clinical Research: GCP, CRFs, and Patient-Reported Outcomes - Pirai AI</title>
+    <meta name="description" content="How clinical research teams use REDCap for case report forms, patient-reported outcomes, and regulated data capture. Includes GCP compliance, HIPAA configuration, and CRF conversion with Pirai AI.">
+    <meta name="keywords" content="redcap for clinical research, redcap clinical trial, redcap CRF, redcap GCP, redcap HIPAA, redcap patient reported outcomes, redcap ePRO, redcap electronic data capture, redcap 21 CFR part 11">
+    <meta property="og:type" content="website"><meta property="og:url" content="https://piraiai.com/redcap-for-clinical-research">
+    <meta property="og:title" content="REDCap for Clinical Research: GCP, CRFs, and Patient-Reported Outcomes"><meta property="og:description" content="How clinical research teams use REDCap for case report forms, patient-reported outcomes, and regulated data capture. Includes GCP compliance, HIPAA configuration, and CRF conversion with Pirai AI.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://piraiai.com/redcap-for-clinical-research"><link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"REDCap for Clinical Research: GCP, CRFs, and Patient-Reported Outcomes","description":"How clinical research teams use REDCap for case report forms, patient-reported outcomes, and regulated data capture. Includes GCP compliance, HIPAA configuration, and CRF conversion with Pirai AI.","author":{"@type":"Person","name":"Arun Raj"},"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},"datePublished":"2026-07-24","url":"https://piraiai.com/redcap-for-clinical-research"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is REDCap GCP compliant for clinical trials?","acceptedAnswer":{"@type":"Answer","text":"REDCap provides the audit trail, access controls, and data integrity features required by ICH GCP E6(R2) for electronic data capture in clinical trials. When combined with your institution's REDCap validation documentation (IQ/OQ/PQ), it can satisfy the system validation requirements for regulated academic clinical trials. Consult your institution's research quality assurance office for your specific study requirements."}},{"@type":"Question","name":"Can REDCap be used for HIPAA-covered research?","acceptedAnswer":{"@type":"Answer","text":"Yes. REDCap deployed on your institution's HIPAA-compliant infrastructure (covered by your institution's BAA with its hosting provider) can be used for research collecting PHI. The data resides on institution-controlled systems rather than passing through third-party commercial platforms. Confirm HIPAA compliance coverage with your institution's privacy officer before collecting PHI."}},{"@type":"Question","name":"How do I convert a paper CRF to REDCap?","acceptedAnswer":{"@type":"Answer","text":"Upload the CRF Word or PDF document to Pirai AI at platform.piraiai.com, select REDCap as the target, and download the data dictionary CSV. Import it into your REDCap project via Project Setup > Data Dictionary > Upload File. Field types, labels, and answer choices are mapped from the CRF document. Add calculated fields and validation rules in the Online Designer after import."}},{"@type":"Question","name":"Can I use REDCap for multi-site clinical studies?","acceptedAnswer":{"@type":"Answer","text":"Yes. REDCap's user permission system supports site-level access control within a single multi-site project. Each site's data entry staff can be restricted to viewing and entering data for their own site only, while the coordinating centre has access to the full dataset. This is the standard configuration for multi-site academic clinical trials using REDCap."}}]}</script>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; margin-left: 32px; transition: color 0.2s; }
+        header nav a:hover { color: #9B6BFF; }
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+        .content-wrapper { max-width: 1200px; margin: 48px auto; padding: 0 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+        .article-content { max-width: 680px; overflow-x: hidden; }
+        .article-content p { font-size: 18px; color: #374151; margin-bottom: 24px; line-height: 1.7; }
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-top: 32px; margin-bottom: 12px; }
+        .article-content a { color: #9B6BFF; text-decoration: none; border-bottom: 1px solid rgba(155,107,255,0.3); transition: all 0.2s; }
+        .article-content a:hover { border-bottom-color: #9B6BFF; }
+        .article-content ul, .article-content ol { margin-bottom: 24px; padding-left: 24px; }
+        .article-content li { font-size: 18px; color: #374151; margin-bottom: 10px; line-height: 1.7; }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+        .definition-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 28px; margin: 32px 0; border-radius: 4px; }
+        .definition-box .def-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9B6BFF; margin-bottom: 12px; display: block; }
+        .definition-box p { font-size: 17px; color: #1a1a1a; margin-bottom: 0; font-style: italic; line-height: 1.7; }
+        .related-terms { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 32px 0; }
+        .related-terms h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+        .related-terms ul { padding-left: 0; list-style: none; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+        .related-terms li { margin: 0; }
+        .related-terms a { display: inline-block; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 6px 14px; font-size: 14px; color: #374151; text-decoration: none; border-bottom: none; transition: all 0.2s; }
+        .related-terms a:hover { border-color: #9B6BFF; color: #9B6BFF; border-bottom: none; }
+        .article-cta { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 36px 40px; border-radius: 12px; margin: 48px 0 32px; text-align: center; }
+        .article-cta h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+        .article-cta p { font-size: 16px; color: #ffffff; opacity: 0.95; margin-bottom: 20px; }
+        .article-cta a { border-bottom: none !important; }
+        .cta-btn-white { display: inline-block; background: #ffffff; color: #9B6BFF !important; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-btn-white:hover { transform: translateY(-2px); }
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a1a1a; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; transition: color 0.2s; border-bottom: none; display: block; }
+        .toc-list a:hover { color: #9B6BFF; }
+        .toc-list a.active { color: #9B6BFF; font-weight: 600; }
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 32px; border-radius: 8px; text-align: center; color: #ffffff; margin-bottom: 24px; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .cta-box p { font-size: 14px; margin-bottom: 20px; opacity: 0.95; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-button:hover { transform: translateY(-2px); }
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; border-bottom: none; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
+        .related-card .card-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #9B6BFF; margin-bottom: 8px; display: block; }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
+        .related-card p { font-size: 14px; color: #6b7280; margin: 0; }
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+        @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 400px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
+        .tldr-box { background: #f0fdf4; border: 1px solid #86efac; border-left: 4px solid #16a34a; border-radius: 8px; padding: 20px 24px; margin: 0 0 32px; }
+        .tldr-box .tldr-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #16a34a; margin-bottom: 8px; display: block; }
+        .tldr-box p { font-size: 16px; color: #1a1a1a; margin: 0; line-height: 1.6; }
+        .method-grid { display: flex; flex-direction: column; gap: 16px; margin: 24px 0; }
+        .method-card { border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; }
+        .method-header { display: flex; align-items: center; gap: 14px; padding: 16px 20px; background: #f9fafb; }
+        .method-num { width: 36px; height: 36px; border-radius: 50%; background: #e5e7eb; color: #374151; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .method-num.recommended { background: #9B6BFF; color: #ffffff; }
+        .method-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 17px; color: #1a1a1a; }
+        .method-badge { margin-left: auto; padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+        .badge-easy { background: #dcfce7; color: #16a34a; }
+        .badge-medium { background: #fef9c3; color: #854d0e; }
+        .badge-recommended { background: #ede9fe; color: #7c3aed; }
+        .method-body { padding: 16px 20px; }
+        .method-body p { font-size: 15px; color: #374151; margin: 0 0 10px; line-height: 1.6; }
+        .method-body p:last-child { margin: 0; }
+        .method-body code { background: #f3f4f6; padding: 2px 7px; border-radius: 4px; font-size: 13px; color: #7c3aed; font-family: monospace; }
+        .method-body ul { padding-left: 20px; margin: 8px 0 0; }
+        .method-body li { font-size: 15px; color: #374151; margin-bottom: 4px; }
+        .limitation-note { background: #fff7ed; border-left: 3px solid #f97316; padding: 10px 14px; border-radius: 0 6px 6px 0; font-size: 14px; color: #9a3412; margin-top: 10px; }
+        .step-grid { display: flex; flex-direction: column; gap: 0; margin: 24px 0; }
+        .step-box { display: flex; gap: 18px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid #f3f4f6; }
+        .step-box:last-child { border-bottom: none; }
+        .step-num { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: #9B6BFF; color: #ffffff; font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+        .step-content h4 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 700; color: #1a1a1a; margin-bottom: 5px; }
+        .step-content p { font-size: 15px; color: #374151; margin: 0; line-height: 1.6; }
+        .step-content code { background: #f3f4f6; padding: 2px 7px; border-radius: 4px; font-size: 13px; color: #7c3aed; font-family: monospace; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; }
+        .comparison-table th { padding: 12px 16px; text-align: left; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; background: #f9fafb; color: #6b7280; border-bottom: 2px solid #e5e7eb; }
+        .comparison-table th.pirai { background: #f5f3ff; color: #7c3aed; }
+        .comparison-table td { padding: 11px 16px; border-bottom: 1px solid #f3f4f6; color: #374151; }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table td:first-child { font-weight: 600; color: #1a1a1a; }
+        .comparison-table td.pirai { background: #fdf9ff; }
+        .check { color: #16a34a; font-weight: 700; }
+        .cross { color: #dc2626; font-weight: 700; }
+        .partial { color: #d97706; }
+        .wedge-hero { background: linear-gradient(135deg, #f9fafb 0%, #f0ebff 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .wedge-hero-container { max-width: 1200px; margin: 0 auto; }
+        .wedge-badge { display: inline-block; background: #f0ebff; color: #7c3aed; border: 1px solid #ddd6fe; border-radius: 20px; padding: 4px 14px; font-size: 12px; font-weight: 700; margin-bottom: 16px; }
+        .wedge-cta-inline { display: inline-block; background: #9B6BFF; color: #ffffff; padding: 10px 22px; border-radius: 7px; text-decoration: none; font-weight: 700; font-size: 14px; margin-top: 16px; border-bottom: none !important; transition: background 0.2s; }
+        .wedge-cta-inline:hover { background: #8b5cf6; }
+        @media (max-width: 640px) { .method-badge { display: none; } }
+        .platform-grid { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0; }
+        .platform-pill { display: inline-flex; align-items: center; gap: 8px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 8px 14px; font-size: 14px; font-weight: 600; color: #374151; text-decoration: none; transition: all 0.2s; }
+        .platform-pill:hover { border-color: #9B6BFF; color: #7c3aed; background: #f5f3ff; }
+        .platform-pill.featured { border-color: #ddd6fe; background: #f5f3ff; color: #7c3aed; }
+        .workflow-steps { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 24px 0; }
+        .workflow-step { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; text-align: center; }
+        .workflow-step .ws-num { width: 40px; height: 40px; border-radius: 50%; background: #9B6BFF; color: #fff; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
+        .workflow-step h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+        .workflow-step p { font-size: 13px; color: #6b7280; margin: 0; line-height: 1.5; }
+        .link-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 24px 0; }
+        .link-section h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+        .link-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .link-grid a { color: #7c3aed; text-decoration: none; font-size: 14px; font-weight: 500; border-bottom: none; }
+        .link-grid a:hover { text-decoration: underline; }
+        .use-case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+        .use-case-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 18px; }
+        .use-case-card h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+        .use-case-card p { font-size: 13px; color: #6b7280; margin: 0; line-height: 1.5; }
+        @media (max-width: 640px) { .workflow-steps { grid-template-columns: 1fr; } .link-grid { grid-template-columns: 1fr; } .use-case-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header><div class="header-container">
+        <a href="/" class="logo"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span class="logo-text">Pirai AI</span></a>
+        <nav><a href="/">Home</a><a href="/blog">Blog</a><a href="/tools">Free Tools</a><a href="/#demo">Get Demo</a></nav>
+    </div></header>
+    <div class="breadcrumb"><div class="breadcrumb-container">
+        <a href="/">Home</a><span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">REDCap for Clinical Research</span>
+    </div></div>
+    <div class="wedge-hero"><div class="wedge-hero-container">
+        <span class="wedge-badge">Pirai AI</span>
+        <h1 class="article-title">REDCap for Clinical Research: GCP, CRFs, and Patient-Reported Outcomes</h1>
+        <p class="comparison-subtitle">How clinical research teams use REDCap for case report forms, patient-reported outcomes, and regulated data capture. Includes GCP compliance, HIPAA configuration, and CRF conversion with Pirai AI.</p>
+        <a href="https://platform.piraiai.com" target="_blank" class="wedge-cta-inline">Start Converting Free</a>
+    </div></div>
+    <div class="content-wrapper">
+        <article class="article-content">
+
+            <div class="tldr-box">
+                <span class="tldr-label">REDCap in Clinical Research</span>
+                <p>REDCap is the standard electronic data capture (EDC) platform for academic clinical trials globally. Its field-level audit trail, GCP-aligned data integrity controls, institution-controlled infrastructure, and validated instrument support make it the appropriate platform for regulated clinical research  -  where Qualtrics and Google Forms are not. Pirai AI converts CRFs and clinical instruments to REDCap data dictionary format in minutes.</p>
+            </div>
+
+            <h2 id="why-redcap-for-trials">Why REDCap for Regulated Clinical Research</h2>
+            <p><strong>GCP-aligned audit trail.</strong> ICH GCP E6(R2) requires that electronic data capture systems maintain an audit trail of all data entry, modification, and deletion events with user ID, timestamp, and reason for change. REDCap's audit log satisfies this requirement for academic clinical trials. Google Forms and Qualtrics standard editions do not provide field-level audit trails.</p>
+            <p><strong>21 CFR Part 11 readiness.</strong> For studies subject to FDA oversight, REDCap with institutional validation documentation (installation qualification, operational qualification, performance qualification) can satisfy 21 CFR Part 11 requirements for electronic records and electronic signatures. Many academic medical centres have validated REDCap packages available for regulated studies.</p>
+            <p><strong>Institution-controlled data sovereignty.</strong> Clinical trial data involving PHI or research subjects must typically reside on institution-controlled infrastructure. REDCap runs on your institution's servers or dedicated cloud environment. Patient data never passes through third-party commercial infrastructure.</p>
+            <p><strong>HIPAA compliance.</strong> REDCap's institutional deployment operates under your organisation's HIPAA BAA arrangements with your cloud or on-premises infrastructure provider. For studies collecting PHI from patients, this institutional data governance arrangement is typically required by IRBs and sponsors.</p>
+
+            <h2 id="crf-conversion">Converting CRFs to REDCap</h2>
+            <p>Case Report Forms are typically developed as Word documents  -  often by sponsors, CROs, or regulatory affairs teams  -  and then manually transcribed into REDCap by study coordinators. For a 60-field CRF, this manual transcription takes 4-8 hours and introduces transcription errors that require database cleaning before analysis.</p>
+            <p>Pirai AI converts CRF Word documents directly to REDCap data dictionary CSV format. Upload the CRF, select REDCap, and download the data dictionary. Field types (text, radio, checkbox, dropdown, notes), field labels, and answer choices are all mapped from the source document. Calculated fields and branching logic annotations are converted where present in the CRF.</p>
+            <p>The dedicated <a href="/blog/convert-crf-to-redcap">CRF to REDCap conversion guide</a> covers field naming conventions, calculated field syntax, and validation rules specific to clinical CRFs.</p>
+
+            <h2 id="pros">Patient-Reported Outcomes in REDCap</h2>
+            <p>REDCap is widely used for electronic patient-reported outcome (ePRO) collection in clinical trials. Validated PRO instruments  -  PHQ-9, GAD-7, FACT-G, EQ-5D, PROMIS measures  -  are deployed as REDCap surveys sent to participants via the survey queue. Composite score calculation uses REDCap's calculated field type with the scoring formula defined in the data dictionary. Threshold scores triggering clinical actions are handled via REDCap Alerts and Notifications.</p>
+            <p>For studies deploying PRO instruments in REDCap, Pirai AI converts the instrument PDF or Word specification to a data dictionary with all items, scale labels, and branching logic populated. The calculated scoring fields are added in the REDCap Online Designer after import, using the validated scoring formula for the instrument.</p>
+
+            <h2 id="redcap-vs-qualtrics-clinical">REDCap vs Qualtrics for Clinical Research</h2>
+            <table class="comparison-table">
+              <thead><tr><th>Requirement</th><th class="pirai">REDCap</th><th>Qualtrics</th></tr></thead>
+              <tbody>
+                <tr><td>GCP audit trail</td><td class="pirai"><span class="check">Full field-level audit log</span></td><td><span class="cross">Not available</span></td></tr>
+                <tr><td>21 CFR Part 11 validation</td><td class="pirai"><span class="check">Institutional packages available</span></td><td><span class="cross">Not designed for this</span></td></tr>
+                <tr><td>Institution-controlled data</td><td class="pirai"><span class="check">On-premises or dedicated cloud</span></td><td><span class="partial">FedRAMP edition only</span></td></tr>
+                <tr><td>Calculated fields (composite scores)</td><td class="pirai"><span class="check">Native calculated field type</span></td><td><span class="partial">Scoring feature (limited)</span></td></tr>
+                <tr><td>Multi-site user permissions</td><td class="pirai"><span class="check">Native site-level access control</span></td><td><span class="partial">Separate accounts per site</span></td></tr>
+                <tr><td>CX dashboards and reporting</td><td class="pirai"><span class="cross">Basic; export to R/SAS</span></td><td><span class="check">Native dashboards and Text iQ</span></td></tr>
+              </tbody>
+            </table>
+
+            <div class="link-section">
+                <h4>Clinical Research Resources</h4>
+                <div class="link-grid">
+                    <a href="/blog/convert-crf-to-redcap">CRF to REDCap conversion guide</a>
+                    <a href="/blog/clinical-trial-survey-redcap">Clinical trial surveys in REDCap</a>
+                    <a href="/blog/irb-compliant-survey-design">IRB compliant survey design</a>
+                    <a href="/blog/how-to-write-patient-satisfaction-survey-questions">Patient survey questions guide</a>
+                    <a href="/product/pdf-to-redcap/">PDF to REDCap</a>
+                    <a href="/blog/qualtrics-vs-redcap">Qualtrics vs REDCap</a>
+                </div>
+            </div>
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Is REDCap GCP compliant for clinical trials?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>REDCap provides the audit trail, access controls, and data integrity features required by ICH GCP E6(R2) for electronic data capture in clinical trials. When combined with your institution's REDCap validation documentation (IQ/OQ/PQ), it can satisfy the system validation requirements for regulated academic clinical trials. Consult your institution's research quality assurance office for your specific study requirements.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Can REDCap be used for HIPAA-covered research?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes. REDCap deployed on your institution's HIPAA-compliant infrastructure (covered by your institution's BAA with its hosting provider) can be used for research collecting PHI. The data resides on institution-controlled systems rather than passing through third-party commercial platforms. Confirm HIPAA compliance coverage with your institution's privacy officer before collecting PHI.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How do I convert a paper CRF to REDCap?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Upload the CRF Word or PDF document to Pirai AI at platform.piraiai.com, select REDCap as the target, and download the data dictionary CSV. Import it into your REDCap project via Project Setup > Data Dictionary > Upload File. Field types, labels, and answer choices are mapped from the CRF document. Add calculated fields and validation rules in the Online Designer after import.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Can I use REDCap for multi-site clinical studies?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes. REDCap's user permission system supports site-level access control within a single multi-site project. Each site's data entry staff can be restricted to viewing and entering data for their own site only, while the coordinating centre has access to the full dataset. This is the standard configuration for multi-site academic clinical trials using REDCap.</p></div>
+            </div>
+            <div class="article-cta">
+                <h3>Convert Your Survey Document Now</h3>
+                <p>Upload once. Export to any platform. No manual re-entry. No Drive access required.</p>
+                <a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Start Free - 2 Conversions/Day</a>
+            </div>
+        </article>
+        <aside class="sidebar">
+            <div class="cta-box"><h3>Try Pirai AI Free</h3><p>2 conversions per day. No credit card.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-button">Start Free</a></div>
+            <div class="sidebar-section"><h3>Quick Links</h3><ul class="toc-list">
+                    <li><a href="/document-to-redcap">Document to REDCap</a></li>
+                    <li><a href="/redcap-for-researchers">REDCap for Researchers</a></li>
+                    <li><a href="/blog/convert-crf-to-redcap">CRF to REDCap</a></li>
+                    <li><a href="/blog/clinical-trial-survey-redcap">Clinical Trial Surveys</a></li>
+                    <li><a href="/blog/qualtrics-vs-redcap">Qualtrics vs REDCap</a></li>
+            </ul></div>
+        </aside>
+    </div>
+    <section class="related-articles"><h2>Related Articles</h2><div class="related-grid">
+            <a href="/redcap-for-researchers" class="related-card"><span class="card-tag">Guide</span><h3>REDCap for Researchers</h3><p>How academic researchers use REDCap for validated instruments and longitudinal studies.</p></a>
+            <a href="/blog/convert-crf-to-redcap" class="related-card"><span class="card-tag">Guide</span><h3>CRF to REDCap</h3><p>How to convert case report forms to REDCap data dictionary format.</p></a>
+            <a href="/blog/qualtrics-vs-redcap" class="related-card"><span class="card-tag">Comparison</span><h3>Qualtrics vs REDCap</h3><p>When to use each platform for clinical and academic research.</p></a>
+    </div></section>
+    <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
+    <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
+    </script>
+</body></html>

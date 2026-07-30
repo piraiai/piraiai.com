@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Is a REDCap Data Dictionary? Complete Guide (2026) - Pirai AI Blog</title>
+    <meta name="description" content="Everything about REDCap's data dictionary format  -  all 18 columns explained, field types, choice formatting, branching logic syntax, and how to create one from a survey document automatically.">
+    <meta name="keywords" content="redcap data dictionary, what is redcap data dictionary, redcap data dictionary format, redcap data dictionary columns, redcap field types, redcap data dictionary guide, redcap csv import, redcap data dictionary template">
+    <meta property="og:type" content="article"><meta property="og:url" content="https://piraiai.com/blog/what-is-a-redcap-data-dictionary">
+    <meta property="og:title" content="What Is a REDCap Data Dictionary? Complete Guide (2026)"><meta property="og:description" content="Everything about REDCap's data dictionary format  -  all 18 columns explained, field types, choice formatting, branching logic syntax, and how to create one from a survey document automatically.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="article:published_time" content="2026-07-18T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta property="article:section" content="Glossary">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="What Is a REDCap Data Dictionary? Complete Guide (2026)"><meta name="twitter:description" content="Everything about REDCap's data dictionary format  -  all 18 columns explained, field types, choice formatting, branching logic syntax, and how to create one from a survey document automatically.">
+    <link rel="canonical" href="https://piraiai.com/blog/what-is-a-redcap-data-dictionary"><link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What Is a REDCap Data Dictionary? Complete Guide (2026)","description":"Everything about REDCap's data dictionary format  -  all 18 columns explained, field types, choice formatting, branching logic syntax, and how to create one from a survey document automatically.","author":{"@type":"Person","name":"Arun Raj"},"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},"datePublished":"2026-07-18","url":"https://piraiai.com/blog/what-is-a-redcap-data-dictionary"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a REDCap data dictionary?","acceptedAnswer":{"@type":"Answer","text":"A REDCap data dictionary is a CSV file that defines the complete structure of a REDCap project  -  every field's name, type, label, answer choices, branching logic, and validation rules. It can be downloaded from any existing REDCap project or uploaded to build a new instrument. It is the fastest way to create a complex survey instrument in REDCap."}},{"@type":"Question","name":"How do I format choices in a REDCap data dictionary?","acceptedAnswer":{"@type":"Answer","text":"REDCap choices are formatted as pipe-delimited code-label pairs: 1, Not at all | 2, Several days | 3, More than half the days | 4, Nearly every day. Each option starts with a numeric code, then a comma, then the label. Options are separated by space-pipe-space. This format applies to radio, checkbox, and dropdown field types."}},{"@type":"Question","name":"How do I add branching logic to a REDCap data dictionary?","acceptedAnswer":{"@type":"Answer","text":"Add REDCap branching logic expressions in the Branching Logic column. The syntax is [field_name] = 'value'  -  the field name in square brackets, equals sign, and the value in single quotes. Use AND/OR for multiple conditions. For checkbox fields, use [fieldname___code] = '1' to check whether a specific option is selected."}},{"@type":"Question","name":"Can Pirai AI generate a REDCap data dictionary from a survey document?","acceptedAnswer":{"@type":"Answer","text":"Yes. Upload your Word, PDF, or Excel survey document to Pirai AI, select REDCap as the target platform, and download the data dictionary CSV. Field types, labels, answer choices in pipe-delimited format, and branching logic are all populated from the source document. Import via Project Setup > Data Dictionary > Upload File in your REDCap project."}}]}</script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; margin-left: 32px; transition: color 0.2s; }
+        header nav a:hover { color: #9B6BFF; }
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+        .content-wrapper { max-width: 1200px; margin: 48px auto; padding: 0 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+        .article-content { max-width: 680px; overflow-x: hidden; }
+        .article-content p { font-size: 18px; color: #374151; margin-bottom: 24px; line-height: 1.7; }
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-top: 32px; margin-bottom: 12px; }
+        .article-content a { color: #9B6BFF; text-decoration: none; border-bottom: 1px solid rgba(155,107,255,0.3); transition: all 0.2s; }
+        .article-content a:hover { border-bottom-color: #9B6BFF; }
+        .article-content ul, .article-content ol { margin-bottom: 24px; padding-left: 24px; }
+        .article-content li { font-size: 18px; color: #374151; margin-bottom: 10px; line-height: 1.7; }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+        .definition-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 28px; margin: 32px 0; border-radius: 4px; }
+        .definition-box .def-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9B6BFF; margin-bottom: 12px; display: block; }
+        .definition-box p { font-size: 17px; color: #1a1a1a; margin-bottom: 0; font-style: italic; line-height: 1.7; }
+        .related-terms { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 32px 0; }
+        .related-terms h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+        .related-terms ul { padding-left: 0; list-style: none; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+        .related-terms li { margin: 0; }
+        .related-terms a { display: inline-block; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 6px 14px; font-size: 14px; color: #374151; text-decoration: none; border-bottom: none; transition: all 0.2s; }
+        .related-terms a:hover { border-color: #9B6BFF; color: #9B6BFF; border-bottom: none; }
+        .article-cta { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 36px 40px; border-radius: 12px; margin: 48px 0 32px; text-align: center; }
+        .article-cta h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+        .article-cta p { font-size: 16px; color: #ffffff; opacity: 0.95; margin-bottom: 20px; }
+        .article-cta a { border-bottom: none !important; }
+        .cta-btn-white { display: inline-block; background: #ffffff; color: #9B6BFF !important; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-btn-white:hover { transform: translateY(-2px); }
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a1a1a; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; transition: color 0.2s; border-bottom: none; display: block; }
+        .toc-list a:hover { color: #9B6BFF; }
+        .toc-list a.active { color: #9B6BFF; font-weight: 600; }
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 32px; border-radius: 8px; text-align: center; color: #ffffff; margin-bottom: 24px; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .cta-box p { font-size: 14px; margin-bottom: 20px; opacity: 0.95; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-button:hover { transform: translateY(-2px); }
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; border-bottom: none; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
+        .related-card .card-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #9B6BFF; margin-bottom: 8px; display: block; }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
+        .related-card p { font-size: 14px; color: #6b7280; margin: 0; }
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+        @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 400px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header><div class="header-container">
+        <a href="/" class="logo"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span></a>
+        <nav><a href="/">Home</a><a href="/blog">All Articles</a><a href="/docs">Documentation</a><a href="/#demo">Get Demo</a></nav>
+    </div></header>
+    <div class="breadcrumb"><div class="breadcrumb-container">
+        <a href="/">Home</a><span class="breadcrumb-separator">›</span>
+        <a href="/blog">Blog</a><span class="breadcrumb-separator">›</span>
+        <a href="/blog?category=glossary">Glossary</a><span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">What Is a REDCap Data Dictionary? Complete Guide (2026)</span>
+    </div></div>
+    <div class="hero"><div class="hero-container">
+        <h1 class="article-title">What Is a REDCap Data Dictionary? Complete Guide (2026)</h1>
+        <div class="article-meta"><span class="author">Arun Raj</span><span class="separator">•</span><span>July 18, 2026</span><span class="separator">•</span><span>3 min read</span><span class="separator">•</span><span style="background:#e5e7eb;color:#374151;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:600;">Glossary</span></div>
+    </div></div>
+    <div class="content-wrapper">
+        <article class="article-content">
+            <div class="definition-box">
+                <span class="def-label">Definition</span>
+                <p>A REDCap data dictionary is a CSV file that defines the complete structure of a REDCap project  -  every field's name, type, label, answer choices, branching logic, and validation rules. It is the primary way to create or modify a REDCap instrument in bulk, and can be downloaded from any existing project or uploaded to build a new one.</p>
+            </div>
+
+            <h2 id="what-it-is">What a REDCap Data Dictionary Is</h2>
+            <p>Every REDCap project's structure is defined by its data dictionary. Whether you build fields through the Online Designer (clicking through the interface) or by uploading a CSV file, REDCap stores the project structure as a data dictionary that can be downloaded at any time from Project Setup > Data Dictionary > Download the current Data Dictionary.</p>
+            <p>The data dictionary CSV has one row per field and columns that define every property of that field. Uploading a data dictionary to a new or existing project is the fastest way to build a complex instrument  -  significantly faster than clicking through the Online Designer for each of 40+ fields individually.</p>
+
+            <h2 id="all-columns">All 18 Data Dictionary Columns Explained</h2>
+            <table class="comparison-table">
+              <thead><tr><th>Column Name</th><th class="pirai">What Goes Here</th></tr></thead>
+              <tbody>
+                <tr><td>Variable / Field Name</td><td class="pirai">Unique identifier for the field. Lowercase letters, numbers, underscores only. No spaces. Max 26 characters. E.g. <code>phq9_q1</code></td></tr>
+                <tr><td>Form Name</td><td class="pirai">Which instrument/form this field belongs to. Lowercase, underscored. E.g. <code>depression_screen</code></td></tr>
+                <tr><td>Section Header</td><td class="pirai">Optional bold header text displayed above this field in the form. Leave blank for no header.</td></tr>
+                <tr><td>Field Type</td><td class="pirai">One of: text, notes, radio, checkbox, dropdown, calc, file, slider, yesno, truefalse, descriptive, sql</td></tr>
+                <tr><td>Field Label</td><td class="pirai">The question text shown to the respondent. HTML supported. E.g. "Over the last 2 weeks, how often have you been bothered by little interest or pleasure in doing things?"</td></tr>
+                <tr><td>Choices, Calculations, OR Slider Labels</td><td class="pirai">For radio/checkbox/dropdown: pipe-delimited choices. For calc: the formula. For slider: three labels separated by |</td></tr>
+                <tr><td>Field Note</td><td class="pirai">Small helper text displayed below the field in grey. Optional.</td></tr>
+                <tr><td>Text Validation Type OR Show Slider Number</td><td class="pirai">For text fields: date_mdy, date_dmy, integer, number, email, phone, zipcode, etc. For sliders: 'y' to show the numeric value.</td></tr>
+                <tr><td>Text Validation Min</td><td class="pirai">Minimum accepted value for validated text fields (e.g. 0 for age)</td></tr>
+                <tr><td>Text Validation Max</td><td class="pirai">Maximum accepted value for validated text fields (e.g. 120 for age)</td></tr>
+                <tr><td>Identifier?</td><td class="pirai">y if this field contains identifiable information (name, DOB, MRN). Flags field for de-identification exports.</td></tr>
+                <tr><td>Branching Logic</td><td class="pirai">Show this field only if a condition is met. E.g. [group]='2'  -  shows only for respondents in group 2.</td></tr>
+                <tr><td>Required Field?</td><td class="pirai">y if the field must be answered before the form can be marked complete.</td></tr>
+                <tr><td>Custom Alignment</td><td class="pirai">LH (left horizontal), LV (left vertical), RH (right horizontal), RV (right vertical). Controls layout.</td></tr>
+                <tr><td>Question Number (surveys only)</td><td class="pirai">Auto-number displayed to respondents in survey mode. Leave blank to suppress numbering.</td></tr>
+                <tr><td>Matrix Group Name</td><td class="pirai">Groups radio fields into a visual matrix table. All fields in the same Matrix Group Name display as a grid.</td></tr>
+                <tr><td>Matrix Ranking?</td><td class="pirai">y for rank-order matrices where each column can only be selected once per row.</td></tr>
+                <tr><td>Field Annotation</td><td class="pirai">Action tags or custom annotations. E.g. @HIDDEN, @CALCDATE, @DEFAULT='0'. For advanced use.</td></tr>
+              </tbody>
+            </table>
+
+            <h2 id="field-types">REDCap Field Types</h2>
+            <p><strong>text</strong>  -  A single-line text entry box. Add validation type, min, and max to constrain input format (date, integer, number, email, phone).</p>
+            <p><strong>notes</strong>  -  A multi-line text box for longer open-ended responses.</p>
+            <p><strong>radio</strong>  -  Radio buttons for single-select questions. Define choices in the Choices column.</p>
+            <p><strong>checkbox</strong>  -  Checkboxes for multi-select questions. Define choices in the Choices column. Each checkbox choice exports as a separate binary variable.</p>
+            <p><strong>dropdown</strong>  -  A dropdown menu for single-select questions with long option lists.</p>
+            <p><strong>calc</strong>  -  A calculated field. The formula in the Choices/Calculations column is evaluated automatically. Use for composite scores (PHQ-9 total = sum of items 1-9).</p>
+            <p><strong>slider</strong>  -  A visual analog scale. Enter three pipe-delimited labels: left label | centre label | right label. Add 'y' in the Text Validation column to show the numeric value.</p>
+            <p><strong>yesno</strong>  -  A fixed Yes/No radio. No choices needed.</p>
+            <p><strong>truefalse</strong>  -  A fixed True/False radio. No choices needed.</p>
+            <p><strong>descriptive</strong>  -  Display-only text or an embedded image. No response collected. Use for section instructions, informed consent text, or embedded media.</p>
+            <p><strong>file</strong>  -  A file upload field. Respondents attach a file to the record.</p>
+
+            <h2 id="choices-format">How to Format Answer Choices</h2>
+            <p>For radio, checkbox, and dropdown fields, choices are entered in the Choices column as pipe-delimited pairs of code and label:</p>
+            <div style="background:#1e1b4b;border-radius:8px;padding:20px;margin:16px 0;">
+            <pre style="color:#e2e8f0;font-family:monospace;font-size:13px;margin:0;white-space:pre-wrap;">1, Not at all | 2, Several days | 3, More than half the days | 4, Nearly every day</pre>
+            </div>
+            <p>Each option is a numeric code, a comma, a space, then the label text. Options are separated by pipe characters with spaces on each side. The numeric codes are what REDCap stores in the database  -  the labels are what respondents and data entry staff see. Keep codes consistent across instruments for analysis (e.g. always code "Strongly Agree" as 5 on a 5-point scale).</p>
+
+            <h2 id="branching-logic">Branching Logic Syntax</h2>
+            <p>Branching logic in REDCap uses a specific expression syntax in the Branching Logic column. The field is shown only when the condition is true:</p>
+            <div style="background:#1e1b4b;border-radius:8px;padding:20px;margin:16px 0;">
+            <pre style="color:#e2e8f0;font-family:monospace;font-size:13px;margin:0;white-space:pre-wrap;">[field_name] = '1'              (show if field equals 1)
+[field_name] <> ''              (show if field is not empty)
+[field_a] = '1' AND [field_b] = '2'   (AND condition)
+[field_a] = '1' OR [field_b] = '1'    (OR condition)
+[checkbox___1] = '1'           (show if checkbox option 1 is selected)</pre>
+            </div>
+            <p>Field names are enclosed in square brackets. String values are enclosed in single quotes. Numeric comparisons can use =, <>, <, >, <=, >=. Checkbox field branching uses the triple-underscore syntax: [fieldname___code] = '1'.</p>
+
+            <h2 id="creating-one">Creating a Data Dictionary From a Survey Document</h2>
+            <p>Building a data dictionary manually for a 40-item validated instrument takes 3-5 hours  -  selecting field types, typing labels verbatim, formatting choices in pipe-delimited syntax, writing branching logic expressions. Pirai AI generates the data dictionary CSV automatically from your Word, PDF, or Excel document. Upload at platform.piraiai.com, select REDCap, and download the pre-formatted CSV. Import via Project Setup > Data Dictionary > Upload File > Commit Changes. Review and refine in the Online Designer after import.</p>
+
+            <h2 id="common-errors">Common Data Dictionary Import Errors</h2>
+            <p><strong>Duplicate field name.</strong> Every variable name must be unique across the entire project. If two fields have the same name, the import fails. Prefix section-specific fields with a section code (e.g. <code>phq9_q1</code>, <code>gad7_q1</code>).</p>
+            <p><strong>Invalid field name characters.</strong> Field names can only contain lowercase letters, numbers, and underscores. No spaces, hyphens, or uppercase letters. REDCap rejects names that violate this rule.</p>
+            <p><strong>Malformed choices string.</strong> Missing pipe separators, missing commas between code and label, or inconsistent spacing cause choice parsing errors. The format must be exactly: <code>1, Label one | 2, Label two</code>.</p>
+            <p><strong>Branching logic referencing a non-existent field.</strong> If branching logic references a field name that does not exist in the data dictionary or project, the import fails. Check all field names in branching logic conditions against the Variable/Field Name column.</p>
+            <div class="related-terms">
+                <h4>Related Terms</h4>
+                <ul><li><a href="/blog/what-is-skip-logic">Skip Logic</a></li><li><a href="/blog/what-is-survey-validity">Survey Validity</a></li><li><a href="/blog/what-is-cronbachs-alpha">Cronbach's Alpha</a></li><li><a href="/blog/what-is-response-bias">Response Bias</a></li></ul>
+            </div>
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What is a REDCap data dictionary?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>A REDCap data dictionary is a CSV file that defines the complete structure of a REDCap project  -  every field's name, type, label, answer choices, branching logic, and validation rules. It can be downloaded from any existing REDCap project or uploaded to build a new instrument. It is the fastest way to create a complex survey instrument in REDCap.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How do I format choices in a REDCap data dictionary?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>REDCap choices are formatted as pipe-delimited code-label pairs: 1, Not at all | 2, Several days | 3, More than half the days | 4, Nearly every day. Each option starts with a numeric code, then a comma, then the label. Options are separated by space-pipe-space. This format applies to radio, checkbox, and dropdown field types.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How do I add branching logic to a REDCap data dictionary?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Add REDCap branching logic expressions in the Branching Logic column. The syntax is [field_name] = 'value'  -  the field name in square brackets, equals sign, and the value in single quotes. Use AND/OR for multiple conditions. For checkbox fields, use [fieldname___code] = '1' to check whether a specific option is selected.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Can Pirai AI generate a REDCap data dictionary from a survey document?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes. Upload your Word, PDF, or Excel survey document to Pirai AI, select REDCap as the target platform, and download the data dictionary CSV. Field types, labels, answer choices in pipe-delimited format, and branching logic are all populated from the source document. Import via Project Setup > Data Dictionary > Upload File in your REDCap project.</p></div>
+            </div>
+            <div class="article-cta">
+                <h3>Deploy Your Survey to 27+ Platforms</h3>
+                <p>Convert Word, PDF, and Excel survey instruments to Qualtrics, REDCap, SurveyMonkey, and more. No manual programming required.</p>
+                <a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Start Converting Free</a>
+            </div>
+        </article>
+        <aside class="sidebar">
+            <div class="cta-box"><h3>Try Pirai AI Free</h3><p>Convert any survey document to 27+ platforms in minutes.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-button">Start Free</a></div>
+            <div class="sidebar-section"><h3>In This Article</h3><ul class="toc-list">
+                    <li><a href="#what-it-is">What a Data Dictionary Is</a></li>
+                    <li><a href="#all-columns">All 18 Columns Explained</a></li>
+                    <li><a href="#field-types">REDCap Field Types</a></li>
+                    <li><a href="#choices-format">How to Format Answer Choices</a></li>
+                    <li><a href="#branching-logic">Branching Logic Syntax</a></li>
+                    <li><a href="#creating-one">Creating a Data Dictionary</a></li>
+                    <li><a href="#common-errors">Common Import Errors</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+            </ul></div>
+            <div class="sidebar-section"><h3>Related Articles</h3><ul class="toc-list">
+                    <li><a href="/document-to-redcap">Document to REDCap</a></li>
+                    <li><a href="/redcap-for-researchers">REDCap for Researchers</a></li>
+                    <li><a href="/redcap-for-clinical-research">REDCap for Clinical Research</a></li>
+                    <li><a href="/blog/convert-crf-to-redcap">CRF to REDCap</a></li>
+                    <li><a href="/product/redcap-converter/">REDCap Converter</a></li>
+            </ul></div>
+        </aside>
+    </div>
+    <section class="related-articles"><h2>Related Articles</h2><div class="related-grid">
+            <a href="/document-to-redcap" class="related-card"><span class="card-tag">Hub</span><h3>Document to REDCap</h3><p>Convert survey documents to REDCap data dictionary format automatically.</p></a>
+            <a href="/redcap-for-researchers" class="related-card"><span class="card-tag">Guide</span><h3>REDCap for Researchers</h3><p>How academic researchers deploy validated instruments in REDCap.</p></a>
+            <a href="/blog/convert-crf-to-redcap" class="related-card"><span class="card-tag">Guide</span><h3>CRF to REDCap</h3><p>Converting case report forms to REDCap data dictionary format for clinical trials.</p></a>
+    </div></section>
+    <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
+    <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        const sections = document.querySelectorAll('h2[id]');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    const active = document.querySelector('.toc-list a[href="#' + entry.target.id + '"]');
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        sections.forEach(s => observer.observe(s));
+    </script>
+</body></html>
