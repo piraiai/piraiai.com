@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Every SurveyMonkey Question Type Explained (2026 Guide) - Pirai AI Blog</title>
+    <meta name="description" content="All SurveyMonkey question types with examples, when to use each, and how they map from survey documents. Includes matrix, ranking, NPS, slider, and the less-known types.">
+    <meta name="keywords" content="surveymonkey question types, all surveymonkey question types, surveymonkey matrix question, surveymonkey NPS question, surveymonkey ranking question, surveymonkey slider, surveymonkey multiple choice, surveymonkey question type guide 2026">
+    <meta property="og:type" content="article"><meta property="og:url" content="https://piraiai.com/blog/surveymonkey-question-types">
+    <meta property="og:title" content="Every SurveyMonkey Question Type Explained (2026 Guide)"><meta property="og:description" content="All SurveyMonkey question types with examples, when to use each, and how they map from survey documents. Includes matrix, ranking, NPS, slider, and the less-known types.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="article:published_time" content="2026-07-18T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta property="article:section" content="Glossary">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Every SurveyMonkey Question Type Explained (2026 Guide)"><meta name="twitter:description" content="All SurveyMonkey question types with examples, when to use each, and how they map from survey documents. Includes matrix, ranking, NPS, slider, and the less-known types.">
+    <link rel="canonical" href="https://piraiai.com/blog/surveymonkey-question-types"><link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Every SurveyMonkey Question Type Explained (2026 Guide)","description":"All SurveyMonkey question types with examples, when to use each, and how they map from survey documents. Includes matrix, ranking, NPS, slider, and the less-known types.","author":{"@type":"Person","name":"Arun Raj"},"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},"datePublished":"2026-07-18","url":"https://piraiai.com/blog/surveymonkey-question-types"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many question types does SurveyMonkey have?","acceptedAnswer":{"@type":"Answer","text":"SurveyMonkey has 15+ question types including Multiple Choice, Checkboxes, Matrix/Rating Scale, NPS, Ranking, Slider, Star Rating, Text Response, Comment Box, Dropdown, Date/Time, Demographic, File Upload, Image Choice, and Descriptive Text. Some types are plan-restricted."}},{"@type":"Question","name":"Does SurveyMonkey have a matrix question type?","acceptedAnswer":{"@type":"Answer","text":"Yes. SurveyMonkey's Matrix / Rating Scale question type displays multiple row statements against shared column options in a grid format. It supports row randomisation and custom column labels. It is equivalent to Qualtrics' Matrix Table and Google Forms' Multiple Choice Grid."}},{"@type":"Question","name":"How does Pirai AI map question types when converting to SurveyMonkey?","acceptedAnswer":{"@type":"Answer","text":"Pirai AI maps each question in your source document to the closest SurveyMonkey question type: multiple choice to Multiple Choice, multi-select to Checkboxes, matrix to Matrix/Rating Scale, open text to Text Response or Comment Box, NPS to the native NPS type. The Paste Your Content .txt output encodes the question type so SurveyMonkey builds the correct type on import."}},{"@type":"Question","name":"Can I use SurveyMonkey question types in a Qualtrics survey?","acceptedAnswer":{"@type":"Answer","text":"Not directly. SurveyMonkey and Qualtrics have separate question type systems. To deploy the same survey on both platforms with matching question types, convert your source document to both platforms using Pirai AI  -  each output uses the platform's native question types."}}]}</script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; margin-left: 32px; transition: color 0.2s; }
+        header nav a:hover { color: #9B6BFF; }
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+        .content-wrapper { max-width: 1200px; margin: 48px auto; padding: 0 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+        .article-content { max-width: 680px; overflow-x: hidden; }
+        .article-content p { font-size: 18px; color: #374151; margin-bottom: 24px; line-height: 1.7; }
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-top: 32px; margin-bottom: 12px; }
+        .article-content a { color: #9B6BFF; text-decoration: none; border-bottom: 1px solid rgba(155,107,255,0.3); transition: all 0.2s; }
+        .article-content a:hover { border-bottom-color: #9B6BFF; }
+        .article-content ul, .article-content ol { margin-bottom: 24px; padding-left: 24px; }
+        .article-content li { font-size: 18px; color: #374151; margin-bottom: 10px; line-height: 1.7; }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+        .definition-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 28px; margin: 32px 0; border-radius: 4px; }
+        .definition-box .def-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9B6BFF; margin-bottom: 12px; display: block; }
+        .definition-box p { font-size: 17px; color: #1a1a1a; margin-bottom: 0; font-style: italic; line-height: 1.7; }
+        .related-terms { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 32px 0; }
+        .related-terms h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+        .related-terms ul { padding-left: 0; list-style: none; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+        .related-terms li { margin: 0; }
+        .related-terms a { display: inline-block; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 6px 14px; font-size: 14px; color: #374151; text-decoration: none; border-bottom: none; transition: all 0.2s; }
+        .related-terms a:hover { border-color: #9B6BFF; color: #9B6BFF; border-bottom: none; }
+        .article-cta { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 36px 40px; border-radius: 12px; margin: 48px 0 32px; text-align: center; }
+        .article-cta h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+        .article-cta p { font-size: 16px; color: #ffffff; opacity: 0.95; margin-bottom: 20px; }
+        .article-cta a { border-bottom: none !important; }
+        .cta-btn-white { display: inline-block; background: #ffffff; color: #9B6BFF !important; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-btn-white:hover { transform: translateY(-2px); }
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a1a1a; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; transition: color 0.2s; border-bottom: none; display: block; }
+        .toc-list a:hover { color: #9B6BFF; }
+        .toc-list a.active { color: #9B6BFF; font-weight: 600; }
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 32px; border-radius: 8px; text-align: center; color: #ffffff; margin-bottom: 24px; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .cta-box p { font-size: 14px; margin-bottom: 20px; opacity: 0.95; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-button:hover { transform: translateY(-2px); }
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; border-bottom: none; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
+        .related-card .card-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #9B6BFF; margin-bottom: 8px; display: block; }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
+        .related-card p { font-size: 14px; color: #6b7280; margin: 0; }
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+        @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 400px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header><div class="header-container">
+        <a href="/" class="logo"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span></a>
+        <nav><a href="/">Home</a><a href="/blog">All Articles</a><a href="/docs">Documentation</a><a href="/#demo">Get Demo</a></nav>
+    </div></header>
+    <div class="breadcrumb"><div class="breadcrumb-container">
+        <a href="/">Home</a><span class="breadcrumb-separator">›</span>
+        <a href="/blog">Blog</a><span class="breadcrumb-separator">›</span>
+        <a href="/blog?category=glossary">Glossary</a><span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">Every SurveyMonkey Question Type Explained (2026 Guide)</span>
+    </div></div>
+    <div class="hero"><div class="hero-container">
+        <h1 class="article-title">Every SurveyMonkey Question Type Explained (2026 Guide)</h1>
+        <div class="article-meta"><span class="author">Arun Raj</span><span class="separator">•</span><span>July 18, 2026</span><span class="separator">•</span><span>3 min read</span><span class="separator">•</span><span style="background:#e5e7eb;color:#374151;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:600;">Glossary</span></div>
+    </div></div>
+    <div class="content-wrapper">
+        <article class="article-content">
+            <div class="definition-box">
+                <span class="def-label">Definition</span>
+                <p>SurveyMonkey offers 15+ question types covering multiple choice, rating, matrix, ranking, text entry, demographic, NPS, slider, image-based, and file upload. Understanding which type to use  -  and how each maps from a survey document  -  is the foundation of accurate conversion from Word or PDF to SurveyMonkey.</p>
+            </div>
+
+            <h2 id="multiple-choice">1. Multiple Choice</h2>
+            <p>Single-select question displayed as radio buttons. The most common SurveyMonkey question type. Add up to 100 answer options. Enable "Other" for open-text entry. Enable "N/A" for a not-applicable option. Set forced response to require an answer. Can trigger skip logic conditions  -  routing respondents to different pages based on the selected answer.</p>
+            <p><strong>Best for:</strong> Categorical questions, yes/no, screening, routing questions.</p>
+
+            <h2 id="checkboxes">2. Checkboxes</h2>
+            <p>Multi-select question allowing respondents to select any number of options. Set a minimum or maximum number of selections required under Validation. Each option exports as a separate binary column in the response data. Use "Select All That Apply" label for clarity. The data structure (binary columns per option) requires consideration during analysis planning.</p>
+            <p><strong>Best for:</strong> "Select all that apply" questions, feature usage, channel selection.</p>
+
+            <h2 id="matrix">3. Matrix / Rating Scale</h2>
+            <p>SurveyMonkey's most used question type for research. Multiple row statements rated on a shared set of column options. Configure as a Likert matrix (agreement scale), satisfaction matrix, frequency matrix, or with custom column labels. Enable row randomisation to counteract order effects  -  important for validated research instruments. The Matrix type in SurveyMonkey is equivalent to Qualtrics' Matrix Table question and Google Forms' Multiple Choice Grid.</p>
+            <p><strong>Best for:</strong> Likert batteries, satisfaction attribute ratings, brand perception grids.</p>
+
+            <h2 id="nps">4. Net Promoter Score</h2>
+            <p>Native NPS question type displaying the standard 0-10 scale with "Not at all likely" and "Extremely likely" endpoint labels. Automatically categorises responses into Promoters (9-10), Passives (7-8), and Detractors (0-6) in the response summary. The NPS score and segment breakdown appear automatically in the Analyze view. Use the native NPS type  -  not a custom rating scale  -  to ensure correct labelling and automatic Promoter/Passive/Detractor calculation.</p>
+            <p><strong>Best for:</strong> Customer NPS, employee NPS (eNPS), relationship and transactional loyalty measurement.</p>
+
+            <h2 id="ranking">5. Ranking</h2>
+            <p>Respondents drag and drop items into order of preference or priority. Each item receives a rank number in the response data. Use for feature prioritisation research, brand preference ordering, and any question where the relative ordering of options matters more than absolute ratings. Limit to 7-8 items maximum  -  longer ranking lists fatigue respondents and produce unreliable data at the bottom of the list.</p>
+            <p><strong>Best for:</strong> Feature prioritisation, brand preference ranking, importance ordering.</p>
+
+            <h2 id="slider">6. Slider</h2>
+            <p>A horizontal drag-to-rate input for continuous or stepped numeric ratings. Configure the minimum, maximum, and step increment. Set starting position (left, centre, or a specific value). Labels at the endpoints. Useful for price sensitivity questions ("How much would you expect to pay?"), continuous satisfaction ratings, and any question where a numeric drag feels more intuitive than radio buttons.</p>
+            <p><strong>Best for:</strong> Price sensitivity, willingness-to-pay, continuous satisfaction ratings.</p>
+
+            <h2 id="star-rating">7. Star Rating</h2>
+            <p>Visual star-based rating using 1-5 or 1-10 stars. Configure number of stars and optional labels. Less common in research surveys but appropriate for customer-facing satisfaction questions where the star metaphor is familiar (product reviews, experience ratings). For research surveys requiring precise Likert measurement, the Matrix type is more appropriate.</p>
+            <p><strong>Best for:</strong> Product ratings, experience quality for consumer-facing surveys.</p>
+
+            <h2 id="text">8. Text Response and Comment Box</h2>
+            <p>Single-line Text Response for short answers (name, email, ID). Multi-line Comment Box for open-ended feedback. Add validation to Text Response for email format, phone number, date, or numeric input. Comment Box has no character limit by default but can be restricted. These are SurveyMonkey's equivalents to Google Forms' Short Answer and Paragraph types.</p>
+            <p><strong>Best for:</strong> Open-ended feedback, NPS follow-up verbatims, name and contact fields.</p>
+
+            <h2 id="dropdown">9. Dropdown</h2>
+            <p>Single-select presented as a dropdown menu. Best for long option lists (countries, departments, industries) where radio buttons would take excessive vertical space. Cannot trigger skip logic  -  use Multiple Choice if the question needs to route respondents to different pages.</p>
+            <p><strong>Best for:</strong> Country selection, long categorical lists, saving vertical space on mobile.</p>
+
+            <h2 id="date-time">10. Date / Time</h2>
+            <p>Structured date and time input with format options (MM/DD/YYYY, DD/MM/YYYY, etc.). Use for scheduling, event registration, and date-of-birth collection. Set required to ensure respondents complete the field before proceeding.</p>
+
+            <h2 id="demographic">11. Demographic</h2>
+            <p>A pre-built question type that collects standard demographic information (name, company, address, email, phone, city, state, zip, country) in a single form-field layout. Useful for contact data collection and event registration where multiple fields are needed together. Not appropriate for anonymous research surveys.</p>
+
+            <h2 id="file-upload">12. File Upload</h2>
+            <p>Allows respondents to attach files to their survey response. Configure accepted file types and size limits. Files are stored in SurveyMonkey's response data. Available on paid plans.</p>
+
+            <h2 id="image">13. Image Choice</h2>
+            <p>Respondents select from images rather than text options. Use for ad creative testing, packaging evaluation, brand identity research, and any stimulus-response question where the option is visual. Configure as single or multiple image selection.</p>
+
+            <h2 id="missing">What SurveyMonkey Is Missing</h2>
+            <p>Compared to Qualtrics, SurveyMonkey does not have: Constant Sum (budget allocation), Drill Down (cascading dropdowns), Side by Side matrix, Heat Map or Hotspot, Signature capture, and advanced Timing questions. For studies requiring these types, <a href="/product/qualtrics-converter/">Qualtrics</a> is more appropriate. Pirai AI converts the same document to either platform.</p>
+            <div class="related-terms">
+                <h4>Related Terms</h4>
+                <ul><li><a href="/blog/what-is-net-promoter-score">NPS</a></li><li><a href="/blog/what-is-likert-scale">Likert Scale</a></li><li><a href="/blog/what-is-response-bias">Response Bias</a></li><li><a href="/blog/what-is-straight-lining">Straight-Lining</a></li><li><a href="/blog/what-is-quota-sampling">Quota Sampling</a></li></ul>
+            </div>
+            <h2 id="faq">Frequently Asked Questions</h2>
+
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How many question types does SurveyMonkey have?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>SurveyMonkey has 15+ question types including Multiple Choice, Checkboxes, Matrix/Rating Scale, NPS, Ranking, Slider, Star Rating, Text Response, Comment Box, Dropdown, Date/Time, Demographic, File Upload, Image Choice, and Descriptive Text. Some types are plan-restricted.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Does SurveyMonkey have a matrix question type?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes. SurveyMonkey's Matrix / Rating Scale question type displays multiple row statements against shared column options in a grid format. It supports row randomisation and custom column labels. It is equivalent to Qualtrics' Matrix Table and Google Forms' Multiple Choice Grid.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How does Pirai AI map question types when converting to SurveyMonkey?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Pirai AI maps each question in your source document to the closest SurveyMonkey question type: multiple choice to Multiple Choice, multi-select to Checkboxes, matrix to Matrix/Rating Scale, open text to Text Response or Comment Box, NPS to the native NPS type. The Paste Your Content .txt output encodes the question type so SurveyMonkey builds the correct type on import.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Can I use SurveyMonkey question types in a Qualtrics survey?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Not directly. SurveyMonkey and Qualtrics have separate question type systems. To deploy the same survey on both platforms with matching question types, convert your source document to both platforms using Pirai AI  -  each output uses the platform's native question types.</p></div>
+            </div>
+            <div class="article-cta">
+                <h3>Deploy Your Survey to 27+ Platforms</h3>
+                <p>Convert Word, PDF, and Excel survey instruments to Qualtrics, REDCap, SurveyMonkey, and more. No manual programming required.</p>
+                <a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Start Converting Free</a>
+            </div>
+        </article>
+        <aside class="sidebar">
+            <div class="cta-box"><h3>Try Pirai AI Free</h3><p>Convert any survey document to 27+ platforms in minutes.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-button">Start Free</a></div>
+            <div class="sidebar-section"><h3>In This Article</h3><ul class="toc-list">
+                    <li><a href="#multiple-choice">Multiple Choice</a></li>
+                    <li><a href="#checkboxes">Checkboxes</a></li>
+                    <li><a href="#matrix">Matrix / Rating Scale</a></li>
+                    <li><a href="#nps">Net Promoter Score</a></li>
+                    <li><a href="#ranking">Ranking</a></li>
+                    <li><a href="#slider">Slider</a></li>
+                    <li><a href="#star-rating">Star Rating</a></li>
+                    <li><a href="#text">Text Response and Comment Box</a></li>
+                    <li><a href="#dropdown">Dropdown</a></li>
+                    <li><a href="#date-time">Date / Time</a></li>
+                    <li><a href="#demographic">Demographic</a></li>
+                    <li><a href="#file-upload">File Upload</a></li>
+                    <li><a href="#image">Image Choice</a></li>
+                    <li><a href="#missing">What SurveyMonkey Is Missing</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+            </ul></div>
+            <div class="sidebar-section"><h3>Related Articles</h3><ul class="toc-list">
+                    <li><a href="/document-to-surveymonkey">Document to SurveyMonkey</a></li>
+                    <li><a href="/surveymonkey-for-market-research">SurveyMonkey for MR</a></li>
+                    <li><a href="/blog/surveymonkey-vs-qualtrics">SM vs Qualtrics</a></li>
+                    <li><a href="/blog/surveymonkey-paste-your-content-guide">Paste Your Content Guide</a></li>
+                    <li><a href="/product/surveymonkey-converter/">SurveyMonkey Converter</a></li>
+            </ul></div>
+        </aside>
+    </div>
+    <section class="related-articles"><h2>Related Articles</h2><div class="related-grid">
+            <a href="/document-to-surveymonkey" class="related-card"><span class="card-tag">Hub</span><h3>Document to SurveyMonkey</h3><p>Convert survey documents to SurveyMonkey preserving all question types.</p></a>
+            <a href="/blog/surveymonkey-vs-qualtrics" class="related-card"><span class="card-tag">Comparison</span><h3>SurveyMonkey vs Qualtrics</h3><p>Platform comparison including question type coverage.</p></a>
+            <a href="/blog/google-forms-question-types" class="related-card"><span class="card-tag">Guide</span><h3>Google Forms Question Types</h3><p>Google Forms question types compared with SurveyMonkey equivalents.</p></a>
+    </div></section>
+    <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
+    <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        const sections = document.querySelectorAll('h2[id]');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    const active = document.querySelector('.toc-list a[href="#' + entry.target.id + '"]');
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        sections.forEach(s => observer.observe(s));
+    </script>
+</body></html>
