@@ -151,6 +151,48 @@
 \<!-- NEW BLOG SITEMAP ENTRIES — August 1, 2026 -->
 <!-- ============================================================ -->  
   <url>
+    <loc>https://piraiai.com/blog/create-redcap-instrument-from-word-pdf</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/redcap-data-dictionary-from-existing-survey</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/import-questions-into-limesurvey</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/word-to-lss-converter-guide</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/import-questions-into-microsoft-forms</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/microsoft-forms-quick-import-limitations</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/create-microsoft-forms-from-word-pdf</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://piraiai.com/blog/turn-questions-into-google-form</loc>
     <lastmod>2026-07-31</lastmod>
     <changefreq>monthly</changefreq>
