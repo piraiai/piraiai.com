@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qualtrics Advanced Format: Complete Guide With Examples (2026) - Pirai AI Blog</title>
+    <meta name="description" content="Everything about Qualtrics Advanced Format - the specific .docx/.txt structure required for Word import. Includes field codes, matrix syntax, examples, and why most researchers use QSF instead.">
+    <meta name="keywords" content="qualtrics advanced format, qualtrics advanced format guide, qualtrics txt import format, qualtrics word import format, qualtrics docx import format, qualtrics advanced format example, qualtrics import format requirements">
+    <meta property="og:type" content="article"><meta property="og:url" content="https://piraiai.com/blog/qualtrics-advanced-format-guide">
+    <meta property="og:title" content="Qualtrics Advanced Format: Complete Guide With Examples (2026)"><meta property="og:description" content="Everything about Qualtrics Advanced Format - the specific .docx/.txt structure required for Word import. Includes field codes, matrix syntax, examples, and why most researchers use QSF instead.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="article:published_time" content="2026-08-02T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta property="article:section" content="Guide">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Qualtrics Advanced Format: Complete Guide With Examples (2026)"><meta name="twitter:description" content="Everything about Qualtrics Advanced Format - the specific .docx/.txt structure required for Word import. Includes field codes, matrix syntax, examples, and why most researchers use QSF instead.">
+    <link rel="canonical" href="https://piraiai.com/blog/qualtrics-advanced-format-guide"><link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Qualtrics Advanced Format: Complete Guide With Examples (2026)","description":"Everything about Qualtrics Advanced Format - the specific .docx/.txt structure required for Word import. Includes field codes, matrix syntax, examples, and why most researchers use QSF instead.","author":{"@type":"Person","name":"Arun Raj"},"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},"datePublished":"2026-08-02","url":"https://piraiai.com/blog/qualtrics-advanced-format-guide"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is Qualtrics Advanced Format?","acceptedAnswer":{"@type":"Answer","text":"Qualtrics Advanced Format is a specific .docx or .txt document structure that Qualtrics' import tool can read as a survey. It uses Word Heading 1 for block names, Heading 2 for question text, body text for answer options, and question type codes like [[MC]], [[TE]], and [[Matrix]]. It must be built from scratch - it cannot be created by reformatting an existing survey document."}},{"@type":"Question","name":"What are the Qualtrics Advanced Format question type codes?","acceptedAnswer":{"@type":"Answer","text":"The main codes are: [[MC]] for Multiple Choice (single select), [[MC:MultipleAnswer]] for multi-select, [[TE]] for short text entry, [[TE:Essay]] for paragraph text, [[Matrix]] for Matrix Table/Likert grid, [[CB]] for Checkboxes, [[RO]] for Rank Order, [[CS]] for Constant Sum, and [[Slider]] for Slider questions."}},{"@type":"Question","name":"Why does my Qualtrics Word import fail?","acceptedAnswer":{"@type":"Answer","text":"The most common causes are: (1) uploading a standard Word document instead of one built in Advanced Format; (2) incorrect heading styles - question text must use Heading 2, not bold body text; (3) matrix scale headers not separated by '---'; (4) missing or incorrectly placed question type codes. For complex surveys, use Pirai AI to generate a QSF file instead of Advanced Format."}},{"@type":"Question","name":"Is Advanced Format faster than building manually in Qualtrics?","acceptedAnswer":{"@type":"Answer","text":"For surveys under 20 simple questions, Advanced Format can be slightly faster than manual entry. For surveys with matrix questions, complex blocks, or display logic, building the Advanced Format document takes nearly as long as manual entry - and introduces format error risk. QSF files generated by Pirai AI are faster for any survey over 15 questions."}}]}</script>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; margin-left: 32px; transition: color 0.2s; }
+        header nav a:hover { color: #9B6BFF; }
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+        .content-wrapper { max-width: 1200px; margin: 48px auto; padding: 0 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+        .article-content { max-width: 680px; overflow-x: hidden; }
+        .article-content p { font-size: 18px; color: #374151; margin-bottom: 24px; line-height: 1.7; }
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-top: 32px; margin-bottom: 12px; }
+        .article-content a { color: #9B6BFF; text-decoration: none; border-bottom: 1px solid rgba(155,107,255,0.3); transition: all 0.2s; }
+        .article-content a:hover { border-bottom-color: #9B6BFF; }
+        .article-content ul, .article-content ol { margin-bottom: 24px; padding-left: 24px; }
+        .article-content li { font-size: 18px; color: #374151; margin-bottom: 10px; line-height: 1.7; }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+        .article-content code { background: #f3f4f6; padding: 2px 7px; border-radius: 4px; font-size: 13px; color: #7c3aed; font-family: monospace; }
+        .definition-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 28px; margin: 32px 0; border-radius: 4px; }
+        .definition-box .def-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9B6BFF; margin-bottom: 12px; display: block; }
+        .definition-box p { font-size: 17px; color: #1a1a1a; margin-bottom: 0; font-style: italic; line-height: 1.7; }
+        .related-terms { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 32px 0; }
+        .related-terms h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+        .related-terms ul { padding-left: 0; list-style: none; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+        .related-terms li { margin: 0; }
+        .related-terms a { display: inline-block; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 6px 14px; font-size: 14px; color: #374151; text-decoration: none; border-bottom: none; transition: all 0.2s; }
+        .related-terms a:hover { border-color: #9B6BFF; color: #9B6BFF; border-bottom: none; }
+        .article-cta { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 36px 40px; border-radius: 12px; margin: 48px 0 32px; text-align: center; }
+        .article-cta h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+        .article-cta p { font-size: 16px; color: #ffffff; opacity: 0.95; margin-bottom: 20px; }
+        .article-cta a { border-bottom: none !important; }
+        .cta-btn-white { display: inline-block; background: #ffffff; color: #9B6BFF !important; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-btn-white:hover { transform: translateY(-2px); }
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a1a1a; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; transition: color 0.2s; border-bottom: none; display: block; }
+        .toc-list a:hover { color: #9B6BFF; }
+        .toc-list a.active { color: #9B6BFF; font-weight: 600; }
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 32px; border-radius: 8px; text-align: center; color: #ffffff; margin-bottom: 24px; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .cta-box p { font-size: 14px; margin-bottom: 20px; opacity: 0.95; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-button:hover { transform: translateY(-2px); }
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; border-bottom: none; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
+        .related-card .card-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #9B6BFF; margin-bottom: 8px; display: block; }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
+        .related-card p { font-size: 14px; color: #6b7280; margin: 0; }
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+        @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 400px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
+        /* Hub/ICP page components */
+        .tldr-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 24px 28px; margin: 0 0 32px; border-radius: 4px; }
+        .tldr-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9B6BFF; margin-bottom: 8px; display: block; }
+        .tldr-box p { font-size: 17px; color: #1a1a1a; margin: 0; line-height: 1.7; font-style: italic; }
+        .platform-grid { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0; }
+        .platform-pill { display: inline-flex; align-items: center; gap: 8px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 8px 14px; font-size: 14px; font-weight: 600; color: #374151; text-decoration: none; transition: all 0.2s; border-bottom: none; }
+        .platform-pill:hover { border-color: #9B6BFF; color: #7c3aed; background: #f5f3ff; }
+        .platform-pill.featured { border-color: #ddd6fe; background: #f5f3ff; color: #7c3aed; }
+        .workflow-steps { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 24px 0; }
+        .workflow-step { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; text-align: center; }
+        .workflow-step .ws-num { width: 40px; height: 40px; border-radius: 50%; background: #9B6BFF; color: #fff; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
+        .workflow-step h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+        .workflow-step p { font-size: 13px; color: #6b7280; margin: 0; line-height: 1.5; }
+        .link-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 24px 0; }
+        .link-section h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+        .link-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .link-grid a { color: #7c3aed; text-decoration: none; font-size: 14px; font-weight: 500; border-bottom: none; }
+        .link-grid a:hover { text-decoration: underline; }
+        .use-case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+        .use-case-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 18px; }
+        .use-case-card h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+        .use-case-card p { font-size: 13px; color: #6b7280; margin: 0; line-height: 1.5; }
+        .step-grid { display: flex; flex-direction: column; gap: 0; margin: 24px 0; }
+        .step-box { display: flex; gap: 18px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid #f3f4f6; }
+        .step-box:last-child { border-bottom: none; }
+        .step-num { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: #9B6BFF; color: #ffffff; font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+        .step-content h4 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 700; color: #1a1a1a; margin-bottom: 5px; }
+        .step-content p { font-size: 15px; color: #374151; margin: 0; line-height: 1.6; }
+        .step-content code { background: #f3f4f6; padding: 2px 7px; border-radius: 4px; font-size: 13px; color: #7c3aed; font-family: monospace; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; }
+        .comparison-table th { padding: 12px 16px; text-align: left; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; background: #f9fafb; color: #6b7280; border-bottom: 2px solid #e5e7eb; }
+        .comparison-table th.pirai { background: #f5f3ff; color: #7c3aed; }
+        .comparison-table td { padding: 11px 16px; border-bottom: 1px solid #f3f4f6; color: #374151; }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table td:first-child { font-weight: 600; color: #1a1a1a; }
+        .comparison-table td.pirai { background: #fdf9ff; }
+        .check { color: #16a34a; font-weight: 700; }
+        .cross { color: #dc2626; font-weight: 700; }
+        .partial { color: #d97706; }
+        @media (max-width: 640px) { .workflow-steps { grid-template-columns: 1fr; } .link-grid { grid-template-columns: 1fr; } .use-case-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header><div class="header-container">
+        <a href="/" class="logo"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span></a>
+        <nav><a href="/">Home</a><a href="/blog">All Articles</a><a href="/docs">Documentation</a><a href="/#demo">Get Demo</a></nav>
+    </div></header>
+    <div class="breadcrumb"><div class="breadcrumb-container">
+        <a href="/">Home</a><span class="breadcrumb-separator">›</span>
+        <a href="/blog">Blog</a><span class="breadcrumb-separator">›</span>
+        <a href="/blog?category=guide">Guide</a><span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">Qualtrics Advanced Format: Complete Guide With Examples (2026)</span>
+    </div></div>
+    <div class="hero"><div class="hero-container">
+        <h1 class="article-title">Qualtrics Advanced Format: Complete Guide With Examples (2026)</h1>
+        <div class="article-meta"><span class="author">Arun Raj</span><span class="separator">•</span><span>August 02, 2026</span><span class="separator">•</span><span>5 min read</span><span class="separator">•</span><span style="background:#e5e7eb;color:#374151;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:600;">Guide</span></div>
+    </div></div>
+    <div class="content-wrapper">
+        <article class="article-content">
+
+            <div class="definition-box"><span class="def-label">What Advanced Format Is</span>
+            <p>Qualtrics Advanced Format is a specific .docx or .txt document structure that Qualtrics' import tool can read as a survey. It uses Word heading styles and question type codes to define blocks, questions, and answer options. It is not a general document import - it is a template format that must be built from scratch. Most researchers find creating a QSF file via Pirai AI faster than preparing an Advanced Format document.</p></div>
+
+            <h2 id="what-it-is">What Advanced Format Actually Is</h2>
+            <p>When Qualtrics says you can "import a Word document," what they mean is: you can import a .docx file that has been specifically structured using Qualtrics' Advanced Format rules. This is different from uploading a survey you have already written in Word. The Advanced Format has its own heading structure, question type codes, and syntax rules that must be followed precisely - any deviation causes a failed import.</p>
+            <p>The result is that researchers who attempt to import their existing survey document into Qualtrics are typically disappointed. The document they have needs to be rebuilt from scratch following Advanced Format rules - which takes nearly as long as manual entry in the Survey Builder.</p>
+
+            <h2 id="structure">Advanced Format Document Structure</h2>
+            <p>An Advanced Format .docx uses Word heading styles and specific codes to define the survey structure:</p>
+            <ul>
+            <li><strong>Heading 1</strong>  -  Block name (e.g. "Block 1: Demographics")</li>
+            <li><strong>Heading 2</strong>  -  Question text (each question is a Heading 2 paragraph)</li>
+            <li><strong>Normal/Body text</strong>  -  Answer options (one per line)</li>
+            <li><strong>Question type codes</strong>  -  Placed before the question text: [[MC]], [[TE]], [[Matrix]], [[CB]], [[RO]], [[CS]]</li>
+            </ul>
+
+            <h2 id="question-type-codes">Question Type Codes</h2>
+            <table class="comparison-table">
+            <thead><tr><th>Code</th><th class="pirai">Question Type</th></tr></thead>
+            <tbody>
+            <tr><td>[[MC]]</td><td class="pirai">Multiple Choice (single select)</td></tr>
+            <tr><td>[[MC:MultipleAnswer]]</td><td class="pirai">Multiple Choice (multi-select / checkboxes)</td></tr>
+            <tr><td>[[TE]]</td><td class="pirai">Text Entry (short answer)</td></tr>
+            <tr><td>[[TE:Essay]]</td><td class="pirai">Text Entry (paragraph / long answer)</td></tr>
+            <tr><td>[[Matrix]]</td><td class="pirai">Matrix Table (Likert/rating grid)</td></tr>
+            <tr><td>[[CB]]</td><td class="pirai">Checkboxes</td></tr>
+            <tr><td>[[RO]]</td><td class="pirai">Rank Order</td></tr>
+            <tr><td>[[CS]]</td><td class="pirai">Constant Sum</td></tr>
+            <tr><td>[[SS]]</td><td class="pirai">Side by Side</td></tr>
+            <tr><td>[[Slider]]</td><td class="pirai">Slider</td></tr>
+            </tbody></table>
+
+            <h2 id="example">Advanced Format Example</h2>
+            <p>The following shows how a simple survey block looks in Advanced Format .docx:</p>
+            <div style="background:#f3f4f6;border-radius:8px;padding:20px 24px;margin:20px 0;font-family:monospace;font-size:14px;line-height:1.8;">
+            <p style="margin:0;color:#7c3aed;font-weight:700;">[Heading 1] Block 1: Demographics</p>
+            <p style="margin:0;color:#374151;">[Heading 2] [[MC]] What is your current role?</p>
+            <p style="margin:0;padding-left:16px;color:#374151;">Academic researcher</p>
+            <p style="margin:0;padding-left:16px;color:#374151;">Clinical practitioner</p>
+            <p style="margin:0;padding-left:16px;color:#374151;">Student</p>
+            <p style="margin:0;padding-left:16px;color:#374151;">Other</p>
+            <br/>
+            <p style="margin:0;color:#374151;">[Heading 2] [[TE:Essay]] Please describe your research area.</p>
+            <br/>
+            <p style="margin:0;color:#7c3aed;font-weight:700;">[Heading 1] Block 2: Scale Items</p>
+            <p style="margin:0;color:#374151;">[Heading 2] [[Matrix]] Rate your agreement with the following statements.</p>
+            <p style="margin:0;padding-left:16px;color:#374151;">Strongly Disagree --- Disagree --- Neutral --- Agree --- Strongly Agree</p>
+            <p style="margin:0;padding-left:16px;color:#374151;">My work is meaningful</p>
+            <p style="margin:0;padding-left:16px;color:#374151;">I have the resources I need</p>
+            </div>
+
+            <h2 id="limitations">Advanced Format Limitations</h2>
+            <p><strong>Matrix scale headers</strong> must be separated by "---" (three hyphens). Getting the separator syntax wrong is the most common cause of failed matrix imports. <strong>Display logic</strong> cannot be specified in Advanced Format - it must be configured manually in the Survey Builder after import. <strong>Embedded data</strong> and Survey Flow elements are not included. <strong>Question validation</strong> rules must be added post-import. <strong>File must be .docx or .txt</strong> - PDFs and Excel files cannot use Advanced Format.</p>
+
+            <h2 id="when-to-use">Advanced Format vs QSF: Which to Use</h2>
+            <table class="comparison-table">
+            <thead><tr><th>Situation</th><th class="pirai">Recommended Approach</th></tr></thead>
+            <tbody>
+            <tr><td>Simple survey, under 20 questions, no matrix</td><td class="pirai">Advanced Format - low complexity</td></tr>
+            <tr><td>Survey with matrix questions or complex structure</td><td class="pirai">QSF via Pirai AI - matrix syntax errors are common</td></tr>
+            <tr><td>Migrating from PDF or Excel (not Word)</td><td class="pirai">QSF via Pirai AI - Advanced Format only accepts .docx/.txt</td></tr>
+            <tr><td>Validated instrument, exact wording critical</td><td class="pirai">QSF via Pirai AI - no reformatting risk</td></tr>
+            <tr><td>Migrating from LimeSurvey or REDCap</td><td class="pirai">QSF via Pirai AI - handles LSS and data dictionary conversion</td></tr>
+            </tbody></table>
+            <h2 id="faq">Frequently Asked Questions</h2>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What is Qualtrics Advanced Format?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Qualtrics Advanced Format is a specific .docx or .txt document structure that Qualtrics' import tool can read as a survey. It uses Word Heading 1 for block names, Heading 2 for question text, body text for answer options, and question type codes like [[MC]], [[TE]], and [[Matrix]]. It must be built from scratch - it cannot be created by reformatting an existing survey document.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What are the Qualtrics Advanced Format question type codes?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>The main codes are: [[MC]] for Multiple Choice (single select), [[MC:MultipleAnswer]] for multi-select, [[TE]] for short text entry, [[TE:Essay]] for paragraph text, [[Matrix]] for Matrix Table/Likert grid, [[CB]] for Checkboxes, [[RO]] for Rank Order, [[CS]] for Constant Sum, and [[Slider]] for Slider questions.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Why does my Qualtrics Word import fail?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>The most common causes are: (1) uploading a standard Word document instead of one built in Advanced Format; (2) incorrect heading styles - question text must use Heading 2, not bold body text; (3) matrix scale headers not separated by '---'; (4) missing or incorrectly placed question type codes. For complex surveys, use Pirai AI to generate a QSF file instead of Advanced Format.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Is Advanced Format faster than building manually in Qualtrics?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>For surveys under 20 simple questions, Advanced Format can be slightly faster than manual entry. For surveys with matrix questions, complex blocks, or display logic, building the Advanced Format document takes nearly as long as manual entry - and introduces format error risk. QSF files generated by Pirai AI are faster for any survey over 15 questions.</p></div>
+            </div>
+
+            <div class="article-cta">
+                <h3>Skip Advanced Format - Use QSF Instead</h3>
+                <p>Upload your Word, PDF, or Excel document. Pirai AI generates a ready-to-import QSF file. No format codes, no syntax errors.</p>
+                <a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Start Converting Free</a>
+            </div>
+        </article>
+        <aside class="sidebar">
+            <div class="cta-box"><h3>Try Pirai AI Free</h3><p>Convert any survey document to 27+ platforms in minutes.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-button">Start Free</a></div>
+            <div class="sidebar-section"><h3>Quick Links</h3><ul class="toc-list">
+                    <li><a href="/blog/import-questions-into-qualtrics">Import Questions Guide</a></li>
+                    <li><a href="/blog/create-qualtrics-survey-from-word-pdf">Create Survey From Document</a></li>
+                    <li><a href="/blog/qsf-file-guide">QSF File Guide</a></li>
+                    <li><a href="/blog/convert-import-qualtrics">Full Import Guide</a></li>
+                    <li><a href="/product/qualtrics-converter/">Qualtrics Converter</a></li>
+            </ul></div>
+        </aside>
+    </div>
+    <section class="related-articles"><h2>Related Articles</h2><div class="related-grid">
+            <a href="/blog/import-questions-into-qualtrics" class="related-card"><span class="card-tag">Guide</span><h3>How to Import Questions Into Qualtrics</h3><p>Why Qualtrics rejects Word files and the three routes to getting questions in.</p></a>
+            <a href="/blog/qsf-file-guide" class="related-card"><span class="card-tag">Guide</span><h3>What Is a QSF File?</h3><p>Complete guide to Qualtrics Survey Format files - structure, creation, and import.</p></a>
+            <a href="/blog/convert-import-qualtrics" class="related-card"><span class="card-tag">Guide</span><h3>Full Qualtrics Import Guide</h3><p>Every file type covered including the QSF import step-by-step.</p></a>
+    </div></section>
+    <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
+    <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        const sections = document.querySelectorAll('h2[id]');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    const active = document.querySelector('.toc-list a[href="#' + entry.target.id + '"]');
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        sections.forEach(s => observer.observe(s));
+    </script>
+</body></html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qualtrics Survey Generator: Build a Survey From Any Document - Pirai AI Blog</title>
+    <meta name="description" content="How to generate a Qualtrics survey automatically from a Word, PDF, or Excel document. Compares Pirai AI, Doc2Survey, and manual methods with honest notes on what each tool preserves.">
+    <meta name="keywords" content="qualtrics survey generator, qualtrics survey generator from document, ai qualtrics survey builder, generate qualtrics survey from document, qualtrics survey creator from word, qualtrics document to survey tool, qualtrics survey from pdf generator">
+    <meta property="og:type" content="article"><meta property="og:url" content="https://piraiai.com/blog/qualtrics-survey-generator-from-document">
+    <meta property="og:title" content="Qualtrics Survey Generator: Build a Survey From Any Document"><meta property="og:description" content="How to generate a Qualtrics survey automatically from a Word, PDF, or Excel document. Compares Pirai AI, Doc2Survey, and manual methods with honest notes on what each tool preserves.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="article:published_time" content="2026-08-02T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta property="article:section" content="Guide">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Qualtrics Survey Generator: Build a Survey From Any Document"><meta name="twitter:description" content="How to generate a Qualtrics survey automatically from a Word, PDF, or Excel document. Compares Pirai AI, Doc2Survey, and manual methods with honest notes on what each tool preserves.">
+    <link rel="canonical" href="https://piraiai.com/blog/qualtrics-survey-generator-from-document"><link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Qualtrics Survey Generator: Build a Survey From Any Document","description":"How to generate a Qualtrics survey automatically from a Word, PDF, or Excel document. Compares Pirai AI, Doc2Survey, and manual methods with honest notes on what each tool preserves.","author":{"@type":"Person","name":"Arun Raj"},"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},"datePublished":"2026-08-02","url":"https://piraiai.com/blog/qualtrics-survey-generator-from-document"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is there an AI tool that generates Qualtrics surveys from documents?","acceptedAnswer":{"@type":"Answer","text":"Yes. Pirai AI at platform.piraiai.com reads Word, PDF, and Excel documents and generates a Qualtrics QSF file for direct import. Doc2Survey by Verasight is a free academic alternative (requires .edu email) that converts Word documents and Google Docs to QSF. Both tools eliminate manual question entry in the Qualtrics Survey Builder."}},{"@type":"Question","name":"Can I generate a Qualtrics survey from a PDF?","acceptedAnswer":{"@type":"Answer","text":"Yes, using Pirai AI. Upload the PDF at platform.piraiai.com, select Qualtrics, and download the QSF file. For scanned PDFs, enable Advanced PDF Processing for OCR text extraction. Doc2Survey does not support PDF input."}},{"@type":"Question","name":"What is Doc2Survey and how does it compare to Pirai AI for Qualtrics?","acceptedAnswer":{"@type":"Answer","text":"Doc2Survey (Verasight) is a free academic tool that converts Word documents and Google Docs to Qualtrics QSF files. It requires a .edu email address for free access. Pirai AI also converts to Qualtrics QSF but additionally accepts PDFs and Excel, supports full Matrix Table conversion, exports to 27+ platforms from one upload, and has a daily-reset free tier without institution email requirements."}},{"@type":"Question","name":"Does a Qualtrics survey generator handle display logic?","acceptedAnswer":{"@type":"Answer","text":"Partially. Pirai AI converts display logic annotations present in the source document where they follow common formats. Display logic that references specific Question IDs (assigned only after import) must be configured in the Qualtrics Survey Builder post-import. Survey Flow branch logic and quota management also require manual setup after import."}}]}</script>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; margin-left: 32px; transition: color 0.2s; }
+        header nav a:hover { color: #9B6BFF; }
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+        .content-wrapper { max-width: 1200px; margin: 48px auto; padding: 0 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+        .article-content { max-width: 680px; overflow-x: hidden; }
+        .article-content p { font-size: 18px; color: #374151; margin-bottom: 24px; line-height: 1.7; }
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-top: 32px; margin-bottom: 12px; }
+        .article-content a { color: #9B6BFF; text-decoration: none; border-bottom: 1px solid rgba(155,107,255,0.3); transition: all 0.2s; }
+        .article-content a:hover { border-bottom-color: #9B6BFF; }
+        .article-content ul, .article-content ol { margin-bottom: 24px; padding-left: 24px; }
+        .article-content li { font-size: 18px; color: #374151; margin-bottom: 10px; line-height: 1.7; }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+        .article-content code { background: #f3f4f6; padding: 2px 7px; border-radius: 4px; font-size: 13px; color: #7c3aed; font-family: monospace; }
+        .definition-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 28px; margin: 32px 0; border-radius: 4px; }
+        .definition-box .def-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9B6BFF; margin-bottom: 12px; display: block; }
+        .definition-box p { font-size: 17px; color: #1a1a1a; margin-bottom: 0; font-style: italic; line-height: 1.7; }
+        .related-terms { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 32px 0; }
+        .related-terms h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+        .related-terms ul { padding-left: 0; list-style: none; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+        .related-terms li { margin: 0; }
+        .related-terms a { display: inline-block; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 6px 14px; font-size: 14px; color: #374151; text-decoration: none; border-bottom: none; transition: all 0.2s; }
+        .related-terms a:hover { border-color: #9B6BFF; color: #9B6BFF; border-bottom: none; }
+        .article-cta { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 36px 40px; border-radius: 12px; margin: 48px 0 32px; text-align: center; }
+        .article-cta h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+        .article-cta p { font-size: 16px; color: #ffffff; opacity: 0.95; margin-bottom: 20px; }
+        .article-cta a { border-bottom: none !important; }
+        .cta-btn-white { display: inline-block; background: #ffffff; color: #9B6BFF !important; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-btn-white:hover { transform: translateY(-2px); }
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a1a1a; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; transition: color 0.2s; border-bottom: none; display: block; }
+        .toc-list a:hover { color: #9B6BFF; }
+        .toc-list a.active { color: #9B6BFF; font-weight: 600; }
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 32px; border-radius: 8px; text-align: center; color: #ffffff; margin-bottom: 24px; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .cta-box p { font-size: 14px; margin-bottom: 20px; opacity: 0.95; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-button:hover { transform: translateY(-2px); }
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; border-bottom: none; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
+        .related-card .card-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #9B6BFF; margin-bottom: 8px; display: block; }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
+        .related-card p { font-size: 14px; color: #6b7280; margin: 0; }
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+        @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 400px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
+        /* Hub/ICP page components */
+        .tldr-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 24px 28px; margin: 0 0 32px; border-radius: 4px; }
+        .tldr-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9B6BFF; margin-bottom: 8px; display: block; }
+        .tldr-box p { font-size: 17px; color: #1a1a1a; margin: 0; line-height: 1.7; font-style: italic; }
+        .platform-grid { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0; }
+        .platform-pill { display: inline-flex; align-items: center; gap: 8px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 8px 14px; font-size: 14px; font-weight: 600; color: #374151; text-decoration: none; transition: all 0.2s; border-bottom: none; }
+        .platform-pill:hover { border-color: #9B6BFF; color: #7c3aed; background: #f5f3ff; }
+        .platform-pill.featured { border-color: #ddd6fe; background: #f5f3ff; color: #7c3aed; }
+        .workflow-steps { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 24px 0; }
+        .workflow-step { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; text-align: center; }
+        .workflow-step .ws-num { width: 40px; height: 40px; border-radius: 50%; background: #9B6BFF; color: #fff; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
+        .workflow-step h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+        .workflow-step p { font-size: 13px; color: #6b7280; margin: 0; line-height: 1.5; }
+        .link-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 24px 0; }
+        .link-section h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+        .link-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .link-grid a { color: #7c3aed; text-decoration: none; font-size: 14px; font-weight: 500; border-bottom: none; }
+        .link-grid a:hover { text-decoration: underline; }
+        .use-case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+        .use-case-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 18px; }
+        .use-case-card h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+        .use-case-card p { font-size: 13px; color: #6b7280; margin: 0; line-height: 1.5; }
+        .step-grid { display: flex; flex-direction: column; gap: 0; margin: 24px 0; }
+        .step-box { display: flex; gap: 18px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid #f3f4f6; }
+        .step-box:last-child { border-bottom: none; }
+        .step-num { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: #9B6BFF; color: #ffffff; font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+        .step-content h4 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 700; color: #1a1a1a; margin-bottom: 5px; }
+        .step-content p { font-size: 15px; color: #374151; margin: 0; line-height: 1.6; }
+        .step-content code { background: #f3f4f6; padding: 2px 7px; border-radius: 4px; font-size: 13px; color: #7c3aed; font-family: monospace; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; }
+        .comparison-table th { padding: 12px 16px; text-align: left; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; background: #f9fafb; color: #6b7280; border-bottom: 2px solid #e5e7eb; }
+        .comparison-table th.pirai { background: #f5f3ff; color: #7c3aed; }
+        .comparison-table td { padding: 11px 16px; border-bottom: 1px solid #f3f4f6; color: #374151; }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table td:first-child { font-weight: 600; color: #1a1a1a; }
+        .comparison-table td.pirai { background: #fdf9ff; }
+        .check { color: #16a34a; font-weight: 700; }
+        .cross { color: #dc2626; font-weight: 700; }
+        .partial { color: #d97706; }
+        @media (max-width: 640px) { .workflow-steps { grid-template-columns: 1fr; } .link-grid { grid-template-columns: 1fr; } .use-case-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header><div class="header-container">
+        <a href="/" class="logo"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span></a>
+        <nav><a href="/">Home</a><a href="/blog">All Articles</a><a href="/docs">Documentation</a><a href="/#demo">Get Demo</a></nav>
+    </div></header>
+    <div class="breadcrumb"><div class="breadcrumb-container">
+        <a href="/">Home</a><span class="breadcrumb-separator">›</span>
+        <a href="/blog">Blog</a><span class="breadcrumb-separator">›</span>
+        <a href="/blog?category=guide">Guide</a><span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">Qualtrics Survey Generator: Build a Survey From Any Document</span>
+    </div></div>
+    <div class="hero"><div class="hero-container">
+        <h1 class="article-title">Qualtrics Survey Generator: Build a Survey From Any Document</h1>
+        <div class="article-meta"><span class="author">Arun Raj</span><span class="separator">•</span><span>August 02, 2026</span><span class="separator">•</span><span>5 min read</span><span class="separator">•</span><span style="background:#e5e7eb;color:#374151;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:600;">Guide</span></div>
+    </div></div>
+    <div class="content-wrapper">
+        <article class="article-content">
+
+            <div class="definition-box"><span class="def-label">What a Qualtrics Survey Generator Does</span>
+            <p>A Qualtrics survey generator reads a survey document - Word, PDF, or spreadsheet - and produces a Qualtrics QSF file automatically, without manual question entry in the Survey Builder. The generator handles question type detection, answer option mapping, block structure, and matrix question formatting. The QSF file is then imported into Qualtrics via Tools &gt; Import/Export in under one minute.</p></div>
+
+            <h2 id="why-you-need-one">Why Manual Qualtrics Building Is the Problem</h2>
+            <p>Qualtrics is a powerful platform, but its Survey Builder requires every question to be created manually - one question at a time, one answer option at a time. For researchers with validated instruments of 40-80 items, market researchers working from client questionnaire scripts, and instructors building course assessments, this manual entry is where hours of productive time disappear.</p>
+            <p>A survey generator eliminates the data entry phase. Write (or receive) your survey in a Word document. Run it through the generator. Get a QSF file. Import. The Survey Builder work that remains - display logic, Survey Flow, look and feel - is the higher-value configuration work that actually benefits from Qualtrics expertise.</p>
+
+            <h2 id="available-generators">Available Qualtrics Survey Generators</h2>
+
+            <h3>Pirai AI</h3>
+            <p>Document-based generator at <strong>platform.piraiai.com</strong>. Accepts Word (.docx, .doc), PDF (text and scanned), Excel (.xlsx), CSV, plain text, and pasted survey content. Generates a QSF file for direct import. Supports all major Qualtrics question types including Matrix Table, Rank Order, Slider, Constant Sum, and Side by Side. Also converts the same document to 26 other survey platforms (SurveyMonkey, REDCap, LimeSurvey, Google Forms, etc.) in the same session. Free tier: 2 conversions per day, daily reset.</p>
+
+            <h3>Doc2Survey (Verasight)</h3>
+            <p>Free academic generator at verasight.io/doc2survey. Accepts Word documents and Google Docs links. Generates a QSF file. Designed specifically for academic researchers - requires a .edu email address for free access. Handles common question formats: Multiple Choice, Text Entry, Matrix. Good option for academic users with simple to moderately complex surveys. Commercial pricing for non-academic use.</p>
+
+            <h3>Qualtrics Advanced Format Import</h3>
+            <p>Qualtrics' own native route. Not a generator in the true sense - requires building a new document from scratch in Advanced Format structure, then importing it. Supports most question types. No third-party tool required. Takes approximately as long as building the survey manually for anything beyond simple surveys.</p>
+
+            <h2 id="comparison">Generator Comparison</h2>
+            <table class="comparison-table">
+            <thead><tr><th>Feature</th><th>Pirai AI</th><th>Doc2Survey</th><th>Advanced Format</th></tr></thead>
+            <tbody>
+            <tr><td>Reads existing Word docs</td><td><span class="check">Yes - any format</span></td><td><span class="check">Yes</span></td><td><span class="cross">Must rebuild in template</span></td></tr>
+            <tr><td>Reads PDFs</td><td><span class="check">Yes (OCR for scanned)</span></td><td><span class="cross">No</span></td><td><span class="cross">No</span></td></tr>
+            <tr><td>Reads Excel</td><td><span class="check">Yes</span></td><td><span class="cross">No</span></td><td><span class="cross">No</span></td></tr>
+            <tr><td>Matrix Table support</td><td><span class="check">Full</span></td><td><span class="partial">Basic</span></td><td><span class="partial">Partial (syntax errors common)</span></td></tr>
+            <tr><td>Also converts to other platforms</td><td><span class="check">27+ platforms</span></td><td><span class="cross">Qualtrics only</span></td><td><span class="cross">Qualtrics only</span></td></tr>
+            <tr><td>Free access</td><td><span class="check">2/day, daily reset</span></td><td><span class="check">.edu email required</span></td><td><span class="check">Native Qualtrics feature</span></td></tr>
+            <tr><td>Requires Drive/account access</td><td><span class="check">No</span></td><td>Google account for Docs</td><td><span class="check">No</span></td></tr>
+            </tbody></table>
+
+            <h2 id="which-to-use">Which Generator to Use</h2>
+            <p><strong>Use Pirai AI</strong> when your source is a PDF, Excel file, or Word document with matrix questions, when you also need the same survey in SurveyMonkey or REDCap, or when you want a daily-reset free tier without an institution email requirement.</p>
+            <p><strong>Use Doc2Survey</strong> if you have an .edu email address, your source is a Word document or Google Doc, and your survey has straightforward question types without heavy matrix usage. The academic-focused tool is well-suited to dissertation surveys and validated scales in common formats.</p>
+            <p><strong>Use Qualtrics Advanced Format</strong> if you want to stay entirely within Qualtrics and your survey is simple (under 20 questions, mostly Multiple Choice and Text Entry). The setup time investment is comparable to manual entry for anything more complex.</p>
+            <h2 id="faq">Frequently Asked Questions</h2>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Is there an AI tool that generates Qualtrics surveys from documents?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes. Pirai AI at platform.piraiai.com reads Word, PDF, and Excel documents and generates a Qualtrics QSF file for direct import. Doc2Survey by Verasight is a free academic alternative (requires .edu email) that converts Word documents and Google Docs to QSF. Both tools eliminate manual question entry in the Qualtrics Survey Builder.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Can I generate a Qualtrics survey from a PDF?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes, using Pirai AI. Upload the PDF at platform.piraiai.com, select Qualtrics, and download the QSF file. For scanned PDFs, enable Advanced PDF Processing for OCR text extraction. Doc2Survey does not support PDF input.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What is Doc2Survey and how does it compare to Pirai AI for Qualtrics?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Doc2Survey (Verasight) is a free academic tool that converts Word documents and Google Docs to Qualtrics QSF files. It requires a .edu email address for free access. Pirai AI also converts to Qualtrics QSF but additionally accepts PDFs and Excel, supports full Matrix Table conversion, exports to 27+ platforms from one upload, and has a daily-reset free tier without institution email requirements.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Does a Qualtrics survey generator handle display logic?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Partially. Pirai AI converts display logic annotations present in the source document where they follow common formats. Display logic that references specific Question IDs (assigned only after import) must be configured in the Qualtrics Survey Builder post-import. Survey Flow branch logic and quota management also require manual setup after import.</p></div>
+            </div>
+
+            <div class="article-cta">
+                <h3>Generate Your Qualtrics Survey From a Document</h3>
+                <p>Upload Word, PDF, or Excel. Get a QSF file. Import into Qualtrics. Matrix questions preserved. 2 free daily conversions.</p>
+                <a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Start Converting Free</a>
+            </div>
+        </article>
+        <aside class="sidebar">
+            <div class="cta-box"><h3>Try Pirai AI Free</h3><p>Convert any survey document to 27+ platforms in minutes.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-button">Start Free</a></div>
+            <div class="sidebar-section"><h3>Quick Links</h3><ul class="toc-list">
+                    <li><a href="/document-to-qualtrics">Document to Qualtrics</a></li>
+                    <li><a href="/blog/import-questions-into-qualtrics">Import Questions Guide</a></li>
+                    <li><a href="/blog/create-qualtrics-survey-from-word-pdf">Create From Document</a></li>
+                    <li><a href="/blog/qsf-file-guide">QSF File Guide</a></li>
+                    <li><a href="/product/qualtrics-converter/">Qualtrics Converter</a></li>
+            </ul></div>
+        </aside>
+    </div>
+    <section class="related-articles"><h2>Related Articles</h2><div class="related-grid">
+            <a href="/blog/create-qualtrics-survey-from-word-pdf" class="related-card"><span class="card-tag">Guide</span><h3>Create Qualtrics Survey From Word or PDF</h3><p>Step-by-step guide to the QSF conversion and import workflow.</p></a>
+            <a href="/blog/import-questions-into-qualtrics" class="related-card"><span class="card-tag">Guide</span><h3>How to Import Questions Into Qualtrics</h3><p>Why regular Word files fail and the three routes to getting questions in.</p></a>
+            <a href="/blog/automate-qualtrics-survey-programming" class="related-card"><span class="card-tag">Guide</span><h3>Automate Qualtrics Survey Programming</h3><p>How MR agencies and research teams cut programming time by 80%.</p></a>
+    </div></section>
+    <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
+    <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        const sections = document.querySelectorAll('h2[id]');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    const active = document.querySelector('.toc-list a[href="#' + entry.target.id + '"]');
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        sections.forEach(s => observer.observe(s));
+    </script>
+</body></html>

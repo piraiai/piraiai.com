@@ -180,6 +180,42 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- <url>
+    <loc>https://piraiai.com/blog/import-questions-into-qualtrics</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url> -->
+  <url>
+    <loc>https://piraiai.com/blog/create-qualtrics-survey-from-word-pdf</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/qualtrics-advanced-format-guide</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/automate-qualtrics-survey-programming</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/qualtrics-survey-generator-from-document</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/create-quiz-assessment-qualtrics-from-document</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>  
 <!-- ============================================================ -->
 <!-- NEW BLOG SITEMAP ENTRIES — July 18, 2026 -->
 <!-- ============================================================ -->
