@@ -148,8 +148,56 @@
     <lastmod>2026-07-15</lastmod>
   </url>  
 <!-- ============================================================ -->
-\<!-- NEW BLOG SITEMAP ENTRIES — August 1, 2026 -->
+<!-- NEW BLOG SITEMAP ENTRIES — August 1, 2026 -->
 <!-- ============================================================ -->  
+  <url>
+    <loc>https://piraiai.com/blog/turn-questions-into-kahoot</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/create-kahoot-quiz-from-word-pdf</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/kahoot-quiz-generator-from-document</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/import-questions-into-moodle</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/moodle-aiken-format-guide</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/create-moodle-quiz-from-word-pdf</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- <url>
+    <loc>https://piraiai.com/blog/migrate-qualtrics-to-questionpro</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url> -->
+  <url>
+    <loc>https://piraiai.com/blog/getfeedback-migration-guide</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://piraiai.com/blog/create-redcap-instrument-from-word-pdf</loc>
     <lastmod>2026-08-02</lastmod>

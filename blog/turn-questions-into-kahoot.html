@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Turn Questions Into a Kahoot Quiz (From Any Document) - Pirai AI Blog</title>
+    <meta name="description" content="Three ways to turn questions from Word, PDF, or Excel into a Kahoot quiz. How Kahoot's spreadsheet import works, what the column structure requires, and how Pirai AI generates a ready-to-import Kahoot spreadsheet in minutes.">
+    <meta name="keywords" content="turn questions into kahoot, turn word document into kahoot quiz, turn pdf into kahoot quiz, turn document into kahoot, turn questions into kahoot quiz, how to turn a document into a kahoot, turn quiz into kahoot">
+    <meta property="og:type" content="article"><meta property="og:url" content="https://piraiai.com/blog/turn-questions-into-kahoot">
+    <meta property="og:title" content="How to Turn Questions Into a Kahoot Quiz (From Any Document)"><meta property="og:description" content="Three ways to turn questions from Word, PDF, or Excel into a Kahoot quiz. How Kahoot's spreadsheet import works, what the column structure requires, and how Pirai AI generates a ready-to-import Kahoot spreadsheet in minutes.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="article:published_time" content="2026-08-02T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta property="article:section" content="Guide">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Turn Questions Into a Kahoot Quiz (From Any Document)"><meta name="twitter:description" content="Three ways to turn questions from Word, PDF, or Excel into a Kahoot quiz. How Kahoot's spreadsheet import works, what the column structure requires, and how Pirai AI generates a ready-to-import Kahoot spreadsheet in minutes.">
+    <link rel="canonical" href="https://piraiai.com/blog/turn-questions-into-kahoot"><link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to Turn Questions Into a Kahoot Quiz (From Any Document)","description":"Three ways to turn questions from Word, PDF, or Excel into a Kahoot quiz. How Kahoot's spreadsheet import works, what the column structure requires, and how Pirai AI generates a ready-to-import Kahoot spreadsheet in minutes.","author":{"@type":"Person","name":"Arun Raj"},"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},"datePublished":"2026-08-02","url":"https://piraiai.com/blog/turn-questions-into-kahoot"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I import a Word document into Kahoot?","acceptedAnswer":{"@type":"Answer","text":"Not directly. Kahoot's import only accepts Excel spreadsheets (.xlsx) formatted to its specific column structure. To import questions from a Word document, upload the .docx to Pirai AI at platform.piraiai.com, select Kahoot, download the formatted spreadsheet, and import it via the Kahoot creator three-dot menu > Import."}},{"@type":"Question","name":"How do I turn a PDF into a Kahoot quiz?","acceptedAnswer":{"@type":"Answer","text":"Upload the PDF to Pirai AI at platform.piraiai.com, select Kahoot, and download the Excel spreadsheet. Import it via the Kahoot creator (three-dot menu > Import > upload spreadsheet). For scanned PDFs, enable Advanced PDF Processing for OCR. Kahoot only supports multiple choice via spreadsheet import  -  true/false and open questions must be added manually."}},{"@type":"Question","name":"What is the character limit for Kahoot questions?","acceptedAnswer":{"@type":"Answer","text":"Kahoot enforces a 95-character limit for question text and a 60-character limit for each answer option. Questions exceeding these limits are truncated on the game screen. Pirai AI flags questions and answers that exceed these limits in the conversion report before you download the spreadsheet."}},{"@type":"Question","name":"What format does Kahoot use for spreadsheet import?","acceptedAnswer":{"@type":"Answer","text":"Kahoot's import spreadsheet has columns: Question, Answer 1, Answer 2, Answer 3, Answer 4, Time Limit (sec), Correct Answer. The Correct Answer column contains the number of the correct answer (1, 2, 3, or 4). Download Kahoot's official template from the creator (three-dot menu > Import > Download template) or use Pirai AI's generated output which follows the same format."}},{"@type":"Question","name":"Can I turn the same document into both Kahoot and Google Forms?","acceptedAnswer":{"@type":"Answer","text":"Yes. Upload your document to Pirai AI and export to both platforms in the same session  -  a Kahoot-formatted Excel spreadsheet and a Google Forms Apps Script. Same questions, different formats, one upload."}}]}</script>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; margin-left: 32px; transition: color 0.2s; }
+        header nav a:hover { color: #9B6BFF; }
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+        .content-wrapper { max-width: 1200px; margin: 48px auto; padding: 0 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+        .article-content { max-width: 680px; overflow-x: hidden; }
+        .article-content p { font-size: 18px; color: #374151; margin-bottom: 24px; line-height: 1.7; }
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-top: 32px; margin-bottom: 12px; }
+        .article-content a { color: #9B6BFF; text-decoration: none; border-bottom: 1px solid rgba(155,107,255,0.3); transition: all 0.2s; }
+        .article-content a:hover { border-bottom-color: #9B6BFF; }
+        .article-content ul, .article-content ol { margin-bottom: 24px; padding-left: 24px; }
+        .article-content li { font-size: 18px; color: #374151; margin-bottom: 10px; line-height: 1.7; }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+        .article-content code { background: #f3f4f6; padding: 2px 7px; border-radius: 4px; font-size: 13px; color: #7c3aed; font-family: monospace; }
+        .definition-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 28px; margin: 32px 0; border-radius: 4px; }
+        .definition-box .def-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9B6BFF; margin-bottom: 12px; display: block; }
+        .definition-box p { font-size: 17px; color: #1a1a1a; margin-bottom: 0; font-style: italic; line-height: 1.7; }
+        .related-terms { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 32px 0; }
+        .related-terms h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+        .related-terms ul { padding-left: 0; list-style: none; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+        .related-terms li { margin: 0; }
+        .related-terms a { display: inline-block; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 6px 14px; font-size: 14px; color: #374151; text-decoration: none; border-bottom: none; transition: all 0.2s; }
+        .related-terms a:hover { border-color: #9B6BFF; color: #9B6BFF; border-bottom: none; }
+        .article-cta { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 36px 40px; border-radius: 12px; margin: 48px 0 32px; text-align: center; }
+        .article-cta h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+        .article-cta p { font-size: 16px; color: #ffffff; opacity: 0.95; margin-bottom: 20px; }
+        .article-cta a { border-bottom: none !important; }
+        .cta-btn-white { display: inline-block; background: #ffffff; color: #9B6BFF !important; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-btn-white:hover { transform: translateY(-2px); }
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a1a1a; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; transition: color 0.2s; border-bottom: none; display: block; }
+        .toc-list a:hover { color: #9B6BFF; }
+        .toc-list a.active { color: #9B6BFF; font-weight: 600; }
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 32px; border-radius: 8px; text-align: center; color: #ffffff; margin-bottom: 24px; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .cta-box p { font-size: 14px; margin-bottom: 20px; opacity: 0.95; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-button:hover { transform: translateY(-2px); }
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; border-bottom: none; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
+        .related-card .card-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #9B6BFF; margin-bottom: 8px; display: block; }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
+        .related-card p { font-size: 14px; color: #6b7280; margin: 0; }
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+        @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 400px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
+        /* Hub/ICP page components */
+        .tldr-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 24px 28px; margin: 0 0 32px; border-radius: 4px; }
+        .tldr-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9B6BFF; margin-bottom: 8px; display: block; }
+        .tldr-box p { font-size: 17px; color: #1a1a1a; margin: 0; line-height: 1.7; font-style: italic; }
+        .platform-grid { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0; }
+        .platform-pill { display: inline-flex; align-items: center; gap: 8px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 8px 14px; font-size: 14px; font-weight: 600; color: #374151; text-decoration: none; transition: all 0.2s; border-bottom: none; }
+        .platform-pill:hover { border-color: #9B6BFF; color: #7c3aed; background: #f5f3ff; }
+        .platform-pill.featured { border-color: #ddd6fe; background: #f5f3ff; color: #7c3aed; }
+        .workflow-steps { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 24px 0; }
+        .workflow-step { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; text-align: center; }
+        .workflow-step .ws-num { width: 40px; height: 40px; border-radius: 50%; background: #9B6BFF; color: #fff; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
+        .workflow-step h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+        .workflow-step p { font-size: 13px; color: #6b7280; margin: 0; line-height: 1.5; }
+        .link-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 24px 0; }
+        .link-section h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+        .link-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .link-grid a { color: #7c3aed; text-decoration: none; font-size: 14px; font-weight: 500; border-bottom: none; }
+        .link-grid a:hover { text-decoration: underline; }
+        .use-case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+        .use-case-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 18px; }
+        .use-case-card h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+        .use-case-card p { font-size: 13px; color: #6b7280; margin: 0; line-height: 1.5; }
+        .step-grid { display: flex; flex-direction: column; gap: 0; margin: 24px 0; }
+        .step-box { display: flex; gap: 18px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid #f3f4f6; }
+        .step-box:last-child { border-bottom: none; }
+        .step-num { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: #9B6BFF; color: #ffffff; font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+        .step-content h4 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 700; color: #1a1a1a; margin-bottom: 5px; }
+        .step-content p { font-size: 15px; color: #374151; margin: 0; line-height: 1.6; }
+        .step-content code { background: #f3f4f6; padding: 2px 7px; border-radius: 4px; font-size: 13px; color: #7c3aed; font-family: monospace; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; }
+        .comparison-table th { padding: 12px 16px; text-align: left; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; background: #f9fafb; color: #6b7280; border-bottom: 2px solid #e5e7eb; }
+        .comparison-table th.pirai { background: #f5f3ff; color: #7c3aed; }
+        .comparison-table td { padding: 11px 16px; border-bottom: 1px solid #f3f4f6; color: #374151; }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table td:first-child { font-weight: 600; color: #1a1a1a; }
+        .comparison-table td.pirai { background: #fdf9ff; }
+        .check { color: #16a34a; font-weight: 700; }
+        .cross { color: #dc2626; font-weight: 700; }
+        .partial { color: #d97706; }
+        @media (max-width: 640px) { .workflow-steps { grid-template-columns: 1fr; } .link-grid { grid-template-columns: 1fr; } .use-case-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header><div class="header-container">
+        <a href="/" class="logo"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span></a>
+        <nav><a href="/">Home</a><a href="/blog">All Articles</a><a href="/docs">Documentation</a><a href="/#demo">Get Demo</a></nav>
+    </div></header>
+    <div class="breadcrumb"><div class="breadcrumb-container">
+        <a href="/">Home</a><span class="breadcrumb-separator">›</span>
+        <a href="/blog">Blog</a><span class="breadcrumb-separator">›</span>
+        <a href="/blog?category=guide">Guide</a><span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">How to Turn Questions Into a Kahoot Quiz (From Any Document)</span>
+    </div></div>
+    <div class="hero"><div class="hero-container">
+        <h1 class="article-title">How to Turn Questions Into a Kahoot Quiz (From Any Document)</h1>
+        <div class="article-meta"><span class="author">Arun Raj</span><span class="separator">•</span><span>August 02, 2026</span><span class="separator">•</span><span>5 min read</span><span class="separator">•</span><span style="background:#e5e7eb;color:#374151;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:600;">Guide</span></div>
+    </div></div>
+    <div class="content-wrapper">
+        <article class="article-content">
+
+            <div class="definition-box"><span class="def-label">Quick Answer</span>
+            <p>Kahoot's native import accepts an Excel spreadsheet (.xlsx) structured to its specific column format. You cannot paste questions directly into Kahoot or upload a Word document. To turn questions from a document into a Kahoot quiz: upload your Word, PDF, or Excel file to <strong>platform.piraiai.com</strong>, select Kahoot, download the formatted spreadsheet, and import it via the Kahoot creator (three-dot menu &gt; Import). Your quiz is built automatically.</p></div>
+
+            <h2 id="how-kahoot-import-works">How Kahoot Import Actually Works</h2>
+            <p>Kahoot has no Word or PDF import. Its import reads an Excel spreadsheet structured to Kahoot's exact column format  -  different from any spreadsheet you would write yourself. The spreadsheet has specific columns for question text, four answer options, time limit, and the correct answer letter. Every row is one question. The column headers must match Kahoot's template exactly, or the import fails.</p>
+            <p>This means turning questions from a document into Kahoot involves two steps: converting the document into Kahoot's spreadsheet format, then importing the spreadsheet. Pirai AI handles the first step automatically.</p>
+
+            <h2 id="kahoot-spreadsheet-format">The Kahoot Import Spreadsheet Format</h2>
+            <table class="comparison-table">
+            <thead><tr><th>Column</th><th class="pirai">What Goes Here</th></tr></thead>
+            <tbody>
+            <tr><td>Question</td><td class="pirai">Question text. Maximum 95 characters. Longer questions are truncated on Kahoot's game screen.</td></tr>
+            <tr><td>Answer 1</td><td class="pirai">First answer option. Maximum 60 characters.</td></tr>
+            <tr><td>Answer 2</td><td class="pirai">Second answer option. Maximum 60 characters.</td></tr>
+            <tr><td>Answer 3</td><td class="pirai">Third answer option (optional but recommended for 4-option MCQ).</td></tr>
+            <tr><td>Answer 4</td><td class="pirai">Fourth answer option (optional).</td></tr>
+            <tr><td>Time Limit (sec)</td><td class="pirai">Seconds per question. Kahoot supports: 5, 10, 20, 30, 60, 90, 120, 240. Default: 20.</td></tr>
+            <tr><td>Correct Answer</td><td class="pirai">The number of the correct answer column: 1, 2, 3, or 4.</td></tr>
+            </tbody></table>
+            <p>Pirai AI generates this spreadsheet automatically from your source document. The 95-character question limit and 60-character answer limit are enforced during conversion  -  questions exceeding these limits are flagged in the conversion report for you to shorten before import.</p>
+
+            <h2 id="three-methods">Three Ways to Turn Questions Into Kahoot</h2>
+
+            <h3>Method 1: Type Questions Directly in Kahoot Creator (Small Quizzes)</h3>
+            <p>Go to kahoot.com, click Create, choose Quiz. Add each question using the + button. Type the question text, add up to four answer options, select the correct answer, set the time limit. Best for quizzes with fewer than 10 questions. For anything larger, the card-by-card interface becomes slow  -  every question requires multiple clicks across the question card, answer fields, and correct answer selector.</p>
+
+            <h3>Method 2: Fill In Kahoot's Spreadsheet Template (Manual)</h3>
+            <p>Download Kahoot's import template from the creator (three-dot menu &gt; Import &gt; Download template). Open in Excel. Fill in one row per question  -  question text, four answers, time limit, correct answer number. Save as .xlsx. Upload via the same Import dialog. Works well if your questions are already in a simple list format without complex formatting. Time-consuming for documents with paragraph-format questions that need to be reformatted row-by-row.</p>
+
+            <h3>Method 3: Pirai AI Document-to-Kahoot Conversion (Recommended)</h3>
+            <p>Pirai AI reads your Word, PDF, or Excel document and generates a Kahoot-formatted Excel spreadsheet automatically. Question text, answer options, time limits, and correct answers are all mapped from the source document.</p>
+            <ol>
+            <li><strong>Upload at platform.piraiai.com</strong>  -  Word, PDF, or Excel quiz document</li>
+            <li><strong>Review in AI Survey Editor</strong>  -  check question text length, answer options, and correct answer assignments</li>
+            <li><strong>Select Kahoot, download the Excel spreadsheet</strong></li>
+            <li><strong>In Kahoot creator:</strong> three-dot menu &gt; Import &gt; upload the spreadsheet &gt; Continue &gt; questions imported</li>
+            </ol>
+
+            <h2 id="character-limits">Handling Kahoot's Character Limits</h2>
+            <p>Kahoot's 95-character question limit and 60-character answer limit exist because questions and answers must be readable on a shared classroom screen from the back of the room. These limits are often exceeded by questions written in Word for a paper test or PDF worksheet  -  exam-style questions routinely run to 150+ characters.</p>
+            <p>Pirai AI flags questions and answers that exceed Kahoot's limits in the conversion report. Review the flagged items in the AI Survey Editor before downloading and shorten question stems and answer text to fit. A useful rule: if a question needs more than 95 characters, it is a compound question that Kahoot's game format is not suited for  -  consider whether the question can be split into two simpler items, or whether Kahoot is the right platform for that item.</p>
+
+            <h2 id="what-kahoot-import-doesnt-support">What Kahoot's Spreadsheet Import Does Not Support</h2>
+            <p>Kahoot's spreadsheet import only creates multiple choice quiz questions with up to 4 options. <strong>True/False questions</strong> must be added manually in the creator. <strong>Open-ended questions, slides (content cards), poll questions, and word cloud questions</strong> are not created by the spreadsheet import  -  add these manually after importing the multiple choice questions.</p>
+            <p>Images on questions and answers also cannot be set through the spreadsheet import  -  image assignments are made manually in the creator after import. For quizzes where image-based questions are important, import the text structure via spreadsheet, then add images to each relevant question card in the Kahoot editor.</p>
+            <h2 id="faq">Frequently Asked Questions</h2>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Can I import a Word document into Kahoot?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Not directly. Kahoot's import only accepts Excel spreadsheets (.xlsx) formatted to its specific column structure. To import questions from a Word document, upload the .docx to Pirai AI at platform.piraiai.com, select Kahoot, download the formatted spreadsheet, and import it via the Kahoot creator three-dot menu > Import.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How do I turn a PDF into a Kahoot quiz?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Upload the PDF to Pirai AI at platform.piraiai.com, select Kahoot, and download the Excel spreadsheet. Import it via the Kahoot creator (three-dot menu > Import > upload spreadsheet). For scanned PDFs, enable Advanced PDF Processing for OCR. Kahoot only supports multiple choice via spreadsheet import  -  true/false and open questions must be added manually.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What is the character limit for Kahoot questions?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Kahoot enforces a 95-character limit for question text and a 60-character limit for each answer option. Questions exceeding these limits are truncated on the game screen. Pirai AI flags questions and answers that exceed these limits in the conversion report before you download the spreadsheet.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What format does Kahoot use for spreadsheet import?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Kahoot's import spreadsheet has columns: Question, Answer 1, Answer 2, Answer 3, Answer 4, Time Limit (sec), Correct Answer. The Correct Answer column contains the number of the correct answer (1, 2, 3, or 4). Download Kahoot's official template from the creator (three-dot menu > Import > Download template) or use Pirai AI's generated output which follows the same format.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Can I turn the same document into both Kahoot and Google Forms?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes. Upload your document to Pirai AI and export to both platforms in the same session  -  a Kahoot-formatted Excel spreadsheet and a Google Forms Apps Script. Same questions, different formats, one upload.</p></div>
+            </div>
+
+            <div class="article-cta">
+                <h3>Turn Your Quiz Document Into Kahoot</h3>
+                <p>Upload Word, PDF, or Excel. Pirai AI generates a Kahoot-ready spreadsheet. Import and play in minutes.</p>
+                <a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Start Converting Free</a>
+            </div>
+        </article>
+        <aside class="sidebar">
+            <div class="cta-box"><h3>Try Pirai AI Free</h3><p>Convert any survey document to 27+ platforms in minutes.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-button">Start Free</a></div>
+            <div class="sidebar-section"><h3>Quick Links</h3><ul class="toc-list">
+                    <li><a href="/document-to-kahoot">Document to Kahoot</a></li>
+                    <li><a href="/kahoot-for-teachers">Kahoot for Teachers</a></li>
+                    <li><a href="/blog/convert-pdf-to-kahoot-quiz">PDF to Kahoot</a></li>
+                    <li><a href="/blog/how-to-import-questions-into-kahoot">Import Questions Guide</a></li>
+                    <li><a href="/blog/how-to-make-quiz-in-google-forms-from-document">Make Quiz in Google Forms</a></li>
+            </ul></div>
+        </aside>
+    </div>
+    <section class="related-articles"><h2>Related Articles</h2><div class="related-grid">
+            <a href="/blog/create-kahoot-quiz-from-word-pdf" class="related-card"><span class="card-tag">Guide</span><h3>Create a Kahoot Quiz From Word or PDF</h3><p>Step-by-step guide to the Kahoot spreadsheet import with formatting tips.</p></a>
+            <a href="/blog/how-to-import-questions-into-kahoot" class="related-card"><span class="card-tag">Guide</span><h3>How to Import Questions Into Kahoot</h3><p>The complete guide to Kahoot's spreadsheet import  -  template format and common errors.</p></a>
+            <a href="/blog/how-to-make-quiz-in-google-forms-from-document" class="related-card"><span class="card-tag">Guide</span><h3>Make a Quiz in Google Forms From a Document</h3><p>Same quiz document deployed in Google Forms alongside Kahoot.</p></a>
+    </div></section>
+    <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
+    <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        const sections = document.querySelectorAll('h2[id]');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    const active = document.querySelector('.toc-list a[href="#' + entry.target.id + '"]');
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        sections.forEach(s => observer.observe(s));
+    </script>
+</body></html>

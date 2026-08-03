@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moodle AIKEN Format: Complete Guide With Examples and Error Fixes - Pirai AI Blog</title>
+    <meta name="description" content="Complete reference for Moodle's AIKEN import format  -  exact syntax, working examples, what AIKEN supports and doesn't, common import errors, and how Pirai AI generates valid AIKEN files from any document.">
+    <meta name="keywords" content="moodle aiken format, aiken format moodle, moodle aiken format guide, word to moodle aiken, aiken format generator, aiken txt from word document, moodle aiken format example, moodle aiken import not working, aiken format errors moodle">
+    <meta property="og:type" content="article"><meta property="og:url" content="https://piraiai.com/blog/moodle-aiken-format-guide">
+    <meta property="og:title" content="Moodle AIKEN Format: Complete Guide With Examples and Error Fixes"><meta property="og:description" content="Complete reference for Moodle's AIKEN import format  -  exact syntax, working examples, what AIKEN supports and doesn't, common import errors, and how Pirai AI generates valid AIKEN files from any document.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="article:published_time" content="2026-08-02T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta property="article:section" content="Guide">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Moodle AIKEN Format: Complete Guide With Examples and Error Fixes"><meta name="twitter:description" content="Complete reference for Moodle's AIKEN import format  -  exact syntax, working examples, what AIKEN supports and doesn't, common import errors, and how Pirai AI generates valid AIKEN files from any document.">
+    <link rel="canonical" href="https://piraiai.com/blog/moodle-aiken-format-guide"><link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Moodle AIKEN Format: Complete Guide With Examples and Error Fixes","description":"Complete reference for Moodle's AIKEN import format  -  exact syntax, working examples, what AIKEN supports and doesn't, common import errors, and how Pirai AI generates valid AIKEN files from any document.","author":{"@type":"Person","name":"Arun Raj"},"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},"datePublished":"2026-08-02","url":"https://piraiai.com/blog/moodle-aiken-format-guide"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is Moodle AIKEN format?","acceptedAnswer":{"@type":"Answer","text":"Moodle AIKEN format is a plain text (.txt) import format for multiple choice questions. Each question follows a three-part structure: question text on one line, lettered answer options (A. B. C. D.) on separate lines, and ANSWER: followed by the correct letter. The file must be saved with UTF-8 encoding. AIKEN only supports single-answer multiple choice  -  for other question types, use GIFT format."}},{"@type":"Question","name":"How do I create an AIKEN format file from a Word document?","acceptedAnswer":{"@type":"Answer","text":"Upload your Word document to Pirai AI at platform.piraiai.com, select Moodle, and download the AIKEN .txt file. Pirai AI applies correct UTF-8 encoding, ANSWER: capitalisation, and blank-line separators automatically. Import the .txt file via Moodle Question bank > Import > Aiken format."}},{"@type":"Question","name":"Why does my AIKEN import fail in Moodle?","acceptedAnswer":{"@type":"Answer","text":"The most common causes: (1) lowercase 'answer:' instead of 'ANSWER:'; (2) file saved in ANSI instead of UTF-8 encoding; (3) smart quotes from Word replacing straight apostrophes; (4) question text on multiple lines instead of one; (5) missing blank line between questions. Pirai AI's generated AIKEN files avoid all five of these automatically."}},{"@type":"Question","name":"What is the difference between AIKEN and GIFT format in Moodle?","acceptedAnswer":{"@type":"Answer","text":"AIKEN is simpler and supports only single-answer multiple choice questions. GIFT is more complex but supports multiple choice, true/false, short answer, numerical, matching, and essay questions. AIKEN is the right choice for MCQ-only quiz banks; GIFT is needed for mixed question types."}},{"@type":"Question","name":"Can AIKEN format include images in Moodle questions?","acceptedAnswer":{"@type":"Answer","text":"No. AIKEN format is plain text only  -  images cannot be included in the .txt file. After importing via AIKEN, open each question in the Moodle question editor and add images manually to the question text or answer options using the rich text editor."}}]}</script>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; margin-left: 32px; transition: color 0.2s; }
+        header nav a:hover { color: #9B6BFF; }
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+        .content-wrapper { max-width: 1200px; margin: 48px auto; padding: 0 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+        .article-content { max-width: 680px; overflow-x: hidden; }
+        .article-content p { font-size: 18px; color: #374151; margin-bottom: 24px; line-height: 1.7; }
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-top: 32px; margin-bottom: 12px; }
+        .article-content a { color: #9B6BFF; text-decoration: none; border-bottom: 1px solid rgba(155,107,255,0.3); transition: all 0.2s; }
+        .article-content a:hover { border-bottom-color: #9B6BFF; }
+        .article-content ul, .article-content ol { margin-bottom: 24px; padding-left: 24px; }
+        .article-content li { font-size: 18px; color: #374151; margin-bottom: 10px; line-height: 1.7; }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+        .article-content code { background: #f3f4f6; padding: 2px 7px; border-radius: 4px; font-size: 13px; color: #7c3aed; font-family: monospace; }
+        .definition-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 28px; margin: 32px 0; border-radius: 4px; }
+        .definition-box .def-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9B6BFF; margin-bottom: 12px; display: block; }
+        .definition-box p { font-size: 17px; color: #1a1a1a; margin-bottom: 0; font-style: italic; line-height: 1.7; }
+        .related-terms { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 32px 0; }
+        .related-terms h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+        .related-terms ul { padding-left: 0; list-style: none; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+        .related-terms li { margin: 0; }
+        .related-terms a { display: inline-block; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 6px 14px; font-size: 14px; color: #374151; text-decoration: none; border-bottom: none; transition: all 0.2s; }
+        .related-terms a:hover { border-color: #9B6BFF; color: #9B6BFF; border-bottom: none; }
+        .article-cta { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 36px 40px; border-radius: 12px; margin: 48px 0 32px; text-align: center; }
+        .article-cta h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+        .article-cta p { font-size: 16px; color: #ffffff; opacity: 0.95; margin-bottom: 20px; }
+        .article-cta a { border-bottom: none !important; }
+        .cta-btn-white { display: inline-block; background: #ffffff; color: #9B6BFF !important; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-btn-white:hover { transform: translateY(-2px); }
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a1a1a; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; transition: color 0.2s; border-bottom: none; display: block; }
+        .toc-list a:hover { color: #9B6BFF; }
+        .toc-list a.active { color: #9B6BFF; font-weight: 600; }
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 32px; border-radius: 8px; text-align: center; color: #ffffff; margin-bottom: 24px; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .cta-box p { font-size: 14px; margin-bottom: 20px; opacity: 0.95; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-button:hover { transform: translateY(-2px); }
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; border-bottom: none; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
+        .related-card .card-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #9B6BFF; margin-bottom: 8px; display: block; }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
+        .related-card p { font-size: 14px; color: #6b7280; margin: 0; }
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+        @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 400px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
+        /* Hub/ICP page components */
+        .tldr-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 24px 28px; margin: 0 0 32px; border-radius: 4px; }
+        .tldr-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9B6BFF; margin-bottom: 8px; display: block; }
+        .tldr-box p { font-size: 17px; color: #1a1a1a; margin: 0; line-height: 1.7; font-style: italic; }
+        .platform-grid { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0; }
+        .platform-pill { display: inline-flex; align-items: center; gap: 8px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 8px 14px; font-size: 14px; font-weight: 600; color: #374151; text-decoration: none; transition: all 0.2s; border-bottom: none; }
+        .platform-pill:hover { border-color: #9B6BFF; color: #7c3aed; background: #f5f3ff; }
+        .platform-pill.featured { border-color: #ddd6fe; background: #f5f3ff; color: #7c3aed; }
+        .workflow-steps { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 24px 0; }
+        .workflow-step { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; text-align: center; }
+        .workflow-step .ws-num { width: 40px; height: 40px; border-radius: 50%; background: #9B6BFF; color: #fff; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
+        .workflow-step h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+        .workflow-step p { font-size: 13px; color: #6b7280; margin: 0; line-height: 1.5; }
+        .link-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 24px 0; }
+        .link-section h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+        .link-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .link-grid a { color: #7c3aed; text-decoration: none; font-size: 14px; font-weight: 500; border-bottom: none; }
+        .link-grid a:hover { text-decoration: underline; }
+        .use-case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+        .use-case-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 18px; }
+        .use-case-card h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+        .use-case-card p { font-size: 13px; color: #6b7280; margin: 0; line-height: 1.5; }
+        .step-grid { display: flex; flex-direction: column; gap: 0; margin: 24px 0; }
+        .step-box { display: flex; gap: 18px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid #f3f4f6; }
+        .step-box:last-child { border-bottom: none; }
+        .step-num { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: #9B6BFF; color: #ffffff; font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+        .step-content h4 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 700; color: #1a1a1a; margin-bottom: 5px; }
+        .step-content p { font-size: 15px; color: #374151; margin: 0; line-height: 1.6; }
+        .step-content code { background: #f3f4f6; padding: 2px 7px; border-radius: 4px; font-size: 13px; color: #7c3aed; font-family: monospace; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; }
+        .comparison-table th { padding: 12px 16px; text-align: left; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; background: #f9fafb; color: #6b7280; border-bottom: 2px solid #e5e7eb; }
+        .comparison-table th.pirai { background: #f5f3ff; color: #7c3aed; }
+        .comparison-table td { padding: 11px 16px; border-bottom: 1px solid #f3f4f6; color: #374151; }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table td:first-child { font-weight: 600; color: #1a1a1a; }
+        .comparison-table td.pirai { background: #fdf9ff; }
+        .check { color: #16a34a; font-weight: 700; }
+        .cross { color: #dc2626; font-weight: 700; }
+        .partial { color: #d97706; }
+        @media (max-width: 640px) { .workflow-steps { grid-template-columns: 1fr; } .link-grid { grid-template-columns: 1fr; } .use-case-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header><div class="header-container">
+        <a href="/" class="logo"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span></a>
+        <nav><a href="/">Home</a><a href="/blog">All Articles</a><a href="/docs">Documentation</a><a href="/#demo">Get Demo</a></nav>
+    </div></header>
+    <div class="breadcrumb"><div class="breadcrumb-container">
+        <a href="/">Home</a><span class="breadcrumb-separator">›</span>
+        <a href="/blog">Blog</a><span class="breadcrumb-separator">›</span>
+        <a href="/blog?category=guide">Guide</a><span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">Moodle AIKEN Format: Complete Guide With Examples and Error Fixes</span>
+    </div></div>
+    <div class="hero"><div class="hero-container">
+        <h1 class="article-title">Moodle AIKEN Format: Complete Guide With Examples and Error Fixes</h1>
+        <div class="article-meta"><span class="author">Arun Raj</span><span class="separator">•</span><span>August 02, 2026</span><span class="separator">•</span><span>5 min read</span><span class="separator">•</span><span style="background:#e5e7eb;color:#374151;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:600;">Guide</span></div>
+    </div></div>
+    <div class="content-wrapper">
+        <article class="article-content">
+
+            <div class="definition-box"><span class="def-label">What AIKEN Format Is</span>
+            <p>AIKEN is Moodle's simplest question import format  -  a plain text (.txt) file where each multiple choice question follows a strict three-part structure: the question text on one line, lettered answer options each on their own line, and an ANSWER: line identifying the correct option. The format requires precise capitalisation, spacing, and UTF-8 file encoding. Any deviation causes a failed or incorrect import.</p></div>
+
+            <h2 id="exact-syntax">The Exact AIKEN Syntax</h2>
+            <p>Every AIKEN question follows this structure with no variations permitted:</p>
+            <div style="background:#1e1b4b;border-radius:8px;padding:20px 24px;margin:20px 0;">
+            <pre style="color:#e2e8f0;font-family:monospace;font-size:13px;margin:0;line-height:1.8;white-space:pre-wrap;">What is the capital of France?
+A. London
+B. Berlin
+C. Paris
+D. Madrid
+ANSWER: C
+
+Which of the following is a mammal?
+A. Salmon
+B. Eagle
+C. Dolphin
+D. Gecko
+ANSWER: C</pre></div>
+
+            <p>Rules that must be followed exactly:</p>
+            <ul>
+            <li>The question text must be on a <strong>single line</strong>  -  no line breaks within a question</li>
+            <li>Answer options must use <strong>single uppercase letters followed by a period and space</strong>: <code>A. </code> or <code>A) </code>  -  both are accepted but must be consistent throughout the file</li>
+            <li>The correct answer line must start with <strong><code>ANSWER: </code></strong> (all capitals, colon, single space) followed by the correct letter</li>
+            <li>Questions must be separated by a <strong>blank line</strong></li>
+            <li>The file must be saved as <strong>plain text (.txt) with UTF-8 encoding</strong></li>
+            </ul>
+
+            <h2 id="what-aiken-supports">What AIKEN Supports and Does Not Support</h2>
+            <table class="comparison-table">
+            <thead><tr><th>Question Type</th><th class="pirai">AIKEN Support</th></tr></thead>
+            <tbody>
+            <tr><td>Multiple Choice (single correct answer)</td><td class="pirai"><span class="check">Fully supported</span></td></tr>
+            <tr><td>True/False</td><td class="pirai"><span class="partial">Workaround: convert to 2-option MCQ (A. True / B. False)</span></td></tr>
+            <tr><td>Multiple Answer (select all that apply)</td><td class="pirai"><span class="cross">Not supported</span></td></tr>
+            <tr><td>Short Answer / Fill in the blank</td><td class="pirai"><span class="cross">Not supported  -  use GIFT format</span></td></tr>
+            <tr><td>Essay / Long Answer</td><td class="pirai"><span class="cross">Not supported</span></td></tr>
+            <tr><td>Matching</td><td class="pirai"><span class="cross">Not supported  -  use GIFT format</span></td></tr>
+            <tr><td>Numerical</td><td class="pirai"><span class="cross">Not supported  -  use GIFT format</span></td></tr>
+            <tr><td>Images in questions or answers</td><td class="pirai"><span class="cross">Not supported  -  add manually after import</span></td></tr>
+            <tr><td>Question feedback / hints</td><td class="pirai"><span class="cross">Not supported  -  add manually after import</span></td></tr>
+            <tr><td>Question weighting / marks</td><td class="pirai"><span class="cross">Default 1 mark per question  -  adjust after import</span></td></tr>
+            </tbody></table>
+
+            <h2 id="common-errors">Common AIKEN Import Errors and Fixes</h2>
+            <p><strong>"No questions imported" or blank import:</strong> Almost always caused by wrong file encoding. Open the .txt file in Notepad (Windows) &gt; File &gt; Save As &gt; Encoding: UTF-8. On Mac, save from TextEdit in plain text format. Word files copy-pasted into Notepad can sometimes carry ANSI encoding  -  always confirm UTF-8 before import.</p>
+            <p><strong>"answer" not recognised:</strong> The ANSWER: line must be <strong>exactly</strong> <code>ANSWER: C</code>  -  all capitals, colon, one space, correct letter. Lowercase <code>answer: C</code>, missing space <code>ANSWER:C</code>, and extra space <code>ANSWER:  C</code> all cause the import to fail or misread the correct answer.</p>
+            <p><strong>Smart quotes breaking the import:</strong> Word and Google Docs replace straight apostrophes and quote marks with "smart" curly versions ('quoted' instead of 'quoted'). These are non-ASCII characters that break AIKEN parsing. Always paste through a plain text editor (Notepad, Notepad++) to strip smart quotes before saving as .txt.</p>
+            <p><strong>Question text split across lines:</strong> AIKEN requires the entire question on one line. A question with a line break in it is treated as two separate items and causes parsing errors. Ensure line wraps in your source document are converted to single-line text before formatting as AIKEN.</p>
+            <p><strong>Missing blank line between questions:</strong> AIKEN uses blank lines to separate questions. Missing the blank line between the ANSWER: of one question and the start of the next question merges the two questions into one invalid entry.</p>
+
+            <h2 id="pirai-aiken">How Pirai AI Generates Correct AIKEN Files</h2>
+            <p>All five of the above error sources are handled automatically by Pirai AI's AIKEN generator: UTF-8 encoding is applied to the output file, ANSWER: syntax is capitalized correctly, smart quotes from the source document are normalised to straight characters, question text is collapsed to single lines, and blank-line separators are inserted between every question. Upload your Word, PDF, or Excel document, select Moodle, and download the .txt file ready for direct import without manual formatting.</p>
+
+            <h2 id="when-to-use-gift-instead">When to Use GIFT Instead of AIKEN</h2>
+            <p>GIFT format is more complex than AIKEN but supports true/false, short answer, numerical, matching, and essay questions alongside multiple choice. If your quiz bank contains mixed question types, GIFT is worth learning. The GIFT format for a multiple choice question looks like:</p>
+            <div style="background:#1e1b4b;border-radius:8px;padding:20px 24px;margin:20px 0;">
+            <pre style="color:#e2e8f0;font-family:monospace;font-size:13px;margin:0;line-height:1.8;white-space:pre-wrap;">::Question title::What is the capital of France? {
+  =Paris
+  ~London
+  ~Berlin
+  ~Madrid
+}</pre></div>
+            <p>GIFT uses <code>=</code> for correct answers and <code>~</code> for incorrect options. The syntax is more error-prone than AIKEN but unlocks the full Moodle question type range. Pirai AI currently generates AIKEN format; for GIFT, use a dedicated GIFT editor or export from an existing Moodle instance.</p>
+            <h2 id="faq">Frequently Asked Questions</h2>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What is Moodle AIKEN format?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Moodle AIKEN format is a plain text (.txt) import format for multiple choice questions. Each question follows a three-part structure: question text on one line, lettered answer options (A. B. C. D.) on separate lines, and ANSWER: followed by the correct letter. The file must be saved with UTF-8 encoding. AIKEN only supports single-answer multiple choice  -  for other question types, use GIFT format.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How do I create an AIKEN format file from a Word document?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Upload your Word document to Pirai AI at platform.piraiai.com, select Moodle, and download the AIKEN .txt file. Pirai AI applies correct UTF-8 encoding, ANSWER: capitalisation, and blank-line separators automatically. Import the .txt file via Moodle Question bank > Import > Aiken format.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Why does my AIKEN import fail in Moodle?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>The most common causes: (1) lowercase 'answer:' instead of 'ANSWER:'; (2) file saved in ANSI instead of UTF-8 encoding; (3) smart quotes from Word replacing straight apostrophes; (4) question text on multiple lines instead of one; (5) missing blank line between questions. Pirai AI's generated AIKEN files avoid all five of these automatically.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What is the difference between AIKEN and GIFT format in Moodle?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>AIKEN is simpler and supports only single-answer multiple choice questions. GIFT is more complex but supports multiple choice, true/false, short answer, numerical, matching, and essay questions. AIKEN is the right choice for MCQ-only quiz banks; GIFT is needed for mixed question types.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Can AIKEN format include images in Moodle questions?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>No. AIKEN format is plain text only  -  images cannot be included in the .txt file. After importing via AIKEN, open each question in the Moodle question editor and add images manually to the question text or answer options using the rich text editor.</p></div>
+            </div>
+
+            <div class="article-cta">
+                <h3>Generate a Valid AIKEN File From Your Document</h3>
+                <p>Upload Word, PDF, or Excel. Pirai AI generates a correctly formatted AIKEN .txt file  -  UTF-8 encoded, correct syntax. Import directly into Moodle.</p>
+                <a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Start Converting Free</a>
+            </div>
+        </article>
+        <aside class="sidebar">
+            <div class="cta-box"><h3>Try Pirai AI Free</h3><p>Convert any survey document to 27+ platforms in minutes.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-button">Start Free</a></div>
+            <div class="sidebar-section"><h3>Quick Links</h3><ul class="toc-list">
+                    <li><a href="/blog/import-questions-into-moodle">Import Questions Guide</a></li>
+                    <li><a href="/blog/create-moodle-quiz-from-word-pdf">Create Moodle Quiz From Document</a></li>
+                    <li><a href="/blog/convert-import-moodle">Full Moodle Import Guide</a></li>
+                    <li><a href="/blog/turn-questions-into-kahoot">Turn Questions Into Kahoot</a></li>
+                    <li><a href="/blog/import-questions-into-microsoft-forms">Import Into Microsoft Forms</a></li>
+            </ul></div>
+        </aside>
+    </div>
+    <section class="related-articles"><h2>Related Articles</h2><div class="related-grid">
+            <a href="/blog/import-questions-into-moodle" class="related-card"><span class="card-tag">Guide</span><h3>How to Import Questions Into Moodle</h3><p>All methods for importing from Word, PDF, and Excel into the Moodle question bank.</p></a>
+            <a href="/blog/create-moodle-quiz-from-word-pdf" class="related-card"><span class="card-tag">Guide</span><h3>Create a Moodle Quiz From Word or PDF</h3><p>Three methods compared with time estimates and post-import checklist.</p></a>
+            <a href="/blog/convert-import-moodle" class="related-card"><span class="card-tag">Guide</span><h3>Full Moodle Import Guide</h3><p>Complete reference covering AIKEN, GIFT, and Moodle XML with step-by-step import instructions.</p></a>
+    </div></section>
+    <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
+    <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        const sections = document.querySelectorAll('h2[id]');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    const active = document.querySelector('.toc-list a[href="#' + entry.target.id + '"]');
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        sections.forEach(s => observer.observe(s));
+    </script>
+</body></html>
