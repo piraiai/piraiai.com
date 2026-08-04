@@ -151,6 +151,48 @@
 <!-- NEW BLOG SITEMAP ENTRIES — August 1, 2026 -->
 <!-- ============================================================ -->  
   <url>
+    <loc>https://piraiai.com/blog/how-to-import-questions-into-google-forms</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/how-to-import-questions-into-surveymonkey</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/how-to-import-questions-into-questionpro</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/how-to-import-questions-into-redcap</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/how-to-import-questions-into-microsoft-forms</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/how-to-import-questions-into-limesurvey</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/how-to-import-questions-into-moodle</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>  
+  <url>
     <loc>https://piraiai.com/blog/turn-questions-into-kahoot</loc>
     <lastmod>2026-08-02</lastmod>
     <changefreq>monthly</changefreq>

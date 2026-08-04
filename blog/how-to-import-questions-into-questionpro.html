@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Import Questions Into QuestionPro From Word, PDF, or Excel - Pirai AI Blog</title>
+    <meta name="description" content="How to import questions into QuestionPro from Word documents, PDFs, and Excel files. How QuestionPro's Add from MS Word feature works, what format it requires, and how Pirai AI generates a compatible file from any document.">
+    <meta name="keywords" content="how to import questions into questionpro, import questions into questionpro, import questions questionpro from word, how to add questions to questionpro from word, questionpro import questions from document, import questions to questionpro from pdf">
+    <meta property="og:type" content="article"><meta property="og:url" content="https://piraiai.com/blog/how-to-import-questions-into-questionpro">
+    <meta property="og:title" content="How to Import Questions Into QuestionPro From Word, PDF, or Excel"><meta property="og:description" content="How to import questions into QuestionPro from Word documents, PDFs, and Excel files. How QuestionPro's Add from MS Word feature works, what format it requires, and how Pirai AI generates a compatible file from any document.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="article:published_time" content="2026-08-04T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta property="article:section" content="Guide">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Import Questions Into QuestionPro From Word, PDF, or Excel"><meta name="twitter:description" content="How to import questions into QuestionPro from Word documents, PDFs, and Excel files. How QuestionPro's Add from MS Word feature works, what format it requires, and how Pirai AI generates a compatible file from any document.">
+    <link rel="canonical" href="https://piraiai.com/blog/how-to-import-questions-into-questionpro"><link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to Import Questions Into QuestionPro From Word, PDF, or Excel","description":"How to import questions into QuestionPro from Word documents, PDFs, and Excel files. How QuestionPro's Add from MS Word feature works, what format it requires, and how Pirai AI generates a compatible file from any document.","author":{"@type":"Person","name":"Arun Raj"},"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},"datePublished":"2026-08-04","url":"https://piraiai.com/blog/how-to-import-questions-into-questionpro"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I import questions into QuestionPro from a Word document?","acceptedAnswer":{"@type":"Answer","text":"QuestionPro's Add from MS Word feature imports questions from a specifically structured .docx file. To convert your existing Word document (which likely doesn't follow QuestionPro's required format), upload it to Pirai AI at platform.piraiai.com, select QuestionPro, download the formatted DOCX, and import it via Add Question > Add from MS Word in your QuestionPro survey."}},{"@type":"Question","name":"Can I import a PDF into QuestionPro?","acceptedAnswer":{"@type":"Answer","text":"Not directly. QuestionPro accepts Word (.docx) files via Add from MS Word, not PDFs. Upload your PDF to Pirai AI, select QuestionPro, download the formatted DOCX, and import it into QuestionPro. For scanned PDFs, enable Advanced PDF Processing for OCR."}},{"@type":"Question","name":"How do I migrate Qualtrics surveys to QuestionPro?","acceptedAnswer":{"@type":"Answer","text":"QuestionPro's Migration Center accepts Qualtrics QSF files via API or file upload (up to 50 surveys at a time). Survey structure is imported but display logic is not transferred and must be rebuilt. For complex instruments, upload the original source document to Pirai AI and generate a fresh QuestionPro-formatted file. See the full migration guide at /blog/migrate-qualtrics-to-questionpro."}},{"@type":"Question","name":"What question types does QuestionPro's Word import support?","acceptedAnswer":{"@type":"Answer","text":"QuestionPro's Add from MS Word supports Multiple Choice, Multiple Answer, Open-Ended, Matrix/Rating Scale, Dropdown, and Rank Order. NPS, Slider, Constant Sum, and other advanced types need to be added manually after the Word import."}}]}</script>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; margin-left: 32px; transition: color 0.2s; }
+        header nav a:hover { color: #9B6BFF; }
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+        .content-wrapper { max-width: 1200px; margin: 48px auto; padding: 0 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+        .article-content { max-width: 680px; overflow-x: hidden; }
+        .article-content p { font-size: 18px; color: #374151; margin-bottom: 24px; line-height: 1.7; }
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-top: 32px; margin-bottom: 12px; }
+        .article-content a { color: #9B6BFF; text-decoration: none; border-bottom: 1px solid rgba(155,107,255,0.3); transition: all 0.2s; }
+        .article-content a:hover { border-bottom-color: #9B6BFF; }
+        .article-content ul, .article-content ol { margin-bottom: 24px; padding-left: 24px; }
+        .article-content li { font-size: 18px; color: #374151; margin-bottom: 10px; line-height: 1.7; }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+        .article-content code { background: #f3f4f6; padding: 2px 7px; border-radius: 4px; font-size: 13px; color: #7c3aed; font-family: monospace; }
+        .definition-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 28px; margin: 32px 0; border-radius: 4px; }
+        .definition-box .def-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9B6BFF; margin-bottom: 12px; display: block; }
+        .definition-box p { font-size: 17px; color: #1a1a1a; margin-bottom: 0; font-style: italic; line-height: 1.7; }
+        .related-terms { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 32px 0; }
+        .related-terms h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+        .related-terms ul { padding-left: 0; list-style: none; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+        .related-terms li { margin: 0; }
+        .related-terms a { display: inline-block; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 6px 14px; font-size: 14px; color: #374151; text-decoration: none; border-bottom: none; transition: all 0.2s; }
+        .related-terms a:hover { border-color: #9B6BFF; color: #9B6BFF; border-bottom: none; }
+        .article-cta { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 36px 40px; border-radius: 12px; margin: 48px 0 32px; text-align: center; }
+        .article-cta h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+        .article-cta p { font-size: 16px; color: #ffffff; opacity: 0.95; margin-bottom: 20px; }
+        .article-cta a { border-bottom: none !important; }
+        .cta-btn-white { display: inline-block; background: #ffffff; color: #9B6BFF !important; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-btn-white:hover { transform: translateY(-2px); }
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a1a1a; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; transition: color 0.2s; border-bottom: none; display: block; }
+        .toc-list a:hover { color: #9B6BFF; }
+        .toc-list a.active { color: #9B6BFF; font-weight: 600; }
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 32px; border-radius: 8px; text-align: center; color: #ffffff; margin-bottom: 24px; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .cta-box p { font-size: 14px; margin-bottom: 20px; opacity: 0.95; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-button:hover { transform: translateY(-2px); }
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; border-bottom: none; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
+        .related-card .card-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #9B6BFF; margin-bottom: 8px; display: block; }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
+        .related-card p { font-size: 14px; color: #6b7280; margin: 0; }
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+        @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 400px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
+        /* Hub/ICP page components */
+        .tldr-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 24px 28px; margin: 0 0 32px; border-radius: 4px; }
+        .tldr-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9B6BFF; margin-bottom: 8px; display: block; }
+        .tldr-box p { font-size: 17px; color: #1a1a1a; margin: 0; line-height: 1.7; font-style: italic; }
+        .platform-grid { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0; }
+        .platform-pill { display: inline-flex; align-items: center; gap: 8px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 8px 14px; font-size: 14px; font-weight: 600; color: #374151; text-decoration: none; transition: all 0.2s; border-bottom: none; }
+        .platform-pill:hover { border-color: #9B6BFF; color: #7c3aed; background: #f5f3ff; }
+        .platform-pill.featured { border-color: #ddd6fe; background: #f5f3ff; color: #7c3aed; }
+        .workflow-steps { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 24px 0; }
+        .workflow-step { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; text-align: center; }
+        .workflow-step .ws-num { width: 40px; height: 40px; border-radius: 50%; background: #9B6BFF; color: #fff; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
+        .workflow-step h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+        .workflow-step p { font-size: 13px; color: #6b7280; margin: 0; line-height: 1.5; }
+        .link-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 24px 0; }
+        .link-section h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+        .link-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .link-grid a { color: #7c3aed; text-decoration: none; font-size: 14px; font-weight: 500; border-bottom: none; }
+        .link-grid a:hover { text-decoration: underline; }
+        .use-case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+        .use-case-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 18px; }
+        .use-case-card h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+        .use-case-card p { font-size: 13px; color: #6b7280; margin: 0; line-height: 1.5; }
+        .step-grid { display: flex; flex-direction: column; gap: 0; margin: 24px 0; }
+        .step-box { display: flex; gap: 18px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid #f3f4f6; }
+        .step-box:last-child { border-bottom: none; }
+        .step-num { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: #9B6BFF; color: #ffffff; font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+        .step-content h4 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 700; color: #1a1a1a; margin-bottom: 5px; }
+        .step-content p { font-size: 15px; color: #374151; margin: 0; line-height: 1.6; }
+        .step-content code { background: #f3f4f6; padding: 2px 7px; border-radius: 4px; font-size: 13px; color: #7c3aed; font-family: monospace; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; }
+        .comparison-table th { padding: 12px 16px; text-align: left; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; background: #f9fafb; color: #6b7280; border-bottom: 2px solid #e5e7eb; }
+        .comparison-table th.pirai { background: #f5f3ff; color: #7c3aed; }
+        .comparison-table td { padding: 11px 16px; border-bottom: 1px solid #f3f4f6; color: #374151; }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table td:first-child { font-weight: 600; color: #1a1a1a; }
+        .comparison-table td.pirai { background: #fdf9ff; }
+        .check { color: #16a34a; font-weight: 700; }
+        .cross { color: #dc2626; font-weight: 700; }
+        .partial { color: #d97706; }
+        @media (max-width: 640px) { .workflow-steps { grid-template-columns: 1fr; } .link-grid { grid-template-columns: 1fr; } .use-case-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header><div class="header-container">
+        <a href="/" class="logo"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span></a>
+        <nav><a href="/">Home</a><a href="/blog">All Articles</a><a href="/docs">Documentation</a><a href="/#demo">Get Demo</a></nav>
+    </div></header>
+    <div class="breadcrumb"><div class="breadcrumb-container">
+        <a href="/">Home</a><span class="breadcrumb-separator">›</span>
+        <a href="/blog">Blog</a><span class="breadcrumb-separator">›</span>
+        <a href="/blog?category=guide">Guide</a><span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">How to Import Questions Into QuestionPro From Word, PDF, or Excel</span>
+    </div></div>
+    <div class="hero"><div class="hero-container">
+        <h1 class="article-title">How to Import Questions Into QuestionPro From Word, PDF, or Excel</h1>
+        <div class="article-meta"><span class="author">Arun Raj</span><span class="separator">•</span><span>August 04, 2026</span><span class="separator">•</span><span>5 min read</span><span class="separator">•</span><span style="background:#e5e7eb;color:#374151;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:600;">Guide</span></div>
+    </div></div>
+    <div class="content-wrapper">
+        <article class="article-content">
+
+            <div class="definition-box"><span class="def-label">Quick Answer</span>
+            <p>QuestionPro imports survey questions from Word documents via its Add from MS Word feature. The Word document must follow a specific structure  -  question text formatted with heading styles and answer options as bulleted lists. Pirai AI converts your existing Word, PDF, or Excel documents into a QuestionPro-compatible Word file automatically. Upload your source document, select QuestionPro, download the formatted DOCX, and import it via QuestionPro's Add from MS Word dialog.</p></div>
+
+            <h2 id="questionpro-import-options">QuestionPro Import Options</h2>
+            <p>QuestionPro provides two main routes for importing existing survey questions:</p>
+            <p><strong>Add from MS Word</strong>  -  accepts a specifically formatted .docx file where question types, question text, and answer options follow QuestionPro's heading and list structure. This is the primary import route for document-based question sets.</p>
+            <p><strong>Migration Center (QSF import)</strong>  -  for migrating surveys from Qualtrics. Accepts Qualtrics QSF files and imports survey structure. Note that display logic and branching are not transferred via QSF import and must be rebuilt manually.</p>
+
+            <h2 id="three-methods">Three Ways to Import Questions Into QuestionPro</h2>
+
+            <h3>Method 1: Manual Entry in QuestionPro Editor</h3>
+            <p>Log into QuestionPro. Open or create a survey. Click Add Question. Select the question type. Enter the question text and each answer option. Set required status and other settings. Repeat for every question. <strong>Time:</strong> 3-5 minutes per question. A 40-question survey: 3-4 hours. <strong>Best for:</strong> small additions to an existing survey or question types not supported by the Word import.</p>
+
+            <h3>Method 2: Format a Word Document and Use Add from MS Word</h3>
+            <p>QuestionPro's Add from MS Word reads a .docx file structured with heading styles. Each question is a Heading 2 paragraph. Answer options are bulleted list items under the question. Question type indicators are included as part of the heading or preceding text. The document must follow QuestionPro's template structure precisely  -  using the wrong heading level or list style causes import failures or incorrect question type mapping.</p>
+            <p><strong>Limitations:</strong> Matrix and grid questions have limited support through Word import. Complex question types (ranking, slider, constant sum) must be added manually after import.</p>
+
+            <h3>Method 3: Pirai AI Document Conversion (Recommended)</h3>
+            <p>Pirai AI reads your existing Word, PDF, or Excel document and generates a QuestionPro-compatible .docx file structured to the Add from MS Word format requirements. No manual formatting required.</p>
+            <ol>
+            <li><strong>Upload at platform.piraiai.com</strong>  -  Word, PDF, Excel, or paste text</li>
+            <li><strong>Review in AI Survey Editor</strong>  -  confirm question types and answer options before downloading</li>
+            <li><strong>Select QuestionPro, download the formatted DOCX</strong></li>
+            <li><strong>In QuestionPro:</strong> open your survey &gt; Add Question &gt; Add from MS Word &gt; upload the DOCX &gt; Import</li>
+            </ol>
+
+            <h2 id="question-type-mapping">Question Type Mapping</h2>
+            <table class="comparison-table">
+            <thead><tr><th>Source Document Type</th><th class="pirai">QuestionPro Output</th></tr></thead>
+            <tbody>
+            <tr><td>Multiple choice (single)</td><td class="pirai">Multiple Choice</td></tr>
+            <tr><td>Multiple choice (multi-select)</td><td class="pirai">Multiple Choice (multiple answers)</td></tr>
+            <tr><td>Matrix / Likert battery</td><td class="pirai">Matrix Table / Rating Scale</td></tr>
+            <tr><td>Open text (short)</td><td class="pirai">Open-Ended</td></tr>
+            <tr><td>Open text (paragraph)</td><td class="pirai">Open-Ended (long answer)</td></tr>
+            <tr><td>NPS (0-10)</td><td class="pirai">NPS (native type)</td></tr>
+            <tr><td>Dropdown</td><td class="pirai">Dropdown</td></tr>
+            <tr><td>Rank order</td><td class="pirai">Rank Order</td></tr>
+            </tbody></table>
+
+            <h2 id="migrating-from-qualtrics">Migrating From Qualtrics to QuestionPro</h2>
+            <p>If you are migrating from Qualtrics to QuestionPro following a licence change at your institution, you have two routes. QuestionPro's Migration Center accepts QSF files (up to 50 at a time via API or file upload) and migrates survey structure  -  but does not transfer display logic. Alternatively, upload your original source documents to Pirai AI and generate a QuestionPro-formatted DOCX for each survey. This creates clean instruments from the authoritative source rather than migrated-with-broken-logic QSF imports. See the full guide: <a href="/blog/migrate-qualtrics-to-questionpro">migrate from Qualtrics to QuestionPro</a>.</p>
+            <h2 id="faq">Frequently Asked Questions</h2>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How do I import questions into QuestionPro from a Word document?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>QuestionPro's Add from MS Word feature imports questions from a specifically structured .docx file. To convert your existing Word document (which likely doesn't follow QuestionPro's required format), upload it to Pirai AI at platform.piraiai.com, select QuestionPro, download the formatted DOCX, and import it via Add Question > Add from MS Word in your QuestionPro survey.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Can I import a PDF into QuestionPro?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Not directly. QuestionPro accepts Word (.docx) files via Add from MS Word, not PDFs. Upload your PDF to Pirai AI, select QuestionPro, download the formatted DOCX, and import it into QuestionPro. For scanned PDFs, enable Advanced PDF Processing for OCR.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How do I migrate Qualtrics surveys to QuestionPro?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>QuestionPro's Migration Center accepts Qualtrics QSF files via API or file upload (up to 50 surveys at a time). Survey structure is imported but display logic is not transferred and must be rebuilt. For complex instruments, upload the original source document to Pirai AI and generate a fresh QuestionPro-formatted file. See the full migration guide at /blog/migrate-qualtrics-to-questionpro.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What question types does QuestionPro's Word import support?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>QuestionPro's Add from MS Word supports Multiple Choice, Multiple Answer, Open-Ended, Matrix/Rating Scale, Dropdown, and Rank Order. NPS, Slider, Constant Sum, and other advanced types need to be added manually after the Word import.</p></div>
+            </div>
+
+            <div class="article-cta">
+                <h3>Import Your Questions Into QuestionPro</h3>
+                <p>Upload Word, PDF, or Excel. Pirai AI generates a QuestionPro-compatible DOCX. Import via Add from MS Word. No manual formatting.</p>
+                <a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Start Converting Free</a>
+            </div>
+        </article>
+        <aside class="sidebar">
+            <div class="cta-box"><h3>Try Pirai AI Free</h3><p>Convert any survey document to 27+ platforms in minutes.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-button">Start Free</a></div>
+            <div class="sidebar-section"><h3>Quick Links</h3><ul class="toc-list">
+                    <li><a href="/blog/migrate-qualtrics-to-questionpro">Migrate Qualtrics to QuestionPro</a></li>
+                    <li><a href="/blog/how-to-import-questions-into-google-forms">Import Into Google Forms</a></li>
+                    <li><a href="/blog/convert-import-questionpro">Full QuestionPro Import Guide</a></li>
+                    <li><a href="/blog/how-to-import-questions-into-qualtrics">Import Into Qualtrics</a></li>
+                    <li><a href="/product/questionpro-converter/">QuestionPro Converter</a></li>
+            </ul></div>
+        </aside>
+    </div>
+    <section class="related-articles"><h2>Related Articles</h2><div class="related-grid">
+            <a href="/blog/migrate-qualtrics-to-questionpro" class="related-card"><span class="card-tag">Guide</span><h3>Migrate Qualtrics to QuestionPro</h3><p>Full migration guide for 2026 university platform switches.</p></a>
+            <a href="/blog/convert-import-questionpro" class="related-card"><span class="card-tag">Guide</span><h3>Full QuestionPro Import Guide</h3><p>All file types covered including QSF, Word, and PDF.</p></a>
+            <a href="/blog/how-to-import-questions-into-qualtrics" class="related-card"><span class="card-tag">Guide</span><h3>How to Import Questions Into Qualtrics</h3><p>The same pattern for Qualtrics  -  why it rejects Word files and the QSF route.</p></a>
+    </div></section>
+    <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
+    <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        const sections = document.querySelectorAll('h2[id]');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    const active = document.querySelector('.toc-list a[href="#' + entry.target.id + '"]');
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        sections.forEach(s => observer.observe(s));
+    </script>
+</body></html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Import Questions Into Google Forms (All Methods, 2026) - Pirai AI Blog</title>
+    <meta name="description" content="Every way to import questions into Google Forms  -  from another form, from Word or PDF, from Qualtrics, SurveyMonkey, Microsoft Forms, and other platforms. Step-by-step for each method.">
+    <meta name="keywords" content="how to import questions into google forms, import questions into google forms, import questions google forms, how to import into google forms, google forms import questions from word, import questions google forms from document">
+    <meta property="og:type" content="article"><meta property="og:url" content="https://piraiai.com/blog/how-to-import-questions-into-google-forms">
+    <meta property="og:title" content="How to Import Questions Into Google Forms (All Methods, 2026)"><meta property="og:description" content="Every way to import questions into Google Forms  -  from another form, from Word or PDF, from Qualtrics, SurveyMonkey, Microsoft Forms, and other platforms. Step-by-step for each method.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="article:published_time" content="2026-08-04T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta property="article:section" content="Guide">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Import Questions Into Google Forms (All Methods, 2026)"><meta name="twitter:description" content="Every way to import questions into Google Forms  -  from another form, from Word or PDF, from Qualtrics, SurveyMonkey, Microsoft Forms, and other platforms. Step-by-step for each method.">
+    <link rel="canonical" href="https://piraiai.com/blog/how-to-import-questions-into-google-forms"><link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to Import Questions Into Google Forms (All Methods, 2026)","description":"Every way to import questions into Google Forms  -  from another form, from Word or PDF, from Qualtrics, SurveyMonkey, Microsoft Forms, and other platforms. Step-by-step for each method.","author":{"@type":"Person","name":"Arun Raj"},"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},"datePublished":"2026-08-04","url":"https://piraiai.com/blog/how-to-import-questions-into-google-forms"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I import questions into Google Forms from Word?","acceptedAnswer":{"@type":"Answer","text":"Google Forms has no native Word import. Upload your Word document to Pirai AI at platform.piraiai.com, select Google Forms, download the Apps Script, open a blank Google Form, go to the three-dot menu, select Script editor, paste the script, and run it. All questions appear automatically."}},{"@type":"Question","name":"Can Google Forms import from Qualtrics?","acceptedAnswer":{"@type":"Answer","text":"Not natively. Export your Qualtrics survey as a QSF file (Survey tab > Tools > Import/Export > Export Survey), upload the QSF to Pirai AI, select Google Forms, download the Apps Script, and run it in a blank Google Form. Question text, types, and answer options transfer. Display logic must be rebuilt as section branching in Google Forms."}},{"@type":"Question","name":"Does Google Forms have a bulk import feature?","acceptedAnswer":{"@type":"Answer","text":"Google Forms has one native bulk import: copying questions from another Google Form using the Import Questions button (circle-with-arrow icon in the right toolbar). For all other sources  -  Word, PDF, Excel, Qualtrics, SurveyMonkey, Microsoft Forms, LimeSurvey, REDCap  -  use Pirai AI to convert the source to a Google Apps Script, then run it in a blank Google Form."}},{"@type":"Question","name":"Can I import questions from Excel into Google Forms?","acceptedAnswer":{"@type":"Answer","text":"Not natively. Upload your Excel (.xlsx) file to Pirai AI at platform.piraiai.com, select Google Forms, download the Apps Script, and run it in a blank Google Form via the Script Editor (three-dot menu > Script editor)."}},{"@type":"Question","name":"What question types are preserved when importing into Google Forms?","acceptedAnswer":{"@type":"Answer","text":"Multiple Choice, Checkboxes, Short Answer, Paragraph, and Multiple Choice Grid (matrix) are all created by Pirai AI's Apps Script. Likert scale batteries are converted to Multiple Choice Grid. NPS, Ranking, Rating, and File Upload question types do not exist in Google Forms and cannot be imported  -  these need to be added manually as the closest Google Forms equivalent after import."}}]}</script>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; margin-left: 32px; transition: color 0.2s; }
+        header nav a:hover { color: #9B6BFF; }
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+        .content-wrapper { max-width: 1200px; margin: 48px auto; padding: 0 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+        .article-content { max-width: 680px; overflow-x: hidden; }
+        .article-content p { font-size: 18px; color: #374151; margin-bottom: 24px; line-height: 1.7; }
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-top: 32px; margin-bottom: 12px; }
+        .article-content a { color: #9B6BFF; text-decoration: none; border-bottom: 1px solid rgba(155,107,255,0.3); transition: all 0.2s; }
+        .article-content a:hover { border-bottom-color: #9B6BFF; }
+        .article-content ul, .article-content ol { margin-bottom: 24px; padding-left: 24px; }
+        .article-content li { font-size: 18px; color: #374151; margin-bottom: 10px; line-height: 1.7; }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+        .article-content code { background: #f3f4f6; padding: 2px 7px; border-radius: 4px; font-size: 13px; color: #7c3aed; font-family: monospace; }
+        .definition-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 28px; margin: 32px 0; border-radius: 4px; }
+        .definition-box .def-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9B6BFF; margin-bottom: 12px; display: block; }
+        .definition-box p { font-size: 17px; color: #1a1a1a; margin-bottom: 0; font-style: italic; line-height: 1.7; }
+        .related-terms { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 32px 0; }
+        .related-terms h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+        .related-terms ul { padding-left: 0; list-style: none; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+        .related-terms li { margin: 0; }
+        .related-terms a { display: inline-block; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 6px 14px; font-size: 14px; color: #374151; text-decoration: none; border-bottom: none; transition: all 0.2s; }
+        .related-terms a:hover { border-color: #9B6BFF; color: #9B6BFF; border-bottom: none; }
+        .article-cta { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 36px 40px; border-radius: 12px; margin: 48px 0 32px; text-align: center; }
+        .article-cta h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+        .article-cta p { font-size: 16px; color: #ffffff; opacity: 0.95; margin-bottom: 20px; }
+        .article-cta a { border-bottom: none !important; }
+        .cta-btn-white { display: inline-block; background: #ffffff; color: #9B6BFF !important; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-btn-white:hover { transform: translateY(-2px); }
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a1a1a; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; transition: color 0.2s; border-bottom: none; display: block; }
+        .toc-list a:hover { color: #9B6BFF; }
+        .toc-list a.active { color: #9B6BFF; font-weight: 600; }
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 32px; border-radius: 8px; text-align: center; color: #ffffff; margin-bottom: 24px; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .cta-box p { font-size: 14px; margin-bottom: 20px; opacity: 0.95; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-button:hover { transform: translateY(-2px); }
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; border-bottom: none; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
+        .related-card .card-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #9B6BFF; margin-bottom: 8px; display: block; }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
+        .related-card p { font-size: 14px; color: #6b7280; margin: 0; }
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+        @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 400px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
+        /* Hub/ICP page components */
+        .tldr-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 24px 28px; margin: 0 0 32px; border-radius: 4px; }
+        .tldr-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9B6BFF; margin-bottom: 8px; display: block; }
+        .tldr-box p { font-size: 17px; color: #1a1a1a; margin: 0; line-height: 1.7; font-style: italic; }
+        .platform-grid { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0; }
+        .platform-pill { display: inline-flex; align-items: center; gap: 8px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 8px 14px; font-size: 14px; font-weight: 600; color: #374151; text-decoration: none; transition: all 0.2s; border-bottom: none; }
+        .platform-pill:hover { border-color: #9B6BFF; color: #7c3aed; background: #f5f3ff; }
+        .platform-pill.featured { border-color: #ddd6fe; background: #f5f3ff; color: #7c3aed; }
+        .workflow-steps { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 24px 0; }
+        .workflow-step { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; text-align: center; }
+        .workflow-step .ws-num { width: 40px; height: 40px; border-radius: 50%; background: #9B6BFF; color: #fff; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
+        .workflow-step h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+        .workflow-step p { font-size: 13px; color: #6b7280; margin: 0; line-height: 1.5; }
+        .link-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 24px 0; }
+        .link-section h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+        .link-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .link-grid a { color: #7c3aed; text-decoration: none; font-size: 14px; font-weight: 500; border-bottom: none; }
+        .link-grid a:hover { text-decoration: underline; }
+        .use-case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+        .use-case-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 18px; }
+        .use-case-card h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+        .use-case-card p { font-size: 13px; color: #6b7280; margin: 0; line-height: 1.5; }
+        .step-grid { display: flex; flex-direction: column; gap: 0; margin: 24px 0; }
+        .step-box { display: flex; gap: 18px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid #f3f4f6; }
+        .step-box:last-child { border-bottom: none; }
+        .step-num { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: #9B6BFF; color: #ffffff; font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+        .step-content h4 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 700; color: #1a1a1a; margin-bottom: 5px; }
+        .step-content p { font-size: 15px; color: #374151; margin: 0; line-height: 1.6; }
+        .step-content code { background: #f3f4f6; padding: 2px 7px; border-radius: 4px; font-size: 13px; color: #7c3aed; font-family: monospace; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; }
+        .comparison-table th { padding: 12px 16px; text-align: left; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; background: #f9fafb; color: #6b7280; border-bottom: 2px solid #e5e7eb; }
+        .comparison-table th.pirai { background: #f5f3ff; color: #7c3aed; }
+        .comparison-table td { padding: 11px 16px; border-bottom: 1px solid #f3f4f6; color: #374151; }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table td:first-child { font-weight: 600; color: #1a1a1a; }
+        .comparison-table td.pirai { background: #fdf9ff; }
+        .check { color: #16a34a; font-weight: 700; }
+        .cross { color: #dc2626; font-weight: 700; }
+        .partial { color: #d97706; }
+        @media (max-width: 640px) { .workflow-steps { grid-template-columns: 1fr; } .link-grid { grid-template-columns: 1fr; } .use-case-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header><div class="header-container">
+        <a href="/" class="logo"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span></a>
+        <nav><a href="/">Home</a><a href="/blog">All Articles</a><a href="/docs">Documentation</a><a href="/#demo">Get Demo</a></nav>
+    </div></header>
+    <div class="breadcrumb"><div class="breadcrumb-container">
+        <a href="/">Home</a><span class="breadcrumb-separator">›</span>
+        <a href="/blog">Blog</a><span class="breadcrumb-separator">›</span>
+        <a href="/blog?category=guide">Guide</a><span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">How to Import Questions Into Google Forms (All Methods, 2026)</span>
+    </div></div>
+    <div class="hero"><div class="hero-container">
+        <h1 class="article-title">How to Import Questions Into Google Forms (All Methods, 2026)</h1>
+        <div class="article-meta"><span class="author">Arun Raj</span><span class="separator">•</span><span>August 04, 2026</span><span class="separator">•</span><span>5 min read</span><span class="separator">•</span><span style="background:#e5e7eb;color:#374151;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:600;">Guide</span></div>
+    </div></div>
+    <div class="content-wrapper">
+        <article class="article-content">
+
+            <div class="definition-box"><span class="def-label">Quick Answer</span>
+            <p>Google Forms has one native import: copying questions from another Google Form in your Drive. For everything else  -  Word documents, PDFs, Excel files, Qualtrics surveys, SurveyMonkey surveys, or Microsoft Forms questions  -  you need a third-party conversion step. Pirai AI converts any of these sources to a Google Apps Script that builds all questions in Google Forms automatically, with no Drive access required.</p></div>
+
+            <h2 id="method-1">Method 1: Import From Another Google Form (Native)</h2>
+            <p>The only built-in import Google Forms supports. Open your destination form. In the right-hand floating toolbar, click the circle-with-arrow Import Questions icon. A dialog shows Google Forms in your Drive. Select the source form, choose which questions to import, click Import questions. Questions are added at the bottom of your current form.</p>
+            <p><strong>Best for:</strong> questions already in a Google Form in your Drive. <strong>Cannot be used for:</strong> Word documents, PDFs, Excel, or other survey platforms.</p>
+
+            <h2 id="method-2">Method 2: Import From Word, PDF, or Excel</h2>
+            <p>Google Forms has no native document import. To import questions from a Word document, PDF, or Excel file, convert the document to a Google Apps Script using Pirai AI, then run it in a blank Google Form.</p>
+            <ol>
+            <li><strong>Upload at platform.piraiai.com</strong>  -  Word (.docx), PDF (text or scanned), or Excel (.xlsx)</li>
+            <li><strong>Select Google Forms</strong> and download the Apps Script</li>
+            <li><strong>Open a blank Google Form</strong>  -  three-dot menu &gt; Script editor &gt; paste script &gt; Run</li>
+            </ol>
+            <p>All questions appear instantly. Matrix and Likert questions are converted to Multiple Choice Grid. No Drive access granted at any point. See the full guide: <a href="/blog/add-questions-to-google-forms-from-document">how to add questions to Google Forms from a document</a>.</p>
+
+            <h2 id="method-3">Method 3: Import From Qualtrics</h2>
+            <p>Export your Qualtrics survey as a QSF file (Survey tab &gt; Tools &gt; Import/Export &gt; Export Survey). Upload the QSF to Pirai AI, select Google Forms, download the Apps Script, and run it in a blank Google Form. All questions from the Qualtrics survey are created in Google Forms automatically.</p>
+            <p><strong>What transfers:</strong> question text, question types, answer options, and section structure. <strong>What doesn't transfer:</strong> Qualtrics display logic (Google Forms only supports section-level branching), embedded data, and quota settings. See the full guide: <a href="/blog/how-to-import-questions-into-qualtrics">how to import questions into Qualtrics</a>.</p>
+
+            <h2 id="method-4">Method 4: Import From SurveyMonkey</h2>
+            <p>SurveyMonkey does not export surveys in a format Google Forms can read natively. The most reliable route: export your SurveyMonkey survey as a PDF (Print Survey option in SurveyMonkey), upload the PDF to Pirai AI, select Google Forms, and run the Apps Script. Alternatively, use SurveyMonkey's Word export if available on your plan.</p>
+            <p>See the full guide: <a href="/blog/how-to-import-questions-into-surveymonkey">how to import questions into SurveyMonkey</a>.</p>
+
+            <h2 id="method-5">Method 5: Import From Microsoft Forms</h2>
+            <p>Microsoft Forms does not have a direct export to Google Forms format. Export your Microsoft Form questions by going to the form &gt; three-dot menu &gt; Print &gt; Save as PDF, or use the Download a copy option where available. Upload the PDF to Pirai AI, select Google Forms, and run the Apps Script.</p>
+            <p>See the full guide: <a href="/blog/how-to-import-questions-into-microsoft-forms">how to import questions into Microsoft Forms</a>.</p>
+
+            <h2 id="method-6">Method 6: Import From LimeSurvey</h2>
+            <p>Export your LimeSurvey survey as an LSS file (Survey menu &gt; Export &gt; Survey archive). Upload the LSS file to Pirai AI, select Google Forms, and run the Apps Script in a blank Google Form.</p>
+            <p>See the full guide: <a href="/blog/how-to-import-questions-into-limesurvey">how to import questions into LimeSurvey</a>.</p>
+
+            <h2 id="method-7">Method 7: Import From REDCap</h2>
+            <p>Export your REDCap instrument as a Data Dictionary CSV (Project Setup &gt; Data Dictionary &gt; Download the current Data Dictionary). Upload the CSV to Pirai AI, select Google Forms, and run the Apps Script in a blank Google Form.</p>
+            <p>See the full guide: <a href="/blog/how-to-import-questions-into-redcap">how to import questions into REDCap</a>.</p>
+
+            <h2 id="comparison">All Methods at a Glance</h2>
+            <table class="comparison-table">
+            <thead><tr><th>Source</th><th>Native Import?</th><th class="pirai">Pirai AI Route</th></tr></thead>
+            <tbody>
+            <tr><td>Another Google Form</td><td><span class="check">Yes  -  Import Questions button</span></td><td class="pirai">Not needed</td></tr>
+            <tr><td>Word document (.docx)</td><td><span class="cross">No</span></td><td class="pirai">Upload DOCX → Apps Script → Run</td></tr>
+            <tr><td>PDF (text or scanned)</td><td><span class="cross">No</span></td><td class="pirai">Upload PDF → Apps Script → Run</td></tr>
+            <tr><td>Excel (.xlsx)</td><td><span class="cross">No</span></td><td class="pirai">Upload XLSX → Apps Script → Run</td></tr>
+            <tr><td>Qualtrics (QSF)</td><td><span class="cross">No</span></td><td class="pirai">Export QSF → upload → Apps Script → Run</td></tr>
+            <tr><td>SurveyMonkey</td><td><span class="cross">No</span></td><td class="pirai">Export PDF → upload → Apps Script → Run</td></tr>
+            <tr><td>Microsoft Forms</td><td><span class="cross">No</span></td><td class="pirai">Export PDF → upload → Apps Script → Run</td></tr>
+            <tr><td>LimeSurvey (LSS)</td><td><span class="cross">No</span></td><td class="pirai">Export LSS → upload → Apps Script → Run</td></tr>
+            <tr><td>REDCap (Data Dictionary CSV)</td><td><span class="cross">No</span></td><td class="pirai">Export CSV → upload → Apps Script → Run</td></tr>
+            </tbody></table>
+
+            <h2 id="what-doesnt-transfer">What Never Transfers Regardless of Method</h2>
+            <p><strong>Branching logic:</strong> Google Forms only supports section-based branching  -  one route depending on a single answer. Complex multi-condition display logic from Qualtrics, SurveyMonkey, or LimeSurvey must be rebuilt manually as section branching in Google Forms after import. <strong>Matrix questions:</strong> Pirai AI converts these to Multiple Choice Grid, but most other methods drop them entirely. <strong>Calculated scores:</strong> Scoring logic must be rebuilt manually in Google Forms Quiz mode after import.</p>
+            <h2 id="faq">Frequently Asked Questions</h2>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How do I import questions into Google Forms from Word?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Google Forms has no native Word import. Upload your Word document to Pirai AI at platform.piraiai.com, select Google Forms, download the Apps Script, open a blank Google Form, go to the three-dot menu, select Script editor, paste the script, and run it. All questions appear automatically.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Can Google Forms import from Qualtrics?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Not natively. Export your Qualtrics survey as a QSF file (Survey tab > Tools > Import/Export > Export Survey), upload the QSF to Pirai AI, select Google Forms, download the Apps Script, and run it in a blank Google Form. Question text, types, and answer options transfer. Display logic must be rebuilt as section branching in Google Forms.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Does Google Forms have a bulk import feature?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Google Forms has one native bulk import: copying questions from another Google Form using the Import Questions button (circle-with-arrow icon in the right toolbar). For all other sources  -  Word, PDF, Excel, Qualtrics, SurveyMonkey, Microsoft Forms, LimeSurvey, REDCap  -  use Pirai AI to convert the source to a Google Apps Script, then run it in a blank Google Form.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Can I import questions from Excel into Google Forms?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Not natively. Upload your Excel (.xlsx) file to Pirai AI at platform.piraiai.com, select Google Forms, download the Apps Script, and run it in a blank Google Form via the Script Editor (three-dot menu > Script editor).</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">What question types are preserved when importing into Google Forms?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Multiple Choice, Checkboxes, Short Answer, Paragraph, and Multiple Choice Grid (matrix) are all created by Pirai AI's Apps Script. Likert scale batteries are converted to Multiple Choice Grid. NPS, Ranking, Rating, and File Upload question types do not exist in Google Forms and cannot be imported  -  these need to be added manually as the closest Google Forms equivalent after import.</p></div>
+            </div>
+
+            <div class="article-cta">
+                <h3>Import Questions Into Google Forms From Any Source</h3>
+                <p>Upload Word, PDF, Excel, QSF, LSS, or Data Dictionary CSV. Pirai AI generates the Apps Script. No Drive access. Free daily tier.</p>
+                <a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Start Converting Free</a>
+            </div>
+        </article>
+        <aside class="sidebar">
+            <div class="cta-box"><h3>Try Pirai AI Free</h3><p>Convert any survey document to 27+ platforms in minutes.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-button">Start Free</a></div>
+            <div class="sidebar-section"><h3>Quick Links</h3><ul class="toc-list">
+                    <li><a href="/blog/add-questions-to-google-forms-from-document">Add Questions From Document</a></li>
+                    <li><a href="/blog/turn-questions-into-google-form">Turn Questions Into Google Form</a></li>
+                    <li><a href="/blog/bulk-import-questions-google-forms">Bulk Import Guide</a></li>
+                    <li><a href="/blog/how-to-import-questions-into-qualtrics">Import Into Qualtrics</a></li>
+                    <li><a href="/product/google-forms-converter/">Google Forms Converter</a></li>
+            </ul></div>
+        </aside>
+    </div>
+    <section class="related-articles"><h2>Related Articles</h2><div class="related-grid">
+            <a href="/blog/add-questions-to-google-forms-from-document" class="related-card"><span class="card-tag">Guide</span><h3>Add Questions to Google Forms From Any Document</h3><p>Step-by-step for Word, PDF, Excel, and pasted text into Google Forms.</p></a>
+            <a href="/blog/turn-questions-into-google-form" class="related-card"><span class="card-tag">Guide</span><h3>Turn Questions Into a Google Form</h3><p>Four methods for importing questions from documents without Drive access.</p></a>
+            <a href="/blog/google-form-generator-from-document" class="related-card"><span class="card-tag">Guide</span><h3>Google Form Generator From Document</h3><p>All document-based Google Form generators compared.</p></a>
+    </div></section>
+    <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
+    <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        const sections = document.querySelectorAll('h2[id]');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    const active = document.querySelector('.toc-list a[href="#' + entry.target.id + '"]');
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        sections.forEach(s => observer.observe(s));
+    </script>
+</body></html>
