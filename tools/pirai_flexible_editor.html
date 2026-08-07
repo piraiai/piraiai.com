@@ -1846,6 +1846,24 @@ function carveSelection(qid){
   renderAll();
 }
 
+function laneAllSelected(q, role){
+  const items = q.items.filter(i=>i.role===role);
+  return items.length > 0 && items.every(i => selectedItems.has(i.id));
+}
+function toggleSelectAllInLane(qid, role){
+  const q = survey.find(x=>x.id===qid);
+  const items = q.items.filter(i=>i.role===role);
+  if(!items.length) return;
+  const allSelected = items.every(i => selectedItems.has(i.id));
+  allSelected ? items.forEach(i => selectedItems.delete(i.id)) : items.forEach(i => selectedItems.add(i.id));
+  renderAll();
+}
+function selectAllBtn(q, role){
+  const count = q.items.filter(i=>i.role===role).length;
+  if(!count) return '';
+  return `<span class="headbtn" onclick="toggleSelectAllInLane('${q.id}','${role}')">${laneAllSelected(q,role) ? 'Unselect all' : 'Select all'}</span>`;
+}
+
 function renderListEditor(q){
   const showReset = q.type !== 'TE:Form';
   const pool = q.items.filter(i=>i.role==='pool');
@@ -1859,6 +1877,7 @@ function renderListEditor(q){
             <div class="lane-head">Pool <span class="lane-count">${pool.length}</span>
               <span class="headbtns">
                 <span class="headbtn" onclick="addItem('${q.id}','pool')" title="Add a new item to Pool">${ICON.plus}Add</span>
+                ${selectAllBtn(q,'pool')}
                 <span class="headbtn" onclick="moveAllRole('${q.id}','pool','option')">all → Options</span>
               </span>
             </div>
@@ -1868,6 +1887,7 @@ function renderListEditor(q){
             <div class="lane-head">Options <span class="lane-count">${opts.length}</span>
               <span class="headbtns">
                 <span class="headbtn" onclick="addItem('${q.id}','option')" title="Add a new option directly">${ICON.plus}Add</span>
+                ${selectAllBtn(q,'option')}
                 ${showReset ? `<span class="headbtn" onclick="resetRecode('${q.id}','option')" title="Renumber recode values 1, 2, 3…">${ICON.refresh}Reset #</span>` : ''}
                 <span class="headbtn" onclick="moveAllRole('${q.id}','option','pool')">all → Pool</span>
               </span>
@@ -1897,6 +1917,7 @@ function renderMatrixEditor(q){
             <div class="lane-head">Pool <span class="lane-count">${pool.length}</span>
               <span class="headbtns">
                 <span class="headbtn" onclick="addItem('${q.id}','pool')" title="Add a new item to Pool">${ICON.plus}Add</span>
+                ${selectAllBtn(q,'pool')}
                 <span class="headbtn" onclick="moveAllRole('${q.id}','pool','statement')">all → Stmt</span>
                 <span class="headbtn" onclick="moveAllRole('${q.id}','pool','scale')">all → Scale</span>
               </span>
@@ -1907,6 +1928,7 @@ function renderMatrixEditor(q){
             <div class="lane-head">Statements <span class="lane-count">${stmts.length}</span>
               <span class="headbtns">
                 <span class="headbtn" onclick="addItem('${q.id}','statement')" title="Add a new statement directly">${ICON.plus}Add</span>
+                ${selectAllBtn(q,'statement')}
                 <span class="headbtn" onclick="resetRecode('${q.id}','statement')" title="Renumber recode values 1, 2, 3…">${ICON.refresh}Reset #</span>
                 <span class="headbtn" onclick="moveAllRole('${q.id}','statement','pool')">all → Pool</span>
               </span>
@@ -1917,6 +1939,7 @@ function renderMatrixEditor(q){
             <div class="lane-head">Scale points <span class="lane-count">${scale.length}</span>
               <span class="headbtns">
                 <span class="headbtn" onclick="addItem('${q.id}','scale')" title="Add a new scale point directly">${ICON.plus}Add</span>
+                ${selectAllBtn(q,'scale')}
                 <span class="headbtn" onclick="resetRecode('${q.id}','scale')" title="Renumber recode values 1, 2, 3…">${ICON.refresh}Reset #</span>
                 <span class="headbtn" onclick="moveAllRole('${q.id}','scale','pool')">all → Pool</span>
               </span>
