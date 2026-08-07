@@ -416,6 +416,18 @@
   .adv-danger-btn:hover{ background:#FBEAE8; }
   .adv-danger-btn:disabled, .adv-primary-btn:disabled{ opacity:.4; cursor:not-allowed; }
 
+  .shortcut-table{ width:100%; border-collapse:collapse; margin-bottom:4px; }
+  .shortcut-table td{ padding:7px 0; font-size:12.5px; border-bottom:1px solid var(--border); }
+  .shortcut-table td:first-child{ color:var(--text); padding-right:14px; }
+  .shortcut-table td:last-child{ text-align:right; white-space:nowrap; }
+  .shortcut-table tr:last-child td{ border-bottom:none; }
+  kbd{
+    font-family:var(--mono); font-size:11px; background:var(--slate-soft); color:var(--slate);
+    border:1px solid var(--border-strong); border-bottom-width:2px; border-radius:5px; padding:3px 7px;
+  }
+  .shortcut-desc{ font-size:11.5px; color:var(--muted); white-space:normal; }
+  .shortcut-table td:has(.shortcut-desc){ text-align:left; white-space:normal; max-width:230px; }
+
   .col15-only{ display:none; }
   body.mode-15 .col15-only{ display:block; }
   body.mode-15 .item-adv-toggle{ display:inline; }
@@ -606,6 +618,16 @@
   </div>
 </div>
 
+<div class="modal-overlay" id="shortcutsOverlay" onclick="if(event.target===this) toggleShortcutsModal(false)">
+  <div class="modal-box" style="max-width:520px;">
+    <div class="modal-header">
+      <h3>Shortcuts &amp; Selection Tips</h3>
+      <span class="modal-close" onclick="toggleShortcutsModal(false)"></span>
+    </div>
+    <div class="modal-body" id="shortcutsBody"></div>
+  </div>
+</div>
+
 <script>
 // ---------- Icon set (Lucide-style inline SVG, currentColor so hover states inherit) ----------
 const ICON = {
@@ -629,7 +651,8 @@ const ICON = {
   panelLeft: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>',
   pageBreak: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="7" y2="12"/><line x1="10" y1="12" x2="14" y2="12" stroke-dasharray="2.5 2.5"/><line x1="17" y1="12" x2="21" y2="12"/></svg>',
   filter: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>',
-  search: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>'
+  search: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>',
+  keyboard: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="6" y1="9" x2="6" y2="9.01"/><line x1="10" y1="9" x2="10" y2="9.01"/><line x1="14" y1="9" x2="14" y2="9.01"/><line x1="18" y1="9" x2="18" y2="9.01"/><line x1="6" y1="13" x2="6" y2="13.01"/><line x1="18" y1="13" x2="18" y2="13.01"/><line x1="9" y1="13" x2="15" y2="13"/></svg>'
 };
 
 // ---------- Data model ----------
@@ -660,6 +683,7 @@ let extraBlocks = []; // empty declared blocks (created via "+ New block") waiti
 let sidebarSearchQuery = '';
 let sidebarAdvFilterActive = false;
 let sidebarAdvFilterIds = new Set();
+let shortcutsOpen = false;
 let toolsMenuOpen = false;
 let advToolsOpen = false;
 let advFilters = []; // dynamic filter builder rows: {id, field:'qtext'|'otext'|'type', operator, value}
@@ -777,9 +801,7 @@ function renderSidebar(){
     return;
   }
 
-  const visibleQuestions = sidebarAdvFilterActive
-    ? survey.filter(q => sidebarAdvFilterIds.has(q.id))
-    : (sidebarSearchQuery ? survey.filter(q => questionMatchesSearch(q, sidebarSearchQuery)) : survey);
+  const visibleQuestions = getVisibleSidebarQuestions();
   const groups = groupByBlock(visibleQuestions);
   extraBlocks = extraBlocks.filter(b => !groupByBlock(survey).some(g => g.block === b)); // promoted to real once it has a question
   el.innerHTML = `
@@ -807,11 +829,17 @@ function renderSidebar(){
           <div class="downloadMenu-item" onclick="renumberQuestionIds(); toggleToolsMenu(false)" title="Renumber Q1, Q2, Q3… in survey order, including intro/close text">
             <span>${ICON.refresh}Renumber question IDs</span>
           </div>
+          <div class="downloadMenu-item" onclick="resetAllRecodeValues(); toggleToolsMenu(false)" title="Removes any edited recode values from every choice in every question, replacing them with the default (first choice = 1, etc.)">
+            <span>${ICON.refresh}Reset recode values</span>
+          </div>
           <div class="downloadMenu-item" onclick="toggleAllBlocks(); toggleToolsMenu(false)" title="Expand or collapse every block section at once">
             <span>${ICON.chevronsUpDown}${allBlocksCollapsed() ? 'Expand all blocks' : 'Collapse all blocks'}</span>
           </div>
           <div class="downloadMenu-item" onclick="toggleToolsMenu(false); toggleAdvTools(true)" title="Filter questions, then remove, find & replace, or bulk-edit them">
             <span>${ICON.filter}Advanced operations…</span>
+          </div>
+          <div class="downloadMenu-item" onclick="toggleToolsMenu(false); toggleShortcutsModal(true)" title="Keyboard shortcuts and mouse selection tips">
+            <span>${ICON.keyboard}Shortcuts &amp; tips</span>
           </div>
         </div>
       </div>
@@ -890,6 +918,14 @@ function questionMatchesSearch(q, query){
   if((q.text||'').toLowerCase().includes(needle)) return true;
   if(q.items.some(it => (it.text||'').toLowerCase().includes(needle))) return true;
   return false;
+}
+
+// Whatever the sidebar is currently showing — respects the advanced filter if active,
+// else the plain search, else everything. Shared by renderSidebar() and Select All (Ctrl/Cmd+A).
+function getVisibleSidebarQuestions(){
+  return sidebarAdvFilterActive
+    ? survey.filter(q => sidebarAdvFilterIds.has(q.id))
+    : (sidebarSearchQuery ? survey.filter(q => questionMatchesSearch(q, sidebarSearchQuery)) : survey);
 }
 
 function onSidebarSearchInput(val){
@@ -1096,6 +1132,17 @@ function removeAllPageBreaks(){
   renderAll();
 }
 
+function resetAllRecodeValues(){
+  survey.forEach(q => {
+    if(q.type === 'TE:Form') return; // TE:Form never carries a recode value at all
+    ['option','statement','scale'].forEach(role => {
+      const items = q.items.filter(i => i.role === role);
+      items.forEach((it, idx) => { it.recode = idx + 1; }); // default = position, e.g. first choice = 1
+    });
+  });
+  renderAll();
+}
+
 // ---------- Advanced Tools: dynamic filter builder + bulk operations ----------
 const ALL_QUESTION_TYPES = ['DB','MC:SingleAnswer','MC:SingleAnswer:Horizontal','MC:MultipleAnswer','MC:MultipleAnswer:Horizontal','Matrix','TE:SingleLine','TE:Essay','TE:Form','RankOrder','ConstantSum','Page Break'];
 const ADV_TEXT_OPERATORS = [
@@ -1277,6 +1324,26 @@ function advSetProperty(){
   renderAll();
 }
 
+// Deliberate exception to the Pool standard (§4 in the KB): this action is an explicit,
+// known-value addition the user typed themselves, not an ambiguous cross-question import —
+// so it goes straight into the question's real answer lane instead of Pool.
+function advAddOption(){
+  const text = document.getElementById('advAddOptText').value.trim();
+  if(!text || !advMatches.length) return;
+  let skipped = 0;
+  advMatches.forEach(q => {
+    if(q.type === 'DB' || q.type === 'Page Break'){ skipped++; return; } // no items at all on these types
+    const role = q.type === 'Matrix' ? 'pool' : 'option'; // Matrix has no single "Options" lane to target directly
+    const roleItems = q.items.filter(i => i.role === role);
+    const recode = q.type === 'TE:Form' ? '' : roleItems.length + 1;
+    q.items.push({ id:newId(), text, recode, role, adv: blankItemAdv() });
+  });
+  document.getElementById('advAddOptText').value = '';
+  computeAdvMatches();
+  renderAdvTools();
+  renderAll();
+}
+
 function renderAdvFilterRow(f){
   const isMultiSelect = f.field === 'type' || f.field === 'id';
   const operatorOptions = isMultiSelect
@@ -1359,6 +1426,7 @@ function renderAdvTools(){
 
       <select onchange="advSetActionType(this.value)" style="margin-bottom:12px;">
         <option value="remove" ${advActionType==='remove'?'selected':''}>Remove matched questions</option>
+        <option value="addOption" ${advActionType==='addOption'?'selected':''}>Add an option to matched questions</option>
         <option value="replaceQ" ${advActionType==='replaceQ'?'selected':''}>Find &amp; replace in question text</option>
         <option value="replaceO" ${advActionType==='replaceO'?'selected':''}>Find &amp; replace in option text</option>
         ${mode === 15 ? `<option value="setProp" ${advActionType==='setProp'?'selected':''}>Set a property (15‑column)</option>` : ''}
@@ -1372,6 +1440,16 @@ function renderAdvTools(){
           I understand this will permanently remove ${matches.length} question${matches.length===1?'':'s'}
         </label>
         <button class="adv-danger-btn" onclick="advRemoveMatches()" ${(matches.length && advRemoveConfirmed) ? '' : 'disabled'}>Remove ${matches.length || ''} question${matches.length===1?'':'s'}</button>
+      </div>` : ''}
+
+      ${advActionType === 'addOption' ? `
+      <div class="adv-action-box">
+        <div class="adv-action-title">${ICON.plus}Add an option to matched questions</div>
+        <div class="adv-field-row">
+          <input type="text" id="advAddOptText" placeholder="Option text…" onkeydown="if(event.key==='Enter'){advAddOption();}">
+          <button class="small primary" onclick="advAddOption()" ${matches.length?'':'disabled'}>Add to ${matches.length||''} question${matches.length===1?'':'s'}</button>
+        </div>
+        <div class="hint">Goes straight into each question's real Options (not Pool) since you're typing an exact, known value. Matrix questions get it in Pool instead, since Matrix has no single "Options" lane — Page Break and DB are skipped, they hold no items at all.</div>
       </div>` : ''}
 
       ${advActionType === 'replaceQ' ? `
@@ -2782,6 +2860,8 @@ function initStaticIcons(){
   if(dm) dm.innerHTML = ICON.download + 'Download' + ICON.chevronDown;
   const mc = document.querySelector('#advToolsOverlay .modal-close');
   if(mc) mc.innerHTML = ICON.x;
+  const sc = document.querySelector('#shortcutsOverlay .modal-close');
+  if(sc) sc.innerHTML = ICON.x;
 }
 
 function toggleDownloadMenu(force){
@@ -2801,6 +2881,84 @@ document.addEventListener('click', (e) => {
   if(menu && !menu.contains(e.target)) toggleDownloadMenu(false);
   const tools = document.getElementById('toolsMenu');
   if(tools && !tools.contains(e.target) && toolsMenuOpen) toggleToolsMenu(false);
+});
+
+// ---------- Keyboard Shortcuts modal ----------
+const SHORTCUT_GROUPS = [
+  { title:'General', items:[
+    ['Open this legend', 'Ctrl / \u2318 + /'],
+    ['Close a dialog, or clear the current question selection', 'Esc'],
+  ]},
+  { title:'Questions', items:[
+    ['Delete the selected question(s)', 'Delete or Backspace'],
+    ['Select every question currently visible in the list', 'Ctrl / \u2318 + A'],
+  ]},
+  { title:'Selecting multiple with the mouse — no modifier key needed', plain:true, items:[
+    ['Click a checkbox', 'Toggles just that one, keeps the rest'],
+    ['Shift + click a checkbox', 'Selects everything in between'],
+    ['Click a checkbox and drag across others', 'Selects each one your cursor crosses'],
+    ['Click empty space and drag', 'Draws a box — selects everything it touches'],
+  ]},
+];
+
+function toggleShortcutsModal(force){
+  shortcutsOpen = typeof force === 'boolean' ? force : !shortcutsOpen;
+  const overlay = document.getElementById('shortcutsOverlay');
+  if(overlay) overlay.classList.toggle('open', shortcutsOpen);
+  if(shortcutsOpen) renderShortcutsModal();
+}
+
+function renderShortcutsModal(){
+  const el = document.getElementById('shortcutsBody');
+  if(!el) return;
+  el.innerHTML = `
+    <div class="hint" style="margin-bottom:14px;">Only shortcuts that actually work in this editor are listed here — this isn't the full Qualtrics set, just what's real today.</div>
+    ${SHORTCUT_GROUPS.map(group => `
+      <div class="adv-section">
+        <div class="adv-section-title">${group.title}</div>
+        <table class="shortcut-table">
+          ${group.items.map(([label,keys]) => `
+            <tr><td>${escapeHtml(label)}</td><td>${group.plain ? `<span class="shortcut-desc">${escapeHtml(keys)}</span>` : `<kbd>${escapeHtml(keys)}</kbd>`}</td></tr>
+          `).join('')}
+        </table>
+      </div>
+    `).join('')}
+  `;
+}
+
+document.addEventListener('keydown', (e) => {
+  const active = document.activeElement;
+  const tag = active ? active.tagName : '';
+  const isEditable = tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (active && active.isContentEditable);
+  const mod = e.metaKey || e.ctrlKey;
+
+  // Ctrl/Cmd + / opens the shortcuts legend — works even while typing, matches Qualtrics' own convention
+  if(mod && e.key === '/'){
+    e.preventDefault();
+    toggleShortcutsModal(true);
+    return;
+  }
+
+  if(e.key === 'Escape'){
+    if(shortcutsOpen){ toggleShortcutsModal(false); return; }
+    if(advToolsOpen){ toggleAdvTools(false); return; }
+    if(selectedQuestions.size){ clearQuestionSelection(); return; }
+    return;
+  }
+
+  if(isEditable) return; // never hijack normal typing, native select-all, or delete inside a field
+
+  if(mod && e.key.toLowerCase() === 'a'){
+    e.preventDefault();
+    getVisibleSidebarQuestions().forEach(q => selectedQuestions.add(q.id));
+    renderSidebar();
+    return;
+  }
+
+  if((e.key === 'Delete' || e.key === 'Backspace') && selectedQuestions.size){
+    e.preventDefault();
+    deleteSelectedQuestions();
+  }
 });
 
 loadSample();
