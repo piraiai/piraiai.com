@@ -51,9 +51,34 @@
   header .actions button{ margin-left:8px; }
 
   .layout{
-    display:grid; grid-template-columns: 250px 1fr 5px 320px; gap:0; height:calc(100vh - 61px);
+    display:grid; grid-template-columns: 250px 1fr 5px 400px; gap:0; height:calc(100vh - 61px);
+    transition: grid-template-columns .22s ease;
   }
+  .layout.no-transition{ transition:none; }
   .col{ overflow-y:auto; overscroll-behavior:contain; }
+
+  /* Minimal scrollbars — invisible until you hover the panel, then a thin thumb blends in */
+  .col, .sidebar-scroll, .mini-list{
+    scrollbar-width:thin; scrollbar-color:transparent transparent;
+  }
+  .col:hover, .sidebar-scroll:hover, .mini-list:hover{
+    scrollbar-color:var(--border-strong) transparent;
+  }
+  .col::-webkit-scrollbar, .sidebar-scroll::-webkit-scrollbar, .mini-list::-webkit-scrollbar{
+    width:7px;
+  }
+  .col::-webkit-scrollbar-track, .sidebar-scroll::-webkit-scrollbar-track, .mini-list::-webkit-scrollbar-track{
+    background:transparent;
+  }
+  .col::-webkit-scrollbar-thumb, .sidebar-scroll::-webkit-scrollbar-thumb, .mini-list::-webkit-scrollbar-thumb{
+    background:transparent; border-radius:20px; transition:background .15s;
+  }
+  .col:hover::-webkit-scrollbar-thumb, .sidebar-scroll:hover::-webkit-scrollbar-thumb, .mini-list:hover::-webkit-scrollbar-thumb{
+    background:var(--border-strong);
+  }
+  .col::-webkit-scrollbar-thumb:hover, .sidebar-scroll::-webkit-scrollbar-thumb:hover, .mini-list::-webkit-scrollbar-thumb:hover{
+    background:var(--slate);
+  }
   .resizer{
     cursor:col-resize; background:var(--border); position:relative;
   }
@@ -67,6 +92,32 @@
   }
   .sidebar-fixed{ padding:14px 14px 12px 14px; flex-shrink:0; border-bottom:1px solid var(--border); }
   .sidebar-scroll{ flex:1; overflow-y:auto; overscroll-behavior:contain; padding:12px 14px 14px 14px; }
+
+  .sidebar-title-row{ display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
+  .mini-collapse-btn, .mini-expand-btn{
+    width:24px; height:24px; border-radius:6px; border:1px solid var(--border-strong); background:#fff;
+    color:var(--muted); cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .mini-collapse-btn:hover, .mini-expand-btn:hover{ border-color:var(--forest); color:var(--forest); background:var(--forest-soft); }
+  .mini-collapse-btn .icon, .mini-expand-btn .icon{ margin-right:0; }
+  .mini-expand-btn{ margin-bottom:12px; transform:rotate(180deg); }
+
+  .sidebar-mini{ display:flex; flex-direction:column; align-items:center; height:100%; padding:10px 0; }
+  .mini-add-btn{
+    width:32px; height:32px; border-radius:8px; border:1px dashed var(--border-strong); background:transparent;
+    color:var(--muted); cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    margin-bottom:10px;
+  }
+  .mini-add-btn:hover{ border-color:var(--forest); color:var(--forest); }
+  .mini-add-btn .icon{ margin-right:0; }
+  .mini-list{ flex:1; overflow-y:auto; overscroll-behavior:contain; width:100%; display:flex; flex-direction:column; align-items:center; gap:5px; }
+  .mini-qcard{
+    font-family:var(--mono); font-size:9.5px; font-weight:650; color:var(--muted); background:#fff;
+    border:1px solid var(--border); border-radius:6px; padding:5px 3px; cursor:pointer; text-align:center;
+    width:42px; writing-mode:horizontal-tb; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  }
+  .mini-qcard:hover{ border-color:var(--border-strong); color:var(--text); }
+  .mini-qcard.active{ border-color:var(--forest); background:var(--forest-soft); color:var(--forest); }
 
   .block-group{ margin-bottom:10px; }
   .block-header{
@@ -479,7 +530,8 @@ const ICON = {
   merge: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></svg>',
   plus: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>',
   blocks: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>',
-  chevronsUpDown: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 15 12 20 17 15"/><polyline points="7 9 12 4 17 9"/></svg>'
+  chevronsUpDown: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 15 12 20 17 15"/><polyline points="7 9 12 4 17 9"/></svg>',
+  panelLeft: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>'
 };
 
 // ---------- Data model ----------
@@ -598,11 +650,29 @@ function typeBadge(type){
 
 function renderSidebar(){
   const el = document.getElementById('sidebar');
+
+  if(sidebarCollapsed){
+    el.innerHTML = `
+      <div class="sidebar-mini">
+        <button class="mini-expand-btn" onclick="toggleSidebarPanel()" title="Expand questions panel">${ICON.panelLeft}</button>
+        <button class="mini-add-btn" onclick="addQuestion()" title="New question">${ICON.plus}</button>
+        <div class="mini-list" id="sidebarScroll">
+          ${survey.map(q => `
+            <div class="mini-qcard ${q.id===activeId?'active':''}" title="${escapeHtml(q.text || q.id)}" onclick="selectQ('${q.id}')">${escapeHtml(q.id)}</div>
+          `).join('')}
+        </div>
+      </div>`;
+    return;
+  }
+
   const groups = groupByBlock(survey);
   extraBlocks = extraBlocks.filter(b => !groups.some(g => g.block === b)); // promoted to real once it has a question
   el.innerHTML = `
     <div class="sidebar-fixed">
-      <h2>Questions</h2>
+      <div class="sidebar-title-row">
+        <h2 style="margin:0;">Questions</h2>
+        <button class="mini-collapse-btn" onclick="toggleSidebarPanel()" title="Collapse to a compact ID list">${ICON.panelLeft}</button>
+      </div>
       <button class="add-q-btn primary-add" onclick="addQuestion()">${ICON.plus}New question</button>
       <div class="downloadMenu" id="toolsMenu" style="display:block; margin-top:6px;">
         <button class="add-q-btn small-shortcut" onclick="event.stopPropagation(); toggleToolsMenu()" style="display:flex; align-items:center; justify-content:center;">${ICON.blocks}Tools${ICON.chevronDown}</button>
@@ -2134,6 +2204,22 @@ function escapeHtml(s){
 }
 
 // ---------- Resizable right panel ----------
+let rightColWidth = 400;
+let sidebarCollapsed = false;
+
+function applyLayoutColumns(){
+  const layout = document.getElementById('layoutGrid');
+  if(!layout) return;
+  const leftCol = sidebarCollapsed ? '58px' : '250px';
+  layout.style.gridTemplateColumns = `${leftCol} 1fr 5px ${rightColWidth}px`;
+}
+
+function toggleSidebarPanel(){
+  sidebarCollapsed = !sidebarCollapsed;
+  applyLayoutColumns();
+  renderSidebar();
+}
+
 function initResizer(){
   const resizer = document.getElementById('resizer');
   const layout = document.getElementById('layoutGrid');
@@ -2142,18 +2228,20 @@ function initResizer(){
   resizer.addEventListener('mousedown', (e) => {
     dragging = true;
     resizer.classList.add('dragging');
+    layout.classList.add('no-transition');
     document.body.style.userSelect = 'none';
     e.preventDefault();
   });
   document.addEventListener('mousemove', (e) => {
     if(!dragging) return;
-    const newWidth = Math.min(640, Math.max(240, window.innerWidth - e.clientX));
-    layout.style.gridTemplateColumns = `250px 1fr 5px ${newWidth}px`;
+    rightColWidth = Math.min(640, Math.max(240, window.innerWidth - e.clientX));
+    applyLayoutColumns();
   });
   document.addEventListener('mouseup', () => {
     if(!dragging) return;
     dragging = false;
     resizer.classList.remove('dragging');
+    layout.classList.remove('no-transition');
     document.body.style.userSelect = '';
   });
 }
@@ -2187,6 +2275,7 @@ document.addEventListener('click', (e) => {
 loadSample();
 initResizer();
 initStaticIcons();
+applyLayoutColumns();
 </script>
 </body>
 </html>
