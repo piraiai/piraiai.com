@@ -531,7 +531,8 @@ const ICON = {
   plus: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>',
   blocks: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>',
   chevronsUpDown: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 15 12 20 17 15"/><polyline points="7 9 12 4 17 9"/></svg>',
-  panelLeft: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>'
+  panelLeft: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>',
+  pageBreak: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="7" y2="12"/><line x1="10" y1="12" x2="14" y2="12" stroke-dasharray="2.5 2.5"/><line x1="17" y1="12" x2="21" y2="12"/></svg>'
 };
 
 // ---------- Data model ----------
@@ -682,6 +683,12 @@ function renderSidebar(){
           </div>
           <div class="downloadMenu-item" onclick="assignOneBlockPerQuestion(); toggleToolsMenu(false)" title="Give every question its own block and remove page breaks">
             <span>${ICON.blocks}One block per question</span>
+          </div>
+          <div class="downloadMenu-item" onclick="addPageBreakAfterEveryQuestion(); toggleToolsMenu(false)" title="Removes any existing page breaks, then inserts one after every question">
+            <span>${ICON.pageBreak}Page break after every question</span>
+          </div>
+          <div class="downloadMenu-item" onclick="removeAllPageBreaks(); toggleToolsMenu(false)" title="Removes every page break from the survey">
+            <span>${ICON.x}Remove all page breaks</span>
           </div>
           <div class="downloadMenu-item" onclick="renumberQuestionIds(); toggleToolsMenu(false)" title="Renumber Q1, Q2, Q3… in survey order, including intro/close text">
             <span>${ICON.refresh}Renumber question IDs</span>
@@ -889,6 +896,30 @@ function assignOneBlockPerQuestion(){
   survey = survey.filter(q => q.type !== 'Page Break'); // block boundaries make page breaks redundant
   survey.forEach((q, idx) => { q.block = 'Block ' + (idx+1); });
   if(!survey.find(q=>q.id===activeId)) activeId = survey.length ? survey[0].id : null;
+  selectedQuestions.clear();
+  renderAll();
+}
+
+function addPageBreakAfterEveryQuestion(){
+  const cleaned = survey.filter(q => q.type !== 'Page Break'); // clear any existing ones first
+  const result = [];
+  let n = 1;
+  cleaned.forEach((q, idx) => {
+    result.push(q);
+    if(idx < cleaned.length - 1){ // no trailing page break after the very last question
+      result.push({ id:'AUTO_'+n, block:q.block, text:'', type:'Page Break', matrixType:null, adv:blankAdv(), items:[] });
+      n++;
+    }
+  });
+  survey = result;
+  if(!survey.find(x=>x.id===activeId)) activeId = survey.length ? survey[0].id : null;
+  selectedQuestions.clear();
+  renderAll();
+}
+
+function removeAllPageBreaks(){
+  survey = survey.filter(q => q.type !== 'Page Break');
+  if(!survey.find(x=>x.id===activeId)) activeId = survey.length ? survey[0].id : null;
   selectedQuestions.clear();
   renderAll();
 }
