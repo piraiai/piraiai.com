@@ -478,7 +478,8 @@ const ICON = {
   promote: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>',
   merge: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></svg>',
   plus: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>',
-  blocks: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>'
+  blocks: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>',
+  chevronsUpDown: '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 15 12 20 17 15"/><polyline points="7 9 12 4 17 9"/></svg>'
 };
 
 // ---------- Data model ----------
@@ -614,6 +615,9 @@ function renderSidebar(){
           </div>
           <div class="downloadMenu-item" onclick="renumberQuestionIds(); toggleToolsMenu(false)" title="Renumber Q1, Q2, Q3… in survey order, including intro/close text">
             <span>${ICON.refresh}Renumber question IDs</span>
+          </div>
+          <div class="downloadMenu-item" onclick="toggleAllBlocks(); toggleToolsMenu(false)" title="Expand or collapse every block section at once">
+            <span>${ICON.chevronsUpDown}${allBlocksCollapsed() ? 'Expand all blocks' : 'Collapse all blocks'}</span>
           </div>
         </div>
       </div>
@@ -764,6 +768,20 @@ function groupByBlock(list){
 
 function toggleBlockCollapse(block){
   collapsedBlocks.has(block) ? collapsedBlocks.delete(block) : collapsedBlocks.add(block);
+  renderSidebar();
+}
+
+function allBlocksCollapsed(){
+  const groups = groupByBlock(survey);
+  return groups.length > 0 && groups.every(g => collapsedBlocks.has(g.block));
+}
+
+function toggleAllBlocks(){
+  if(allBlocksCollapsed()){
+    collapsedBlocks.clear(); // expand everything
+  } else {
+    groupByBlock(survey).forEach(g => collapsedBlocks.add(g.block)); // collapse everything
+  }
   renderSidebar();
 }
 
