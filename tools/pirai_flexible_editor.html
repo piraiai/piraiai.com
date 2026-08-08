@@ -274,6 +274,7 @@
   }
   .lane.statements .item .irecode{ background:var(--forest); }
   .lane.scale .item .irecode{ background:var(--amber); }
+  .item .irecode.dup-recode{ background:#B4483C !important; outline:2px solid #F4C9C3; outline-offset:1px; }
   .icon{ width:13px; height:13px; display:inline-block; vertical-align:-2px; margin-right:4px; flex-shrink:0; }
   .item .rm .icon, .item .dup .icon, .item .promote .icon, .item-adv-toggle .icon, .chip-skip .icon{ margin-right:0; width:12px; height:12px; vertical-align:-2px; }
   .grip .icon-grip{ width:12px; height:16px; margin-right:0; vertical-align:-4px; }
@@ -628,6 +629,16 @@
   </div>
 </div>
 
+<div class="modal-overlay" id="qaReportOverlay" onclick="if(event.target===this) toggleQaReport(false)">
+  <div class="modal-box" style="max-width:600px;">
+    <div class="modal-header">
+      <h3>Survey QA Report</h3>
+      <span class="modal-close" onclick="toggleQaReport(false)"></span>
+    </div>
+    <div class="modal-body" id="qaReportBody"></div>
+  </div>
+</div>
+
 <script>
 // ---------- Icon set (Lucide-style inline SVG, currentColor so hover states inherit) ----------
 const ICON = {
@@ -684,6 +695,7 @@ let sidebarSearchQuery = '';
 let sidebarAdvFilterActive = false;
 let sidebarAdvFilterIds = new Set();
 let shortcutsOpen = false;
+let qaReportOpen = false;
 let toolsMenuOpen = false;
 let advToolsOpen = false;
 let advFilters = []; // dynamic filter builder rows: {id, field:'qtext'|'otext'|'type', operator, value}
@@ -840,6 +852,9 @@ function renderSidebar(){
           </div>
           <div class="downloadMenu-item" onclick="toggleToolsMenu(false); toggleShortcutsModal(true)" title="Keyboard shortcuts and mouse selection tips">
             <span>${ICON.keyboard}Shortcuts &amp; tips</span>
+          </div>
+          <div class="downloadMenu-item" onclick="toggleToolsMenu(false); toggleQaReport(true)" title="Empty items, unresolved Pool items, and duplicate recode values across the whole survey">
+            <span>${ICON.alert}Survey QA report</span>
           </div>
         </div>
       </div>
@@ -1957,6 +1972,8 @@ function itemHtml(qid, it){
   const isMulti = q.type === 'MC:MultipleAnswer' || q.type === 'MC:MultipleAnswer:Horizontal';
   const isForm = q.type === 'TE:Form';
   const sel = selectedItems.has(it.id);
+  const isDupRecode = !isForm && it.recode !== '' && it.recode != null &&
+    q.items.filter(i => i.role === it.role && String(i.recode) === String(it.recode)).length > 1;
   return `
     <div class="item ${sel?'selected':''}" draggable="true" data-item-id="${it.id}" data-role="${it.role}"
          ondragstart="dragStart(event,'${qid}','${it.id}')"
@@ -1965,7 +1982,7 @@ function itemHtml(qid, it){
       <span class="selbox" draggable="false" onmousedown="startPaintSelect(event,'${qid}','${it.id}')" onmouseenter="paintOverItem(event,'${qid}','${it.id}')"></span>
       <span class="grip">${ICON.grip}</span>
       <span class="itext" contenteditable="true" onblur="updateItemText('${qid}','${it.id}',this.innerText)">${escapeHtml(it.text)}</span>
-      ${isForm ? '' : `<span class="irecode" contenteditable="true" onblur="updateItemRecode('${qid}','${it.id}',this.innerText)">${it.recode}</span>`}
+      ${isForm ? '' : `<span class="irecode ${isDupRecode?'dup-recode':''}" contenteditable="true" onblur="updateItemRecode('${qid}','${it.id}',this.innerText)" title="${isDupRecode?'Duplicate recode value — another item in this lane already uses '+it.recode:''}">${it.recode}</span>`}
       <span class="item-adv-toggle" onclick="toggleItemAdv('${it.id}')" title="Advanced properties">${ICON.settings}</span>
       <span class="dup" onclick="duplicateItem('${qid}','${it.id}')" title="Duplicate">${ICON.copy}</span>
       <span class="promote" onclick="useAsQuestionText(event,'${qid}','${it.id}')" title="Click to append to question text · Alt‑click to replace it">${ICON.promote}</span>
@@ -2885,6 +2902,8 @@ function initStaticIcons(){
   if(mc) mc.innerHTML = ICON.x;
   const sc = document.querySelector('#shortcutsOverlay .modal-close');
   if(sc) sc.innerHTML = ICON.x;
+  const qc = document.querySelector('#qaReportOverlay .modal-close');
+  if(qc) qc.innerHTML = ICON.x;
 }
 
 function toggleDownloadMenu(force){
@@ -2946,6 +2965,114 @@ function renderShortcutsModal(){
         </table>
       </div>
     `).join('')}
+  `;
+}
+
+// ---------- Survey QA Report: empty items, unresolved Pool, duplicate recodes ----------
+function findEmptyItems(){
+  const results = [];
+  survey.forEach(q => {
+    if(q.type === 'Page Break') return;
+    if(!q.text || !q.text.trim()) results.push({ qid:q.id, kind:'question', label:'Question text is empty' });
+    q.items.forEach(it => {
+      if(!it.text || !it.text.trim()){
+        const roleLabel = { pool:'Pool', option:'Option', statement:'Statement', scale:'Scale point' }[it.role] || it.role;
+        results.push({ qid:q.id, kind:'item', itemId:it.id, label: roleLabel + ' is empty' });
+      }
+    });
+  });
+  return results;
+}
+
+function findPoolQuestions(){
+  return survey
+    .map(q => ({ qid:q.id, count: q.items.filter(i=>i.role==='pool').length }))
+    .filter(x => x.count > 0);
+}
+
+function findDuplicateRecodeIssues(){
+  const results = [];
+  survey.forEach(q => {
+    if(q.type === 'TE:Form') return;
+    ['option','statement','scale'].forEach(role => {
+      const items = q.items.filter(i => i.role === role);
+      const seen = {};
+      items.forEach(it => {
+        if(it.recode === '' || it.recode == null) return;
+        const key = String(it.recode);
+        (seen[key] = seen[key] || []).push(it);
+      });
+      Object.entries(seen).forEach(([val, group]) => {
+        if(group.length > 1) results.push({ qid:q.id, role, value:val, count:group.length });
+      });
+    });
+  });
+  return results;
+}
+
+function jumpToQaIssue(qid){
+  toggleQaReport(false);
+  selectQ(qid);
+}
+
+function removeAllEmptyItems(){
+  const empties = findEmptyItems();
+  empties.forEach(e => {
+    if(e.kind === 'item') removeItem(e.qid, e.itemId);
+  });
+  renderQaReport();
+  renderAll();
+}
+
+function toggleQaReport(force){
+  qaReportOpen = typeof force === 'boolean' ? force : !qaReportOpen;
+  const overlay = document.getElementById('qaReportOverlay');
+  if(overlay) overlay.classList.toggle('open', qaReportOpen);
+  if(qaReportOpen) renderQaReport();
+}
+
+function renderQaReport(){
+  const el = document.getElementById('qaReportBody');
+  if(!el) return;
+  const empties = findEmptyItems();
+  const poolQs = findPoolQuestions();
+  const dupRecodes = findDuplicateRecodeIssues();
+
+  const section = (title, count, bodyHtml) => `
+    <div class="adv-section">
+      <div class="adv-section-title" style="display:flex; align-items:center; justify-content:space-between;">
+        <span>${title}</span>
+        <span style="font-family:var(--mono); font-weight:400; color:${count?'var(--danger)':'var(--muted)'};">${count}</span>
+      </div>
+      ${count ? bodyHtml : `<div class="hint">None found — this looks clean.</div>`}
+    </div>`;
+
+  el.innerHTML = `
+    ${section('Empty items &amp; questions', empties.length, `
+      <div class="adv-matches" style="margin-bottom:8px;">
+        <div class="adv-match-chips">
+          ${empties.slice(0,40).map(e => `<span class="adv-match-chip" style="cursor:pointer;" onclick="jumpToQaIssue('${e.qid}')" title="${escapeHtml(e.label)}">${e.qid}</span>`).join('')}
+          ${empties.length>40?`<span class="adv-match-chip">+${empties.length-40} more</span>`:''}
+        </div>
+      </div>
+      <button class="adv-danger-btn" onclick="removeAllEmptyItems()">Remove all empty items</button>
+    `)}
+
+    ${section('Questions with unresolved Pool items', poolQs.length, `
+      <div class="adv-matches">
+        <div class="adv-match-chips">
+          ${poolQs.map(p => `<span class="adv-match-chip" style="cursor:pointer;" onclick="jumpToQaIssue('${p.qid}')" title="${p.count} item${p.count===1?'':'s'} still in Pool">${p.qid} (${p.count})</span>`).join('')}
+        </div>
+      </div>
+    `)}
+
+    ${section('Duplicate recode values within a lane', dupRecodes.length, `
+      <div class="adv-matches">
+        <div class="adv-match-chips">
+          ${dupRecodes.map(d => `<span class="adv-match-chip" style="cursor:pointer;" onclick="jumpToQaIssue('${d.qid}')" title="${d.count} items in ${d.role} all use recode ${d.value}">${d.qid} · ${d.role} = ${d.value}</span>`).join('')}
+        </div>
+      </div>
+    `)}
   `;
 }
 
