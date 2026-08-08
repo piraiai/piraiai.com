@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="https://piraiai.com/logo.png">
+<title>Pirai AI Assembler</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/mammoth@1.7.0/mammoth.browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<style>
+  :root{
+    --forest:#9B6BFF; --forest-strong:#7C4DFF; --forest-soft:#F1EEFE;
+    --border:#E1E4DE; --border-strong:#C9CEC5; --muted:#6B7168; --text:#1B1F1D; --bg:#F5F6F3;
+    --amber:#B5732E; --amber-soft:#F5EBDD; --display:'Space Grotesk',sans-serif; --sans:'Inter',-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--bg); color:var(--text); font-family:var(--sans); }
+  header{ padding:14px 22px; background:#fff; border-bottom:1px solid var(--border); display:flex; align-items:flex-start; }
+  header h1{ font-family:var(--display); font-size:17px; margin:0 0 4px 0; font-weight:700; display:flex; align-items:center; gap:6px; }
+  header h1 .tag-ai{ color:var(--forest); }
+  header h1 .logo-mark{ display:inline-flex; align-items:center; justify-content:center; }
+  header h1 .logo-mark img{ height:24px; width:auto; display:block; }
+  header .sub{ font-size:12px; color:var(--muted); max-width:820px; line-height:1.5; }
+  .toolbar{ padding:10px 22px; display:flex; align-items:center; gap:10px; background:#fff; border-bottom:1px solid var(--border); }
+  .toolbar input[type=file]{ font-size:12.5px; }
+  .badge{ font-size:11px; background:var(--forest-soft); color:var(--forest); padding:3px 9px; border-radius:20px; font-weight:600; }
+
+  .layout{ display:grid; grid-template-columns: 1fr 280px 380px; gap:0; height:calc(100vh - 108px); }
+  .col{ overflow-y:auto; }
+  .col-head{
+    position:sticky; top:0; background:#fff; padding:10px 14px; border-bottom:1px solid var(--border);
+    font-size:11px; text-transform:uppercase; letter-spacing:.08em; font-weight:700; color:var(--muted); z-index:2;
+  }
+
+  .doc-pane{ background:#fff; border-right:1px solid var(--border); }
+  .doc-body{ padding:20px 26px; }
+  .doc-body .placeholder{ color:var(--muted); font-size:13px; }
+  .docx-content{ line-height:1.6; font-size:13.5px; }
+  .docx-content h1, .docx-content h2, .docx-content h3{ font-weight:700; margin-top:1.1em; }
+  .docx-content p{ margin:0 0 0.8em 0; }
+  .docx-content ul, .docx-content ol{ margin:0 0 0.8em 0; padding-left:1.3em; }
+  .docx-content table{ border-collapse:collapse; margin-bottom:1em; }
+  .docx-content td, .docx-content th{ border:1px solid var(--border-strong); padding:4px 8px; }
+  ::selection{ background:#D7C7FF; }
+
+  .pool-pane{ background:#FBFCFA; border-right:1px solid var(--border); }
+  .pool-body{ padding:12px; display:flex; flex-direction:column; gap:8px; border:2px dashed transparent; border-radius:8px; transition:.12s; }
+  .pool-body.dragover{ border-color:var(--forest); background:var(--forest-soft); }
+  .pool-bulkbar{
+    display:flex; align-items:center; gap:8px; background:#fff; border:1px solid var(--forest);
+    border-radius:8px; padding:7px 9px; font-size:11.5px; margin-bottom:2px;
+  }
+  .pool-bulkbar strong{ color:var(--forest); }
+  .pool-bulkbar .spacer{ flex:1; }
+  .pool-bulkbar button{
+    font-size:11px; border:1px solid var(--border-strong); background:#fff; border-radius:5px;
+    padding:4px 8px; cursor:pointer; color:var(--text);
+  }
+  .pool-bulkbar button:hover{ border-color:var(--forest); color:var(--forest); }
+  .pool-bulkbar button.danger:hover{ border-color:#B4483C; color:#B4483C; }
+  .clean-all-btn{
+    font-size:10.5px; font-weight:600; color:var(--muted); border:1px solid var(--border-strong);
+    border-radius:5px; padding:3px 8px; cursor:pointer; text-transform:none; letter-spacing:0; background:#fff;
+  }
+  .clean-all-btn:hover{ border-color:var(--forest); color:var(--forest); }
+  .pool-item{
+    background:#fff; border:1px solid var(--border); border-radius:7px; padding:8px 9px 8px 30px; font-size:12px;
+    cursor:grab; line-height:1.4; position:relative; user-select:none;
+  }
+  .pool-item:active{ cursor:grabbing; }
+  .pool-item.dragging{ opacity:.35; }
+  .pool-item .rm{ position:absolute; top:5px; right:7px; color:var(--border-strong); cursor:pointer; font-size:12px; }
+  .pool-item.is-bold{ border-left:3px solid var(--forest); padding-left:27px; }
+  .pool-item.selected{ outline:2px solid var(--forest); outline-offset:-1px; background:var(--forest-soft); }
+  .pool-selbox{
+    position:absolute; left:9px; top:10px; width:13px; height:13px; border:1.5px solid var(--border-strong);
+    border-radius:3px; cursor:pointer; background:#fff;
+  }
+  .pool-item.selected .pool-selbox{ background:var(--forest); border-color:var(--forest); }
+  .bold-badge{
+    display:inline-block; font-family:ui-monospace,monospace; font-size:9px; font-weight:700;
+    background:var(--forest-soft); color:var(--forest); border-radius:4px; padding:1px 5px; margin-right:6px;
+  }
+  .pool-item .rm:hover{ color:#B4483C; }
+  .empty{ font-size:11.5px; color:var(--muted); text-align:center; padding:18px 6px; }
+
+  .q-pane{ background:#fff; }
+  .q-body{ padding:12px; display:flex; flex-direction:column; gap:12px; }
+  .q-card{ border:1px solid var(--border); border-radius:10px; padding:12px; background:#FDFDFC; }
+  .q-id-row{ display:flex; align-items:center; gap:8px; margin-bottom:8px; }
+  .q-card .q-id{ font-family:ui-monospace,monospace; font-size:10.5px; color:var(--forest); font-weight:700; flex-shrink:0; }
+  .q-type-select{
+    flex:1; font-size:11.5px; padding:4px 6px; border:1px solid var(--border-strong); border-radius:5px;
+    background:#fff; color:var(--text); font-family:ui-monospace,monospace;
+  }
+  .q-textslot{
+    min-height:38px; border:1.5px dashed var(--border-strong); border-radius:7px; padding:8px 10px;
+    font-size:13px; font-weight:600; margin-bottom:8px; display:flex; align-items:center; transition:.12s;
+  }
+  .q-textslot.filled{ border-style:solid; background:var(--forest-soft); border-color:var(--forest); cursor:grab; }
+  .q-textslot.filled:active{ cursor:grabbing; }
+  .q-textslot.dragover{ border-color:var(--forest); background:var(--forest-soft); }
+  .q-textslot .placeholder-text{ color:var(--muted); font-weight:400; font-size:12px; }
+  .q-optlist{
+    min-height:50px; border:1.5px dashed var(--border-strong); border-radius:7px; padding:8px; transition:.12s;
+  }
+  .q-optlist.dragover{ border-color:var(--amber); background:var(--amber-soft); }
+  .q-optlist .placeholder-text{ color:var(--muted); font-size:11.5px; text-align:center; padding:8px 0; }
+  .q-opt{
+    background:#fff; border:1px solid var(--border); border-radius:6px; padding:6px 8px; font-size:12px;
+    margin-bottom:5px; position:relative; cursor:grab;
+  }
+  .q-opt:active{ cursor:grabbing; }
+  .q-opt:last-child{ margin-bottom:0; }
+  .q-opt .rm{ position:absolute; top:4px; right:6px; color:var(--border-strong); cursor:pointer; font-size:11px; }
+  .q-opt .rm:hover{ color:#B4483C; }
+  .recode-chip{
+    display:inline-flex; align-items:center; justify-content:center; font-family:ui-monospace,monospace;
+    font-size:9.5px; font-weight:700; color:#fff; background:var(--muted); border-radius:8px;
+    min-width:15px; height:15px; padding:0 3px; margin-right:6px; flex-shrink:0;
+  }
+  .recode-chip.stmt{ background:var(--forest); }
+  .recode-chip.scale{ background:var(--amber); }
+  .hint-note{ font-size:11px; color:var(--muted); font-style:italic; padding:6px 2px; }
+  .matrix-warn{
+    font-size:10.5px; color:#7a4d1e; background:var(--amber-soft); border:1px solid var(--amber);
+    border-radius:6px; padding:5px 8px; margin-top:6px;
+  }
+  .download-btn{
+    font-size:11.5px; font-weight:700; color:#fff; background:linear-gradient(135deg,var(--forest),var(--forest-strong));
+    border:1px solid var(--forest-strong); border-radius:6px; padding:5px 10px; cursor:pointer;
+  }
+  .download-btn:hover{ opacity:.92; }
+  .q-optlabel{ font-size:10px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); margin:8px 0 5px 0; font-weight:700; }
+  .add-q-btn{
+    width:100%; padding:9px; border-radius:8px; border:1px dashed var(--border-strong); background:transparent;
+    color:var(--muted); font-size:12.5px; cursor:pointer;
+  }
+  .add-q-btn:hover{ border-color:var(--forest); color:var(--forest); }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1><span class="logo-mark"><img src="https://piraiai.com/logo.png" alt="Pirai AI"></span><span>Pirai</span><span class="tag-ai">AI</span><span>Assembler</span></h1>
+    <div class="sub">Build surveys from documents — no AI required. Upload a Word document and it's automatically broken into clean, ready-to-use pieces. Drag them onto your questions to build the survey by hand, then export it as a file you can use right away.</div>
+  </div>
+</header>
+
+<div class="toolbar">
+  <input type="file" id="fileInput" accept=".docx" onchange="handleFile(event)">
+  <span class="badge" id="statusBadge">No document loaded</span>
+  <label style="font-size:12px; display:flex; align-items:center; gap:5px; cursor:pointer; margin-left:6px;" title="Controls new uploads only — use 'Clean all' in the Pool header to apply to what's already there">
+    <input type="checkbox" id="autoCleanToggle" checked onchange="toggleAutoClean(this.checked)">
+    Auto-remove serial numbers (1. a) Q1. etc.) on upload
+  </label>
+</div>
+
+<div class="layout">
+  <div class="col doc-pane">
+    <div class="col-head">Source document (reference)</div>
+    <div class="doc-body" id="docPane"><div class="placeholder">Upload a .docx file above.</div></div>
+  </div>
+
+  <div class="col pool-pane">
+    <div class="col-head" id="poolHead" style="display:flex; align-items:center; justify-content:space-between;">
+      <span id="poolCountText">Pool — 0 items</span>
+      <span class="clean-all-btn" onclick="cleanAllPoolItems()" title="Strip serial numbers from every item currently in the Pool">Clean all</span>
+    </div>
+    <div class="pool-body" id="poolList" ondragover="poolZoneDragOver(event)" ondragleave="poolZoneDragLeave(event)" ondrop="poolZoneDrop(event)"><div class="empty">Upload a document to auto-parse it into chunks here.</div></div>
+  </div>
+
+  <div class="col q-pane">
+    <div class="col-head" style="display:flex; align-items:center; justify-content:space-between;">
+      <span>Questions</span>
+      <button class="download-btn" onclick="downloadXlsx7()">Download 7-column .xlsx</button>
+    </div>
+    <div class="q-body" id="questionsList"></div>
+  </div>
+</div>
+
+<script>
+let poolItems = [];      // [{id, text, bold}]
+let questions = [];      // [{id, text, textBold, options: [{id,text,bold}]}]
+let poolIdSeq = 1, qIdSeq = 1, optIdSeq = 1;
+let draggedPoolIds = [];       // the item(s) currently being dragged out of Pool
+let draggedFromQuestion = null; // {qid, kind:'text'|'item', itemId} — set when dragging something OUT of a question, back toward Pool
+let selectedPoolIds = new Set();
+let selectAnchor = null;
+let painting = false;
+let paintMode = null;
+let autoCleanNumbering = true;
+
+async function handleFile(ev){
+  const file = ev.target.files[0];
+  if(!file) return;
+  document.getElementById('statusBadge').textContent = 'Reading…';
+  const arrayBuffer = await file.arrayBuffer();
+  try{
+    const result = await mammoth.convertToHtml({ arrayBuffer });
+    document.getElementById('docPane').innerHTML = `<div class="docx-content">${result.value}</div>`;
+    document.getElementById('statusBadge').textContent = file.name + ' loaded';
+    autoParseIntoPool(result.value);
+  } catch(err){
+    document.getElementById('docPane').innerHTML = `<div class="placeholder">Could not read this file. Make sure it's a .docx (not .doc).</div>`;
+    document.getElementById('statusBadge').textContent = 'Failed to load';
+    console.error(err);
+  }
+}
+
+// Deterministic, rule-based chunking — no AI. Every heading, paragraph, and list item
+// in the converted HTML becomes its own Pool item automatically, in document order.
+// Mirrors _run_text_with_breaks() from structural_transcript.py: a soft line
+// break (Shift+Enter, <w:br/> in the XML) inside ONE Word paragraph must be
+// treated as its own item boundary. Mammoth renders w:br as a real <br> tag,
+// but .textContent silently ignores <br> — same failure mode python-docx's
+// default Run.text has for w:br, which is exactly why that Python function
+// exists. This walks child nodes instead, splitting at each <br>, and tracks
+// whether a segment came from bold content (<strong>/<b>) the same way the
+// Python side tracks StyledRun.bold — a segment counts as bold only if ALL
+// of its text was bold, mirroring a whole question stem being bold while its
+// options aren't, rather than one bold word inside an otherwise plain line.
+function splitParagraphOnBreaks(el){
+  const segments = [];
+  let current;
+  const fresh = () => ({ text:'', sawBold:false, sawPlain:false });
+  current = fresh();
+
+  function finishSegment(){
+    const text = current.text.replace(/\s+/g,' ').trim();
+    const bold = current.sawBold && !current.sawPlain;
+    return { text, bold };
+  }
+
+  function walk(node, inheritedBold){
+    if(node.nodeType === 3){ // TEXT_NODE
+      current.text += node.textContent;
+      if(inheritedBold) current.sawBold = true; else current.sawPlain = true;
+      return;
+    }
+    if(node.nodeName === 'BR'){
+      segments.push(finishSegment());
+      current = fresh();
+      return;
+    }
+    const isBold = inheritedBold || node.nodeName === 'STRONG' || node.nodeName === 'B';
+    node.childNodes.forEach(child => walk(child, isBold));
+  }
+
+  el.childNodes.forEach(child => walk(child, false));
+  segments.push(finishSegment());
+  return segments.filter(s => s.text);
+}
+
+// Whitespace cleanup (non-breaking spaces, doubled spaces) always runs — it's
+// uncontroversial. Serial-number stripping is separate and user-controlled: the
+// toolbar checkbox decides whether it runs automatically during parsing, and
+// it's also available on demand (per-selection, or "Clean all" for the whole
+// Pool) regardless of that toggle. The marker match requires a space or
+// end-of-string right after the "." or ")", specifically so a real decimal like
+// "3.14" is never mistaken for a "3." marker.
+function normalizeWhitespace(text){
+  let t = text.replace(/\u00A0/g, ' ');
+  return t.replace(/\s+/g, ' ').trim();
+}
+function stripSerialMarker(text){
+  return text.replace(/^\(?\s*(?:[Qq]\s*)?(?:\d+|[A-Za-z])\s*[\.\)](?:\s+|$)/, '').trim();
+}
+function cleanPoolText(text){
+  return stripSerialMarker(normalizeWhitespace(text));
+}
+
+function autoParseIntoPool(htmlString){
+  const temp = document.createElement('div');
+  temp.innerHTML = htmlString;
+  const blocks = temp.querySelectorAll('h1, h2, h3, h4, h5, h6, p, li');
+  blocks.forEach(el => {
+    splitParagraphOnBreaks(el).forEach(seg => {
+      const normalized = normalizeWhitespace(seg.text);
+      const finalText = autoCleanNumbering ? stripSerialMarker(normalized) : normalized;
+      if(finalText) poolItems.push({ id:'p'+(poolIdSeq++), text:finalText, bold:seg.bold });
+    });
+  });
+  renderPool();
+}
+
+function toggleAutoClean(checked){
+  autoCleanNumbering = checked; // affects the NEXT upload/parse, not items already in the Pool
+}
+
+function cleanAllPoolItems(){
+  poolItems.forEach(it => { it.text = stripSerialMarker(it.text); });
+  renderPool();
+}
+
+function removeSerialFromSelected(){
+  if(!selectedPoolIds.size) return;
+  poolItems.forEach(it => { if(selectedPoolIds.has(it.id)) it.text = stripSerialMarker(it.text); });
+  renderPool();
+}
+
+function removePoolItem(id){
+  poolItems = poolItems.filter(i => i.id !== id);
+  selectedPoolIds.delete(id);
+  renderPool();
+}
+
+function renderPool(){
+  document.getElementById('poolCountText').textContent = 'Pool — ' + poolItems.length + ' item' + (poolItems.length===1?'':'s');
+  const list = document.getElementById('poolList');
+  const bulkBar = selectedPoolIds.size ? `
+    <div class="pool-bulkbar">
+      <strong>${selectedPoolIds.size} selected</strong>
+      <span class="spacer"></span>
+      <button onclick="removeSerialFromSelected()">Remove serial #</button>
+      <button onclick="clearPoolSelection()">Clear</button>
+      <button class="danger" onclick="removeSelectedPoolItems()">Discard selected</button>
+    </div>` : '';
+  list.innerHTML = bulkBar + (poolItems.length
+    ? poolItems.map(it => `
+        <div class="pool-item ${it.bold?'is-bold':''} ${selectedPoolIds.has(it.id)?'selected':''}" draggable="true" data-id="${it.id}"
+             ondragstart="poolDragStart(event,'${it.id}')" ondragend="poolDragEnd(event)">
+          <span class="pool-selbox" draggable="false" onclick="event.stopPropagation()"
+                onmousedown="startPaintSelect(event,'${it.id}')" onmouseenter="paintOverItem(event,'${it.id}')"></span>
+          ${it.bold ? '<span class="bold-badge" title="Bold in the source document — likely a question stem">Q?</span>' : ''}
+          ${escapeHtml(it.text)}
+          <span class="rm" onclick="removePoolItem('${it.id}')" title="Discard">✕</span>
+        </div>`).join('')
+    : '<div class="empty">Nothing left in the pool — everything has been assigned to a question.</div>');
+}
+
+// ---------- Multi-select: click, shift-click range, and paint-drag across checkboxes ----------
+function togglePoolSelect(ev, id){
+  ev.stopPropagation();
+  if(ev.shiftKey && selectAnchor){
+    const ids = poolItems.map(i => i.id);
+    const a = ids.indexOf(selectAnchor), b = ids.indexOf(id);
+    if(a >= 0 && b >= 0){
+      const [lo, hi] = a < b ? [a, b] : [b, a];
+      ids.slice(lo, hi + 1).forEach(pid => selectedPoolIds.add(pid));
+    }
+  } else {
+    selectedPoolIds.has(id) ? selectedPoolIds.delete(id) : selectedPoolIds.add(id);
+    selectAnchor = id;
+  }
+  renderPool();
+}
+
+function startPaintSelect(ev, id){
+  if(ev.shiftKey){ togglePoolSelect(ev, id); return; }
+  ev.preventDefault();
+  ev.stopPropagation();
+  painting = true;
+  paintMode = selectedPoolIds.has(id) ? 'deselect' : 'select';
+  selectAnchor = id;
+  paintApply(id, ev.currentTarget);
+}
+function paintOverItem(ev, id){
+  if(!painting) return;
+  paintApply(id, ev.currentTarget);
+}
+function paintApply(id, selboxEl){
+  paintMode === 'select' ? selectedPoolIds.add(id) : selectedPoolIds.delete(id);
+  const itemEl = selboxEl && selboxEl.closest ? selboxEl.closest('.pool-item') : null;
+  if(itemEl) itemEl.classList.toggle('selected', paintMode === 'select');
+}
+document.addEventListener('mouseup', () => {
+  if(painting){ painting = false; paintMode = null; renderPool(); }
+});
+
+function clearPoolSelection(){
+  selectedPoolIds.clear();
+  selectAnchor = null;
+  renderPool();
+}
+function removeSelectedPoolItems(){
+  poolItems = poolItems.filter(i => !selectedPoolIds.has(i.id));
+  selectedPoolIds.clear();
+  renderPool();
+}
+
+// Dragging a selected item drags the whole selection together; dragging an
+// unselected item just drags that one, same rule Studio uses for questions/blocks.
+function poolDragStart(ev, id){
+  draggedPoolIds = (selectedPoolIds.has(id) && selectedPoolIds.size > 1) ? Array.from(selectedPoolIds) : [id];
+  ev.dataTransfer.effectAllowed = 'move';
+  ev.currentTarget.classList.add('dragging');
+}
+function poolDragEnd(ev){
+  ev.currentTarget.classList.remove('dragging');
+  draggedPoolIds = [];
+}
+
+function addQuestion(){
+  questions.push({ id:'Q'+(qIdSeq++), type:'MC:SingleAnswer', block:'Block 1', text:'', textBold:false, items:[] });
+  renderQuestions();
+}
+
+function removeQuestion(qid){
+  questions = questions.filter(q => q.id !== qid);
+  renderQuestions();
+}
+
+// Switching between Matrix and a flat type changes what "items" even means
+// (Statements/Scale vs. Options) — rather than guess how existing items should
+// map across that boundary, send them back to Pool for the user to re-place.
+function changeQuestionType(qid, newType){
+  const q = questions.find(x => x.id === qid);
+  if(!q) return;
+  const wasMatrix = q.type === 'Matrix';
+  const isMatrix = newType === 'Matrix';
+  q.type = newType;
+  if(wasMatrix !== isMatrix && q.items.length){
+    q.items.forEach(it => poolItems.push({ id:'p'+(poolIdSeq++), text: it.text, bold: it.bold }));
+    q.items = [];
+  }
+  renderPool();
+  renderQuestions();
+}
+
+function dropOnQuestionText(ev, qid){
+  ev.preventDefault();
+  ev.currentTarget.classList.remove('dragover');
+  if(!draggedPoolIds.length) return;
+  const q = questions.find(x => x.id === qid);
+  const items = poolItems.filter(i => draggedPoolIds.includes(i.id));
+  if(!q || !items.length) return;
+
+  if(items.length === 1){
+    q.text = items[0].text;
+    q.textBold = !!items[0].bold;
+  } else {
+    // Dropping several at once onto the text slot: if exactly one of them is
+    // bold, treat it as the question stem and everything else as an item —
+    // lets you select a whole bold-question-plus-options block in one go.
+    const boldOnes = items.filter(i => i.bold);
+    const textItem = boldOnes.length === 1 ? boldOnes[0] : items[0];
+    q.text = textItem.text;
+    q.textBold = !!textItem.bold;
+    const remainderRole = q.type === 'Matrix' ? 'statement' : 'option';
+    items.filter(i => i.id !== textItem.id).forEach(i => {
+      q.items.push({ id:'i'+(optIdSeq++), text:i.text, bold:!!i.bold, role:remainderRole });
+    });
+  }
+
+  poolItems = poolItems.filter(i => !draggedPoolIds.includes(i.id));
+  selectedPoolIds.clear();
+  draggedPoolIds = [];
+  renderPool();
+  renderQuestions();
+}
+
+function dropOnQuestionRole(ev, qid, role){
+  ev.preventDefault();
+  ev.currentTarget.classList.remove('dragover');
+  if(!draggedPoolIds.length) return;
+  const q = questions.find(x => x.id === qid);
+  const items = poolItems.filter(i => draggedPoolIds.includes(i.id));
+  if(!q || !items.length) return;
+  items.forEach(i => q.items.push({ id:'i'+(optIdSeq++), text:i.text, bold:!!i.bold, role }));
+  poolItems = poolItems.filter(i => !draggedPoolIds.includes(i.id));
+  selectedPoolIds.clear();
+  draggedPoolIds = [];
+  renderPool();
+  renderQuestions();
+}
+
+function clearQuestionText(qid){
+  const q = questions.find(x => x.id === qid);
+  if(!q || !q.text) return;
+  poolItems.push({ id:'p'+(poolIdSeq++), text:q.text, bold:q.textBold }); // sends it back to the pool, nothing lost
+  q.text = ''; q.textBold = false;
+  renderPool();
+  renderQuestions();
+}
+
+function removeQuestionItem(qid, itemId){
+  const q = questions.find(x => x.id === qid);
+  if(!q) return;
+  const item = q.items.find(i => i.id === itemId);
+  if(item) poolItems.push({ id:'p'+(poolIdSeq++), text:item.text, bold:item.bold }); // back to pool
+  q.items = q.items.filter(i => i.id !== itemId);
+  renderPool();
+  renderQuestions();
+}
+
+// ---------- Drag OUT of a question, back toward Pool — the reverse direction of
+// Pool -> Question. The ✕ icon still exists as a one-click shortcut for the same
+// action; this just makes drag work both ways instead of only Pool -> Question. ----------
+function questionTextDragStart(ev, qid){
+  draggedFromQuestion = { qid, kind:'text' };
+  ev.dataTransfer.effectAllowed = 'move';
+}
+function questionItemDragStart(ev, qid, itemId){
+  draggedFromQuestion = { qid, kind:'item', itemId };
+  ev.dataTransfer.effectAllowed = 'move';
+}
+function questionDragEnd(){
+  draggedFromQuestion = null;
+  const zone = document.getElementById('poolList');
+  if(zone) zone.classList.remove('dragover');
+}
+
+function poolZoneDragOver(ev){
+  if(!draggedFromQuestion) return; // only react when something is actually coming FROM a question
+  ev.preventDefault();
+  ev.currentTarget.classList.add('dragover');
+}
+function poolZoneDragLeave(ev){
+  ev.currentTarget.classList.remove('dragover');
+}
+function poolZoneDrop(ev){
+  ev.currentTarget.classList.remove('dragover');
+  if(!draggedFromQuestion) return;
+  ev.preventDefault();
+  const { qid, kind, itemId } = draggedFromQuestion;
+  if(kind === 'text') clearQuestionText(qid);
+  else removeQuestionItem(qid, itemId);
+  draggedFromQuestion = null;
+}
+
+const QUESTION_TYPES = [
+  'MC:SingleAnswer','MC:SingleAnswer:Horizontal','MC:MultipleAnswer','MC:MultipleAnswer:Horizontal',
+  'Matrix','TE:SingleLine','TE:Essay','TE:Form','RankOrder','ConstantSum','DB','Page Break'
+];
+const TYPES_WITH_OPTIONS = new Set(['MC:SingleAnswer','MC:SingleAnswer:Horizontal','MC:MultipleAnswer','MC:MultipleAnswer:Horizontal','TE:Form','RankOrder','ConstantSum']);
+
+function itemRowHtml(q, item, idx, chipClass){
+  return `<div class="q-opt" data-item-id="${item.id}" draggable="true" ondragstart="questionItemDragStart(event,'${q.id}','${item.id}')" ondragend="questionDragEnd()">
+    <span class="recode-chip ${chipClass||''}">${idx+1}</span>${escapeHtml(item.text)}
+    <span class="rm" onclick="removeQuestionItem('${q.id}','${item.id}')" title="Send back to Pool">✕</span>
+  </div>`;
+}
+
+function renderQuestions(){
+  const el = document.getElementById('questionsList');
+  el.innerHTML = questions.map(q => {
+    const isMatrix = q.type === 'Matrix';
+    const hasOptions = TYPES_WITH_OPTIONS.has(q.type);
+    let zonesHtml;
+
+    if(isMatrix){
+      const stmts = q.items.filter(i => i.role === 'statement');
+      const scale = q.items.filter(i => i.role === 'scale');
+      const invalid = (stmts.length && stmts.length < 2) || (scale.length && scale.length < 2);
+      zonesHtml = `
+        <div class="q-optlabel">Statements</div>
+        <div class="q-optlist" ondragover="event.preventDefault(); event.currentTarget.classList.add('dragover')" ondragleave="event.currentTarget.classList.remove('dragover')" ondrop="dropOnQuestionRole(event,'${q.id}','statement')">
+          ${stmts.length ? stmts.map((o,idx) => itemRowHtml(q,o,idx,'stmt')).join('') : '<div class="placeholder-text">Drag Pool items here as statements</div>'}
+        </div>
+        <div class="q-optlabel">Scale points</div>
+        <div class="q-optlist" ondragover="event.preventDefault(); event.currentTarget.classList.add('dragover')" ondragleave="event.currentTarget.classList.remove('dragover')" ondrop="dropOnQuestionRole(event,'${q.id}','scale')">
+          ${scale.length ? scale.map((o,idx) => itemRowHtml(q,o,idx,'scale')).join('') : '<div class="placeholder-text">Drag Pool items here as scale points</div>'}
+        </div>
+        ${invalid ? '<div class="matrix-warn">Needs at least 2 statements and 2 scale points to export as a valid Matrix.</div>' : ''}`;
+    } else if(hasOptions){
+      const opts = q.items.filter(i => i.role === 'option');
+      zonesHtml = `
+        <div class="q-optlabel">Options</div>
+        <div class="q-optlist" ondragover="event.preventDefault(); event.currentTarget.classList.add('dragover')" ondragleave="event.currentTarget.classList.remove('dragover')" ondrop="dropOnQuestionRole(event,'${q.id}','option')">
+          ${opts.length ? opts.map((o,idx) => itemRowHtml(q,o,idx)).join('') : '<div class="placeholder-text">Drag Pool items here as options</div>'}
+        </div>`;
+    } else {
+      zonesHtml = `<div class="hint-note">${q.type === 'Page Break' ? 'Page breaks carry no text or options.' : 'This question type has no options — just the text above.'}</div>`;
+    }
+
+    return `
+    <div class="q-card">
+      <div class="q-id-row">
+        <span class="q-id">${q.id}</span>
+        <select class="q-type-select" onchange="changeQuestionType('${q.id}', this.value)">
+          ${QUESTION_TYPES.map(t => `<option value="${t}" ${q.type===t?'selected':''}>${t}</option>`).join('')}
+        </select>
+      </div>
+      <div class="q-textslot ${q.text ? 'filled' : ''}" ${q.text ? `draggable="true" ondragstart="questionTextDragStart(event,'${q.id}')" ondragend="questionDragEnd()"` : ''}
+           ondragover="event.preventDefault(); event.currentTarget.classList.add('dragover')"
+           ondragleave="event.currentTarget.classList.remove('dragover')"
+           ondrop="dropOnQuestionText(event,'${q.id}')">
+        ${q.text ? `${escapeHtml(q.text)} <span class="rm" style="position:static; margin-left:auto;" onclick="clearQuestionText('${q.id}')" title="Send back to Pool">✕</span>` : '<span class="placeholder-text">Drag a Pool item here for the question text</span>'}
+      </div>
+      ${zonesHtml}
+      <button class="add-q-btn" style="margin-top:8px; border-color:#e8b4ae; color:#B4483C;" onclick="removeQuestion('${q.id}')">Delete this question</button>
+    </div>`;
+  }).join('') + `<button class="add-q-btn" onclick="addQuestion()">+ New question</button>`;
+}
+
+// ---------- Export: same 7-column Pirai spec Studio consumes — proves the whole
+// pipeline (parse -> organize -> valid spec file) works without any AI involved ----------
+function buildRows7(){
+  const rows = [];
+  questions.forEach(q => {
+    const block = q.block || 'Block 1';
+
+    if(q.type === 'Page Break'){
+      rows.push([block, q.id, '', 'Page Break', '', '', '']);
+      return;
+    }
+    if(q.type === 'DB'){
+      rows.push([block, q.id, q.text, 'DB', '', '', '']);
+      return;
+    }
+    if(q.type === 'Matrix'){
+      const stmts = q.items.filter(i => i.role === 'statement');
+      const scale = q.items.filter(i => i.role === 'scale');
+      if(!stmts.length && !scale.length){
+        rows.push([block, q.id, q.text, 'Matrix', '', '', '']);
+        return;
+      }
+      let first = true;
+      stmts.forEach((s, idx) => { rows.push([block, q.id, first ? q.text : '', 'Matrix', s.text, idx+1, 'Statement']); first = false; });
+      scale.forEach((s, idx) => { rows.push([block, q.id, '', 'Matrix', s.text, idx+1, 'Scale Point']); });
+      return;
+    }
+    if(q.type === 'TE:SingleLine' || q.type === 'TE:Essay'){
+      rows.push([block, q.id, q.text, q.type, '', '', '']);
+      return;
+    }
+    // Flat option-bearing types: MC:SingleAnswer(+H), MC:MultipleAnswer(+H), TE:Form, RankOrder, ConstantSum
+    const opts = q.items.filter(i => i.role === 'option');
+    const isForm = q.type === 'TE:Form'; // TE:Form's Recode Value is always blank, matching the production spec
+    if(!opts.length){
+      rows.push([block, q.id, q.text, q.type, '', '', '']);
+      return;
+    }
+    let first = true;
+    opts.forEach((o, idx) => {
+      rows.push([block, q.id, first ? q.text : '', first ? q.type : '', o.text, isForm ? '' : idx+1, '']);
+      first = false;
+    });
+  });
+  return rows;
+}
+
+function downloadXlsx7(){
+  if(!questions.length){ alert('Add at least one question first.'); return; }
+  const headers = ['Block Name','Question ID','Question Text','Question Type','Answer Option Text','Recode Value','Matrix Type'];
+  const widths = [12.83, 13.83, 50.83, 19.83, 25.83, 14.83, 13.83];
+  const rows = buildRows7();
+  const aoa = [headers, ...rows];
+  const ws = XLSX.utils.aoa_to_sheet(aoa);
+  ws['!cols'] = widths.map(w => ({ wch: w }));
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, 'Survey Data');
+  XLSX.writeFile(wb, 'no_ai_extraction_' + new Date().toISOString().slice(0,10) + '.xlsx');
+}
+
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+renderPool();
+renderQuestions();
+addQuestion(); // start with one empty question so the drop targets are visible immediately
+</script>
+</body>
+</html>
