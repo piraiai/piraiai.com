@@ -29,7 +29,14 @@
   .toolbar input[type=file]{ font-size:12.5px; }
   .badge{ font-size:11px; background:var(--forest-soft); color:var(--forest); padding:3px 9px; border-radius:20px; font-weight:600; }
 
-  .layout{ display:grid; grid-template-columns: 1fr 280px 380px; gap:0; height:calc(100vh - 108px); }
+  .layout{ display:grid; grid-template-columns: 1fr 280px 380px; gap:0; height:calc(100vh - 108px); transition:grid-template-columns .18s ease; }
+  .doc-toggle-btn{
+    width:22px; height:22px; border-radius:5px; border:1px solid var(--border-strong); background:#fff;
+    color:var(--muted); cursor:pointer; font-size:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .doc-toggle-btn:hover{ border-color:var(--forest); color:var(--forest); }
+  .doc-pane.collapsed .doc-body, .doc-pane.collapsed #docPaneTitle{ display:none; }
+  .doc-pane.collapsed .col-head{ justify-content:center; padding:10px 4px; }
   .col{ overflow-y:auto; }
   .col-head{
     position:sticky; top:0; background:#fff; padding:10px 14px; border-bottom:1px solid var(--border);
@@ -67,8 +74,22 @@
     border-radius:5px; padding:3px 8px; cursor:pointer; text-transform:none; letter-spacing:0; background:#fff;
   }
   .clean-all-btn:hover{ border-color:var(--forest); color:var(--forest); }
+  .split-rules-panel{ border-bottom:1px solid var(--border); background:#FBFCFA; overflow-x:hidden; }
+  .rules-panel-inner{ padding:12px 14px; max-width:100%; }
+  .rules-title{ font-size:10.5px; text-transform:uppercase; letter-spacing:.06em; font-weight:700; color:var(--muted); margin-bottom:10px; }
+  .rule-row{ margin-bottom:10px; padding-bottom:9px; border-bottom:1px dashed var(--border); max-width:100%; }
+  .rule-row:last-of-type{ border-bottom:none; }
+  .rule-row-top{ display:flex; align-items:center; gap:6px; margin-bottom:5px; }
+  .rule-row-top input[type=checkbox]{ flex-shrink:0; }
+  .rule-label{ flex:1; min-width:0; font-size:11.5px; padding:5px 7px; border:1px solid var(--border-strong); border-radius:5px; }
+  .rule-pattern{ display:block; width:100%; min-width:0; font-size:11.5px; font-family:ui-monospace,monospace; padding:5px 7px; border:1px solid var(--border-strong); border-radius:5px; }
+  .rule-remove{ color:var(--border-strong); cursor:pointer; flex-shrink:0; padding:2px; }
+  .rule-remove:hover{ color:#B4483C; }
+  .rule-add-row .rule-label{ width:100%; margin-bottom:5px; }
+  .rule-add-row .rule-pattern{ margin-bottom:7px; }
+  .rule-add-row button{ width:100%; }
   .pool-item{
-    background:#fff; border:1px solid var(--border); border-radius:7px; padding:8px 9px 8px 30px; font-size:12px;
+    background:#fff; border:1px solid var(--border); border-radius:7px; padding:8px 26px 8px 30px; font-size:12px;
     cursor:grab; line-height:1.4; position:relative; user-select:none;
   }
   .pool-item:active{ cursor:grabbing; }
@@ -76,6 +97,27 @@
   .pool-item .rm{ position:absolute; top:5px; right:7px; color:var(--border-strong); cursor:pointer; font-size:12px; }
   .pool-item.is-bold{ border-left:3px solid var(--forest); padding-left:27px; }
   .pool-item.selected{ outline:2px solid var(--forest); outline-offset:-1px; background:var(--forest-soft); }
+  .pool-item:has(.split-btn){ padding-right:44px; }
+  .split-btn{
+    position:absolute; top:4px; right:24px; color:var(--forest); cursor:pointer; font-size:12px;
+    padding:1px; border-radius:3px;
+  }
+  .split-btn:hover{ background:var(--forest-soft); }
+  .pool-item.cut-mode{
+    background:#fff; border:1.5px solid var(--forest); border-radius:7px; padding:9px; cursor:default;
+  }
+  .pool-item.cut-mode input[type=text]{
+    width:100%; font-size:12px; padding:6px 8px; border:1px solid var(--border-strong); border-radius:5px;
+    font-family:inherit; margin-bottom:7px;
+  }
+  .cut-controls{ display:flex; align-items:center; gap:6px; }
+  .cut-hint{ font-size:10.5px; color:var(--muted); }
+  .cut-controls button{
+    font-size:11px; border-radius:5px; padding:4px 9px; cursor:pointer; border:1px solid var(--border-strong); background:#fff;
+  }
+  .cut-confirm{ background:var(--forest) !important; color:#fff !important; border-color:var(--forest-strong) !important; font-weight:600; }
+  .cut-confirm:hover{ opacity:.9; }
+  .cut-cancel:hover{ border-color:#B4483C; color:#B4483C; }
   .pool-selbox{
     position:absolute; left:9px; top:10px; width:13px; height:13px; border:1.5px solid var(--border-strong);
     border-radius:3px; cursor:pointer; background:#fff;
@@ -155,23 +197,41 @@
 <div class="toolbar">
   <input type="file" id="fileInput" accept=".docx" onchange="handleFile(event)">
   <span class="badge" id="statusBadge">No document loaded</span>
+  <label style="font-size:12px; display:flex; align-items:center; gap:5px; cursor:pointer; margin-left:6px;" title="When on, confidently-recognized questions (Matrix tables, ID tables, structured paragraphs) are built directly. Anything uncertain still lands in the Pool.">
+    <input type="checkbox" id="autoAssembleToggle" checked onchange="toggleAutoAssemble(this.checked)">
+    Auto-build questions on upload
+  </label>
   <label style="font-size:12px; display:flex; align-items:center; gap:5px; cursor:pointer; margin-left:6px;" title="Controls new uploads only — use 'Clean all' in the Pool header to apply to what's already there">
     <input type="checkbox" id="autoCleanToggle" checked onchange="toggleAutoClean(this.checked)">
-    Auto-remove serial numbers (1. a) Q1. etc.) on upload
+    Apply clean rules on upload
   </label>
 </div>
 
-<div class="layout">
-  <div class="col doc-pane">
-    <div class="col-head">Source document (reference)</div>
+<div class="layout" id="layoutGrid">
+  <div class="col doc-pane" id="docPaneCol">
+    <div class="col-head" style="display:flex; align-items:center; justify-content:space-between;">
+      <span id="docPaneTitle">Source document (reference)</span>
+      <button class="doc-toggle-btn" id="docToggleBtn" onclick="toggleDocPanel()" title="Collapse to free up space for Pool and Questions">◀</button>
+    </div>
     <div class="doc-body" id="docPane"><div class="placeholder">Upload a .docx file above.</div></div>
   </div>
 
   <div class="col pool-pane">
-    <div class="col-head" id="poolHead" style="display:flex; align-items:center; justify-content:space-between;">
-      <span id="poolCountText">Pool — 0 items</span>
-      <span class="clean-all-btn" onclick="cleanAllPoolItems()" title="Strip serial numbers from every item currently in the Pool">Clean all</span>
+    <div class="col-head" id="poolHead" style="display:block;">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+        <span id="poolCountText">Pool — 0 items</span>
+        <span style="display:flex; gap:6px;">
+          <span class="clean-all-btn" onclick="toggleSplitRulesPanel()" title="Manage the regex patterns used to split items">Split rules</span>
+          <span class="clean-all-btn" onclick="toggleCleanRulesPanel()" title="Manage the regex patterns used to clean items">Clean rules</span>
+        </span>
+      </div>
+      <div style="display:flex; gap:6px;">
+        <span class="clean-all-btn" onclick="splitAllPoolItems()" title="Apply every enabled split rule to every item currently in the Pool">Split all</span>
+        <span class="clean-all-btn" onclick="cleanAllPoolItems()" title="Apply every enabled clean rule to every item currently in the Pool">Clean all</span>
+      </div>
     </div>
+    <div class="split-rules-panel" id="splitRulesPanel" style="display:none;"></div>
+    <div class="split-rules-panel" id="cleanRulesPanel" style="display:none;"></div>
     <div class="pool-body" id="poolList" ondragover="poolZoneDragOver(event)" ondragleave="poolZoneDragLeave(event)" ondrop="poolZoneDrop(event)"><div class="empty">Upload a document to auto-parse it into chunks here.</div></div>
   </div>
 
@@ -195,6 +255,17 @@ let selectAnchor = null;
 let painting = false;
 let paintMode = null;
 let autoCleanNumbering = true;
+let docPanelCollapsed = false;
+
+function toggleDocPanel(){
+  docPanelCollapsed = !docPanelCollapsed;
+  const col = document.getElementById('docPaneCol');
+  const btn = document.getElementById('docToggleBtn');
+  if(col) col.classList.toggle('collapsed', docPanelCollapsed);
+  if(btn) btn.textContent = docPanelCollapsed ? '▶' : '◀';
+  const layout = document.getElementById('layoutGrid');
+  if(layout) layout.style.gridTemplateColumns = docPanelCollapsed ? '40px 1fr 440px' : '1fr 280px 380px';
+}
 
 async function handleFile(ev){
   const file = ev.target.files[0];
@@ -205,7 +276,15 @@ async function handleFile(ev){
     const result = await mammoth.convertToHtml({ arrayBuffer });
     document.getElementById('docPane').innerHTML = `<div class="docx-content">${result.value}</div>`;
     document.getElementById('statusBadge').textContent = file.name + ' loaded';
-    autoParseIntoPool(result.value);
+    // A new upload replaces the Pool rather than adding to it — otherwise two
+    // documents' content would mix together with no way to tell them apart.
+    // Questions you've already built are left alone, since you may be pulling
+    // a second document's content into the same set of questions.
+    poolItems = [];
+    selectedPoolIds.clear();
+    selectAnchor = null;
+    if(autoAssembleEnabled) autoAssembleFromDocument(result.value);
+    else autoParseIntoPool(result.value);
   } catch(err){
     document.getElementById('docPane').innerHTML = `<div class="placeholder">Could not read this file. Make sure it's a .docx (not .doc).</div>`;
     document.getElementById('statusBadge').textContent = 'Failed to load';
@@ -257,22 +336,376 @@ function splitParagraphOnBreaks(el){
   return segments.filter(s => s.text);
 }
 
+// ---------- Full pre-assembly: builds real Question cards directly, not just
+// Pool chunks — general, structure-based rules, not tuned to any one document.
+// Anything not confidently recognized still falls through to Pool exactly as
+// before, so nothing is ever silently lost, just left for manual handling. ----------
+let autoAssembleEnabled = true;
+
+// "select all that apply" / "MULTI CODING" -> Multiple; "select one" / "SINGLE
+// CODING" -> Single; otherwise Single, the most common default in real surveys.
+function detectQuestionType(text){
+  if(/select all that apply|check all that apply|multi[\s-]?coding/i.test(text)) return 'MC:MultipleAnswer';
+  return 'MC:SingleAnswer';
+}
+
+// A lettered option marker at the start of a line — "a)", "b.", "(c)" etc.
+// Deliberately single-letter only (not multi-letter words) to avoid false
+// positives on ordinary sentences.
+const OPTION_MARKER_RE = /^\(?[a-eA-E]\)?[\.\)]\s+/;
+// An answer-key line ("Answer: a", "Answer a") — marks the natural end of a
+// paragraph-per-line question group and is consumed as metadata rather than
+// left as its own orphan Pool chunk.
+const ANSWER_LINE_RE = /^Answer:?\s*[a-eA-E]\b/i;
+
+// Flattens the document into an ordered list of {type, el} units: headings,
+// paragraphs, list items (unwrapped from their <ul>/<ol>), and tables — walked
+// structurally (via .children) rather than a flattening querySelectorAll, so a
+// table's own inner <p> cells are never counted twice as if they were also
+// top-level paragraphs.
+function walkTopLevelUnits(root){
+  const units = [];
+  Array.from(root.children).forEach(child => {
+    const tag = child.tagName;
+    if(tag === 'UL' || tag === 'OL'){
+      Array.from(child.children).forEach(li => units.push({ type:'li', el:li }));
+    } else if(tag === 'TABLE'){
+      units.push({ type:'table', el:child });
+    } else if(/^H[1-6]$/.test(tag)){
+      units.push({ type:'heading', el:child });
+    } else if(tag === 'P'){
+      units.push({ type:'para', el:child });
+    }
+  });
+  return units;
+}
+
+function countTrailingNumericCells(cells){
+  let n = 0;
+  for(let j = cells.length-1; j >= 0; j--){
+    if(/^\d{1,2}$/.test(cells[j])) n++;
+    else break;
+  }
+  return n;
+}
+
+// General Matrix signal: a table row where the trailing 2+ cells are bare
+// numbers (1,2,3,4,5 / 0-6 / etc.) — the standard way a Likert-style response
+// scale gets laid out as a table header, regardless of what the leading label
+// columns are called. The statement-text column is picked by whichever leading
+// column has the longest average text across data rows, not by column name.
+function parseMatrixTable(tableEl, recentParaTexts){
+  const allRows = Array.from(tableEl.querySelectorAll('tr'));
+  let headerIdx = -1, headerCells = null, numericCount = 0;
+  for(let i = 0; i < allRows.length; i++){
+    const cells = Array.from(allRows[i].children).map(c => c.textContent.trim());
+    if(cells.length < 3) continue;
+    const nc = countTrailingNumericCells(cells);
+    if(nc >= 2){ headerIdx = i; headerCells = cells; numericCount = nc; break; }
+  }
+  if(headerIdx === -1) return null;
+
+  const labelColCount = headerCells.length - numericCount;
+  const scaleHeaders = headerCells.slice(labelColCount);
+  const dataRows = allRows.slice(headerIdx + 1)
+    .map(r => Array.from(r.children).map(c => c.textContent.trim()))
+    .filter(cells => cells.length === headerCells.length);
+  if(dataRows.length < 2) return null; // need at least 2 statements to be worth calling this a Matrix
+
+  let statementCol = 0, bestAvgLen = -1;
+  for(let c = 0; c < labelColCount; c++){
+    const avgLen = dataRows.reduce((sum,row) => sum + (row[c]||'').length, 0) / dataRows.length;
+    if(avgLen > bestAvgLen){ bestAvgLen = avgLen; statementCol = c; }
+  }
+  if(bestAvgLen < 8) return null; // winning column doesn't look like real statement text
+
+  // Scale point labels: try to pull them from a "N = Label | N = Label" style
+  // paragraph (a common convention for defining a shared response scale once,
+  // above the table) — search the whole recent-paragraph window, most recent
+  // first, since another plain sentence often sits between that definition and
+  // the table itself. Falls back to the bare header numbers if none match.
+  const scaleLabels = {};
+  const reTemplate = () => /(\d{1,2})\s*=\s*([^|]+?)(?=(\||$))/g;
+  for(let p = recentParaTexts.length - 1; p >= 0; p--){
+    const re = reTemplate();
+    let m, found = false;
+    while((m = re.exec(recentParaTexts[p])) !== null){ scaleLabels[m[1].trim()] = m[2].trim(); found = true; }
+    if(found) break; // use the nearest matching paragraph only, not several combined
+  }
+
+  const statements = dataRows.map(row => row[statementCol]).filter(Boolean);
+  if(statements.length < 2) return null;
+
+  const items = [];
+  statements.forEach(text => items.push({ id:'i'+(optIdSeq++), text, bold:false, role:'statement' }));
+  scaleHeaders.forEach(num => items.push({ id:'i'+(optIdSeq++), text: scaleLabels[num] || num, bold:false, role:'scale', recode: Number(num) }));
+
+  const theadCell = tableEl.querySelector('thead th, thead td');
+  const introText = theadCell ? theadCell.textContent.trim() : '';
+  const lastPara = recentParaTexts[recentParaTexts.length - 1];
+  const stemText = introText || (lastPara && lastPara.length < 220 ? lastPara : 'Rate the following statements');
+
+  return { id:'Q'+(qIdSeq++), type:'Matrix', block:'Block 1', text: stemText, textBold:false, items };
+}
+
+// General ID-table signal: a header row whose first cell is one or more
+// paragraphs each shaped like a question ID (Q1, Q1a, 12, etc.), paired
+// positionally with the same count of paragraphs in the next cell (its
+// wording) — the standard way a document expresses "ask this N different ways,
+// sharing one option list." N is usually 1; more than 1 falls out naturally,
+// not as a special case. An explicit last-column "CODE" header, if present,
+// supplies real recode values instead of positional numbering.
+function parseIdTable(tableEl){
+  const rows = Array.from(tableEl.querySelectorAll('tr'));
+  if(rows.length < 2) return null;
+  const headerCells = Array.from(rows[0].children);
+  if(headerCells.length < 2) return null;
+
+  const idRe = /^Q?\d+[a-zA-Z]?\.{0,2}$/;
+  const idParas = Array.from(headerCells[0].querySelectorAll('p')).map(p => p.textContent.trim()).filter(Boolean);
+  const idCandidates = idParas.length ? idParas : [headerCells[0].textContent.trim()];
+  if(!idCandidates.length || !idCandidates.every(t => idRe.test(t))) return null;
+
+  const textParas = Array.from(headerCells[1].querySelectorAll('p')).map(p => p.textContent.trim()).filter(Boolean);
+  const textCandidates = textParas.length ? textParas : [headerCells[1].textContent.trim()];
+  if(!textCandidates.length || !textCandidates[0]) return null;
+
+  const n = Math.min(idCandidates.length, textCandidates.length);
+  const lastHeaderText = headerCells[headerCells.length-1] ? headerCells[headerCells.length-1].textContent.trim() : '';
+  const useExplicitCode = /^code$/i.test(lastHeaderText);
+
+  const options = [];
+  rows.slice(1).forEach(r => {
+    const cells = Array.from(r.children).map(c => c.textContent.trim());
+    const text = cells[1] || cells[0];
+    if(!text) return;
+    options.push({ text, code: useExplicitCode ? cells[cells.length-1] : null });
+  });
+  if(options.length < 2) return null; // need at least 2 real options to be worth auto-building
+
+  const built = [];
+  for(let i = 0; i < n; i++){
+    const qType = detectQuestionType(textCandidates[i]);
+    const items = options.map((o, idx) => ({
+      id:'i'+(optIdSeq++), text:o.text, bold:false, role:'option',
+      recode: (o.code && /^\d+$/.test(o.code)) ? Number(o.code) : (idx+1)
+    }));
+    built.push({ id:'Q'+(qIdSeq++), type:qType, block:'Block 1', text:textCandidates[i], textBold:false, items });
+  }
+  return built;
+}
+
+// Generalizes the existing within-paragraph line-break split: if it already
+// yields a stem plus 2+ segments, that's a complete question, not just loose
+// Pool chunks needing manual reassembly — build it directly.
+function parseStructuralParagraph(el){
+  const segments = splitParagraphOnBreaks(el);
+  if(segments.length < 3) return null;
+  const [first, ...rest] = segments;
+  if(!first.text) return null;
+  const items = rest.map(seg => ({ id:'i'+(optIdSeq++), text:seg.text, bold:false, role:'option' }));
+  return { id:'Q'+(qIdSeq++), type: detectQuestionType(first.text), block:'Block 1', text:first.text, textBold:first.bold, items };
+}
+
+function autoAssembleFromDocument(htmlString){
+  const temp = document.createElement('div');
+  temp.innerHTML = htmlString;
+  const units = walkTopLevelUnits(temp);
+  let recentParaTexts = []; // last few plain-paragraph texts seen, most recent last
+  let i = 0;
+
+  // Drop any fully-empty placeholder question(s) — e.g. the starter card the
+  // app opens with — so a successful auto-assembly doesn't leave a blank card
+  // sitting above the real ones.
+  questions = questions.filter(q => q.text || q.items.length);
+
+  while(i < units.length){
+    const unit = units[i];
+
+    if(unit.type === 'table'){
+      const matrixQ = parseMatrixTable(unit.el, recentParaTexts);
+      if(matrixQ){ questions.push(matrixQ); recentParaTexts = []; i++; continue; }
+      const idQs = parseIdTable(unit.el);
+      if(idQs && idQs.length){ idQs.forEach(q => questions.push(q)); recentParaTexts = []; i++; continue; }
+      // not confidently recognized — dump every cell's text into Pool, nothing lost
+      Array.from(unit.el.querySelectorAll('td, th')).forEach(cell => {
+        const text = cleanPoolText(cell.textContent);
+        if(text) poolItems.push({ id:'p'+(poolIdSeq++), text, bold:false });
+      });
+      i++; continue;
+    }
+
+    if(unit.type === 'heading'){
+      recentParaTexts = [unit.el.textContent.trim()]; // a heading marks a new section — old paragraph context no longer applies
+      const text = cleanPoolText(unit.el.textContent);
+      if(text) poolItems.push({ id:'p'+(poolIdSeq++), text, bold:true });
+      i++; continue;
+    }
+
+    // para or li
+    const structuralQ = parseStructuralParagraph(unit.el);
+    if(structuralQ){ questions.push(structuralQ); recentParaTexts = []; i++; continue; }
+
+    const segments = splitParagraphOnBreaks(unit.el);
+    if(unit.type === 'para' && segments.length === 1 && segments[0].text){
+      // single-segment PARAGRAPH immediately followed by 2+ list items — the
+      // cross-element version of the same pattern (options as separate <li>
+      // siblings rather than <br>-joined within one paragraph). Deliberately
+      // paragraph-only: a standalone <li> must never claim its own sibling
+      // list items as "its" options, or an ordinary bullet list risks getting
+      // its first item misread as a question stem.
+      let j = i + 1, followingLis = [];
+      while(j < units.length && units[j].type === 'li'){ followingLis.push(units[j]); j++; }
+      if(followingLis.length >= 2){
+        const items = followingLis.map(u => {
+          const segs = splitParagraphOnBreaks(u.el);
+          return segs[0] ? { id:'i'+(optIdSeq++), text:segs[0].text, bold:false, role:'option' } : null;
+        }).filter(Boolean);
+        if(items.length >= 2){
+          questions.push({ id:'Q'+(qIdSeq++), type: detectQuestionType(segments[0].text), block:'Block 1', text:segments[0].text, textBold:segments[0].bold, items });
+          recentParaTexts = []; i = j; continue;
+        }
+      }
+
+      // Third shape: options as separate plain <p> paragraphs, not <br>-joined
+      // and not real <li> list items — just consecutive paragraphs each
+      // starting with a lettered marker (a) b) c)...). Extremely common in
+      // manually-typed quiz documents. The group ends at the first paragraph
+      // that ISN'T marker-shaped — commonly an "Answer: x" line, which is
+      // consumed as metadata rather than left as an orphan Pool chunk, or the
+      // next question, which naturally starts a new group instead.
+      if(!OPTION_MARKER_RE.test(segments[0].text)){
+        let k = i + 1, optionParas = [];
+        while(k < units.length && units[k].type === 'para'){
+          const segs2 = splitParagraphOnBreaks(units[k].el);
+          if(segs2.length === 1 && segs2[0].text && OPTION_MARKER_RE.test(segs2[0].text)){
+            optionParas.push(segs2[0].text);
+            k++;
+          } else break;
+        }
+        if(optionParas.length >= 2){
+          const items = optionParas.map(t => ({ id:'i'+(optIdSeq++), text: t.replace(OPTION_MARKER_RE,'').trim(), bold:false, role:'option' }));
+          const stemText = cleanPoolText(segments[0].text);
+          questions.push({ id:'Q'+(qIdSeq++), type: detectQuestionType(stemText), block:'Block 1', text: stemText, textBold: segments[0].bold, items });
+          // an immediately-following "Answer: x" line belongs to the question we
+          // just built, not left dangling as a loose Pool chunk of its own
+          if(k < units.length && units[k].type === 'para'){
+            const ansSegs = splitParagraphOnBreaks(units[k].el);
+            if(ansSegs.length === 1 && ANSWER_LINE_RE.test(ansSegs[0].text)) k++;
+          }
+          recentParaTexts = []; i = k; continue;
+        }
+      }
+    }
+
+    // nothing confidently assembled here — same fallback as before, loose Pool chunks.
+    // Keep a short rolling window (not just the single last paragraph) so a Matrix
+    // table further down can still find a "Response Scale:"-style definition even
+    // if another plain paragraph sits between it and the table.
+    if(unit.type === 'para'){
+      recentParaTexts.push(unit.el.textContent.trim());
+      if(recentParaTexts.length > 3) recentParaTexts.shift();
+    }
+    segments.forEach(seg => {
+      const text = cleanPoolText(seg.text);
+      if(text) poolItems.push({ id:'p'+(poolIdSeq++), text, bold:seg.bold });
+    });
+    i++;
+  }
+
+  renderPool();
+  renderQuestions();
+}
+
 // Whitespace cleanup (non-breaking spaces, doubled spaces) always runs — it's
-// uncontroversial. Serial-number stripping is separate and user-controlled: the
-// toolbar checkbox decides whether it runs automatically during parsing, and
-// it's also available on demand (per-selection, or "Clean all" for the whole
-// Pool) regardless of that toggle. The marker match requires a space or
-// end-of-string right after the "." or ")", specifically so a real decimal like
-// "3.14" is never mistaken for a "3." marker.
+// uncontroversial and applied after every clean pass to tidy up any doubled
+// spaces left behind by a removed match.
 function normalizeWhitespace(text){
   let t = text.replace(/\u00A0/g, ' ');
   return t.replace(/\s+/g, ' ').trim();
 }
-function stripSerialMarker(text){
-  return text.replace(/^\(?\s*(?:[Qq]\s*)?(?:\d+|[A-Za-z])\s*[\.\)](?:\s+|$)/, '').trim();
+
+// ---------- Clean criteria: user-configurable regex rules — same pattern as
+// Split rules, but each match gets REMOVED rather than used as a cut point.
+// Starts with the leading-serial-number rule pre-loaded (the marker match
+// requires a space or end-of-string right after the "." or ")", specifically
+// so a real decimal like "3.14" is never mistaken for a "3." marker) so
+// existing behavior keeps working out of the box. ----------
+let cleanRules = [
+  { id:'c1', label:'Leading serial number (1. a) Q1. etc.)', pattern:'^\\(?\\s*(?:[Qq]\\s*)?(?:\\d+|[A-Za-z])\\s*[\\.\\)](?:\\s+|$)', enabled:true }
+];
+let cleanRuleIdSeq = 2;
+
+function applyCleanRules(text){
+  let result = text;
+  cleanRules.filter(r => r.enabled && r.pattern).forEach(rule => {
+    let re;
+    try{ re = new RegExp(rule.pattern, 'g'); } catch(e){ return; } // invalid pattern — skip it, don't throw
+    result = result.replace(re, '');
+  });
+  return normalizeWhitespace(result);
 }
+
 function cleanPoolText(text){
-  return stripSerialMarker(normalizeWhitespace(text));
+  return applyCleanRules(normalizeWhitespace(text));
+}
+
+function toggleCleanRule(id, enabled){
+  const r = cleanRules.find(x => x.id === id);
+  if(r) r.enabled = enabled;
+}
+function updateCleanRuleLabel(id, val){
+  const r = cleanRules.find(x => x.id === id);
+  if(r) r.label = val;
+}
+function updateCleanRulePattern(id, val){
+  const r = cleanRules.find(x => x.id === id);
+  if(r) r.pattern = val;
+}
+function removeCleanRule(id){
+  cleanRules = cleanRules.filter(x => x.id !== id);
+  renderCleanRulesPanel();
+}
+function addCleanRule(){
+  const labelInput = document.getElementById('newCleanRuleLabel');
+  const patternInput = document.getElementById('newCleanRulePattern');
+  const label = labelInput.value.trim() || 'Custom rule';
+  const pattern = patternInput.value.trim();
+  if(!pattern) return;
+  try{ new RegExp(pattern); } catch(e){ alert('That regex pattern is invalid: ' + e.message); return; }
+  cleanRules.push({ id:'c'+(cleanRuleIdSeq++), label, pattern, enabled:true });
+  labelInput.value = ''; patternInput.value = '';
+  renderCleanRulesPanel();
+}
+function toggleCleanRulesPanel(){
+  const el = document.getElementById('cleanRulesPanel');
+  if(!el) return;
+  const show = el.style.display === 'none' || !el.style.display;
+  el.style.display = show ? 'block' : 'none';
+  if(show) renderCleanRulesPanel();
+}
+function renderCleanRulesPanel(){
+  const el = document.getElementById('cleanRulesPanel');
+  if(!el) return;
+  el.innerHTML = `
+    <div class="rules-panel-inner">
+      <div class="rules-title">Clean criteria — used by "Clean all", "Apply clean rules", and auto-clean-on-upload</div>
+      ${cleanRules.map(r => `
+        <div class="rule-row">
+          <div class="rule-row-top">
+            <input type="checkbox" ${r.enabled?'checked':''} onchange="toggleCleanRule('${r.id}', this.checked)" title="Enable this rule">
+            <input type="text" class="rule-label" value="${escapeHtml(r.label)}" onchange="updateCleanRuleLabel('${r.id}', this.value)" placeholder="Label">
+            <span class="rule-remove" onclick="removeCleanRule('${r.id}')" title="Remove this rule">✕</span>
+          </div>
+          <input type="text" class="rule-pattern" value="${escapeHtml(r.pattern)}" onchange="updateCleanRulePattern('${r.id}', this.value)" placeholder="Regex pattern">
+        </div>`).join('')}
+      <div class="rule-row rule-add-row">
+        <input type="text" id="newCleanRuleLabel" class="rule-label" placeholder="Label (e.g. Trailing page refs)">
+        <input type="text" id="newCleanRulePattern" class="rule-pattern" placeholder="Regex pattern, e.g. \\s*\\[p\\.\\d+\\]$">
+        <button class="small primary" onclick="addCleanRule()">+ Add rule</button>
+      </div>
+      <div class="hint">Every enabled pattern's matches are removed wherever they occur — not just at the start, unless your pattern begins with ^. Write patterns without surrounding slashes.</div>
+    </div>`;
 }
 
 function autoParseIntoPool(htmlString){
@@ -282,7 +715,7 @@ function autoParseIntoPool(htmlString){
   blocks.forEach(el => {
     splitParagraphOnBreaks(el).forEach(seg => {
       const normalized = normalizeWhitespace(seg.text);
-      const finalText = autoCleanNumbering ? stripSerialMarker(normalized) : normalized;
+      const finalText = autoCleanNumbering ? applyCleanRules(normalized) : normalized;
       if(finalText) poolItems.push({ id:'p'+(poolIdSeq++), text:finalText, bold:seg.bold });
     });
   });
@@ -293,19 +726,208 @@ function toggleAutoClean(checked){
   autoCleanNumbering = checked; // affects the NEXT upload/parse, not items already in the Pool
 }
 
+function toggleAutoAssemble(checked){
+  autoAssembleEnabled = checked; // affects the NEXT upload only
+}
+
 function cleanAllPoolItems(){
-  poolItems.forEach(it => { it.text = stripSerialMarker(it.text); });
+  poolItems.forEach(it => { it.text = applyCleanRules(it.text); });
   renderPool();
 }
 
 function removeSerialFromSelected(){
   if(!selectedPoolIds.size) return;
-  poolItems.forEach(it => { if(selectedPoolIds.has(it.id)) it.text = stripSerialMarker(it.text); });
+  poolItems.forEach(it => { if(selectedPoolIds.has(it.id)) it.text = applyCleanRules(it.text); });
   renderPool();
 }
 
 function removePoolItem(id){
   poolItems = poolItems.filter(i => i.id !== id);
+  selectedPoolIds.delete(id);
+  renderPool();
+}
+
+// ---------- Split criteria: user-configurable regex rules, not just the built-in
+// (a)/(b)/(c) marker pattern. Every enabled rule is tried against an item's text;
+// wherever ANY of them match becomes a cut point, matches from different rules
+// merge together and get sorted by position first. Starts with the option-marker
+// rule pre-loaded so existing behavior keeps working out of the box. ----------
+let splitRules = [
+  { id:'r1', label:'Option markers (a) (b) (c)…', pattern:'\\(?\\b[a-eA-E]\\)', enabled:true }
+];
+let ruleIdSeq = 2;
+
+function splitByRules(text){
+  const active = splitRules.filter(r => r.enabled && r.pattern);
+  if(!active.length) return null;
+
+  let matches = [];
+  active.forEach(rule => {
+    let re;
+    try{ re = new RegExp(rule.pattern, 'g'); } catch(e){ return; } // invalid pattern — skip it, don't throw
+    let m;
+    while((m = re.exec(text)) !== null){
+      matches.push({ start:m.index, end:re.lastIndex });
+      if(m[0].length === 0) re.lastIndex++; // guard against zero-length matches looping forever
+    }
+  });
+  if(!matches.length) return null;
+
+  matches.sort((a,b) => a.start - b.start);
+  const merged = [];
+  matches.forEach(m => {
+    const last = merged[merged.length - 1];
+    if(!last || m.start >= last.end) merged.push(m); // drop matches that overlap an earlier one
+  });
+
+  const parts = [];
+  let lastIndex = 0;
+  merged.forEach(m => {
+    const before = text.slice(lastIndex, m.start).trim();
+    if(before) parts.push(before);
+    lastIndex = m.end;
+  });
+  const rest = text.slice(lastIndex).trim();
+  if(rest) parts.push(rest);
+  return parts.length > 1 ? parts : null;
+}
+
+function toggleSplitRule(id, enabled){
+  const r = splitRules.find(x => x.id === id);
+  if(r) r.enabled = enabled;
+}
+function updateRuleLabel(id, val){
+  const r = splitRules.find(x => x.id === id);
+  if(r) r.label = val;
+}
+function updateRulePattern(id, val){
+  const r = splitRules.find(x => x.id === id);
+  if(r) r.pattern = val;
+}
+function removeSplitRule(id){
+  splitRules = splitRules.filter(x => x.id !== id);
+  renderSplitRulesPanel();
+}
+function addSplitRule(){
+  const labelInput = document.getElementById('newRuleLabel');
+  const patternInput = document.getElementById('newRulePattern');
+  const label = labelInput.value.trim() || 'Custom rule';
+  const pattern = patternInput.value.trim();
+  if(!pattern) return;
+  try{ new RegExp(pattern); } catch(e){ alert('That regex pattern is invalid: ' + e.message); return; }
+  splitRules.push({ id:'r'+(ruleIdSeq++), label, pattern, enabled:true });
+  labelInput.value = ''; patternInput.value = '';
+  renderSplitRulesPanel();
+}
+function toggleSplitRulesPanel(){
+  const el = document.getElementById('splitRulesPanel');
+  if(!el) return;
+  const show = el.style.display === 'none' || !el.style.display;
+  el.style.display = show ? 'block' : 'none';
+  if(show) renderSplitRulesPanel();
+}
+function renderSplitRulesPanel(){
+  const el = document.getElementById('splitRulesPanel');
+  if(!el) return;
+  el.innerHTML = `
+    <div class="rules-panel-inner">
+      <div class="rules-title">Split criteria — used by the scissors icon and "Split selected"</div>
+      ${splitRules.map(r => `
+        <div class="rule-row">
+          <div class="rule-row-top">
+            <input type="checkbox" ${r.enabled?'checked':''} onchange="toggleSplitRule('${r.id}', this.checked)" title="Enable this rule">
+            <input type="text" class="rule-label" value="${escapeHtml(r.label)}" onchange="updateRuleLabel('${r.id}', this.value)" placeholder="Label">
+            <span class="rule-remove" onclick="removeSplitRule('${r.id}')" title="Remove this rule">✕</span>
+          </div>
+          <input type="text" class="rule-pattern" value="${escapeHtml(r.pattern)}" onchange="updateRulePattern('${r.id}', this.value)" placeholder="Regex pattern">
+        </div>`).join('')}
+      <div class="rule-row rule-add-row">
+        <input type="text" id="newRuleLabel" class="rule-label" placeholder="Label (e.g. Numbered sub-items)">
+        <input type="text" id="newRulePattern" class="rule-pattern" placeholder="Regex pattern, e.g. \\d+\\)">
+        <button class="small primary" onclick="addSplitRule()">+ Add rule</button>
+      </div>
+      <div class="hint">Every enabled pattern runs against each item; wherever any of them match becomes a cut point (matches from different rules combine). Write patterns without surrounding slashes — the "g" flag is added automatically.</div>
+    </div>`;
+}
+
+function splitPoolItem(id){
+  const idx = poolItems.findIndex(i => i.id === id);
+  if(idx === -1) return;
+  const item = poolItems[idx];
+  const parts = splitByRules(item.text);
+  if(parts){
+    // one of your enabled rules matched — split immediately, no extra clicks
+    const newItems = parts.map(t => ({ id:'p'+(poolIdSeq++), text:t, bold:item.bold }));
+    poolItems.splice(idx, 1, ...newItems);
+    selectedPoolIds.delete(id);
+    renderPool();
+  } else {
+    // nothing matched — fall back to manual cursor-based control
+    enterCutMode(id);
+  }
+}
+
+function splitSelectedPoolItems(){
+  if(!selectedPoolIds.size) return;
+  const rebuilt = [];
+  poolItems.forEach(item => {
+    if(!selectedPoolIds.has(item.id)){ rebuilt.push(item); return; }
+    const parts = splitByRules(item.text);
+    if(parts) parts.forEach(t => rebuilt.push({ id:'p'+(poolIdSeq++), text:t, bold:item.bold }));
+    else rebuilt.push(item); // nothing matched — leave it exactly as it was
+  });
+  poolItems = rebuilt;
+  selectedPoolIds.clear();
+  renderPool();
+}
+
+function splitAllPoolItems(){
+  const rebuilt = [];
+  poolItems.forEach(item => {
+    const parts = splitByRules(item.text);
+    if(parts) parts.forEach(t => rebuilt.push({ id:'p'+(poolIdSeq++), text:t, bold:item.bold }));
+    else rebuilt.push(item); // nothing matched — leave it exactly as it was
+  });
+  poolItems = rebuilt;
+  renderPool();
+}
+
+// ---------- Manual, cursor-positioned cut — full control over exactly where an
+// item splits, not just at an auto-detected marker. Clicking the scissors turns
+// the item into a real text input; the browser handles cursor placement natively
+// when you click inside it, and "Cut here" reads that exact character position. ----------
+let cursorSplitItemId = null;
+
+function enterCutMode(id){
+  cursorSplitItemId = id;
+  renderPool();
+  const input = document.getElementById('cutInput_' + id);
+  if(input){ input.focus(); input.setSelectionRange(input.value.length, input.value.length); }
+}
+
+function exitCutMode(){
+  cursorSplitItemId = null;
+  renderPool();
+}
+
+function performCutAtCursor(id){
+  const input = document.getElementById('cutInput_' + id);
+  if(!input) return;
+  const pos = input.selectionStart;
+  const text = input.value;
+  const before = text.slice(0, pos).trim();
+  const after = text.slice(pos).trim();
+  const idx = poolItems.findIndex(i => i.id === id);
+  if(idx === -1) return;
+  const item = poolItems[idx];
+
+  const newItems = [];
+  if(before) newItems.push({ id:'p'+(poolIdSeq++), text:before, bold:item.bold });
+  if(after) newItems.push({ id:'p'+(poolIdSeq++), text:after, bold:item.bold });
+  if(!newItems.length) newItems.push({ ...item, text }); // cursor at an edge with nothing but whitespace on one side — keep the (possibly edited) text as one item rather than losing it
+
+  poolItems.splice(idx, 1, ...newItems);
+  cursorSplitItemId = null;
   selectedPoolIds.delete(id);
   renderPool();
 }
@@ -317,20 +939,37 @@ function renderPool(){
     <div class="pool-bulkbar">
       <strong>${selectedPoolIds.size} selected</strong>
       <span class="spacer"></span>
-      <button onclick="removeSerialFromSelected()">Remove serial #</button>
+      <button onclick="splitSelectedPoolItems()" title="Split every selected item that has inline (a)/(b)/(c) markers into separate items — for cleaning many at once">Split selected</button>
+      <button onclick="removeSerialFromSelected()">Apply clean rules</button>
       <button onclick="clearPoolSelection()">Clear</button>
       <button class="danger" onclick="removeSelectedPoolItems()">Discard selected</button>
     </div>` : '';
   list.innerHTML = bulkBar + (poolItems.length
-    ? poolItems.map(it => `
+    ? poolItems.map(it => {
+        if(cursorSplitItemId === it.id){
+          return `
+          <div class="pool-item cut-mode" data-id="${it.id}">
+            <input type="text" id="cutInput_${it.id}" value="${escapeHtml(it.text)}"
+                   onkeydown="if(event.key==='Enter'){performCutAtCursor('${it.id}');} if(event.key==='Escape'){exitCutMode();}">
+            <div class="cut-controls">
+              <span class="cut-hint">Click in the text above to place your cursor, then:</span>
+              <span class="spacer"></span>
+              <button class="cut-cancel" onclick="exitCutMode()">Cancel</button>
+              <button class="cut-confirm" onclick="performCutAtCursor('${it.id}')">Cut here</button>
+            </div>
+          </div>`;
+        }
+        return `
         <div class="pool-item ${it.bold?'is-bold':''} ${selectedPoolIds.has(it.id)?'selected':''}" draggable="true" data-id="${it.id}"
              ondragstart="poolDragStart(event,'${it.id}')" ondragend="poolDragEnd(event)">
           <span class="pool-selbox" draggable="false" onclick="event.stopPropagation()"
                 onmousedown="startPaintSelect(event,'${it.id}')" onmouseenter="paintOverItem(event,'${it.id}')"></span>
           ${it.bold ? '<span class="bold-badge" title="Bold in the source document — likely a question stem">Q?</span>' : ''}
           ${escapeHtml(it.text)}
+          <span class="split-btn" onclick="event.stopPropagation(); splitPoolItem('${it.id}')" title="Splits instantly if a split rule matches, otherwise lets you pick where">✂</span>
           <span class="rm" onclick="removePoolItem('${it.id}')" title="Discard">✕</span>
-        </div>`).join('')
+        </div>`;
+      }).join('')
     : '<div class="empty">Nothing left in the pool — everything has been assigned to a question.</div>');
 }
 
@@ -531,8 +1170,9 @@ const QUESTION_TYPES = [
 const TYPES_WITH_OPTIONS = new Set(['MC:SingleAnswer','MC:SingleAnswer:Horizontal','MC:MultipleAnswer','MC:MultipleAnswer:Horizontal','TE:Form','RankOrder','ConstantSum']);
 
 function itemRowHtml(q, item, idx, chipClass){
+  const recodeDisplay = item.recode != null ? item.recode : idx+1; // show the REAL export value, not just position, when an explicit code was captured (e.g. from a document's own CODE column)
   return `<div class="q-opt" data-item-id="${item.id}" draggable="true" ondragstart="questionItemDragStart(event,'${q.id}','${item.id}')" ondragend="questionDragEnd()">
-    <span class="recode-chip ${chipClass||''}">${idx+1}</span>${escapeHtml(item.text)}
+    <span class="recode-chip ${chipClass||''}">${recodeDisplay}</span>${escapeHtml(item.text)}
     <span class="rm" onclick="removeQuestionItem('${q.id}','${item.id}')" title="Send back to Pool">✕</span>
   </div>`;
 }
@@ -612,8 +1252,8 @@ function buildRows7(){
         return;
       }
       let first = true;
-      stmts.forEach((s, idx) => { rows.push([block, q.id, first ? q.text : '', 'Matrix', s.text, idx+1, 'Statement']); first = false; });
-      scale.forEach((s, idx) => { rows.push([block, q.id, '', 'Matrix', s.text, idx+1, 'Scale Point']); });
+      stmts.forEach((s, idx) => { rows.push([block, q.id, first ? q.text : '', 'Matrix', s.text, (s.recode != null ? s.recode : idx+1), 'Statement']); first = false; });
+      scale.forEach((s, idx) => { rows.push([block, q.id, '', 'Matrix', s.text, (s.recode != null ? s.recode : idx+1), 'Scale Point']); });
       return;
     }
     if(q.type === 'TE:SingleLine' || q.type === 'TE:Essay'){
@@ -629,7 +1269,7 @@ function buildRows7(){
     }
     let first = true;
     opts.forEach((o, idx) => {
-      rows.push([block, q.id, first ? q.text : '', first ? q.type : '', o.text, isForm ? '' : idx+1, '']);
+      rows.push([block, q.id, first ? q.text : '', first ? q.type : '', o.text, isForm ? '' : (o.recode != null ? o.recode : idx+1), '']);
       first = false;
     });
   });
