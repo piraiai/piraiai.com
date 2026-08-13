@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Tools for Canadian Graduate Students: REB, Qualtrics, and REDCap - Pirai AI Blog</title>
+    <meta name="description" content="Practical guide for Canadian MA, MSc, and PhD students choosing and setting up survey platforms. REB approval under TCPS 2, institutional Qualtrics access, CIHR health data requirements, and how Pirai AI builds your dissertation survey.">
+    <meta name="keywords" content="survey tools graduate students canada, canada phd survey platform, qualtrics canada graduate student, survey tool canada masters phd, reb approval survey canada, graduate dissertation survey canada, canadian university survey tool students">
+    <meta property="og:type" content="article"><meta property="og:url" content="https://piraiai.com/blog/survey-tools-canadian-graduate-students">
+    <meta property="og:title" content="Survey Tools for Canadian Graduate Students: REB, Qualtrics, and REDCap"><meta property="og:description" content="Practical guide for Canadian MA, MSc, and PhD students choosing and setting up survey platforms. REB approval under TCPS 2, institutional Qualtrics access, CIHR health data requirements, and how Pirai AI builds your dissertation survey.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="article:published_time" content="2026-08-05T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta property="article:section" content="Guide">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Survey Tools for Canadian Graduate Students: REB, Qualtrics, and REDCap"><meta name="twitter:description" content="Practical guide for Canadian MA, MSc, and PhD students choosing and setting up survey platforms. REB approval under TCPS 2, institutional Qualtrics access, CIHR health data requirements, and how Pirai AI builds your dissertation survey.">
+    <link rel="canonical" href="https://piraiai.com/blog/survey-tools-canadian-graduate-students"><link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Survey Tools for Canadian Graduate Students: REB, Qualtrics, and REDCap","description":"Practical guide for Canadian MA, MSc, and PhD students choosing and setting up survey platforms. REB approval under TCPS 2, institutional Qualtrics access, CIHR health data requirements, and how Pirai AI builds your dissertation survey.","author":{"@type":"Person","name":"Arun Raj"},"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},"datePublished":"2026-08-05","url":"https://piraiai.com/blog/survey-tools-canadian-graduate-students"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do Canadian graduate students need REB approval for surveys?","acceptedAnswer":{"@type":"Answer","text":"Yes. All research involving human participants at Canadian universities requires REB (Research Ethics Board) approval under TCPS 2 before data collection. Contact your supervisor and your institution's Research Ethics Office to begin the REB application process. Many universities have expedited review for minimal-risk surveys."}},{"@type":"Question","name":"How do Canadian graduate students access Qualtrics?","acceptedAnswer":{"@type":"Answer","text":"Access Qualtrics via institutional SSO at [youruni].qualtrics.com. If survey creation rights are not granted automatically, contact your library or IT services. Some institutions require your supervisor to submit an access request. Allow a few business days for provisioning."}},{"@type":"Question","name":"Should a Canadian PhD student use Qualtrics or REDCap?","acceptedAnswer":{"@type":"Answer","text":"Use Qualtrics for social science, psychology, education, and humanities surveys. Use REDCap if your research involves sensitive health information, your REB protocol specifies institutional data management, or if you are conducting CIHR-funded clinical research. REDCap access at Canadian institutions is typically tied to an approved REB project."}},{"@type":"Question","name":"How quickly can I build my dissertation survey after REB approval?","acceptedAnswer":{"@type":"Answer","text":"With Pirai AI, under 15 minutes. Upload your REC-approved Word instrument, select Qualtrics or REDCap, download the output file, and import it into the platform. The full manual build of the same instrument takes 4-6 hours  -  the time saved is significant when you are working toward thesis completion deadlines."}}]}</script>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.6; color: #1a1a1a; background: #ffffff; }
+        header { background: #ffffff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; margin-left: 32px; transition: color 0.2s; }
+        header nav a:hover { color: #9B6BFF; }
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+        .content-wrapper { max-width: 1200px; margin: 48px auto; padding: 0 24px 80px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+        .article-content { max-width: 680px; overflow-x: hidden; }
+        .article-content p { font-size: 18px; color: #374151; margin-bottom: 24px; line-height: 1.7; }
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 600; color: #1a1a1a; margin-top: 32px; margin-bottom: 12px; }
+        .article-content a { color: #9B6BFF; text-decoration: none; border-bottom: 1px solid rgba(155,107,255,0.3); transition: all 0.2s; }
+        .article-content a:hover { border-bottom-color: #9B6BFF; }
+        .article-content ul, .article-content ol { margin-bottom: 24px; padding-left: 24px; }
+        .article-content li { font-size: 18px; color: #374151; margin-bottom: 10px; line-height: 1.7; }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+        .article-content code { background: #f3f4f6; padding: 2px 7px; border-radius: 4px; font-size: 13px; color: #7c3aed; font-family: monospace; }
+        .definition-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 28px; margin: 32px 0; border-radius: 4px; }
+        .definition-box .def-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9B6BFF; margin-bottom: 12px; display: block; }
+        .definition-box p { font-size: 17px; color: #1a1a1a; margin-bottom: 0; font-style: italic; line-height: 1.7; }
+        .related-terms { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 32px 0; }
+        .related-terms h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+        .related-terms ul { padding-left: 0; list-style: none; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+        .related-terms li { margin: 0; }
+        .related-terms a { display: inline-block; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 6px; padding: 6px 14px; font-size: 14px; color: #374151; text-decoration: none; border-bottom: none; transition: all 0.2s; }
+        .related-terms a:hover { border-color: #9B6BFF; color: #9B6BFF; border-bottom: none; }
+        .article-cta { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 36px 40px; border-radius: 12px; margin: 48px 0 32px; text-align: center; }
+        .article-cta h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 10px; }
+        .article-cta p { font-size: 16px; color: #ffffff; opacity: 0.95; margin-bottom: 20px; }
+        .article-cta a { border-bottom: none !important; }
+        .cta-btn-white { display: inline-block; background: #ffffff; color: #9B6BFF !important; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-btn-white:hover { transform: translateY(-2px); }
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a1a1a; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 8px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; transition: color 0.2s; border-bottom: none; display: block; }
+        .toc-list a:hover { color: #9B6BFF; }
+        .toc-list a.active { color: #9B6BFF; font-weight: 600; }
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 32px; border-radius: 8px; text-align: center; color: #ffffff; margin-bottom: 24px; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .cta-box p { font-size: 14px; margin-bottom: 20px; opacity: 0.95; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 15px; transition: transform 0.2s; border-bottom: none !important; }
+        .cta-button:hover { transform: translateY(-2px); }
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; border-bottom: none; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
+        .related-card .card-tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #9B6BFF; margin-bottom: 8px; display: block; }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
+        .related-card p { font-size: 14px; color: #6b7280; margin: 0; }
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+        @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } .article-title { font-size: 32px; } .related-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 640px) { header nav { display: none; } .article-title { font-size: 28px; } .article-cta { padding: 24px; } .article-content { overflow-x: hidden; } }
+        .accordion-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .accordion-header { padding: 18px 24px; background: #f9fafb; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: #1a1a1a; user-select: none; }
+        .accordion-header:hover { background: #f3f4f6; }
+        .accordion-icon { color: #9B6BFF; font-size: 22px; flex-shrink: 0; }
+        .accordion-body { padding: 0 24px; max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s ease; }
+        .accordion-body.open { max-height: 400px; padding: 20px 24px 24px; }
+        .accordion-body p { font-size: 16px; color: #374151; margin-bottom: 8px; }
+        .accordion-body p:last-child { margin-bottom: 0; }
+        /* Hub/ICP page components */
+        .tldr-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 24px 28px; margin: 0 0 32px; border-radius: 4px; }
+        .tldr-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9B6BFF; margin-bottom: 8px; display: block; }
+        .tldr-box p { font-size: 17px; color: #1a1a1a; margin: 0; line-height: 1.7; font-style: italic; }
+        .platform-grid { display: flex; flex-wrap: wrap; gap: 10px; margin: 24px 0; }
+        .platform-pill { display: inline-flex; align-items: center; gap: 8px; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 8px 14px; font-size: 14px; font-weight: 600; color: #374151; text-decoration: none; transition: all 0.2s; border-bottom: none; }
+        .platform-pill:hover { border-color: #9B6BFF; color: #7c3aed; background: #f5f3ff; }
+        .platform-pill.featured { border-color: #ddd6fe; background: #f5f3ff; color: #7c3aed; }
+        .workflow-steps { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 24px 0; }
+        .workflow-step { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; text-align: center; }
+        .workflow-step .ws-num { width: 40px; height: 40px; border-radius: 50%; background: #9B6BFF; color: #fff; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
+        .workflow-step h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+        .workflow-step p { font-size: 13px; color: #6b7280; margin: 0; line-height: 1.5; }
+        .link-section { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin: 24px 0; }
+        .link-section h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; }
+        .link-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .link-grid a { color: #7c3aed; text-decoration: none; font-size: 14px; font-weight: 500; border-bottom: none; }
+        .link-grid a:hover { text-decoration: underline; }
+        .use-case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+        .use-case-card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 18px; }
+        .use-case-card h4 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+        .use-case-card p { font-size: 13px; color: #6b7280; margin: 0; line-height: 1.5; }
+        .step-grid { display: flex; flex-direction: column; gap: 0; margin: 24px 0; }
+        .step-box { display: flex; gap: 18px; align-items: flex-start; padding: 20px 0; border-bottom: 1px solid #f3f4f6; }
+        .step-box:last-child { border-bottom: none; }
+        .step-num { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: #9B6BFF; color: #ffffff; font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+        .step-content h4 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 700; color: #1a1a1a; margin-bottom: 5px; }
+        .step-content p { font-size: 15px; color: #374151; margin: 0; line-height: 1.6; }
+        .step-content code { background: #f3f4f6; padding: 2px 7px; border-radius: 4px; font-size: 13px; color: #7c3aed; font-family: monospace; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; border-radius: 8px; overflow: hidden; border: 1px solid #e5e7eb; }
+        .comparison-table th { padding: 12px 16px; text-align: left; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; background: #f9fafb; color: #6b7280; border-bottom: 2px solid #e5e7eb; }
+        .comparison-table th.pirai { background: #f5f3ff; color: #7c3aed; }
+        .comparison-table td { padding: 11px 16px; border-bottom: 1px solid #f3f4f6; color: #374151; }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table td:first-child { font-weight: 600; color: #1a1a1a; }
+        .comparison-table td.pirai { background: #fdf9ff; }
+        .check { color: #16a34a; font-weight: 700; }
+        .cross { color: #dc2626; font-weight: 700; }
+        .partial { color: #d97706; }
+        @media (max-width: 640px) { .workflow-steps { grid-template-columns: 1fr; } .link-grid { grid-template-columns: 1fr; } .use-case-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <header><div class="header-container">
+        <a href="/" class="logo"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span></a>
+        <nav><a href="/">Home</a><a href="/blog">All Articles</a><a href="/docs">Documentation</a><a href="/#demo">Get Demo</a></nav>
+    </div></header>
+    <div class="breadcrumb"><div class="breadcrumb-container">
+        <a href="/">Home</a><span class="breadcrumb-separator">›</span>
+        <a href="/blog">Blog</a><span class="breadcrumb-separator">›</span>
+        <a href="/blog?category=guide">Guide</a><span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">Survey Tools for Canadian Graduate Students: REB, Qualtrics, and REDCap</span>
+    </div></div>
+    <div class="hero"><div class="hero-container">
+        <h1 class="article-title">Survey Tools for Canadian Graduate Students: REB, Qualtrics, and REDCap</h1>
+        <div class="article-meta"><span class="author">Arun Raj</span><span class="separator">•</span><span>August 05, 2026</span><span class="separator">•</span><span>5 min read</span><span class="separator">•</span><span style="background:#e5e7eb;color:#374151;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:600;">Guide</span></div>
+    </div></div>
+    <div class="content-wrapper">
+        <article class="article-content">
+
+            <div class="definition-box"><span class="def-label">For Canadian Graduate Students</span>
+            <p>Canadian MA, MSc, and PhD students conducting survey research must obtain REB (Research Ethics Board) approval under TCPS 2 before collecting any data. Most Canadian universities provide institutional Qualtrics access and, for health research, REDCap. Building your survey instrument efficiently after REB approval is where Pirai AI saves the most time  -  converting your approved Word instrument to the target platform in minutes rather than hours.</p></div>
+
+            <h2 id="reb-approval">REB Approval Under TCPS 2</h2>
+            <p>All research involving human participants at Canadian universities requires REB approval under TCPS 2 (Tri-Council Policy Statement: Ethical Conduct for Research Involving Humans, 2nd edition). Your REB application must describe:</p>
+            <ul>
+            <li>The survey platform you intend to use and where data will be stored</li>
+            <li>Whether data storage is in Canada or the US (PIPEDA cross-border disclosure)</li>
+            <li>How long data will be retained and how it will be destroyed</li>
+            <li>Whether surveys are anonymous or linked to participant identity</li>
+            </ul>
+            <p>Institutional Qualtrics (US cloud with institutional DPA) and institutional REDCap (Canadian servers) are both well-understood by Canadian REBs. Using a personal Google account for research collecting identifiable information requires more detailed justification.</p>
+
+            <h2 id="accessing-platforms">Accessing Survey Platforms as a Graduate Student</h2>
+            <p><strong>Qualtrics:</strong> Access via institutional SSO. At most Canadian universities, graduate students log in directly at [youruni].qualtrics.com. Some institutions require your supervisor to request survey creation rights. Contact your library, IT services, or research computing team. <strong>REDCap:</strong> Access is typically tied to an approved REB project at Canadian institutions. Contact your supervisor or the institution's clinical research unit. Access requests at CIHR-funded institutions often require your ethics approval letter.</p>
+
+            <h2 id="platform-choice">Which Platform for Your Dissertation</h2>
+            <table class="comparison-table">
+            <thead><tr><th>Your Study Type</th><th class="pirai">Recommended Platform</th></tr></thead>
+            <tbody>
+            <tr><td>Social science, education, psychology survey</td><td class="pirai">Qualtrics via institutional licence</td></tr>
+            <tr><td>Health, clinical, or sensitive data</td><td class="pirai">REDCap  -  confirm with supervisor and REB</td></tr>
+            <tr><td>Low-risk anonymous pilot, no PII</td><td class="pirai">Google Forms (fast, no cost)</td></tr>
+            <tr><td>Research with Indigenous communities (OCAP)</td><td class="pirai">Discuss with community partners  -  self-hosted preferred</td></tr>
+            <tr><td>Quebec study under Law 25</td><td class="pirai">Platform with Canadian data residency or full PIPEDA disclosure</td></tr>
+            </tbody></table>
+
+            <h2 id="building-survey">Building Your Survey Instrument After REB Approval</h2>
+            <p>Most Canadian graduate students write their survey instrument in Word for supervisor review and REB submission. After approval, manually building a 40-item validated scale in Qualtrics takes 4-6 hours and risks transcription errors that alter item wording  -  a serious problem for validated instruments where exact wording is required for psychometric validity.</p>
+            <p>Pirai AI converts your REB-approved Word instrument to Qualtrics QSF or REDCap Data Dictionary CSV in under 15 minutes. Upload at platform.piraiai.com, select your platform, download and import. The verbatim item wording from your REB-approved document is preserved in every question field  -  important for demonstrating fidelity to the approved protocol.</p>
+            <h2 id="faq">Frequently Asked Questions</h2>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Do Canadian graduate students need REB approval for surveys?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Yes. All research involving human participants at Canadian universities requires REB (Research Ethics Board) approval under TCPS 2 before data collection. Contact your supervisor and your institution's Research Ethics Office to begin the REB application process. Many universities have expedited review for minimal-risk surveys.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How do Canadian graduate students access Qualtrics?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Access Qualtrics via institutional SSO at [youruni].qualtrics.com. If survey creation rights are not granted automatically, contact your library or IT services. Some institutions require your supervisor to submit an access request. Allow a few business days for provisioning.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">Should a Canadian PhD student use Qualtrics or REDCap?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>Use Qualtrics for social science, psychology, education, and humanities surveys. Use REDCap if your research involves sensitive health information, your REB protocol specifies institutional data management, or if you are conducting CIHR-funded clinical research. REDCap access at Canadian institutions is typically tied to an approved REB project.</p></div>
+            </div>
+            <div class="accordion-section">
+                <div class="accordion-header" onclick="toggleAccordion(this)">How quickly can I build my dissertation survey after REB approval?<span class="accordion-icon">+</span></div>
+                <div class="accordion-body"><p>With Pirai AI, under 15 minutes. Upload your REC-approved Word instrument, select Qualtrics or REDCap, download the output file, and import it into the platform. The full manual build of the same instrument takes 4-6 hours  -  the time saved is significant when you are working toward thesis completion deadlines.</p></div>
+            </div>
+
+            <div class="article-cta">
+                <h3>Build Your Canadian Dissertation Survey in Minutes</h3>
+                <p>Upload your REB-approved Word instrument. Pirai AI converts to Qualtrics QSF or REDCap Data Dictionary CSV. Verbatim wording preserved. Free for Canadian graduate students.</p>
+                <a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Start Converting Free</a>
+            </div>
+        </article>
+        <aside class="sidebar">
+            <div class="cta-box"><h3>Try Pirai AI Free</h3><p>Convert any survey document to 27+ platforms in minutes.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-button">Start Free</a></div>
+            <div class="sidebar-section"><h3>Quick Links</h3><ul class="toc-list">
+                    <li><a href="/blog/best-survey-tools-for-canadian-researchers">Survey Tools for Canadian Researchers</a></li>
+                    <li><a href="/blog/qualtrics-canadian-universities-guide">Qualtrics at Canadian Universities</a></li>
+                    <li><a href="/blog/redcap-canada-cihr-research">REDCap in Canada</a></li>
+                    <li><a href="/blog/tcps2-reb-survey-platform-guide">TCPS 2 and REB Guide</a></li>
+                    <li><a href="/blog/pirai-ai-for-canadian-researchers">Pirai AI for Canadian Researchers</a></li>
+            </ul></div>
+        </aside>
+    </div>
+    <section class="related-articles"><h2>Related Articles</h2><div class="related-grid">
+            <a href="/blog/best-survey-tools-for-canadian-researchers" class="related-card"><span class="card-tag">Guide</span><h3>Best Survey Tools for Canadian Researchers</h3><p>Full platform comparison for all Canadian university research contexts.</p></a>
+            <a href="/blog/qualtrics-canadian-universities-guide" class="related-card"><span class="card-tag">Guide</span><h3>Qualtrics at Canadian Universities</h3><p>Accessing Qualtrics via institutional SSO and PIPEDA considerations.</p></a>
+            <a href="/blog/tcps2-reb-survey-platform-guide" class="related-card"><span class="card-tag">Guide</span><h3>TCPS 2 and REB Survey Platform Guide</h3><p>Choosing the right platform for Tri-Council funded Canadian research.</p></a>
+    </div></section>
+    <footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
+    <script>
+        function toggleAccordion(header) {
+            const body = header.nextElementSibling;
+            const icon = header.querySelector('.accordion-icon');
+            const isOpen = body.classList.contains('open');
+            document.querySelectorAll('.accordion-body.open').forEach(b => {
+                b.classList.remove('open');
+                b.previousElementSibling.querySelector('.accordion-icon').textContent = '+';
+            });
+            if (!isOpen) { body.classList.add('open'); icon.textContent = '-'; }
+        }
+        const tocLinks = document.querySelectorAll('.toc-list a');
+        const sections = document.querySelectorAll('h2[id]');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    const active = document.querySelector('.toc-list a[href="#' + entry.target.id + '"]');
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        sections.forEach(s => observer.observe(s));
+    </script>
+</body></html>
