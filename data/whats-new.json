@@ -7,38 +7,38 @@
       "entries": [
         {
           "tag": "NEW",
-          "title": "Migration — Survey Migration",
-          "desc": "Copy surveys between Qualtrics instances. Select multiple surveys, migrate in one click, and download a full ID mapping report."
+          "title": "Survey Migration",
+          "desc": "Copy surveys between Qualtrics instances. Pick multiple surveys, migrate in one click, get a full ID mapping report."
         },
         {
           "tag": "NEW",
-          "title": "Migration — Library Message Migration",
-          "desc": "Migrate library messages across instances. Auto-detects available libraries — no manual ID entry needed. Filter by category before migrating."
+          "title": "Library Message Migration",
+          "desc": "Move library messages across instances. Libraries are loaded automatically so you never need to look up an ID manually."
         },
         {
           "tag": "NEW",
           "title": "Data Preparation Tools",
-          "desc": "Four native tools: CSV Comparator (with Qualtrics SDS validation), CSV Data Prep (clean, transform, split), CSV Merger, and Excel Merger — all client-side, no file uploads."
+          "desc": "Four tools built into the toolkit: CSV Comparator with Qualtrics SDS validation, CSV Data Prep for cleaning and splitting, CSV Merger, and Excel Merger. All processing stays in the browser."
         },
         {
           "tag": "NEW",
-          "title": "Ticketing — Get Ticket Statuses",
-          "desc": "Retrieve all configured ticket statuses for your brand. Requires Closed Loop Follow Up subscription."
+          "title": "Get Ticket Statuses",
+          "desc": "Pull all configured ticket statuses for your brand in one request. Requires the Closed Loop Follow Up subscription."
         },
         {
           "tag": "IMPROVED",
-          "title": "Professional Result UI",
-          "desc": "Bulk operation results now render as structured cards with stats, per-row status, and a Download Report button."
+          "title": "Result Cards",
+          "desc": "Bulk operation results now show as structured cards with a stats summary, per-row status, and a Download Report button."
         },
         {
           "tag": "IMPROVED",
           "title": "Help Panel",
-          "desc": "Slide-in help panel replaces the sidebar card — more space, collapsible sections, quick links to API docs and Pirai AI tools."
+          "desc": "The sidebar help card has moved to a slide-in panel with more room, collapsible sections, and links to API docs and Pirai AI tools."
         },
         {
           "tag": "IMPROVED",
-          "title": "Rate Limiting — Ticket Updates",
-          "desc": "Ticket update endpoints now batch at 45 requests with automatic 61-second pauses to stay within Qualtrics rate limits."
+          "title": "Ticket Update Rate Limiting",
+          "desc": "Ticket updates now batch at 45 requests and pause automatically for 61 seconds before continuing, keeping you within Qualtrics limits."
         }
       ]
     },
@@ -49,23 +49,23 @@
       "entries": [
         {
           "tag": "NEW",
-          "title": "Update Ticket & Ticket Additional Data",
-          "desc": "Bulk update ticket fields and custom data from CSV."
+          "title": "Update Ticket and Additional Data",
+          "desc": "Bulk update ticket fields and custom data fields from a CSV file."
         },
         {
           "tag": "NEW",
           "title": "Upload Automation File",
-          "desc": "Upload files to Qualtrics automation workflows up to 500MB."
+          "desc": "Upload files directly into Qualtrics automation workflows, up to 500 MB."
         },
         {
           "tag": "NEW",
           "title": "Insert Embedded Data Fields",
-          "desc": "Add embedded data fields to surveys in bulk from CSV."
+          "desc": "Add embedded data fields to any survey in bulk using a CSV."
         },
         {
           "tag": "IMPROVED",
-          "title": "Pirai AI Design System",
-          "desc": "Full UI refresh — white surfaces, blue-to-purple gradient accent, Inter font."
+          "title": "UI Refresh",
+          "desc": "New design using the Pirai AI identity: white surfaces, blue to purple gradient, Inter typeface."
         }
       ]
     },
@@ -77,17 +77,17 @@
         {
           "tag": "NEW",
           "title": "Get Survey",
-          "desc": "Retrieve full survey definition by survey ID."
+          "desc": "Pull the full survey definition for any survey by ID."
         },
         {
           "tag": "NEW",
           "title": "Bulk Update Responses",
-          "desc": "Update embedded data across multiple responses from CSV."
+          "desc": "Update embedded data across multiple responses at once from a CSV file."
         },
         {
           "tag": "NEW",
           "title": "Update Progress",
-          "desc": "Track the status of bulk response update jobs."
+          "desc": "Check the status of a running bulk response update job."
         }
       ]
     }
