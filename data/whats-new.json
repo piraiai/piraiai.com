@@ -1,0 +1,95 @@
+{
+  "versions": [
+    {
+      "version": "1.2.0",
+      "date": "Aug 2026",
+      "latest": true,
+      "entries": [
+        {
+          "tag": "NEW",
+          "title": "Migration — Survey Migration",
+          "desc": "Copy surveys between Qualtrics instances. Select multiple surveys, migrate in one click, and download a full ID mapping report."
+        },
+        {
+          "tag": "NEW",
+          "title": "Migration — Library Message Migration",
+          "desc": "Migrate library messages across instances. Auto-detects available libraries — no manual ID entry needed. Filter by category before migrating."
+        },
+        {
+          "tag": "NEW",
+          "title": "Data Preparation Tools",
+          "desc": "Four native tools: CSV Comparator (with Qualtrics SDS validation), CSV Data Prep (clean, transform, split), CSV Merger, and Excel Merger — all client-side, no file uploads."
+        },
+        {
+          "tag": "NEW",
+          "title": "Ticketing — Get Ticket Statuses",
+          "desc": "Retrieve all configured ticket statuses for your brand. Requires Closed Loop Follow Up subscription."
+        },
+        {
+          "tag": "IMPROVED",
+          "title": "Professional Result UI",
+          "desc": "Bulk operation results now render as structured cards with stats, per-row status, and a Download Report button."
+        },
+        {
+          "tag": "IMPROVED",
+          "title": "Help Panel",
+          "desc": "Slide-in help panel replaces the sidebar card — more space, collapsible sections, quick links to API docs and Pirai AI tools."
+        },
+        {
+          "tag": "IMPROVED",
+          "title": "Rate Limiting — Ticket Updates",
+          "desc": "Ticket update endpoints now batch at 45 requests with automatic 61-second pauses to stay within Qualtrics rate limits."
+        }
+      ]
+    },
+    {
+      "version": "1.1.0",
+      "date": "Earlier",
+      "latest": false,
+      "entries": [
+        {
+          "tag": "NEW",
+          "title": "Update Ticket & Ticket Additional Data",
+          "desc": "Bulk update ticket fields and custom data from CSV."
+        },
+        {
+          "tag": "NEW",
+          "title": "Upload Automation File",
+          "desc": "Upload files to Qualtrics automation workflows up to 500MB."
+        },
+        {
+          "tag": "NEW",
+          "title": "Insert Embedded Data Fields",
+          "desc": "Add embedded data fields to surveys in bulk from CSV."
+        },
+        {
+          "tag": "IMPROVED",
+          "title": "Pirai AI Design System",
+          "desc": "Full UI refresh — white surfaces, blue-to-purple gradient accent, Inter font."
+        }
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "date": "Initial release",
+      "latest": false,
+      "entries": [
+        {
+          "tag": "NEW",
+          "title": "Get Survey",
+          "desc": "Retrieve full survey definition by survey ID."
+        },
+        {
+          "tag": "NEW",
+          "title": "Bulk Update Responses",
+          "desc": "Update embedded data across multiple responses from CSV."
+        },
+        {
+          "tag": "NEW",
+          "title": "Update Progress",
+          "desc": "Track the status of bulk response update jobs."
+        }
+      ]
+    }
+  ]
+}
