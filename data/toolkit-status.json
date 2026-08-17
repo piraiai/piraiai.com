@@ -1,0 +1,25 @@
+{
+  "banners": [
+    {
+      "type": "promo",
+      "message": "Pirai AI Flow launches this month — build Qualtrics dashboard widgets by conversation.",
+      "link": {
+        "label": "Request Early Access",
+        "url": "https://piraiai.com/flow"
+      }
+    },
+    {
+      "type": "info",
+      "message": "New in v1.2.0: Migrate surveys and library messages between Qualtrics instances.",
+      "link": {
+        "label": "See Migration Tools",
+        "url": null
+      }
+    },
+    {
+      "type": "success",
+      "message": "CSV Data Prep: clean contact lists, split into batches, and sample rows — all client-side.",
+      "link": null
+    }
+  ]
+}
