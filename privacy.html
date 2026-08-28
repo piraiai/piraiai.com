@@ -546,6 +546,49 @@
                 <p>Chat session history is stored on our backend for your convenience and is associated with your authenticated account. You may start a new session at any time. Authentication tokens stored locally are cleared when you log out of the extension.</p>
                 <!-- End Section 1.5 -->
 
+                <!-- Section 1.6 — Qualtrics API Toolkit Chrome Extension -->
+                <h2 id="qualtrics-api-toolkit">1.6 Qualtrics API Toolkit — Chrome Extension</h2>
+                <p>The Qualtrics API Toolkit is a free Chrome extension built for Qualtrics power users. It provides a no-code interface for bulk API operations, data preparation, and cross-instance migration. This section describes the data practices specific to the extension.</p>
+
+                <div class="ai-no-training-box" style="margin: 24px 0;">
+                    <div style="display:flex;align-items:flex-start;gap:12px;">
+                        <svg width="22" height="22" fill="none" stroke="#a78bfa" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;margin-top:2px;"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                        <div>
+                            <strong style="color:#a78bfa;">Everything stays in your browser.</strong> The Qualtrics API Toolkit processes all data locally. No file content, contact data, survey definitions, or transaction data is ever sent to Pirai AI servers.
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Data the Extension Handles</h3>
+                <ul>
+                    <li><strong>Qualtrics API token</strong> — entered by the user and stored locally in <code>chrome.storage.local</code>. It is never transmitted to Pirai AI. It is used exclusively to make API calls directly from your browser to Qualtrics.</li>
+                    <li><strong>CSV and Excel files</strong> — uploaded for data preparation tools (CSV Comparator, CSV Data Prep, CSV Merger, Excel Merger). All processing happens in the browser using JavaScript. Files are never uploaded to any server.</li>
+                    <li><strong>QSF files</strong> — uploaded for the QSF to Excel tool. Parsed and processed entirely in the browser. Never transmitted externally.</li>
+                    <li><strong>Text IQ JSON exports</strong> — uploaded for the Text IQ to Excel tool. Processed entirely in the browser. Never transmitted externally.</li>
+                    <li><strong>Contact and transaction data</strong> — retrieved directly from Qualtrics via their API using your credentials and displayed in the extension. This data is never routed through or stored on Pirai AI servers.</li>
+                </ul>
+
+                <h3>Data the Extension Does NOT Collect</h3>
+                <ul>
+                    <li><strong>Survey response data</strong> — the extension does not access or process individual survey responses.</li>
+                    <li><strong>Qualtrics credentials</strong> — username and password are never requested or stored. Only the API token is used.</li>
+                    <li><strong>Browsing history</strong> — the extension does not track activity on any website. It only communicates with <code>*.qualtrics.com</code> endpoints.</li>
+                    <li><strong>Usage analytics</strong> — no usage events, button clicks, or user behaviour are tracked or sent anywhere.</li>
+                </ul>
+
+                <h3>API Calls</h3>
+                <p>All API calls made by the extension go directly from your browser to Qualtrics servers (<code>*.qualtrics.com</code>). For certain cross-origin POST requests (such as survey migration imports), calls are routed through the extension's background service worker — this is a standard Chrome extension architecture and does not involve Pirai AI servers. No API request or response payload is stored by Pirai AI.</p>
+
+                <h3>Permissions</h3>
+                <ul>
+                    <li><strong>storage</strong> — to persist your API token, selected data centre, and last used survey ID locally between sessions.</li>
+                    <li><strong>Host access to *.qualtrics.com</strong> — to make API calls directly to Qualtrics on your behalf, covering all Qualtrics data centre regions.</li>
+                </ul>
+
+                <h3>Data Retention</h3>
+                <p>The extension stores no data on Pirai AI servers. Your API token and preferences are stored locally in your browser via <code>chrome.storage.local</code> and remain under your control. You can clear this data at any time by removing the extension or clearing Chrome's extension storage.</p>
+                <!-- End Section 1.6 -->
+
                 <h2>2. How We Use Your Information</h2>
 
                 <h3>2.1 Service Provision</h3>
