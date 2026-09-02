@@ -2691,8 +2691,14 @@
     <changefreq>yearly</changefreq>
     <lastmod>2025-10-10</lastmod>
   </url>
-  
+
   <!-- PIRAI AI FLOW -->
+  <url>
+    <loc>https://piraiai.com/flow/docs</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-09-02</lastmod>
+  </url>  
   <url>
     <loc>https://piraiai.com/flow/docs/widget-guide</loc>
     <priority>0.8</priority>
