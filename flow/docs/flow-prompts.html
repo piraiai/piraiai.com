@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pirai AI Flow — Widget Prompt Guide | Build Qualtrics Dashboards with AI</title>
+    <meta name="description" content="Ready-to-use prompts for every Pirai AI Flow widget type. Build Number Charts, Gauge Charts, Bar Charts, Tables, Word Clouds, and more using plain English inside Qualtrics.">
+    <meta name="keywords" content="Pirai AI Flow prompts, Qualtrics dashboard AI prompts, Flow widget guide, Qualtrics AI commands, dashboard automation prompts, number chart prompt, gauge chart prompt, word cloud prompt, record table prompt">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://piraiai.com/flow/docs/prompts">
+    <meta property="og:title" content="Pirai AI Flow — Widget Prompt Guide">
+    <meta property="og:description" content="Ready-to-use prompts for every widget type. Build Qualtrics dashboards through conversation.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="og:site_name" content="Pirai AI Docs">
+    <meta property="article:published_time" content="2026-08-10T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta property="article:section" content="Documentation">
+    <meta property="article:tag" content="Pirai AI Flow">
+    <meta property="article:tag" content="Qualtrics Dashboard">
+    <meta property="article:tag" content="Prompt Guide">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://piraiai.com/flow/docs/prompts">
+    <meta name="twitter:title" content="Pirai AI Flow — Widget Prompt Guide">
+    <meta name="twitter:description" content="Ready-to-use prompts for every widget type. Build Qualtrics dashboards through conversation.">
+    <meta name="twitter:image" content="https://piraiai.com/logo.png">
+
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link rel="canonical" href="https://piraiai.com/flow/docs/prompts">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #ffffff; color: #1a1a1a; line-height: 1.7; font-size: 18px; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Space Grotesk', sans-serif; color: #1a1a1a; }
+
+        .nav { background: #ffffff; border-bottom: 1px solid #e5e7eb; padding: 16px 0; position: sticky; top: 0; z-index: 1000; }
+        .nav-content { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #1a1a1a; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; }
+        .docs-label { color: #6b7280; font-weight: 400; margin-left: 8px; }
+        .nav-links { display: flex; list-style: none; gap: 32px; }
+        .nav-links a { text-decoration: none; color: #4b5563; font-size: 15px; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: #9B6BFF; }
+
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; transition: color 0.2s; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .hero h1 { font-size: 42px; font-weight: 700; margin-bottom: 16px; line-height: 1.2; }
+        .hero p { font-size: 20px; color: #6b7280; margin: 0 auto; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; margin-top: 16px; flex-wrap: wrap; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 48px 24px; }
+        @media (max-width: 640px) { .container { padding: 32px 16px; } }
+
+        .content-container { display: grid; grid-template-columns: 250px 1fr; gap: 48px; align-items: start; }
+
+        .content-nav { position: sticky; top: 80px; height: fit-content; background: #f9fafb; padding: 24px; border-radius: 8px; }
+        .content-nav h3 { font-size: 16px; font-weight: 700; margin-bottom: 16px; color: #1a1a1a; }
+        .content-nav ul { list-style: none; }
+        .content-nav li { margin-bottom: 10px; }
+        .content-nav a { color: #4b5563; text-decoration: none; font-size: 14px; transition: color 0.2s; }
+        .content-nav a:hover { color: #9B6BFF; }
+
+        .content-wrapper { max-width: 800px; overflow-x: hidden; }
+        .content-wrapper h2 { font-size: 28px; font-weight: 700; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .content-wrapper h2:first-child { margin-top: 0; }
+        .content-wrapper h3 { font-size: 22px; font-weight: 600; margin-top: 32px; margin-bottom: 12px; }
+        .content-wrapper h4 { font-size: 18px; font-weight: 600; margin-top: 24px; margin-bottom: 8px; }
+        .content-wrapper p { margin-bottom: 24px; color: #374151; max-width: 100%; word-wrap: break-word; }
+        .content-wrapper ul, .content-wrapper ol { margin-bottom: 24px; padding-left: 24px; max-width: 100%; }
+        .content-wrapper li { margin-bottom: 12px; color: #374151; }
+        .content-wrapper strong { color: #1a1a1a; font-weight: 600; }
+
+        .overview-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; border-radius: 8px; padding: 24px; margin: 32px 0; }
+        .overview-box h3 { color: #6b21a8; margin-top: 0; margin-bottom: 12px; }
+
+        .tips-box { background: #dbeafe; border-left: 4px solid #3b82f6; border-radius: 8px; padding: 20px; margin: 24px 0; }
+        .tips-box h4 { color: #1e40af; margin-top: 0; margin-bottom: 12px; }
+        .tips-box p, .tips-box li { color: #1e40af; font-size: 16px; }
+
+        .prompt-box { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 20px; margin: 24px 0; position: relative; }
+        .prompt-pattern { background: #e0e7ff; border-left: 4px solid #6366f1; padding: 16px; margin-bottom: 16px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 15px; color: #1e40af; }
+        .prompt-example { background: #ffffff; border: 1px solid #e5e7eb; padding: 16px; margin: 12px 0; border-radius: 6px; position: relative; }
+        .prompt-example pre { margin: 0; padding: 0; background: none; border: none; font-family: 'Courier New', monospace; font-size: 14px; line-height: 1.6; color: #1a1a1a; white-space: pre-wrap; word-wrap: break-word; }
+        .copy-btn { position: absolute; top: 8px; right: 8px; background: #9B6BFF; color: white; border: none; padding: 6px 12px; border-radius: 4px; font-size: 12px; cursor: pointer; transition: background 0.2s; }
+        .copy-btn:hover { background: #7c3aed; }
+
+        .quick-card {
+            background: #f5f3ff;
+            border: 1px solid #d8b4fe;
+            border-left: 4px solid #9B6BFF;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 0 0 24px 0;
+            position: relative;
+        }
+        .quick-card .quick-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #7c3aed;
+            margin-bottom: 8px;
+        }
+        .quick-card .prompt-example {
+            background: #fff;
+            border-color: #d8b4fe;
+            margin: 0;
+        }
+        .quick-card .prompt-example pre {
+            font-size: 15px;
+            font-weight: 600;
+            color: #6b21a8;
+        }
+        .prompt-explanation {
+            font-size: 14px;
+            color: #6b7280;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #e5e7eb;
+        }
+        .prompt-explanation p { margin-bottom: 6px; color: #6b7280; font-size: 14px; }
+        .prompt-explanation ul { margin: 6px 0 0 0; padding-left: 16px; }
+        .prompt-explanation li { margin-bottom: 4px; color: #6b7280; font-size: 14px; }
+        .prompt-explanation strong { color: #374151; font-weight: 600; }
+
+
+
+        code { background: #f3f4f6; padding: 3px 8px; border-radius: 4px; color: #9B6BFF; font-size: 16px; border: 1px solid #e5e7eb; font-family: 'Courier New', monospace; word-wrap: break-word; }
+
+        .footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        .footer p { color: #6b7280; font-size: 14px; }
+
+        @media (max-width: 968px) { .content-container { grid-template-columns: 1fr; } .content-nav { position: static; } }
+        @media (max-width: 640px) { .nav-links { display: none; } .hero h1 { font-size: 28px; } .hero p { font-size: 16px; } body { font-size: 16px; } .content-wrapper h2 { font-size: 24px; } .content-nav { display: none; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="/" class="logo">
+                <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo">
+                <span class="logo-text">Pirai AI <span class="docs-label">/ Flow Docs</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/flow">Pirai AI Flow</a></li>
+                <li><a href="/docs">Documentation</a></li>
+                <li><a href="/qualtrics-toolkit">Free Tools</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="/">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="/flow">Pirai AI Flow</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="/flow/docs">Docs</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">Widget Prompt Guide</span>
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Pirai AI Flow — Widget Prompt Guide</h1>
+            <p>Ready-to-use prompts for every widget type. Copy, paste, and build your Qualtrics dashboard through conversation.</p>
+            <div class="article-meta">
+                <span class="author">Arun Raj</span>
+                <span class="separator">•</span>
+                <span>August 2026</span>
+                <span class="separator">•</span>
+                <span>10 min read</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="content-container">
+
+            <div class="content-nav">
+                <h3>Widget Types</h3>
+                <ul>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#number-chart">Number Chart</a></li>
+                    <li><a href="#gauge">Gauge Chart</a></li>
+                    <li><a href="#breakdown-bar">Breakdown Bar</a></li>
+                    <li><a href="#donut">Donut Chart</a></li>
+                    <li><a href="#pie">Pie Chart</a></li>
+                    <li><a href="#vertical-bars">Vertical Bars</a></li>
+                    <li><a href="#horizontal-bars">Horizontal Bars</a></li>
+                    <li><a href="#lines">Line Chart</a></li>
+                    <li><a href="#table">Table</a></li>
+                    <li><a href="#record-table">Record Table</a></li>
+                    <li><a href="#star-rating">Star Rating</a></li>
+                    <li><a href="#word-cloud">Word Cloud</a></li>
+                    <li><a href="#response-ticker">Response Ticker</a></li>
+                    <li><a href="#rich-text">Rich Text</a></li>
+                    <li><a href="#tips">Tips</a></li>
+                </ul>
+            </div>
+
+            <div class="content-wrapper">
+
+                <section id="overview">
+                    <h2>Overview</h2>
+                    <div class="overview-box">
+                        <h3>How Pirai AI Flow works</h3>
+                        <p>Open Flow on any Qualtrics dashboard page. Describe what you want in plain English. Flow reads your dashboard's real fields and builds the widget instantly, with no menus and no manual field mapping.</p>
+                        <ul style="margin-top:12px; padding-left:20px;">
+                            <li>Use <strong>@fieldId</strong> to reference a specific field (e.g. <code>@DM_rawhzhd</code>)</li>
+                            <li>Or describe the field in plain English and Flow will find the closest match</li>
+                            <li><strong>Simple prompts</strong> give you just enough to create the widget quickly</li>
+                            <li><strong>Detailed prompts</strong> include title, description, labels, and formatting options</li>
+                        </ul>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>Before you start</h4>
+                        <p>Click <strong>Reload</strong> in Flow after making changes in Qualtrics directly. Flow reads your dashboard's live field list on every reload. The more specific your field reference, the more accurate the result.</p>
+                    </div>
+                </section>
+
+                <!-- NUMBER CHART -->
+                <section id="number-chart">
+                    <h2>Number Chart</h2>
+                    <p>Displays a single large metric: count, average, NPS, or top box. The headline widget on most executive dashboards. Supports period-over-period change comparison.</p>
+
+                    <div class="quick-card">
+                        <div class="quick-label">Quick create</div>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Number Chart count</pre>
+                        </div>
+                        <div class="prompt-explanation" style="border-top:none; padding-top:8px;"><p>Quickest way to add a response count to your page.</p></div>
+                    </div>
+
+
+                    <div class="prompt-box">
+                        <h3>Count</h3>
+                        <div class="prompt-pattern"><strong>Pattern:</strong> Number Chart count</div>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Number Chart count</pre>
+                        </div>
+                        <div class="prompt-explanation"><p>Creates a Number Chart showing the total count of responses. Flow picks a sensible title automatically.</p></div>
+                    </div>
+
+                    <div class="prompt-box">
+                        <h3>Count with title and options</h3>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Number Chart count, title as Response Count, description as Displays the total count of responses, count metric label as Response Count, show response count, enable change since</pre>
+                        </div>
+                        <div class="prompt-explanation"><ul><li><strong>title as Response Count</strong> sets the widget heading</li><li><strong>description as...</strong> adds a subtitle below the title</li><li><strong>count metric label</strong> labels the metric value</li><li><strong>show response count</strong> displays the number of responses</li><li><strong>enable change since</strong> adds a period-over-period comparison arrow</li></ul></div>
+                    </div>
+
+                    <div class="prompt-box">
+                        <h3>Average metric</h3>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Number Chart average @DM_rawhzhd, title as Average Sat, description as Displays the Average Sat, avg metric label as Average Sat, show response count, enable change since</pre>
+                        </div>
+                        <div class="prompt-explanation"><ul><li><strong>average @DM_rawhzhd</strong> calculates the average of that specific field</li><li><strong>avg metric label</strong> labels the value shown in the widget</li><li><strong>show response count</strong> displays the response count below the metric</li><li><strong>enable change since</strong> shows how the metric changed vs the previous period</li></ul></div>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>Supported options</h4>
+                        <p>metric function (count / average / sum / NPS / top box), title, description, metric label, metric format, decimals, show response count, enable/disable change since.</p>
+                    </div>
+                </section>
+
+                <!-- GAUGE -->
+                <section id="gauge">
+                    <h2>Gauge Chart</h2>
+                    <p>Same as Number Chart but displayed as an arc. Useful for showing a metric relative to a full scale.</p>
+
+                    <div class="quick-card">
+                        <div class="quick-label">Quick create</div>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Gauge Chart average @fieldId</pre>
+                        </div>
+                        <div class="prompt-explanation" style="border-top:none; padding-top:8px;"><p>Replace @fieldId with your satisfaction or rating field.</p></div>
+                    </div>
+
+
+                    <div class="prompt-box">
+                        <h3>Count</h3>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>create Gauge chart response count, add title as Response Count, description as Displays the total count of responses, show response count</pre>
+                        </div>
+                        <div class="prompt-explanation"><p>Creates a gauge showing total response count displayed on an arc, with the response count shown below.</p></div>
+                    </div>
+
+                    <div class="prompt-box">
+                        <h3>Average metric</h3>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Gauge Chart average @DM_rawhzhd, title as Average Sat, description as Displays the Average Sat, avg metric label as Average Sat, show response count</pre>
+                        </div>
+                        <div class="prompt-explanation"><ul><li><strong>average @DM_rawhzhd</strong> calculates the average of that field and displays it on the arc</li><li><strong>avg metric label</strong> labels the value shown inside the gauge</li><li><strong>show response count</strong> displays the number of responses below the arc</li></ul></div>
+                    </div>
+                </section>
+
+                <!-- BREAKDOWN BAR -->
+                <section id="breakdown-bar">
+                    <h2>Breakdown Bar</h2>
+                    <p>Shows a metric split across categorical values as horizontal segmented bars. Requires a categorical x-axis field (Text Set, Number Set, or Date).</p>
+
+                    <div class="quick-card">
+                        <div class="quick-label">Quick create</div>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Breakdown bar count by @fieldId</pre>
+                        </div>
+                        <div class="prompt-explanation" style="border-top:none; padding-top:8px;"><p>Replace @fieldId with any Text Set or Date field.</p></div>
+                    </div>
+
+
+                    <div class="prompt-box">
+                        <h3>Count by dimension</h3>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Create Breakdown bar count by Response Type</pre>
+                        </div>
+                        <div class="prompt-explanation"><p>Creates a breakdown bar showing response count split by the Response Type field.</p></div>
+                    </div>
+
+                    <div class="prompt-box">
+                        <h3>Average with title and formatting</h3>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Create Breakdown bar Satisfaction by Response Type, with title as Satisfaction by Response Type, description as Display of Satisfaction by Response Type, show response count, format number, 2 decimals, with metric label Avg of Sat</pre>
+                        </div>
+                        <div class="prompt-explanation"><ul><li><strong>Satisfaction by Response Type</strong> uses Satisfaction as the metric, split by Response Type on the axis</li><li><strong>format number, 2 decimals</strong> displays the metric as a number with 2 decimal places</li><li><strong>metric label Avg of Sat</strong> labels the value shown on each bar</li></ul></div>
+                    </div>
+                </section>
+
+                <!-- DONUT -->
+                <section id="donut">
+                    <h2>Donut Chart</h2>
+                    <p>A circular chart showing metric distribution across categories. Best for composition views.</p>
+
+                    <div class="quick-card">
+                        <div class="quick-label">Quick create</div>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Donut chart count by @fieldId</pre>
+                        </div>
+                        <div class="prompt-explanation" style="border-top:none; padding-top:8px;"><p>Replace @fieldId with any categorical field.</p></div>
+                    </div>
+
+
+                    <div class="prompt-box">
+                        <h3>Count by dimension</h3>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Create donut chart count by State, with title as count by State, description as Display of count by state, show response count, with metric label State count</pre>
+                        </div>
+                        <div class="prompt-explanation"><p>Creates a donut chart showing how responses are distributed across each State value.</p></div>
+                    </div>
+
+                    <div class="prompt-box">
+                        <h3>Average by dimension</h3>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Create donut chart avg Satisfaction by State, with title as Avg Sat by State, description as Display of Avg Satisfaction by state, show response count, format number, 2 decimals, with metric label Avg of Sat</pre>
+                        </div>
+                        <div class="prompt-explanation"><ul><li><strong>avg Satisfaction by State</strong> calculates average satisfaction for each State value</li><li><strong>format number, 2 decimals</strong> shows the metric to 2 decimal places</li><li><strong>metric label Avg of Sat</strong> labels the value shown on each segment</li></ul></div>
+                    </div>
+                </section>
+
+                <!-- PIE -->
+                <section id="pie">
+                    <h2>Pie Chart</h2>
+                    <p>Same shape as Donut but a filled circle. Use when proportional composition is the focus.</p>
+
+                    <div class="quick-card">
+                        <div class="quick-label">Quick create</div>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Pie chart count by @fieldId</pre>
+                        </div>
+                        <div class="prompt-explanation" style="border-top:none; padding-top:8px;"><p>Replace @fieldId with any categorical field.</p></div>
+                    </div>
+
+
+                    <div class="prompt-box">
+                        <h3>Count by dimension</h3>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Create pie chart count by Location, with title as count by Location, description as Display of count by Location, show response count, with metric label Location count</pre>
+                        </div>
+                        <div class="prompt-explanation"><p>Creates a pie chart showing response count broken down by Location.</p></div>
+                    </div>
+
+                    <div class="prompt-box">
+                        <h3>Average by dimension</h3>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Create pie chart avg Satisfaction by Location, with title as Avg Sat by Location, description as Display of Avg Satisfaction by Location, show response count, format number, 2 decimals, with metric label Avg of Sat</pre>
+                        </div>
+                        <div class="prompt-explanation"><ul><li><strong>avg Satisfaction by Location</strong> calculates average satisfaction per Location</li><li><strong>format number, 2 decimals</strong> formats the metric value consistently</li><li><strong>metric label Avg of Sat</strong> labels each slice value</li></ul></div>
+                    </div>
+                </section>
+
+                <!-- VERTICAL BARS -->
+                <section id="vertical-bars">
+                    <h2>Vertical Bars</h2>
+                    <p>Bar chart with bars going up. Supports an x-axis dimension, a data series for splitting bars, and multiple extra metrics.</p>
+
+                    <div class="quick-card">
+                        <div class="quick-label">Quick create</div>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Vertical bars count by @fieldId</pre>
+                        </div>
+                        <div class="prompt-explanation" style="border-top:none; padding-top:8px;"><p>Replace @fieldId with your dimension field.</p></div>
+                    </div>
+
+
+                    <div class="prompt-box">
+                        <h3>With axis and data series</h3>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Create Vertical bars with count, title as Response Count by State Over Time, description as Displays the response count broken down by state over time, use axis State by dataseries Recorddate, show response count</pre>
+                        </div>
+                        <div class="prompt-explanation"><ul><li><strong>axis State</strong> puts each State value along the x-axis</li><li><strong>dataseries Recorddate</strong> splits each bar by date, one bar colour per date value</li></ul></div>
+                    </div>
+                </section>
+
+                <!-- HORIZONTAL BARS -->
+                <section id="horizontal-bars">
+                    <h2>Horizontal Bars</h2>
+                    <p>Bar chart with bars going sideways. Best for ranking items or comparing driver scores side by side with no breakdown dimension.</p>
+
+                    <div class="quick-card">
+                        <div class="quick-label">Quick create</div>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Horizontal bars count by @fieldId</pre>
+                        </div>
+                        <div class="prompt-explanation" style="border-top:none; padding-top:8px;"><p>Replace @fieldId with your dimension field.</p></div>
+                    </div>
+
+
+                    <div class="prompt-box">
+                        <h3>With axis and data series</h3>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Create Horizontal bars with count, title as Response Count by State Over Time Hor, description as Displays the response count broken down by state over time, use axis State by dataseries Recorddate, show response count</pre>
+                        </div>
+                        <div class="prompt-explanation"><ul><li><strong>axis State</strong> places State values along the y-axis</li><li><strong>dataseries Recorddate</strong> splits each bar by date</li></ul></div>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>Driver comparison (no axis needed)</h4>
+                        <p>Horizontal bars can compare multiple metric fields directly. Each field becomes its own bar with no x-axis dimension required. Use this for driver analysis.</p>
+                        <p style="margin-top:8px;"><em>Example: "Create horizontal bars comparing average @DM_field1, @DM_field2, @DM_field3 as driver comparison"</em></p>
+                    </div>
+                </section>
+
+                <!-- LINES -->
+                <section id="lines">
+                    <h2>Line Chart</h2>
+                    <p>Line chart for showing trends over time. Supports a date x-axis with time grouping, and a data series to plot multiple lines.</p>
+
+                    <div class="quick-card">
+                        <div class="quick-label">Quick create</div>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Line chart count by start date</pre>
+                        </div>
+                        <div class="prompt-explanation" style="border-top:none; padding-top:8px;"><p>Plots response count over time using the survey start date.</p></div>
+                    </div>
+
+
+                    <div class="prompt-box">
+                        <h3>With axis and data series</h3>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Create line chart with count, title as Response Count by State Over Time Line, description as Displays the response count broken down by state over time, use axis State by dataseries Recorddate, show response count</pre>
+                        </div>
+                        <div class="prompt-explanation"><ul><li><strong>axis State</strong> places each State value on the x-axis</li><li><strong>dataseries Recorddate</strong> plots one line per date value</li></ul></div>
+                    </div>
+                </section>
+
+                <!-- TABLE -->
+                <section id="table">
+                    <h2>Table</h2>
+                    <p>A pivot-style grid with rows, column splits, and one or more metric values in cells. Rows are set via the axis field, column splits via data series.</p>
+
+                    <div class="quick-card">
+                        <div class="quick-label">Quick create</div>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Table count rows by @fieldId</pre>
+                        </div>
+                        <div class="prompt-explanation" style="border-top:none; padding-top:8px;"><p>Replace @fieldId with your row dimension field.</p></div>
+                    </div>
+
+
+                    <div class="prompt-box">
+                        <h3>With rows and columns</h3>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Create table with count, title as Response Count by State Over Time Table1, description as Displays the response count broken down by state over time, rows use State by columns Recorddate, show response count</pre>
+                        </div>
+                        <div class="prompt-explanation"><ul><li><strong>rows use State</strong> puts each State value as a row</li><li><strong>columns Recorddate</strong> splits the table columns by date</li><li>Each cell shows the count metric for that State and date combination</li></ul></div>
+                    </div>
+                </section>
+
+                <!-- RECORD TABLE -->
+                <section id="record-table">
+                    <h2>Record Table</h2>
+                    <p>Lists individual response records as rows with chosen fields as columns. Does not aggregate. Shows raw, individual responses. Use <code>@fieldId</code> to specify columns.</p>
+
+                    <div class="quick-card">
+                        <div class="quick-label">Quick create</div>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Record Table with @fieldId1 @fieldId2 @fieldId3</pre>
+                        </div>
+                        <div class="prompt-explanation" style="border-top:none; padding-top:8px;"><p>Replace with the fields you want as columns. Any field type works.</p></div>
+                    </div>
+
+
+                    <div class="prompt-box">
+                        <h3>Multi-column record table</h3>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Record Table with @startDate @status @DM_7ksz3zx with the title Response Records, show response count, add description Responses record</pre>
+                        </div>
+                        <div class="prompt-explanation"><p>Creates a record table with three columns: start date, response status, and the satisfaction field. Each row is one individual response.</p></div>
+                    </div>
+
+                    <div class="tips-box">
+                        <h4>Full record view</h4>
+                        <p>Once a Record Table is created, you can enable full record view to let viewers click a row and see all fields for that response: <em>"Enable full record view on [Response Records], 2-column layout. Satisfaction Score on the left, Open Feedback on the right."</em></p>
+                    </div>
+                </section>
+
+                <!-- STAR RATING -->
+                <section id="star-rating">
+                    <h2>Star Rating</h2>
+                    <p>Displays average score as a star rating with a breakdown by star count. Requires a <strong>Number Set</strong> field (EnumerableScalarValue). Numeric Value fields are not supported.</p>
+
+                    <div class="quick-card">
+                        <div class="quick-label">Quick create</div>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Star Rating @fieldId</pre>
+                        </div>
+                        <div class="prompt-explanation" style="border-top:none; padding-top:8px;"><p>Replace @fieldId with a Number Set field.</p></div>
+                    </div>
+
+
+                    <div class="prompt-box">
+                        <h3>Star rating with label</h3>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>create Star Rating Overall Satisfaction Rating, title as Overall Satisfaction Rating, description as Average star rating from customers, show response count, with metric label Overall Satisfaction Rating</pre>
+                        </div>
+                        <div class="prompt-explanation"><p>Creates a star rating widget displaying the average score from the Overall Satisfaction Rating field, with the response count shown below the stars.</p></div>
+                    </div>
+                </section>
+
+                <!-- WORD CLOUD -->
+                <section id="word-cloud">
+                    <h2>Word Cloud</h2>
+                    <p>Shows word frequency from an Open Text field. Only <strong>Open Text</strong> (FreeFormText) fields can be used. Use <code>@fieldId</code> to reference the field.</p>
+
+                    <div class="quick-card">
+                        <div class="quick-label">Quick create</div>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Word cloud for @fieldId</pre>
+                        </div>
+                        <div class="prompt-explanation" style="border-top:none; padding-top:8px;"><p>Replace @fieldId with an Open Text field.</p></div>
+                    </div>
+
+
+                    <div class="prompt-box">
+                        <h3>Word cloud with title</h3>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>create word cloud for @QID6_TEXT with a title Staff Comment, description as Staff mentioned issues, show response count</pre>
+                        </div>
+                        <div class="prompt-explanation"><p>Creates a word cloud from the open text field QID6_TEXT. Words that appear more frequently in responses show up larger.</p></div>
+                    </div>
+                </section>
+
+                <!-- RESPONSE TICKER -->
+                <section id="response-ticker">
+                    <h2>Response Ticker</h2>
+                    <p>A scrolling ticker showing individual open-text responses. Only <strong>Open Text</strong> (FreeFormText) fields can be used as columns. Multiple fields can be added in one prompt.</p>
+
+                    <div class="quick-card">
+                        <div class="quick-label">Quick create</div>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Response Ticker @fieldId</pre>
+                        </div>
+                        <div class="prompt-explanation" style="border-top:none; padding-top:8px;"><p>Replace @fieldId with an Open Text field.</p></div>
+                    </div>
+
+
+                    <div class="prompt-box">
+                        <h3>Single field</h3>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>create response ticker with the field @QID6_TEXT, title as Customer Comments, description as Latest customer verbatim responses, show response count</pre>
+                        </div>
+                        <div class="prompt-explanation"><p>Creates a scrolling ticker showing individual open text responses from the QID6_TEXT field.</p></div>
+                    </div>
+
+                    <div class="prompt-box">
+                        <h3>Multiple fields</h3>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Response Ticker with @QID6_TEXT @QID7_TEXT @QID8_1</pre>
+                        </div>
+                        <div class="prompt-explanation"><p>Creates a response ticker with three open text columns. Each column shows a different field from the same response side by side as the ticker scrolls.</p></div>
+                    </div>
+                </section>
+
+                <!-- RICH TEXT -->
+                <section id="rich-text">
+                    <h2>Rich Text</h2>
+                    <p>A static text block for headers, section labels, or any descriptive content on the page. Does not display data.</p>
+
+                    <div class="quick-card">
+                        <div class="quick-label">Quick create</div>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Create rich text "Your heading here"</pre>
+                        </div>
+                        <div class="prompt-explanation" style="border-top:none; padding-top:8px;"><p>Adds a text block to the page with whatever content you specify.</p></div>
+                    </div>
+
+
+                    <div class="prompt-box">
+                        <h3>Add a text header</h3>
+                        <div class="prompt-example">
+                            <button class="copy-btn" onclick="copyPrompt(this)">Copy</button>
+                            <pre>Create rich text with the content "Hello World"</pre>
+                        </div>
+                        <div class="prompt-explanation"><p>Adds a text block to the page with the content you specify. Use this for page headers, section labels, or any descriptive text that does not display data.</p></div>
+                    </div>
+                </section>
+
+                <!-- TIPS -->
+                <section id="tips">
+                    <h2>Tips &amp; Best Practices</h2>
+
+                    <h3>Referencing fields</h3>
+                    <ul>
+                        <li>Use <code>@fieldId</code> for an exact field match, e.g. <code>@DM_rawhzhd</code> or <code>@QID6_TEXT</code></li>
+                        <li>Or describe the field in plain English and Flow will find the closest match from your dashboard's field list</li>
+                        <li>Wrap widget names in square brackets when updating, e.g. <code>[Response Records]</code></li>
+                    </ul>
+
+                    <h3>Updating existing widgets</h3>
+                    <ul>
+                        <li>Change a metric: <em>"Change the metric on [Average Sat] to NPS"</em></li>
+                        <li>Relabel a column: <em>"Change the label on [Response Records] column @QID6_TEXT to Staff Name"</em></li>
+                        <li>Enable full record view: <em>"Enable full record view on [Response Records]"</em></li>
+                        <li>Switch an axis: <em>"Change the x-axis on [Count by State] to Location"</em></li>
+                    </ul>
+
+                    <h3>Multi-widget and group creation</h3>
+                    <ul>
+                        <li>Create multiple at once: <em>"Create a Number Chart count and a Gauge Chart average satisfaction"</em></li>
+                        <li>Create a group: <em>"Create a group with a Gauge Chart NPS, Number Chart response count, and a Vertical bars by channel"</em></li>
+                    </ul>
+
+                    <div class="tips-box">
+                        <h4>Field types matter</h4>
+                        <ul style="margin-top:4px;">
+                            <li>Metrics (average, sum, NPS, top box) require a <strong>Number Set</strong> or <strong>Numeric Value</strong> field</li>
+                            <li>Axes and dimensions require a <strong>Text Set</strong>, <strong>Multi-Answer Text Set</strong>, <strong>Number Set</strong>, or <strong>Date</strong> field</li>
+                            <li>Word Cloud and Response Ticker require an <strong>Open Text</strong> field only</li>
+                            <li>Star Rating requires a <strong>Number Set</strong> field only</li>
+                        </ul>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved. &nbsp;|&nbsp; <a href="/privacy" style="color:#9B6BFF;text-decoration:none;">Privacy Policy</a> &nbsp;|&nbsp; <a href="/flow" style="color:#9B6BFF;text-decoration:none;">Pirai AI Flow</a></p>
+    </footer>
+
+    <script>
+        function copyPrompt(btn) {
+            const pre = btn.nextElementSibling;
+            const text = pre.textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                btn.textContent = 'Copied!';
+                btn.style.background = '#22c55e';
+                setTimeout(() => { btn.textContent = 'Copy'; btn.style.background = '#9B6BFF'; }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
