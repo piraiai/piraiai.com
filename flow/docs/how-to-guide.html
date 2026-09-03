@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pirai AI Flow How-To Guide | Video Tutorials | Qualtrics Dashboard AI</title>
+    <meta name="description" content="Step-by-step video tutorials for Pirai AI Flow. Learn how to build and manage Qualtrics CX Dashboards and Results Dashboards using natural language — from adding filters to creating widgets, cloning pages, and exporting dashboard configurations." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://piraiai.com/flow/docs/how-to-guide" />
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png" />
+
+    <meta property="og:title" content="Pirai AI Flow How-To Guide | Video Tutorials" />
+    <meta property="og:description" content="Step-by-step video tutorials for building and managing Qualtrics dashboards with Pirai AI Flow." />
+    <meta property="og:url" content="https://piraiai.com/flow/docs/how-to-guide" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="https://piraiai.com/logo.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pirai AI Flow How-To Guide | Video Tutorials" />
+    <meta name="twitter:description" content="Step-by-step video tutorials for building and managing Qualtrics dashboards with Pirai AI Flow." />
+    <meta name="twitter:image" content="https://piraiai.com/logo.png" />
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Build Qualtrics Dashboards with Pirai AI Flow",
+        "description": "Step-by-step video tutorials for building and managing Qualtrics CX Dashboards and Results Dashboards using Pirai AI Flow.",
+        "url": "https://piraiai.com/flow/docs/how-to-guide",
+        "publisher": { "@type": "Organization", "name": "Pirai AI", "url": "https://piraiai.com" },
+        "step": [
+            { "@type": "HowToStep", "position": 1, "name": "Feature Overview", "text": "Learn what Pirai AI Flow can do — Fields, Recommend, Widget Builder, Add Filter, and Settings tools." },
+            { "@type": "HowToStep", "position": 2, "name": "Switching Between Dashboards", "text": "Open Flow on a CX Dashboard or Results Dashboard and use Reload to sync Flow to the active page." },
+            { "@type": "HowToStep", "position": 3, "name": "Adding Filters", "text": "Add page filters using the Add Filter button or by typing @ in the chat to reference fields directly." }
+        ]
+    }
+    </script>
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.7;
+            font-size: 18px;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Space Grotesk', sans-serif; color: #1a1a1a; }
+
+        .nav {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #1a1a1a; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 20px; }
+        .docs-label { color: #6b7280; font-weight: 400; margin-left: 8px; }
+        .nav-links { display: flex; list-style: none; gap: 32px; }
+        .nav-links a { text-decoration: none; color: #4b5563; font-size: 15px; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: #9B6BFF; }
+
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; transition: color 0.2s; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 800px; }
+        .hero-subtitle { font-size: 20px; color: #6b7280; max-width: 680px; line-height: 1.6; margin-bottom: 20px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; flex-wrap: wrap; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+        .badge { display: inline-flex; align-items: center; gap: 6px; background: linear-gradient(135deg, #9B6BFF, #BFA8FF); color: #ffffff; font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.3px; }
+
+        .content-wrapper { max-width: 1200px; margin: 0 auto; padding: 48px 24px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; align-items: start; }
+        .article-content { min-width: 0; }
+
+        .learning-path-banner { background: linear-gradient(135deg, #f5f3ff, #ede9fe); border: 1px solid #c4b5fd; border-left: 4px solid #9B6BFF; border-radius: 8px; padding: 20px 24px; margin-bottom: 48px; display: flex; align-items: flex-start; gap: 16px; }
+        .learning-path-banner .banner-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+        .learning-path-banner p { font-size: 16px; color: #374151; margin: 0; line-height: 1.6; }
+        .learning-path-banner strong { color: #6b21a8; }
+
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 56px; margin-bottom: 8px; padding-bottom: 12px; border-bottom: 2px solid #e5e7eb; }
+        .article-content h2:first-of-type { margin-top: 0; }
+        .section-intro { font-size: 16px; color: #6b7280; margin-bottom: 32px; line-height: 1.6; }
+
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; margin-bottom: 16px; }
+        .video-card { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px; overflow: hidden; transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s; }
+        .video-card:hover { box-shadow: 0 8px 24px rgba(155, 107, 255, 0.12); transform: translateY(-3px); border-color: #c4b5fd; }
+        .video-card.coming { opacity: 0.7; cursor: default; }
+        .video-card.coming:hover { transform: none; box-shadow: none; border-color: #e5e7eb; }
+        .video-embed { position: relative; padding-bottom: 56.25%; background: #f3f4f6; }
+        .video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .video-placeholder { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #f3f4f6; gap: 10px; }
+        .video-placeholder-icon { font-size: 36px; }
+        .video-placeholder-text { font-size: 13px; font-weight: 600; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.05em; }
+        .video-body { padding: 20px; }
+        .video-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+        .step-badge { font-size: 11px; font-weight: 700; background: #f3f4f6; color: #6b7280; padding: 3px 8px; border-radius: 12px; letter-spacing: 0.5px; text-transform: uppercase; }
+        .audience-badge { font-size: 11px; font-weight: 600; background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; padding: 3px 8px; border-radius: 12px; }
+        .coming-badge { font-size: 11px; font-weight: 600; background: #f5f3ff; color: #7c3aed; border: 1px solid #d8b4fe; padding: 3px 8px; border-radius: 12px; }
+        .video-body h3 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 700; color: #1a1a1a; margin-bottom: 8px; line-height: 1.35; }
+        .video-body p { font-size: 14px; color: #6b7280; line-height: 1.6; margin: 0; }
+        .video-body .key-points { margin-top: 12px; padding-top: 12px; border-top: 1px solid #f3f4f6; display: flex; flex-direction: column; gap: 5px; }
+        .key-point { font-size: 13px; color: #374151; display: flex; align-items: flex-start; gap: 6px; }
+        .key-point::before { content: "✓"; color: #9B6BFF; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+        .platform-cta { background: linear-gradient(135deg, #9B6BFF 0%, #BFA8FF 100%); border-radius: 12px; padding: 36px 40px; margin-top: 64px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+        .platform-cta-text h3 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 6px; }
+        .platform-cta-text p { font-size: 15px; color: rgba(255,255,255,0.85); margin: 0; }
+        .platform-cta-buttons { display: flex; gap: 12px; flex-wrap: wrap; flex-shrink: 0; }
+        .btn-primary { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s, box-shadow 0.2s; white-space: nowrap; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.15); }
+        .btn-secondary { display: inline-block; background: rgba(255,255,255,0.15); color: #ffffff; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 15px; border: 1px solid rgba(255,255,255,0.4); transition: background 0.2s; white-space: nowrap; }
+        .btn-secondary:hover { background: rgba(255,255,255,0.25); }
+
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; padding: 24px; border-radius: 8px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; color: #1a1a1a; margin-bottom: 16px; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 4px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 6px; transition: background 0.15s, color 0.15s; }
+        .toc-list a:hover { color: #9B6BFF; background: #f3f0ff; }
+        .toc-list .toc-icon { font-size: 14px; flex-shrink: 0; }
+        .toc-list .toc-count { margin-left: auto; font-size: 11px; background: #e5e7eb; color: #6b7280; padding: 2px 7px; border-radius: 10px; font-weight: 600; }
+        .toc-divider { height: 1px; background: #e5e7eb; margin: 8px 0; }
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 28px 24px; border-radius: 8px; text-align: center; color: #ffffff; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 10px; color: #ffffff; }
+        .cta-box p { font-size: 14px; margin-bottom: 18px; opacity: 0.92; }
+        .cta-box .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 14px; transition: transform 0.2s; }
+        .cta-box .cta-button:hover { transform: translateY(-2px); }
+
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+
+        @media (max-width: 968px) { .content-wrapper { grid-template-columns: 1fr; } .sidebar { position: static; } }
+        @media (max-width: 640px) { .nav-links { display: none; } .article-title { font-size: 28px; } .hero-subtitle { font-size: 16px; } .platform-cta { flex-direction: column; padding: 28px 24px; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="/" class="logo">
+                <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo" />
+                <span class="logo-text">Pirai AI <span class="docs-label">/ Flow Docs</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/flow">Pirai AI Flow</a></li>
+                <li><a href="/flow/docs">Flow Docs</a></li>
+                <li><a href="/qualtrics-toolkit">Free Tools</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="/">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="/flow">Pirai AI Flow</a>
+            <span class="breadcrumb-separator">›</span>
+            <a href="/flow/docs">Flow Docs</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">How-To Guide</span>
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="hero-container">
+            <h1 class="article-title">Pirai AI Flow How-To Guide</h1>
+            <p class="hero-subtitle">Step-by-step video walkthroughs for building and managing Qualtrics CX Dashboards and Results Dashboards with Pirai AI Flow.</p>
+            <div class="article-meta">
+                <span class="author">Pirai AI Team</span>
+                <span class="separator">•</span>
+                <span>3 videos live</span>
+                <span class="separator">•</span>
+                <span>More coming soon</span>
+                <span class="separator">•</span>
+                <span class="badge">📺 Video Series</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="content-wrapper">
+        <article class="article-content">
+
+            <div class="learning-path-banner">
+                <div class="banner-icon">🗺️</div>
+                <p>
+                    <strong>Recommended learning path:</strong> New to Pirai AI Flow? Start with the Feature Overview to understand what's available, then watch Switching Between Dashboards to understand how Flow syncs with Qualtrics. Each video is under 30 seconds — built for quick reference, not long training sessions.
+                </p>
+            </div>
+
+            <!-- SECTION 1: GETTING STARTED -->
+            <h2 id="getting-started">🚀 Getting Started</h2>
+            <p class="section-intro">These videos cover the foundations — understanding the Flow interface, working across CX Dashboards and Results Dashboards, and adding page filters.</p>
+
+            <div class="video-grid">
+
+                <!-- Video 1: Feature Overview -->
+                <div class="video-card">
+                    <div class="video-embed">
+                        <iframe
+                            src="https://player.vimeo.com/video/1223563554?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                            title="Pirai AI Flow — Feature Overview"
+                            frameborder="0"
+                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-body">
+                        <div class="video-meta">
+                            <span class="step-badge">Step 1</span>
+                            <span class="audience-badge">New Users</span>
+                        </div>
+                        <h3>Feature Overview</h3>
+                        <p>A walkthrough of every tool in the Flow panel — Fields, Recommend, Widget Builder, Add Filter, and the Settings menu including Clone page, Export chat, and Export dashboard.</p>
+                        <div class="key-points">
+                            <span class="key-point">Fields shows every available field grouped by type</span>
+                            <span class="key-point">Recommend surfaces layout templates by audience</span>
+                            <span class="key-point">Widget Builder covers all 14 Qualtrics widget types</span>
+                            <span class="key-point">Settings includes Clone page and Export dashboard</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 2: Switching Between Dashboards -->
+                <div class="video-card">
+                    <div class="video-embed">
+                        <iframe
+                            src="https://player.vimeo.com/video/1223559392?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                            title="Pirai AI Flow - Switching Between Dashboards"
+                            frameborder="0"
+                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-body">
+                        <div class="video-meta">
+                            <span class="step-badge">Step 2</span>
+                            <span class="audience-badge">All Users</span>
+                        </div>
+                        <h3>Switching Between Dashboards</h3>
+                        <p>Flow works with both Qualtrics CX Dashboards and Results Dashboards. See how Reload syncs Flow to whichever dashboard is active, and how New Chat and History keep your conversations organised.</p>
+                        <div class="key-points">
+                            <span class="key-point">Reload syncs Flow to the current active dashboard</span>
+                            <span class="key-point">Dashboard name and page shown in the top left</span>
+                            <span class="key-point">New Chat starts a fresh conversation</span>
+                            <span class="key-point">History saves every conversation across sessions</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 3: Add Filters -->
+                <div class="video-card">
+                    <div class="video-embed">
+                        <iframe
+                            src="https://player.vimeo.com/video/1223555651?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                            title="Pirai AI Flow - Add Filters"
+                            frameborder="0"
+                            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-body">
+                        <div class="video-meta">
+                            <span class="step-badge">Step 3</span>
+                            <span class="audience-badge">All Users</span>
+                        </div>
+                        <h3>Adding Filters to Your Dashboard</h3>
+                        <p>Two ways to add page filters — use the Add Filter button to select fields and let Flow create the request automatically, or type @ in the chat to reference fields directly and describe what you need.</p>
+                        <div class="key-points">
+                            <span class="key-point">Add Filter button creates the request automatically</span>
+                            <span class="key-point">Friendly labels applied by Flow automatically</span>
+                            <span class="key-point">Type @ in chat to pick fields directly by name</span>
+                            <span class="key-point">Filters are live on the dashboard page instantly</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <script src="https://player.vimeo.com/api/player.js"></script>
+
+            <!-- SECTION 2: BUILDING DASHBOARDS -->
+            <h2 id="building-dashboards">🧱 Building Dashboards</h2>
+            <p class="section-intro">These videos cover the core dashboard building workflows — creating widgets, using layout recommendations, and cloning pages across dashboards.</p>
+
+            <div class="video-grid">
+
+                <!-- Coming: Recommendation -->
+                <div class="video-card coming">
+                    <div class="video-embed">
+                        <div class="video-placeholder">
+                            <span class="video-placeholder-icon">📺</span>
+                            <span class="video-placeholder-text">Coming Soon</span>
+                        </div>
+                    </div>
+                    <div class="video-body">
+                        <div class="video-meta">
+                            <span class="step-badge">Building</span>
+                            <span class="coming-badge">Coming Soon</span>
+                        </div>
+                        <h3>Layout Recommendations</h3>
+                        <p>How to use the Recommend panel to pick a layout template for your audience and let Flow build the full page using your dashboard's real fields.</p>
+                        <div class="key-points">
+                            <span class="key-point">Choose from 6 audience-based layout templates</span>
+                            <span class="key-point">Flow maps your real fields automatically</span>
+                            <span class="key-point">Full page of widgets built in one step</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coming: Create Widgets -->
+                <div class="video-card coming">
+                    <div class="video-embed">
+                        <div class="video-placeholder">
+                            <span class="video-placeholder-icon">📺</span>
+                            <span class="video-placeholder-text">Coming Soon</span>
+                        </div>
+                    </div>
+                    <div class="video-body">
+                        <div class="video-meta">
+                            <span class="step-badge">Building</span>
+                            <span class="coming-badge">Coming Soon</span>
+                        </div>
+                        <h3>Creating Widgets with Simple Prompts</h3>
+                        <p>How to create any of the 14 Qualtrics widget types using natural language — from a one-line quick create to a detailed prompt with title, metric, and formatting options.</p>
+                        <div class="key-points">
+                            <span class="key-point">All 14 widget types supported</span>
+                            <span class="key-point">Simple prompts for quick widget creation</span>
+                            <span class="key-point">Detailed prompts for full configuration control</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coming: Clone Dashboard Page -->
+                <div class="video-card coming">
+                    <div class="video-embed">
+                        <div class="video-placeholder">
+                            <span class="video-placeholder-icon">📺</span>
+                            <span class="video-placeholder-text">Coming Soon</span>
+                        </div>
+                    </div>
+                    <div class="video-body">
+                        <div class="video-meta">
+                            <span class="step-badge">Building</span>
+                            <span class="coming-badge">Coming Soon</span>
+                        </div>
+                        <h3>Cloning a Dashboard Page</h3>
+                        <p>How to copy an entire Qualtrics dashboard page — including widgets, filters, and layout — to another dashboard in a single instruction.</p>
+                        <div class="key-points">
+                            <span class="key-point">Copy a full page across dashboards</span>
+                            <span class="key-point">Widgets, filters, and layout transferred</span>
+                            <span class="key-point">No manual rebuilding required</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- SECTION 3: MANAGING DASHBOARDS -->
+            <h2 id="managing-dashboards">⚙️ Managing Dashboards</h2>
+            <p class="section-intro">Once your dashboard is built, these videos cover how to update existing widgets, convert widget types, and export configuration for review and documentation.</p>
+
+            <div class="video-grid">
+
+                <!-- Coming: Update Widgets -->
+                <div class="video-card coming">
+                    <div class="video-embed">
+                        <div class="video-placeholder">
+                            <span class="video-placeholder-icon">📺</span>
+                            <span class="video-placeholder-text">Coming Soon</span>
+                        </div>
+                    </div>
+                    <div class="video-body">
+                        <div class="video-meta">
+                            <span class="step-badge">Managing</span>
+                            <span class="coming-badge">Coming Soon</span>
+                        </div>
+                        <h3>Updating Existing Widgets</h3>
+                        <p>How to update widgets already on your dashboard — change the metric, relabel columns, switch axes, and configure full record view without opening individual configuration panels.</p>
+                        <div class="key-points">
+                            <span class="key-point">Update metric, field, axis, title, and labels</span>
+                            <span class="key-point">Enable full record view through conversation</span>
+                            <span class="key-point">Undo any change with one click</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coming: Copy and Convert Widget -->
+                <div class="video-card coming">
+                    <div class="video-embed">
+                        <div class="video-placeholder">
+                            <span class="video-placeholder-icon">📺</span>
+                            <span class="video-placeholder-text">Coming Soon</span>
+                        </div>
+                    </div>
+                    <div class="video-body">
+                        <div class="video-meta">
+                            <span class="step-badge">Managing</span>
+                            <span class="coming-badge">Coming Soon</span>
+                        </div>
+                        <h3>Copy and Convert Widget Types</h3>
+                        <p>How to copy an existing widget and convert it to a different type — turn a bar chart into a line chart, or a number chart into a gauge, while preserving the underlying metric and field configuration.</p>
+                        <div class="key-points">
+                            <span class="key-point">Copy any widget on the current page</span>
+                            <span class="key-point">Convert to a different widget type in one step</span>
+                            <span class="key-point">Metric and field configuration carried across</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coming: Export Dashboard -->
+                <div class="video-card coming">
+                    <div class="video-embed">
+                        <div class="video-placeholder">
+                            <span class="video-placeholder-icon">📺</span>
+                            <span class="video-placeholder-text">Coming Soon</span>
+                        </div>
+                    </div>
+                    <div class="video-body">
+                        <div class="video-meta">
+                            <span class="step-badge">Managing</span>
+                            <span class="coming-badge">Coming Soon</span>
+                        </div>
+                        <h3>Exporting Dashboard Configuration</h3>
+                        <p>How to export your full Qualtrics dashboard configuration to Excel for QA, validation, project handover, and client documentation.</p>
+                        <div class="key-points">
+                            <span class="key-point">Export full widget configuration to Excel</span>
+                            <span class="key-point">Useful for QA, handover, and documentation</span>
+                            <span class="key-point">Accessible from the Settings menu</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CTA -->
+            <div class="platform-cta">
+                <div class="platform-cta-text">
+                    <h3>Ready to build your Qualtrics dashboard?</h3>
+                    <p>Request early access and start building dashboards through conversation.</p>
+                </div>
+                <div class="platform-cta-buttons">
+                    <a href="/flow#demo" class="btn-primary">Request Early Access</a>
+                    <a href="/flow/docs" class="btn-secondary">View All Flow Docs</a>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h3>In This Guide</h3>
+                <ul class="toc-list">
+                    <li>
+                        <a href="#getting-started">
+                            <span class="toc-icon">🚀</span>
+                            Getting Started
+                            <span class="toc-count">3</span>
+                        </a>
+                    </li>
+                    <li><a href="#getting-started"><span class="toc-icon">↳</span> Feature Overview</a></li>
+                    <li><a href="#getting-started"><span class="toc-icon">↳</span> Switching Dashboards</a></li>
+                    <li><a href="#getting-started"><span class="toc-icon">↳</span> Adding Filters</a></li>
+                    <div class="toc-divider"></div>
+                    <li>
+                        <a href="#building-dashboards">
+                            <span class="toc-icon">🧱</span>
+                            Building Dashboards
+                            <span class="toc-count">3</span>
+                        </a>
+                    </li>
+                    <li><a href="#building-dashboards"><span class="toc-icon">↳</span> Recommendations</a></li>
+                    <li><a href="#building-dashboards"><span class="toc-icon">↳</span> Create Widgets</a></li>
+                    <li><a href="#building-dashboards"><span class="toc-icon">↳</span> Clone a Page</a></li>
+                    <div class="toc-divider"></div>
+                    <li>
+                        <a href="#managing-dashboards">
+                            <span class="toc-icon">⚙️</span>
+                            Managing Dashboards
+                            <span class="toc-count">3</span>
+                        </a>
+                    </li>
+                    <li><a href="#managing-dashboards"><span class="toc-icon">↳</span> Update Widgets</a></li>
+                    <li><a href="#managing-dashboards"><span class="toc-icon">↳</span> Copy and Convert</a></li>
+                    <li><a href="#managing-dashboards"><span class="toc-icon">↳</span> Export Dashboard</a></li>
+                </ul>
+            </div>
+
+            <div class="cta-box">
+                <h3>Try Pirai AI Flow</h3>
+                <p>Build and manage Qualtrics dashboards through natural language.</p>
+                <a href="/flow#demo" class="cta-button">Request Early Access</a>
+            </div>
+        </aside>
+
+    </div>
+
+    <footer>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved. &nbsp;|&nbsp; <a href="/privacy" style="color:#9B6BFF;text-decoration:none;">Privacy Policy</a> &nbsp;|&nbsp; <a href="/flow" style="color:#9B6BFF;text-decoration:none;">Pirai AI Flow</a></p>
+    </footer>
+
+</body>
+</html>
