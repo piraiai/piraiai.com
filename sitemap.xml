@@ -2705,6 +2705,12 @@
     <changefreq>monthly</changefreq>
     <lastmod>2026-09-02</lastmod>
   </url>
+  <url>
+    <loc>https://piraiai.com/flow/docs/capabilities</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-08-10</lastmod>
+  </url>  
  
 
   <!-- FUTURE CONTENT PAGES (Add when ready) -->
