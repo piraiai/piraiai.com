@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Build a REDCap Data Dictionary From a Word or PDF Instrument - Pirai AI Blog</title>
+<meta name="description" content="Step-by-step guide to building a REDCap Data Dictionary from a Word document, PDF, or Excel file. Manual method and Pirai AI automated method  -  both explained. Convert any instrument to REDCap format in under 20 minutes.">
+<meta name="keywords" content="how to build redcap data dictionary, create redcap data dictionary from word, build redcap instrument from pdf, redcap data dictionary from document, how to make redcap data dictionary, build redcap survey from word pdf excel">
+<meta property="og:type" content="article"><meta property="og:url" content="https://piraiai.com/blog/how-to-build-redcap-data-dictionary">
+<meta property="og:title" content="How to Build a REDCap Data Dictionary From a Word or PDF Instrument"><meta property="og:description" content="Step-by-step guide to building a REDCap Data Dictionary from a Word document, PDF, or Excel file. Manual method and Pirai AI automated method  -  both explained. Convert any instrument to REDCap format in under 20 minutes.">
+<meta property="og:image" content="https://piraiai.com/logo.png">
+<meta property="article:published_time" content="2026-08-28T00:00:00Z">
+<meta property="article:author" content="Arun Raj">
+<link rel="canonical" href="https://piraiai.com/blog/how-to-build-redcap-data-dictionary"><link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to Build a REDCap Data Dictionary From a Word or PDF Instrument", "description": "Step-by-step guide to building a REDCap Data Dictionary from a Word document, PDF, or Excel file. Manual method and Pirai AI automated method \u2014 both explained. Convert any instrument to REDCap format in under 20 minutes.", "author": {"@type": "Person", "name": "Arun Raj"}, "publisher": {"@type": "Organization", "name": "Pirai AI", "url": "https://piraiai.com"}, "datePublished": "2026-08-28", "url": "https://piraiai.com/blog/how-to-build-redcap-data-dictionary"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I build a REDCap Data Dictionary from a Word document?", "acceptedAnswer": {"@type": "Answer", "text": "Upload your Word document to Pirai AI at platform.piraiai.com. Select REDCap. Download the generated Data Dictionary CSV with all 18 columns populated. Import via REDCap Project Setup > Data Dictionary > Upload File > Commit Changes. All fields are created instantly. Alternative: build manually in Excel using the 18-column format, but this takes 4-6 hours for a 40-field instrument."}}, {"@type": "Question", "name": "What file format does a REDCap Data Dictionary need to be in?", "acceptedAnswer": {"@type": "Answer", "text": "REDCap Data Dictionaries must be CSV files (.csv), not Excel (.xlsx). If you build or edit in Excel, save as File > Save As > CSV (Comma delimited) before importing. REDCap will reject .xlsx files. Pirai AI generates the Data Dictionary as a correctly formatted .csv file ready for direct import."}}, {"@type": "Question", "name": "How long does it take to build a REDCap Data Dictionary manually?", "acceptedAnswer": {"@type": "Answer", "text": "A 40-field instrument takes 4-6 hours to build manually in Excel - the main bottleneck being the pipe-delimited choices formatting for radio, checkbox, and dropdown fields. With Pirai AI, the same instrument takes 15-20 minutes including upload, review, and import."}}, {"@type": "Question", "name": "What should I configure after importing the Data Dictionary?", "acceptedAnswer": {"@type": "Answer", "text": "After import creates all fields, open the Online Designer to add: branching logic (conditional field display), required field settings, text validation rules (date formats, number ranges), identifier flags for PHI fields, and action tag annotations. These are configured per study protocol and cannot be automated from document text alone."}}]}</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;color:#1a1a1a;background:#ffffff}
+header{background:#ffffff;border-bottom:1px solid #e5e7eb;position:sticky;top:0;z-index:100}
+.header-container{max-width:1200px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}.logo img{width:32px;height:32px}
+.logo-text{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;color:#1a1a1a}
+.blog-label{color:#9B6BFF;font-weight:400;margin-left:8px}
+header nav a{color:#6b7280;text-decoration:none;font-weight:500;font-size:15px;margin-left:32px;transition:color 0.2s}
+header nav a:hover{color:#9B6BFF}
+.breadcrumb{background:#f9fafb;border-bottom:1px solid #e5e7eb;padding:12px 24px}
+.breadcrumb-container{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:8px;font-size:14px;color:#6b7280;flex-wrap:wrap}
+.breadcrumb a{color:#6b7280;text-decoration:none}.breadcrumb a:hover{color:#9B6BFF}
+.breadcrumb-separator{color:#d1d5db}.breadcrumb-current{color:#1a1a1a;font-weight:500}
+.hero{background:linear-gradient(135deg,#f9fafb 0%,#f3f4f6 100%);padding:48px 24px;border-bottom:1px solid #e5e7eb}
+.hero-container{max-width:1200px;margin:0 auto}
+.article-title{font-family:'Space Grotesk',sans-serif;font-size:42px;font-weight:700;line-height:1.2;color:#1a1a1a;margin-bottom:16px;max-width:800px}
+.article-meta{display:flex;align-items:center;gap:16px;font-size:14px;color:#6b7280;flex-wrap:wrap}
+.author{font-weight:600;color:#1a1a1a}.separator{color:#d1d5db}
+.content-wrapper{max-width:1200px;margin:48px auto;padding:0 24px 80px;display:grid;grid-template-columns:1fr 300px;gap:48px}
+.article-content{max-width:680px;overflow-x:hidden}
+.article-content p{font-size:18px;color:#374151;margin-bottom:24px;line-height:1.7}
+.article-content h2{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:#1a1a1a;margin-top:48px;margin-bottom:16px;padding-left:16px;border-left:4px solid #9B6BFF}
+.article-content h3{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;color:#1a1a1a;margin-top:32px;margin-bottom:12px}
+.article-content a{color:#9B6BFF;text-decoration:none;border-bottom:1px solid rgba(155,107,255,0.3);transition:all 0.2s}
+.article-content a:hover{border-bottom-color:#9B6BFF}
+.article-content ul,.article-content ol{margin-bottom:24px;padding-left:24px}
+.article-content li{font-size:18px;color:#374151;margin-bottom:10px;line-height:1.7}
+.article-content strong{color:#1a1a1a;font-weight:600}
+.article-content code{background:#f3f4f6;padding:2px 7px;border-radius:4px;font-size:13px;color:#7c3aed;font-family:monospace}
+.definition-box{background:#f5f3ff;border-left:4px solid #9B6BFF;padding:28px;margin:32px 0;border-radius:4px}
+.definition-box .def-label{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#9B6BFF;margin-bottom:12px;display:block}
+.definition-box p{font-size:17px;color:#1a1a1a;margin-bottom:0;font-style:italic;line-height:1.7}
+.article-cta{background:linear-gradient(135deg,#9B6BFF,#BFA8FF);padding:36px 40px;border-radius:12px;margin:48px 0 32px;text-align:center}
+.article-cta h3{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:#ffffff;margin-bottom:10px}
+.article-cta p{font-size:16px;color:#ffffff;opacity:.95;margin-bottom:20px}
+.article-cta a{border-bottom:none!important}
+.cta-btn-white{display:inline-block;background:#ffffff;color:#9B6BFF!important;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:700;font-size:15px;transition:transform 0.2s;border-bottom:none!important}
+.cta-btn-white:hover{transform:translateY(-2px)}
+.sidebar{position:sticky;top:80px;height:fit-content}
+.sidebar-section{background:#f9fafb;border:1px solid #e5e7eb;border-radius:12px;padding:24px;margin-bottom:24px}
+.sidebar-section h3{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;margin-bottom:16px;color:#1a1a1a}
+.toc-list{list-style:none;padding:0}.toc-list li{margin-bottom:8px}
+.toc-list a{color:#4b5563;text-decoration:none;font-size:14px;transition:color 0.2s;border-bottom:none;display:block}
+.toc-list a:hover{color:#9B6BFF}
+.cta-box{background:linear-gradient(135deg,#9B6BFF,#BFA8FF);padding:32px;border-radius:8px;text-align:center;color:#ffffff;margin-bottom:24px}
+.cta-box h3{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;margin-bottom:12px}
+.cta-box p{font-size:14px;margin-bottom:20px;opacity:.95}
+.cta-button{display:inline-block;background:#ffffff;color:#9B6BFF;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:600;font-size:15px;transition:transform 0.2s;border-bottom:none!important}
+.cta-button:hover{transform:translateY(-2px)}
+.related-articles{max-width:1200px;margin:0 auto;padding:64px 24px;border-top:1px solid #e5e7eb}
+.related-articles h2{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;margin-bottom:32px;text-align:center}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.related-card{background:#f9fafb;border-radius:8px;padding:24px;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;display:block;border-bottom:none}
+.related-card:hover{transform:translateY(-4px);box-shadow:0 8px 16px rgba(0,0,0,.08)}
+.related-card .card-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#9B6BFF;margin-bottom:8px;display:block}
+.related-card h3{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;color:#1a1a1a;margin-bottom:6px}
+.related-card p{font-size:14px;color:#6b7280;margin:0}
+footer{background:#f9fafb;border-top:1px solid #e5e7eb;padding:32px 24px;text-align:center}
+footer p{color:#6b7280;font-size:14px}
+@media(max-width:968px){.content-wrapper{grid-template-columns:1fr}.sidebar{position:static}.article-title{font-size:32px}.related-grid{grid-template-columns:1fr}}
+@media(max-width:640px){header nav{display:none}.article-title{font-size:28px}.article-cta{padding:24px}}
+.accordion-section{border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;overflow:hidden}
+.accordion-header{padding:18px 24px;background:#f9fafb;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;color:#1a1a1a;user-select:none}
+.accordion-header:hover{background:#f3f4f6}.accordion-icon{color:#9B6BFF;font-size:22px;flex-shrink:0}
+.accordion-body{padding:0 24px;max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.3s ease}
+.accordion-body.open{max-height:500px;padding:20px 24px 24px}
+.accordion-body p{font-size:16px;color:#374151;margin-bottom:8px}
+.comparison-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px;border-radius:8px;overflow:hidden;border:1px solid #e5e7eb}
+.comparison-table th{padding:12px 16px;text-align:left;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.05em;background:#f9fafb;color:#6b7280;border-bottom:2px solid #e5e7eb}
+.comparison-table th.pirai{background:#f5f3ff;color:#7c3aed}
+.comparison-table td{padding:11px 16px;border-bottom:1px solid #f3f4f6;color:#374151}
+.comparison-table tr:last-child td{border-bottom:none}
+.comparison-table td:first-child{font-weight:600;color:#1a1a1a}
+.comparison-table td.pirai{background:#fdf9ff}
+.check{color:#16a34a;font-weight:700}.cross{color:#dc2626;font-weight:700}.partial{color:#d97706}
+pre{background:#1a1a2e;color:#e2e8f0;padding:20px;border-radius:8px;overflow-x:auto;margin:20px 0}
+pre code{background:none;color:inherit;padding:0;font-size:14px}
+</style></head><body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<header><div class="header-container">
+<a href="/" class="logo"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span></a>
+<nav><a href="/">Home</a><a href="/blog">All Articles</a><a href="/docs">Documentation</a><a href="/#demo">Get Demo</a></nav>
+</div></header>
+<div class="breadcrumb"><div class="breadcrumb-container">
+<a href="/">Home</a><span class="breadcrumb-separator">›</span><a href="/blog">Blog</a><span class="breadcrumb-separator">›</span>
+<a href="/blog?category=guide">Guide</a><span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">How to Build a REDCap Data Dictionary From a Word or PDF Instrument</span>
+</div></div>
+<div class="hero"><div class="hero-container">
+<h1 class="article-title">How to Build a REDCap Data Dictionary From a Word or PDF Instrument</h1>
+<div class="article-meta"><span class="author">Arun Raj</span><span class="separator">•</span><span>August 28, 2026</span><span class="separator">•</span><span>6 min read</span><span class="separator">•</span><span style="background:#e5e7eb;color:#374151;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:600;">Guide</span></div>
+</div></div>
+<div class="content-wrapper">
+<article class="article-content">
+
+            <div class="definition-box"><span class="def-label">Building a REDCap Data Dictionary</span>
+            <p>The REDCap Data Dictionary is a CSV file that bulk-creates all fields in your REDCap project at once. There are two ways to build it: manually in Excel (time-consuming, error-prone for instruments with complex choice coding) or automatically using Pirai AI (upload any document, download the Data Dictionary in minutes). This guide covers both methods.</p></div>
+
+            <h2 id="method-1">Method 1 - Manual Data Dictionary Build in Excel</h2>
+            <p>For small instruments (under 10 fields), building the Data Dictionary manually in Excel is feasible. For larger instruments or instruments with many radio/checkbox fields, the pipe-delimited choices formatting makes manual build error-prone.</p>
+            <p><strong>Step 1 - Download the template.</strong> In any REDCap project, go to Project Setup > Data Dictionary > Download the current Data Dictionary. This gives you the correct 18-column CSV headers. Open in Excel.</p>
+            <p><strong>Step 2 - Enter each field.</strong> One row per field. Key columns to fill: Variable/Field Name (lowercase, underscores), Form Name (matches your instrument name), Field Type (radio, checkbox, text, notes, etc.), Field Label (verbatim question text), and for radio/checkbox fields: the Choices column in pipe-delimited format (<code>1, Option A | 2, Option B</code>).</p>
+            <p><strong>Step 3 - Save as CSV.</strong> File > Save As > CSV (Comma delimited). Do not save as .xlsx - REDCap will reject it.</p>
+            <p><strong>Step 4 - Import.</strong> In REDCap: Project Setup > Data Dictionary > Upload File > select your CSV > Commit Changes.</p>
+            <p><strong>Time for a 40-field instrument: 4-6 hours.</strong> Main bottleneck: manually formatting each radio/checkbox field's Choices column with correct pipe-delimited syntax. One missed pipe or incorrectly formatted code-label pair causes an import error on that field.</p>
+
+            <h2 id="method-2">Method 2 - Pirai AI Automated Build</h2>
+            <p><strong>Step 1 - Upload your instrument.</strong> Go to platform.piraiai.com. Upload your Word document, PDF (enable Advanced PDF Processing for scanned documents), or Excel file.</p>
+            <p><strong>Step 2 - Review in the workspace.</strong> Every extracted question appears with its detected field type and answer options. Verify field types and question wording before generating the Data Dictionary. The workspace shows the pipe-delimited choices format as it will appear in the CSV.</p>
+            <p><strong>Step 3 - Select REDCap and download.</strong> Click REDCap as the output platform. Download the Data Dictionary CSV. All 18 columns populated - including correctly formatted pipe-delimited choices for every radio, checkbox, and dropdown field.</p>
+            <p><strong>Step 4 - Import into REDCap.</strong> Project Setup > Data Dictionary > Upload File > select the CSV > Commit Changes. All fields created instantly.</p>
+            <p><strong>Step 5 - Complete in Online Designer.</strong> After import, open the Online Designer to add branching logic, set required fields, configure validation rules, and adjust any field details the automated conversion flagged for review.</p>
+            <p><strong>Time for a 40-field instrument: 15-20 minutes.</strong></p>
+
+            <h2 id="common-errors">Common Data Dictionary Import Errors</h2>
+            <table class="comparison-table">
+            <thead><tr><th>Error</th><th class="pirai">Cause and Fix</th></tr></thead>
+            <tbody>
+            <tr><td>Invalid field type</td><td class="pirai">Field Type column contains a value REDCap does not recognise. Check spelling: radio, checkbox, text, notes, dropdown, yesno, truefalse, slider, calc, descriptive, file</td></tr>
+            <tr><td>Duplicate variable name</td><td class="pirai">Two rows have the same Variable/Field Name. Variable names must be unique across the whole project.</td></tr>
+            <tr><td>Invalid variable name</td><td class="pirai">Variable/Field Name contains spaces, capital letters, or special characters. Use lowercase letters, numbers, and underscores only.</td></tr>
+            <tr><td>Invalid choices format</td><td class="pirai">Choices column not formatted as pipe-delimited pairs. Must be: 1, Label | 2, Label (space after comma, space around pipe)</td></tr>
+            <tr><td>Blank required column</td><td class="pirai">Variable/Field Name or Field Type column is empty. Every row must have both.</td></tr>
+            </tbody></table>
+
+            <h2 id="after-import">After Importing - What to Configure Manually</h2>
+            <p>After the Data Dictionary import creates all fields, configure these in the Online Designer: branching logic (conditional display of fields based on previous answers), required field settings, text validation (min/max values, date formats), identifier flags for PHI fields, and field annotations (action tags like <code>@DEFAULT</code> or <code>@HIDDEN</code>). These are not part of standard Data Dictionary automation and require manual configuration per study protocol.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="accordion-section"><div class="accordion-header" onclick="toggleAccordion(this)">How do I build a REDCap Data Dictionary from a Word document?<span class="accordion-icon">+</span></div><div class="accordion-body"><p>Upload your Word document to Pirai AI at platform.piraiai.com. Select REDCap. Download the generated Data Dictionary CSV with all 18 columns populated. Import via REDCap Project Setup > Data Dictionary > Upload File > Commit Changes. All fields are created instantly. Alternative: build manually in Excel using the 18-column format, but this takes 4-6 hours for a 40-field instrument.</p></div></div>
+<div class="accordion-section"><div class="accordion-header" onclick="toggleAccordion(this)">What file format does a REDCap Data Dictionary need to be in?<span class="accordion-icon">+</span></div><div class="accordion-body"><p>REDCap Data Dictionaries must be CSV files (.csv), not Excel (.xlsx). If you build or edit in Excel, save as File > Save As > CSV (Comma delimited) before importing. REDCap will reject .xlsx files. Pirai AI generates the Data Dictionary as a correctly formatted .csv file ready for direct import.</p></div></div>
+<div class="accordion-section"><div class="accordion-header" onclick="toggleAccordion(this)">How long does it take to build a REDCap Data Dictionary manually?<span class="accordion-icon">+</span></div><div class="accordion-body"><p>A 40-field instrument takes 4-6 hours to build manually in Excel - the main bottleneck being the pipe-delimited choices formatting for radio, checkbox, and dropdown fields. With Pirai AI, the same instrument takes 15-20 minutes including upload, review, and import.</p></div></div>
+<div class="accordion-section"><div class="accordion-header" onclick="toggleAccordion(this)">What should I configure after importing the Data Dictionary?<span class="accordion-icon">+</span></div><div class="accordion-body"><p>After import creates all fields, open the Online Designer to add: branching logic (conditional field display), required field settings, text validation rules (date formats, number ranges), identifier flags for PHI fields, and action tag annotations. These are configured per study protocol and cannot be automated from document text alone.</p></div></div>
+
+<div class="article-cta"><h3>Build Your REDCap Data Dictionary in 15 Minutes</h3><p>Upload Word, PDF, or Excel. Pirai AI generates all 18 columns with pipe-delimited choices. Download and import. Free daily credits.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Start Converting Free</a></div>
+</article>
+<aside class="sidebar">
+<div class="cta-box"><h3>Try Pirai AI Free</h3><p>Convert any survey document to 27+ platforms in minutes.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-button">Start Free</a></div>
+<div class="sidebar-section"><h3>Quick Links</h3><ul class="toc-list"><li><a href="/blog/what-is-a-redcap-data-dictionary">What Is a REDCap Data Dictionary</a></li>
+<li><a href="/blog/word-to-redcap-data-dictionary">Word to REDCap</a></li>
+<li><a href="/blog/pdf-to-redcap-data-dictionary">PDF to REDCap</a></li>
+<li><a href="/blog/how-to-import-survey-into-redcap">Import Into REDCap</a></li>
+<li><a href="/product/redcap-converter/">REDCap Converter</a></li>
+</ul></div>
+</aside>
+</div>
+<section class="related-articles"><h2>Related Articles</h2><div class="related-grid"><a href="/blog/what-is-a-redcap-data-dictionary" class="related-card"><span class="card-tag">Guide</span><h3>What Is a REDCap Data Dictionary?</h3><p>All 18 columns, field types, and choices format explained.</p></a>
+<a href="/blog/word-to-redcap-data-dictionary" class="related-card"><span class="card-tag">Guide</span><h3>Word to REDCap Data Dictionary</h3><p>Converting Word instruments to REDCap format with verbatim text.</p></a>
+<a href="/blog/pdf-to-redcap-data-dictionary" class="related-card"><span class="card-tag">Guide</span><h3>PDF to REDCap Data Dictionary</h3><p>Converting clinical scale PDFs and CRFs to REDCap format.</p></a>
+</div></section>
+<footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
+<script>
+function toggleAccordion(h){var b=h.nextElementSibling,i=h.querySelector('.accordion-icon'),o=b.classList.contains('open');
+document.querySelectorAll('.accordion-body.open').forEach(function(x){x.classList.remove('open');x.previousElementSibling.querySelector('.accordion-icon').textContent='+'});
+if(!o){b.classList.add('open');i.textContent='-'}}
+</script>
+</body></html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Is a Qualtrics QSF File? Format, Import, and How to Create One - Pirai AI Blog</title>
+<meta name="description" content="A Qualtrics QSF file is the native import format for Qualtrics surveys. This guide explains what a QSF contains, how to import it, how to export an existing survey as QSF, and how to generate a QSF from Word, PDF, or Excel using Pirai AI.">
+<meta name="keywords" content="what is a qualtrics qsf file, qualtrics qsf format, qsf file qualtrics, qualtrics survey format qsf, qualtrics qsf import, qualtrics qsf explained, create qualtrics qsf file">
+<meta property="og:type" content="article"><meta property="og:url" content="https://piraiai.com/blog/what-is-a-qualtrics-qsf-file">
+<meta property="og:title" content="What Is a Qualtrics QSF File? Format, Import, and How to Create One"><meta property="og:description" content="A Qualtrics QSF file is the native import format for Qualtrics surveys. This guide explains what a QSF contains, how to import it, how to export an existing survey as QSF, and how to generate a QSF from Word, PDF, or Excel using Pirai AI.">
+<meta property="og:image" content="https://piraiai.com/logo.png">
+<meta property="article:published_time" content="2026-09-01T00:00:00Z">
+<meta property="article:author" content="Arun Raj">
+<link rel="canonical" href="https://piraiai.com/blog/what-is-a-qualtrics-qsf-file"><link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "What Is a Qualtrics QSF File? Format, Import, and How to Create One", "description": "A Qualtrics QSF file is the native import format for Qualtrics surveys. This guide explains what a QSF contains, how to import it, how to export an existing survey as QSF, and how to generate a QSF from Word, PDF, or Excel using Pirai AI.", "author": {"@type": "Person", "name": "Arun Raj"}, "publisher": {"@type": "Organization", "name": "Pirai AI", "url": "https://piraiai.com"}, "datePublished": "2026-09-01", "url": "https://piraiai.com/blog/what-is-a-qualtrics-qsf-file"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is a QSF file in Qualtrics?", "acceptedAnswer": {"@type": "Answer", "text": "A QSF (Qualtrics Survey Format) file is a JSON-based file containing the complete definition of a Qualtrics survey - all questions, answer options, question types, blocks, and survey metadata. Importing a QSF creates a complete Qualtrics survey instantly. QSF is the only file format Qualtrics accepts for survey import."}}, {"@type": "Question", "name": "How do I import a QSF file into Qualtrics?", "acceptedAnswer": {"@type": "Answer", "text": "Open Qualtrics and go to the Survey Builder for any survey. Click Tools (gear icon, top right) > Import/Export > Import Survey. Browse or drag your .qsf file. Click Import. Qualtrics creates the complete survey from the QSF file."}}, {"@type": "Question", "name": "How do I create a QSF file from a Word document?", "acceptedAnswer": {"@type": "Answer", "text": "Upload your Word document to Pirai AI at platform.piraiai.com. Review the extracted questions in the workspace. Select Qualtrics and download the QSF file. Import via Qualtrics Tools > Import/Export > Import Survey. All questions and answer options are created in Qualtrics instantly."}}, {"@type": "Question", "name": "How do I export a Qualtrics survey as a QSF file?", "acceptedAnswer": {"@type": "Answer", "text": "Open the survey in Qualtrics. Go to Tools (gear icon) > Import/Export > Export Survey. Select Qualtrics Survey Format (.qsf) and click Export. The QSF file downloads to your computer immediately."}}]}</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;color:#1a1a1a;background:#ffffff}
+header{background:#ffffff;border-bottom:1px solid #e5e7eb;position:sticky;top:0;z-index:100}
+.header-container{max-width:1200px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}.logo img{width:32px;height:32px}
+.logo-text{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;color:#1a1a1a}
+.blog-label{color:#9B6BFF;font-weight:400;margin-left:8px}
+header nav a{color:#6b7280;text-decoration:none;font-weight:500;font-size:15px;margin-left:32px;transition:color 0.2s}
+header nav a:hover{color:#9B6BFF}
+.breadcrumb{background:#f9fafb;border-bottom:1px solid #e5e7eb;padding:12px 24px}
+.breadcrumb-container{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:8px;font-size:14px;color:#6b7280;flex-wrap:wrap}
+.breadcrumb a{color:#6b7280;text-decoration:none}.breadcrumb a:hover{color:#9B6BFF}
+.breadcrumb-separator{color:#d1d5db}.breadcrumb-current{color:#1a1a1a;font-weight:500}
+.hero{background:linear-gradient(135deg,#f9fafb 0%,#f3f4f6 100%);padding:48px 24px;border-bottom:1px solid #e5e7eb}
+.hero-container{max-width:1200px;margin:0 auto}
+.article-title{font-family:'Space Grotesk',sans-serif;font-size:42px;font-weight:700;line-height:1.2;color:#1a1a1a;margin-bottom:16px;max-width:800px}
+.article-meta{display:flex;align-items:center;gap:16px;font-size:14px;color:#6b7280;flex-wrap:wrap}
+.author{font-weight:600;color:#1a1a1a}.separator{color:#d1d5db}
+.content-wrapper{max-width:1200px;margin:48px auto;padding:0 24px 80px;display:grid;grid-template-columns:1fr 300px;gap:48px}
+.article-content{max-width:680px;overflow-x:hidden}
+.article-content p{font-size:18px;color:#374151;margin-bottom:24px;line-height:1.7}
+.article-content h2{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:#1a1a1a;margin-top:48px;margin-bottom:16px;padding-left:16px;border-left:4px solid #9B6BFF}
+.article-content h3{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;color:#1a1a1a;margin-top:32px;margin-bottom:12px}
+.article-content a{color:#9B6BFF;text-decoration:none;border-bottom:1px solid rgba(155,107,255,0.3);transition:all 0.2s}
+.article-content a:hover{border-bottom-color:#9B6BFF}
+.article-content ul,.article-content ol{margin-bottom:24px;padding-left:24px}
+.article-content li{font-size:18px;color:#374151;margin-bottom:10px;line-height:1.7}
+.article-content strong{color:#1a1a1a;font-weight:600}
+.article-content code{background:#f3f4f6;padding:2px 7px;border-radius:4px;font-size:13px;color:#7c3aed;font-family:monospace}
+.definition-box{background:#f5f3ff;border-left:4px solid #9B6BFF;padding:28px;margin:32px 0;border-radius:4px}
+.definition-box .def-label{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#9B6BFF;margin-bottom:12px;display:block}
+.definition-box p{font-size:17px;color:#1a1a1a;margin-bottom:0;font-style:italic;line-height:1.7}
+.article-cta{background:linear-gradient(135deg,#9B6BFF,#BFA8FF);padding:36px 40px;border-radius:12px;margin:48px 0 32px;text-align:center}
+.article-cta h3{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:#ffffff;margin-bottom:10px}
+.article-cta p{font-size:16px;color:#ffffff;opacity:.95;margin-bottom:20px}
+.article-cta a{border-bottom:none!important}
+.cta-btn-white{display:inline-block;background:#ffffff;color:#9B6BFF!important;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:700;font-size:15px;transition:transform 0.2s;border-bottom:none!important}
+.cta-btn-white:hover{transform:translateY(-2px)}
+.sidebar{position:sticky;top:80px;height:fit-content}
+.sidebar-section{background:#f9fafb;border:1px solid #e5e7eb;border-radius:12px;padding:24px;margin-bottom:24px}
+.sidebar-section h3{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;margin-bottom:16px;color:#1a1a1a}
+.toc-list{list-style:none;padding:0}.toc-list li{margin-bottom:8px}
+.toc-list a{color:#4b5563;text-decoration:none;font-size:14px;transition:color 0.2s;border-bottom:none;display:block}
+.toc-list a:hover{color:#9B6BFF}
+.cta-box{background:linear-gradient(135deg,#9B6BFF,#BFA8FF);padding:32px;border-radius:8px;text-align:center;color:#ffffff;margin-bottom:24px}
+.cta-box h3{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;margin-bottom:12px}
+.cta-box p{font-size:14px;margin-bottom:20px;opacity:.95}
+.cta-button{display:inline-block;background:#ffffff;color:#9B6BFF;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:600;font-size:15px;transition:transform 0.2s;border-bottom:none!important}
+.cta-button:hover{transform:translateY(-2px)}
+.related-articles{max-width:1200px;margin:0 auto;padding:64px 24px;border-top:1px solid #e5e7eb}
+.related-articles h2{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;margin-bottom:32px;text-align:center}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.related-card{background:#f9fafb;border-radius:8px;padding:24px;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;display:block;border-bottom:none}
+.related-card:hover{transform:translateY(-4px);box-shadow:0 8px 16px rgba(0,0,0,.08)}
+.related-card .card-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#9B6BFF;margin-bottom:8px;display:block}
+.related-card h3{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;color:#1a1a1a;margin-bottom:6px}
+.related-card p{font-size:14px;color:#6b7280;margin:0}
+footer{background:#f9fafb;border-top:1px solid #e5e7eb;padding:32px 24px;text-align:center}
+footer p{color:#6b7280;font-size:14px}
+@media(max-width:968px){.content-wrapper{grid-template-columns:1fr}.sidebar{position:static}.article-title{font-size:32px}.related-grid{grid-template-columns:1fr}}
+@media(max-width:640px){header nav{display:none}.article-title{font-size:28px}.article-cta{padding:24px}}
+.accordion-section{border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;overflow:hidden}
+.accordion-header{padding:18px 24px;background:#f9fafb;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;color:#1a1a1a;user-select:none}
+.accordion-header:hover{background:#f3f4f6}.accordion-icon{color:#9B6BFF;font-size:22px;flex-shrink:0}
+.accordion-body{padding:0 24px;max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.3s ease}
+.accordion-body.open{max-height:500px;padding:20px 24px 24px}
+.accordion-body p{font-size:16px;color:#374151;margin-bottom:8px}
+.comparison-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px;border-radius:8px;overflow:hidden;border:1px solid #e5e7eb}
+.comparison-table th{padding:12px 16px;text-align:left;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.05em;background:#f9fafb;color:#6b7280;border-bottom:2px solid #e5e7eb}
+.comparison-table th.pirai{background:#f5f3ff;color:#7c3aed}
+.comparison-table td{padding:11px 16px;border-bottom:1px solid #f3f4f6;color:#374151}
+.comparison-table tr:last-child td{border-bottom:none}
+.comparison-table td:first-child{font-weight:600;color:#1a1a1a}
+.comparison-table td.pirai{background:#fdf9ff}
+.check{color:#16a34a;font-weight:700}.cross{color:#dc2626;font-weight:700}.partial{color:#d97706}
+pre{background:#1a1a2e;color:#e2e8f0;padding:20px;border-radius:8px;overflow-x:auto;margin:20px 0}
+pre code{background:none;color:inherit;padding:0;font-size:14px}
+</style></head><body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<header><div class="header-container">
+<a href="/" class="logo"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span></a>
+<nav><a href="/">Home</a><a href="/blog">All Articles</a><a href="/docs">Documentation</a><a href="/#demo">Get Demo</a></nav>
+</div></header>
+<div class="breadcrumb"><div class="breadcrumb-container">
+<a href="/">Home</a><span class="breadcrumb-separator">›</span><a href="/blog">Blog</a><span class="breadcrumb-separator">›</span>
+<a href="/blog?category=guide">Guide</a><span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">What Is a Qualtrics QSF File? Format, Import, and How to Create One</span>
+</div></div>
+<div class="hero"><div class="hero-container">
+<h1 class="article-title">What Is a Qualtrics QSF File? Format, Import, and How to Create One</h1>
+<div class="article-meta"><span class="author">Arun Raj</span><span class="separator">•</span><span>September 1, 2026</span><span class="separator">•</span><span>6 min read</span><span class="separator">•</span><span style="background:#e5e7eb;color:#374151;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:600;">Guide</span></div>
+</div></div>
+<div class="content-wrapper">
+<article class="article-content">
+
+            <div class="definition-box"><span class="def-label">Qualtrics QSF File</span>
+            <p>A QSF (Qualtrics Survey Format) file is a JSON-based file that contains the complete definition of a Qualtrics survey - all questions, answer options, question types, blocks, survey metadata, and settings. Importing a QSF file creates a complete survey in Qualtrics instantly, without building question by question in the Survey Builder. QSF is the only file format Qualtrics accepts for survey import - you cannot import a Word document, PDF, or Excel file directly into Qualtrics.</p></div>
+
+            <h2 id="what-qsf-contains">What a QSF File Contains</h2>
+            <p>A QSF file is a plain text file in JSON format. Opening it in a text editor reveals a structured set of data blocks:</p>
+            <ul>
+            <li><strong>SurveyEntry:</strong> Survey ID, name, creation date, status, and general settings</li>
+            <li><strong>SurveyElements:</strong> The core content - every question (QID), block (BL), survey flow (FL), embedded data (ED), and response sets</li>
+            <li><strong>Questions:</strong> Each question has a QuestionType (MC, Matrix, TE, Slider, etc.), QuestionText, Choices (answer options with their codes), and display settings</li>
+            <li><strong>Blocks:</strong> Survey Builder blocks that group questions together</li>
+            <li><strong>SurveyFlow:</strong> The Survey Flow structure controlling the order of blocks, branching, embedded data, and randomisation</li>
+            </ul>
+            <p>Pirai AI generates QSF files with all the correct JSON structure for any source document. You do not need to understand QSF JSON to use Pirai AI - just download the .qsf file and import it.</p>
+
+            <h2 id="how-to-import">How to Import a QSF Into Qualtrics</h2>
+            <p><strong>Step 1:</strong> In Qualtrics, click the <strong>Create a new project</strong> button or go to the survey you want to replace.</p>
+            <p><strong>Step 2:</strong> From the survey list or project creation screen, look for <strong>From a file</strong> or from an existing survey project option. Alternatively, open an existing survey and go to <strong>Tools</strong> (gear icon, top right of Survey Builder) > <strong>Import/Export</strong> > <strong>Import Survey</strong>.</p>
+            <p><strong>Step 3:</strong> Click to browse or drag your .qsf file into the upload area.</p>
+            <p><strong>Step 4:</strong> Click <strong>Import</strong>. Qualtrics creates a new survey with all questions, blocks, and settings from the QSF file.</p>
+            <p>After import, configure display logic, Survey Flow branching, embedded data, and quotas in the Survey Builder - these are study-specific settings not included in a newly generated QSF.</p>
+
+            <h2 id="how-to-export">How to Export an Existing Survey as QSF</h2>
+            <p>To export any Qualtrics survey as a QSF (for backup, sharing, or importing into another Qualtrics account):</p>
+            <p>Open the survey in Qualtrics > Tools (gear icon) > Import/Export > Export Survey. Select "Qualtrics Survey Format (.qsf)" and click Export. The QSF file downloads immediately.</p>
+
+            <h2 id="generate-qsf">Generate a QSF From Word, PDF, or Excel</h2>
+            <p>The most common use for QSF import is converting existing survey instruments - approved in Word or available as published PDFs - into Qualtrics without manual question entry. Pirai AI generates a valid QSF file from any source document:</p>
+            <ul>
+            <li>Upload Word, PDF, or Excel at platform.piraiai.com</li>
+            <li>Review extracted questions and question types in the workspace</li>
+            <li>Select Qualtrics and download the QSF file</li>
+            <li>Import via Qualtrics Tools > Import/Export > Import Survey</li>
+            </ul>
+            <p>A 40-question survey instrument takes 15-20 minutes from document upload to completed Qualtrics import - versus 4-6 hours of manual question entry in the Qualtrics Survey Builder.</p>
+
+            <h2 id="qsf-question-types">Question Types in a QSF File</h2>
+            <table class="comparison-table">
+            <thead><tr><th>Qualtrics Question Type</th><th class="pirai">QSF QuestionType Code</th></tr></thead>
+            <tbody>
+            <tr><td>Multiple Choice (Single or Multi Answer)</td><td class="pirai">MC</td></tr>
+            <tr><td>Matrix (Likert, Rating, Bipolar)</td><td class="pirai">Matrix</td></tr>
+            <tr><td>Text Entry (Single Line or Essay)</td><td class="pirai">TE</td></tr>
+            <tr><td>Slider</td><td class="pirai">Slider</td></tr>
+            <tr><td>Rank Order</td><td class="pirai">RO</td></tr>
+            <tr><td>Net Promoter Score</td><td class="pirai">NPS</td></tr>
+            <tr><td>Constant Sum</td><td class="pirai">CS</td></tr>
+            <tr><td>Text/Graphic (instructions)</td><td class="pirai">DB</td></tr>
+            </tbody></table>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="accordion-section"><div class="accordion-header" onclick="toggleAccordion(this)">What is a QSF file in Qualtrics?<span class="accordion-icon">+</span></div><div class="accordion-body"><p>A QSF (Qualtrics Survey Format) file is a JSON-based file containing the complete definition of a Qualtrics survey - all questions, answer options, question types, blocks, and survey metadata. Importing a QSF creates a complete Qualtrics survey instantly. QSF is the only file format Qualtrics accepts for survey import.</p></div></div>
+<div class="accordion-section"><div class="accordion-header" onclick="toggleAccordion(this)">How do I import a QSF file into Qualtrics?<span class="accordion-icon">+</span></div><div class="accordion-body"><p>Open Qualtrics and go to the Survey Builder for any survey. Click Tools (gear icon, top right) > Import/Export > Import Survey. Browse or drag your .qsf file. Click Import. Qualtrics creates the complete survey from the QSF file.</p></div></div>
+<div class="accordion-section"><div class="accordion-header" onclick="toggleAccordion(this)">How do I create a QSF file from a Word document?<span class="accordion-icon">+</span></div><div class="accordion-body"><p>Upload your Word document to Pirai AI at platform.piraiai.com. Review the extracted questions in the workspace. Select Qualtrics and download the QSF file. Import via Qualtrics Tools > Import/Export > Import Survey. All questions and answer options are created in Qualtrics instantly.</p></div></div>
+<div class="accordion-section"><div class="accordion-header" onclick="toggleAccordion(this)">How do I export a Qualtrics survey as a QSF file?<span class="accordion-icon">+</span></div><div class="accordion-body"><p>Open the survey in Qualtrics. Go to Tools (gear icon) > Import/Export > Export Survey. Select Qualtrics Survey Format (.qsf) and click Export. The QSF file downloads to your computer immediately.</p></div></div>
+
+<div class="article-cta"><h3>Generate a Qualtrics QSF File From Your Document</h3><p>Upload Word, PDF, or Excel. Pirai AI generates a valid QSF file. Import into Qualtrics instantly. Free daily credits.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Start Converting Free</a></div>
+</article>
+<aside class="sidebar">
+<div class="cta-box"><h3>Try Pirai AI Free</h3><p>Convert any survey document to 27+ platforms in minutes.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-button">Start Free</a></div>
+<div class="sidebar-section"><h3>Quick Links</h3><ul class="toc-list"><li><a href="/blog/how-to-import-survey-into-qualtrics">Import Into Qualtrics</a></li>
+<li><a href="/blog/word-to-qualtrics-qsf">Word to Qualtrics QSF</a></li>
+<li><a href="/blog/pdf-to-qualtrics-survey">PDF to Qualtrics</a></li>
+<li><a href="/blog/qualtrics-question-types-guide">Qualtrics Question Types</a></li>
+<li><a href="/product/qualtrics-converter/">Qualtrics Converter</a></li>
+</ul></div>
+</aside>
+</div>
+<section class="related-articles"><h2>Related Articles</h2><div class="related-grid"><a href="/blog/how-to-import-survey-into-qualtrics" class="related-card"><span class="card-tag">Guide</span><h3>How to Import a Survey Into Qualtrics</h3><p>Step-by-step QSF import workflow with troubleshooting.</p></a>
+<a href="/blog/word-to-qualtrics-qsf" class="related-card"><span class="card-tag">Guide</span><h3>Word to Qualtrics QSF</h3><p>Converting Word instruments to Qualtrics format in minutes.</p></a>
+<a href="/blog/qualtrics-question-types-guide" class="related-card"><span class="card-tag">Guide</span><h3>Qualtrics Question Types Guide</h3><p>All Qualtrics question types with examples and use cases.</p></a>
+</div></section>
+<footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
+<script>
+function toggleAccordion(h){var b=h.nextElementSibling,i=h.querySelector('.accordion-icon'),o=b.classList.contains('open');
+document.querySelectorAll('.accordion-body.open').forEach(function(x){x.classList.remove('open');x.previousElementSibling.querySelector('.accordion-icon').textContent='+'});
+if(!o){b.classList.add('open');i.textContent='-'}}
+</script>
+</body></html>

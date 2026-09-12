@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QuestionPro Question Types: Complete Guide With Examples - Pirai AI Blog</title>
+<meta name="description" content="All QuestionPro question types explained  -  Single Choice, Multiple Choice, Matrix, Rating Scale, NPS, Rank Order, Slider, MaxDiff, Conjoint, and more. Examples, use cases, and how Pirai AI auto-detects types from Word, PDF, and Excel.">
+<meta name="keywords" content="questionpro question types, questionpro question type list, questionpro matrix question, questionpro rating scale, questionpro single choice, questionpro question types guide, all questionpro question types, questionpro survey types">
+<meta property="og:type" content="article"><meta property="og:url" content="https://piraiai.com/blog/questionpro-question-types-guide">
+<meta property="og:title" content="QuestionPro Question Types: Complete Guide With Examples"><meta property="og:description" content="All QuestionPro question types explained  -  Single Choice, Multiple Choice, Matrix, Rating Scale, NPS, Rank Order, Slider, MaxDiff, Conjoint, and more. Examples, use cases, and how Pirai AI auto-detects types from Word, PDF, and Excel.">
+<meta property="og:image" content="https://piraiai.com/logo.png">
+<meta property="article:published_time" content="2026-09-01T00:00:00Z">
+<meta property="article:author" content="Arun Raj">
+<link rel="canonical" href="https://piraiai.com/blog/questionpro-question-types-guide"><link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "QuestionPro Question Types: Complete Guide With Examples", "description": "All QuestionPro question types explained \u2014 Single Choice, Multiple Choice, Matrix, Rating Scale, NPS, Rank Order, Slider, MaxDiff, Conjoint, and more. Examples, use cases, and how Pirai AI auto-detects types from Word, PDF, and Excel.", "author": {"@type": "Person", "name": "Arun Raj"}, "publisher": {"@type": "Organization", "name": "Pirai AI", "url": "https://piraiai.com"}, "datePublished": "2026-09-01", "url": "https://piraiai.com/blog/questionpro-question-types-guide"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What question types does QuestionPro offer?", "acceptedAnswer": {"@type": "Answer", "text": "QuestionPro offers Single Choice, Multiple Choice, Open Text, Dropdown, Rating Scale, Net Promoter Score, Slider, Semantic Differential, Matrix/Grid, Rank Order, Constant Sum, MaxDiff, Conjoint Analysis, and Van Westendorp, among others. The Research and Advanced plans unlock the full range of advanced types."}}, {"@type": "Question", "name": "What is the difference between Rating Scale and Matrix in QuestionPro?", "acceptedAnswer": {"@type": "Answer", "text": "Rating Scale is a single item rated on a defined scale (one question, one row of response options). Matrix presents multiple row items all rated against the same set of scale columns in a grid - it is the standard format for multi-item Likert scale batteries. Use Matrix when you have several items to rate on the same scale; use Rating Scale for a single-item rating."}}, {"@type": "Question", "name": "Does QuestionPro have NPS (Net Promoter Score)?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. QuestionPro has a dedicated NPS question type with the standard 0-10 scale and automatic Promoter/Passive/Detractor categorisation and NPS score calculation. It integrates with QuestionPro's CX features for closed-loop follow-up workflows."}}, {"@type": "Question", "name": "Does Pirai AI auto-detect QuestionPro question types from Word documents?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Pirai AI analyses document structure: single-answer option lists become Single Choice, checkbox questions become Multiple Choice, Likert grids become Matrix, open-ended questions become Open Text, NPS wording becomes NPS, rank order instructions become Rank Order. Review all detected types in the workspace before creating the survey."}}]}</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;color:#1a1a1a;background:#ffffff}
+header{background:#ffffff;border-bottom:1px solid #e5e7eb;position:sticky;top:0;z-index:100}
+.header-container{max-width:1200px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}.logo img{width:32px;height:32px}
+.logo-text{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;color:#1a1a1a}
+.blog-label{color:#9B6BFF;font-weight:400;margin-left:8px}
+header nav a{color:#6b7280;text-decoration:none;font-weight:500;font-size:15px;margin-left:32px;transition:color 0.2s}
+header nav a:hover{color:#9B6BFF}
+.breadcrumb{background:#f9fafb;border-bottom:1px solid #e5e7eb;padding:12px 24px}
+.breadcrumb-container{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:8px;font-size:14px;color:#6b7280;flex-wrap:wrap}
+.breadcrumb a{color:#6b7280;text-decoration:none}.breadcrumb a:hover{color:#9B6BFF}
+.breadcrumb-separator{color:#d1d5db}.breadcrumb-current{color:#1a1a1a;font-weight:500}
+.hero{background:linear-gradient(135deg,#f9fafb 0%,#f3f4f6 100%);padding:48px 24px;border-bottom:1px solid #e5e7eb}
+.hero-container{max-width:1200px;margin:0 auto}
+.article-title{font-family:'Space Grotesk',sans-serif;font-size:42px;font-weight:700;line-height:1.2;color:#1a1a1a;margin-bottom:16px;max-width:800px}
+.article-meta{display:flex;align-items:center;gap:16px;font-size:14px;color:#6b7280;flex-wrap:wrap}
+.author{font-weight:600;color:#1a1a1a}.separator{color:#d1d5db}
+.content-wrapper{max-width:1200px;margin:48px auto;padding:0 24px 80px;display:grid;grid-template-columns:1fr 300px;gap:48px}
+.article-content{max-width:680px;overflow-x:hidden}
+.article-content p{font-size:18px;color:#374151;margin-bottom:24px;line-height:1.7}
+.article-content h2{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:#1a1a1a;margin-top:48px;margin-bottom:16px;padding-left:16px;border-left:4px solid #9B6BFF}
+.article-content h3{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;color:#1a1a1a;margin-top:32px;margin-bottom:12px}
+.article-content a{color:#9B6BFF;text-decoration:none;border-bottom:1px solid rgba(155,107,255,0.3);transition:all 0.2s}
+.article-content a:hover{border-bottom-color:#9B6BFF}
+.article-content ul,.article-content ol{margin-bottom:24px;padding-left:24px}
+.article-content li{font-size:18px;color:#374151;margin-bottom:10px;line-height:1.7}
+.article-content strong{color:#1a1a1a;font-weight:600}
+.article-content code{background:#f3f4f6;padding:2px 7px;border-radius:4px;font-size:13px;color:#7c3aed;font-family:monospace}
+.definition-box{background:#f5f3ff;border-left:4px solid #9B6BFF;padding:28px;margin:32px 0;border-radius:4px}
+.definition-box .def-label{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#9B6BFF;margin-bottom:12px;display:block}
+.definition-box p{font-size:17px;color:#1a1a1a;margin-bottom:0;font-style:italic;line-height:1.7}
+.article-cta{background:linear-gradient(135deg,#9B6BFF,#BFA8FF);padding:36px 40px;border-radius:12px;margin:48px 0 32px;text-align:center}
+.article-cta h3{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:#ffffff;margin-bottom:10px}
+.article-cta p{font-size:16px;color:#ffffff;opacity:.95;margin-bottom:20px}
+.article-cta a{border-bottom:none!important}
+.cta-btn-white{display:inline-block;background:#ffffff;color:#9B6BFF!important;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:700;font-size:15px;transition:transform 0.2s;border-bottom:none!important}
+.cta-btn-white:hover{transform:translateY(-2px)}
+.sidebar{position:sticky;top:80px;height:fit-content}
+.sidebar-section{background:#f9fafb;border:1px solid #e5e7eb;border-radius:12px;padding:24px;margin-bottom:24px}
+.sidebar-section h3{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;margin-bottom:16px;color:#1a1a1a}
+.toc-list{list-style:none;padding:0}.toc-list li{margin-bottom:8px}
+.toc-list a{color:#4b5563;text-decoration:none;font-size:14px;transition:color 0.2s;border-bottom:none;display:block}
+.toc-list a:hover{color:#9B6BFF}
+.cta-box{background:linear-gradient(135deg,#9B6BFF,#BFA8FF);padding:32px;border-radius:8px;text-align:center;color:#ffffff;margin-bottom:24px}
+.cta-box h3{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;margin-bottom:12px}
+.cta-box p{font-size:14px;margin-bottom:20px;opacity:.95}
+.cta-button{display:inline-block;background:#ffffff;color:#9B6BFF;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:600;font-size:15px;transition:transform 0.2s;border-bottom:none!important}
+.cta-button:hover{transform:translateY(-2px)}
+.related-articles{max-width:1200px;margin:0 auto;padding:64px 24px;border-top:1px solid #e5e7eb}
+.related-articles h2{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;margin-bottom:32px;text-align:center}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.related-card{background:#f9fafb;border-radius:8px;padding:24px;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;display:block;border-bottom:none}
+.related-card:hover{transform:translateY(-4px);box-shadow:0 8px 16px rgba(0,0,0,.08)}
+.related-card .card-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#9B6BFF;margin-bottom:8px;display:block}
+.related-card h3{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;color:#1a1a1a;margin-bottom:6px}
+.related-card p{font-size:14px;color:#6b7280;margin:0}
+footer{background:#f9fafb;border-top:1px solid #e5e7eb;padding:32px 24px;text-align:center}
+footer p{color:#6b7280;font-size:14px}
+@media(max-width:968px){.content-wrapper{grid-template-columns:1fr}.sidebar{position:static}.article-title{font-size:32px}.related-grid{grid-template-columns:1fr}}
+@media(max-width:640px){header nav{display:none}.article-title{font-size:28px}.article-cta{padding:24px}}
+.accordion-section{border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;overflow:hidden}
+.accordion-header{padding:18px 24px;background:#f9fafb;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;color:#1a1a1a;user-select:none}
+.accordion-header:hover{background:#f3f4f6}.accordion-icon{color:#9B6BFF;font-size:22px;flex-shrink:0}
+.accordion-body{padding:0 24px;max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.3s ease}
+.accordion-body.open{max-height:500px;padding:20px 24px 24px}
+.accordion-body p{font-size:16px;color:#374151;margin-bottom:8px}
+.comparison-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px;border-radius:8px;overflow:hidden;border:1px solid #e5e7eb}
+.comparison-table th{padding:12px 16px;text-align:left;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.05em;background:#f9fafb;color:#6b7280;border-bottom:2px solid #e5e7eb}
+.comparison-table th.pirai{background:#f5f3ff;color:#7c3aed}
+.comparison-table td{padding:11px 16px;border-bottom:1px solid #f3f4f6;color:#374151}
+.comparison-table tr:last-child td{border-bottom:none}
+.comparison-table td:first-child{font-weight:600;color:#1a1a1a}
+.comparison-table td.pirai{background:#fdf9ff}
+.check{color:#16a34a;font-weight:700}.cross{color:#dc2626;font-weight:700}.partial{color:#d97706}
+pre{background:#1a1a2e;color:#e2e8f0;padding:20px;border-radius:8px;overflow-x:auto;margin:20px 0}
+pre code{background:none;color:inherit;padding:0;font-size:14px}
+</style></head><body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<header><div class="header-container">
+<a href="/" class="logo"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span></a>
+<nav><a href="/">Home</a><a href="/blog">All Articles</a><a href="/docs">Documentation</a><a href="/#demo">Get Demo</a></nav>
+</div></header>
+<div class="breadcrumb"><div class="breadcrumb-container">
+<a href="/">Home</a><span class="breadcrumb-separator">›</span><a href="/blog">Blog</a><span class="breadcrumb-separator">›</span>
+<a href="/blog?category=guide">Guide</a><span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">QuestionPro Question Types: Complete Guide With Examples</span>
+</div></div>
+<div class="hero"><div class="hero-container">
+<h1 class="article-title">QuestionPro Question Types: Complete Guide With Examples</h1>
+<div class="article-meta"><span class="author">Arun Raj</span><span class="separator">•</span><span>September 1, 2026</span><span class="separator">•</span><span>6 min read</span><span class="separator">•</span><span style="background:#e5e7eb;color:#374151;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:600;">Guide</span></div>
+</div></div>
+<div class="content-wrapper">
+<article class="article-content">
+
+            <div class="definition-box"><span class="def-label">QuestionPro Question Types</span>
+            <p>QuestionPro offers a comprehensive range of question types from standard multiple choice to advanced research methodologies like MaxDiff and conjoint analysis. Selecting the right question type for each survey item directly affects data quality, analytical capability, and the respondent experience. This guide covers the question types used most commonly in research and market research surveys, with examples of when to use each.</p></div>
+
+            <h2 id="standard-types">Standard Survey Question Types</h2>
+            <p><strong>Single Choice:</strong> Respondent selects one option from a list (radio buttons). The most common question type in surveys. Use for: gender, age group, education level, any question with mutually exclusive single-answer options.</p>
+            <p><strong>Multiple Choice:</strong> Respondent selects one or more options (checkboxes). Use for: "select all that apply" questions, multi-attribute selection, product ownership, media consumption.</p>
+            <p><strong>Open Text:</strong> Free-form text entry. Sub-types include single-line (short answer) and multi-line comment box (long answer). Use for: verbatim feedback, explanations, "other please specify" fields, qualitative open-ended questions.</p>
+            <p><strong>Dropdown:</strong> Options presented in a dropdown list. Use for: long option lists where radio buttons would require excessive scrolling (countries, age in years, product categories).</p>
+
+            <h2 id="scale-types">Scale and Rating Question Types</h2>
+            <p><strong>Rating Scale:</strong> Items rated on a defined scale, presented as horizontal radio buttons or buttons. Use for: satisfaction (Very Dissatisfied to Very Satisfied), agreement (Strongly Disagree to Strongly Agree), importance (Not at all to Extremely), frequency (Never to Always). The most versatile scale type for general research.</p>
+            <p><strong>Net Promoter Score (NPS):</strong> 0-10 recommendation likelihood scale with promoter/passive/detractor scoring built in. Use for: customer loyalty measurement, brand tracking, employee engagement measurement. QuestionPro's NPS question includes automatic Promoter/Passive/Detractor categorisation and NPS score calculation.</p>
+            <p><strong>Slider:</strong> Continuous drag-and-drop scale. Use for: visual analog scales, percentage allocation, precise continuous measurement where discrete steps add artificial anchoring.</p>
+            <p><strong>Semantic Differential:</strong> Bipolar scale with opposing attribute labels at each end (Fast--Slow, Modern--Traditional). Use for: brand image measurement, product perception, concept testing with opposing attribute pairs.</p>
+
+            <h2 id="grid-types">Grid and Matrix Question Types</h2>
+            <p><strong>Matrix / Grid:</strong> Multiple row items each rated against the same set of column scale options. The standard format for Likert scale batteries in research surveys. Use for: attitude scales, attribute evaluations, multi-item questionnaire batteries from validated instruments.</p>
+            <p><strong>Rank Order:</strong> Respondents rank items in order of preference or priority by dragging or assigning numeric ranks. Use for: feature prioritisation, message testing, brand preference ordering.</p>
+            <p><strong>Constant Sum:</strong> Respondents allocate a fixed total (100 points or 100%) across options. Use for: budget allocation, time distribution, share of wallet estimation.</p>
+
+            <h2 id="advanced-types">Advanced Research Question Types</h2>
+            <p><strong>MaxDiff (Best-Worst Scaling):</strong> Respondents choose the best and worst from sets of attributes. Produces a utility or importance score for each attribute. Use for: feature prioritisation, message testing, brand element evaluation where forced trade-offs produce more discriminating data than rating scales.</p>
+            <p><strong>Conjoint Analysis:</strong> Tests combinations of product features at different levels to measure preference and willingness to pay. Use for: product development research, pricing research, feature combination optimisation.</p>
+            <p><strong>Van Westendorp Price Sensitivity:</strong> Four price questions producing a price sensitivity meter. Use for: pricing research and willingness-to-pay estimation.</p>
+
+            <h2 id="auto-detection">How Pirai AI Detects QuestionPro Question Types</h2>
+            <p>Pirai AI analyses your document structure to assign QuestionPro question types automatically. Single-answer option lists become Single Choice. Checkbox/select-all questions become Multiple Choice. Likert matrices become Matrix/Grid. Open-ended questions become Open Text. NPS wording ("how likely are you to recommend") becomes NPS. Rank order instructions become Rank Order. Review all detected types in the workspace before creating the survey in QuestionPro.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="accordion-section"><div class="accordion-header" onclick="toggleAccordion(this)">What question types does QuestionPro offer?<span class="accordion-icon">+</span></div><div class="accordion-body"><p>QuestionPro offers Single Choice, Multiple Choice, Open Text, Dropdown, Rating Scale, Net Promoter Score, Slider, Semantic Differential, Matrix/Grid, Rank Order, Constant Sum, MaxDiff, Conjoint Analysis, and Van Westendorp, among others. The Research and Advanced plans unlock the full range of advanced types.</p></div></div>
+<div class="accordion-section"><div class="accordion-header" onclick="toggleAccordion(this)">What is the difference between Rating Scale and Matrix in QuestionPro?<span class="accordion-icon">+</span></div><div class="accordion-body"><p>Rating Scale is a single item rated on a defined scale (one question, one row of response options). Matrix presents multiple row items all rated against the same set of scale columns in a grid - it is the standard format for multi-item Likert scale batteries. Use Matrix when you have several items to rate on the same scale; use Rating Scale for a single-item rating.</p></div></div>
+<div class="accordion-section"><div class="accordion-header" onclick="toggleAccordion(this)">Does QuestionPro have NPS (Net Promoter Score)?<span class="accordion-icon">+</span></div><div class="accordion-body"><p>Yes. QuestionPro has a dedicated NPS question type with the standard 0-10 scale and automatic Promoter/Passive/Detractor categorisation and NPS score calculation. It integrates with QuestionPro's CX features for closed-loop follow-up workflows.</p></div></div>
+<div class="accordion-section"><div class="accordion-header" onclick="toggleAccordion(this)">Does Pirai AI auto-detect QuestionPro question types from Word documents?<span class="accordion-icon">+</span></div><div class="accordion-body"><p>Yes. Pirai AI analyses document structure: single-answer option lists become Single Choice, checkbox questions become Multiple Choice, Likert grids become Matrix, open-ended questions become Open Text, NPS wording becomes NPS, rank order instructions become Rank Order. Review all detected types in the workspace before creating the survey.</p></div></div>
+
+<div class="article-cta"><h3>Convert Your Survey With Auto-Detected QuestionPro Question Types</h3><p>Upload Word, PDF, or Excel. Pirai AI detects Single Choice, Matrix, NPS, MaxDiff, and all QuestionPro types automatically. Free daily credits.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Start Converting Free</a></div>
+</article>
+<aside class="sidebar">
+<div class="cta-box"><h3>Try Pirai AI Free</h3><p>Convert any survey document to 27+ platforms in minutes.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-button">Start Free</a></div>
+<div class="sidebar-section"><h3>Quick Links</h3><ul class="toc-list"><li><a href="/blog/what-is-questionpro">What Is QuestionPro</a></li>
+<li><a href="/blog/how-to-import-survey-into-questionpro">Import Into QuestionPro</a></li>
+<li><a href="/blog/word-to-questionpro">Word to QuestionPro</a></li>
+<li><a href="/blog/questionpro-vs-qualtrics">QuestionPro vs Qualtrics</a></li>
+<li><a href="/product/questionpro-converter/">QuestionPro Converter</a></li>
+</ul></div>
+</aside>
+</div>
+<section class="related-articles"><h2>Related Articles</h2><div class="related-grid"><a href="/blog/what-is-questionpro" class="related-card"><span class="card-tag">Guide</span><h3>What Is QuestionPro?</h3><p>Platform overview, features, and research use cases.</p></a>
+<a href="/blog/word-to-questionpro" class="related-card"><span class="card-tag">Guide</span><h3>Word to QuestionPro</h3><p>Converting Word documents with auto-detected question types.</p></a>
+<a href="/blog/questionpro-vs-qualtrics" class="related-card"><span class="card-tag">Guide</span><h3>QuestionPro vs Qualtrics</h3><p>Feature comparison for research agencies and academic researchers.</p></a>
+</div></section>
+<footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
+<script>
+function toggleAccordion(h){var b=h.nextElementSibling,i=h.querySelector('.accordion-icon'),o=b.classList.contains('open');
+document.querySelectorAll('.accordion-body.open').forEach(function(x){x.classList.remove('open');x.previousElementSibling.querySelector('.accordion-icon').textContent='+'});
+if(!o){b.classList.add('open');i.textContent='-'}}
+</script>
+</body></html>

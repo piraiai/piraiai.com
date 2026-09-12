@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word to Qualtrics: Convert a Word Document to Qualtrics QSF - Pirai AI Blog</title>
+<meta name="description" content="Convert a Word survey instrument to a Qualtrics QSF file for direct import. Pirai AI extracts all questions verbatim, assigns the correct Qualtrics question types, and generates a valid QSF. Free for researchers. IRB/HREC wording preserved.">
+<meta name="keywords" content="word to qualtrics, word document to qualtrics qsf, convert word to qualtrics, word survey to qualtrics, word to qualtrics converter, docx to qualtrics qsf, convert word instrument qualtrics">
+<meta property="og:type" content="article"><meta property="og:url" content="https://piraiai.com/blog/word-to-qualtrics-qsf">
+<meta property="og:title" content="Word to Qualtrics: Convert a Word Document to Qualtrics QSF"><meta property="og:description" content="Convert a Word survey instrument to a Qualtrics QSF file for direct import. Pirai AI extracts all questions verbatim, assigns the correct Qualtrics question types, and generates a valid QSF. Free for researchers. IRB/HREC wording preserved.">
+<meta property="og:image" content="https://piraiai.com/logo.png">
+<meta property="article:published_time" content="2026-09-01T00:00:00Z">
+<meta property="article:author" content="Arun Raj">
+<link rel="canonical" href="https://piraiai.com/blog/word-to-qualtrics-qsf"><link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Word to Qualtrics: Convert a Word Document to Qualtrics QSF", "description": "Convert a Word survey instrument to a Qualtrics QSF file for direct import. Pirai AI extracts all questions verbatim, assigns the correct Qualtrics question types, and generates a valid QSF. Free for researchers. IRB/HREC wording preserved.", "author": {"@type": "Person", "name": "Arun Raj"}, "publisher": {"@type": "Organization", "name": "Pirai AI", "url": "https://piraiai.com"}, "datePublished": "2026-09-01", "url": "https://piraiai.com/blog/word-to-qualtrics-qsf"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I convert a Word document to Qualtrics?", "acceptedAnswer": {"@type": "Answer", "text": "Upload your Word (.docx) to Pirai AI at platform.piraiai.com. Review extracted questions in the workspace. Select Qualtrics and download the QSF file. Import via Qualtrics Survey Builder > Tools > Import/Export > Import Survey. All questions from the Word document are created in Qualtrics with verbatim text preserved."}}, {"@type": "Question", "name": "Does Pirai AI preserve IRB/HREC-approved wording when converting Word to Qualtrics?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Pirai AI extracts question labels verbatim from the source Word document without paraphrasing. Qualtrics question text matches the ethics-approved Word document exactly. The workspace shows extracted text for review before the QSF is generated."}}, {"@type": "Question", "name": "What Qualtrics question types does Pirai AI create from a Word document?", "acceptedAnswer": {"@type": "Answer", "text": "Multiple Choice (single and multiple answer), Matrix (Likert, Rating, Bipolar), Text Entry (single line and essay), Slider, Rank Order, and Text/Graphic (instruction blocks) - all auto-detected from question structure in the Word document."}}, {"@type": "Question", "name": "Can I convert a Word document to Qualtrics and also to REDCap in the same session?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. From a single Word document upload in Pirai AI, export to Qualtrics QSF and REDCap Data Dictionary CSV in the same session. Useful for studies that need the instrument in both platforms - Qualtrics for population surveys and REDCap for clinical arm data collection."}}]}</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;color:#1a1a1a;background:#ffffff}
+header{background:#ffffff;border-bottom:1px solid #e5e7eb;position:sticky;top:0;z-index:100}
+.header-container{max-width:1200px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}.logo img{width:32px;height:32px}
+.logo-text{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;color:#1a1a1a}
+.blog-label{color:#9B6BFF;font-weight:400;margin-left:8px}
+header nav a{color:#6b7280;text-decoration:none;font-weight:500;font-size:15px;margin-left:32px;transition:color 0.2s}
+header nav a:hover{color:#9B6BFF}
+.breadcrumb{background:#f9fafb;border-bottom:1px solid #e5e7eb;padding:12px 24px}
+.breadcrumb-container{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:8px;font-size:14px;color:#6b7280;flex-wrap:wrap}
+.breadcrumb a{color:#6b7280;text-decoration:none}.breadcrumb a:hover{color:#9B6BFF}
+.breadcrumb-separator{color:#d1d5db}.breadcrumb-current{color:#1a1a1a;font-weight:500}
+.hero{background:linear-gradient(135deg,#f9fafb 0%,#f3f4f6 100%);padding:48px 24px;border-bottom:1px solid #e5e7eb}
+.hero-container{max-width:1200px;margin:0 auto}
+.article-title{font-family:'Space Grotesk',sans-serif;font-size:42px;font-weight:700;line-height:1.2;color:#1a1a1a;margin-bottom:16px;max-width:800px}
+.article-meta{display:flex;align-items:center;gap:16px;font-size:14px;color:#6b7280;flex-wrap:wrap}
+.author{font-weight:600;color:#1a1a1a}.separator{color:#d1d5db}
+.content-wrapper{max-width:1200px;margin:48px auto;padding:0 24px 80px;display:grid;grid-template-columns:1fr 300px;gap:48px}
+.article-content{max-width:680px;overflow-x:hidden}
+.article-content p{font-size:18px;color:#374151;margin-bottom:24px;line-height:1.7}
+.article-content h2{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:#1a1a1a;margin-top:48px;margin-bottom:16px;padding-left:16px;border-left:4px solid #9B6BFF}
+.article-content h3{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;color:#1a1a1a;margin-top:32px;margin-bottom:12px}
+.article-content a{color:#9B6BFF;text-decoration:none;border-bottom:1px solid rgba(155,107,255,0.3);transition:all 0.2s}
+.article-content a:hover{border-bottom-color:#9B6BFF}
+.article-content ul,.article-content ol{margin-bottom:24px;padding-left:24px}
+.article-content li{font-size:18px;color:#374151;margin-bottom:10px;line-height:1.7}
+.article-content strong{color:#1a1a1a;font-weight:600}
+.article-content code{background:#f3f4f6;padding:2px 7px;border-radius:4px;font-size:13px;color:#7c3aed;font-family:monospace}
+.definition-box{background:#f5f3ff;border-left:4px solid #9B6BFF;padding:28px;margin:32px 0;border-radius:4px}
+.definition-box .def-label{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#9B6BFF;margin-bottom:12px;display:block}
+.definition-box p{font-size:17px;color:#1a1a1a;margin-bottom:0;font-style:italic;line-height:1.7}
+.article-cta{background:linear-gradient(135deg,#9B6BFF,#BFA8FF);padding:36px 40px;border-radius:12px;margin:48px 0 32px;text-align:center}
+.article-cta h3{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:#ffffff;margin-bottom:10px}
+.article-cta p{font-size:16px;color:#ffffff;opacity:.95;margin-bottom:20px}
+.article-cta a{border-bottom:none!important}
+.cta-btn-white{display:inline-block;background:#ffffff;color:#9B6BFF!important;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:700;font-size:15px;transition:transform 0.2s;border-bottom:none!important}
+.cta-btn-white:hover{transform:translateY(-2px)}
+.sidebar{position:sticky;top:80px;height:fit-content}
+.sidebar-section{background:#f9fafb;border:1px solid #e5e7eb;border-radius:12px;padding:24px;margin-bottom:24px}
+.sidebar-section h3{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;margin-bottom:16px;color:#1a1a1a}
+.toc-list{list-style:none;padding:0}.toc-list li{margin-bottom:8px}
+.toc-list a{color:#4b5563;text-decoration:none;font-size:14px;transition:color 0.2s;border-bottom:none;display:block}
+.toc-list a:hover{color:#9B6BFF}
+.cta-box{background:linear-gradient(135deg,#9B6BFF,#BFA8FF);padding:32px;border-radius:8px;text-align:center;color:#ffffff;margin-bottom:24px}
+.cta-box h3{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;margin-bottom:12px}
+.cta-box p{font-size:14px;margin-bottom:20px;opacity:.95}
+.cta-button{display:inline-block;background:#ffffff;color:#9B6BFF;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:600;font-size:15px;transition:transform 0.2s;border-bottom:none!important}
+.cta-button:hover{transform:translateY(-2px)}
+.related-articles{max-width:1200px;margin:0 auto;padding:64px 24px;border-top:1px solid #e5e7eb}
+.related-articles h2{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;margin-bottom:32px;text-align:center}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.related-card{background:#f9fafb;border-radius:8px;padding:24px;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;display:block;border-bottom:none}
+.related-card:hover{transform:translateY(-4px);box-shadow:0 8px 16px rgba(0,0,0,.08)}
+.related-card .card-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#9B6BFF;margin-bottom:8px;display:block}
+.related-card h3{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;color:#1a1a1a;margin-bottom:6px}
+.related-card p{font-size:14px;color:#6b7280;margin:0}
+footer{background:#f9fafb;border-top:1px solid #e5e7eb;padding:32px 24px;text-align:center}
+footer p{color:#6b7280;font-size:14px}
+@media(max-width:968px){.content-wrapper{grid-template-columns:1fr}.sidebar{position:static}.article-title{font-size:32px}.related-grid{grid-template-columns:1fr}}
+@media(max-width:640px){header nav{display:none}.article-title{font-size:28px}.article-cta{padding:24px}}
+.accordion-section{border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;overflow:hidden}
+.accordion-header{padding:18px 24px;background:#f9fafb;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;color:#1a1a1a;user-select:none}
+.accordion-header:hover{background:#f3f4f6}.accordion-icon{color:#9B6BFF;font-size:22px;flex-shrink:0}
+.accordion-body{padding:0 24px;max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.3s ease}
+.accordion-body.open{max-height:500px;padding:20px 24px 24px}
+.accordion-body p{font-size:16px;color:#374151;margin-bottom:8px}
+.comparison-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px;border-radius:8px;overflow:hidden;border:1px solid #e5e7eb}
+.comparison-table th{padding:12px 16px;text-align:left;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.05em;background:#f9fafb;color:#6b7280;border-bottom:2px solid #e5e7eb}
+.comparison-table th.pirai{background:#f5f3ff;color:#7c3aed}
+.comparison-table td{padding:11px 16px;border-bottom:1px solid #f3f4f6;color:#374151}
+.comparison-table tr:last-child td{border-bottom:none}
+.comparison-table td:first-child{font-weight:600;color:#1a1a1a}
+.comparison-table td.pirai{background:#fdf9ff}
+.check{color:#16a34a;font-weight:700}.cross{color:#dc2626;font-weight:700}.partial{color:#d97706}
+pre{background:#1a1a2e;color:#e2e8f0;padding:20px;border-radius:8px;overflow-x:auto;margin:20px 0}
+pre code{background:none;color:inherit;padding:0;font-size:14px}
+</style></head><body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<header><div class="header-container">
+<a href="/" class="logo"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span></a>
+<nav><a href="/">Home</a><a href="/blog">All Articles</a><a href="/docs">Documentation</a><a href="/#demo">Get Demo</a></nav>
+</div></header>
+<div class="breadcrumb"><div class="breadcrumb-container">
+<a href="/">Home</a><span class="breadcrumb-separator">›</span><a href="/blog">Blog</a><span class="breadcrumb-separator">›</span>
+<a href="/blog?category=guide">Guide</a><span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Word to Qualtrics: Convert a Word Document to Qualtrics QSF</span>
+</div></div>
+<div class="hero"><div class="hero-container">
+<h1 class="article-title">Word to Qualtrics: Convert a Word Document to Qualtrics QSF</h1>
+<div class="article-meta"><span class="author">Arun Raj</span><span class="separator">•</span><span>September 1, 2026</span><span class="separator">•</span><span>6 min read</span><span class="separator">•</span><span style="background:#e5e7eb;color:#374151;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:600;">Guide</span></div>
+</div></div>
+<div class="content-wrapper">
+<article class="article-content">
+
+            <div class="definition-box"><span class="def-label">Word to Qualtrics</span>
+            <p>Research instruments are written in Word for ethics review and IRB/HREC submission. After approval, the same instrument needs to be in Qualtrics - rebuilt from scratch in the Survey Builder, question by question. Pirai AI eliminates the rebuild. Upload the approved Word document, review the extracted questions, download the QSF, and import into Qualtrics. Verbatim wording from the approved document is preserved in every Qualtrics question label.</p></div>
+
+            <h2 id="how">Word to Qualtrics: The Exact Steps</h2>
+            <p><strong>1. Upload your Word document</strong> at platform.piraiai.com. Pirai AI reads the document structure and extracts every question, answer option, section heading, and instruction paragraph.</p>
+            <p><strong>2. Review in the workspace.</strong> Every extracted question appears with its assigned Qualtrics question type and answer options. Verify question types are correct - Multiple Choice (single or multiple answer), Matrix, Text Entry, Slider, Rank Order, or Text/Graphic. Edit any question text or type before generating the QSF. The workspace shows you exactly what will appear in Qualtrics.</p>
+            <p><strong>3. Select Qualtrics and download the QSF.</strong> Click Qualtrics as the output. Download the .qsf file. All question types, blocks, and metadata are included.</p>
+            <p><strong>4. Import into Qualtrics.</strong> Open Qualtrics > Survey Builder > Tools > Import/Export > Import Survey. Select your .qsf file. Click Import. All questions from the Word document appear in Qualtrics instantly.</p>
+            <p><strong>5. Complete configuration.</strong> Add display logic (conditional question visibility), configure Survey Flow if needed, set up survey options (anonymity, response limits), and apply look and feel settings. Distribute when ready.</p>
+
+            <h2 id="what-transfers">What Transfers From Word to Qualtrics</h2>
+            <table class="comparison-table">
+            <thead><tr><th>In Your Word Document</th><th class="pirai">In Qualtrics</th></tr></thead>
+            <tbody>
+            <tr><td>Multiple choice question (one answer)</td><td class="pirai">Multiple Choice - Single Answer (radio buttons)</td></tr>
+            <tr><td>Select all that apply question</td><td class="pirai">Multiple Choice - Multiple Answer (checkboxes)</td></tr>
+            <tr><td>Likert matrix (rows rated on scale columns)</td><td class="pirai">Matrix question - Likert sub-type</td></tr>
+            <tr><td>Open-ended short answer</td><td class="pirai">Text Entry - Single Line</td></tr>
+            <tr><td>Open-ended long response</td><td class="pirai">Text Entry - Essay</td></tr>
+            <tr><td>Rating scale (1-5, 1-7, 0-10)</td><td class="pirai">Slider or Multiple Choice with numeric options</td></tr>
+            <tr><td>Section heading / instruction text</td><td class="pirai">Text/Graphic question block (display-only)</td></tr>
+            <tr><td>Numbered question groups</td><td class="pirai">Qualtrics Survey Builder blocks</td></tr>
+            </tbody></table>
+
+            <h2 id="verbatim">Verbatim Text for IRB and HREC Compliance</h2>
+            <p>Ethics committees approve survey instruments at the exact wording level. In Australia, HRECs review and approve the precise text of every question and answer option. In the US, IRBs do the same under the Common Rule. Any change to approved wording after ethics approval constitutes a protocol amendment requiring re-approval.</p>
+            <p>Pirai AI extracts question labels verbatim from the source Word document. The Qualtrics question text matches the HREC/IRB-approved Word document character for character. The workspace shows extracted text for review before the QSF is generated, giving researchers one final check to confirm verbatim accuracy before import.</p>
+
+            <h2 id="time-comparison">Time Comparison</h2>
+            <table class="comparison-table">
+            <thead><tr><th>Method</th><th class="pirai">Time for 40-Question Instrument</th></tr></thead>
+            <tbody>
+            <tr><td>Manual entry in Qualtrics Survey Builder</td><td class="pirai">4-6 hours</td></tr>
+            <tr><td>Qualtrics Advanced Format text file</td><td class="pirai">2-3 hours (requires specific formatting)</td></tr>
+            <tr><td>Pirai AI Word to QSF</td><td class="pirai">15-20 minutes</td></tr>
+            </tbody></table>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="accordion-section"><div class="accordion-header" onclick="toggleAccordion(this)">How do I convert a Word document to Qualtrics?<span class="accordion-icon">+</span></div><div class="accordion-body"><p>Upload your Word (.docx) to Pirai AI at platform.piraiai.com. Review extracted questions in the workspace. Select Qualtrics and download the QSF file. Import via Qualtrics Survey Builder > Tools > Import/Export > Import Survey. All questions from the Word document are created in Qualtrics with verbatim text preserved.</p></div></div>
+<div class="accordion-section"><div class="accordion-header" onclick="toggleAccordion(this)">Does Pirai AI preserve IRB/HREC-approved wording when converting Word to Qualtrics?<span class="accordion-icon">+</span></div><div class="accordion-body"><p>Yes. Pirai AI extracts question labels verbatim from the source Word document without paraphrasing. Qualtrics question text matches the ethics-approved Word document exactly. The workspace shows extracted text for review before the QSF is generated.</p></div></div>
+<div class="accordion-section"><div class="accordion-header" onclick="toggleAccordion(this)">What Qualtrics question types does Pirai AI create from a Word document?<span class="accordion-icon">+</span></div><div class="accordion-body"><p>Multiple Choice (single and multiple answer), Matrix (Likert, Rating, Bipolar), Text Entry (single line and essay), Slider, Rank Order, and Text/Graphic (instruction blocks) - all auto-detected from question structure in the Word document.</p></div></div>
+<div class="accordion-section"><div class="accordion-header" onclick="toggleAccordion(this)">Can I convert a Word document to Qualtrics and also to REDCap in the same session?<span class="accordion-icon">+</span></div><div class="accordion-body"><p>Yes. From a single Word document upload in Pirai AI, export to Qualtrics QSF and REDCap Data Dictionary CSV in the same session. Useful for studies that need the instrument in both platforms - Qualtrics for population surveys and REDCap for clinical arm data collection.</p></div></div>
+
+<div class="article-cta"><h3>Convert Your Word Instrument to Qualtrics</h3><p>Upload your Word document. Pirai AI generates a Qualtrics QSF with verbatim text. Import in seconds. Free daily credits.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Start Converting Free</a></div>
+</article>
+<aside class="sidebar">
+<div class="cta-box"><h3>Try Pirai AI Free</h3><p>Convert any survey document to 27+ platforms in minutes.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-button">Start Free</a></div>
+<div class="sidebar-section"><h3>Quick Links</h3><ul class="toc-list"><li><a href="/blog/what-is-a-qualtrics-qsf-file">What Is a QSF File</a></li>
+<li><a href="/blog/how-to-import-survey-into-qualtrics">Import Into Qualtrics</a></li>
+<li><a href="/blog/pdf-to-qualtrics-survey">PDF to Qualtrics</a></li>
+<li><a href="/blog/qualtrics-question-types-guide">Qualtrics Question Types</a></li>
+<li><a href="/product/qualtrics-converter/">Qualtrics Converter</a></li>
+</ul></div>
+</aside>
+</div>
+<section class="related-articles"><h2>Related Articles</h2><div class="related-grid"><a href="/blog/what-is-a-qualtrics-qsf-file" class="related-card"><span class="card-tag">Guide</span><h3>What Is a Qualtrics QSF File?</h3><p>QSF format, what it contains, and how to import it.</p></a>
+<a href="/blog/how-to-import-survey-into-qualtrics" class="related-card"><span class="card-tag">Guide</span><h3>How to Import a Survey Into Qualtrics</h3><p>Step-by-step QSF import with post-import configuration.</p></a>
+<a href="/blog/pdf-to-qualtrics-survey" class="related-card"><span class="card-tag">Guide</span><h3>PDF to Qualtrics Survey</h3><p>Converting clinical scales and research PDFs to Qualtrics.</p></a>
+</div></section>
+<footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
+<script>
+function toggleAccordion(h){var b=h.nextElementSibling,i=h.querySelector('.accordion-icon'),o=b.classList.contains('open');
+document.querySelectorAll('.accordion-body.open').forEach(function(x){x.classList.remove('open');x.previousElementSibling.querySelector('.accordion-icon').textContent='+'});
+if(!o){b.classList.add('open');i.textContent='-'}}
+</script>
+</body></html>

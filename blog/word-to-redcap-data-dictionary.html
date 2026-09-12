@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word to REDCap: Convert a Word Document to REDCap Data Dictionary - Pirai AI Blog</title>
+<meta name="description" content="Convert a Word survey instrument to REDCap Data Dictionary CSV format. Pirai AI extracts every question verbatim, formats pipe-delimited choices automatically, and generates all 18 Data Dictionary columns. Free for researchers.">
+<meta name="keywords" content="word to redcap, word document to redcap data dictionary, convert word to redcap, word to redcap converter, word survey to redcap, redcap from word document, docx to redcap data dictionary">
+<meta property="og:type" content="article"><meta property="og:url" content="https://piraiai.com/blog/word-to-redcap-data-dictionary">
+<meta property="og:title" content="Word to REDCap: Convert a Word Document to REDCap Data Dictionary"><meta property="og:description" content="Convert a Word survey instrument to REDCap Data Dictionary CSV format. Pirai AI extracts every question verbatim, formats pipe-delimited choices automatically, and generates all 18 Data Dictionary columns. Free for researchers.">
+<meta property="og:image" content="https://piraiai.com/logo.png">
+<meta property="article:published_time" content="2026-08-28T00:00:00Z">
+<meta property="article:author" content="Arun Raj">
+<link rel="canonical" href="https://piraiai.com/blog/word-to-redcap-data-dictionary"><link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Word to REDCap: Convert a Word Document to REDCap Data Dictionary", "description": "Convert a Word survey instrument to REDCap Data Dictionary CSV format. Pirai AI extracts every question verbatim, formats pipe-delimited choices automatically, and generates all 18 Data Dictionary columns. Free for researchers.", "author": {"@type": "Person", "name": "Arun Raj"}, "publisher": {"@type": "Organization", "name": "Pirai AI", "url": "https://piraiai.com"}, "datePublished": "2026-08-28", "url": "https://piraiai.com/blog/word-to-redcap-data-dictionary"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I convert a Word document to a REDCap Data Dictionary?", "acceptedAnswer": {"@type": "Answer", "text": "Upload your Word (.docx) document to Pirai AI at platform.piraiai.com. Review the extracted questions in the workspace. Select REDCap and download the Data Dictionary CSV. Import via REDCap Project Setup > Data Dictionary > Upload File > Commit Changes. All 18 columns are populated with verbatim field labels and correctly formatted pipe-delimited choices."}}, {"@type": "Question", "name": "Does converting Word to REDCap preserve verbatim question wording?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Pirai AI extracts field labels verbatim from the source Word document without paraphrasing. Field labels in the REDCap Data Dictionary match the source document exactly - important for IRB/HREC compliance and validated instrument integrity."}}, {"@type": "Question", "name": "What field types does Pirai AI create from a Word document in REDCap?", "acceptedAnswer": {"@type": "Answer", "text": "Radio (single-answer), checkbox (multi-answer), text (single-line open text), notes (multi-line open text), dropdown (single-answer dropdown), slider (rating scale), and descriptive (display-only instruction text) - all auto-detected from question structure in the Word document."}}, {"@type": "Question", "name": "How long does it take to convert a Word instrument to REDCap?", "acceptedAnswer": {"@type": "Answer", "text": "Upload and processing: 1-3 minutes. Workspace review for a 40-field instrument: 8-12 minutes. REDCap import: under 1 minute. Total: 15-20 minutes. Versus 4-6 hours of manual Data Dictionary entry in Excel."}}]}</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;color:#1a1a1a;background:#ffffff}
+header{background:#ffffff;border-bottom:1px solid #e5e7eb;position:sticky;top:0;z-index:100}
+.header-container{max-width:1200px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}.logo img{width:32px;height:32px}
+.logo-text{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;color:#1a1a1a}
+.blog-label{color:#9B6BFF;font-weight:400;margin-left:8px}
+header nav a{color:#6b7280;text-decoration:none;font-weight:500;font-size:15px;margin-left:32px;transition:color 0.2s}
+header nav a:hover{color:#9B6BFF}
+.breadcrumb{background:#f9fafb;border-bottom:1px solid #e5e7eb;padding:12px 24px}
+.breadcrumb-container{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:8px;font-size:14px;color:#6b7280;flex-wrap:wrap}
+.breadcrumb a{color:#6b7280;text-decoration:none}.breadcrumb a:hover{color:#9B6BFF}
+.breadcrumb-separator{color:#d1d5db}.breadcrumb-current{color:#1a1a1a;font-weight:500}
+.hero{background:linear-gradient(135deg,#f9fafb 0%,#f3f4f6 100%);padding:48px 24px;border-bottom:1px solid #e5e7eb}
+.hero-container{max-width:1200px;margin:0 auto}
+.article-title{font-family:'Space Grotesk',sans-serif;font-size:42px;font-weight:700;line-height:1.2;color:#1a1a1a;margin-bottom:16px;max-width:800px}
+.article-meta{display:flex;align-items:center;gap:16px;font-size:14px;color:#6b7280;flex-wrap:wrap}
+.author{font-weight:600;color:#1a1a1a}.separator{color:#d1d5db}
+.content-wrapper{max-width:1200px;margin:48px auto;padding:0 24px 80px;display:grid;grid-template-columns:1fr 300px;gap:48px}
+.article-content{max-width:680px;overflow-x:hidden}
+.article-content p{font-size:18px;color:#374151;margin-bottom:24px;line-height:1.7}
+.article-content h2{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:#1a1a1a;margin-top:48px;margin-bottom:16px;padding-left:16px;border-left:4px solid #9B6BFF}
+.article-content h3{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;color:#1a1a1a;margin-top:32px;margin-bottom:12px}
+.article-content a{color:#9B6BFF;text-decoration:none;border-bottom:1px solid rgba(155,107,255,0.3);transition:all 0.2s}
+.article-content a:hover{border-bottom-color:#9B6BFF}
+.article-content ul,.article-content ol{margin-bottom:24px;padding-left:24px}
+.article-content li{font-size:18px;color:#374151;margin-bottom:10px;line-height:1.7}
+.article-content strong{color:#1a1a1a;font-weight:600}
+.article-content code{background:#f3f4f6;padding:2px 7px;border-radius:4px;font-size:13px;color:#7c3aed;font-family:monospace}
+.definition-box{background:#f5f3ff;border-left:4px solid #9B6BFF;padding:28px;margin:32px 0;border-radius:4px}
+.definition-box .def-label{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#9B6BFF;margin-bottom:12px;display:block}
+.definition-box p{font-size:17px;color:#1a1a1a;margin-bottom:0;font-style:italic;line-height:1.7}
+.article-cta{background:linear-gradient(135deg,#9B6BFF,#BFA8FF);padding:36px 40px;border-radius:12px;margin:48px 0 32px;text-align:center}
+.article-cta h3{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:#ffffff;margin-bottom:10px}
+.article-cta p{font-size:16px;color:#ffffff;opacity:.95;margin-bottom:20px}
+.article-cta a{border-bottom:none!important}
+.cta-btn-white{display:inline-block;background:#ffffff;color:#9B6BFF!important;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:700;font-size:15px;transition:transform 0.2s;border-bottom:none!important}
+.cta-btn-white:hover{transform:translateY(-2px)}
+.sidebar{position:sticky;top:80px;height:fit-content}
+.sidebar-section{background:#f9fafb;border:1px solid #e5e7eb;border-radius:12px;padding:24px;margin-bottom:24px}
+.sidebar-section h3{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;margin-bottom:16px;color:#1a1a1a}
+.toc-list{list-style:none;padding:0}.toc-list li{margin-bottom:8px}
+.toc-list a{color:#4b5563;text-decoration:none;font-size:14px;transition:color 0.2s;border-bottom:none;display:block}
+.toc-list a:hover{color:#9B6BFF}
+.cta-box{background:linear-gradient(135deg,#9B6BFF,#BFA8FF);padding:32px;border-radius:8px;text-align:center;color:#ffffff;margin-bottom:24px}
+.cta-box h3{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;margin-bottom:12px}
+.cta-box p{font-size:14px;margin-bottom:20px;opacity:.95}
+.cta-button{display:inline-block;background:#ffffff;color:#9B6BFF;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:600;font-size:15px;transition:transform 0.2s;border-bottom:none!important}
+.cta-button:hover{transform:translateY(-2px)}
+.related-articles{max-width:1200px;margin:0 auto;padding:64px 24px;border-top:1px solid #e5e7eb}
+.related-articles h2{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;margin-bottom:32px;text-align:center}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.related-card{background:#f9fafb;border-radius:8px;padding:24px;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;display:block;border-bottom:none}
+.related-card:hover{transform:translateY(-4px);box-shadow:0 8px 16px rgba(0,0,0,.08)}
+.related-card .card-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#9B6BFF;margin-bottom:8px;display:block}
+.related-card h3{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;color:#1a1a1a;margin-bottom:6px}
+.related-card p{font-size:14px;color:#6b7280;margin:0}
+footer{background:#f9fafb;border-top:1px solid #e5e7eb;padding:32px 24px;text-align:center}
+footer p{color:#6b7280;font-size:14px}
+@media(max-width:968px){.content-wrapper{grid-template-columns:1fr}.sidebar{position:static}.article-title{font-size:32px}.related-grid{grid-template-columns:1fr}}
+@media(max-width:640px){header nav{display:none}.article-title{font-size:28px}.article-cta{padding:24px}}
+.accordion-section{border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;overflow:hidden}
+.accordion-header{padding:18px 24px;background:#f9fafb;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;color:#1a1a1a;user-select:none}
+.accordion-header:hover{background:#f3f4f6}.accordion-icon{color:#9B6BFF;font-size:22px;flex-shrink:0}
+.accordion-body{padding:0 24px;max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.3s ease}
+.accordion-body.open{max-height:500px;padding:20px 24px 24px}
+.accordion-body p{font-size:16px;color:#374151;margin-bottom:8px}
+.comparison-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px;border-radius:8px;overflow:hidden;border:1px solid #e5e7eb}
+.comparison-table th{padding:12px 16px;text-align:left;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.05em;background:#f9fafb;color:#6b7280;border-bottom:2px solid #e5e7eb}
+.comparison-table th.pirai{background:#f5f3ff;color:#7c3aed}
+.comparison-table td{padding:11px 16px;border-bottom:1px solid #f3f4f6;color:#374151}
+.comparison-table tr:last-child td{border-bottom:none}
+.comparison-table td:first-child{font-weight:600;color:#1a1a1a}
+.comparison-table td.pirai{background:#fdf9ff}
+.check{color:#16a34a;font-weight:700}.cross{color:#dc2626;font-weight:700}.partial{color:#d97706}
+pre{background:#1a1a2e;color:#e2e8f0;padding:20px;border-radius:8px;overflow-x:auto;margin:20px 0}
+pre code{background:none;color:inherit;padding:0;font-size:14px}
+</style></head><body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<header><div class="header-container">
+<a href="/" class="logo"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span></a>
+<nav><a href="/">Home</a><a href="/blog">All Articles</a><a href="/docs">Documentation</a><a href="/#demo">Get Demo</a></nav>
+</div></header>
+<div class="breadcrumb"><div class="breadcrumb-container">
+<a href="/">Home</a><span class="breadcrumb-separator">›</span><a href="/blog">Blog</a><span class="breadcrumb-separator">›</span>
+<a href="/blog?category=guide">Guide</a><span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">Word to REDCap: Convert a Word Document to REDCap Data Dictionary</span>
+</div></div>
+<div class="hero"><div class="hero-container">
+<h1 class="article-title">Word to REDCap: Convert a Word Document to REDCap Data Dictionary</h1>
+<div class="article-meta"><span class="author">Arun Raj</span><span class="separator">•</span><span>August 28, 2026</span><span class="separator">•</span><span>6 min read</span><span class="separator">•</span><span style="background:#e5e7eb;color:#374151;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:600;">Guide</span></div>
+</div></div>
+<div class="content-wrapper">
+<article class="article-content">
+
+            <div class="definition-box"><span class="def-label">Word to REDCap</span>
+            <p>Most clinical research instruments are drafted in Word - for PI review, ethics committee submission, and protocol documentation. After approval, the same instrument needs to be in REDCap as a Data Dictionary CSV. Pirai AI converts the Word document directly to REDCap Data Dictionary format: upload the .docx, review extracted questions in the workspace, download the 18-column CSV, and import into REDCap. Verbatim text from the approved Word document is preserved in every field label.</p></div>
+
+            <h2 id="how">Word to REDCap: The Exact Steps</h2>
+            <p><strong>1. Upload your Word document</strong> at platform.piraiai.com. Pirai AI reads every question, answer option, section heading, and instruction from the document and identifies the field type for each question.</p>
+            <p><strong>2. Review in the workspace.</strong> Every extracted question appears with its detected field type (radio, checkbox, text, notes, dropdown, slider) and answer options shown in REDCap's pipe-delimited format. Edit field types, adjust question text, or add/remove options before generating the Data Dictionary. The workspace shows you exactly what will appear in the REDCap CSV.</p>
+            <p><strong>3. Select REDCap and download.</strong> Click REDCap as the output. Download the Data Dictionary CSV. All 18 columns are populated including auto-generated variable names (lowercase, underscored, prefixed by form name), correctly formatted choices, and verbatim field labels from your Word document.</p>
+            <p><strong>4. Import into REDCap.</strong> Go to your REDCap project > Project Setup > Data Dictionary > Upload File. Select the downloaded CSV and click Commit Changes. All fields appear in the Online Designer immediately.</p>
+            <p><strong>5. Complete configuration.</strong> In the Online Designer, add branching logic, set required fields, configure text validation, and flag identifier fields. These are protocol-specific settings configured per instrument after import.</p>
+
+            <h2 id="what-transfers">What Transfers From Word to REDCap</h2>
+            <table class="comparison-table">
+            <thead><tr><th>In Your Word Document</th><th class="pirai">In REDCap Data Dictionary</th></tr></thead>
+            <tbody>
+            <tr><td>Question text</td><td class="pirai">Field Label - verbatim from Word document</td></tr>
+            <tr><td>Multiple choice options (A, B, C, D)</td><td class="pirai">Radio field with pipe-delimited choices: 1, A | 2, B | 3, C | 4, D</td></tr>
+            <tr><td>Select all that apply options</td><td class="pirai">Checkbox field with pipe-delimited choices</td></tr>
+            <tr><td>Open text / short answer</td><td class="pirai">Text field (single line) or Notes field (multi-line)</td></tr>
+            <tr><td>Rating scale (1-5, 1-7, 1-10)</td><td class="pirai">Radio field with numeric choices or Slider field with end labels</td></tr>
+            <tr><td>Section headings / subheadings</td><td class="pirai">Section Header column - displays as bold divider above field group</td></tr>
+            <tr><td>Instruction text</td><td class="pirai">Descriptive field - display-only text visible to data entry users</td></tr>
+            </tbody></table>
+
+            <h2 id="verbatim">Why Verbatim Text Matters in REDCap</h2>
+            <p>IRB/HREC-approved protocols specify exact instrument wording. In FDA-regulated clinical trials, the Case Report Form must match the protocol exactly - any deviation requires a protocol amendment. In academic research, validated scale wording must match the published instrument to maintain psychometric validity. Pirai AI extracts field labels verbatim from the source Word document without paraphrasing. The REDCap field labels match the approved Word document character for character.</p>
+
+            <h2 id="word-structures">Word Document Structures That Convert Well</h2>
+            <ul>
+            <li>Numbered questions (Q1, Q2, Q3) with bulleted or lettered answer options below each question</li>
+            <li>Heading-separated sections (Heading 1 or Heading 2) that become Section Headers in REDCap</li>
+            <li>Word tables with Likert/rating scale response options across columns and row items as questions</li>
+            <li>Instruction paragraphs before question groups that become Descriptive fields</li>
+            <li>Consistent formatting conventions (bold for questions, indented for options)</li>
+            </ul>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="accordion-section"><div class="accordion-header" onclick="toggleAccordion(this)">How do I convert a Word document to a REDCap Data Dictionary?<span class="accordion-icon">+</span></div><div class="accordion-body"><p>Upload your Word (.docx) document to Pirai AI at platform.piraiai.com. Review the extracted questions in the workspace. Select REDCap and download the Data Dictionary CSV. Import via REDCap Project Setup > Data Dictionary > Upload File > Commit Changes. All 18 columns are populated with verbatim field labels and correctly formatted pipe-delimited choices.</p></div></div>
+<div class="accordion-section"><div class="accordion-header" onclick="toggleAccordion(this)">Does converting Word to REDCap preserve verbatim question wording?<span class="accordion-icon">+</span></div><div class="accordion-body"><p>Yes. Pirai AI extracts field labels verbatim from the source Word document without paraphrasing. Field labels in the REDCap Data Dictionary match the source document exactly - important for IRB/HREC compliance and validated instrument integrity.</p></div></div>
+<div class="accordion-section"><div class="accordion-header" onclick="toggleAccordion(this)">What field types does Pirai AI create from a Word document in REDCap?<span class="accordion-icon">+</span></div><div class="accordion-body"><p>Radio (single-answer), checkbox (multi-answer), text (single-line open text), notes (multi-line open text), dropdown (single-answer dropdown), slider (rating scale), and descriptive (display-only instruction text) - all auto-detected from question structure in the Word document.</p></div></div>
+<div class="accordion-section"><div class="accordion-header" onclick="toggleAccordion(this)">How long does it take to convert a Word instrument to REDCap?<span class="accordion-icon">+</span></div><div class="accordion-body"><p>Upload and processing: 1-3 minutes. Workspace review for a 40-field instrument: 8-12 minutes. REDCap import: under 1 minute. Total: 15-20 minutes. Versus 4-6 hours of manual Data Dictionary entry in Excel.</p></div></div>
+
+<div class="article-cta"><h3>Convert Your Word Instrument to REDCap</h3><p>Upload your Word document. Pirai AI generates the REDCap Data Dictionary CSV with all 18 columns. Import and go. Free daily credits.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Start Converting Free</a></div>
+</article>
+<aside class="sidebar">
+<div class="cta-box"><h3>Try Pirai AI Free</h3><p>Convert any survey document to 27+ platforms in minutes.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-button">Start Free</a></div>
+<div class="sidebar-section"><h3>Quick Links</h3><ul class="toc-list"><li><a href="/blog/what-is-a-redcap-data-dictionary">What Is a REDCap Data Dictionary</a></li>
+<li><a href="/blog/how-to-build-redcap-data-dictionary">How to Build REDCap Dictionary</a></li>
+<li><a href="/blog/pdf-to-redcap-data-dictionary">PDF to REDCap</a></li>
+<li><a href="/blog/how-to-import-survey-into-redcap">Import Into REDCap</a></li>
+<li><a href="/product/redcap-converter/">REDCap Converter</a></li>
+</ul></div>
+</aside>
+</div>
+<section class="related-articles"><h2>Related Articles</h2><div class="related-grid"><a href="/blog/what-is-a-redcap-data-dictionary" class="related-card"><span class="card-tag">Guide</span><h3>What Is a REDCap Data Dictionary?</h3><p>All 18 columns, field types, and pipe-delimited choices format explained.</p></a>
+<a href="/blog/how-to-build-redcap-data-dictionary" class="related-card"><span class="card-tag">Guide</span><h3>How to Build a REDCap Data Dictionary</h3><p>Manual and automated methods compared.</p></a>
+<a href="/blog/pdf-to-redcap-data-dictionary" class="related-card"><span class="card-tag">Guide</span><h3>PDF to REDCap Data Dictionary</h3><p>Converting PDF clinical scales and CRFs to REDCap.</p></a>
+</div></section>
+<footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
+<script>
+function toggleAccordion(h){var b=h.nextElementSibling,i=h.querySelector('.accordion-icon'),o=b.classList.contains('open');
+document.querySelectorAll('.accordion-body.open').forEach(function(x){x.classList.remove('open');x.previousElementSibling.querySelector('.accordion-icon').textContent='+'});
+if(!o){b.classList.add('open');i.textContent='-'}}
+</script>
+</body></html>

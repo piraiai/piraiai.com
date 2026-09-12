@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LimeSurvey DB Version 5 vs 6: Which to Choose for LSS Import - Pirai AI Blog</title>
+<meta name="description" content="LimeSurvey DB version 5 and 6 explained. Which version to use for your LimeSurvey installation, how to check your version, what happens if you choose the wrong one, and how to fix a DB version mismatch error.">
+<meta name="keywords" content="limesurvey db version 5 vs 6, limesurvey db version, limesurvey lss db version, which limesurvey db version, limesurvey db version mismatch, limesurvey version 5 6 import, limesurvey lss version">
+<meta property="og:type" content="article"><meta property="og:url" content="https://piraiai.com/blog/limesurvey-db-version-5-vs-6">
+<meta property="og:title" content="LimeSurvey DB Version 5 vs 6: Which to Choose for LSS Import"><meta property="og:description" content="LimeSurvey DB version 5 and 6 explained. Which version to use for your LimeSurvey installation, how to check your version, what happens if you choose the wrong one, and how to fix a DB version mismatch error.">
+<meta property="og:image" content="https://piraiai.com/logo.png">
+<meta property="article:published_time" content="2026-08-28T00:00:00Z">
+<meta property="article:author" content="Arun Raj">
+<link rel="canonical" href="https://piraiai.com/blog/limesurvey-db-version-5-vs-6"><link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "LimeSurvey DB Version 5 vs 6: Which to Choose for LSS Import", "description": "LimeSurvey DB version 5 and 6 explained. Which version to use for your LimeSurvey installation, how to check your version, what happens if you choose the wrong one, and how to fix a DB version mismatch error.", "author": {"@type": "Person", "name": "Arun Raj"}, "publisher": {"@type": "Organization", "name": "Pirai AI", "url": "https://piraiai.com"}, "datePublished": "2026-08-28", "url": "https://piraiai.com/blog/limesurvey-db-version-5-vs-6"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the difference between LimeSurvey DB version 5 and 6?", "acceptedAnswer": {"@type": "Answer", "text": "DB version 5 is compatible with LimeSurvey 3.x. DB version 6 is compatible with LimeSurvey 4.x and 5.x. The DB version number refers to LimeSurvey's internal database schema version, which changed between major application versions. Using the wrong DB version for your installation causes import errors or creates a blank survey."}}, {"@type": "Question", "name": "How do I find my LimeSurvey version to choose the right DB version?", "acceptedAnswer": {"@type": "Answer", "text": "Log in to your LimeSurvey admin panel and go to Help > About LimeSurvey. Your full version number is displayed (e.g. LimeSurvey 5.3.35). Version 3.x: use DB version 5. Version 4.x or 5.x: use DB version 6. LimeSurvey Professional (cloud): use DB version 6."}}, {"@type": "Question", "name": "What should I do if my LimeSurvey import created a blank survey?", "acceptedAnswer": {"@type": "Answer", "text": "A blank survey after import usually means the wrong DB version was used. Delete the blank survey in LimeSurvey admin. Return to Pirai AI, check your LimeSurvey version (Help > About), regenerate the LSS selecting the correct DB version, and re-import. Regenerating with a different DB version takes seconds - you do not need to re-upload your document."}}, {"@type": "Question", "name": "Which LimeSurvey DB version should I use if I am not sure of my version?", "acceptedAnswer": {"@type": "Answer", "text": "Select DB version 6 - it covers LimeSurvey 4.x and 5.x, which account for the majority of current LimeSurvey installations worldwide. LimeSurvey 3.x is end-of-life and increasingly rare. If DB version 6 fails, check your version at Help > About LimeSurvey and regenerate with DB version 5 if you are running 3.x."}}]}</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;color:#1a1a1a;background:#ffffff}
+header{background:#ffffff;border-bottom:1px solid #e5e7eb;position:sticky;top:0;z-index:100}
+.header-container{max-width:1200px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}.logo img{width:32px;height:32px}
+.logo-text{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;color:#1a1a1a}
+.blog-label{color:#9B6BFF;font-weight:400;margin-left:8px}
+header nav a{color:#6b7280;text-decoration:none;font-weight:500;font-size:15px;margin-left:32px;transition:color 0.2s}
+header nav a:hover{color:#9B6BFF}
+.breadcrumb{background:#f9fafb;border-bottom:1px solid #e5e7eb;padding:12px 24px}
+.breadcrumb-container{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:8px;font-size:14px;color:#6b7280;flex-wrap:wrap}
+.breadcrumb a{color:#6b7280;text-decoration:none}.breadcrumb a:hover{color:#9B6BFF}
+.breadcrumb-separator{color:#d1d5db}.breadcrumb-current{color:#1a1a1a;font-weight:500}
+.hero{background:linear-gradient(135deg,#f9fafb 0%,#f3f4f6 100%);padding:48px 24px;border-bottom:1px solid #e5e7eb}
+.hero-container{max-width:1200px;margin:0 auto}
+.article-title{font-family:'Space Grotesk',sans-serif;font-size:42px;font-weight:700;line-height:1.2;color:#1a1a1a;margin-bottom:16px;max-width:800px}
+.article-meta{display:flex;align-items:center;gap:16px;font-size:14px;color:#6b7280;flex-wrap:wrap}
+.author{font-weight:600;color:#1a1a1a}.separator{color:#d1d5db}
+.content-wrapper{max-width:1200px;margin:48px auto;padding:0 24px 80px;display:grid;grid-template-columns:1fr 300px;gap:48px}
+.article-content{max-width:680px;overflow-x:hidden}
+.article-content p{font-size:18px;color:#374151;margin-bottom:24px;line-height:1.7}
+.article-content h2{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:#1a1a1a;margin-top:48px;margin-bottom:16px;padding-left:16px;border-left:4px solid #9B6BFF}
+.article-content h3{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;color:#1a1a1a;margin-top:32px;margin-bottom:12px}
+.article-content a{color:#9B6BFF;text-decoration:none;border-bottom:1px solid rgba(155,107,255,0.3);transition:all 0.2s}
+.article-content a:hover{border-bottom-color:#9B6BFF}
+.article-content ul,.article-content ol{margin-bottom:24px;padding-left:24px}
+.article-content li{font-size:18px;color:#374151;margin-bottom:10px;line-height:1.7}
+.article-content strong{color:#1a1a1a;font-weight:600}
+.article-content code{background:#f3f4f6;padding:2px 7px;border-radius:4px;font-size:13px;color:#7c3aed;font-family:monospace}
+.definition-box{background:#f5f3ff;border-left:4px solid #9B6BFF;padding:28px;margin:32px 0;border-radius:4px}
+.definition-box .def-label{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#9B6BFF;margin-bottom:12px;display:block}
+.definition-box p{font-size:17px;color:#1a1a1a;margin-bottom:0;font-style:italic;line-height:1.7}
+.article-cta{background:linear-gradient(135deg,#9B6BFF,#BFA8FF);padding:36px 40px;border-radius:12px;margin:48px 0 32px;text-align:center}
+.article-cta h3{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:#ffffff;margin-bottom:10px}
+.article-cta p{font-size:16px;color:#ffffff;opacity:.95;margin-bottom:20px}
+.article-cta a{border-bottom:none!important}
+.cta-btn-white{display:inline-block;background:#ffffff;color:#9B6BFF!important;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:700;font-size:15px;transition:transform 0.2s;border-bottom:none!important}
+.cta-btn-white:hover{transform:translateY(-2px)}
+.sidebar{position:sticky;top:80px;height:fit-content}
+.sidebar-section{background:#f9fafb;border:1px solid #e5e7eb;border-radius:12px;padding:24px;margin-bottom:24px}
+.sidebar-section h3{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;margin-bottom:16px;color:#1a1a1a}
+.toc-list{list-style:none;padding:0}.toc-list li{margin-bottom:8px}
+.toc-list a{color:#4b5563;text-decoration:none;font-size:14px;transition:color 0.2s;border-bottom:none;display:block}
+.toc-list a:hover{color:#9B6BFF}
+.cta-box{background:linear-gradient(135deg,#9B6BFF,#BFA8FF);padding:32px;border-radius:8px;text-align:center;color:#ffffff;margin-bottom:24px}
+.cta-box h3{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;margin-bottom:12px}
+.cta-box p{font-size:14px;margin-bottom:20px;opacity:.95}
+.cta-button{display:inline-block;background:#ffffff;color:#9B6BFF;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:600;font-size:15px;transition:transform 0.2s;border-bottom:none!important}
+.cta-button:hover{transform:translateY(-2px)}
+.related-articles{max-width:1200px;margin:0 auto;padding:64px 24px;border-top:1px solid #e5e7eb}
+.related-articles h2{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;margin-bottom:32px;text-align:center}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.related-card{background:#f9fafb;border-radius:8px;padding:24px;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;display:block;border-bottom:none}
+.related-card:hover{transform:translateY(-4px);box-shadow:0 8px 16px rgba(0,0,0,.08)}
+.related-card .card-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#9B6BFF;margin-bottom:8px;display:block}
+.related-card h3{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;color:#1a1a1a;margin-bottom:6px}
+.related-card p{font-size:14px;color:#6b7280;margin:0}
+footer{background:#f9fafb;border-top:1px solid #e5e7eb;padding:32px 24px;text-align:center}
+footer p{color:#6b7280;font-size:14px}
+@media(max-width:968px){.content-wrapper{grid-template-columns:1fr}.sidebar{position:static}.article-title{font-size:32px}.related-grid{grid-template-columns:1fr}}
+@media(max-width:640px){header nav{display:none}.article-title{font-size:28px}.article-cta{padding:24px}}
+.accordion-section{border:1px solid #e5e7eb;border-radius:8px;margin:12px 0;overflow:hidden}
+.accordion-header{padding:18px 24px;background:#f9fafb;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;color:#1a1a1a;user-select:none}
+.accordion-header:hover{background:#f3f4f6}.accordion-icon{color:#9B6BFF;font-size:22px;flex-shrink:0}
+.accordion-body{padding:0 24px;max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.3s ease}
+.accordion-body.open{max-height:500px;padding:20px 24px 24px}
+.accordion-body p{font-size:16px;color:#374151;margin-bottom:8px}
+.comparison-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px;border-radius:8px;overflow:hidden;border:1px solid #e5e7eb}
+.comparison-table th{padding:12px 16px;text-align:left;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.05em;background:#f9fafb;color:#6b7280;border-bottom:2px solid #e5e7eb}
+.comparison-table th.pirai{background:#f5f3ff;color:#7c3aed}
+.comparison-table td{padding:11px 16px;border-bottom:1px solid #f3f4f6;color:#374151}
+.comparison-table tr:last-child td{border-bottom:none}
+.comparison-table td:first-child{font-weight:600;color:#1a1a1a}
+.comparison-table td.pirai{background:#fdf9ff}
+.check{color:#16a34a;font-weight:700}.cross{color:#dc2626;font-weight:700}.partial{color:#d97706}
+pre{background:#1a1a2e;color:#e2e8f0;padding:20px;border-radius:8px;overflow-x:auto;margin:20px 0}
+pre code{background:none;color:inherit;padding:0;font-size:14px}
+</style></head><body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<header><div class="header-container">
+<a href="/" class="logo"><img src="https://piraiai.com/logo.png" alt="Pirai AI Logo"><span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span></a>
+<nav><a href="/">Home</a><a href="/blog">All Articles</a><a href="/docs">Documentation</a><a href="/#demo">Get Demo</a></nav>
+</div></header>
+<div class="breadcrumb"><div class="breadcrumb-container">
+<a href="/">Home</a><span class="breadcrumb-separator">›</span><a href="/blog">Blog</a><span class="breadcrumb-separator">›</span>
+<a href="/blog?category=guide">Guide</a><span class="breadcrumb-separator">›</span>
+<span class="breadcrumb-current">LimeSurvey DB Version 5 vs 6: Which to Choose for LSS Import</span>
+</div></div>
+<div class="hero"><div class="hero-container">
+<h1 class="article-title">LimeSurvey DB Version 5 vs 6: Which to Choose for LSS Import</h1>
+<div class="article-meta"><span class="author">Arun Raj</span><span class="separator">•</span><span>August 28, 2026</span><span class="separator">•</span><span>6 min read</span><span class="separator">•</span><span style="background:#e5e7eb;color:#374151;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:600;">Guide</span></div>
+</div></div>
+<div class="content-wrapper">
+<article class="article-content">
+
+            <div class="definition-box"><span class="def-label">LimeSurvey DB Version 5 vs 6</span>
+            <p>LimeSurvey LSS files contain a database schema version number (DB version) that must match your LimeSurvey installation. DB version 5 is compatible with LimeSurvey 3.x. DB version 6 is compatible with LimeSurvey 4.x and 5.x. Using the wrong DB version is the single most common cause of LimeSurvey import errors. This guide explains the difference, how to identify your version, and how to fix a mismatch.</p></div>
+
+            <h2 id="what-is-db-version">What Is the DB Version?</h2>
+            <p>The DB version in a LimeSurvey LSS file refers to the internal database schema version LimeSurvey uses to store survey structures. As LimeSurvey has evolved, the internal database structure has changed - fields have been added, renamed, and removed. An LSS file built for one schema version cannot be imported cleanly into a LimeSurvey installation running a different schema version.</p>
+            <p>LSS files contain the DB version in the XML header: <code>&lt;LimeSurveyDocType&gt;Survey&lt;/LimeSurveyDocType&gt;</code> and <code>&lt;DBVersion&gt;500&lt;/DBVersion&gt;</code> (for DB version 5) or <code>&lt;DBVersion&gt;600&lt;/DBVersion&gt;</code> (for DB version 6). Pirai AI lets you select the correct version before downloading the LSS.</p>
+
+            <h2 id="version-mapping">Version Mapping</h2>
+            <table class="comparison-table">
+            <thead><tr><th>LimeSurvey Application Version</th><th class="pirai">LSS DB Version to Use</th></tr></thead>
+            <tbody>
+            <tr><td>LimeSurvey 3.x (e.g. 3.28, 3.22)</td><td class="pirai">DB version 5</td></tr>
+            <tr><td>LimeSurvey 4.x (e.g. 4.6, 4.4)</td><td class="pirai">DB version 6</td></tr>
+            <tr><td>LimeSurvey 5.x (e.g. 5.6, 5.3)</td><td class="pirai">DB version 6</td></tr>
+            <tr><td>LimeSurvey Professional (cloud hosted)</td><td class="pirai">DB version 6 (runs LimeSurvey 5.x)</td></tr>
+            <tr><td>Self-hosted, version unknown</td><td class="pirai">Try DB version 6 first - covers most current installations</td></tr>
+            </tbody></table>
+
+            <h2 id="how-to-check">How to Check Your LimeSurvey Version</h2>
+            <p><strong>Method 1 - Admin panel:</strong> Log in to your LimeSurvey administration interface. Click your username in the top right corner, or go to Help > About LimeSurvey. The full version number is displayed (e.g. "LimeSurvey 5.3.35+220817").</p>
+            <p><strong>Method 2 - URL path:</strong> Some self-hosted installations display the version in the admin URL structure, though this is less reliable than the About page.</p>
+            <p><strong>Method 3 - Ask your IT team:</strong> If you access LimeSurvey through your institution's IT portal, your Rechenzentrum or IT department will know the installed version.</p>
+
+            <h2 id="mismatch-error">What Happens With the Wrong DB Version</h2>
+            <p>If you import an LSS built for DB version 5 into a LimeSurvey 4.x or 5.x installation (which expects DB version 6):</p>
+            <ul>
+            <li>LimeSurvey may display an error message: "This file was created for an older version of LimeSurvey"</li>
+            <li>Or the import appears to succeed but creates a survey with no questions - a blank survey</li>
+            <li>Or individual question types fail to import correctly with missing answer options</li>
+            </ul>
+            <p><strong>Fix:</strong> Return to Pirai AI, regenerate the LSS selecting the correct DB version for your installation, and re-import. The regeneration takes seconds.</p>
+
+            <h2 id="pirai-selection">Selecting DB Version in Pirai AI</h2>
+            <p>When exporting to LimeSurvey in Pirai AI, a DB version selector appears before download. Select 5 for LimeSurvey 3.x or 6 for LimeSurvey 4.x and 5.x. If you are unsure, select 6 - it covers the majority of current LimeSurvey installations worldwide. Both versions are available for the same converted document without re-uploading.</p>
+<h2 id="faq">Frequently Asked Questions</h2>
+<div class="accordion-section"><div class="accordion-header" onclick="toggleAccordion(this)">What is the difference between LimeSurvey DB version 5 and 6?<span class="accordion-icon">+</span></div><div class="accordion-body"><p>DB version 5 is compatible with LimeSurvey 3.x. DB version 6 is compatible with LimeSurvey 4.x and 5.x. The DB version number refers to LimeSurvey's internal database schema version, which changed between major application versions. Using the wrong DB version for your installation causes import errors or creates a blank survey.</p></div></div>
+<div class="accordion-section"><div class="accordion-header" onclick="toggleAccordion(this)">How do I find my LimeSurvey version to choose the right DB version?<span class="accordion-icon">+</span></div><div class="accordion-body"><p>Log in to your LimeSurvey admin panel and go to Help > About LimeSurvey. Your full version number is displayed (e.g. LimeSurvey 5.3.35). Version 3.x: use DB version 5. Version 4.x or 5.x: use DB version 6. LimeSurvey Professional (cloud): use DB version 6.</p></div></div>
+<div class="accordion-section"><div class="accordion-header" onclick="toggleAccordion(this)">What should I do if my LimeSurvey import created a blank survey?<span class="accordion-icon">+</span></div><div class="accordion-body"><p>A blank survey after import usually means the wrong DB version was used. Delete the blank survey in LimeSurvey admin. Return to Pirai AI, check your LimeSurvey version (Help > About), regenerate the LSS selecting the correct DB version, and re-import. Regenerating with a different DB version takes seconds - you do not need to re-upload your document.</p></div></div>
+<div class="accordion-section"><div class="accordion-header" onclick="toggleAccordion(this)">Which LimeSurvey DB version should I use if I am not sure of my version?<span class="accordion-icon">+</span></div><div class="accordion-body"><p>Select DB version 6 - it covers LimeSurvey 4.x and 5.x, which account for the majority of current LimeSurvey installations worldwide. LimeSurvey 3.x is end-of-life and increasingly rare. If DB version 6 fails, check your version at Help > About LimeSurvey and regenerate with DB version 5 if you are running 3.x.</p></div></div>
+
+<div class="article-cta"><h3>Generate Your LSS File for the Right DB Version</h3><p>Upload Word, PDF, or Excel. Select DB version 5 or 6. Pirai AI generates a valid LSS file. Re-generate instantly if needed. Free daily credits.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-btn-white">Start Converting Free</a></div>
+</article>
+<aside class="sidebar">
+<div class="cta-box"><h3>Try Pirai AI Free</h3><p>Convert any survey document to 27+ platforms in minutes.</p><a href="https://platform.piraiai.com" target="_blank" class="cta-button">Start Free</a></div>
+<div class="sidebar-section"><h3>Quick Links</h3><ul class="toc-list"><li><a href="/blog/how-to-import-survey-into-limesurvey">Import Into LimeSurvey</a></li>
+<li><a href="/blog/create-limesurvey-survey-from-word">Word to LimeSurvey</a></li>
+<li><a href="/blog/limesurvey-question-types-guide">LimeSurvey Question Types</a></li>
+<li><a href="/blog/best-limesurvey-converter">Best LimeSurvey Converter</a></li>
+<li><a href="/product/lss-converter/">LimeSurvey Converter</a></li>
+</ul></div>
+</aside>
+</div>
+<section class="related-articles"><h2>Related Articles</h2><div class="related-grid"><a href="/blog/how-to-import-survey-into-limesurvey" class="related-card"><span class="card-tag">Guide</span><h3>How to Import a Survey Into LimeSurvey</h3><p>Full import workflow including DB version troubleshooting.</p></a>
+<a href="/blog/create-limesurvey-survey-from-word" class="related-card"><span class="card-tag">Guide</span><h3>Create a LimeSurvey Survey From a Word Document</h3><p>Word to LimeSurvey conversion step by step.</p></a>
+<a href="/blog/limesurvey-question-types-guide" class="related-card"><span class="card-tag">Guide</span><h3>LimeSurvey Question Types Guide</h3><p>Array, List Radio, Multiple Choice, and all other types explained.</p></a>
+</div></section>
+<footer><p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p></footer>
+<script>
+function toggleAccordion(h){var b=h.nextElementSibling,i=h.querySelector('.accordion-icon'),o=b.classList.contains('open');
+document.querySelectorAll('.accordion-body.open').forEach(function(x){x.classList.remove('open');x.previousElementSibling.querySelector('.accordion-icon').textContent='+'});
+if(!o){b.classList.add('open');i.textContent='-'}}
+</script>
+</body></html>
