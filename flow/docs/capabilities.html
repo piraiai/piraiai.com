@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What Flow Supports — Beta V1 | Pirai AI Flow Docs</title>
+    <meta name="description" content="A complete reference of what Pirai AI Flow can configure for each Qualtrics dashboard widget type in Beta V1." />
+    <link rel="canonical" href="https://piraiai.com/flow/docs/capabilities" />
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png" />
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: #ffffff; color: #1a1a1a; -webkit-font-smoothing: antialiased; font-size: 15px; line-height: 1.6; }
+
+        /* Nav */
+        .nav { background: #fff; border-bottom: 1px solid #e5e7eb; padding: 16px 0; position: sticky; top: 0; z-index: 100; }
+        .nav-content { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #1a1a1a; }
+        .logo img { width: 30px; height: 30px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; }
+        .docs-label { color: #9ca3af; font-weight: 400; margin-left: 6px; }
+        .nav-links { display: flex; gap: 28px; list-style: none; }
+        .nav-links a { text-decoration: none; color: #4b5563; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: #9B6BFF; }
+
+        /* Breadcrumb */
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 10px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 13px; color: #9ca3af; flex-wrap: wrap; }
+        .breadcrumb a { color: #9ca3af; text-decoration: none; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-current { color: #374151; font-weight: 500; }
+
+        /* Hero */
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px 40px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .hero h1 { font-family: 'Space Grotesk', sans-serif; font-size: 36px; font-weight: 700; color: #1a1a1a; margin-bottom: 12px; }
+        .hero p { font-size: 17px; color: #6b7280; max-width: 640px; line-height: 1.65; }
+        .hero-meta { display: flex; align-items: center; gap: 12px; margin-top: 16px; flex-wrap: wrap; }
+        .version-badge { background: #9B6BFF; color: #fff; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.3px; }
+        .hero-note { font-size: 13px; color: #9ca3af; }
+
+        /* Layout */
+        .page { max-width: 1200px; margin: 0 auto; padding: 48px 24px; display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: start; }
+
+        /* Sidebar */
+        .sidebar { position: sticky; top: 72px; }
+        .sidebar-section { background: #f9fafb; border-radius: 8px; padding: 20px; margin-bottom: 16px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
+        .sidebar-links { list-style: none; }
+        .sidebar-links li { margin-bottom: 2px; }
+        .sidebar-links a { display: flex; align-items: center; gap: 8px; text-decoration: none; color: #374151; font-size: 13px; padding: 6px 8px; border-radius: 6px; transition: all 0.15s; }
+        .sidebar-links a:hover { background: #f3f0ff; color: #9B6BFF; }
+        .sidebar-links .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+        .legend-box { background: #f9fafb; border-radius: 8px; padding: 20px; }
+        .legend-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 14px; }
+        .legend-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 13px; color: #374151; }
+
+        /* Content */
+        .content { min-width: 0; }
+        .content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: #1a1a1a; margin: 48px 0 6px; padding-top: 8px; }
+        .content h2:first-child { margin-top: 0; }
+        .section-desc { font-size: 14px; color: #6b7280; margin-bottom: 24px; line-height: 1.6; }
+
+        /* Widget cards */
+        .widget-card { background: #fff; border: 1px solid #e5e7eb; border-radius: 10px; margin-bottom: 16px; overflow: hidden; transition: box-shadow 0.2s; }
+        .widget-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+        .widget-header { display: flex; align-items: center; gap: 14px; padding: 16px 20px; cursor: pointer; user-select: none; }
+        .widget-icon { width: 36px; height: 36px; border-radius: 8px; background: linear-gradient(135deg, #9B6BFF, #BFA8FF); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .widget-icon svg { width: 18px; height: 18px; stroke: #fff; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+        .widget-name { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; flex: 1; }
+        .widget-summary { display: flex; gap: 6px; flex-wrap: wrap; }
+        .pill { font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 10px; }
+        .pill-yes  { background: #d1fae5; color: #065f46; }
+        .pill-warn { background: #fef3c7; color: #92400e; }
+        .pill-no   { background: #f3f4f6; color: #9ca3af; }
+        .chevron { color: #9ca3af; font-size: 14px; transition: transform 0.2s; flex-shrink: 0; }
+        .widget-card.open .chevron { transform: rotate(180deg); }
+
+        .widget-body { border-top: 1px solid #f3f4f6; padding: 0 20px 20px; display: none; }
+        .widget-card.open .widget-body { display: block; }
+
+        .prop-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin-top: 16px; }
+        .prop { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; border-radius: 6px; background: #f9fafb; }
+        .prop-icon { width: 20px; height: 20px; border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; font-size: 11px; }
+        .prop-icon.yes  { background: #d1fae5; color: #059669; }
+        .prop-icon.warn { background: #fef3c7; color: #d97706; }
+        .prop-icon.no   { background: #f3f4f6; color: #d1d5db; }
+        .prop-label { font-size: 13px; font-weight: 600; color: #374151; line-height: 1.3; }
+        .prop-note  { font-size: 12px; color: #9ca3af; margin-top: 2px; line-height: 1.4; }
+
+        /* Divider widget note */
+        .divider-note { padding: 16px 20px; font-size: 14px; color: #6b7280; font-style: italic; }
+
+        /* CTA */
+        .cta { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); border-radius: 10px; padding: 32px; text-align: center; margin-top: 48px; }
+        .cta h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+        .cta p { font-size: 14px; color: rgba(255,255,255,0.85); margin-bottom: 20px; }
+        .cta a { display: inline-block; background: #fff; color: #9B6BFF; text-decoration: none; padding: 10px 24px; border-radius: 6px; font-weight: 700; font-size: 14px; transition: transform 0.2s; }
+        .cta a:hover { transform: translateY(-2px); }
+
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 28px 24px; text-align: center; }
+        footer p { color: #9ca3af; font-size: 13px; }
+
+        @media (max-width: 900px) { .page { grid-template-columns: 1fr; } .sidebar { position: static; } }
+        @media (max-width: 600px) { .nav-links { display: none; } .hero h1 { font-size: 26px; } .prop-grid { grid-template-columns: 1fr 1fr; } }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="/" class="logo">
+                <img src="https://piraiai.com/logo.png" alt="Pirai AI" />
+                <span class="logo-text">Pirai AI <span class="docs-label">/ Flow Docs</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/flow">Pirai AI Flow</a></li>
+                <li><a href="/flow/docs">Flow Docs</a></li>
+                <li><a href="/flow/docs/widget-guide">Widget Guide</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="/">Home</a> ›
+            <a href="/flow">Pirai AI Flow</a> ›
+            <a href="/flow/docs">Flow Docs</a> ›
+            <span class="breadcrumb-current">What Flow Supports — Beta V1</span>
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="hero-container">
+            <h1>What Flow Supports — Beta V1</h1>
+            <p>A complete reference of what Pirai AI Flow can configure for each Qualtrics dashboard widget type. Use this to understand exactly what you can ask Flow to do, and what falls outside the current scope.</p>
+            <div class="hero-meta">
+                <span class="version-badge">Beta V1</span>
+                <span class="hero-note">14 widget types · CX Dashboards and Results Dashboards</span>
+            </div>
+        </div>
+    </section>
+
+    <div class="page">
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <h3>Widget Types</h3>
+                <ul class="sidebar-links">
+                    <li><a href="#metric-widgets"><span class="dot" style="background:#9B6BFF"></span>Metric</a></li>
+                    <li><a href="#chart-widgets"><span class="dot" style="background:#3b82f6"></span>Charts</a></li>
+                    <li><a href="#data-widgets"><span class="dot" style="background:#10b981"></span>Data</a></li>
+                    <li><a href="#text-widgets"><span class="dot" style="background:#f59e0b"></span>Text and Other</a></li>
+                    <li><a href="#field-types"><span class="dot" style="background:#6b7280"></span>Field Types</a></li>
+                </ul>
+            </div>
+            <div class="legend-box">
+                <h3>Legend</h3>
+                <div class="legend-item">
+                    <span class="prop-icon yes">✓</span>
+                    <div>
+                        <div style="font-weight:600;font-size:13px;">Supported</div>
+                        <div style="font-size:12px;color:#9ca3af;">Flow can configure this</div>
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <span class="prop-icon warn">~</span>
+                    <div>
+                        <div style="font-weight:600;font-size:13px;">Partial</div>
+                        <div style="font-size:12px;color:#9ca3af;">Supported with conditions</div>
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <span class="prop-icon no">—</span>
+                    <div>
+                        <div style="font-weight:600;font-size:13px;">Not supported</div>
+                        <div style="font-size:12px;color:#9ca3af;">Outside Beta V1 scope</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <div class="content">
+
+            <!-- METRIC WIDGETS -->
+            <h2 id="metric-widgets">Metric Widgets</h2>
+            <p class="section-desc">Display a single aggregated value. Number Chart and Gauge are the most common starting points for any executive or CX dashboard page.</p>
+
+            <!-- Number Chart -->
+            <div class="widget-card" onclick="toggle(this)">
+                <div class="widget-header">
+                    <div class="widget-icon"><svg viewBox="0 0 24 24"><path d="M12 20V10M6 20v-4M18 20V4"/></svg></div>
+                    <span class="widget-name">Number Chart</span>
+                    <div class="widget-summary">
+                        <span class="pill pill-yes">Metric</span>
+                        <span class="pill pill-yes">Format</span>
+                        <span class="pill pill-yes">Change since</span>
+                    </div>
+                    <span class="chevron">▼</span>
+                </div>
+                <div class="widget-body">
+                    <div class="prop-grid">
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Title and description</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Show response count</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric field</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric function</div><div class="prop-note">count, avg, sum, NPS, top box</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric label</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric format</div><div class="prop-note">number, percent, currency</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Decimal places</div><div class="prop-note">0 to 4</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Currency symbol</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Change since</div><div class="prop-note">Previous period comparison</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Axis / dimension</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Data series</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Multiple metrics</div></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gauge -->
+            <div class="widget-card" onclick="toggle(this)">
+                <div class="widget-header">
+                    <div class="widget-icon"><svg viewBox="0 0 24 24"><path d="M12 12m-9 0a9 9 0 1 0 18 0M12 12l-3-5"/></svg></div>
+                    <span class="widget-name">Gauge Chart</span>
+                    <div class="widget-summary">
+                        <span class="pill pill-yes">Metric</span>
+                        <span class="pill pill-yes">Format</span>
+                        <span class="pill pill-no">No change since</span>
+                    </div>
+                    <span class="chevron">▼</span>
+                </div>
+                <div class="widget-body">
+                    <div class="prop-grid">
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Title and description</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Show response count</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric field</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric function</div><div class="prop-note">count, avg, sum, NPS, top box</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric label</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric format</div><div class="prop-note">number, percent, currency</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Decimal places</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Currency symbol</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Change since</div><div class="prop-note">Not supported on Gauge</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Axis / dimension</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Data series</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Multiple metrics</div></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CHART WIDGETS -->
+            <h2 id="chart-widgets">Chart Widgets</h2>
+            <p class="section-desc">Visualise data across a dimension or time. Vertical Bars, Horizontal Bars, and Lines share the same configuration options. Breakdown Bar, Donut, and Pie are simpler single-dimension charts.</p>
+
+            <!-- Vertical Bars -->
+            <div class="widget-card" onclick="toggle(this)">
+                <div class="widget-header">
+                    <div class="widget-icon"><svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-8"/></svg></div>
+                    <span class="widget-name">Vertical Bars</span>
+                    <div class="widget-summary">
+                        <span class="pill pill-yes">Axis</span>
+                        <span class="pill pill-warn">Data series</span>
+                        <span class="pill pill-yes">Multi-metric</span>
+                    </div>
+                    <span class="chevron">▼</span>
+                </div>
+                <div class="widget-body">
+                    <div class="prop-grid">
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Title and description</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Show response count</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric field</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric function</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric label</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric format and decimals</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Currency symbol</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">X-axis dimension</div><div class="prop-note">Text Set, Date, Number Set</div></div></div>
+                        <div class="prop"><span class="prop-icon warn">~</span><div><div class="prop-label">Data series</div><div class="prop-note">Supported, but multi-series with multi-metric has limits</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Multiple metrics</div><div class="prop-note">Add extra metrics</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Change since</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Full record view</div></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Horizontal Bars -->
+            <div class="widget-card" onclick="toggle(this)">
+                <div class="widget-header">
+                    <div class="widget-icon"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h13"/></svg></div>
+                    <span class="widget-name">Horizontal Bars</span>
+                    <div class="widget-summary">
+                        <span class="pill pill-yes">Axis</span>
+                        <span class="pill pill-warn">Data series</span>
+                        <span class="pill pill-yes">Multi-metric</span>
+                    </div>
+                    <span class="chevron">▼</span>
+                </div>
+                <div class="widget-body">
+                    <div class="prop-grid">
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Title and description</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Show response count</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric field</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric function</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric label</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric format and decimals</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Currency symbol</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Y-axis dimension</div><div class="prop-note">Text Set, Date, Number Set</div></div></div>
+                        <div class="prop"><span class="prop-icon warn">~</span><div><div class="prop-label">Data series</div><div class="prop-note">Supported with conditions</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Multiple metrics</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Change since</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Full record view</div></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lines -->
+            <div class="widget-card" onclick="toggle(this)">
+                <div class="widget-header">
+                    <div class="widget-icon"><svg viewBox="0 0 24 24"><polyline points="4 17 8 11 12 14 16 7 20 10"/></svg></div>
+                    <span class="widget-name">Line Chart</span>
+                    <div class="widget-summary">
+                        <span class="pill pill-yes">Axis</span>
+                        <span class="pill pill-warn">Data series</span>
+                        <span class="pill pill-yes">Multi-metric</span>
+                    </div>
+                    <span class="chevron">▼</span>
+                </div>
+                <div class="widget-body">
+                    <div class="prop-grid">
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Title and description</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Show response count</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric field</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric function</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric label</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric format and decimals</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Currency symbol</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">X-axis dimension</div><div class="prop-note">Date fields with groupBy supported</div></div></div>
+                        <div class="prop"><span class="prop-icon warn">~</span><div><div class="prop-label">Data series</div><div class="prop-note">Supported with conditions</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Multiple metrics</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Change since</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Full record view</div></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Breakdown Bar -->
+            <div class="widget-card" onclick="toggle(this)">
+                <div class="widget-header">
+                    <div class="widget-icon"><svg viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4" rx="1"/><rect x="3" y="14" width="12" height="4" rx="1"/></svg></div>
+                    <span class="widget-name">Breakdown Bar</span>
+                    <div class="widget-summary">
+                        <span class="pill pill-yes">Axis</span>
+                        <span class="pill pill-no">No multi-metric</span>
+                    </div>
+                    <span class="chevron">▼</span>
+                </div>
+                <div class="widget-body">
+                    <div class="prop-grid">
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Title and description</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Show response count</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric field</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric function</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric label</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric format and decimals</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Currency symbol</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">X-axis dimension</div><div class="prop-note">Text Set, Date, Number Set</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Data series</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Multiple metrics</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Change since</div></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Donut -->
+            <div class="widget-card" onclick="toggle(this)">
+                <div class="widget-header">
+                    <div class="widget-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4" style="stroke:#ffffff99"/></svg></div>
+                    <span class="widget-name">Donut Chart</span>
+                    <div class="widget-summary">
+                        <span class="pill pill-yes">Axis</span>
+                        <span class="pill pill-no">No multi-metric</span>
+                    </div>
+                    <span class="chevron">▼</span>
+                </div>
+                <div class="widget-body">
+                    <div class="prop-grid">
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Title and description</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Show response count</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric field</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric function</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric label</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric format and decimals</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Currency symbol</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Dimension</div><div class="prop-note">Text Set, Date, Number Set</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Data series</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Multiple metrics</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Change since</div></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pie -->
+            <div class="widget-card" onclick="toggle(this)">
+                <div class="widget-header">
+                    <div class="widget-icon"><svg viewBox="0 0 24 24"><path d="M12 3v9l6.36 6.36A9 9 0 1 0 12 3z"/></svg></div>
+                    <span class="widget-name">Pie Chart</span>
+                    <div class="widget-summary">
+                        <span class="pill pill-yes">Axis</span>
+                        <span class="pill pill-no">No multi-metric</span>
+                    </div>
+                    <span class="chevron">▼</span>
+                </div>
+                <div class="widget-body">
+                    <div class="prop-grid">
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Title and description</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Show response count</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric field</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric function</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric label</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric format and decimals</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Currency symbol</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Dimension</div><div class="prop-note">Text Set, Date, Number Set</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Data series</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Multiple metrics</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Change since</div></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DATA WIDGETS -->
+            <h2 id="data-widgets">Data Widgets</h2>
+            <p class="section-desc">Table and Record Table display structured data. Table is a pivot-style grid with aggregated values. Record Table shows individual response records.</p>
+
+            <!-- Table -->
+            <div class="widget-card" onclick="toggle(this)">
+                <div class="widget-header">
+                    <div class="widget-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg></div>
+                    <span class="widget-name">Table</span>
+                    <div class="widget-summary">
+                        <span class="pill pill-warn">Axis (up to 3)</span>
+                        <span class="pill pill-yes">Multi-metric</span>
+                        <span class="pill pill-warn">Columns (up to 3)</span>
+                    </div>
+                    <span class="chevron">▼</span>
+                </div>
+                <div class="widget-body">
+                    <div class="prop-grid">
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Title and description</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Show response count</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric field</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric function</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric label</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric format and decimals</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Currency symbol</div></div></div>
+                        <div class="prop"><span class="prop-icon warn">~</span><div><div class="prop-label">Row axis (rows)</div><div class="prop-note">Up to 3 fields as row dimensions</div></div></div>
+                        <div class="prop"><span class="prop-icon warn">~</span><div><div class="prop-label">Column axis</div><div class="prop-note">Up to 3 fields. Say "columns use @field" — maps to dataSeries</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Multiple metrics</div><div class="prop-note">Up to 20</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Change since</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Full record view</div></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Record Table -->
+            <div class="widget-card" onclick="toggle(this)">
+                <div class="widget-header">
+                    <div class="widget-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg></div>
+                    <span class="widget-name">Record Table</span>
+                    <div class="widget-summary">
+                        <span class="pill pill-yes">Columns</span>
+                        <span class="pill pill-warn">Full record view</span>
+                    </div>
+                    <span class="chevron">▼</span>
+                </div>
+                <div class="widget-body">
+                    <div class="prop-grid">
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Title and description</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Show response count</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Columns</div><div class="prop-note">Any field type. Use @fieldId to specify</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Custom column labels</div></div></div>
+                        <div class="prop"><span class="prop-icon warn">~</span><div><div class="prop-label">Full record view</div><div class="prop-note">Supported — configure layout and fields</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Metric field</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Metric function</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Axis / dimension</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Change since</div></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TEXT AND OTHER WIDGETS -->
+            <h2 id="text-widgets">Text and Other Widgets</h2>
+            <p class="section-desc">Display, feedback, and layout widgets. Star Rating and Word Cloud have specific field type requirements.</p>
+
+            <!-- Word Cloud -->
+            <div class="widget-card" onclick="toggle(this)">
+                <div class="widget-header">
+                    <div class="widget-icon"><svg viewBox="0 0 24 24"><path d="M4 9h16M4 12h10M4 15h12"/></svg></div>
+                    <span class="widget-name">Word Cloud</span>
+                    <div class="widget-summary">
+                        <span class="pill pill-yes">Open Text field</span>
+                        <span class="pill pill-no">No metric config</span>
+                    </div>
+                    <span class="chevron">▼</span>
+                </div>
+                <div class="widget-body">
+                    <div class="prop-grid">
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Title and description</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Show response count</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Open Text field</div><div class="prop-note">FreeFormText fields only</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Metric function</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Metric format</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Axis / dimension</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Change since</div></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Star Rating -->
+            <div class="widget-card" onclick="toggle(this)">
+                <div class="widget-header">
+                    <div class="widget-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                    <span class="widget-name">Star Rating</span>
+                    <div class="widget-summary">
+                        <span class="pill pill-warn">Number Set field only</span>
+                        <span class="pill pill-yes">Show response count</span>
+                    </div>
+                    <span class="chevron">▼</span>
+                </div>
+                <div class="widget-body">
+                    <div class="prop-grid">
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Title and description</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Show response count</div></div></div>
+                        <div class="prop"><span class="prop-icon warn">~</span><div><div class="prop-label">Rating field</div><div class="prop-note">Number Set (EnumerableScalarValue) only. Numeric Value fields are not supported.</div></div></div>
+                        <div class="prop"><span class="prop-icon warn">~</span><div><div class="prop-label">Metric function</div><div class="prop-note">Average only</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Metric label</div></div></div>
+                        <div class="prop"><span class="prop-icon warn">~</span><div><div class="prop-label">Metric format</div><div class="prop-note">Limited options vs other metric widgets</div></div></div>
+                        <div class="prop"><span class="prop-icon warn">~</span><div><div class="prop-label">Decimal places</div><div class="prop-note">Limited options</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Currency symbol</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Axis / dimension</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Change since</div></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Response Ticker -->
+            <div class="widget-card" onclick="toggle(this)">
+                <div class="widget-header">
+                    <div class="widget-icon"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></div>
+                    <span class="widget-name">Response Ticker</span>
+                    <div class="widget-summary">
+                        <span class="pill pill-yes">Columns</span>
+                        <span class="pill pill-warn">Full record view</span>
+                    </div>
+                    <span class="chevron">▼</span>
+                </div>
+                <div class="widget-body">
+                    <div class="prop-grid">
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Title and description</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Show response count</div></div></div>
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">Columns</div><div class="prop-note">Open Text fields only. Use @fieldId to specify</div></div></div>
+                        <div class="prop"><span class="prop-icon warn">~</span><div><div class="prop-label">Full record view</div><div class="prop-note">Supported</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Metric field</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Metric function</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Axis / dimension</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Change since</div></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rich Text -->
+            <div class="widget-card" onclick="toggle(this)">
+                <div class="widget-header">
+                    <div class="widget-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+                    <span class="widget-name">Rich Text</span>
+                    <div class="widget-summary">
+                        <span class="pill pill-yes">HTML content</span>
+                        <span class="pill pill-no">No data config</span>
+                    </div>
+                    <span class="chevron">▼</span>
+                </div>
+                <div class="widget-body">
+                    <div class="prop-grid">
+                        <div class="prop"><span class="prop-icon yes">✓</span><div><div class="prop-label">HTML content</div><div class="prop-note">Describe the text and Flow formats it</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Title and description</div><div class="prop-note">Rich Text has no title field</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Show response count</div></div></div>
+                        <div class="prop"><span class="prop-icon no">—</span><div><div class="prop-label">Any metric or axis</div></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="widget-card" onclick="toggle(this)">
+                <div class="widget-header">
+                    <div class="widget-icon"><svg viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/></svg></div>
+                    <span class="widget-name">Divider</span>
+                    <div class="widget-summary">
+                        <span class="pill pill-no">Layout only</span>
+                    </div>
+                    <span class="chevron">▼</span>
+                </div>
+                <div class="widget-body">
+                    <p class="divider-note">A visual separator with no configurable data properties. Flow creates Dividers automatically as part of layout templates and widget groups. You can also ask Flow to add one directly.</p>
+                </div>
+            </div>
+
+            <!-- FIELD TYPES -->
+            <h2 id="field-types">Qualtrics Field Types</h2>
+            <p class="section-desc">Every field in a Qualtrics dashboard has an internal type that determines which widgets it can power. Flow uses these types automatically when mapping your fields to widget configuration.</p>
+
+            <div style="border:1px solid #e5e7eb; border-radius:10px; overflow:hidden; margin-bottom:48px;">
+                <div style="display:grid; grid-template-columns:1fr 1fr; background:#f9fafb; padding:12px 20px; border-bottom:1px solid #e5e7eb;">
+                    <span style="font-family:'Space Grotesk',sans-serif; font-size:13px; font-weight:700; color:#6b7280; text-transform:uppercase; letter-spacing:0.05em;">Qualtrics Name</span>
+                    <span style="font-family:'Space Grotesk',sans-serif; font-size:13px; font-weight:700; color:#6b7280; text-transform:uppercase; letter-spacing:0.05em;">Internal Type</span>
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; padding:14px 20px; border-bottom:1px solid #f3f4f6; align-items:start;">
+                    <div>
+                        <div style="font-weight:600; font-size:14px; color:#1a1a1a;">Numeric Value</div>
+                        <div style="font-size:12px; color:#9ca3af; margin-top:2px;">Continuous data — 0 to infinity</div>
+                    </div>
+                    <div>
+                        <code style="background:#f5f3ff; color:#7c3aed; padding:3px 8px; border-radius:4px; font-size:13px;">ScalarValue</code>
+                        <div style="font-size:12px; color:#9ca3af; margin-top:4px;">Used for avg, sum, min, max metrics</div>
+                    </div>
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; padding:14px 20px; border-bottom:1px solid #f3f4f6; background:#fafafa; align-items:start;">
+                    <div>
+                        <div style="font-weight:600; font-size:14px; color:#1a1a1a;">Number Set</div>
+                        <div style="font-size:12px; color:#9ca3af; margin-top:2px;">Discrete numeric — e.g. Likert scales</div>
+                    </div>
+                    <div>
+                        <code style="background:#f5f3ff; color:#7c3aed; padding:3px 8px; border-radius:4px; font-size:13px;">EnumerableScalarValue</code>
+                        <div style="font-size:12px; color:#9ca3af; margin-top:4px;">Used for avg, NPS, top box, Star Rating</div>
+                    </div>
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; padding:14px 20px; border-bottom:1px solid #f3f4f6; align-items:start;">
+                    <div>
+                        <div style="font-weight:600; font-size:14px; color:#1a1a1a;">Date</div>
+                        <div style="font-size:12px; color:#9ca3af; margin-top:2px;">Calendar date and time</div>
+                    </div>
+                    <div>
+                        <code style="background:#f5f3ff; color:#7c3aed; padding:3px 8px; border-radius:4px; font-size:13px;">DateTime</code>
+                        <div style="font-size:12px; color:#9ca3af; margin-top:4px;">Used as axis/dimension with groupBy (day, month, quarter, year)</div>
+                    </div>
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; padding:14px 20px; border-bottom:1px solid #f3f4f6; background:#fafafa; align-items:start;">
+                    <div>
+                        <div style="font-weight:600; font-size:14px; color:#1a1a1a;">Text Set</div>
+                        <div style="font-size:12px; color:#9ca3af; margin-top:2px;">Limited set of text values — e.g. Agree/Disagree</div>
+                    </div>
+                    <div>
+                        <code style="background:#f5f3ff; color:#7c3aed; padding:3px 8px; border-radius:4px; font-size:13px;">EnumerableValue</code>
+                        <div style="font-size:12px; color:#9ca3af; margin-top:4px;">Used as axis/dimension and filters</div>
+                    </div>
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; padding:14px 20px; border-bottom:1px solid #f3f4f6; align-items:start;">
+                    <div>
+                        <div style="font-weight:600; font-size:14px; color:#1a1a1a;">Multi-Answer Text Set</div>
+                        <div style="font-size:12px; color:#9ca3af; margin-top:2px;">Multiple text values per response</div>
+                    </div>
+                    <div>
+                        <code style="background:#f5f3ff; color:#7c3aed; padding:3px 8px; border-radius:4px; font-size:13px;">EnumerableValueSet</code>
+                        <div style="font-size:12px; color:#9ca3af; margin-top:4px;">Used as axis/dimension and filters</div>
+                    </div>
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; padding:14px 20px; border-bottom:1px solid #f3f4f6; background:#fafafa; align-items:start;">
+                    <div>
+                        <div style="font-weight:600; font-size:14px; color:#1a1a1a;">Open Text</div>
+                        <div style="font-size:12px; color:#9ca3af; margin-top:2px;">Long open-ended text responses</div>
+                    </div>
+                    <div>
+                        <code style="background:#f5f3ff; color:#7c3aed; padding:3px 8px; border-radius:4px; font-size:13px;">FreeFormText</code>
+                        <div style="font-size:12px; color:#9ca3af; margin-top:4px;">Required for Word Cloud and Response Ticker</div>
+                    </div>
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; padding:14px 20px; align-items:start;">
+                    <div>
+                        <div style="font-weight:600; font-size:14px; color:#1a1a1a;">Text Value</div>
+                        <div style="font-size:12px; color:#9ca3af; margin-top:2px;">Short open text — e.g. name, email</div>
+                    </div>
+                    <div>
+                        <code style="background:#f5f3ff; color:#7c3aed; padding:3px 8px; border-radius:4px; font-size:13px;">GenericValue</code>
+                        <div style="font-size:12px; color:#9ca3af; margin-top:4px;">Record Table columns and filters only</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta">
+                <h3>Ready to build your dashboard?</h3>
+                <p>Open Flow on any Qualtrics CX or Results Dashboard and start configuring.</p>
+                <a href="/flow#demo">Request Early Access</a>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved. &nbsp;|&nbsp; <a href="/privacy" style="color:#9B6BFF;text-decoration:none;">Privacy Policy</a> &nbsp;|&nbsp; <a href="/flow/docs" style="color:#9B6BFF;text-decoration:none;">Flow Docs</a></p>
+    </footer>
+
+    <script>
+        function toggle(card) {
+            card.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
