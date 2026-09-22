@@ -402,6 +402,11 @@
         .step-content h3 { font-family: var(--font-head); font-size: 19px; font-weight: 700; margin-bottom: 6px; }
         .step-content p { color: var(--text-secondary); font-size: 15px; line-height: 1.65; }
 
+        /* ---- Video ---- */
+        .video-container { max-width: 800px; margin: 0 auto; background: #fff; border-radius: 14px; padding: 16px; border: 1px solid var(--border); box-shadow: 0 20px 40px -16px rgba(0,0,0,0.1); }
+        .video-wrapper { position: relative; width: 100%; height: 0; padding-bottom: 56.25%; border-radius: 9px; overflow: hidden; }
+        .video-wrapper iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+
         /* ---- Question types ---- */
         .template-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
         .template-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 22px; transition: border-color .2s, transform .2s; }
@@ -485,6 +490,7 @@
             <span class="logo-product">Lens</span>
             <nav class="site-nav">
                 <a href="#process">How It Works</a>
+                <a href="#video">Demo</a>
                 <a href="#question-types">Question Types</a>
                 <a href="#features">Features</a>
                 <a href="#pricing">Pricing</a>
@@ -503,6 +509,7 @@
         <div class="mobile-menu-top"><button class="mobile-menu-close" id="mobileMenuClose">&times;</button></div>
         <ul>
             <li><a href="#process">How It Works</a></li>
+            <li><a href="#video">Demo</a></li>
             <li><a href="#question-types">Question Types</a></li>
             <li><a href="#features">Features</a></li>
             <li><a href="#pricing">Pricing</a></li>
@@ -647,6 +654,29 @@
                         <h3>Review, reprocess, export</h3>
                         <p>Low-confidence or blank answers are flagged for review. Edit any answer directly, reprocess a single question, or reprocess a whole response, then export to CSV or Excel.</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video -->
+    <section id="video" class="section">
+        <div class="container">
+            <div class="section-head center">
+                <div class="section-label">See It Run</div>
+                <h2 class="section-title">Watch Lens digitize a real printed survey</h2>
+                <p class="section-sub">Convert the survey, map the layout from a blank PDF, upload a filled response, and export the result, start to finish.</p>
+            </div>
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <iframe
+                        src="https://player.vimeo.com/video/1229138257?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                        frameborder="0"
+                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen
+                        title="Pirai AI Lens - AI-powered paper survey digitisation">
+                    </iframe>
                 </div>
             </div>
         </div>
@@ -904,6 +934,7 @@
                     <h3>Lens</h3>
                     <ul class="footer-links">
                         <li><a href="#process">How It Works</a></li>
+                        <li><a href="#video">Demo</a></li>
                         <li><a href="#question-types">Question Types</a></li>
                         <li><a href="#features">Features</a></li>
                         <li><a href="#pricing">Pricing</a></li>
@@ -975,5 +1006,6 @@
             });
         }
     </script>
+    <script src="https://player.vimeo.com/api/player.js"></script>
 </body>
 </html>
