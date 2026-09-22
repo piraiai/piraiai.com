@@ -33,6 +33,13 @@
   </url>
   <!-- Flow - Highest priority -->
   <url>
+    <loc>https://piraiai.com/lens</loc>
+    <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-09-22</lastmod>
+  </url>  
+  <!-- Flow - Highest priority -->
+  <url>
     <loc>https://piraiai.com/nexus</loc>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>

@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pirai AI Lens: Digitize Paper Survey Responses with AI</title>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://piraiai.com",
+                "name": "Pirai AI",
+                "url": "https://piraiai.com",
+                "logo": "https://piraiai.com/logo.png",
+                "sameAs": [
+                    "https://linkedin.com/company/piraiai",
+                    "https://www.youtube.com/@PiraiAI"
+                ],
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "contactType": "customer support",
+                    "email": "admin@piraiai.com",
+                    "availableLanguage": ["en"]
+                }
+            },
+            {
+                "@type": "SoftwareApplication",
+                "@id": "https://piraiai.com/lens",
+                "name": "Pirai AI Lens",
+                "description": "Pirai AI Lens digitizes scanned and marked paper survey responses into structured data. It reads checkboxes, ratings, matrix grids, and handwriting, in any language and on any survey template, against your survey's own schema, flags low-confidence answers for human review and editing, and exports data ready for Excel, CSV, or your survey platform.",
+                "applicationCategory": "BusinessApplication",
+                "operatingSystem": "Web",
+                "offers": {
+                    "@type": "Offer",
+                    "priceSpecification": {
+                        "@type": "UnitPriceSpecification",
+                        "price": "9.99",
+                        "priceCurrency": "USD",
+                        "referenceQuantity": {
+                            "@type": "QuantitativeValue",
+                            "value": "1000",
+                            "unitText": "pages"
+                        }
+                    },
+                    "availability": "https://schema.org/LimitedAvailability",
+                    "description": "$9.99 per 1,000 pages processed"
+                },
+                "featureList": [
+                    "Works with any survey template, no fixed layout required",
+                    "Handwritten answer extraction, not just checkboxes",
+                    "Multi-language handwriting and mark recognition",
+                    "Reprocess any single question without redoing the rest of a response",
+                    "Vision-based extraction verified against your survey's own schema",
+                    "One-time layout discovery that maps every question to its page automatically",
+                    "Support for 8 question types: single answer, multiple answer, dropdown, matrix, open text, form fields, rank order, and constant sum",
+                    "Automatic confidence flagging for blank or uncertain answers",
+                    "Every extracted answer is editable by a human before export, not just AI-reprocessed",
+                    "Export to Excel or CSV, with values or labels, and split multiple-answer columns",
+                    "Works with schemas already built for 19+ survey platforms"
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "What is Pirai AI Lens?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Pirai AI Lens is Pirai AI's paper survey digitization tool. It reads scanned or marked paper survey response PDFs and extracts every answer, checkboxes, ratings, matrix grids, rank orders, and handwritten text, matched against your survey's own schema."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How does Lens read handwriting and marked checkboxes?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Lens uses AI vision models to look at each scanned page and report what's visible, checked against your survey's own known options and items rather than guessed freely. Answers Lens isn't confident about are flagged for human review instead of being silently recorded."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Do I need to rebuild my survey in a new platform?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "No. Lens works from the same schema Pirai AI already derives for 19+ survey platforms, so you bring the survey you already built or already ran, and Lens digitizes the paper responses against it."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What happens to answers Lens isn't confident about?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Low-confidence and blank answers are flagged automatically in the review screen, so you can check exactly the answers that need a second look instead of reviewing every response from scratch."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can I fix just one question instead of reprocessing a whole response?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. Lens can reprocess a single flagged question in isolation, or reprocess a whole response, without disturbing anything else already extracted correctly."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can I edit an extracted answer myself instead of reprocessing it?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. Every extracted answer is directly editable in the review screen. You don't have to rely on AI reprocessing, a human always has the final say before anything is exported."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Is my scanned response data used to train AI models?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "No. Response images are processed only to extract your survey data. Nothing you upload is used to train AI models."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What question types does Lens support?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Single answer, multiple answer, dropdown, matrix, open text, form fields, rank order, and constant sum, eight question types in total."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What file formats does Lens accept?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Lens accepts scanned or marked response PDFs, and exports results as CSV or Excel, formatted with values or labels and headers matched to your survey platform's convention."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What languages can Lens read?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Lens reads handwriting and marks in the language your respondents actually used, it isn't limited to English-language surveys."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How much does Pirai AI Lens cost?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Lens is priced at $9.99 per 1,000 pages processed."
+                        }
+                    }
+                ]
+            },
+            {
+                "@type": "HowTo",
+                "name": "How to Digitize Paper Survey Responses with Pirai AI Lens",
+                "description": "Turn scanned or marked paper survey responses into structured data in four steps",
+                "step": [
+                    {
+                        "@type": "HowToStep",
+                        "name": "Bring Your Survey",
+                        "text": "Upload your Pirai AI base-format schema, or a raw questionnaire document and Lens derives one. This becomes the answer key every response is checked against.",
+                        "position": 1
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "name": "Map the Layout, Once",
+                        "text": "Upload one blank or sample copy of the survey. Lens reads every page and proposes which questions live where, then you review and confirm before processing real responses.",
+                        "position": 2
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "name": "Scan and Upload Responses",
+                        "text": "Drop in scanned or marked PDFs in bulk. Lens reads checkboxes, ratings, and handwriting, verified against the schema.",
+                        "position": 3
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "name": "Review, Reprocess, Export",
+                        "text": "Low-confidence or blank answers are flagged for review. Edit any answer directly, reprocess a single question, or reprocess a whole response, then export to CSV or Excel.",
+                        "position": 4
+                    }
+                ],
+                "totalTime": "PT10M"
+            }
+        ]
+    }
+    </script>
+
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://piraiai.com/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+    <meta name="description" content="Digitize any paper survey template in minutes. AI reads checkboxes and handwriting, in any language, verified against your own schema. From $9.99 per 1,000 pages.">
+    <meta name="keywords" content="paper survey digitization, scan paper survey to digital, AI survey data entry, convert paper survey to Excel, handwriting recognition survey, OMR software, digitize survey responses, paper survey to Qualtrics, AI survey scanning software, market research data entry automation, paper questionnaire digitization, scanned survey extraction AI, paper assessment digitization, scan exam answer sheets, digitize student assessments, education assessment scanning, multilingual handwriting recognition, paper survey scanning pricing, any survey template digitization"/>
+
+    <meta property="og:title" content="Pirai AI Lens: Digitize Paper Survey Responses with AI">
+    <meta property="og:description" content="AI reads paper survey responses, any template, any language, checkboxes and handwriting, verified against your own schema. From $9.99 per 1,000 pages.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://piraiai.com/lens.html">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="og:site_name" content="Pirai AI Lens"/>
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pirai AI Lens: Digitize Paper Survey Responses with AI">
+    <meta name="twitter:description" content="AI reads paper survey responses, any template, any language, checkboxes and handwriting, verified against your own schema. From $9.99 per 1,000 pages.">
+    <meta name="twitter:image" content="https://piraiai.com/logo.png">
+
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Pirai AI">
+    <link rel="canonical" href="https://piraiai.com/lens.html">
+
+    <!-- Note: reCAPTCHA script removed — no lead-capture form on this page, just a direct mailto link -->
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --purple: #9B6BFF;
+            --purple-dark: #7C4FE0;
+            --purple-light: #F3EEFF;
+            --ink: #15131c;
+            --text-secondary: #4b5563;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+            --bg-light: #f9fafb;
+            --green: #16a34a;
+            --amber: #b45309;
+            --amber-bg: #fffbeb;
+            --font-head: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            /* Tokens for the product mockup, so it reads as the actual review
+               screen rather than a generic marketing illustration */
+            --app-accent: #6b48ff;
+            --app-accent-2: #4299e1;
+            --app-grad: linear-gradient(135deg, #4299e1 0%, #6b48ff 100%);
+            --app-ink: #1a1d2e;
+            --app-text-2: #4a5070;
+            --app-text-3: #8890b0;
+            --app-bg-2: #f7f8fc;
+            --app-bg-3: #eef0f8;
+            --app-border: #e2e5f0;
+        }
+
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); color: var(--ink); background: #fff; line-height: 1.6; overflow-x: hidden; }
+        a { color: inherit; }
+        .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+        img { max-width: 100%; display: block; }
+
+        /* ===== Header ===== */
+        header.site { background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; }
+        .header-inner { max-width: 1180px; margin: 0 auto; padding: 0 24px; height: 68px; display: flex; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
+        .logo img { width: 30px; height: 30px; }
+        .logo-text { font-family: var(--font-head); font-weight: 700; font-size: 18px; color: var(--ink); }
+        .logo-divider { width: 1px; height: 18px; background: var(--border); margin: 0 4px; }
+        .logo-product { font-family: var(--font-head); font-weight: 600; font-size: 16px; color: var(--purple-dark); }
+        nav.site-nav { display: flex; gap: 28px; align-items: center; margin-left: 40px; }
+        nav.site-nav a { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color .2s; }
+        nav.site-nav a:hover { color: var(--purple-dark); }
+        .header-right { margin-left: auto; display: flex; align-items: center; gap: 16px; }
+        .nav-cta { background: var(--purple); color: #fff !important; padding: 9px 20px; border-radius: 8px; font-weight: 600; font-size: 14px; text-decoration: none; transition: background .2s; }
+        .nav-cta:hover { background: var(--purple-dark) !important; }
+        .hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; padding: 8px; margin-left: auto; }
+        .hamburger span { width: 22px; height: 2px; background: var(--ink); border-radius: 2px; }
+        .mobile-menu { display: none; position: fixed; inset: 0; background: #fff; z-index: 1001; padding: 24px; }
+        .mobile-menu.active { display: block; }
+        .mobile-menu-top { display: flex; justify-content: flex-end; margin-bottom: 32px; }
+        .mobile-menu-close { font-size: 32px; color: var(--ink); background: none; border: none; cursor: pointer; line-height: 1; }
+        .mobile-menu ul { list-style: none; }
+        .mobile-menu li { margin-bottom: 20px; }
+        .mobile-menu a { color: var(--ink); text-decoration: none; font-size: 22px; font-weight: 600; font-family: var(--font-head); }
+
+        @media (max-width: 880px) {
+            nav.site-nav { display: none; }
+            .header-right .nav-cta { display: none; }
+            .hamburger { display: flex; }
+        }
+
+        /* ===== Hero ===== */
+        .hero { background: linear-gradient(160deg, #faf8ff 0%, #f3eeff 45%, #fff 100%); padding: 72px 0 0; border-bottom: 1px solid var(--border); overflow: hidden; }
+        .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; padding-bottom: 64px; }
+        .hero-tagline { font-family: var(--font-head); font-size: clamp(15px, 1.6vw, 18px); font-weight: 600; color: var(--purple-dark); margin-bottom: 22px; }
+        .hero h1 { font-family: var(--font-head); font-size: clamp(32px, 4.2vw, 52px); font-weight: 700; line-height: 1.12; letter-spacing: -0.01em; margin-bottom: 22px; }
+        .hero h1 span { color: var(--purple); }
+        .hero-sub { font-size: 18px; color: var(--text-secondary); max-width: 50ch; margin-bottom: 32px; line-height: 1.65; }
+        .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 28px; }
+        .btn-primary { padding: 13px 26px; border-radius: 9px; background: var(--purple); color: #fff; font-weight: 700; text-decoration: none; font-size: 15px; transition: background .2s, transform .2s; display: inline-block; }
+        .btn-primary:hover { background: var(--purple-dark); transform: translateY(-1px); }
+        .btn-secondary { padding: 13px 26px; border-radius: 9px; border: 1px solid var(--border); color: var(--ink); font-weight: 600; text-decoration: none; font-size: 15px; background: #fff; transition: border-color .2s, background .2s; display: inline-block; }
+        .btn-secondary:hover { border-color: var(--purple); background: var(--purple-light); }
+        .hero-note { font-size: 13px; color: var(--text-muted); }
+        .hero-note strong { color: var(--ink); }
+
+        /* ---- Product mockup (the signature element) ---- */
+        .mockup-wrap { position: relative; }
+        .mockup-panel {
+            background: #fff; border: 1px solid var(--app-border); border-radius: 16px;
+            box-shadow: 0 30px 60px -20px rgba(107,72,255,0.25), 0 8px 20px -8px rgba(0,0,0,0.08);
+            overflow: hidden; max-width: 420px; margin: 0 auto;
+        }
+        .mockup-titlebar { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-bottom: 1px solid var(--app-border); background: var(--app-bg-2); }
+        .mockup-icon { width: 26px; height: 26px; border-radius: 7px; background: var(--app-grad); flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+        .mockup-icon svg { width: 14px; height: 14px; fill: #fff; }
+        .mockup-titles { line-height: 1.25; }
+        .mockup-titles .t1 { font-family: var(--font-head); font-size: 12.5px; font-weight: 600; color: var(--app-ink); }
+        .mockup-titles .t2 { font-size: 10.5px; color: var(--app-text-3); }
+        .mockup-body { padding: 16px; background: #fff; }
+
+        .m-row { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--app-bg-3); opacity: 0; transform: translateY(6px); animation: mRowIn .5s ease forwards; }
+        .m-row:last-of-type { border-bottom: none; }
+        .m-check { width: 20px; height: 20px; border-radius: 50%; background: var(--green); flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+        .m-check svg { width: 11px; height: 11px; fill: #fff; }
+        .m-check.flag { background: var(--amber-bg); border: 1.5px solid var(--amber); }
+        .m-check.flag svg { display: none; }
+        .m-qtext { flex: 1; }
+        .m-qid { font-family: var(--font-head); font-size: 11px; font-weight: 700; color: var(--app-text-2); }
+        .m-qname { font-size: 12px; color: var(--app-ink); font-weight: 600; margin: 1px 0 2px; }
+        .m-answer { font-size: 11.5px; color: var(--app-text-3); }
+        .m-answer.flagged { color: var(--amber); font-weight: 600; }
+        .mockup-status { margin-top: 14px; font-size: 11.5px; color: var(--app-text-2); font-weight: 600; padding-top: 12px; border-top: 1px dashed var(--app-border); opacity: 0; animation: mRowIn .5s ease forwards; animation-delay: 1.4s; }
+        .mockup-status strong { color: var(--amber); }
+
+        @keyframes mRowIn { to { opacity: 1; transform: translateY(0); } }
+
+        @media (prefers-reduced-motion: reduce) {
+            .m-row, .mockup-status, .float-chip { animation: none !important; opacity: 1 !important; transform: none !important; }
+        }
+
+        .float-chip { position: absolute; z-index: 3; background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 8px 12px; font-size: 12px; font-weight: 600; color: var(--purple-dark); box-shadow: 0 12px 24px -8px rgba(0,0,0,0.12); display: flex; align-items: center; gap: 6px; }
+        .float-chip svg { width: 14px; height: 14px; }
+        .float-chip.fc1 { top: -18px; right: 6%; animation: bob 5s ease-in-out infinite; }
+        .float-chip.fc2 { bottom: 6%; left: -28px; animation: bob 5s ease-in-out infinite; animation-delay: -2.5s; }
+        .mockup-panel { position: relative; z-index: 1; }
+        @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        @media (max-width: 720px) { .float-chip { display: none; } }
+
+        @media (max-width: 980px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+            .hero-ctas, .hero-tagline { justify-content: center; }
+            .hero { text-align: center; padding-top: 48px; }
+            .hero-sub { margin-left: auto; margin-right: auto; }
+            .mockup-panel { max-width: 380px; }
+        }
+
+        /* ===== Stats bar ===== */
+        .stats-bar { background: #fff; border-bottom: 1px solid var(--border); padding: 28px 24px; }
+        .stats-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center; }
+        .stat-num { font-family: var(--font-head); font-size: 30px; font-weight: 700; color: var(--purple); }
+        .stat-label { font-size: 13px; color: var(--ink); font-weight: 600; margin-top: 2px; }
+        .stat-desc { font-size: 12.5px; color: var(--text-muted); margin-top: 4px; }
+        @media (max-width: 700px) { .stats-inner { grid-template-columns: 1fr; gap: 28px; } }
+
+        /* ===== Sections (shared) ===== */
+        .section { padding: 80px 0; }
+        @media (max-width: 600px) {
+            .section { padding: 48px 0; }
+            .container { padding: 0 16px; }
+            body { overflow-x: hidden; }
+            * { max-width: 100%; }
+            p, li, h2, h3 { overflow-wrap: break-word; word-break: break-word; }
+        }
+        .section-alt { background: var(--bg-light); }
+        .section-label { font-size: 12px; font-weight: 700; color: var(--purple); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; }
+        .section-title { font-family: var(--font-head); font-size: clamp(24px, 3.2vw, 36px); font-weight: 700; margin-bottom: 14px; line-height: 1.2; }
+        .section-sub { font-size: 16px; color: var(--text-secondary); max-width: 60ch; line-height: 1.65; }
+        .section-head { margin-bottom: 44px; }
+        .section-head.center { text-align: center; max-width: 640px; margin-left: auto; margin-right: auto; }
+        .section-head.center .section-sub { margin-left: auto; margin-right: auto; }
+
+        /* ---- The shift ---- */
+        .shift-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .shift-col h3 { font-family: var(--font-head); font-size: 15px; font-weight: 700; margin-bottom: 10px; }
+        .shift-col.old h3 { color: var(--text-muted); }
+        .shift-col.new h3 { color: var(--purple-dark); }
+        .shift-col p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; }
+        .shift-col.new { background: #fff; border: 1px solid var(--purple-light); border-left: 3px solid var(--purple); border-radius: 10px; padding: 24px; }
+        .shift-col.old { padding: 24px; }
+        @media (max-width: 760px) { .shift-grid { grid-template-columns: 1fr; } }
+
+        /* ---- How it works ---- */
+        .workflow { max-width: 760px; margin: 0 auto; }
+        .workflow-step { display: grid; grid-template-columns: 56px 1fr; gap: 28px; padding: 32px 0; border-bottom: 1px solid var(--border); }
+        .workflow-step:last-child { border-bottom: none; }
+        .step-number { width: 44px; height: 44px; background: var(--purple); color: #fff; border-radius: 50%; font-family: var(--font-head); font-weight: 700; font-size: 17px; display: flex; align-items: center; justify-content: center; }
+        .step-content h3 { font-family: var(--font-head); font-size: 19px; font-weight: 700; margin-bottom: 6px; }
+        .step-content p { color: var(--text-secondary); font-size: 15px; line-height: 1.65; }
+
+        /* ---- Question types ---- */
+        .template-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+        .template-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 22px; transition: border-color .2s, transform .2s; }
+        .template-card:hover { border-color: var(--purple); transform: translateY(-3px); }
+        .template-card .tc-icon { width: 36px; height: 36px; border-radius: 9px; background: var(--purple-light); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+        .template-card .tc-icon svg { width: 18px; height: 18px; color: var(--purple-dark); fill: var(--purple-dark); }
+        .template-card h3 { font-family: var(--font-head); font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+        .template-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.55; }
+        @media (max-width: 980px) { .template-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 560px) { .template-grid { grid-template-columns: 1fr; } }
+
+        /* ---- Features ---- */
+        .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .feature-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 26px; transition: border-color .2s, transform .2s; }
+        .feature-card:hover { border-color: var(--purple); transform: translateY(-3px); }
+        .feature-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--app-grad); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+        .feature-icon svg { width: 19px; height: 19px; fill: #fff; }
+        .feature-card h3 { font-family: var(--font-head); font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+        .feature-card p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.65; }
+        @media (max-width: 880px) { .feature-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 560px) { .feature-grid { grid-template-columns: 1fr; } }
+
+        /* ---- FAQ ---- */
+        .faq-list { max-width: 760px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid var(--border); }
+        .faq-item:first-child { border-top: 1px solid var(--border); }
+        .faq-item summary { font-family: var(--font-head); font-weight: 600; font-size: 16px; padding: 20px 4px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; list-style: none; color: var(--ink); }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after { content: "+"; font-size: 20px; color: var(--purple); flex-shrink: 0; line-height: 1; }
+        .faq-item[open] summary::after { content: "\2212"; }
+        .faq-a { font-size: 15px; color: var(--text-secondary); line-height: 1.7; padding: 0 4px 22px; }
+
+        /* ---- Pricing ---- */
+        .pricing-card { max-width: 420px; margin: 0 auto; text-align: center; background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 40px 32px; box-shadow: 0 20px 40px -20px rgba(0,0,0,0.12); }
+        .pricing-amount { font-family: var(--font-head); font-size: 44px; font-weight: 700; color: var(--ink); }
+        .pricing-unit { font-size: 15px; color: var(--text-secondary); margin-top: 4px; font-weight: 600; }
+        .pricing-note { font-size: 14px; color: var(--text-muted); margin-top: 18px; line-height: 1.6; }
+
+        /* ---- Contact ---- */
+        .demo-section { background: linear-gradient(160deg, #faf8ff 0%, #fff 60%); }
+        @media (max-width: 880px) {
+            .demo-section { padding: 60px 0; }
+        }
+
+        /* ===== Footer ===== */
+        .footer { background: var(--bg-light); border-top: 1px solid var(--border); padding: 56px 0 28px; }
+        .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; }
+        .footer-brand { display: flex; align-items: center; gap: 10px; }
+        .footer-brand span { font-family: var(--font-head); font-size: 20px; font-weight: 700; color: var(--ink); }
+        .footer-desc { color: var(--text-secondary); margin-top: 14px; max-width: 360px; font-size: 14px; line-height: 1.65; }
+        .footer-contact { margin-top: 18px; font-size: 13.5px; color: var(--text-muted); }
+        .footer-contact a { color: var(--purple-dark); text-decoration: none; font-weight: 600; }
+        .footer-section h3 { color: var(--ink); font-weight: 700; margin-bottom: 14px; font-family: var(--font-head); font-size: 14px; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 9px; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; transition: color .2s; }
+        .footer-links a:hover { color: var(--purple-dark); }
+        .footer-bottom { border-top: 1px solid var(--border); margin-top: 36px; padding-top: 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .footer-bottom .copyright { color: var(--text-muted); font-size: 13px; }
+        .social-links { display: flex; gap: 14px; align-items: center; }
+        .social-links a { color: var(--text-muted); transition: color .2s; }
+        .social-links a:hover { color: var(--purple-dark); }
+        @media (max-width: 880px) { .footer-content { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 560px) { .footer-content { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Header -->
+    <header class="site">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <img src="logo.png" alt="Pirai AI Logo">
+                <span class="logo-text">Pirai AI</span>
+            </a>
+            <span class="logo-divider"></span>
+            <span class="logo-product">Lens</span>
+            <nav class="site-nav">
+                <a href="#process">How It Works</a>
+                <a href="#question-types">Question Types</a>
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#faq">FAQ</a>
+                <a href="https://platform.piraiai.com" target="_blank" rel="noopener">Convert a Survey</a>
+            </nav>
+            <div class="header-right">
+                <a href="mailto:admin@piraiai.com?subject=Pirai%20AI%20Lens%20%E2%80%94%20Interested" class="nav-cta">Email Us</a>
+            </div>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-top"><button class="mobile-menu-close" id="mobileMenuClose">&times;</button></div>
+        <ul>
+            <li><a href="#process">How It Works</a></li>
+            <li><a href="#question-types">Question Types</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="https://platform.piraiai.com" target="_blank" rel="noopener">Convert a Survey</a></li>
+            <li><a href="mailto:admin@piraiai.com?subject=Pirai%20AI%20Lens%20%E2%80%94%20Interested">Email Us</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div>
+                    <h1>Turn scanned paper surveys into <span>structured data</span>, automatically.</h1>
+                    <p class="hero-tagline">AI-powered paper survey and assessment digitization for research, education, healthcare, and enterprise teams.</p>
+                    <p class="hero-sub">Upload scanned or marked response PDFs from any survey template. Lens reads checkboxes, ratings, and handwriting, in whatever language your respondents used, against your survey's own schema, and hands you back data that's ready for analysis.</p>
+                    <div class="hero-ctas">
+                        <a href="mailto:admin@piraiai.com?subject=Pirai%20AI%20Lens%20%E2%80%94%20Interested" class="btn-primary">Email Us</a>
+                        <a href="#process" class="btn-secondary">See How It Works</a>
+                    </div>
+                    <p class="hero-note"><strong>No new survey platform. No manual data entry. No response data used to train AI models.</strong> Lens reads the survey you already built. <a href="https://piraiai.com/privacy#lens" style="color: var(--purple-dark); font-weight: 600;">Learn more →</a></p>
+                </div>
+
+                <div class="mockup-wrap">
+                    <div class="float-chip fc1">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>
+                        Verified against your schema
+                    </div>
+                    <div class="float-chip fc2">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>
+                        8 question types supported
+                    </div>
+                    <div class="mockup-panel">
+                        <div class="mockup-titlebar">
+                            <div class="mockup-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+                            <div class="mockup-titles">
+                                <div class="t1">Pirai AI Lens</div>
+                                <div class="t2">response_0243.pdf · 8 questions</div>
+                            </div>
+                        </div>
+                        <div class="mockup-body">
+                            <div class="m-row" style="animation-delay:.1s;">
+                                <span class="m-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+                                <div class="m-qtext"><div class="m-qid">Q1 · Single Answer</div><div class="m-qname">Overall Satisfaction</div><div class="m-answer">Very satisfied</div></div>
+                            </div>
+                            <div class="m-row" style="animation-delay:.3s;">
+                                <span class="m-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+                                <div class="m-qtext"><div class="m-qid">Q2 · Multiple Answer</div><div class="m-qname">What do you value most?</div><div class="m-answer">3 of 5 selected</div></div>
+                            </div>
+                            <div class="m-row" style="animation-delay:.5s;">
+                                <span class="m-check"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></span>
+                                <div class="m-qtext"><div class="m-qid">Q3 · Matrix</div><div class="m-qname">Product Features Rating</div><div class="m-answer">5 of 5 statements read</div></div>
+                            </div>
+                            <div class="m-row" style="animation-delay:.7s;">
+                                <span class="m-check flag"></span>
+                                <div class="m-qtext"><div class="m-qid">Q4 · Open Text</div><div class="m-qname">Areas for Improvement</div><div class="m-answer flagged">Low confidence — flagged for review</div></div>
+                            </div>
+                            <div class="mockup-status">7 of 8 answered — <strong>1 flagged for review</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <div class="stats-bar">
+        <div class="stats-inner">
+            <div>
+                <div class="stat-num">19+</div>
+                <div class="stat-label">Survey platforms supported</div>
+                <div class="stat-desc">Built on the same schema Pirai AI already uses for Qualtrics, SurveyMonkey, and more</div>
+            </div>
+            <div>
+                <div class="stat-num">8</div>
+                <div class="stat-label">Question types</div>
+                <div class="stat-desc">Single, multiple, matrix, rank order, constant sum, open text, dropdown, and form fields</div>
+            </div>
+            <div>
+                <div class="stat-num">Zero</div>
+                <div class="stat-label">Data used for AI training</div>
+                <div class="stat-desc">Scans are processed only to extract your answers</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Problem -->
+    <section class="section" id="shift">
+        <div class="container">
+            <div class="section-head center">
+                <div class="section-label">The Problem</div>
+                <h2 class="section-title">Digitizing paper responses shouldn't mean weeks of manual data entry.</h2>
+                <p class="section-sub">Typing up hundreds of scanned forms by hand is slow and error-prone. Generic OCR tools don't know your survey's questions or options, so they guess instead of matching. Every new batch means starting over.</p>
+            </div>
+            <div class="shift-grid">
+                <div class="shift-col old">
+                    <h3>WITHOUT LENS</h3>
+                    <p>Staff manually retype every checkbox and handwritten answer from scanned forms. Mistakes creep in with every hour of data entry. Every question type, matrix grids, rank orders, open text, needs its own workaround. There's no way to reuse the work across batches of the same survey.</p>
+                </div>
+                <div class="shift-col new">
+                    <h3>WITH LENS</h3>
+                    <p>Lens reads each scanned or marked response against your survey's own schema. Once a survey's layout is mapped, every batch of that survey reuses it. Low-confidence answers are flagged automatically instead of silently guessed. Fix one question or one response without redoing the rest.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section section-alt" id="process">
+        <div class="container">
+            <div class="section-head center">
+                <div class="section-label">How It Works</div>
+                <h2 class="section-title">From scanned PDF to structured data in four steps.</h2>
+                <p class="section-sub">The layout only needs mapping once per survey. Every batch after that goes straight to extraction.</p>
+            </div>
+            <div class="workflow">
+                <div class="workflow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Bring your survey</h3>
+                        <p>Upload your Pirai AI base-format schema, or a raw questionnaire document and Lens derives one. This becomes the answer key every response is checked against.</p>
+                    </div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Map the layout, once</h3>
+                        <p>Upload one blank or sample copy of the survey. Lens reads every page and proposes which questions live where. Review and confirm before processing real responses.</p>
+                    </div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Scan and upload responses</h3>
+                        <p>Drop in scanned or marked PDFs in bulk. Lens reads checkboxes, ratings, and handwriting, verified against the schema, not guessed.</p>
+                    </div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Review, reprocess, export</h3>
+                        <p>Low-confidence or blank answers are flagged for review. Edit any answer directly, reprocess a single question, or reprocess a whole response, then export to CSV or Excel.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Question Types -->
+    <section class="section" id="question-types">
+        <div class="container">
+            <div class="section-head center">
+                <div class="section-label">What Lens Can Read</div>
+                <h2 class="section-title">Every question type your survey actually uses.</h2>
+                <p class="section-sub">Not just checkboxes. Lens reads the full range of question types a real survey uses, each matched against its own known answer key.</p>
+            </div>
+            <div class="template-grid">
+                <div class="template-card">
+                    <div class="tc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3" fill="currentColor" stroke="none"/></svg></div>
+                    <h3>Single Answer</h3>
+                    <p>Multiple choice with one selection per respondent.</p>
+                </div>
+                <div class="template-card">
+                    <div class="tc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><path d="M4.5 6.5l1.5 1.5 3-3"/></svg></div>
+                    <h3>Multiple Answer</h3>
+                    <p>Checkbox questions where more than one option can be marked.</p>
+                </div>
+                <div class="template-card">
+                    <div class="tc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/><rect x="3" y="4" width="18" height="16" rx="2"/></svg></div>
+                    <h3>Dropdown</h3>
+                    <p>Single-selection questions presented as a dropdown in your platform.</p>
+                </div>
+                <div class="template-card">
+                    <div class="tc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div>
+                    <h3>Matrix / Grid</h3>
+                    <p>Statement-by-scale grids, matched against every row and column.</p>
+                </div>
+                <div class="template-card">
+                    <div class="tc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg></div>
+                    <h3>Open Text</h3>
+                    <p>Handwritten short answers and essay responses, transcribed verbatim.</p>
+                </div>
+                <div class="template-card">
+                    <div class="tc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+                    <h3>Form Fields</h3>
+                    <p>Multi-field entries like version numbers or device details.</p>
+                </div>
+                <div class="template-card">
+                    <div class="tc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></div>
+                    <h3>Rank Order</h3>
+                    <p>Items ranked by the respondent, read in the order marked.</p>
+                </div>
+                <div class="template-card">
+                    <div class="tc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+                    <h3>Constant Sum</h3>
+                    <p>Points or percentages allocated across a fixed list of items.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section section-alt" id="features">
+        <div class="container">
+            <div class="section-head center">
+                <div class="section-label">What Lens Can Do</div>
+                <h2 class="section-title">Built to be trusted with real survey data.</h2>
+                <p class="section-sub">Lens covers the full digitization workflow, from reading the layout once to flagging exactly what needs a second look.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7v10l10 5 10-5V7l-10-5zm0 2.2L19.5 8 12 11.8 4.5 8 12 4.2zM4 9.7l7 3.5v7.1l-7-3.5V9.7zm9 10.6v-7.1l7-3.5v7.1l-7 3.5z"/></svg></div>
+                    <h3>Works With Any Survey Template</h3>
+                    <p>No fixed layout to design around. Lens reads the survey you already built, in the format you already print, and maps it to your own schema.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg></div>
+                    <h3>Handwritten Answer Extraction</h3>
+                    <p>Reads handwritten short answers and essay responses, not just checkboxes, transcribed verbatim against your survey's own answer key.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M5 8l6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"/></svg></div>
+                    <h3>Multi-Language Support</h3>
+                    <p>Reads marks and handwriting in the language your respondents actually used. Not limited to English-language surveys.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 5V2L8 6l4 4V7a5 5 0 11-5 5H5a7 7 0 107-7z"/></svg></div>
+                    <h3>Reprocess Any Single Question</h3>
+                    <p>Spot a wrong or blank answer? Select exactly that question and reprocess it, without redoing the rest of the response.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.12 2.12 0 013 3L12 15l-4 1 1-4z"/></svg></div>
+                    <h3>Edit Any Answer Yourself</h3>
+                    <p>Every extracted answer is directly editable in the review screen. You're never limited to AI reprocessing, a human always has the final say before export.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5 1.4-1.4L9 14.2l9.6-9.6z"/></svg></div>
+                    <h3>Checked Against Your Survey</h3>
+                    <p>Every answer is checked against your survey's own questions and options, so nothing gets invented or mismatched.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+                    <h3>Accurate Even When Questions Look Alike</h3>
+                    <p>Lens reads every response against your survey's exact wording, so two similarly worded questions are never mixed up, even when an answer spans more than one page.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg></div>
+                    <h3>Confidence Flagging</h3>
+                    <p>Low-confidence and blank answers are surfaced automatically, so review time goes where it's actually needed.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg></div>
+                    <h3>Export to Excel or CSV</h3>
+                    <p>Export as values or labels, split multiple-answer questions into separate columns, headers matched to your platform's convention.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section" id="pricing">
+        <div class="container">
+            <div class="section-head center">
+                <div class="section-label">Pricing</div>
+                <h2 class="section-title">Simple, usage-based pricing.</h2>
+                <p class="section-sub">Pay for what you process. No separate platform fee.</p>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-amount">$9.99</div>
+                <div class="pricing-unit">per 1,000 pages processed</div>
+                <p class="pricing-note">Every scanned or marked page counts toward your total, whatever question types or how many questions it contains.</p>
+                <a href="mailto:admin@piraiai.com?subject=Pirai%20AI%20Lens%20%E2%80%94%20Interested" class="btn-primary" style="margin-top:22px;">Email Us to Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Built For -->
+    <section class="section section-alt" id="teams">
+        <div class="container">
+            <div class="section-head center">
+                <div class="section-label">Built For</div>
+                <h2 class="section-title">For teams still collecting responses on paper.</h2>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg></div>
+                    <h3>Market Research</h3>
+                    <p>Digitize paper-based fieldwork, intercept surveys, and panel studies without re-keying a single response.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M22 10L12 5 2 10l10 5 10-5zM6 12.5V17c0 1.5 2.5 3 6 3s6-1.5 6-3v-4.5"/></svg></div>
+                    <h3>Education &amp; Assessments</h3>
+                    <p>Course evaluations, paper-based exams and quizzes, and classroom assessments, scored and digitized automatically, no re-keying answer sheets by hand.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"/></svg></div>
+                    <h3>Healthcare</h3>
+                    <p>Patient satisfaction forms and paper-based intake surveys, digitized without a new platform to learn.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+                    <h3>Enterprise</h3>
+                    <p>Employee surveys, compliance audits, and customer feedback forms collected on paper across locations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-alt" id="faq">
+        <div class="container">
+            <div class="section-head center">
+                <div class="section-label">Common Questions</div>
+                <h2 class="section-title">Frequently asked questions</h2>
+            </div>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>What is Pirai AI Lens?</summary>
+                    <p class="faq-a">Pirai AI Lens is Pirai AI's paper survey digitization tool. It reads scanned or marked paper survey response PDFs and extracts every answer, checkboxes, ratings, matrix grids, rank orders, and handwritten text, matched against your survey's own schema.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>How does Lens read handwriting and marked checkboxes?</summary>
+                    <p class="faq-a">Lens uses AI vision models to look at each scanned page and report what's visible, checked against your survey's own known options and items rather than guessed freely. Answers Lens isn't confident about are flagged for human review instead of being silently recorded.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Do I need to rebuild my survey in a new platform?</summary>
+                    <p class="faq-a">No. Lens works from the same schema Pirai AI already derives for 19+ survey platforms, so you bring the survey you already built or already ran, and Lens digitizes the paper responses against it.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>What happens to answers Lens isn't confident about?</summary>
+                    <p class="faq-a">Low-confidence and blank answers are flagged automatically in the review screen, so you can check exactly the answers that need a second look instead of reviewing every response from scratch.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Can I fix just one question instead of reprocessing a whole response?</summary>
+                    <p class="faq-a">Yes. Lens can reprocess a single flagged question in isolation, or reprocess a whole response, without disturbing anything else already extracted correctly.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Can I edit an extracted answer myself instead of reprocessing it?</summary>
+                    <p class="faq-a">Yes. Every extracted answer is directly editable in the review screen. You don't have to rely on AI reprocessing, a human always has the final say before anything is exported.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Is my scanned response data used to train AI models?</summary>
+                    <p class="faq-a">No. Response images are processed only to extract your survey data. Nothing you upload is used to train AI models. <a href="https://piraiai.com/privacy#lens" style="color: var(--purple-dark); font-weight: 600;">Learn more →</a></p>
+                </details>
+                <details class="faq-item">
+                    <summary>What question types does Lens support?</summary>
+                    <p class="faq-a">Single answer, multiple answer, dropdown, matrix, open text, form fields, rank order, and constant sum, eight question types in total.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>What file formats does Lens accept?</summary>
+                    <p class="faq-a">Lens accepts scanned or marked response PDFs, and exports results as CSV or Excel, formatted with values or labels and headers matched to your survey platform's convention.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>What languages can Lens read?</summary>
+                    <p class="faq-a">Lens reads handwriting and marks in the language your respondents actually used, it isn't limited to English-language surveys.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>How much does Pirai AI Lens cost?</summary>
+                    <p class="faq-a">Lens is priced at $9.99 per 1,000 pages processed. <a href="#pricing" style="color: var(--purple-dark); font-weight: 600;">Email us to get started →</a></p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section demo-section">
+        <div class="container">
+            <div class="section-head center">
+                <div class="section-label">Get In Touch</div>
+                <h2 class="section-title">Have paper responses to digitize?</h2>
+                <p class="section-sub">Pirai AI Lens is built for teams still collecting responses on paper, across market research, education and assessments, healthcare, and enterprise. Send us a note and we'll walk you through how it fits your workflow.</p>
+            </div>
+            <div style="text-align:center;">
+                <a href="mailto:admin@piraiai.com?subject=Pirai%20AI%20Lens%20%E2%80%94%20Interested" class="btn-primary" style="font-size:16px; padding:16px 34px;">Email admin@piraiai.com</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-brand">
+                        <img src="logo.png" alt="Pirai AI Logo" width="32" height="32"/>
+                        <span>Pirai AI</span>
+                    </div>
+                    <p class="footer-desc">
+                        Pirai AI Lens reads scanned and marked paper survey responses and extracts structured data, checkboxes, ratings, and handwriting, verified against your survey's own schema.
+                    </p>
+                    <div class="footer-contact">
+                        <p style="margin-bottom: 6px;"><strong style="color: var(--ink);">Contact:</strong> <a href="mailto:admin@piraiai.com">admin@piraiai.com</a></p>
+                        <p><strong style="color: var(--green);">Early Access:</strong> Join our beta programme</p>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Lens</h3>
+                    <ul class="footer-links">
+                        <li><a href="#process">How It Works</a></li>
+                        <li><a href="#question-types">Question Types</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="mailto:admin@piraiai.com?subject=Pirai%20AI%20Lens%20%E2%80%94%20Interested">Email Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Free Tools</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://qstar.piraiai.com" target="_blank">QStar (Beta)</a></li>
+                        <li><a href="https://chromewebstore.google.com/detail/qualtrics-api-toolkit-by/lloepmlcmkeohopokcedejdelohoilip" target="_blank">Qualtrics API Toolkit</a></li>
+                        <li><a href="/qsf-to-excel">QSF to Excel Workbook</a></li>
+                        <li><a href="/textiq-to-excel">Text IQ JSON to Excel Book</a></li>
+                        <li><a href="/embedded-data-generator">Embedded Data Generator</a></li>
+                        <li><a href="/pirai-csv-comparator">CSV Comparator</a></li>
+                        <li><a href="/qualtrics-toolkit" style="color: var(--purple-dark); font-weight: 600;">Toolkit Hub</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/#demo">Contact Us</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/terms">Terms of Service</a></li>
+                        <li><a href="/security">Security Overview</a></li>
+                        <li><a href="https://www.linkedin.com/company/pirai-ai/" target="_blank">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved. Built with enterprise-grade security and privacy protection.
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/company/pirai-ai/" target="_blank" aria-label="LinkedIn">
+                        <svg width="19" height="19" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                    <span style="color: var(--text-muted); font-size: 12px;">Follow our journey</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+
+        if (hamburger && mobileMenu && mobileMenuClose) {
+            hamburger.addEventListener('click', () => {
+                mobileMenu.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            mobileMenuClose.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+    </script>
+</body>
+</html>
