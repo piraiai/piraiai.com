@@ -2874,7 +2874,38 @@
     <changefreq>monthly</changefreq>
     <lastmod>2026-08-10</lastmod>
   </url>  
- 
+  <!-- Lens -->
+  <url>
+    <loc>https://piraiai.com/blog/digitize-paper-survey-responses-ai</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-09-22</lastmod>
+  </url>
+  <!-- Lens: platform cluster -->
+  <url>
+    <loc>https://piraiai.com/blog/qualtrics-paper-survey-digitization</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-09-22</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/questionpro-paper-survey-digitization</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-09-22</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/google-forms-paper-survey-digitization</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-09-22</lastmod>
+  </url>
+  <url>
+    <loc>https://piraiai.com/blog/microsoft-forms-paper-survey-digitization</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2026-09-22</lastmod>
+  </url>  
 
   <!-- FUTURE CONTENT PAGES (Add when ready) -->
   <!--
