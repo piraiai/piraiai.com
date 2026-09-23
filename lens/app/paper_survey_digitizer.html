@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pirai AI Lens</title>
+<link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+<!--
+  PDF.js: recent versions only ship ES module builds (.mjs), not a classic
+  script with a global. This small module wrapper loads it and exposes it
+  as window.pdfjsLib so the rest of this file's plain script block below
+  can use it exactly like any other global library, without converting
+  everything else to a module.
+-->
+<script type="module">
+  import * as pdfjsLib from 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.7.76/pdf.min.mjs';
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.7.76/pdf.worker.min.mjs';
+  window.pdfjsLib = pdfjsLib;
+  window.dispatchEvent(new Event('pdfjs-ready'));
+</script>
+<!-- SheetJS: client-side .xlsx writer for the Excel export option -->
+<script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+<style>
+  :root {
+    --indigo: #9B6BFF;
+    --indigo-dark: #7C4FE0;
+    --purple: #7C4FE0;
+    --bg: #f6f6fb;
+    --card: #ffffff;
+    --border: #e4e4ef;
+    --text: #1f1f2e;
+    --muted: #6b6b80;
+    --low: #fff4d6;
+    --low-border: #d69e1f;
+    --edited: #eef2ff;
+    --edited-border: var(--indigo);
+    --font-head: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: var(--font-body);
+    background: var(--bg); color: var(--text);
+  }
+  .config-error-banner {
+    background: #fdecea; color: #a02622; border-bottom: 1px solid #f5b7b1;
+    padding: 10px 20px; font-size: 13.5px; font-weight: 600; text-align: center;
+  }
+  .trust-note {
+    background: #f6f6fb; color: var(--muted); border-bottom: 1px solid var(--border);
+    padding: 8px 20px; font-size: 12.5px; text-align: center;
+  }
+
+  /* ---------- Top bar ---------- */
+  .topbar {
+    background: white; color: var(--text); position: relative;
+    padding: 14px 24px; display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: -3px; height: 3px;
+    background: linear-gradient(90deg, var(--indigo), var(--purple));
+  }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand .mark {
+    width: 34px; height: 34px; border-radius: 9px; background: #f5f4ff; border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0;
+  }
+  .brand .mark img { width: 100%; height: 100%; object-fit: contain; padding: 4px; }
+  .brand .name { font-family: var(--font-head); font-weight: 700; font-size: 16px; color: var(--text); }
+  .brand .tagline { font-size: 12px; font-weight: 400; color: var(--muted); }
+  .icon-btn {
+    background: #f0f0f6; border: none; color: var(--muted); width: 34px; height: 34px;
+    border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    font-size: 16px; padding: 0; margin-top: 0; flex-shrink: 0;
+  }
+  .icon-btn:hover { background: #e4e4ef; color: var(--indigo); }
+
+  /* ---------- Layout ---------- */
+  .container { max-width: 980px; margin: 0 auto; padding: 28px 20px 60px; }
+
+  /* ---------- Stepper ---------- */
+  .stepper { display: flex; align-items: center; justify-content: center; margin-bottom: 32px; }
+  .step { display: flex; flex-direction: column; align-items: center; gap: 6px; cursor: pointer; width: 150px; }
+  .step.disabled { cursor: not-allowed; }
+  .step .dot {
+    width: 32px; height: 32px; border-radius: 50%; background: #e4e4ef; color: var(--muted);
+    display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px;
+  }
+  .step.active .dot { background: var(--indigo); color: white; }
+  .step.done .dot { background: #22c55e; color: white; }
+  .step .label { font-size: 12.5px; font-weight: 600; color: var(--muted); text-align: center; }
+  .step.active .label { color: var(--indigo); }
+  .step.done .label { color: #16a34a; }
+  .step-line { flex: 1; max-width: 60px; height: 2px; background: var(--border); margin: 0 4px 20px; }
+  .step-line.done { background: #22c55e; }
+
+  .panel { display: none; }
+  .panel.active { display: block; }
+
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+    padding: 24px; margin-bottom: 16px; box-shadow: 0 1px 2px rgba(20,20,50,.03);
+  }
+  .card h2 { font-family: var(--font-head); margin: 0 0 4px; font-size: 17px; }
+  .card .hint { color: var(--muted); font-size: 13.5px; margin: 0 0 16px; line-height: 1.5; }
+  .restore-settings-row { background: var(--edited); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; font-size: 13px; color: var(--muted); margin-bottom: 18px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .restore-settings-row .link-btn { color: var(--indigo); font-weight: 600; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+  .restore-settings-row .link-btn:hover { color: var(--indigo-dark); }
+
+  label { display: block; font-size: 13px; font-weight: 600; margin: 14px 0 5px; }
+  input[type=text], input[type=password], input[type=file], textarea, select {
+    width: 100%; padding: 9px 11px; border: 1px solid var(--border); border-radius: 7px;
+    font-size: 13.5px; font-family: inherit; background: white;
+  }
+  textarea { resize: vertical; }
+  .row { display: flex; gap: 14px; flex-wrap: wrap; }
+  .row > div { flex: 1; min-width: 220px; }
+
+  .radio-group { display: flex; gap: 10px; }
+  .radio-option {
+    flex: 1; border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px;
+    cursor: pointer; font-size: 13px; display: flex; gap: 8px; align-items: flex-start;
+  }
+  .radio-option.selected { border-color: var(--indigo); background: #f5f4ff; }
+  .radio-option input { width: auto; margin-top: 2px; }
+  .radio-option .rlabel { font-weight: 600; }
+  .radio-option .rdesc { color: var(--muted); font-size: 12px; margin-top: 2px; }
+
+  button {
+    background: var(--indigo); color: white; border: none; border-radius: 7px;
+    padding: 10px 18px; font-size: 13.5px; font-weight: 600; cursor: pointer; margin-top: 14px;
+  }
+  button:hover { background: var(--indigo-dark); }
+  button.secondary { background: white; color: var(--indigo); border: 1px solid var(--indigo); }
+  button.secondary:hover { background: #f5f4ff; }
+  button.danger { background: white; color: #c0362c; border: 1px solid #e2a29c; padding: 6px 10px; margin-top: 0; font-size: 12px; }
+  button:disabled { background: #d3d3de; cursor: not-allowed; color: white; border: none; }
+
+  .status { font-size: 13px; margin-top: 12px; padding: 9px 12px; border-radius: 7px; display: none; line-height: 1.5; }
+  .status.show { display: block; }
+  .status.info { background: #eef2ff; color: var(--indigo); }
+  .status.error { background: #fdecea; color: #a02622; }
+  .status.success { background: #eafaf0; color: #1e7d3a; }
+
+  /* ---------- Survey preview (question cards, not a raw data table) ---------- */
+  .qpreview-wrap {
+    margin-top: 14px; max-height: 480px; overflow-y: auto; border: 1px solid var(--border);
+    border-radius: 10px; padding: 14px; background: #fbfbfd; display: flex; flex-direction: column; gap: 12px;
+  }
+  .qpreview-card { background: white; border: 1px solid var(--border); border-radius: 9px; padding: 14px 16px; }
+  .qpreview-head { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .qpreview-qid {
+    font-size: 11px; font-weight: 700; color: var(--indigo); background: #f0f0ff;
+    padding: 2px 8px; border-radius: 10px; flex-shrink: 0;
+  }
+  .qpreview-type { font-size: 10.5px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; font-weight: 650; }
+  .qpreview-text { font-size: 13.5px; font-weight: 600; margin-bottom: 10px; line-height: 1.45; }
+  .qpreview-options { display: flex; flex-direction: column; gap: 8px; }
+  .qpreview-opt { display: flex; align-items: center; gap: 9px; font-size: 13px; color: var(--text); }
+  .qpreview-radio, .qpreview-check { display: inline-block; width: 15px; height: 15px; border: 1.5px solid var(--border-strong, #c8c8d8); flex-shrink: 0; }
+  .qpreview-radio { border-radius: 50%; }
+  .qpreview-check { border-radius: 4px; }
+  .qpreview-input, .qpreview-textarea, .qpreview-dropdown {
+    border: 1px solid var(--border); border-radius: 6px; background: #fbfbfd; width: 100%;
+  }
+  .qpreview-input { height: 32px; }
+  .qpreview-textarea { height: 60px; }
+  .qpreview-dropdown { padding: 7px 9px; font-size: 12.5px; color: var(--muted); }
+  .qpreview-footer { margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border); font-size: 11px; color: var(--muted); }
+  .qpreview-empty { font-size: 13px; color: var(--muted); padding: 10px 4px; }
+
+  .qpreview-matrix-wrap { overflow-x: auto; }
+  table.qpreview-matrix { border-collapse: collapse; font-size: 12px; width: 100%; }
+  table.qpreview-matrix th, table.qpreview-matrix td { padding: 6px 9px; text-align: center; border-bottom: 1px solid var(--border); }
+  table.qpreview-matrix th { font-weight: 650; color: var(--muted); font-size: 11px; }
+  table.qpreview-matrix td:first-child, table.qpreview-matrix th:first-child { text-align: left; font-weight: 500; color: var(--text); }
+  table.qpreview-matrix .qpreview-radio { margin: 0 auto; }
+  .qpreview-form-row { margin-bottom: 10px; }
+  .qpreview-form-row label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+  .qpreview-input.small { height: 30px; max-width: 60%; }
+  .qpreview-list { display: flex; flex-direction: column; gap: 7px; }
+  .qpreview-sum-item { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 13px; }
+  .qpreview-sum-box { width: 46px; height: 28px; border: 1px solid var(--border); border-radius: 6px; background: #fbfbfd; display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--muted); flex-shrink: 0; }
+
+  /* ---------- Page-layout review cards ---------- */
+  .group-card { border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-bottom: 14px; }
+  .group-card .group-title { font-weight: 700; font-size: 13.5px; margin-bottom: 8px; }
+  .group-card .group-title .badge-span { background: #f5f4ff; color: var(--indigo); font-size: 11px; padding: 2px 8px; border-radius: 10px; margin-left: 8px; font-weight: 600; }
+  .group-card .imgs { display: flex; gap: 8px; overflow-x: auto; margin-bottom: 12px; }
+  .group-card .imgs img { max-height: 200px; border: 1px solid var(--border); border-radius: 6px; }
+  .group-card .fields { display: flex; gap: 12px; align-items: flex-end; }
+  .group-card .fields > div { flex: 1; }
+  .group-card .fields button { margin-top: 0; }
+
+  /* ---------- File processing list ---------- */
+  .file-list { list-style: none; padding: 0; margin: 14px 0 0; }
+  .file-list li {
+    padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 6px;
+    font-size: 13px; display: flex; justify-content: space-between; align-items: center;
+  }
+  .pill { font-size: 11px; font-weight: 700; padding: 2px 9px; border-radius: 10px; }
+  .pill.pending { background: #eee; color: var(--muted); }
+  .pill.processing { background: #eef2ff; color: var(--indigo); }
+  .pill.done { background: #eafaf0; color: #1e7d3a; }
+  .pill.error { background: #fdecea; color: #a02622; }
+
+  /* ---------- Results ---------- */
+  .response-list { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+  .response-row {
+    display: flex; align-items: center; justify-content: space-between; border: 1px solid var(--border);
+    border-radius: 8px; padding: 10px 14px;
+  }
+  .response-row .name { font-weight: 600; font-size: 13.5px; }
+  .response-row .meta { font-size: 12px; color: var(--muted); }
+  .response-row .flags { display: flex; gap: 6px; align-items: center; }
+  .row-actions { display: flex; gap: 5px; align-items: center; }
+  .row-actions .icon-btn { width: 28px; height: 28px; }
+  .row-actions .icon-btn:disabled { opacity: .35; cursor: not-allowed; }
+  .row-actions .icon-btn:disabled:hover { background: #f0f0f6; color: var(--muted); }
+  .row-actions .btn-remove:hover { background: #fdecea; color: #c0362c; }
+  .flag { font-size: 11px; font-weight: 700; padding: 2px 9px; border-radius: 10px; }
+  .flag.low { background: var(--low); color: #8a6412; }
+  .flag.edited { background: var(--edited); color: var(--indigo); }
+  .flag.clean { background: #eafaf0; color: #1e7d3a; }
+
+  /* ---------- Overlays / modals ---------- */
+  .overlay {
+    position: fixed; inset: 0; background: rgba(20,20,40,.45); display: flex;
+    align-items: center; justify-content: center; z-index: 50; padding: 20px;
+  }
+  .overlay.hidden { display: none; }
+  .modal { background: white; border-radius: 12px; padding: 24px; width: 100%; max-width: 420px; max-height: 88vh; overflow-y: auto; }
+  .modal.wide { max-width: 720px; }
+  .modal.review-modal { max-width: 1180px; height: 88vh; display: flex; flex-direction: column; overflow: hidden; }
+  .review-panes { display: flex; gap: 20px; flex: 1; min-height: 0; margin-top: 4px; }
+  .review-pdf-pane { flex: 0 0 46%; display: flex; flex-direction: column; min-height: 0; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: #f6f6fb; }
+  .review-pdf-nav { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 8px; background: #fff; border-bottom: 1px solid var(--border); flex-shrink: 0; flex-wrap: wrap; }
+  .review-pdf-nav button { width: 28px; height: 28px; padding: 0; flex-shrink: 0; }
+  .review-pdf-nav-sep { width: 1px; height: 20px; background: var(--border); flex-shrink: 0; }
+  .review-pdf-label { font-size: 12.5px; color: var(--muted); min-width: 90px; text-align: center; }
+  .review-pdf-sync-note { font-size: 11px; color: var(--low-border); margin-left: 4px; }
+  .review-pdf-viewport { flex: 1; overflow-y: scroll; overflow-x: auto; display: flex; justify-content: center; align-items: flex-start; padding: 14px; min-height: 0; }
+  .review-pdf-status { color: var(--muted); font-size: 13px; text-align: center; margin: auto; padding: 20px; }
+  #reviewPdfCanvas { display: block; box-shadow: 0 2px 10px rgba(0,0,0,0.12); background: #fff; flex-shrink: 0; }
+  #reviewPdfCanvas.hidden { display: none; }
+  .review-questions-pane { flex: 1; min-height: 0; overflow-y: auto; padding-right: 4px; }
+  @media (max-width: 880px) {
+    .modal.review-modal { height: 92vh; max-width: 96vw; }
+    .review-panes { flex-direction: column; }
+    .review-pdf-pane { flex: 0 0 38vh; }
+    .review-questions-pane { flex: 1; }
+  }
+
+  /* ---------- Phone-width layout fixes ----------
+     Everything below addresses a real, checked breakage, not a general
+     polish pass:
+       - .step at a fixed 150px wide (x3, plus connecting lines) overflows
+         any phone screen outright -- the most severe issue found.
+       - .icon-btn at 28x28 is well under the ~44px touch target Apple/
+         Google both recommend, used throughout (row actions, the review
+         modal's page/zoom controls, modal close buttons).
+       - .radio-group and .group-card .fields put two things flex:1
+         side-by-side with no wrap -- fine at desktop widths, genuinely
+         cramped (option text wrapping badly, inputs too narrow to type a
+         comma-separated page/question list into) under ~380px.
+       - .response-row never wraps at all, so a long filename plus its
+         flags and action icons can overlap rather than reflow. */
+  @media (max-width: 640px) {
+    .container { padding: 20px 14px 48px; }
+    .card { padding: 16px; }
+    .modal { padding: 18px; }
+
+    .stepper { margin-bottom: 24px; }
+    .step { width: auto; flex: 1; gap: 4px; }
+    .step .dot { width: 26px; height: 26px; font-size: 11.5px; }
+    .step .label { font-size: 10.5px; }
+    .step-line { max-width: 28px; margin: 0 2px 16px; }
+
+    .icon-btn, .row-actions .icon-btn, .review-pdf-nav button {
+      width: 40px; height: 40px;
+    }
+    .modal-header .icon-btn { width: 36px; height: 36px; }
+
+    .radio-group { flex-direction: column; }
+
+    .response-row { flex-wrap: wrap; gap: 8px; }
+    .response-row > div:first-child { flex: 1 1 100%; }
+    .row-actions { flex-wrap: wrap; }
+
+    .group-card .fields { flex-direction: column; align-items: stretch; }
+    .group-card .fields button { margin-top: 4px; }
+
+    .export-options { flex-direction: column; align-items: stretch; }
+    .export-opt-select select { width: 100%; }
+    #btnExport { width: 100%; }
+  }
+  .modal h3 { margin: 0 0 4px; font-size: 16px; }
+  .modal .hint { color: var(--muted); font-size: 12.5px; margin: 0 0 12px; }
+  .modal-header { display: flex; justify-content: space-between; align-items: flex-start; }
+  .modal-header .icon-btn { background: #f0f0f6; color: var(--muted); }
+  .modal-header .icon-btn:hover { background: #e4e4ef; }
+  .modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 18px; }
+
+  .q-row { border-bottom: 1px solid var(--border); padding: 14px 0; }
+  .q-row:last-child { border-bottom: none; }
+  .q-row .q-text-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+  .q-row .q-text { font-size: 13.5px; font-weight: 600; }
+  .q-row .q-text .qid { color: var(--indigo); margin-right: 6px; }
+  .q-row .q-reprocess { width: 26px; height: 26px; flex-shrink: 0; }
+  .q-row .q-meta { margin-top: 6px; display: flex; gap: 8px; align-items: center; }
+  .q-row .q-note { font-size: 12px; color: var(--muted); font-style: italic; }
+
+  .q-multi-group { display: flex; flex-direction: column; gap: 7px; }
+  .q-check-row { display: flex; align-items: center; gap: 8px; font-size: 13px; cursor: pointer; }
+  .q-check-row input { width: auto; }
+  .q-sub-group { display: flex; flex-direction: column; gap: 8px; border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; background: #fbfbfd; }
+  .q-sub-row { display: flex; align-items: center; gap: 10px; }
+  .q-sub-row label { flex: 0 0 45%; font-size: 12.5px; color: var(--text); margin: 0; font-weight: 500; }
+  .q-sub-row .q-sub-input-el { flex: 1; padding: 6px 9px; border: 1px solid var(--border); border-radius: 6px; font-size: 12.5px; }
+  .q-sub-row.blank { background: var(--low); border-radius: 6px; padding: 4px 6px; margin: -4px -6px; }
+  .q-sub-row.blank label { font-weight: 700; }
+  .q-sub-row.blank .q-sub-input-el { border-color: var(--low-border); }
+
+  /* ---------- File upload dropzones ---------- */
+  .dropzone {
+    position: relative; border: 1.5px dashed #c7c7da; border-radius: 10px;
+    padding: 22px 16px; text-align: center; cursor: pointer; background: #fbfbfd;
+    transition: border-color .15s ease, background .15s ease;
+  }
+  .dropzone:hover, .dropzone.dragover { border-color: var(--indigo); background: #f6f5ff; }
+  .dropzone-input { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
+  .dropzone-icon { color: var(--indigo); margin-bottom: 6px; display: flex; justify-content: center; }
+  .dropzone-text { font-size: 13.5px; color: var(--text); }
+  .dropzone-text strong { color: var(--indigo); font-weight: 600; }
+  .dropzone-hint { font-size: 11.5px; color: var(--muted); margin-top: 3px; }
+  .dropzone-filename { margin-top: 10px; font-size: 12.5px; font-weight: 600; color: var(--indigo); word-break: break-word; }
+
+  /* ---------- General polish ---------- */
+  .card { box-shadow: 0 1px 3px rgba(20,20,50,.05), 0 1px 2px rgba(20,20,50,.04); }
+  button { transition: background .15s ease, transform .1s ease, box-shadow .15s ease; }
+  button:not(:disabled):active { transform: translateY(1px); }
+  #btnDeriveSchema:not(:disabled):hover, #btnDiscoverPageMap:not(:disabled):hover,
+  #btnConfirmPageMap:not(:disabled):hover, #btnExtractAll:not(:disabled):hover {
+    box-shadow: 0 2px 8px rgba(79,70,229,.25);
+  }
+  .response-row { transition: background .12s ease, border-color .12s ease; }
+  .response-row:hover { background: #fbfbff; border-color: #d5d5ea; }
+
+  .btn-icon { vertical-align: -3px; margin-right: 6px; }
+
+  .spinner {
+    display: inline-block; width: 11px; height: 11px; border: 2px solid #c7c7da;
+    border-top-color: var(--indigo); border-radius: 50%; animation: spin .7s linear infinite;
+    vertical-align: -1px; margin-right: 5px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .export-options {
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+    background: #fbfbfd; border: 1px solid var(--border); border-radius: 9px; padding: 8px 12px;
+  }
+  .export-opt-check { display: flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 500; color: var(--text); cursor: pointer; white-space: nowrap; }
+  .export-opt-check input { width: auto; }
+  .export-opt-select { display: flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 500; color: var(--text); }
+  .export-opt-select select { width: auto; padding: 5px 8px; font-size: 12.5px; border: 1px solid var(--border); border-radius: 6px; }
+  #btnExport { margin-top: 0; }
+
+  .small-note { font-size: 11.5px; color: var(--muted); margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">
+    <div class="mark"><img src="https://piraiai.com/logo.png" alt="Pirai AI"></div>
+    <div>
+      <div class="name">Pirai AI Lens</div>
+      <div class="tagline">AI-powered paper survey digitisation</div>
+    </div>
+  </div>
+</div>
+
+<div class="trust-note">🔒 Files are processed securely and are never stored on our servers. Nothing you upload is used to train AI models.</div>
+
+<div class="container">
+
+  <div class="stepper">
+    <div class="step active" data-step="1"><div class="dot">1</div><div class="label">Survey Setup</div></div>
+    <div class="step-line" id="line1"></div>
+    <div class="step disabled" data-step="2"><div class="dot">2</div><div class="label">Confirm Layout</div></div>
+    <div class="step-line" id="line2"></div>
+    <div class="step disabled" data-step="3"><div class="dot">3</div><div class="label">Process Responses</div></div>
+  </div>
+
+  <!-- ===================== STEP 1: SURVEY SETUP ===================== -->
+  <div class="panel active" id="panel-1">
+    <div class="card">
+      <h2>Upload your survey</h2>
+      <p class="hint">Start with your survey's Pirai AI base format Excel file. Haven't converted your questionnaire yet? Convert it first at <a href="https://platform.piraiai.com" target="_blank" rel="noopener">platform.piraiai.com</a>.</p>
+
+      <div class="restore-settings-row">
+        Used this exact survey template before?
+        <label class="link-btn" for="restoreSettingsFile">Restore saved layout settings</label>
+        <input type="file" id="restoreSettingsFile" accept="application/json,.json" style="display:none;">
+      </div>
+
+      <label>Survey file</label>
+      <div class="dropzone" id="dzSchema">
+        <input type="file" id="schemaFile" accept=".xlsx,.xls" class="dropzone-input">
+        <div class="dropzone-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+        <div class="dropzone-text"><strong>Click to upload</strong> or drag and drop</div>
+        <div class="dropzone-hint">Pirai AI base format Excel file (.xlsx)</div>
+        <div class="dropzone-filename" id="schemaFileName"></div>
+      </div>
+
+      <button id="btnDeriveSchema">Continue</button>
+      <div class="status" id="statusSchema"></div>
+    </div>
+
+    <div class="card" id="schemaResultCard" style="display:none;">
+      <h2>Survey ready: <span id="schemaQuestionCount"></span> questions found</h2>
+      <p class="hint">This is the answer key used to read every response you process later.</p>
+      <div class="qpreview-wrap" id="schemaPreview"></div>
+    </div>
+  </div>
+
+  <!-- ===================== STEP 2: CONFIRM LAYOUT ===================== -->
+  <div class="panel" id="panel-2">
+    <div class="card">
+      <h2>Read the survey layout</h2>
+      <p class="hint">Upload one blank copy of the survey (or a single filled-in sample). We'll match each printed page to its questions. This only needs to happen once for this survey.</p>
+
+      <div class="radio-group" id="discoveryModeChoice">
+        <label class="radio-option selected" data-value="page">
+          <input type="radio" name="discoveryModeChoice" value="page" checked>
+          <div>
+            <div class="rlabel">Fast</div>
+            <div class="rdesc">Reads page by page, quicker and best for most surveys</div>
+          </div>
+        </label>
+        <label class="radio-option" data-value="question">
+          <input type="radio" name="discoveryModeChoice" value="question">
+          <div>
+            <div class="rlabel">Precise</div>
+            <div class="rdesc">Reads question by question, slower but more reliable when questions share similar wording</div>
+          </div>
+        </label>
+      </div>
+
+      <label>Sample survey PDF</label>
+      <div class="dropzone" id="dzPagemap">
+        <input type="file" id="pagemapFile" accept=".pdf" class="dropzone-input">
+        <div class="dropzone-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+        <div class="dropzone-text"><strong>Click to upload</strong> or drag and drop</div>
+        <div class="dropzone-hint">PDF only</div>
+        <div class="dropzone-filename" id="pagemapFileName"></div>
+      </div>
+      <button id="btnDiscoverPageMap">Read Layout</button>
+      <div class="status" id="statusPagemap"></div>
+    </div>
+
+    <div class="card" id="pagemapResultCard" style="display:none;">
+      <h2>Confirm the layout</h2>
+      <p class="hint">
+        Check that each section below lists the right questions for its page(s). If a question runs onto the next page,
+        make sure both page numbers appear together in one section.
+      </p>
+      <div id="groupsContainer"></div>
+      <button class="secondary" id="btnAddGroup">Add a section</button>
+      <button id="btnConfirmPageMap">Confirm Layout</button>
+      <button class="secondary" id="btnDownloadSettings" style="display:none;">Download Layout Settings</button>
+      <p class="hint" id="downloadSettingsHint" style="display:none; margin:8px 0 0;">Save this so you can skip straight to Step 3 next time you process this same survey template.</p>
+      <div class="status" id="statusConfirm"></div>
+    </div>
+  </div>
+
+  <!-- ===================== STEP 3: PROCESS RESPONSES ===================== -->
+  <div class="panel" id="panel-3">
+    <div class="card">
+      <h2>Process responses</h2>
+      <p class="hint">Upload the scanned/marked survey responses you want digitized. Each one is processed independently.</p>
+      <label>Response PDFs (select one or more)</label>
+      <div class="dropzone" id="dzExtract">
+        <input type="file" id="extractFiles" accept=".pdf" multiple class="dropzone-input">
+        <div class="dropzone-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+        <div class="dropzone-text"><strong>Click to upload</strong> or drag and drop</div>
+        <div class="dropzone-hint">One or more PDFs</div>
+        <div class="dropzone-filename" id="extractFilesName"></div>
+      </div>
+      <button id="btnExtractAll">Process All</button>
+      <ul class="file-list" id="extractFileList"></ul>
+      <div class="status" id="statusExtract"></div>
+    </div>
+
+    <div class="card" id="resultsCard" style="display:none;">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px;">
+        <div>
+          <h2 style="margin-bottom:2px;">Results: <span id="resultsCount"></span> response(s)</h2>
+          <p class="hint" style="margin-bottom:0;">Click a response to review and correct its answers.</p>
+        </div>
+        <div class="export-options">
+          <label class="export-opt-check"><input type="checkbox" id="optSplitMulti">Split Multiple Answer into separate columns</label>
+          <label class="export-opt-select">Export as
+            <select id="optValueMode">
+              <option value="values">Values</option>
+              <option value="labels">Labels</option>
+            </select>
+          </label>
+          <label class="export-opt-select">Format
+            <select id="optExportFormat">
+              <option value="csv">CSV</option>
+              <option value="xlsx">Excel (.xlsx)</option>
+            </select>
+          </label>
+          <button class="secondary" id="btnExport">Export</button>
+        </div>
+      </div>
+      <div class="response-list" id="responseList"></div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ===================== ACCESS CODE GATE ===================== -->
+<div class="overlay hidden" id="accessCodeOverlay">
+  <div class="modal">
+    <h3>Enter your access code</h3>
+    <p class="hint">You should have been given a short code to try this out. Enter it below to continue.</p>
+    <label>Access code</label>
+    <input type="text" id="accessCodeInput" placeholder="e.g. alpha1" autocomplete="off">
+    <div class="status" id="statusAccessCode"></div>
+    <div class="modal-actions">
+      <button id="btnSubmitAccessCode">Continue</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== RESPONSE REVIEW MODAL ===================== -->
+<div class="overlay hidden" id="reviewOverlay">
+  <div class="modal wide review-modal">
+    <div class="modal-header">
+      <div>
+        <h3 id="reviewTitle"></h3>
+        <p class="hint" style="margin:2px 0 0;">Review each answer against the original page and correct anything that looks wrong.</p>
+      </div>
+      <button class="icon-btn" id="btnCloseReview">✕</button>
+    </div>
+    <div class="review-panes">
+      <div class="review-pdf-pane">
+        <div class="review-pdf-nav">
+          <button class="icon-btn" id="reviewPdfPrev" title="Previous page">‹</button>
+          <span id="reviewPdfPageLabel" class="review-pdf-label"></span>
+          <button class="icon-btn" id="reviewPdfNext" title="Next page">›</button>
+          <span class="review-pdf-nav-sep"></span>
+          <button class="icon-btn" id="reviewPdfZoomOut" title="Zoom out">−</button>
+          <span id="reviewPdfZoomLabel" class="review-pdf-label" title="Click to reset zoom" style="cursor:pointer; min-width:48px;">100%</span>
+          <button class="icon-btn" id="reviewPdfZoomIn" title="Zoom in">+</button>
+          <span id="reviewPdfSyncNote" class="review-pdf-sync-note" style="display:none;">Layout not confirmed — use the arrows</span>
+        </div>
+        <div class="review-pdf-viewport">
+          <div id="reviewPdfStatus" class="review-pdf-status"></div>
+          <canvas id="reviewPdfCanvas" class="hidden"></canvas>
+        </div>
+      </div>
+      <div id="reviewBody" class="review-questions-pane"></div>
+    </div>
+    <div class="modal-actions">
+      <button class="secondary" id="btnCancelReview">Cancel</button>
+      <button id="btnSaveReview">Save Changes</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ---------------------------------------------------------------------
+// State — the frontend is the state owner; the backend is fully stateless.
+// ---------------------------------------------------------------------
+let schema = null;                 // {qid: {question_text, question_type, options: {text: value}}}
+let confirmedGroups = null;        // [{pages:[0-idx...], questions:[...]}]
+let responses = {};                // {response_id: {source_filename, file, answers: {qid: {value,confidence,note,edited}}}}
+                                    // `file` is retained so Reprocess can resend the same PDF without a re-upload.
+let responseOrder = [];            // [response_id, ...] display order for the results list — a plain object's
+                                    // key order isn't something the user can rearrange, so this is tracked separately.
+
+const ICON_REFRESH = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>';
+const ICON_CHEVRON_UP = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>';
+const ICON_CHEVRON_DOWN = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>';
+const ICON_TRASH = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>';
+
+// ---------------------------------------------------------------------
+// Settings (hidden panel — safe to leave closed during a demo)
+// ---------------------------------------------------------------------
+// ---------------------------------------------------------------------
+// Backend connection — read from config.txt (deployed in the same folder
+// as this page) instead of asking each visitor to type it in. Drop a
+// config.txt containing just the backend's base URL, e.g.
+//   https://your-backend.example.com
+// next to this HTML file when deploying.
+// ---------------------------------------------------------------------
+let apiBaseUrl = null;
+const configLoadPromise = (async () => {
+  try {
+    const res = await fetch('./config.txt', { cache: 'no-store' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const text = (await res.text()).trim();
+    if (!text) throw new Error('config.txt is empty');
+    apiBaseUrl = text.endsWith('/') ? text.slice(0, -1) : text;
+  } catch (e) {
+    console.error('Could not load config.txt:', e);
+    const banner = document.createElement('div');
+    banner.className = 'config-error-banner';
+    banner.textContent = 'Could not load config.txt — make sure a config.txt file containing the backend URL is deployed in the same folder as this page.';
+    document.body.prepend(banner);
+  }
+})();
+
+function toggleOverlay(id, show) {
+  document.getElementById(id).classList.toggle('hidden', !show);
+}
+
+// ---------------------------------------------------------------------
+// Access code — a short code you're given directly (not self-service
+// signup), remembered locally so it's only entered once per device.
+// ---------------------------------------------------------------------
+let accessCode = localStorage.getItem('psd_access_code') || '';
+
+function showAccessCodeGate(message) {
+  document.getElementById('accessCodeInput').value = '';
+  if (message) setStatus('statusAccessCode', 'error', message);
+  else clearStatus('statusAccessCode');
+  toggleOverlay('accessCodeOverlay', true);
+}
+
+if (!accessCode) {
+  showAccessCodeGate();
+}
+
+document.getElementById('btnSubmitAccessCode').addEventListener('click', () => {
+  const val = document.getElementById('accessCodeInput').value.trim();
+  if (!val) { setStatus('statusAccessCode', 'error', 'Enter the code you were given.'); return; }
+  accessCode = val;
+  localStorage.setItem('psd_access_code', accessCode);
+  toggleOverlay('accessCodeOverlay', false);
+});
+document.getElementById('accessCodeInput').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') document.getElementById('btnSubmitAccessCode').click();
+});
+
+async function apiCall(path, formData) {
+  await configLoadPromise;
+  if (!apiBaseUrl) throw new Error('Backend not configured — config.txt is missing or could not be loaded.');
+  if (!accessCode) { showAccessCodeGate(); throw new Error('Enter your access code to continue.'); }
+  const res = await fetch(apiBaseUrl + path, {
+    method: 'POST',
+    headers: { 'X-Access-Code': accessCode },
+    body: formData,
+  });
+  let body;
+  try { body = await res.json(); } catch (e) { const err = new Error(`Unexpected response from server (HTTP ${res.status}).`); err.status = res.status; throw err; }
+  if (!res.ok) {
+    const detail = body && body.detail ? body.detail : body;
+    const msg = (detail && (detail.message || detail.error)) || `HTTP ${res.status}`;
+    if (detail && detail.error === 'INVALID_ACCESS_CODE') {
+      accessCode = '';
+      localStorage.removeItem('psd_access_code');
+      showAccessCodeGate('That code wasn\'t recognized. Check it and try again.');
+    }
+    const err = new Error(msg);
+    err.status = res.status;
+    err.retryAfterSeconds = detail && detail.retry_after_seconds;
+    throw err;
+  }
+  return body;
+}
+
+// ---------------------------------------------------------------------
+// Stepper
+// ---------------------------------------------------------------------
+function goToStep(n) {
+  document.querySelectorAll('.step').forEach(s => s.classList.toggle('active', s.dataset.step === String(n)));
+  document.querySelectorAll('.panel').forEach(p => p.classList.toggle('active', p.id === 'panel-' + n));
+}
+document.querySelectorAll('.step').forEach(s => {
+  s.addEventListener('click', () => {
+    if (s.classList.contains('disabled')) return;
+    goToStep(s.dataset.step);
+  });
+});
+function unlockStep(n) {
+  document.querySelector(`.step[data-step="${n}"]`).classList.remove('disabled');
+  document.querySelector(`.step[data-step="${n - 1}"]`).classList.add('done');
+  document.getElementById('line' + (n - 1)).classList.add('done');
+}
+
+function setStatus(id, kind, message) {
+  const el = document.getElementById(id);
+  el.className = 'status show ' + kind;
+  el.textContent = message;
+}
+function clearStatus(id) { document.getElementById(id).className = 'status'; }
+
+// ---------------------------------------------------------------------
+// Dropzone file inputs (click or drag-and-drop, shows selected filename)
+// ---------------------------------------------------------------------
+function setupDropzone(dzId, inputId, nameId, multiple) {
+  const dz = document.getElementById(dzId);
+  const input = document.getElementById(inputId);
+  const nameEl = document.getElementById(nameId);
+
+  function updateLabel() {
+    if (!input.files || !input.files.length) { nameEl.textContent = ''; return; }
+    nameEl.textContent = multiple
+      ? `${input.files.length} file${input.files.length === 1 ? '' : 's'} selected: ` +
+        Array.from(input.files).map(f => f.name).join(', ')
+      : input.files[0].name;
+  }
+  input.addEventListener('change', updateLabel);
+
+  ['dragover', 'dragleave', 'drop'].forEach(evt => {
+    dz.addEventListener(evt, e => { e.preventDefault(); e.stopPropagation(); });
+  });
+  dz.addEventListener('dragover', () => dz.classList.add('dragover'));
+  dz.addEventListener('dragleave', () => dz.classList.remove('dragover'));
+  dz.addEventListener('drop', e => {
+    dz.classList.remove('dragover');
+    if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length) {
+      input.files = e.dataTransfer.files;
+      updateLabel();
+    }
+  });
+}
+setupDropzone('dzSchema', 'schemaFile', 'schemaFileName', false);
+setupDropzone('dzPagemap', 'pagemapFile', 'pagemapFileName', false);
+setupDropzone('dzExtract', 'extractFiles', 'extractFilesName', true);
+
+
+// ---------------------------------------------------------------------
+// STEP 1 — Survey setup
+// ---------------------------------------------------------------------
+document.getElementById('btnDeriveSchema').addEventListener('click', async () => {
+  const btn = document.getElementById('btnDeriveSchema');
+  const fileInput = document.getElementById('schemaFile');
+  if (!fileInput.files.length) { setStatus('statusSchema', 'error', 'Choose a file first.'); return; }
+
+  const fd = new FormData();
+  fd.append('file', fileInput.files[0]);
+  fd.append('is_base_format', true); // Lens only accepts an already-converted base format Excel
+
+  btn.disabled = true;
+  setStatus('statusSchema', 'info', 'Reading your survey…');
+  try {
+    const result = await apiCall('/ui/paper-survey/schema', fd);
+    schema = result.data.schema;
+    renderSchemaPreview();
+    document.getElementById('schemaResultCard').style.display = 'block';
+    setStatus('statusSchema', 'success', `Found ${result.metadata.question_count} question(s). You're ready to continue.`);
+    unlockStep(2);
+  } catch (e) {
+    setStatus('statusSchema', 'error', e.message);
+  } finally {
+    btn.disabled = false;
+  }
+});
+
+function questionTypeKind(type) {
+  const t = (type || '').trim();
+  if (t === 'DB') return 'descriptive';
+  if (t.startsWith('Matrix')) return 'matrix';
+  if (t === 'TE:Form') return 'form';
+  if (t === 'RankOrder') return 'rank';
+  if (t === 'ConstantSum') return 'constant_sum';
+  if (t.startsWith('MC:MultipleAnswer')) return 'multi';
+  if (t.startsWith('MC:Dropdown')) return 'dropdown';
+  if (t.startsWith('TE:')) return 'text';
+  return 'single';
+}
+
+function questionTypeLabel(type) {
+  const kind = questionTypeKind(type);
+  const map = {
+    descriptive: 'Descriptive Text', matrix: 'Matrix', form: 'Form', rank: 'Rank Order',
+    constant_sum: 'Constant Sum', multi: 'Multiple Answer', dropdown: 'Dropdown',
+    text: (type === 'TE:Essay' ? 'Long Text' : 'Short Text'), single: 'Single Answer',
+  };
+  return map[kind] || type || 'Question';
+}
+
+function questionPreviewBody(q) {
+  const kind = questionTypeKind(q.question_type);
+  const opts = Object.keys(q.options || {});
+  const subs = q.sub_items || [];
+
+  if (kind === 'descriptive') {
+    return `<div class="qpreview-text">${escapeHtml(q.question_text)}</div>`;
+  }
+  if (kind === 'text') {
+    const tall = q.question_type === 'TE:Essay';
+    return `<div class="qpreview-text">${escapeHtml(q.question_text)}</div>
+      <div class="${tall ? 'qpreview-textarea' : 'qpreview-input'}"></div>`;
+  }
+  if (kind === 'dropdown') {
+    return `<div class="qpreview-text">${escapeHtml(q.question_text)}</div>
+      <select class="qpreview-dropdown"><option>Select…</option>${opts.map(o => `<option>${escapeHtml(o)}</option>`).join('')}</select>`;
+  }
+  if (kind === 'single' || kind === 'multi') {
+    return `<div class="qpreview-text">${escapeHtml(q.question_text)}</div>
+      <div class="qpreview-options">
+        ${opts.map(o => `<div class="qpreview-opt"><span class="${kind === 'multi' ? 'qpreview-check' : 'qpreview-radio'}"></span><span>${escapeHtml(o)}</span></div>`).join('')}
+      </div>`;
+  }
+  if (kind === 'matrix') {
+    return `<div class="qpreview-text">${escapeHtml(q.question_text)}</div>
+      <div class="qpreview-matrix-wrap"><table class="qpreview-matrix">
+        <thead><tr><th></th>${opts.map(o => `<th>${escapeHtml(o)}</th>`).join('')}</tr></thead>
+        <tbody>${subs.map(s => `<tr><td>${escapeHtml(s)}</td>${opts.map(() => `<td><span class="qpreview-radio"></span></td>`).join('')}</tr>`).join('')}</tbody>
+      </table></div>`;
+  }
+  if (kind === 'form') {
+    return `<div class="qpreview-text">${escapeHtml(q.question_text)}</div>
+      ${subs.map(f => `<div class="qpreview-form-row"><label>${escapeHtml(f)}</label><div class="qpreview-input small"></div></div>`).join('')}`;
+  }
+  if (kind === 'rank') {
+    return `<div class="qpreview-text">${escapeHtml(q.question_text)}</div>
+      <div class="qpreview-list">${subs.map(s => `<div class="qpreview-sum-item"><span>${escapeHtml(s)}</span><div class="qpreview-sum-box"></div></div>`).join('')}</div>`;
+  }
+  if (kind === 'constant_sum') {
+    return `<div class="qpreview-text">${escapeHtml(q.question_text)}</div>
+      <div class="qpreview-list">${subs.map(s => `<div class="qpreview-sum-item"><span>${escapeHtml(s)}</span><div class="qpreview-sum-box">0</div></div>`).join('')}</div>`;
+  }
+  // Fallback for any unrecognized type: show raw options if present, else treat as text.
+  return opts.length
+    ? `<div class="qpreview-text">${escapeHtml(q.question_text)}</div><div class="qpreview-options">${opts.map(o => `<div class="qpreview-opt"><span class="qpreview-radio"></span><span>${escapeHtml(o)}</span></div>`).join('')}</div>`
+    : `<div class="qpreview-text">${escapeHtml(q.question_text)}</div><div class="qpreview-input"></div>`;
+}
+
+function questionPreviewCard(qid, q) {
+  const kind = questionTypeKind(q.question_type);
+  const subs = q.sub_items || [];
+  const opts = Object.keys(q.options || {});
+  let footerLabel;
+  if (kind === 'descriptive') footerLabel = 'Descriptive text: no response captured';
+  else if (kind === 'matrix') footerLabel = `${subs.length} statement${subs.length === 1 ? '' : 's'} × ${opts.length} point scale`;
+  else if (kind === 'form') footerLabel = `${subs.length} field${subs.length === 1 ? '' : 's'}`;
+  else if (kind === 'rank' || kind === 'constant_sum') footerLabel = `${subs.length} item${subs.length === 1 ? '' : 's'}`;
+  else if (opts.length) footerLabel = `${opts.length} option${opts.length === 1 ? '' : 's'}`;
+  else footerLabel = 'Open text response';
+
+  return `
+    <div class="qpreview-card">
+      <div class="qpreview-head">
+        <span class="qpreview-qid">${escapeHtml(qid)}</span>
+        <span class="qpreview-type">${escapeHtml(questionTypeLabel(q.question_type))}</span>
+      </div>
+      ${questionPreviewBody(q)}
+      <div class="qpreview-footer">${footerLabel}${q.block_name ? ' · ' + escapeHtml(q.block_name) : ''}</div>
+    </div>`;
+}
+
+function renderSchemaPreview() {
+  document.getElementById('schemaQuestionCount').textContent = Object.keys(schema).length;
+  const container = document.getElementById('schemaPreview');
+  const qids = Object.keys(schema);
+  if (!qids.length) { container.innerHTML = '<div class="qpreview-empty">No questions found.</div>'; return; }
+  container.innerHTML = qids.map(qid => questionPreviewCard(qid, schema[qid])).join('');
+}
+
+// ---------------------------------------------------------------------
+// STEP 2 — Confirm layout
+// ---------------------------------------------------------------------
+document.querySelectorAll('#discoveryModeChoice .radio-option').forEach(opt => {
+  opt.addEventListener('click', () => {
+    document.querySelectorAll('#discoveryModeChoice .radio-option').forEach(o => o.classList.remove('selected'));
+    opt.classList.add('selected');
+    opt.querySelector('input').checked = true;
+  });
+});
+
+document.getElementById('btnDiscoverPageMap').addEventListener('click', async () => {
+  const btn = document.getElementById('btnDiscoverPageMap');
+  const fileInput = document.getElementById('pagemapFile');
+  if (!schema) { setStatus('statusPagemap', 'error', 'Finish Survey Setup first.'); return; }
+  if (!fileInput.files.length) { setStatus('statusPagemap', 'error', 'Choose a sample PDF first.'); return; }
+
+  const mode = document.querySelector('#discoveryModeChoice input:checked').value;
+  const endpoint = mode === 'question'
+    ? '/ui/paper-survey/discover-page-map-by-question'
+    : '/ui/paper-survey/discover-page-map';
+
+  const fd = new FormData();
+  fd.append('file', fileInput.files[0]);
+  fd.append('survey_schema_json', JSON.stringify(schema));
+
+  btn.disabled = true;
+  const waitMsg = mode === 'question'
+    ? 'Reading the layout question by question. This takes longer, especially for longer surveys…'
+    : 'Reading the layout. This can take a little while for longer surveys…';
+  setStatus('statusPagemap', 'info', waitMsg);
+  try {
+    const result = await apiCall(endpoint, fd);
+    renderGroupsForReview(result.data.groups);
+    document.getElementById('pagemapResultCard').style.display = 'block';
+    let msg = `Matched ${result.metadata.group_count} section(s) across ${result.metadata.page_count} page(s).`;
+    if (result.metadata.uncovered_questions && result.metadata.uncovered_questions.length) {
+      msg += ` Not found: ${result.metadata.uncovered_questions.join(', ')}. Check the file you uploaded.`;
+    }
+    setStatus('statusPagemap', 'success', msg);
+  } catch (e) {
+    setStatus('statusPagemap', 'error', e.message);
+  } finally {
+    btn.disabled = false;
+  }
+});
+
+function renderGroupsForReview(groups) {
+  const container = document.getElementById('groupsContainer');
+  container.innerHTML = '';
+  groups.forEach((g, idx) => container.appendChild(buildGroupCard(g, idx)));
+}
+
+function buildGroupCard(group, idx) {
+  const div = document.createElement('div');
+  div.className = 'group-card';
+
+  const imgsHtml = (group.page_images_base64 || [])
+    .map(b64 => `<img src="data:image/png;base64,${b64}">`).join('');
+  const spanTag = group.pages.length > 1 ? '<span class="badge-span">spans multiple pages</span>' : '';
+
+  div.innerHTML = `
+    <div class="group-title">Section ${idx + 1}${spanTag}</div>
+    <div class="imgs">${imgsHtml}</div>
+    <div class="fields">
+      <div>
+        <label>Page(s)</label>
+        <input type="text" class="grp-pages" value="${group.pages.map(p => p + 1).join(', ')}">
+      </div>
+      <div>
+        <label>Questions on this page</label>
+        <input type="text" class="grp-questions" value="${group.questions.join(', ')}">
+      </div>
+      <button class="danger btn-remove-group">Remove</button>
+    </div>
+  `;
+  div.querySelector('.btn-remove-group').addEventListener('click', () => div.remove());
+  return div;
+}
+
+document.getElementById('btnAddGroup').addEventListener('click', () => {
+  const container = document.getElementById('groupsContainer');
+  container.appendChild(buildGroupCard({ pages: [], questions: [], page_images_base64: [] }, container.children.length));
+});
+
+document.getElementById('btnConfirmPageMap').addEventListener('click', () => {
+  try {
+    const cards = document.querySelectorAll('#groupsContainer .group-card');
+    const groups = [];
+    cards.forEach(card => {
+      const pagesRaw = card.querySelector('.grp-pages').value.trim();
+      const qsRaw = card.querySelector('.grp-questions').value.trim();
+      const pages = pagesRaw ? pagesRaw.split(',').map(s => parseInt(s.trim(), 10) - 1).filter(n => !isNaN(n)) : [];
+      const questions = qsRaw ? qsRaw.split(',').map(s => s.trim()).filter(Boolean) : [];
+      if (pages.length && questions.length) groups.push({ pages, questions });
+    });
+    if (!groups.length) throw new Error('Add at least one section with pages and questions.');
+    confirmedGroups = groups;
+    setStatus('statusConfirm', 'success', 'Layout confirmed. You can now process responses.');
+    document.getElementById('btnDownloadSettings').style.display = '';
+    document.getElementById('downloadSettingsHint').style.display = '';
+    unlockStep(3);
+    goToStep(3);
+  } catch (e) {
+    setStatus('statusConfirm', 'error', e.message);
+  }
+});
+
+document.getElementById('btnDownloadSettings').addEventListener('click', () => {
+  if (!schema || !confirmedGroups) return;
+  const payload = {
+    pirai_ai_lens_layout_settings: true,
+    version: 1,
+    exported_at: new Date().toISOString(),
+    schema: schema,
+    groups: confirmedGroups,
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'lens-layout-settings.json';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+});
+
+document.getElementById('restoreSettingsFile').addEventListener('change', async (e) => {
+  const file = e.target.files[0];
+  e.target.value = ''; // allow re-selecting the same file later
+  if (!file) return;
+
+  try {
+    const text = await file.text();
+    const data = JSON.parse(text);
+    if (!data || typeof data.schema !== 'object' || !Array.isArray(data.groups)) {
+      throw new Error('This file doesn\'t look like a Lens layout settings file.');
+    }
+
+    schema = data.schema;
+    confirmedGroups = data.groups;
+
+    renderSchemaPreview();
+    document.getElementById('schemaResultCard').style.display = 'block';
+    setStatus('statusSchema', 'success', `Restored ${Object.keys(schema).length} question(s) from saved settings.`);
+    unlockStep(2);
+
+    renderGroupsForReview(confirmedGroups); // no page thumbnails when restored, pages/questions still shown
+    document.getElementById('pagemapResultCard').style.display = 'block';
+    setStatus('statusConfirm', 'success', 'Layout restored from saved settings.');
+    document.getElementById('btnDownloadSettings').style.display = '';
+    document.getElementById('downloadSettingsHint').style.display = '';
+    unlockStep(3);
+
+    goToStep(3);
+  } catch (err) {
+    setStatus('statusSchema', 'error', err.message || 'Could not read that settings file.');
+  }
+});
+
+// ---------------------------------------------------------------------
+// STEP 3 — Process responses
+// ---------------------------------------------------------------------
+document.getElementById('btnExtractAll').addEventListener('click', async () => {
+  const btn = document.getElementById('btnExtractAll');
+  const fileInput = document.getElementById('extractFiles');
+  if (!schema) { setStatus('statusExtract', 'error', 'Finish Survey Setup first.'); return; }
+  if (!fileInput.files.length) { setStatus('statusExtract', 'error', 'Choose at least one response PDF.'); return; }
+
+  const files = Array.from(fileInput.files);
+  const listEl = document.getElementById('extractFileList');
+  listEl.innerHTML = '';
+  const pillEls = files.map(f => {
+    const li = document.createElement('li');
+    li.innerHTML = `<span>${escapeHtml(f.name)}</span><span class="pill pending">Waiting</span>`;
+    listEl.appendChild(li);
+    return li.querySelector('.pill');
+  });
+
+  btn.disabled = true;
+  clearStatus('statusExtract');
+
+  for (let i = 0; i < files.length; i++) {
+    pillEls[i].innerHTML = '<span class="spinner"></span>Processing';
+    pillEls[i].className = 'pill processing';
+    try {
+      const fd = new FormData();
+      fd.append('file', files[i]);
+      fd.append('survey_schema_json', JSON.stringify(schema));
+      if (confirmedGroups) fd.append('page_map_json', JSON.stringify(confirmedGroups));
+
+      const result = await apiCall('/ui/paper-survey/extract', fd);
+      const data = result.data;
+      responses[data.response_id] = {
+        source_filename: data.source_filename,
+        file: files[i],
+        answers: Object.fromEntries(Object.entries(data.answers).map(([qid, a]) => [qid, { ...a, edited: false }])),
+      };
+      responseOrder.push(data.response_id);
+      const reviewCount = Object.keys(responses[data.response_id].answers)
+        .filter(qid => answerNeedsReview(qid, responses[data.response_id].answers[qid])).length;
+      pillEls[i].textContent = reviewCount > 0 ? `Done: ${reviewCount} to review` : 'Done';
+      pillEls[i].className = 'pill done';
+    } catch (e) {
+      if (e.status === 429) {
+        // Rate limit hit -- every remaining file would fail the same way
+        // right now, so stop instead of burning through them one by one.
+        pillEls[i].textContent = 'Rate limited';
+        pillEls[i].className = 'pill error';
+        pillEls[i].title = e.message;
+        for (let j = i + 1; j < files.length; j++) {
+          pillEls[j].textContent = 'Not attempted';
+          pillEls[j].className = 'pill pending';
+        }
+        const waitMsg = e.retryAfterSeconds
+          ? (e.retryAfterSeconds < 90
+              ? ` Wait about ${e.retryAfterSeconds} second(s), then select the remaining files and click Process All again.`
+              : ` Wait about ${Math.ceil(e.retryAfterSeconds / 60)} minute(s), then select the remaining files and click Process All again.`)
+          : ' Wait a moment, then select the remaining files and click Process All again.';
+        setStatus('statusExtract', 'error', `Processed ${i} of ${files.length} file(s) before hitting the rate limit.${waitMsg}`);
+        renderResponseList();
+        btn.disabled = false;
+        return;
+      }
+      pillEls[i].textContent = 'Failed';
+      pillEls[i].className = 'pill error';
+      pillEls[i].title = e.message;
+    }
+  }
+
+  btn.disabled = false;
+  renderResponseList();
+  setStatus('statusExtract', 'success', `Finished processing ${files.length} file(s).`);
+});
+
+// ---------------------------------------------------------------------
+// "Needs review" detection — a compound answer (Matrix/Form/Rank/
+// ConstantSum) can report overall confidence "high" while still having
+// one specific sub-item genuinely unmarked (the model is confident about
+// the ones it could read, less sure about the blank one). That shouldn't
+// hide silently — it should count toward review and be visible at a
+// glance, not just discoverable by reading every row.
+// ---------------------------------------------------------------------
+function isBlankValue(v) {
+  return v === null || v === undefined || v === '';
+}
+
+function blankSubItems(qid, answer) {
+  const q = schema[qid];
+  const kind = questionTypeKind(q.question_type);
+  if (!['matrix', 'form', 'rank', 'constant_sum'].includes(kind)) return [];
+  const val = (answer && answer.value && typeof answer.value === 'object' && !Array.isArray(answer.value)) ? answer.value : {};
+  return (q.sub_items || []).filter(item => isBlankValue(val[item]));
+}
+
+function answerNeedsReview(qid, answer) {
+  if (!answer) return true;
+  if (answer.confidence === 'low') return true;
+  return blankSubItems(qid, answer).length > 0;
+}
+
+function renderResponseList() {
+  responseOrder = responseOrder.filter(id => responses[id]); // drop any ids that got removed
+  document.getElementById('resultsCount').textContent = responseOrder.length;
+  if (!responseOrder.length) { document.getElementById('resultsCard').style.display = 'none'; return; }
+  document.getElementById('resultsCard').style.display = 'block';
+
+  const listEl = document.getElementById('responseList');
+  listEl.innerHTML = '';
+  responseOrder.forEach((respId, idx) => {
+    const rec = responses[respId];
+    const qids = Object.keys(rec.answers);
+    const lowCount = qids.filter(qid => answerNeedsReview(qid, rec.answers[qid]) && !rec.answers[qid].edited).length;
+    const editedCount = qids.filter(qid => rec.answers[qid].edited).length;
+
+    const row = document.createElement('div');
+    row.className = 'response-row';
+    row.dataset.respid = respId;
+    let flagsHtml = '';
+    if (lowCount > 0) flagsHtml += `<span class="flag low">${lowCount} to review</span>`;
+    if (editedCount > 0) flagsHtml += `<span class="flag edited">${editedCount} edited</span>`;
+    if (lowCount === 0 && editedCount === 0) flagsHtml += `<span class="flag clean">All clear</span>`;
+
+    const atTop = idx === 0;
+    const atBottom = idx === responseOrder.length - 1;
+
+    row.innerHTML = `
+      <div>
+        <div class="name">${escapeHtml(rec.source_filename)}</div>
+        <div class="meta" id="meta-${respId}">${respId}</div>
+      </div>
+      <div class="flags">
+        ${flagsHtml}
+        <div class="row-actions">
+          <button class="icon-btn btn-move-up" title="Move up" ${atTop ? 'disabled' : ''}>${ICON_CHEVRON_UP}</button>
+          <button class="icon-btn btn-move-down" title="Move down" ${atBottom ? 'disabled' : ''}>${ICON_CHEVRON_DOWN}</button>
+          <button class="icon-btn btn-reprocess" title="Reprocess with AI">${ICON_REFRESH}</button>
+          <button class="icon-btn btn-remove" title="Remove">${ICON_TRASH}</button>
+        </div>
+        <button class="secondary" style="margin-top:0;">Review</button>
+      </div>
+    `;
+    row.querySelector('.secondary').addEventListener('click', () => openReviewModal(respId));
+    row.querySelector('.btn-reprocess').addEventListener('click', () => reprocessResponse(respId));
+    row.querySelector('.btn-move-up').addEventListener('click', () => moveResponse(respId, -1));
+    row.querySelector('.btn-move-down').addEventListener('click', () => moveResponse(respId, 1));
+    row.querySelector('.btn-remove').addEventListener('click', () => confirmRemoveResponse(respId));
+    listEl.appendChild(row);
+  });
+}
+
+function moveResponse(respId, direction) {
+  const idx = responseOrder.indexOf(respId);
+  if (idx === -1) return;
+  const newIdx = idx + direction;
+  if (newIdx < 0 || newIdx >= responseOrder.length) return;
+  [responseOrder[idx], responseOrder[newIdx]] = [responseOrder[newIdx], responseOrder[idx]];
+  renderResponseList();
+}
+
+function confirmRemoveResponse(respId) {
+  const flagsEl = document.querySelector(`.response-row[data-respid="${respId}"] .flags`);
+  if (!flagsEl) return;
+  flagsEl.innerHTML = `
+    <span style="font-size:12.5px; color:var(--muted);">Remove this response?</span>
+    <button class="secondary" style="margin-top:0; padding:5px 10px; color:#c0362c; border-color:#e2a29c;" id="confirmRemoveYes-${respId}">Yes, remove</button>
+    <button class="secondary" style="margin-top:0; padding:5px 10px;" id="confirmRemoveNo-${respId}">Cancel</button>
+  `;
+  document.getElementById(`confirmRemoveYes-${respId}`).addEventListener('click', () => {
+    delete responses[respId];
+    responseOrder = responseOrder.filter(id => id !== respId);
+    renderResponseList();
+  });
+  document.getElementById(`confirmRemoveNo-${respId}`).addEventListener('click', renderResponseList);
+}
+
+async function reprocessResponse(respId) {
+  const rec = responses[respId];
+  const btn = document.querySelector(`.response-row[data-respid="${respId}"] .btn-reprocess`);
+  const metaEl = document.getElementById(`meta-${respId}`);
+  if (!rec || !rec.file) {
+    metaEl.innerHTML = `${respId} <span style="color:#a02622;">Original file no longer available</span>`;
+    return;
+  }
+  btn.disabled = true;
+  const originalMeta = metaEl.innerHTML;
+  metaEl.innerHTML = `<span class="spinner"></span>Reprocessing…`;
+  try {
+    const fd = new FormData();
+    fd.append('file', rec.file);
+    fd.append('survey_schema_json', JSON.stringify(schema));
+    if (confirmedGroups) fd.append('page_map_json', JSON.stringify(confirmedGroups));
+    const result = await apiCall('/ui/paper-survey/extract', fd);
+    rec.answers = Object.fromEntries(Object.entries(result.data.answers).map(([qid, a]) => [qid, { ...a, edited: false }]));
+    renderResponseList();
+  } catch (e) {
+    metaEl.innerHTML = `${originalMeta} <span style="color:#a02622;">Reprocess failed: ${escapeHtml(e.message)}</span>`;
+    btn.disabled = false;
+  }
+}
+
+// ---------------------------------------------------------------------
+// Response review modal (edit after processing)
+// ---------------------------------------------------------------------
+let reviewingRespId = null;
+
+function buildReviewInputHtml(q, a) {
+  const kind = questionTypeKind(q.question_type);
+
+  if (kind === 'single' || kind === 'dropdown') {
+    const optionsHtml = Object.entries(q.options || {}).map(([text, val]) => {
+      const selected = String(val) === String(a.value) ? 'selected' : '';
+      return `<option value="${escapeHtml(String(val))}" ${selected}>${escapeHtml(text)}</option>`;
+    }).join('');
+    return `<select class="q-input-el"><option value="">No answer</option>${optionsHtml}</select>`;
+  }
+
+  if (kind === 'multi') {
+    const selected = Array.isArray(a.value) ? a.value.map(String) : [];
+    const rows = Object.entries(q.options || {}).map(([text, val]) => {
+      const checked = selected.includes(String(val)) ? 'checked' : '';
+      return `<label class="q-check-row"><input type="checkbox" class="q-multi-el" value="${escapeHtml(String(val))}" ${checked}><span>${escapeHtml(text)}</span></label>`;
+    }).join('');
+    return `<div class="q-multi-group">${rows}</div>`;
+  }
+
+  if (kind === 'matrix') {
+    const val = (a.value && typeof a.value === 'object') ? a.value : {};
+    const rows = (q.sub_items || []).map(stmt => {
+      const optionsHtml = Object.entries(q.options || {}).map(([text, sv]) => {
+        const selected = String(sv) === String(val[stmt]) ? 'selected' : '';
+        return `<option value="${escapeHtml(String(sv))}" ${selected}>${escapeHtml(text)}</option>`;
+      }).join('');
+      const blank = isBlankValue(val[stmt]) ? ' blank' : '';
+      return `<div class="q-sub-row${blank}"><label>${escapeHtml(stmt)}</label><select class="q-sub-input-el" data-subitem="${escapeHtml(stmt)}"><option value="">No answer</option>${optionsHtml}</select></div>`;
+    }).join('');
+    return `<div class="q-sub-group">${rows}</div>`;
+  }
+
+  if (kind === 'form') {
+    const val = (a.value && typeof a.value === 'object') ? a.value : {};
+    const rows = (q.sub_items || []).map(field => {
+      const v = val[field] == null ? '' : String(val[field]);
+      const blank = isBlankValue(val[field]) ? ' blank' : '';
+      return `<div class="q-sub-row${blank}"><label>${escapeHtml(field)}</label><input type="text" class="q-sub-input-el" data-subitem="${escapeHtml(field)}" value="${escapeHtml(v)}"></div>`;
+    }).join('');
+    return `<div class="q-sub-group">${rows}</div>`;
+  }
+
+  if (kind === 'rank' || kind === 'constant_sum') {
+    const val = (a.value && typeof a.value === 'object') ? a.value : {};
+    const placeholder = kind === 'rank' ? 'Rank' : 'Points';
+    const rows = (q.sub_items || []).map(item => {
+      const v = val[item] == null ? '' : String(val[item]);
+      const blank = isBlankValue(val[item]) ? ' blank' : '';
+      return `<div class="q-sub-row${blank}"><label>${escapeHtml(item)}</label><input type="number" class="q-sub-input-el" data-subitem="${escapeHtml(item)}" value="${escapeHtml(v)}" placeholder="${placeholder}"></div>`;
+    }).join('');
+    return `<div class="q-sub-group">${rows}</div>`;
+  }
+
+  // text, and fallback for anything unrecognized
+  return `<textarea class="q-input-el" rows="2">${escapeHtml(a.value == null ? '' : String(a.value))}</textarea>`;
+}
+
+// ---------------------------------------------------------------------
+// Review modal: original PDF pane (PDF.js), synced to the question list
+// ---------------------------------------------------------------------
+let reviewPdfDoc = null;             // the currently loaded pdf.js document, if any
+let reviewPdfCurrentPage = null;     // 1-indexed page currently rendered
+let reviewPdfLoadedForRespId = null; // which response reviewPdfDoc belongs to
+let reviewIntersectionObserver = null;
+
+function ensurePdfJs() {
+  if (window.pdfjsLib) return Promise.resolve(window.pdfjsLib);
+  return new Promise(resolve => {
+    window.addEventListener('pdfjs-ready', () => resolve(window.pdfjsLib), { once: true });
+  });
+}
+
+async function loadReviewPdf(file) {
+  const pdfjsLib = await ensurePdfJs();
+  const arrayBuffer = await file.arrayBuffer();
+  const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
+  return await loadingTask.promise;
+}
+
+let reviewPdfZoom = 1.0; // multiplier on top of the fit-to-width scale; 1.0 = fit width
+const REVIEW_PDF_ZOOM_STEP = 0.25;
+const REVIEW_PDF_ZOOM_MIN = 0.5;
+const REVIEW_PDF_ZOOM_MAX = 3.0;
+
+async function renderReviewPdfPage(pageNum, opts = {}) {
+  if (!reviewPdfDoc || pageNum < 1 || pageNum > reviewPdfDoc.numPages) return;
+  const forceRerender = !!opts.forceRerender;
+  if (reviewPdfCurrentPage === pageNum && !forceRerender) return; // already showing it at this zoom -- skip
+  reviewPdfCurrentPage = pageNum;
+
+  const page = await reviewPdfDoc.getPage(pageNum);
+  const canvas = document.getElementById('reviewPdfCanvas');
+  const ctx = canvas.getContext('2d');
+  const viewportEl = canvas.parentElement;
+
+  // Fit-width is computed from the viewport's own padding, not a guessed
+  // buffer, with a small safety margin subtracted -- a couple of pixels
+  // of slack here is imperceptible, but guarantees the canvas can never
+  // be even a hair wider than the space available, regardless of any
+  // rounding in the browser's own layout math.
+  const style = getComputedStyle(viewportEl);
+  const paddingX = parseFloat(style.paddingLeft) + parseFloat(style.paddingRight);
+  const fitWidth = Math.max(80, viewportEl.clientWidth - paddingX - 4);
+
+  const unscaledViewport = page.getViewport({ scale: 1 });
+  const fitScale = fitWidth / unscaledViewport.width;
+  const scale = fitScale * reviewPdfZoom;
+  const viewport = page.getViewport({ scale });
+
+  // Render at the device's pixel ratio for crisp text on retina/high-DPI
+  // screens, while keeping the CSS (logical) size at the zoomed size --
+  // this keeps layout and centering simple and exact.
+  const dpr = window.devicePixelRatio || 1;
+  canvas.width = Math.round(viewport.width * dpr);
+  canvas.height = Math.round(viewport.height * dpr);
+  canvas.style.width = viewport.width + 'px';
+  canvas.style.height = viewport.height + 'px';
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  await page.render({ canvasContext: ctx, viewport }).promise;
+
+  document.getElementById('reviewPdfPageLabel').textContent = `Page ${pageNum} of ${reviewPdfDoc.numPages}`;
+  document.getElementById('reviewPdfPrev').disabled = pageNum <= 1;
+  document.getElementById('reviewPdfNext').disabled = pageNum >= reviewPdfDoc.numPages;
+  document.getElementById('reviewPdfZoomLabel').textContent = Math.round(reviewPdfZoom * 100) + '%';
+  document.getElementById('reviewPdfZoomOut').disabled = reviewPdfZoom <= REVIEW_PDF_ZOOM_MIN;
+  document.getElementById('reviewPdfZoomIn').disabled = reviewPdfZoom >= REVIEW_PDF_ZOOM_MAX;
+}
+
+// Which page a question's group starts on, from the confirmed layout --
+// 1-indexed for pdf.js, since the app stores pages 0-indexed internally.
+function firstPageForQuestion(qid) {
+  if (!confirmedGroups) return null;
+  const g = confirmedGroups.find(g => g.questions.includes(qid));
+  if (!g || !g.pages || !g.pages.length) return null;
+  return g.pages[0] + 1;
+}
+
+// Keeps the PDF pane on the right page as the reviewer scrolls the
+// question list -- jumps only when the topmost visible question is on a
+// different page than what's currently shown; free scrolling and the
+// prev/next arrows both still work independently of this.
+function setupReviewPdfSync() {
+  const rows = document.querySelectorAll('#reviewBody .q-row');
+  if (!rows.length) return;
+  reviewIntersectionObserver = new IntersectionObserver((entries) => {
+    const visible = entries.filter(e => e.isIntersecting);
+    if (!visible.length) return;
+    visible.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+    const qid = visible[0].target.dataset.qid;
+    const page = firstPageForQuestion(qid);
+    if (page) renderReviewPdfPage(page);
+  }, {
+    root: document.getElementById('reviewBody'),
+    threshold: 0,
+    rootMargin: '0px 0px -70% 0px',  // only the row nearest the top of the pane counts as "active"
+  });
+  rows.forEach(row => reviewIntersectionObserver.observe(row));
+}
+
+async function openReviewModal(respId) {
+  reviewingRespId = respId;
+  const rec = responses[respId];
+  document.getElementById('reviewTitle').textContent = rec.source_filename;
+
+  // If this is the same response whose PDF is already loaded (e.g.
+  // reopening right after a per-question reprocess), keep it as is --
+  // no need to reload and re-render the whole document again.
+  const reusingLoadedPdf = reviewPdfDoc && reviewPdfLoadedForRespId === respId;
+
+  if (reviewIntersectionObserver) { reviewIntersectionObserver.disconnect(); reviewIntersectionObserver = null; }
+  const canvas = document.getElementById('reviewPdfCanvas');
+  const pdfStatus = document.getElementById('reviewPdfStatus');
+  const syncNote = document.getElementById('reviewPdfSyncNote');
+  syncNote.style.display = confirmedGroups ? 'none' : '';
+
+  if (!reusingLoadedPdf) {
+    reviewPdfDoc = null;
+    reviewPdfCurrentPage = null;
+    reviewPdfLoadedForRespId = null;
+    reviewPdfZoom = 1.0;
+    canvas.classList.add('hidden');
+    document.getElementById('reviewPdfPageLabel').textContent = '';
+    document.getElementById('reviewPdfPrev').disabled = true;
+    document.getElementById('reviewPdfNext').disabled = true;
+    document.getElementById('reviewPdfZoomLabel').textContent = '100%';
+  }
+
+  const body = document.getElementById('reviewBody');
+  body.innerHTML = '';
+  Object.entries(schema).forEach(([qid, q]) => {
+    if (q.answerable === false) return; // descriptive text — nothing to answer or edit
+    const a = rec.answers[qid] || { value: null, confidence: 'low', note: '', edited: false };
+    const kind = questionTypeKind(q.question_type);
+    const row = document.createElement('div');
+    row.className = 'q-row';
+    row.dataset.qid = qid;
+    row.dataset.kind = kind;
+
+    let metaHtml = '';
+    if (a.edited) metaHtml += `<span class="flag edited">Edited</span>`;
+    else if (answerNeedsReview(qid, a)) metaHtml += `<span class="flag low">Low confidence</span>`;
+    if (a.note) metaHtml += `<span class="q-note">${escapeHtml(a.note)}</span>`;
+
+    row.innerHTML = `
+      <div class="q-text-row">
+        <div class="q-text"><span class="qid">${qid}.</span>${escapeHtml(q.question_text)}</div>
+        <button class="icon-btn q-reprocess" title="Reprocess this question with AI">${ICON_REFRESH}</button>
+      </div>
+      <div class="q-body">${buildReviewInputHtml(q, a)}</div>
+      <div class="q-meta">${metaHtml}</div>
+    `;
+    row.querySelector('.q-reprocess').addEventListener('click', () => reprocessQuestion(respId, qid));
+    body.appendChild(row);
+  });
+
+  toggleOverlay('reviewOverlay', true);
+
+  if (reusingLoadedPdf) {
+    // Rows were just rebuilt, so the sync observer needs to watch the new
+    // elements -- but the PDF itself doesn't need reloading.
+    setupReviewPdfSync();
+    return;
+  }
+
+  // Load and render the original PDF alongside the question list --
+  // independent of the rows above, so a slow load never blocks review.
+  if (!rec.file) {
+    pdfStatus.textContent = 'Original file no longer available for this response.';
+    return;
+  }
+  pdfStatus.textContent = 'Loading original PDF…';
+  try {
+    reviewPdfDoc = await loadReviewPdf(rec.file);
+    reviewPdfLoadedForRespId = respId;
+    pdfStatus.textContent = '';
+    canvas.classList.remove('hidden');
+    const firstAnswerableQid = Object.keys(schema).find(qid => schema[qid].answerable !== false);
+    const startPage = firstPageForQuestion(firstAnswerableQid) || 1;
+    await renderReviewPdfPage(startPage);
+    setupReviewPdfSync();
+  } catch (e) {
+    pdfStatus.textContent = 'Could not load the original PDF for preview.';
+  }
+}
+
+async function reprocessQuestion(respId, qid) {
+  const rec = responses[respId];
+  const row = document.querySelector(`#reviewBody .q-row[data-qid="${qid}"]`);
+  const btn = row.querySelector('.q-reprocess');
+  if (!rec || !rec.file) {
+    row.querySelector('.q-meta').innerHTML = `<span style="color:#a02622; font-size:12px;">Original file no longer available</span>`;
+    return;
+  }
+  // Pages for this question, if a confirmed map is known -- lets the
+  // backend target just the right page(s) instead of scanning the whole PDF.
+  let pages = null;
+  if (confirmedGroups) {
+    const g = confirmedGroups.find(g => g.questions.includes(qid));
+    if (g) pages = g.pages;
+  }
+
+  btn.disabled = true;
+  const bodyEl = row.querySelector('.q-body');
+  const originalBodyHtml = bodyEl.innerHTML;
+  bodyEl.innerHTML = `<div style="font-size:12.5px; color:var(--muted);"><span class="spinner"></span>Reprocessing this question…</div>`;
+
+  try {
+    const fd = new FormData();
+    fd.append('file', rec.file);
+    fd.append('survey_schema_json', JSON.stringify(schema));
+    fd.append('question_id', qid);
+    if (pages) fd.append('pages_json', JSON.stringify(pages));
+
+    const result = await apiCall('/ui/paper-survey/extract-question', fd);
+    rec.answers[qid] = { ...result.data.answer, edited: false };
+    openReviewModal(respId);  // re-render the modal with the fresh answer
+    renderResponseList();     // refresh the low-confidence count behind it
+  } catch (e) {
+    bodyEl.innerHTML = originalBodyHtml;
+    row.querySelector('.q-meta').innerHTML += `<span style="color:#a02622; font-size:12px;"> Reprocess failed: ${escapeHtml(e.message)}</span>`;
+    btn.disabled = false;
+  }
+}
+
+document.getElementById('btnCloseReview').addEventListener('click', () => toggleOverlay('reviewOverlay', false));
+document.getElementById('btnCancelReview').addEventListener('click', () => toggleOverlay('reviewOverlay', false));
+document.getElementById('reviewPdfPrev').addEventListener('click', () => {
+  if (reviewPdfCurrentPage) renderReviewPdfPage(reviewPdfCurrentPage - 1);
+});
+document.getElementById('reviewPdfNext').addEventListener('click', () => {
+  if (reviewPdfCurrentPage) renderReviewPdfPage(reviewPdfCurrentPage + 1);
+});
+document.getElementById('reviewPdfZoomOut').addEventListener('click', () => {
+  reviewPdfZoom = Math.max(REVIEW_PDF_ZOOM_MIN, +(reviewPdfZoom - REVIEW_PDF_ZOOM_STEP).toFixed(2));
+  if (reviewPdfCurrentPage) renderReviewPdfPage(reviewPdfCurrentPage, { forceRerender: true });
+});
+document.getElementById('reviewPdfZoomIn').addEventListener('click', () => {
+  reviewPdfZoom = Math.min(REVIEW_PDF_ZOOM_MAX, +(reviewPdfZoom + REVIEW_PDF_ZOOM_STEP).toFixed(2));
+  if (reviewPdfCurrentPage) renderReviewPdfPage(reviewPdfCurrentPage, { forceRerender: true });
+});
+document.getElementById('reviewPdfZoomLabel').addEventListener('click', () => {
+  reviewPdfZoom = 1.0;
+  if (reviewPdfCurrentPage) renderReviewPdfPage(reviewPdfCurrentPage, { forceRerender: true });
+});
+
+document.getElementById('btnSaveReview').addEventListener('click', () => {
+  const rec = responses[reviewingRespId];
+  document.querySelectorAll('#reviewBody .q-row').forEach(row => {
+    const qid = row.dataset.qid;
+    const kind = row.dataset.kind;
+    const prevVal = rec.answers[qid] ? rec.answers[qid].value : null;
+    let newVal;
+
+    if (kind === 'multi') {
+      newVal = Array.from(row.querySelectorAll('.q-multi-el:checked')).map(el => {
+        const n = Number(el.value);
+        return Number.isNaN(n) ? el.value : n;
+      });
+    } else if (kind === 'matrix' || kind === 'form' || kind === 'rank' || kind === 'constant_sum') {
+      const obj = {};
+      row.querySelectorAll('.q-sub-input-el').forEach(el => {
+        const key = el.dataset.subitem;
+        if (el.value === '') { obj[key] = null; return; }
+        if (kind === 'form') { obj[key] = el.value; return; }
+        const n = Number(el.value);
+        obj[key] = Number.isNaN(n) ? el.value : n;
+      });
+      newVal = obj;
+    } else {
+      const el = row.querySelector('.q-input-el');
+      newVal = el.value === '' ? null : el.value;
+    }
+
+    const changed = JSON.stringify(newVal) !== JSON.stringify(prevVal);
+    rec.answers[qid] = {
+      ...(rec.answers[qid] || { confidence: 'low', note: '' }),
+      value: newVal,
+      edited: rec.answers[qid]?.edited || changed,
+    };
+  });
+  toggleOverlay('reviewOverlay', false);
+  renderResponseList();
+});
+
+
+// ---------------------------------------------------------------------
+// Export (CSV or Excel) — two independent options the user controls at
+// download time, on top of the CSV/Excel format choice itself:
+//   - Split Multiple Answer into separate columns (one per choice, binary
+//     1/blank indicator) vs a single comma-joined column. Only affects
+//     Multiple Answer — Matrix/Form/RankOrder/ConstantSum are always split
+//     into Qid_1.._N since they're inherently compound regardless of this
+//     toggle, and Single/Dropdown/Text are always a single column.
+//   - Values vs Labels: whether a recode-backed cell (Single, Dropdown,
+//     Multiple Answer, Matrix) shows the numeric Recode Value or the
+//     option's text. Has no effect on RankOrder/ConstantSum (the number
+//     IS the respondent's own written rank/points, not a recode lookup)
+//     or Form/Text (already free text).
+// Headers are our own Question IDs only — no Qualtrics ImportId/choiceId
+// metadata, since that's specific to Qualtrics' own re-import mechanism
+// and not something this export needs to replicate.
+// ---------------------------------------------------------------------
+
+function optionLabelForValue(options, value) {
+  for (const [text, val] of Object.entries(options || {})) {
+    if (String(val) === String(value)) return text;
+  }
+  return value === null || value === undefined ? '' : String(value);
+}
+
+function buildExportColumns(splitMulti) {
+  const columns = [];
+  Object.entries(schema).forEach(([qid, q]) => {
+    if (q.answerable === false) return;
+    const kind = questionTypeKind(q.question_type);
+    if (kind === 'matrix' || kind === 'form' || kind === 'rank' || kind === 'constant_sum') {
+      (q.sub_items || []).forEach((sub, i) => columns.push({ header: `${qid}_${i + 1}`, qid, kind, subitem: sub }));
+    } else if (kind === 'multi' && splitMulti) {
+      Object.entries(q.options || {}).forEach(([optText, optVal], i) => {
+        columns.push({ header: `${qid}_${i + 1}`, qid, kind: 'multi_split', choiceRecode: optVal });
+      });
+    } else {
+      columns.push({ header: qid, qid, kind, subitem: null });
+    }
+  });
+  return columns;
+}
+
+function cellValueForColumn(col, answer, valueMode) {
+  if (!answer || answer.value === null || answer.value === undefined) return '';
+  const q = schema[col.qid];
+  const v = answer.value;
+
+  if (col.kind === 'multi_split') {
+    const arr = Array.isArray(v) ? v.map(String) : [];
+    return arr.includes(String(col.choiceRecode)) ? '1' : '';
+  }
+  if (col.subitem !== null) {
+    // Matrix / Form / RankOrder / ConstantSum sub-item column.
+    const sub = (typeof v === 'object' && !Array.isArray(v)) ? v[col.subitem] : undefined;
+    if (sub === null || sub === undefined) return '';
+    if (col.kind === 'matrix' && valueMode === 'labels') return optionLabelForValue(q.options, sub);
+    return String(sub); // matrix recode (values mode), form text, or a written rank/points number
+  }
+  if (col.kind === 'multi') {
+    const arr = Array.isArray(v) ? v : [];
+    return valueMode === 'labels'
+      ? arr.map(val => optionLabelForValue(q.options, val)).join(',')
+      : arr.join(',');
+  }
+  if (col.kind === 'single' || col.kind === 'dropdown') {
+    return valueMode === 'labels' ? optionLabelForValue(q.options, v) : String(v);
+  }
+  return String(v); // text
+}
+
+function buildExportRows(splitMulti, valueMode) {
+  const columns = buildExportColumns(splitMulti);
+  const header = ['ResponseID', 'SourceFilename', ...columns.map(c => c.header)];
+  const rows = [header];
+  responseOrder.forEach(respId => {
+    const rec = responses[respId];
+    const row = [respId, rec.source_filename];
+    columns.forEach(col => row.push(cellValueForColumn(col, rec.answers[col.qid], valueMode)));
+    rows.push(row);
+  });
+  return rows;
+}
+
+function downloadCsv(rows) {
+  const csv = rows.map(r => r.map(csvEscape).join(',')).join('\r\n');
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'paper_survey_responses.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function downloadXlsx(rows) {
+  // SheetJS handles the Blob + download itself -- no manual anchor/URL dance needed.
+  const ws = XLSX.utils.aoa_to_sheet(rows);
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, 'Responses');
+  XLSX.writeFile(wb, 'paper_survey_responses.xlsx');
+}
+
+document.getElementById('btnExport').addEventListener('click', () => {
+  const splitMulti = document.getElementById('optSplitMulti').checked;
+  const valueMode = document.getElementById('optValueMode').value; // 'values' | 'labels'
+  const format = document.getElementById('optExportFormat').value; // 'csv' | 'xlsx'
+
+  const rows = buildExportRows(splitMulti, valueMode);
+  if (format === 'xlsx') {
+    downloadXlsx(rows);
+  } else {
+    downloadCsv(rows);
+  }
+});
+
+function csvEscape(v) {
+  if (v == null) return '';
+  const s = String(v);
+  return /[",\r\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+}
+function escapeHtml(s) {
+  if (s === null || s === undefined) return '';
+  return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+</script>
+</body>
+</html>
