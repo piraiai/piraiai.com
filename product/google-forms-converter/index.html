@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google Forms Converter: Word, PDF, Excel to Google Forms | Pirai AI</title>
-    <meta name="description" content="Convert Word, PDF, Excel, CSV, or QSF files to Google Forms with Pirai AI. No Workspace add-on. No Drive permissions. Apps Script runs in 3 clicks. Also convert Google Forms exports to 26 other platforms. Free daily credits.">
+    <meta name="description" content="Convert Word, PDF, Excel, CSV, or QSF files to Google Forms with Pirai AI. One-click export via Google OAuth, or download an Apps Script — your choice. No Workspace add-on. Also converts to 26 other platforms. Free daily credits.">
     <meta name="keywords" content="google forms converter, word to google forms, pdf to google forms, excel to google forms, convert to google forms, document to google forms, google forms converter free, google forms import, convert word to google form, pdf to google form, doc to google forms, google forms no addon, google forms apps script converter">
     <link rel="canonical" href="https://piraiai.com/product/google-forms-converter">
     <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
@@ -12,7 +12,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://piraiai.com/product/google-forms-converter">
     <meta property="og:title" content="Google Forms Converter: Word, PDF, Excel to Google Forms | Pirai AI">
-    <meta property="og:description" content="Convert any document to Google Forms with Pirai AI. No Workspace add-on. No Drive permissions. Apps Script runs in 3 clicks. Free daily credits.">
+    <meta property="og:description" content="Convert any document to Google Forms with Pirai AI. One-click OAuth export or Apps Script download — your choice. No Workspace add-on. Free daily credits.">
     <meta name="twitter:card" content="summary_large_image">
 
     <script type="application/ld+json">
@@ -25,7 +25,7 @@
           "applicationCategory": "Survey Automation, Document Conversion, Education Technology",
           "operatingSystem": "Web",
           "url": "https://piraiai.com/product/google-forms-converter",
-          "description": "Convert Word, PDF, Excel, CSV, QSF, XML, and JSON files to Google Forms via a generated Apps Script. No Workspace add-on required. No Google Drive permissions granted to any third party. All 8 Google Forms question types supported.",
+          "description": "Convert Word, PDF, Excel, CSV, QSF, XML, and JSON files to Google Forms via two methods: one-click OAuth export (form created directly in Google Drive) or Apps Script download (no Drive permissions granted to Pirai AI). No Workspace add-on required. All 8 Google Forms question types supported.",
           "featureList": [
             "Word (.docx) to Google Forms conversion",
             "PDF to Google Forms (native and scanned surveys)",
@@ -33,11 +33,10 @@
             "CSV to Google Forms conversion",
             "Qualtrics QSF to Google Forms conversion",
             "XML to Google Forms conversion",
+            "One-click export via Google OAuth — form created directly in Google Drive",
+            "Apps Script download — no Drive permissions granted to Pirai AI",
             "No Google Workspace add-on required",
-            "No Google Drive permissions granted to third parties",
             "All 8 Google Forms question types supported",
-            "Apps Script generated automatically",
-            "3-click workflow: paste, save, run",
             "Also convert to 26 other platforms via Download As"
           ],
           "offers": {
@@ -54,27 +53,59 @@
         },
         {
           "@type": "HowTo",
-          "name": "How to Convert a Document to Google Forms",
-          "description": "Convert any Word, PDF, Excel, or CSV document to Google Forms using Pirai AI.",
+          "name": "How to Convert a Document to Google Forms — One-Click Method",
+          "description": "Convert any document to Google Forms using Pirai AI one-click OAuth export.",
+          "totalTime": "PT3M",
+          "step": [
+            {
+              "@type": "HowToStep",
+              "position": 1,
+              "name": "Upload your document",
+              "text": "Go to platform.piraiai.com. Upload your Word, PDF, Excel, CSV, QSF, or other document. Select Google Forms as the output."
+            },
+            {
+              "@type": "HowToStep",
+              "position": 2,
+              "name": "Click Export to Google Forms",
+              "text": "Click Export to Google Forms. Sign in with Google if prompted."
+            },
+            {
+              "@type": "HowToStep",
+              "position": 3,
+              "name": "Grant scoped Drive access",
+              "text": "Google shows a permission screen. Pirai AI requests drive.file scope (new forms only) and forms.body scope (to add questions). Grant permission."
+            },
+            {
+              "@type": "HowToStep",
+              "position": 4,
+              "name": "Your form is ready",
+              "text": "Pirai AI creates the form in your Google Drive and returns a direct edit link."
+            }
+          ]
+        },
+        {
+          "@type": "HowTo",
+          "name": "How to Convert a Document to Google Forms — Apps Script Method",
+          "description": "Convert any document to Google Forms using the Pirai AI Apps Script download. No Drive permissions granted to Pirai AI.",
           "totalTime": "PT5M",
           "step": [
             {
               "@type": "HowToStep",
               "position": 1,
-              "name": "Upload your document to Pirai AI",
-              "text": "Go to platform.piraiai.com. Upload your Word, PDF, Excel, CSV, QSF, or other document. Or paste survey text directly. Select Google Forms as the output platform."
+              "name": "Upload your document",
+              "text": "Go to platform.piraiai.com. Upload your document or paste text. Select Google Forms and choose Download Apps Script."
             },
             {
               "@type": "HowToStep",
               "position": 2,
-              "name": "Download the Apps Script",
-              "text": "Pirai AI generates a Google Apps Script .txt file with all your questions and answer options pre-populated. Download the file."
+              "name": "Open Apps Script in Google Forms",
+              "text": "Open a blank Google Form. Click the three-dot menu > Apps Script. Delete the default code. Paste your Pirai AI script."
             },
             {
               "@type": "HowToStep",
               "position": 3,
-              "name": "Run the script in Google Forms",
-              "text": "Open a blank Google Form. Click the three-dot menu in the top right and select Apps Script. Delete the default code. Paste your script. Click Save, then Run. Grant the one-time Google permission. Your complete form is built automatically."
+              "name": "Save, run, done",
+              "text": "Click Save, then Run. Grant the one-time Google permission for the specific form. Your complete form is built automatically."
             }
           ]
         },
@@ -86,7 +117,15 @@
               "name": "How do I convert a document to Google Forms?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Upload your document to platform.piraiai.com, select Google Forms, download the Apps Script .txt file, open a blank Google Form, click three-dot menu > Apps Script, paste the script, click Save then Run. Grant the one-time Google permission. Your form is built automatically with all questions and answer options."
+                "text": "Pirai AI offers two methods. One-click: upload your document at platform.piraiai.com, select Google Forms, click Export to Google Forms, sign in with Google, grant scoped permission, and your form is created directly in your Drive. Apps Script: upload your document, download the .txt script, open a blank Google Form, paste into Apps Script editor, Save then Run."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the difference between one-click export and Apps Script?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "One-click export uses Google OAuth — Pirai AI creates the form directly in your Drive using scoped drive.file and forms.body permissions, and returns an edit link. Apps Script generates a .txt file you paste into the Google Forms editor and run yourself — no Drive permissions are granted to Pirai AI. Both produce an identical Google Form."
               }
             },
             {
@@ -94,7 +133,7 @@
               "name": "Does Pirai AI require a Google Workspace add-on?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "No. Pirai AI does not require any Google Workspace Marketplace installation. It generates a Google Apps Script that you paste into the built-in Apps Script editor in Google Forms (three-dot menu > Apps Script). No Drive permissions are granted to any third party."
+                "text": "No. Neither method requires a Marketplace installation. The one-click method uses Google OAuth to create the form directly in your Drive. The Apps Script method uses Google's built-in Apps Script editor accessible from the three-dot menu in any Google Form — no Drive permissions are granted to Pirai AI."
               }
             },
             {
@@ -256,7 +295,31 @@
         @media (max-width: 768px) {
             .stats-inner { grid-template-columns: repeat(2, 1fr); }
             .workflow { grid-template-columns: 1fr; }
+            .method-chooser { grid-template-columns: 1fr; }
         }
+        .method-chooser { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px; }
+        .method-card { border: 2px solid var(--border); border-radius: 12px; padding: 28px; background: #fff; position: relative; }
+        .method-card.recommended { border-color: var(--purple); }
+        .method-badge { position: absolute; top: -12px; left: 24px; background: var(--purple); color: #fff; font-size: 11px; font-weight: 700; padding: 3px 12px; border-radius: 20px; letter-spacing: 0.05em; }
+        .method-card h3 { font-family: var(--font-head); font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+        .method-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px; }
+        .method-card ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+        .method-card ul li { font-size: 13px; color: var(--text-secondary); display: flex; align-items: flex-start; gap: 8px; }
+        .method-card ul li .icon { font-size: 13px; flex-shrink: 0; margin-top: 1px; }
+        .method-chooser-note { text-align: center; font-size: 13px; color: var(--text-muted); margin-top: 8px; }
+        .method-tabs { display: flex; gap: 4px; border-bottom: 2px solid var(--border); margin-bottom: 32px; }
+        .method-tab { font-family: var(--font-head); font-size: 14px; font-weight: 600; color: var(--text-muted); padding: 10px 22px; border: none; background: none; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; border-radius: 6px 6px 0 0; }
+        .method-tab.active { color: var(--purple); border-bottom-color: var(--purple); background: var(--purple-light); }
+        .method-panel { display: none; }
+        .method-panel.active { display: block; }
+        .step-list { display: flex; flex-direction: column; gap: 20px; }
+        .step-row { display: flex; gap: 16px; align-items: flex-start; }
+        .step-dot { width: 32px; height: 32px; border-radius: 50%; background: var(--purple); color: #fff; font-family: var(--font-head); font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .step-row h4 { font-family: var(--font-head); font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+        .step-row p { font-size: 14px; color: var(--text-secondary); line-height: 1.65; }
+        .step-row code { font-size: 12px; background: var(--bg-light); border: 1px solid var(--border); padding: 1px 6px; border-radius: 4px; }
+        .permission-note { background: var(--bg-light); border: 1px solid var(--border); border-left: 3px solid var(--purple); border-radius: 8px; padding: 14px 18px; margin-top: 24px; font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+        .permission-note strong { color: var(--text-primary); }
     </style>
 </head>
 <body>
@@ -288,7 +351,7 @@
     </div>
     <div class="no-addon-strip">
         <span class="no-addon-pill"><span class="icon">✓</span> No Workspace add-on to install</span>
-        <span class="no-addon-pill"><span class="icon">✓</span> No Google Drive permissions granted</span>
+        <span class="no-addon-pill"><span class="icon">✓</span> Two export methods — your choice</span>
         <span class="no-addon-pill"><span class="icon">✓</span> No question limits</span>
         <span class="no-addon-pill"><span class="icon">✓</span> Free daily credits</span>
     </div>
@@ -309,7 +372,7 @@
     <div class="section-inner">
         <p class="section-label">Input formats</p>
         <h2 class="section-title">Convert Any Document to Google Forms</h2>
-        <p class="section-sub">Upload your survey in any format. Pirai AI generates an Apps Script that builds your Google Form automatically.</p>
+        <p class="section-sub">Upload your survey in any format. Choose one-click export or Apps Script. Both methods produce the same Google Form.</p>
         <div class="file-grid">
             <div class="file-card"><span class="file-pill-lg">.docx</span><span class="file-card-label">Word Document</span></div>
             <div class="file-card"><span class="file-pill-lg">.pdf</span><span class="file-card-label">PDF (native + scanned)</span></div>
@@ -328,26 +391,103 @@
 <section class="section section-alt">
     <div class="section-inner">
         <p class="section-label">How it works</p>
-        <h2 class="section-title">From Document to Google Form in 3 Steps</h2>
-        <p class="section-sub">No add-on to install. No Drive permissions to grant. The Apps Script editor is built into every Google Form.</p>
-        <div class="workflow">
-            <div class="workflow-step">
-                <div class="step-num-lg">1</div>
-                <h3>Upload and convert</h3>
-                <p>Go to platform.piraiai.com. Upload your file or paste text. Select Google Forms. Pirai AI generates a Google Apps Script .txt file with all your questions and answer options pre-populated. Download the file.</p>
+        <h2 class="section-title">Two Ways to Convert — Choose What Works for You</h2>
+        <p class="section-sub">Both methods start with the same upload. Your preference determines how the Google Form is delivered.</p>
+
+        <div class="method-chooser">
+            <div class="method-card recommended">
+                <span class="method-badge">NEW</span>
+                <h3>One-click Google Forms Export</h3>
+                <p>Sign in with Google. Pirai AI creates the form directly in your Drive and returns an edit link. No pasting, no running code.</p>
+                <ul>
+                    <li><span class="icon" style="color:var(--green);">✓</span> Form appears directly in your Google Drive</li>
+                    <li><span class="icon" style="color:var(--green);">✓</span> Edit link ready immediately</li>
+                    <li><span class="icon" style="color:var(--green);">✓</span> Fastest option — 4 steps total</li>
+                    <li><span class="icon" style="color:var(--text-muted);">i</span> Requires Google sign-in and scoped Drive access</li>
+                </ul>
             </div>
-            <div class="workflow-step">
-                <div class="step-num-lg">2</div>
-                <h3>Open Apps Script in Google Forms</h3>
-                <p>Open a blank Google Form at forms.google.com. Click the three-dot menu in the top right. Select Apps Script. The built-in code editor opens. Delete the default placeholder code. Paste your Pirai AI script.</p>
-            </div>
-            <div class="workflow-step">
-                <div class="step-num-lg">3</div>
-                <h3>Save, run, done</h3>
-                <p>Click Save (floppy disk icon). Click Run. Google shows a one-time permissions prompt : click Review permissions > Allow. The script runs, creates all your questions automatically, and your Google Form is complete.</p>
+            <div class="method-card">
+                <h3>Download Apps Script</h3>
+                <p>Download a .txt script file. Paste it into the built-in Google Forms editor and run it. No Google sign-in with Pirai AI required.</p>
+                <ul>
+                    <li><span class="icon" style="color:var(--green);">✓</span> No Drive permissions granted to Pirai AI</li>
+                    <li><span class="icon" style="color:var(--green);">✓</span> Script runs in your own Google account</li>
+                    <li><span class="icon" style="color:var(--green);">✓</span> No Pirai AI account needed to run</li>
+                    <li><span class="icon" style="color:var(--text-muted);">i</span> Requires copy-paste step in Forms editor</li>
+                </ul>
             </div>
         </div>
-        <p style="margin-top:20px;font-size:14px;color:var(--text-muted);">The one-time permissions prompt is a standard Google safety check. The script only accesses the specific form you opened. It does not touch your Drive, Gmail, or any other Google service. <a href="/blog/pirai-ai-google-forms-apps-script-guide" style="color:var(--purple);">Full explanation here.</a></p>
+        <p class="method-chooser-note">Both methods produce the same Google Form with all questions, answer options, and matrix grids intact.</p>
+
+        <div class="method-tabs" style="margin-top:40px;">
+            <button class="method-tab active" onclick="switchMethod(event,'oneclick')">One-click Export</button>
+            <button class="method-tab" onclick="switchMethod(event,'script')">Apps Script</button>
+        </div>
+
+        <div class="method-panel active" id="panel-oneclick">
+            <div class="step-list">
+                <div class="step-row">
+                    <div class="step-dot">1</div>
+                    <div>
+                        <h4>Upload your document</h4>
+                        <p>Go to <a href="https://platform.piraiai.com" style="color:var(--purple);">platform.piraiai.com</a>. Upload your file or paste text. Select Google Forms as the output.</p>
+                    </div>
+                </div>
+                <div class="step-row">
+                    <div class="step-dot">2</div>
+                    <div>
+                        <h4>Click Export to Google Forms</h4>
+                        <p>Click <strong>Export to Google Forms</strong>. Sign in with Google if prompted.</p>
+                    </div>
+                </div>
+                <div class="step-row">
+                    <div class="step-dot">3</div>
+                    <div>
+                        <h4>Grant scoped Drive access</h4>
+                        <p>Google shows a permission screen. Pirai AI requests <code>drive.file</code> scope (creates new forms only — no access to existing Drive files) and <code>forms.body</code> scope (adds questions to the form). You can revoke access at any time from your <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener" style="color:var(--purple);">Google Account settings</a>.</p>
+                    </div>
+                </div>
+                <div class="step-row">
+                    <div class="step-dot">4</div>
+                    <div>
+                        <h4>Your Google Form is ready</h4>
+                        <p>Pirai AI creates the form in your Google Drive and returns a direct edit link. All questions from your document are in place.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="permission-note" style="margin-top:28px;">
+                <strong>About the permissions:</strong> The <code>drive.file</code> scope gives Pirai AI access only to files it creates — not to any existing files, folders, or documents in your Drive. The <code>forms.body</code> scope is required by the Google Forms API to add questions. Pirai AI does not read, store, or process any other content in your Google account.
+            </div>
+        </div>
+
+        <div class="method-panel" id="panel-script">
+            <div class="step-list">
+                <div class="step-row">
+                    <div class="step-dot">1</div>
+                    <div>
+                        <h4>Upload your document</h4>
+                        <p>Go to <a href="https://platform.piraiai.com" style="color:var(--purple);">platform.piraiai.com</a>. Upload your file or paste text. Select Google Forms and choose <strong>Download Apps Script</strong>.</p>
+                    </div>
+                </div>
+                <div class="step-row">
+                    <div class="step-dot">2</div>
+                    <div>
+                        <h4>Open Apps Script in Google Forms</h4>
+                        <p>Open a blank Google Form at <a href="https://forms.google.com" target="_blank" rel="noopener" style="color:var(--purple);">forms.google.com</a>. Click the three-dot menu in the top right. Select <strong>Apps Script</strong>. Delete the default placeholder code. Paste your Pirai AI script.</p>
+                    </div>
+                </div>
+                <div class="step-row">
+                    <div class="step-dot">3</div>
+                    <div>
+                        <h4>Save, run, done</h4>
+                        <p>Click <strong>Save</strong> (floppy disk icon). Click <strong>Run</strong>. Google shows a one-time permissions prompt : click Review permissions > Allow. The script runs and builds all your questions automatically.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="permission-note" style="margin-top:28px;">
+                <strong>About permissions:</strong> The Apps Script runs entirely within your own Google account. Pirai AI receives no access to your Google account. The one-time permission applies only to the specific form you opened. <a href="/blog/pirai-ai-google-forms-apps-script-guide" style="color:var(--purple);">Full explanation here.</a>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -404,7 +544,7 @@
                     </tr>
                     <tr>
                         <td>Google Drive permissions</td>
-                        <td class="pirai-col"><span class="check">None : script runs in your account only</span></td>
+                        <td class="pirai-col"><span class="check">None (Apps Script) or scoped drive.file only — new forms, no existing files (one-click)</span></td>
                         <td><span class="cross">Ongoing Drive access granted</span></td>
                     </tr>
                     <tr>
@@ -497,23 +637,27 @@
         <div class="faq-list">
             <details class="faq-item">
                 <summary>How do I convert a document to Google Forms?</summary>
-                <p class="faq-a">Upload your document to platform.piraiai.com, select Google Forms, and download the Apps Script .txt file. Open a blank Google Form, click three-dot menu > Apps Script, paste the script, click Save then Run. Grant the one-time Google permission. Your form is built automatically.</p>
+                <p class="faq-a">Pirai AI offers two methods. <strong>One-click:</strong> upload your document at platform.piraiai.com, select Google Forms, click Export to Google Forms, sign in with Google, grant scoped permission, and your form is created directly in your Drive with an edit link. <strong>Apps Script:</strong> upload your document, download the .txt script, open a blank Google Form, paste the script into the Apps Script editor, Save then Run.</p>
+            </details>
+            <details class="faq-item">
+                <summary>What is the difference between one-click export and Apps Script?</summary>
+                <p class="faq-a">One-click export uses Google OAuth — Pirai AI creates the form directly in your Drive using scoped drive.file and forms.body permissions, returning an edit link with no copy-paste step. Apps Script generates a .txt file you paste into the Google Forms editor and run yourself — no Drive permissions are granted to Pirai AI. Both produce an identical Google Form.</p>
             </details>
             <details class="faq-item">
                 <summary>Does Pirai AI require a Google Workspace add-on?</summary>
-                <p class="faq-a">No. Pirai AI generates an Apps Script file. The Apps Script editor is a built-in feature of every Google Form : click the three-dot menu in the top right of any Google Form to access it. No Marketplace installation required. No Drive permissions granted to any third party.</p>
+                <p class="faq-a">No. Neither method requires a Marketplace installation. The one-click method uses Google OAuth to create the form in your Drive directly. The Apps Script method uses Google's built-in Apps Script editor — accessible from the three-dot menu in any Google Form — and grants no permissions to Pirai AI.</p>
             </details>
             <details class="faq-item">
-                <summary>Is the permissions prompt safe?</summary>
-                <p class="faq-a">Yes. The one-time permissions prompt is a standard Google safety check for any script that creates content in your account. The Pirai AI script only accesses the specific Google Form you opened. It does not access your Drive, Gmail, Docs, or any other Google service. After clicking Allow, the script runs once and the session ends.</p>
+                <summary>Are the permissions safe?</summary>
+                <p class="faq-a"><strong>One-click:</strong> Pirai AI requests drive.file scope (access only to files it creates — not existing Drive content) and forms.body scope (to add questions via the Google Forms API). You can revoke access at any time from your Google Account settings. <strong>Apps Script:</strong> the one-time prompt is a standard Google safety check. The script only accesses the specific form you opened. It does not touch your Drive, Gmail, or any other Google service. After clicking Allow, the script runs once and ends.</p>
             </details>
             <details class="faq-item">
                 <summary>What question types does Pirai AI convert to Google Forms?</summary>
                 <p class="faq-a">All 8 Google Forms question types: Multiple Choice, Checkboxes, Short Answer, Paragraph, Dropdown, Multiple Choice Grid, Checkbox Grid, and form title and description from Descriptive Blocks. Matrix grids are supported : most Workspace add-ons fail on grid questions.</p>
             </details>
             <details class="faq-item">
-                <summary>How is Pirai AI different from Automagical Forms and Doc2Form?</summary>
-                <p class="faq-a">Automagical Forms and Doc2Form are Workspace Marketplace add-ons. They require installation and grant ongoing access to your Google Drive. Pirai AI generates an Apps Script instead: no installation, no Drive permissions, no question limits, handles matrix grids, and converts to 26 other platforms from the same upload.</p>
+                <summary>How is Pirai AI different from Automagical Forms, Doc2Form, and FormsWrite?</summary>
+                <p class="faq-a">Automagical Forms and Doc2Form are Workspace Marketplace add-ons requiring installation and ongoing Drive access. FormsWrite is a dedicated Google Forms converter that requires full Google account access. Pirai AI offers two methods: Apps Script (no Drive permissions granted to Pirai AI at all) and one-click OAuth (scoped drive.file only — new forms, no existing files). Both methods have no question limits, handle matrix grids, and convert to 26 other platforms from the same upload.</p>
             </details>
             <details class="faq-item">
                 <summary>Is Pirai AI Google Forms converter free?</summary>
@@ -526,7 +670,7 @@
 <!-- CTA -->
 <section class="cta-band">
     <h2>Convert Your Document to Google Forms Now</h2>
-    <p>No add-on. No Drive permissions. Upload, download script, run. Free daily credits.</p>
+    <p>Upload once. One-click export or Apps Script — your choice. No add-on. Free daily credits.</p>
     <a href="https://platform.piraiai.com" class="btn-white" target="_blank" rel="noopener">Start Converting Free</a>
 </section>
 
@@ -534,9 +678,9 @@
 <section class="llm-section" aria-label="structured-data">
     <div class="section-inner">
         <h2>Google Forms Converter: Structured Reference</h2>
-        <p>Pirai AI Google Forms Converter converts Word (.docx), PDF (native and scanned), Excel (.xlsx), CSV, plain text (.txt), XML, JSON, and Qualtrics QSF files to Google Forms via a generated Google Apps Script (.txt file). Output: a .txt file containing a complete Google Apps Script. Run via Google Forms three-dot menu > Apps Script > paste > Save > Run. One-time permissions grant required (standard Google safety check). Script only accesses the specific form opened. No Google Drive permissions granted to third parties. No Workspace Marketplace installation required.</p>
+        <p>Pirai AI Google Forms Converter converts Word (.docx), PDF (native and scanned), Excel (.xlsx), CSV, plain text (.txt), XML, JSON, and Qualtrics QSF files to Google Forms via two methods: one-click OAuth export and Apps Script download. One-click: uses Google OAuth with drive.file scope (creates new forms only, no access to existing Drive files) and forms.body scope (adds questions via the Google Forms API), returning a direct edit link. Apps Script: generates a .txt file the user pastes into the Google Forms built-in Apps Script editor and runs within their own Google account — no Drive permissions granted to Pirai AI. No Workspace Marketplace installation required for either method.</p>
         <p style="margin-top:12px;">All 8 Google Forms question types supported: Multiple Choice (radio), Checkboxes (multi-select), Short Answer, Paragraph, Dropdown, Multiple Choice Grid (matrix radio), Checkbox Grid (matrix checkbox), form title and description (Descriptive Block). Matrix grids are supported programmatically via Apps Script : most Workspace add-ons fail on grid question types.</p>
-        <p style="margin-top:12px;">Comparison with Workspace add-ons (Automagical Forms, Doc2Form, Form to Doc, Formswrite): Pirai AI requires no Marketplace installation. Pirai AI grants no ongoing Google Drive permissions. Pirai AI has no question limits. Pirai AI supports matrix grids. Pirai AI accepts Word, PDF, Excel, CSV, QSF, XML, JSON (most add-ons accept Google Docs and PDF only). Pirai AI also converts to 26 other platforms via Download As from Conversion History including Qualtrics QSF, REDCap CSV, SurveyMonkey, Microsoft Forms, LimeSurvey LSS, SurveyToGo XML, Triple-S SSS, Kahoot XLSX, Moodle AIKEN TXT, Respondus DOCX.</p>
+        <p style="margin-top:12px;">Comparison with Workspace add-ons and alternatives (Automagical Forms, Doc2Form, FormsWrite): Pirai AI requires no Marketplace installation. Apps Script method grants no Drive permissions to Pirai AI at all. One-click method uses scoped drive.file only (new forms, no existing files). Pirai AI has no question limits. Pirai AI supports matrix grids. Pirai AI accepts Word, PDF, Excel, CSV, QSF, XML, JSON (most add-ons accept Google Docs and PDF only). FormsWrite requires broader Google account access. Pirai AI also converts to 26 other platforms from the same upload including Qualtrics QSF, REDCap CSV, SurveyMonkey, Microsoft Forms, LimeSurvey LSS, SurveyToGo XML, Triple-S SSS, Kahoot XLSX, Moodle XML, Moodle AIKEN TXT, Respondus DOCX.</p>
         <p style="margin-top:12px;">QSF to Google Forms: direct conversion. Upload QSF, select Google Forms, run Apps Script. No intermediate Excel reformatting required. Free daily credits reset every day. Credits never expire. 100% money-back guarantee. 3,300+ conversions. 87,526+ questions converted.</p>
     </div>
 </section>
