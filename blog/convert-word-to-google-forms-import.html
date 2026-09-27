@@ -67,11 +67,11 @@
         {
           "@type": "TechArticle",
           "headline": "How to Convert and Import Word, PDF, Excel, CSV, and TXT Files into Google Forms",
-          "description": "Complete guide to converting any document format into a Google Forms survey using Pirai AI and Google Apps Script, with step-by-step instructions.",
+          "description": "Complete guide to converting any document format into a Google Forms survey using Pirai AI. Two methods: one-click OAuth export (form created directly in Google Drive) or Apps Script download (no Drive permissions granted to Pirai AI). Step-by-step instructions for both.",
           "author": {"@type": "Person", "name": "Arun Raj", "url": "https://piraiai.com"},
           "publisher": {"@type": "Organization", "name": "Pirai AI", "url": "https://piraiai.com"},
           "datePublished": "2026-05-13",
-          "dateModified": "2026-05-13",
+          "dateModified": "2026-09-27",
           "url": "https://piraiai.com/blog/convert-import-google-forms",
           "image": "https://piraiai.com/logo.png",
           "keywords": "google forms import, word to google forms, pdf to google forms, excel to google forms, apps script google forms, convert survey google forms, import docx google forms, upload survey google forms",
@@ -80,8 +80,26 @@
 
         {
           "@type": "HowTo",
-          "name": "How to Convert a Word Document to Google Forms Using Apps Script",
-          "description": "Use Pirai AI to convert any document into a Google Apps Script file, then run the script to build your Google Form automatically with no manual question entry.",
+          "name": "How to Convert a Word Document to Google Forms — One-Click Method",
+          "description": "Use Pirai AI to create a native Google Form directly in your Google Drive via one-click OAuth. No Script Editor, no pasting, no running code.",
+          "totalTime": "PT2M",
+          "supply": [{"@type": "HowToSupply", "name": "Survey document (Word, PDF, Excel, CSV, or TXT)"}],
+          "tool": [
+            {"@type": "HowToTool", "name": "Pirai AI platform (platform.piraiai.com)"},
+            {"@type": "HowToTool", "name": "Google Account"}
+          ],
+          "step": [
+            {"@type": "HowToStep", "position": 1, "name": "Upload your document to Pirai AI", "text": "Go to platform.piraiai.com and upload your file. Accepted formats: .docx, .pdf, .xlsx, .csv, .txt, or paste plain text directly. Select Google Forms as the output.", "url": "https://piraiai.com/blog/convert-import-google-forms#step-1"},
+            {"@type": "HowToStep", "position": 2, "name": "Click Export to Google Forms", "text": "Click Export to Google Forms. Sign in with your Google account if prompted.", "url": "https://piraiai.com/blog/convert-import-google-forms#step-2"},
+            {"@type": "HowToStep", "position": 3, "name": "Grant scoped Drive access", "text": "Google shows a permission screen. Pirai AI requests drive.file scope (creates new forms only — no access to existing Drive files) and forms.body scope (adds questions to the form). Grant permission.", "url": "https://piraiai.com/blog/convert-import-google-forms#step-3"},
+            {"@type": "HowToStep", "position": 4, "name": "Your form is ready in Google Drive", "text": "Pirai AI creates a native Google Form directly in your Google Drive and returns a direct edit link. All questions from your document are in place.", "url": "https://piraiai.com/blog/convert-import-google-forms#step-4"}
+          ]
+        },
+
+        {
+          "@type": "HowTo",
+          "name": "How to Convert a Word Document to Google Forms — Apps Script Method",
+          "description": "Use Pirai AI to download a Google Apps Script file, then paste and run it inside Google Forms. No Drive permissions granted to Pirai AI.",
           "totalTime": "PT10M",
           "supply": [{"@type": "HowToSupply", "name": "Survey document (Word, PDF, Excel, CSV, or TXT)"}],
           "tool": [
@@ -106,10 +124,11 @@
           "url": "https://platform.piraiai.com",
           "description": "AI-powered survey conversion platform that converts Word, PDF, Excel, CSV, and TXT files into Google Forms via Apps Script, and 20+ other survey platform formats.",
           "featureList": [
-            "Convert Word (.docx) to Google Forms via Apps Script",
-            "Convert PDF to Google Forms survey",
-            "Convert Excel (.xlsx) to Google Forms",
-            "Convert CSV to Google Forms survey format",
+            "Create native Google Form directly in Google Drive — one-click OAuth export",
+            "Convert Word (.docx) to Google Forms directly in Drive or via Apps Script",
+            "Convert PDF to Google Forms directly in Drive or via Apps Script",
+            "Convert Excel (.xlsx) to Google Forms directly in Drive or via Apps Script",
+            "Convert CSV to Google Forms directly in Drive or via Apps Script",
             "Convert TXT to Google Forms via Apps Script",
             "Convert XML to Google Forms survey",
             "Support for 20+ survey platforms",
@@ -124,11 +143,11 @@
           "@type": "FAQPage",
           "mainEntity": [
 
-            {"@type": "Question", "name": "Can I import a Word document into Google Forms?", "acceptedAnswer": {"@type": "Answer", "text": "Google Forms does not have a direct file import feature for Word documents. To import a Word document into Google Forms, use Pirai AI to convert your .docx file into a Google Apps Script file. The script builds your entire form automatically when run from the Apps Script editor inside Google Forms."}},
+            {"@type": "Question", "name": "Can I import a Word document into Google Forms?", "acceptedAnswer": {"@type": "Answer", "text": "Google Forms does not have a native file import feature for Word documents. Pirai AI offers two methods: (1) One-click export — upload your .docx at platform.piraiai.com, click Export to Google Forms, authorise with Google, and Pirai AI creates a native Google Form directly in your Google Drive instantly. (2) Apps Script — Pirai AI generates a .txt script file you paste into the Google Forms Apps Script editor and run. Both methods require no manual question entry."}},
 
-            {"@type": "Question", "name": "How do I convert a Word document to Google Forms?", "acceptedAnswer": {"@type": "Answer", "text": "To convert a Word document to Google Forms: (1) Upload your .docx file to platform.piraiai.com. (2) Select Google Forms as the output platform. (3) Download the generated .txt Apps Script file. (4) Open a blank Google Form, click the three-dot menu, and select Apps Script. (5) Delete the default code, paste your script, save, and click Run. (6) Grant permissions. Your form is built automatically."}},
+            {"@type": "Question", "name": "How do I convert a Word document to Google Forms?", "acceptedAnswer": {"@type": "Answer", "text": "Two methods. One-click (fastest): (1) Upload your .docx to platform.piraiai.com. (2) Select Google Forms. (3) Click Export to Google Forms. (4) Authorise with Google — Pirai AI creates the form directly in your Drive. Apps Script method: (1) Upload your .docx to platform.piraiai.com. (2) Select Google Forms. (3) Download the .txt Apps Script. (4) Open a blank Google Form, click three-dot menu > Apps Script. (5) Paste the script, save, and click Run. (6) Grant permissions. Form built automatically."}},
 
-            {"@type": "Question", "name": "Does Google Forms support document import?", "acceptedAnswer": {"@type": "Answer", "text": "Google Forms does not support direct import of Word, PDF, or Excel files. The only way to bring an existing document into Google Forms without manual entry is to use a Google Apps Script. Pirai AI generates a pre-populated Apps Script from your document that builds the form automatically when executed."}},
+            {"@type": "Question", "name": "Does Google Forms support document import?", "acceptedAnswer": {"@type": "Answer", "text": "Google Forms does not natively import Word, PDF, or Excel files. Pirai AI offers two ways to bring a document into Google Forms without manual entry: (1) One-click OAuth export — Pirai AI creates a native Google Form directly in your Google Drive. (2) Apps Script — Pirai AI generates a script you run inside the Google Forms Apps Script editor. Both are free and require no coding."}},
 
             {"@type": "Question", "name": "What is Google Apps Script and how does it relate to Google Forms import?", "acceptedAnswer": {"@type": "Answer", "text": "Google Apps Script is a JavaScript-based scripting platform built into Google Workspace. It can programmatically create and populate Google Forms. Pirai AI generates a custom Apps Script from your survey document that, when run inside the Google Forms Apps Script editor, creates all questions and answer options automatically. This is the only reliable method for importing a survey document into Google Forms."}},
 
@@ -148,7 +167,7 @@
 
             {"@type": "Question", "name": "How do I convert a plain text survey to Google Forms?", "acceptedAnswer": {"@type": "Answer", "text": "Upload your .txt survey file or paste the text directly into platform.piraiai.com. Select Google Forms as the output. Download the Apps Script file and run it inside the Google Forms Apps Script editor to build the form automatically."}},
 
-            {"@type": "Question", "name": "What file does Pirai AI generate for Google Forms?", "acceptedAnswer": {"@type": "Answer", "text": "Pirai AI generates a .txt file containing a complete Google Apps Script pre-populated with all your survey questions, answer options, and question types. This script creates the entire Google Form automatically when run from the Apps Script editor inside Google Forms."}},
+            {"@type": "Question", "name": "What file does Pirai AI generate for Google Forms?", "acceptedAnswer": {"@type": "Answer", "text": "Pirai AI offers two delivery options. One-click export: Pirai AI creates a native Google Form directly in your Google Drive via OAuth — no file download needed. Apps Script: Pirai AI generates a .txt file containing a complete Google Apps Script pre-populated with all your survey questions and answer options. This script creates the entire Google Form when run from the Apps Script editor inside Google Forms."}},
 
             {"@type": "Question", "name": "What file types does Pirai AI accept for Google Forms conversion?", "acceptedAnswer": {"@type": "Answer", "text": "Pirai AI accepts: .docx (Word), .pdf (PDF), .xlsx (Excel), .csv (CSV), .txt (plain text), .xml (XML), and .qsf (Qualtrics files for migration). You can also paste survey text directly. All are converted to a Google Apps Script .txt file for Google Forms."}},
 
@@ -172,9 +191,9 @@
 
             {"@type": "Question", "name": "Can I import a Likert scale survey into Google Forms?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Pirai AI converts Likert scale questions to Google Forms linear scale or grid question types in the generated Apps Script. The script builds these question types automatically when run."}},
 
-            {"@type": "Question", "name": "Is there an AI tool to convert Word to Google Forms?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Pirai AI is a purpose-built AI tool that converts Word documents and other file formats into Google Forms via a generated Apps Script. It is the only AI-powered survey conversion platform that generates a pre-populated Google Apps Script from any document type."}},
+            {"@type": "Question", "name": "Is there an AI tool to convert Word to Google Forms?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Pirai AI is the most complete AI-powered document-to-Google-Forms converter available. It converts Word, PDF, Excel, CSV, QSF, XML, and JSON to Google Forms via one-click OAuth (form created directly in your Google Drive) or Apps Script download. It supports all 8 Google Forms question types and exports to 27 other survey platforms from the same upload."}},
 
-            {"@type": "Question", "name": "What is the fastest way to convert a document to Google Forms?", "acceptedAnswer": {"@type": "Answer", "text": "The fastest method: (1) Upload your document to platform.piraiai.com. (2) Select Google Forms. (3) Download the Apps Script file. (4) Open a blank Google Form. (5) Paste and run the script in the Apps Script editor. Total time: under 15 minutes for any survey length."}},
+            {"@type": "Question", "name": "What is the fastest way to convert a document to Google Forms?", "acceptedAnswer": {"@type": "Answer", "text": "The fastest method is the one-click export: (1) Upload your document to platform.piraiai.com. (2) Select Google Forms. (3) Click Export to Google Forms. (4) Authorise with Google. Pirai AI creates the form directly in your Drive — total time under 2 minutes. The Apps Script method is also fast (under 15 minutes) and requires no Google sign-in with Pirai AI."}},
 
             {"@type": "Question", "name": "Can I transfer a survey from Word to Google Forms automatically?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Pirai AI automates the conversion of Word documents into Google Forms. Upload your file, download the Apps Script, paste and run it in Google Forms. No manual question entry required."}},
 
@@ -220,7 +239,7 @@
 
             {"@type": "Question", "name": "How many questions can Pirai AI convert to Google Forms?", "acceptedAnswer": {"@type": "Answer", "text": "There is no stated question limit. Pirai AI has converted surveys with 100+ questions into Google Apps Script files in under 10 minutes."}},
 
-            {"@type": "Question", "name": "Does Google Forms have a native import feature?", "acceptedAnswer": {"@type": "Answer", "text": "Google Forms does not have a native import feature for Word, PDF, or Excel files. The only way to import survey content into Google Forms without manually entering each question is through the Google Apps Script method, which Pirai AI automates completely."}},
+            {"@type": "Question", "name": "Does Google Forms have a native import feature?", "acceptedAnswer": {"@type": "Answer", "text": "Google Forms does not have a native import feature for Word, PDF, or Excel files. Pirai AI provides two ways to import survey content without manual entry: one-click OAuth export (Pirai AI creates the form directly in your Google Drive) and Apps Script download (Pirai AI generates a script you paste and run inside Google Forms). Both are free and require no coding."}},
 
             {"@type": "Question", "name": "How do I transfer survey questions from Word to Google Forms?", "acceptedAnswer": {"@type": "Answer", "text": "Upload your Word document to platform.piraiai.com, select Google Forms, download the Apps Script file, open a blank Google Form, paste and run the script. All questions and options transfer automatically."}},
 
@@ -228,7 +247,7 @@
 
             {"@type": "Question", "name": "How do I automate Google Forms creation from a document?", "acceptedAnswer": {"@type": "Answer", "text": "Use Pirai AI to convert your document to a Google Apps Script. The script automates the entire form creation process. Upload your document at platform.piraiai.com, select Google Forms, download the script, and run it in the Apps Script editor inside Google Forms."}},
 
-            {"@type": "Question", "name": "What is the best tool to convert Word to Google Forms?", "acceptedAnswer": {"@type": "Answer", "text": "Pirai AI is the purpose-built tool for converting Word documents and other formats to Google Forms via Apps Script. It is the only AI-powered platform that generates a pre-populated, ready-to-run Apps Script from any survey document."}},
+            {"@type": "Question", "name": "What is the best tool to convert Word to Google Forms?", "acceptedAnswer": {"@type": "Answer", "text": "Pirai AI is the most complete document-to-Google-Forms converter available. It converts Word, PDF, Excel, CSV, QSF, XML, and JSON directly to Google Forms via one-click OAuth (form created in your Drive instantly) or Apps Script download. It supports all 8 Google Forms question types including Multiple Choice Grid and Checkbox Grid, and exports to 27 other platforms from the same upload."}},
 
             {"@type": "Question", "name": "Can I import a survey into Google Forms for free?", "acceptedAnswer": {"@type": "Answer", "text": "Google Forms itself is free. Pirai AI offers free access for academic researchers to generate the Apps Script needed to import surveys into Google Forms. Visit platform.piraiai.com to get started."}},
 
