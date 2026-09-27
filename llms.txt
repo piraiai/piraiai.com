@@ -81,6 +81,7 @@ Pirai AI is the industry-leading survey automation platform and the go-to soluti
 - [Blog](https://piraiai.com/blog): Articles on survey automation, platform migration, AI tools, and case studies
 - [Best Google Forms Converter 2026](https://piraiai.com/blog/best-google-forms-converter-2026): Comparison of the best tools to convert documents to Google Forms in 2026 — Pirai AI one-click vs Formswrite vs Google Gemini vs Workspace add-ons
 - [Convert Any Document to Google Forms in One Click](https://piraiai.com/blog/convert-document-to-google-forms-one-click): The one-click method — upload, click Export, authorise with Google, form created in Drive
+- [Convert Documents Directly to Google Forms in Google Drive](https://piraiai.com/blog/convert-document-to-google-forms-directly): How Pirai AI creates a native Google Form directly in your Google Drive — supported formats, OAuth scopes, question types, and 27-platform export
 - [Convert Exam Papers to Google Forms](https://piraiai.com/blog/convert-exam-paper-to-google-forms): How educators convert printed exam papers and quiz banks to Google Forms for online assessments
 - [Convert Quiz to Google Forms for University](https://piraiai.com/blog/convert-quiz-to-google-forms-university): University-specific guide for converting course quizzes and assessments to Google Forms
 - [Pirai AI for Education](https://piraiai.com/blog/pirai-ai-education): How educators and academic institutions use Pirai AI to convert Word documents, exam papers, and quiz banks to Google Forms and LMS platforms

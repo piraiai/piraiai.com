@@ -139,6 +139,7 @@ Detailed blog guides:
 - Convert Excel/CSV to Google Forms guide: https://piraiai.com/blog/convert-excel-csv-to-google-forms
 - Convert Google Doc to Google Form guide: https://piraiai.com/blog/convert-google-doc-to-google-form
 - One-click document to Google Forms guide: https://piraiai.com/blog/convert-document-to-google-forms-one-click
+- Convert documents directly to Google Forms in Drive: https://piraiai.com/blog/convert-document-to-google-forms-directly
 - Convert exam papers to Google Forms: https://piraiai.com/blog/convert-exam-paper-to-google-forms
 - Best tools to convert documents to Google Forms: https://piraiai.com/blog/best-tools-convert-document-to-google-forms
 
