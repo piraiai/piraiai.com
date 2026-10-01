@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Export to Google Forms in One Click  -  How It Works | Pirai AI</title>
+    <meta name="description" content="How Pirai AI's one-click Export to Google Forms works: upload your document, click Export, sign in with Google, grant scoped permission, and your form is created directly in your Google Drive. Step-by-step with permission screen explained.">
+    <meta name="keywords" content="export to google forms one click, one click google forms export, pirai ai google forms oauth, create google form directly in drive, google forms one click conversion">
+    <link rel="canonical" href="https://piraiai.com/blog/export-to-google-forms-one-click">
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://piraiai.com/blog/export-to-google-forms-one-click">
+    <meta property="og:title" content="Export to Google Forms in One Click  -  How It Works">
+    <meta property="og:description" content="How Pirai AI's one-click Google Forms export works: form created directly in your Google Drive via scoped OAuth. Step-by-step with permission screen explained.">
+    <meta property="og:image" content="https://piraiai.com/logo.png">
+    <meta property="article:published_time" content="2026-09-27T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Export to Google Forms in One Click - How It Works","description":"How Pirai AI one-click Export to Google Forms works: upload your document, click Export to Google Forms, sign in with Google, grant scoped permission, and your form is created directly in your Google Drive.","author":{"@type":"Person","name":"Arun Raj"},"publisher":{"@type":"Organization","name":"Pirai AI","url":"https://piraiai.com"},"datePublished":"2026-09-27","url":"https://piraiai.com/blog/export-to-google-forms-one-click"}</script>
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to Export a Document to Google Forms in One Click Using Pirai AI","description":"Upload any document to Pirai AI and click Export to Google Forms. A native Google Form is created directly in your Google Drive via one-click OAuth. No Script Editor, no pasting, no running code.","totalTime":"PT2M","step":[{"@type":"HowToStep","position":1,"name":"Convert your document","text":"Upload your Word, PDF, Excel, or CSV file to platform.piraiai.com and select Google Forms as the output. Pirai AI converts the document and shows a Conversion Complete screen with your question count, options count, and time saved."},{"@type":"HowToStep","position":2,"name":"Click Export to Google Forms","text":"Click the Export to Google Forms button  -  the black button with the Google icon on the Conversion Complete screen."},{"@type":"HowToStep","position":3,"name":"Choose your Google account","text":"A Google sign-in page opens: Choose an account to continue to Pirai AI. Select the Google account where you want the form created."},{"@type":"HowToStep","position":4,"name":"Grant scoped access and click Continue","text":"Google shows a permissions screen: Pirai AI wants access to your Google Account. Pirai AI requests drive.file scope (creates new forms only, no access to existing Drive files) and forms.body scope (adds questions to the form). Click Continue."},{"@type":"HowToStep","position":5,"name":"Open your Google Form","text":"A Google Form Created modal appears: Your survey has been exported to Google Forms and is ready to edit and share. Click Open Google Form. Your form opens in the Google Forms editor with all questions created automatically."}]}</script>
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does Export to Google Forms do in Pirai AI?","acceptedAnswer":{"@type":"Answer","text":"Export to Google Forms creates a native Google Form directly in your Google Drive using Google OAuth. After clicking the button, you sign in with Google, grant scoped permission, and Pirai AI creates the form on your behalf via the Google Forms API. A Google Form Created modal confirms the export and an Open Google Form button takes you directly to the form in your Drive."}},{"@type":"Question","name":"What permissions does Pirai AI request for one-click Google Forms export?","acceptedAnswer":{"@type":"Answer","text":"Pirai AI requests two scoped permissions. drive.file scope: allows Pirai AI to create new files in your Drive only  -  it cannot read, edit, or access any existing files, folders, or documents. forms.body scope: allows Pirai AI to add questions to the form it creates via the Google Forms API. These are the minimum permissions required by Google's Forms API to create a form on your behalf."}},{"@type":"Question","name":"Why does the Google permission screen look different from last time?","acceptedAnswer":{"@type":"Answer","text":"If you have previously authorised Pirai AI, Google shows a shorter screen: Pirai AI already has some access  -  See the 2 services that Pirai AI has some access to. This is normal. Click Continue to proceed. First-time users see the full permissions screen listing the specific scopes. Both flows complete the same way."}},{"@type":"Question","name":"How do I revoke Pirai AI's Google Drive access?","acceptedAnswer":{"@type":"Answer","text":"Go to myaccount.google.com/permissions. Find Pirai AI in the list of apps with access to your account. Click on it and select Remove Access. This immediately revokes both the drive.file and forms.body permissions. You can re-authorise at any time by clicking Export to Google Forms again."}},{"@type":"Question","name":"Does Pirai AI access my existing Google Drive files?","acceptedAnswer":{"@type":"Answer","text":"No. The drive.file scope gives Pirai AI access only to files it creates on your behalf. It cannot read, view, download, or modify any existing files, folders, or documents in your Google Drive. The permission is scoped exclusively to new files that Pirai AI creates during the export."}},{"@type":"Question","name":"What is the difference between one-click export and the Apps Script method?","acceptedAnswer":{"@type":"Answer","text":"One-click export uses Google OAuth to create the form directly in your Drive  -  no file to download, no code to paste or run. The Apps Script method generates a .txt file you paste into the Google Forms Script Editor and run yourself  -  Pirai AI receives no Drive permissions at all. Both produce the same Google Form. Choose one-click for speed; choose Apps Script if you prefer zero third-party Drive access."}},{"@type":"Question","name":"What formats can I upload for one-click Google Forms export?","acceptedAnswer":{"@type":"Answer","text":"Pirai AI accepts Word (.docx), PDF (native and scanned), Excel (.xlsx), CSV, plain text, Qualtrics QSF, XML, and JSON for one-click Google Forms export. Scanned paper surveys require Advanced Processing to be enabled for OCR extraction before export."}}]}</script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;line-height:1.6;color:#1a1a1a;background:#ffffff;}
+        header{background:#ffffff;border-bottom:1px solid #e5e7eb;position:sticky;top:0;z-index:100;}
+        .header-container{max-width:1200px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;}
+        .logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+        .logo img{width:32px;height:32px;}
+        .logo-text{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;color:#1a1a1a;}
+        .blog-label{color:#9B6BFF;font-weight:400;margin-left:8px;}
+        header nav a{color:#6b7280;text-decoration:none;font-weight:500;font-size:15px;margin-left:32px;}
+        header nav a:hover{color:#9B6BFF;}
+        .breadcrumb{background:#f9fafb;border-bottom:1px solid #e5e7eb;padding:12px 24px;}
+        .breadcrumb-container{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:8px;font-size:14px;color:#6b7280;flex-wrap:wrap;}
+        .breadcrumb a{color:#6b7280;text-decoration:none;}
+        .breadcrumb a:hover{color:#9B6BFF;}
+        .hero-section{background:linear-gradient(135deg,#f9fafb 0%,#f3f4f6 100%);padding:56px 24px 48px;border-bottom:1px solid #e5e7eb;}
+        .hero-inner{max-width:780px;margin:0 auto;}
+        .category-badge{display:inline-block;background:#f3f4f6;border:1px solid #e5e7eb;color:#374151;padding:4px 12px;border-radius:20px;font-size:13px;font-weight:600;margin-bottom:16px;}
+        .hero-section h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(26px,4vw,40px);font-weight:800;color:#1a1a1a;line-height:1.15;margin-bottom:16px;}
+        .hero-section .hero-desc{font-size:18px;color:#374151;line-height:1.65;margin-bottom:24px;}
+        .meta-row{display:flex;align-items:center;gap:16px;font-size:14px;color:#6b7280;flex-wrap:wrap;}
+        .content-wrapper{max-width:1200px;margin:48px auto;padding:0 24px 80px;display:grid;grid-template-columns:1fr 300px;gap:48px;}
+        .article-content{max-width:680px;}
+        .article-content p{font-size:18px;color:#374151;margin-bottom:24px;line-height:1.7;}
+        .article-content h2{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:#1a1a1a;margin-top:48px;margin-bottom:16px;padding-left:16px;border-left:4px solid #9B6BFF;}
+        .article-content h3{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;color:#1a1a1a;margin-top:32px;margin-bottom:12px;}
+        .article-content a{color:#9B6BFF;text-decoration:none;border-bottom:1px solid rgba(155,107,255,0.3);}
+        .article-content a:hover{border-bottom-color:#9B6BFF;}
+        .article-content code{font-family:monospace;font-size:14px;background:#f3f4f6;border:1px solid #e5e7eb;padding:2px 7px;border-radius:4px;}
+        /* Step boxes */
+        .steps-block{display:flex;flex-direction:column;gap:0;margin:28px 0 32px;}
+        .step-box{display:flex;gap:0;align-items:stretch;}
+        .step-left{display:flex;flex-direction:column;align-items:center;margin-right:20px;}
+        .step-dot{width:36px;height:36px;border-radius:50%;background:#9B6BFF;color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+        .step-line{width:2px;background:#e5e7eb;flex:1;margin:4px 0;}
+        .step-box:last-child .step-line{display:none;}
+        .step-body{padding:4px 0 28px;}
+        .step-body strong{display:block;font-size:17px;font-weight:600;color:#1a1a1a;margin-bottom:6px;}
+        .step-body span{font-size:16px;color:#374151;line-height:1.65;}
+        .step-body .ui-label{display:inline-block;background:#1a1a1a;color:#fff;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;padding:3px 10px;border-radius:5px;margin:4px 0;}
+        .step-body .screen-note{display:block;background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:12px 16px;margin-top:10px;font-size:14px;color:#6b7280;font-style:italic;line-height:1.6;}
+        /* Permission box */
+        .permission-box{background:#f5f3ff;border:1px solid #ddd6fe;border-left:4px solid #7c3aed;border-radius:8px;padding:20px 24px;margin:24px 0;}
+        .permission-box h4{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:#7c3aed;margin-bottom:10px;}
+        .permission-box p{font-size:15px;color:#374151;line-height:1.65;margin-bottom:8px;}
+        .permission-box p:last-child{margin-bottom:0;}
+        .permission-row{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:10px 0;}
+        .perm-scope{font-family:monospace;font-size:13px;background:#ede9fe;color:#7c3aed;border:1px solid #ddd6fe;padding:2px 8px;border-radius:4px;white-space:nowrap;align-self:start;margin-top:2px;}
+        .perm-desc{font-size:14px;color:#374151;line-height:1.6;}
+        /* Comparison strip */
+        .method-compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0 32px;}
+        .method-panel{border:1px solid #e5e7eb;border-radius:10px;padding:20px;}
+        .method-panel.featured{border-color:#9B6BFF;background:#fdf9ff;}
+        .method-panel .tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;display:block;}
+        .method-panel.featured .tag{color:#9B6BFF;}
+        .method-panel h4{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;color:#1a1a1a;margin-bottom:8px;}
+        .method-panel ul{list-style:none;display:flex;flex-direction:column;gap:6px;}
+        .method-panel ul li{font-size:14px;color:#374151;display:flex;align-items:flex-start;gap:8px;line-height:1.5;}
+        .check{color:#16a34a;font-weight:700;flex-shrink:0;}
+        .info-icon{color:#9B6BFF;flex-shrink:0;}
+        /* FAQ */
+        .faq-list{margin:24px 0;}
+        .faq-item{border-bottom:1px solid #e5e7eb;}
+        .faq-item:first-child{border-top:1px solid #e5e7eb;}
+        details summary{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;padding:18px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;list-style:none;color:#1a1a1a;}
+        details summary::after{content:"+";font-size:20px;color:#9B6BFF;flex-shrink:0;}
+        details[open] summary::after{content:"x";}
+        .faq-a{font-size:16px;color:#4b5563;line-height:1.7;padding-bottom:18px;}
+        /* CTA */
+        .cta-block{background:linear-gradient(135deg,#9B6BFF,#BFA8FF);border-radius:14px;padding:36px 32px;text-align:center;margin:48px 0 32px;}
+        .cta-block h3{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:#000;margin-bottom:8px;}
+        .cta-block p{color:rgba(0,0,0,0.7);font-size:15px;margin-bottom:20px;}
+        .cta-btn{display:inline-block;background:#000;color:#fff;padding:12px 28px;border-radius:8px;font-weight:700;font-size:15px;text-decoration:none;font-family:'Space Grotesk',sans-serif;border:none;}
+        /* Sidebar */
+        .sidebar{position:sticky;top:84px;align-self:start;}
+        .sidebar-card{background:#f9fafb;border:1px solid #e5e7eb;border-radius:12px;padding:24px;margin-bottom:20px;}
+        .sidebar-card h4{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:#1a1a1a;margin-bottom:14px;}
+        .sidebar-card ul{list-style:none;}
+        .sidebar-card ul li{margin-bottom:10px;}
+        .sidebar-card ul li a{color:#9B6BFF;text-decoration:none;font-size:14px;font-weight:500;}
+        .sidebar-cta{background:linear-gradient(135deg,#9B6BFF,#BFA8FF);border-radius:12px;padding:24px;text-align:center;}
+        .sidebar-cta h4{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:#000;margin-bottom:8px;}
+        .sidebar-cta p{font-size:13px;color:rgba(0,0,0,0.7);margin-bottom:14px;}
+        .sidebar-cta a{display:inline-block;background:#000;color:#fff;padding:9px 20px;border-radius:7px;font-weight:700;font-size:13px;text-decoration:none;}
+        @media(max-width:768px){.content-wrapper{grid-template-columns:1fr;}.sidebar{display:none;}.method-compare{grid-template-columns:1fr;}}
+    </style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<header>
+    <div class="header-container">
+        <a href="/" class="logo">
+            <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo">
+            <span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span>
+        </a>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/blog">All Articles</a>
+            <a href="/docs/import-guide">Import Guide</a>
+            <a href="/#demo">Get Demo</a>
+        </nav>
+    </div>
+</header>
+
+<div class="breadcrumb">
+    <div class="breadcrumb-container">
+        <a href="/">Home</a> <span>/</span>
+        <a href="/blog">Blog</a> <span>/</span>
+        Export to Google Forms  -  One Click
+    </div>
+</div>
+
+<section class="hero-section">
+    <div class="hero-inner">
+        <div class="category-badge">Guide</div>
+        <h1>Export to Google Forms in One Click  -  How It Works</h1>
+        <p class="hero-desc">Pirai AI's one-click Export to Google Forms creates a native Google Form directly in your Google Drive. Upload your document, click one button, sign in with Google, and your form is ready. No Script Editor. No pasting. No running code.</p>
+        <div class="meta-row">
+            <span>By Arun Raj</span>
+            <span>·</span>
+            <span>27 September 2026</span>
+            <span>·</span>
+            <span>Guide</span>
+        </div>
+    </div>
+</section>
+
+<div class="content-wrapper">
+<div class="article-content">
+
+<p>When you convert a document in Pirai AI and select Google Forms as the output, you see two buttons on the Conversion Complete screen: <strong>Export to Google Forms</strong> and <strong>Download File</strong>. This guide covers exactly what happens when you click <strong>Export to Google Forms</strong>  -  every screen, every click, and what permissions are granted and why.</p>
+
+<h2 id="what-you-see">What You See on the Conversion Complete Screen</h2>
+
+<p>After Pirai AI converts your document, the Conversion Complete screen shows three stats  -  questions extracted, answer options, and estimated time saved  -  followed by two buttons:</p>
+
+<ul style="margin-bottom:24px;padding-left:24px;">
+    <li style="font-size:18px;color:#374151;margin-bottom:10px;line-height:1.7;"><span class="ui-label" style="display:inline;margin-right:6px;">Export to Google Forms</span>  -  black button with Google icon. One-click OAuth export: creates the form directly in your Drive.</li>
+    <li style="font-size:18px;color:#374151;margin-bottom:10px;line-height:1.7;"><strong>Download File</strong>  -  secondary button. Downloads a <code>.txt</code> Apps Script file you run in Google Forms yourself.</li>
+</ul>
+
+<p>This guide covers the <strong>Export to Google Forms</strong> path. For the Apps Script path, see the <a href="/docs/import-guide">Import Guide</a>.</p>
+
+<h2 id="steps">The Five Steps  -  Exactly What Happens</h2>
+
+<div class="steps-block">
+    <div class="step-box">
+        <div class="step-left"><div class="step-dot">1</div><div class="step-line"></div></div>
+        <div class="step-body">
+            <strong>Click Export to Google Forms</strong>
+            <span>On the Conversion Complete screen, click the <span class="ui-label" style="display:inline;">Export to Google Forms</span> button  -  the black button with the Google icon. Pirai AI initiates the Google OAuth flow.</span>
+        </div>
+    </div>
+    <div class="step-box">
+        <div class="step-left"><div class="step-dot">2</div><div class="step-line"></div></div>
+        <div class="step-body">
+            <strong>Choose your Google account</strong>
+            <span>A Google sign-in page opens: <em>"Choose an account to continue to Pirai AI."</em> Select the Google account where you want the form created. If you only have one Google account signed in, it may be selected automatically.</span>
+            <span class="screen-note">If you are not signed in to any Google account, you will be asked to sign in first before seeing the account chooser.</span>
+        </div>
+    </div>
+    <div class="step-box">
+        <div class="step-left"><div class="step-dot">3</div><div class="step-line"></div></div>
+        <div class="step-body">
+            <strong>Review permissions and click Continue</strong>
+            <span>Google shows a permissions screen: <em>"Pirai AI wants access to your Google Account."</em> Review the two permissions listed and click <strong>Continue</strong>.</span>
+            <span class="screen-note">If you have authorised Pirai AI before, you may see a shorter screen: "Pirai AI already has some access  -  See the 2 services that Pirai AI has some access to." This is normal. Click Continue to proceed with the same scoped permissions as before.</span>
+        </div>
+    </div>
+    <div class="step-box">
+        <div class="step-left"><div class="step-dot">4</div><div class="step-line"></div></div>
+        <div class="step-body">
+            <strong>The Google Form Created modal appears</strong>
+            <span>Pirai AI creates the form in your Google Drive using the Google Forms API. A confirmation modal appears: <em>"Google Form Created  -  Your survey has been exported to Google Forms and is ready to edit and share."</em> The form name and a <code>docs.google.com/forms</code> link are shown.</span>
+        </div>
+    </div>
+    <div class="step-box">
+        <div class="step-left"><div class="step-dot">5</div><div class="step-line"></div></div>
+        <div class="step-body">
+            <strong>Click Open Google Form</strong>
+            <span>Click <span class="ui-label" style="display:inline;">Open Google Form</span>. Your Google Form opens in the Forms editor with all questions, answer options, and question types created automatically. Review, configure any display logic or settings, and share.</span>
+        </div>
+    </div>
+</div>
+
+<h2 id="permissions">About the Permissions  -  What Pirai AI Can and Cannot Access</h2>
+
+<p>The permissions screen is the most important moment in the flow. Here is exactly what Pirai AI requests and why.</p>
+
+<div class="permission-box">
+    <h4>Permissions Pirai AI requests</h4>
+    <div class="permission-row">
+        <span class="perm-scope">drive.file</span>
+        <p class="perm-desc"><strong>Creates new files in your Drive only.</strong> Pirai AI can create a new Google Form in your Drive. It cannot read, view, download, edit, or delete any existing file, folder, or document. This scope is required by Google's Drive API to create a file on your behalf.</p>
+    </div>
+    <div class="permission-row">
+        <span class="perm-scope">forms.body</span>
+        <p class="perm-desc"><strong>Adds questions to the form it creates.</strong> This scope is required by the Google Forms API to populate the form with your questions and answer options after creation. Without it, Pirai AI could create an empty form but not add any content.</p>
+    </div>
+    <p style="margin-top:12px;font-size:14px;color:#6b7280;">These are the minimum two permissions required to create a populated Google Form on your behalf. Pirai AI does not request any other Google account permissions.</p>
+</div>
+
+<p>To revoke access at any time: go to <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">myaccount.google.com/permissions</a>, find Pirai AI, and click Remove Access. You can re-authorise by clicking Export to Google Forms again.</p>
+
+<h2 id="first-time-vs-returning">First-Time vs Returning Users</h2>
+
+<p><strong>First-time users</strong> see the full permissions screen listing <code>drive.file</code> and <code>forms.body</code> scope descriptions. Read them, then click Continue.</p>
+
+<p><strong>Returning users</strong> (anyone who has previously authorised Pirai AI for Google Forms) see a shorter screen: <em>"Pirai AI already has some access  -  See the 2 services that Pirai AI has some access to."</em> This confirms the same two scopes are already active. Click Continue to proceed  -  no new permissions are being added.</p>
+
+<p>If you want to start fresh or switch Google accounts, revoke access first from your <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account settings</a>, then click Export to Google Forms again.</p>
+
+<h2 id="comparison">One-Click Export vs Apps Script  -  Which Should You Use?</h2>
+
+<div class="method-compare">
+    <div class="method-panel featured">
+        <span class="tag">One-click OAuth</span>
+        <h4>Export to Google Forms</h4>
+        <ul>
+            <li><span class="check">+</span> Form created directly in your Drive</li>
+            <li><span class="check">+</span> No file to download or paste</li>
+            <li><span class="check">+</span> Fastest  -  under 2 minutes total</li>
+            <li><span class="check">+</span> Edit link returned immediately</li>
+            <li><span class="info-icon">i</span> Requires Google sign-in with Pirai AI</li>
+            <li><span class="info-icon">i</span> Uses scoped drive.file + forms.body</li>
+        </ul>
+    </div>
+    <div class="method-panel">
+        <span class="tag" style="color:#6b7280;">Apps Script download</span>
+        <h4>Download File</h4>
+        <ul>
+            <li><span class="check">+</span> Zero Drive permissions to Pirai AI</li>
+            <li><span class="check">+</span> Script runs in your own Google account</li>
+            <li><span class="check">+</span> No Pirai AI Google sign-in required</li>
+            <li><span class="info-icon">i</span> Download, paste, save, run required</li>
+            <li><span class="info-icon">i</span> One-time Google permission for the script</li>
+        </ul>
+    </div>
+</div>
+
+<p>Both methods produce an identical Google Form. The choice is about workflow preference and permission comfort. For most users the one-click export is the faster, simpler option. For users in organisations with strict third-party Drive access policies, the Apps Script method provides the same result with no Pirai AI Drive permissions involved.</p>
+
+<h2 id="formats">Supported Input Formats for One-Click Export</h2>
+
+<p>Every document format Pirai AI accepts can be exported to Google Forms in one click:</p>
+
+<ul style="margin-bottom:24px;padding-left:24px;display:grid;grid-template-columns:1fr 1fr;gap:6px 24px;">
+    <li style="font-size:16px;color:#374151;line-height:1.7;">Word (.docx)</li>
+    <li style="font-size:16px;color:#374151;line-height:1.7;">PDF  -  native</li>
+    <li style="font-size:16px;color:#374151;line-height:1.7;">PDF  -  scanned (with OCR)</li>
+    <li style="font-size:16px;color:#374151;line-height:1.7;">Excel (.xlsx)</li>
+    <li style="font-size:16px;color:#374151;line-height:1.7;">CSV</li>
+    <li style="font-size:16px;color:#374151;line-height:1.7;">Qualtrics QSF</li>
+    <li style="font-size:16px;color:#374151;line-height:1.7;">XML</li>
+    <li style="font-size:16px;color:#374151;line-height:1.7;">JSON</li>
+    <li style="font-size:16px;color:#374151;line-height:1.7;">Plain text / paste</li>
+</ul>
+
+<p>For scanned paper surveys, enable <strong>Advanced Processing</strong> before clicking Export to Google Forms. OCR extraction runs first, then the form is created in your Drive.</p>
+
+<h2 id="faq">Frequently Asked Questions</h2>
+
+<div class="faq-list">
+    <details class="faq-item">
+        <summary>What does Export to Google Forms do in Pirai AI?</summary>
+        <p class="faq-a">It creates a native Google Form directly in your Google Drive using Google OAuth. After clicking the button, you sign in with Google, grant scoped permission, and Pirai AI creates the form on your behalf via the Google Forms API. A "Google Form Created" modal confirms the export and an "Open Google Form" button takes you directly to the form in your Drive.</p>
+    </details>
+    <details class="faq-item">
+        <summary>What permissions does Pirai AI request?</summary>
+        <p class="faq-a">Two scoped permissions. <code>drive.file</code>: allows Pirai AI to create new files in your Drive only  -  it cannot read, edit, or access any existing files, folders, or documents. <code>forms.body</code>: allows Pirai AI to add questions to the form it creates via the Google Forms API. These are the minimum permissions required by Google to create a populated form on your behalf.</p>
+    </details>
+    <details class="faq-item">
+        <summary>Why does the permission screen look different from last time?</summary>
+        <p class="faq-a">If you have previously authorised Pirai AI, Google shows a shorter screen: "Pirai AI already has some access  -  See the 2 services that Pirai AI has some access to." This is normal. The same two scopes are active. Click Continue to proceed. First-time users see the full permissions screen listing the specific scopes.</p>
+    </details>
+    <details class="faq-item">
+        <summary>Does Pirai AI access my existing Google Drive files?</summary>
+        <p class="faq-a">No. The <code>drive.file</code> scope gives Pirai AI access only to files it creates on your behalf. It cannot read, view, download, or modify any existing files, folders, or documents in your Google Drive. The permission is scoped exclusively to new files that Pirai AI creates during the export.</p>
+    </details>
+    <details class="faq-item">
+        <summary>How do I revoke Pirai AI's Google Drive access?</summary>
+        <p class="faq-a">Go to <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">myaccount.google.com/permissions</a>. Find Pirai AI in the list of connected apps. Click it and select Remove Access. This immediately revokes both permissions. You can re-authorise at any time by clicking Export to Google Forms again.</p>
+    </details>
+    <details class="faq-item">
+        <summary>What is the difference between one-click export and the Apps Script method?</summary>
+        <p class="faq-a">One-click export uses Google OAuth to create the form directly in your Drive  -  no file to download, no code to paste or run. The Apps Script method generates a <code>.txt</code> file you paste into the Google Forms Script Editor and run yourself  -  Pirai AI receives no Drive permissions at all. Both produce an identical Google Form.</p>
+    </details>
+    <details class="faq-item">
+        <summary>What formats can I upload for one-click Google Forms export?</summary>
+        <p class="faq-a">Word (.docx), PDF (native and scanned), Excel (.xlsx), CSV, plain text, Qualtrics QSF, XML, and JSON. Scanned paper surveys require Advanced Processing enabled for OCR extraction before export.</p>
+    </details>
+</div>
+
+<div class="cta-block">
+    <h3>Try the One-Click Export Now</h3>
+    <p>Upload any document. Click Export to Google Forms. Your form is in your Drive in under 2 minutes. Free daily credits.</p>
+    <a href="https://platform.piraiai.com" class="cta-btn" target="_blank" rel="noopener">Convert Free</a>
+</div>
+
+</div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+    <div class="sidebar-cta">
+        <h4>Try Pirai AI Free</h4>
+        <p>One-click Google Forms export. Free daily credits.</p>
+        <a href="https://platform.piraiai.com" target="_blank" rel="noopener">Export Free</a>
+    </div>
+    <div class="sidebar-card">
+        <h4>On This Page</h4>
+        <ul>
+            <li><a href="#what-you-see">Conversion Complete screen</a></li>
+            <li><a href="#steps">5-step walkthrough</a></li>
+            <li><a href="#permissions">Permissions explained</a></li>
+            <li><a href="#first-time-vs-returning">First-time vs returning</a></li>
+            <li><a href="#comparison">One-click vs Apps Script</a></li>
+            <li><a href="#formats">Supported formats</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+    </div>
+    <div class="sidebar-card">
+        <h4>Related Guides</h4>
+        <ul>
+            <li><a href="/blog/convert-document-to-google-forms-directly">Direct Drive Export Guide</a></li>
+            <li><a href="/blog/convert-document-to-google-forms">Convert Any Document to Google Forms</a></li>
+            <li><a href="/docs/import-guide">Import Guide  -  All Platforms</a></li>
+            <li><a href="/blog/secured-converter-document-to-google-forms">Apps Script Method (No Drive Access)</a></li>
+            <li><a href="/product/google-forms-converter/">Google Forms Converter</a></li>
+        </ul>
+    </div>
+</aside>
+</div>
+</body>
+</html>
