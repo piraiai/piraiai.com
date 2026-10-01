@@ -589,6 +589,11 @@
             color: #15803d;
             border: 1px solid #bbf7d0;
         }
+        .method-oauth {
+            background: #f5f3ff;
+            color: #7c3aed;
+            border: 1px solid #ddd6fe;
+        }
         .ref-link {
             color: #9B6BFF;
             text-decoration: none;
@@ -1122,8 +1127,8 @@
                     </tr>
                     <tr>
                         <td><span class="platform-name">Google Forms</span></td>
-                        <td><span class="file-tag">.txt (Apps Script)</span></td>
-                        <td><span class="method-tag method-script">⚙ Apps Script</span></td>
+                        <td><span class="file-tag" style="background:#f5f3ff;color:#7c3aed;border:1px solid #ddd6fe;">No download (one-click)</span> or <span class="file-tag">.txt</span></td>
+                        <td><span class="method-tag method-oauth">⚡ One-click OAuth</span>&nbsp;<span class="method-tag method-script">⚙ Apps Script</span></td>
                         <td><a class="ref-link" href="#" onclick="switchSection('survey'); switchTab('googleforms'); return false;">View steps →</a></td>
                     </tr>
                     <tr>
@@ -1325,20 +1330,50 @@
             <div class="platform-header">
                 <div>
                     <div class="platform-title">Google Forms</div>
-                    <div class="platform-desc">Google Forms does not support direct file import. Pirai AI generates a Google Apps Script file that automates the creation of your entire form. Open the Apps Script editor, paste the script, and run it to build your form automatically.</div>
+                    <div class="platform-desc">Pirai AI supports two export methods for Google Forms. One-click OAuth creates a native Google Form directly in your Google Drive — no file to download, no script to run. Apps Script generates a .txt file you paste and run inside Google Forms. Both methods produce the same result with no manual question entry.</div>
                 </div>
                 <div class="platform-badges">
+                    <span class="method-tag method-oauth">⚡ One-click OAuth</span>
                     <span class="method-tag method-script">⚙ Apps Script</span>
                 </div>
             </div>
+
+            <!-- Path 1: One-click OAuth -->
+            <div class="sub-section-title">Path 1: One-click OAuth — Form Created Directly in Google Drive <span style="background:#f5f3ff;color:#7c3aed;border:1px solid #ddd6fe;font-size:11px;font-weight:700;padding:2px 8px;border-radius:10px;margin-left:6px;">NEW</span></div>
+
+            <div class="file-callout" style="background:#f5f3ff;border-color:#ddd6fe;border-left-color:#7c3aed;">
+                <div class="fc-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><circle cx="12" cy="12" r="10"/><polyline points="12 8 16 12 12 16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                </div>
+                <p><strong>No file download required.</strong> Click <strong>Export to Google Forms</strong> on the Conversion Complete screen. Pirai AI creates the form directly in your Google Drive via Google OAuth. A direct edit link is returned instantly.</p>
+            </div>
+
+            <div class="warning-callout">
+                <div class="fc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+                <p>Pirai AI requests two scoped permissions: <strong>drive.file</strong> (creates new forms only — no access to existing Drive files) and <strong>forms.body</strong> (adds questions to the form). You can revoke access at any time from your <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener" style="color:#9B6BFF;">Google Account settings</a>.</p>
+            </div>
+
+            <ol class="steps-list">
+                <li><span class="step-num">1</span><span class="step-text">After your conversion is complete, click <strong>Export to Google Forms</strong> — the black button with the Google icon on the Conversion Complete screen.</span></li>
+                <li><span class="step-num">2</span><span class="step-text">A Google sign-in page opens: <strong>"Choose an account to continue to Pirai AI."</strong> Select the Google account where you want the form created.</span></li>
+                <li><span class="step-num">3</span><span class="step-text">Google shows a permissions screen: <strong>"Pirai AI wants access to your Google Account."</strong> Review the permissions and click <strong>Continue</strong>. If you have previously authorised Pirai AI, you may see a shorter screen showing "Pirai AI already has some access" — click <strong>Continue</strong> to proceed.</span></li>
+                <li><span class="step-num">4</span><span class="step-text">A <strong>"Google Form Created"</strong> confirmation modal appears: "Your survey has been exported to Google Forms and is ready to edit and share." The form name and a <code>docs.google.com/forms</code> link are shown. Click <strong>Open Google Form</strong>.</span></li>
+                <li><span class="step-num">5</span><span class="step-text">Your Google Form opens in the Forms editor with all questions, answer options, and question types created automatically. Review, add any display logic or settings, and share.</span></li>
+            </ol>
+
+            <!-- Path 2: Apps Script -->
+            <div class="sub-section-title" style="margin-top:40px;">Path 2: Apps Script — No Drive Permissions Granted to Pirai AI</div>
+
             <div class="file-callout">
                 <div class="fc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
-                <p><strong>Your Pirai AI file:</strong> Download the <strong>.txt</strong> file from the platform. It contains the complete Apps Script code pre-populated with all your survey questions and answer options.</p>
+                <p><strong>Your Pirai AI file:</strong> Download the <strong>.txt</strong> file from the platform. It contains the complete Apps Script code pre-populated with all your survey questions and answer options. Pirai AI receives no access to your Google account for this method.</p>
             </div>
+
             <div class="warning-callout">
                 <div class="fc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:1px;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
-                <p>You will need a Google account to access Apps Script. The script creates a new Google Form automatically when executed. No manual question entry is required.</p>
+                <p>You will need a Google account to run the Apps Script. The script creates a new Google Form automatically when executed. No manual question entry is required. The one-time permission prompt is a standard Google safety check — it applies only to the specific project you create, not to your entire account.</p>
             </div>
+
             <ol class="steps-list">
                 <li><span class="step-num">1</span><span class="step-text">Open your Pirai AI <code>.txt</code> file in any text editor. Select all the script content (Ctrl+A or Cmd+A) and copy it (Ctrl+C or Cmd+C).</span></li>
                 <li><span class="step-num">2</span><span class="step-text">Go to <strong>script.google.com</strong> and sign in with your Google account. Click <strong>New project</strong> in the top-left corner.</span></li>
@@ -1348,8 +1383,9 @@
                 <li><span class="step-num">6</span><span class="step-text"><strong>Grant permissions (one-time only):</strong> Click <strong>Review permissions</strong> in the pop-up. Select your Google account. Click <strong>Advanced</strong>, then <strong>Go to project (unsafe)</strong>. Click <strong>Allow</strong>.</span></li>
                 <li><span class="step-num">7</span><span class="step-text">Check the <strong>Execution log</strong> at the bottom of the screen. Copy the form URL from the log and open it in a new tab to see your completed Google Form with all questions created automatically.</span></li>
             </ol>
+
             <div style="margin-top:24px;">
-                <p style="font-size:14px;font-weight:600;color:#1a1a1a;margin-bottom:12px;">Video walkthrough</p>
+                <p style="font-size:14px;font-weight:600;color:#1a1a1a;margin-bottom:12px;">Video walkthrough — Apps Script method</p>
                 <div style="padding:56.25% 0 0 0;position:relative;border-radius:8px;overflow:hidden;">
                     <iframe src="https://player.vimeo.com/video/1198619004?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="How to Import into Google Forms with Pirai AI"></iframe>
                 </div>
@@ -1358,7 +1394,7 @@
         </div>
 
 
-        <div class="platform-panel" id="panel-qualtrics">
+              <div class="platform-panel" id="panel-qualtrics">
             <div class="platform-header">
                 <div>
                     <div class="platform-title">Qualtrics</div>
