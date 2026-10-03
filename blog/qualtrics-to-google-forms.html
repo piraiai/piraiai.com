@@ -678,11 +678,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </table></div>
 
         <h2 id="step-by-step">Step-by-Step: Qualtrics to Google Forms</h2>
-        <ul class="step-list">
-            <li><div class="step-num">1</div><div class="step-body"><strong id="step-1">Export your Qualtrics survey as QSF</strong><span>In Qualtrics, go to Survey > Tools > Import/Export Survey > Export Survey. Download the <span class="file-pill">.qsf</span> file.</span></div></li>
-            <li><div class="step-num">2</div><div class="step-body"><strong id="step-2">Upload to Pirai AI and select Google Forms</strong><span>Go to <a href="https://platform.piraiai.com" target="_blank" rel="noopener">platform.piraiai.com</a>, upload the <span class="file-pill">.qsf</span>, and select Google Forms. Download the <span class="file-pill">.txt</span> Apps Script file.</span></div></li>
-            <li><div class="step-num">3</div><div class="step-body"><strong id="step-3">Copy the Apps Script</strong><span>Open the <span class="file-pill">.txt</span> file, select all, and copy.</span></div></li>
-            <li><div class="step-num">4</div><div class="step-body"><strong id="step-4">Run the script in Google Forms</strong><span>Open a blank Google Form. Click three-dot menu > Apps Script. Delete default code. Paste and click Run. All questions are created automatically.</span></div></li>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;color:#9B6BFF;margin:0 0 12px;">Option A: One-click Export  -  Form Created Directly in Google Drive <span style="background:#9B6BFF;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:10px;margin-left:6px;">NEW</span></h3><ul class="step-list">
+            <li><div class="step-num">1</div><div class="step-body"><strong>Upload and select Google Forms</strong><span>Go to <a href="https://platform.piraiai.com" target="_blank" rel="noopener">platform.piraiai.com</a>, upload the <span class="file-pill">.qsf</span> file, and select Google Forms.</span></div></li>
+            <li><div class="step-num">2</div><div class="step-body"><strong>Click Export to Google Forms</strong><span>Click <a href="/blog/convert-document-to-google-forms-directly" style="color:#9B6BFF;"><strong>Export to Google Forms</strong></a>. Sign in with Google when prompted.</span></div></li>
+            <li><div class="step-num">3</div><div class="step-body"><strong>Grant permission  -  your form is ready</strong><span>Google shows a permission screen. Click <strong>Continue</strong>. Pirai AI creates a native Google Form <a href="/blog/convert-document-to-google-forms-directly" style="color:#9B6BFF;"><strong>directly in your Google Drive</strong></a>. A "Google Form Created" modal appears  -  click <strong>Open Google Form</strong>. All questions are in place.</span></div></li>
+        </ul>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;color:#374151;margin:28px 0 12px;">Option B: Apps Script  -  No Drive Permissions Granted to Pirai AI</h3><ul class="step-list">
+            <li><div class="step-num">1</div><div class="step-body"><strong>Export your Qualtrics survey as QSF and upload</strong><span>In Qualtrics, go to Survey > Tools > Import/Export Survey > Export Survey. Upload the <span class="file-pill">.qsf</span> to <a href="https://platform.piraiai.com" target="_blank" rel="noopener">platform.piraiai.com</a>, select Google Forms, and download the <span class="file-pill">.txt</span> Apps Script file.</span></div></li>
+            <li><div class="step-num">2</div><div class="step-body"><strong>Copy the Apps Script</strong><span>Open the <span class="file-pill">.txt</span> file, select all, and copy.</span></div></li>
+            <li><div class="step-num">3</div><div class="step-body"><strong>Run the script in Google Forms</strong><span>Open a blank Google Form. Click three-dot menu > Apps Script. Delete default code. Paste and click Run. All questions are created automatically.</span></div></li>
         </ul>
 
         <h2 id="question-mapping">Question Type Mapping</h2>
@@ -704,6 +708,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p><strong>What does not migrate:</strong> Qualtrics display logic, embedded data, randomisation, and scoring do not transfer. Google Forms has significantly simpler logic capabilities. Rebuild any complex branching in Google Forms after import.</p>
         </div>
 
+<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-left:4px solid #16a34a;border-radius:8px;padding:18px 20px;margin:24px 0;">
+    <p style="margin:0;font-size:15px;color:#15803d;font-weight:600;">NEW: Pirai AI now creates Google Forms directly in your Google Drive</p>
+    <p style="margin:8px 0 0;font-size:15px;color:#374151;line-height:1.65;">After uploading, click <strong>Export to Google Forms</strong>. Pirai AI creates a native Google Form <strong>directly in your Google Drive</strong> via one-click OAuth. No Script Editor. No pasting. No running code. <a href="/blog/export-to-google-forms-one-click" style="color:#9B6BFF;">How the one-click export works.</a></p>
+</div>
         <div class="inline-cta">
             <p>Migrate your Qualtrics surveys to Google Forms without manual rebuilding.</p>
             <a href="https://platform.piraiai.com" target="_blank" rel="noopener">Start Migration</a>

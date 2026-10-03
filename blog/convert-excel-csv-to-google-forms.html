@@ -449,10 +449,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>Word documents and PDFs contain free-form text. Excel and CSV files contain structured tabular data: one column for question text, another for answer options, another for question type. Pirai AI reads this structure and maps each row to the correct Google Forms question type in the generated Apps Script.</p>
 
         <h2 id="how-it-works">How to Convert Excel or CSV to Google Forms</h2>
-        <ul class="step-list">
-            <li><div class="step-num">1</div><div class="step-body"><strong id="step-1">Upload your Excel or CSV file</strong><span>Go to <a href="https://platform.piraiai.com" target="_blank" rel="noopener">platform.piraiai.com</a> and upload your <span class="file-pill">.xlsx</span> or <span class="file-pill">.csv</span> file. This can be a question bank, assessment spec, survey codebook, or any structured question list.</span></div></li>
-            <li><div class="step-num">2</div><div class="step-body"><strong id="step-2">Select Google Forms</strong><span>Choose Google Forms. Pirai AI reads the tabular structure and generates a <span class="file-pill">.txt</span> Apps Script with all questions and answer options populated.</span></div></li>
-            <li><div class="step-num">3</div><div class="step-body"><strong id="step-3">Run the script in Google Forms</strong><span>Open a blank Google Form. Click the three-dot menu > Apps Script. Delete default code. Paste your script. Save and Run. Grant permissions. Your form is built.</span></div></li>
+        <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-left:4px solid #16a34a;border-radius:8px;padding:18px 20px;margin:24px 0;">
+    <p style="margin:0;font-size:15px;color:#15803d;font-weight:600;">NEW: Pirai AI now creates Google Forms directly in your Google Drive</p>
+    <p style="margin:8px 0 0;font-size:15px;color:#374151;line-height:1.65;">After uploading, click <strong>Export to Google Forms</strong>. Pirai AI creates a native Google Form <strong>directly in your Google Drive</strong> via one-click OAuth. No Script Editor. No pasting. No running code. <a href="/blog/export-to-google-forms-one-click" style="color:#9B6BFF;">How the one-click export works.</a></p>
+</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;color:#9B6BFF;margin:0 0 12px;">Option A: One-click Export  -  Form Created Directly in Google Drive <span style="background:#9B6BFF;color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:10px;margin-left:6px;">NEW</span></h3><ul class="step-list">
+            <li><div class="step-num">1</div><div class="step-body"><strong>Upload and select Google Forms</strong><span>Go to <a href="https://platform.piraiai.com" target="_blank" rel="noopener">platform.piraiai.com</a> and upload your <span class="file-pill">.xlsx</span> or <span class="file-pill">.csv</span> file  -  question bank, assessment spec, or any structured question list. Select Google Forms.</span></div></li>
+            <li><div class="step-num">2</div><div class="step-body"><strong>Click Export to Google Forms</strong><span>Click <a href="/blog/convert-document-to-google-forms-directly" style="color:#9B6BFF;"><strong>Export to Google Forms</strong></a>. Sign in with Google when prompted.</span></div></li>
+            <li><div class="step-num">3</div><div class="step-body"><strong>Grant permission  -  your form is ready</strong><span>Google shows a permission screen. Click <strong>Continue</strong>. Pirai AI creates a native Google Form <a href="/blog/convert-document-to-google-forms-directly" style="color:#9B6BFF;"><strong>directly in your Google Drive</strong></a>. A "Google Form Created" modal appears  -  click <strong>Open Google Form</strong>. All questions are in place.</span></div></li>
+        </ul>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;color:#374151;margin:28px 0 12px;">Option B: Apps Script  -  No Drive Permissions Granted to Pirai AI</h3><ul class="step-list">
+            <li><div class="step-num">1</div><div class="step-body"><strong id="step-1">Upload your Excel or CSV file</strong><span>Go to <a href="https://platform.piraiai.com" target="_blank" rel="noopener">platform.piraiai.com</a> and upload your <span class="file-pill">.xlsx</span> or <span class="file-pill">.csv</span> file. Select Google Forms. Pirai AI reads the tabular structure and generates a <span class="file-pill">.txt</span> Apps Script with all questions and answer options populated.</span></div></li>
+            <li><div class="step-num">2</div><div class="step-body"><strong id="step-2">Paste into Google Forms Apps Script editor</strong><span>Open a blank Google Form. Click the three-dot menu > Apps Script. Delete default code. Paste your script.</span></div></li>
+            <li><div class="step-num">3</div><div class="step-body"><strong id="step-3">Save, Run, done</strong><span>Click Save then Run. Grant permissions when prompted. Your form is built automatically from your spreadsheet data.</span></div></li>
         </ul>
 
         <h2 id="use-cases">Education and Research Use Cases</h2>
@@ -489,7 +498,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <li><a href="#why-excel-csv">Why Excel and CSV Is Different</a></li>
                 <li><a href="#how-it-works">Step-by-Step Guide</a></li>
                 <li><a href="#use-cases">Use Cases</a></li>
-                <li><a href="#get-started">Get Started</a></li>
                 <li><a href="#get-started">Get Started</a></li>
             </ul>
         </div>
