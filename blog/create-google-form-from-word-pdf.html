@@ -167,7 +167,12 @@
         </div>
 
             <div class="tldr-box"><span class="tldr-label">Quick Answer</span>
-            <p>Google Forms cannot open Word or PDF files directly. To create a Google Form from an existing document: upload to <strong>platform.piraiai.com</strong>, select Google Forms, download the Apps Script, open a blank Google Form, three-dot menu &gt; Script editor, paste and click Run. The form is created from your document in under 3 minutes. No Drive access granted to any third party.</p></div>
+            <p>Google Forms cannot open Word or PDF files directly. To create a Google Form from an existing document: upload to <strong>platform.piraiai.com</strong>, select Google Forms, download the Apps Script, open a blank Google Form, three-dot menu &gt; Script editor, paste and click Run. The form is created from your document in under 3 minutes. No Drive access granted to any third party.</p>
+
+            <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-left:4px solid #16a34a;border-radius:8px;padding:18px 20px;margin:24px 0;">
+    <p style="margin:0;font-size:15px;color:#15803d;font-weight:600;">NEW: Pirai AI now creates Google Forms <a href="/blog/convert-document-to-google-forms-directly" style="color:#9B6BFF;">directly in your Google Drive</a></p>
+    <p style="margin:8px 0 0;font-size:15px;color:#374151;line-height:1.65;">After uploading your document, click <strong><a href="/blog/export-to-google-forms-one-click" style="color:#9B6BFF;">Export to Google Forms</a></strong>. Pirai AI creates a native Google Form <strong><a href="/blog/convert-document-to-google-forms-directly" style="color:#9B6BFF;">directly in your Google Drive</a></strong> via one-click OAuth. No Script Editor. No pasting. <a href="/blog/export-to-google-forms-one-click" style="color:#9B6BFF;">How the one-click export works.</a></p>
+</div></div>
 
             <h2 id="can-google-forms-open-word">Can Google Forms Open a Word or PDF File?</h2>
             <p>No. Google Forms has no file import button for external documents. The only supported import is questions from another Google Form in your Drive. Word files, PDFs, and Excel spreadsheets must either be manually recreated question by question, or processed through a third-party tool.</p>
@@ -180,13 +185,13 @@
             <p><strong>Limitations:</strong> Requires granting Drive read access. Matrix questions and Likert batteries are typically dropped or converted to individual questions. The intermediate Google Doc step adds time and formatting errors.</p>
 
             <h2 id="method-3">Method 3: Pirai AI - Fastest for Complex Surveys</h2>
-            <p>Upload your Word or PDF directly to Pirai AI without converting to Google Docs first. Pirai AI generates a Google Apps Script from the document. You paste and run it in a blank Google Form. No Drive access granted at any point.</p>
+            <p>Upload your Word or PDF directly to Pirai AI without converting to Google Docs first. Two delivery options: <strong>one-click OAuth export</strong> — click Export to Google Forms, authorise with Google, and Pirai AI creates the form <a href="/blog/convert-document-to-google-forms-directly" style="color:#9B6BFF;"><strong>directly in your Google Drive</strong></a> in under 2 minutes; or <strong>Apps Script download</strong> — Pirai AI generates a .txt script you paste and run in a blank Google Form with no Pirai AI Drive permissions required.</p>
             <table class="comparison-table">
             <thead><tr><th>Factor</th><th>Manual</th><th>Add-On</th><th class="pirai">Pirai AI</th></tr></thead>
             <tbody>
             <tr><td>Time for 30 questions</td><td>45-60 min</td><td>5-10 min + setup</td><td class="pirai"><span class="check">Under 3 min</span></td></tr>
             <tr><td>Matrix questions preserved</td><td>Manually</td><td><span class="cross">Usually dropped</span></td><td class="pirai"><span class="check">Yes, as Grid</span></td></tr>
-            <tr><td>Drive access required</td><td>No</td><td><span class="cross">Yes</span></td><td class="pirai"><span class="check">No</span></td></tr>
+            <tr><td>Drive access required</td><td>No</td><td><span class="cross">Yes</span></td><td class="pirai"><span class="check">None (Apps Script) or scoped drive.file only (one-click)</span></td></tr>
             <tr><td>Scanned PDF support</td><td>Manual transcription</td><td>Varies</td><td class="pirai"><span class="check">Yes (OCR)</span></td></tr>
             <tr><td>Also exports to Qualtrics</td><td>No</td><td>No</td><td class="pirai"><span class="check">Yes (27+ platforms)</span></td></tr>
             </tbody></table>
@@ -196,19 +201,19 @@
             <h2 id="faq">Frequently Asked Questions</h2>
             <div class="accordion-section">
                 <div class="accordion-header" onclick="toggleAccordion(this)">Can I upload a Word document directly to Google Forms?<span class="accordion-icon">+</span></div>
-                <div class="accordion-body"><p>No. Google Forms cannot open or import Word (.docx) files. To create a Google Form from a Word document, use Pirai AI: upload the .docx at platform.piraiai.com, select Google Forms, download the Apps Script, paste into a blank Google Form's Script Editor (three-dot menu), and run it.</p></div>
+                <div class="accordion-body"><p>No. Google Forms cannot open or import Word (.docx) files. Pirai AI offers two methods: <strong>one-click</strong> — upload the .docx at platform.piraiai.com, select Google Forms, click <a href="/blog/export-to-google-forms-one-click" style="color:#9B6BFF;">Export to Google Forms</a>, authorise with Google, and the form is created <a href="/blog/convert-document-to-google-forms-directly" style="color:#9B6BFF;">directly in your Drive</a>; or <strong>Apps Script</strong> — download the .txt script, paste into a blank Google Form's Script Editor (three-dot menu), and run it.</p></div>
             </div>
             <div class="accordion-section">
                 <div class="accordion-header" onclick="toggleAccordion(this)">How do I make a Google Form from an existing PDF?<span class="accordion-icon">+</span></div>
-                <div class="accordion-body"><p>Upload the PDF to Pirai AI at platform.piraiai.com. Select Google Forms. Download the Apps Script. Open a blank Google Form, three-dot menu, Script editor, paste and run. For scanned PDFs, enable Advanced PDF Processing for OCR.</p></div>
+                <div class="accordion-body"><p>Upload the PDF to Pirai AI at platform.piraiai.com and select Google Forms. One-click: click <a href="/blog/export-to-google-forms-one-click" style="color:#9B6BFF;">Export to Google Forms</a>, authorise with Google, and the form appears directly in your Drive. Apps Script: download the .txt script, open a blank Google Form, three-dot menu > Script editor, paste and run. For scanned PDFs, enable Advanced PDF Processing for OCR first.</p></div>
             </div>
             <div class="accordion-section">
                 <div class="accordion-header" onclick="toggleAccordion(this)">What is the fastest way to create a Google Form from a Word document?<span class="accordion-icon">+</span></div>
-                <div class="accordion-body"><p>Pirai AI is the fastest route: upload the Word file, select Google Forms, download the Apps Script, paste and run in a blank Google Form. A 50-question survey takes under 3 minutes versus 60+ minutes of manual entry.</p></div>
+                <div class="accordion-body"><p>Pirai AI is the fastest route: upload the Word file, select Google Forms, click <a href="/blog/export-to-google-forms-one-click" style="color:#9B6BFF;">Export to Google Forms</a>, authorise with Google, and the form is created directly in your Drive in under 2 minutes. A 50-question survey via one-click takes under 2 minutes versus 60+ minutes of manual entry. The Apps Script method takes under 5 minutes.</p></div>
             </div>
             <div class="accordion-section">
                 <div class="accordion-header" onclick="toggleAccordion(this)">How do I create a Google Form from existing questions?<span class="accordion-icon">+</span></div>
-                <div class="accordion-body"><p>If the questions are in a Google Form already, use the native Import Questions button (arrow icon in the right toolbar). If they are in a Word, PDF, or Excel document, upload to Pirai AI, select Google Forms, download and run the Apps Script.</p></div>
+                <div class="accordion-body"><p>If the questions are in a Google Form already, use the native Import Questions button (arrow icon in the right toolbar). If they are in a Word, PDF, or Excel document, upload to Pirai AI, select Google Forms, then click Export to Google Forms for one-click Drive creation, or download and run the Apps Script.</p></div>
             </div>
 
             <div class="article-cta">

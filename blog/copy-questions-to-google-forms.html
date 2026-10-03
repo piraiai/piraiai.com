@@ -163,7 +163,7 @@
         <article class="article-content">
 
             <div class="definition-box"><span class="def-label">The Copy-Paste Problem in Google Forms</span>
-            <p>If you have tried to copy questions from a Word document and paste them into Google Forms, you already know the result: the pasted text appears as a description or title block, not as individual questions. Google Forms does not have a paste import feature. The text you paste is treated as plain text, not as a structured question list. The correct method uses Google Apps Script  -  and Pirai AI generates that script automatically from any copied or uploaded content.</p></div>
+            <p>If you have tried to copy questions from a Word document and paste them into Google Forms, you already know the result: the pasted text appears as a description or title block, not as individual questions. Google Forms does not have a paste import feature. The text you paste is treated as plain text, not as a structured question list. Pirai AI now offers two methods: one-click OAuth export creates the form <a href="/blog/convert-document-to-google-forms-directly" style="color:#9B6BFF;">directly in your Google Drive</a> (no Script Editor needed), or generates an Apps Script automatically from any copied or uploaded content.</p></div>
 
             <h2 id="why-paste-fails">Why Copy-Paste Does Not Work in Google Forms</h2>
             <p>Google Forms was designed as a point-and-click form builder. Every question is created individually through the interface. There is no "paste questions here" input field. When you paste text into the form editor, it fills the description field of whatever element is currently selected  -  not a new set of questions.</p>
@@ -181,6 +181,11 @@
 
             <h2 id="how-pirai-ai-helps">How Pirai AI Generates the Pasteable Script</h2>
             <p><strong>1. Copy your questions from any source</strong>  -  a Word document, a PDF, an Excel file, or even a plain text list  -  and paste them into the Pirai AI editor at platform.piraiai.com. Or upload the file directly.</p>
+
+            <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-left:4px solid #16a34a;border-radius:8px;padding:18px 20px;margin:24px 0;">
+    <p style="margin:0;font-size:15px;color:#15803d;font-weight:600;">NEW: Pirai AI now creates Google Forms <a href="/blog/convert-document-to-google-forms-directly" style="color:#9B6BFF;">directly in your Google Drive</a></p>
+    <p style="margin:8px 0 0;font-size:15px;color:#374151;line-height:1.65;">After uploading your document, click <strong><a href="/blog/export-to-google-forms-one-click" style="color:#9B6BFF;">Export to Google Forms</a></strong>. Pirai AI creates a native Google Form <strong>directly in your Google Drive</strong> via one-click OAuth. No Script Editor. No pasting. <a href="/blog/export-to-google-forms-one-click" style="color:#9B6BFF;">How the one-click export works.</a></p>
+</div>
             <p><strong>2. Select Google Forms</strong> and download the Apps Script. This is what you will paste  -  not into the form editor, but into the Script Editor.</p>
             <p><strong>3. Open a blank Google Form.</strong> Click the three-dot menu (top right) &gt; Script editor.</p>
             <p><strong>4. Paste the Apps Script</strong> into the Script Editor (replacing any existing code). Click Run.</p>

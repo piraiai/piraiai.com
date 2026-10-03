@@ -163,11 +163,16 @@
         <article class="article-content">
 
             <div class="tldr-box"><span class="tldr-label">Quick Answer</span>
-            <p>To make a Google Forms quiz from an existing Word or PDF document: upload to <strong>platform.piraiai.com</strong>, select Google Forms, download the Apps Script, run it in a blank Google Form. Then go to Settings &gt; Quizzes &gt; enable "Make this a quiz." Set correct answers and point values on each question. A 30-question quiz takes under 5 minutes total.</p></div>
+            <p>To make a Google Forms quiz from an existing Word or PDF document: upload to <strong>platform.piraiai.com</strong>, select Google Forms, download the Apps Script, run it in a blank Google Form. Then go to Settings &gt; Quizzes &gt; enable "Make this a quiz." Set correct answers and point values on each question. A 30-question quiz takes under 5 minutes total.</p>
+
+            <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-left:4px solid #16a34a;border-radius:8px;padding:18px 20px;margin:24px 0;">
+    <p style="margin:0;font-size:15px;color:#15803d;font-weight:600;">NEW: Pirai AI now creates Google Forms <a href="/blog/convert-document-to-google-forms-directly" style="color:#9B6BFF;">directly in your Google Drive</a></p>
+    <p style="margin:8px 0 0;font-size:15px;color:#374151;line-height:1.65;">After uploading your document, click <strong><a href="/blog/export-to-google-forms-one-click" style="color:#9B6BFF;">Export to Google Forms</a></strong>. Pirai AI creates a native Google Form <strong><a href="/blog/convert-document-to-google-forms-directly" style="color:#9B6BFF;">directly in your Google Drive</a></strong> via one-click OAuth. No Script Editor. No pasting. <a href="/blog/export-to-google-forms-one-click" style="color:#9B6BFF;">How the one-click export works.</a></p>
+</div></div>
 
             <h2 id="two-paths">Two Ways to Make a Google Forms Quiz</h2>
             <p><strong>Build from scratch:</strong> Go to forms.google.com, create a blank form, enable Quiz mode in Settings, add questions one by one and set answer keys. Right choice when creating new questions from scratch.</p>
-            <p><strong>Convert an existing quiz document:</strong> Upload your Word or PDF quiz to Pirai AI, run the Apps Script in a blank Google Form, then enable Quiz mode. Right choice when the quiz already exists in a document and you don't want to retype 30-60 questions.</p>
+            <p><strong>Convert an existing quiz document:</strong> Upload your Word or PDF quiz to Pirai AI and click <strong><a href="/blog/export-to-google-forms-one-click" style="color:#9B6BFF;">Export to Google Forms</a></strong>  -  Pirai AI creates the form directly in your Google Drive. Then enable Quiz mode (Settings > Quizzes). Alternatively, use the Apps Script method: download the .txt script and run it in a blank Google Form. Right choice when the quiz already exists in a document and you don't want to retype 30-60 questions.</p>
 
             <h2 id="build-from-scratch">Building a Quiz From Scratch in Google Forms</h2>
             <p><strong>Step 1.</strong> Go to forms.google.com, click the blank form + button, give the quiz a title.</p>
@@ -177,8 +182,15 @@
             <p><strong>Step 5.</strong> Preview (eye icon), submit a test response to confirm grading, then share the quiz link.</p>
 
             <h2 id="from-document">Converting an Existing Quiz Document</h2>
+            <p style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:#9B6BFF;margin:16px 0 8px;">Option A: One-click Export — Form Created Directly in Google Drive <span style="background:#9B6BFF;color:#fff;font-size:11px;padding:2px 8px;border-radius:10px;margin-left:6px;">NEW</span></p>
             <ol>
-            <li><strong>Upload at platform.piraiai.com.</strong> Word (.docx) or PDF. For scanned PDFs, enable Advanced PDF Processing for OCR. Mark correct answers in your document before uploading for the answer key to carry through automatically.</li>
+            <li><strong>Upload at platform.piraiai.com.</strong> Word (.docx) or PDF. For scanned PDFs, enable Advanced PDF Processing for OCR. Mark correct answers in your document before uploading.</li>
+            <li><strong>Click <a href="/blog/export-to-google-forms-one-click" style="color:#9B6BFF;">Export to Google Forms</a>.</strong> Sign in with Google, grant scoped permission — Pirai AI creates the form <a href="/blog/convert-document-to-google-forms-directly" style="color:#9B6BFF;">directly in your Google Drive</a>. Click Open Google Form.</li>
+            <li><strong>Enable Quiz mode.</strong> Settings &gt; Quizzes &gt; Make this a quiz. Set answer keys and point values per question.</li>
+            </ol>
+            <p style="font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:#374151;margin:16px 0 8px;">Option B: Apps Script — No Drive Permissions Granted to Pirai AI</p>
+            <ol>
+            <li><strong>Upload at platform.piraiai.com.</strong> Word (.docx) or PDF. For scanned PDFs, enable Advanced PDF Processing for OCR. Mark correct answers in your document before uploading.</li>
             <li><strong>Select Google Forms, download the Apps Script.</strong></li>
             <li><strong>Open a blank Google Form.</strong> Three-dot menu &gt; Script editor. Paste script. Click Run. All questions imported automatically.</li>
             <li><strong>Enable Quiz mode.</strong> Settings &gt; Quizzes &gt; Make this a quiz. Set answer keys and point values per question.</li>
@@ -201,7 +213,7 @@
             <h2 id="faq">Frequently Asked Questions</h2>
             <div class="accordion-section">
                 <div class="accordion-header" onclick="toggleAccordion(this)">How do I make a Google Forms quiz from a Word document?<span class="accordion-icon">+</span></div>
-                <div class="accordion-body"><p>Upload the Word file to Pirai AI at platform.piraiai.com, select Google Forms, download the Apps Script, run it in a blank Google Form via Script editor (three-dot menu). Then go to Settings > Quizzes > Make this a quiz. Set answer keys and point values on each question.</p></div>
+                <div class="accordion-body"><p>Upload the Word file to Pirai AI at platform.piraiai.com and select Google Forms. One-click: click Export to Google Forms, authorise with Google — form created directly in your Drive. Apps Script: download the .txt script, run it in a blank Google Form via Script editor (three-dot menu). Then go to Settings > Quizzes > Make this a quiz. Set answer keys and point values on each question.</p></div>
             </div>
             <div class="accordion-section">
                 <div class="accordion-header" onclick="toggleAccordion(this)">Can Google Forms auto-grade quiz questions?<span class="accordion-icon">+</span></div>
@@ -209,11 +221,11 @@
             </div>
             <div class="accordion-section">
                 <div class="accordion-header" onclick="toggleAccordion(this)">How do I turn a PDF quiz into a Google Forms quiz?<span class="accordion-icon">+</span></div>
-                <div class="accordion-body"><p>Upload the PDF to Pirai AI, select Google Forms, download and run the Apps Script in a blank Google Form, then enable Quiz mode in Settings. For scanned PDFs, enable Advanced PDF Processing.</p></div>
+                <div class="accordion-body"><p>Upload the PDF to Pirai AI and select Google Forms. One-click: click Export to Google Forms, authorise with Google — form in your Drive, then enable Quiz mode. Apps Script: download and run the .txt script in a blank Google Form, then enable Quiz mode. For scanned PDFs, enable Advanced PDF Processing before exporting.</p></div>
             </div>
             <div class="accordion-section">
                 <div class="accordion-header" onclick="toggleAccordion(this)">What is the fastest way to convert a quiz to Google Forms?<span class="accordion-icon">+</span></div>
-                <div class="accordion-body"><p>Pirai AI is the fastest: upload the quiz document, download the Apps Script, run it in a blank Google Form, enable Quiz mode. A 30-question multiple choice quiz takes under 5 minutes versus 45-60 minutes of manual entry.</p></div>
+                <div class="accordion-body"><p>Pirai AI one-click export is the fastest: upload the quiz document, click Export to Google Forms, authorise with Google, enable Quiz mode — under 2 minutes for any quiz length. The Apps Script method takes under 5 minutes. Both beat 45-60 minutes of manual entry for a 30-question quiz.</p></div>
             </div>
 
             <div class="article-cta">
