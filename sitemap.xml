@@ -38,6 +38,13 @@
     <changefreq>weekly</changefreq>
     <lastmod>2026-09-22</lastmod>
   </url>  
+  <!-- QA Runner - Highest priority -->
+  <url>
+    <loc>https://piraiai.com/qa-runner</loc>
+    <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
+    <lastmod>2026-10-05</lastmod>
+  </url>
   <!-- Flow - Highest priority -->
   <url>
     <loc>https://piraiai.com/nexus</loc>
