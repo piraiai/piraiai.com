@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Test a Qualtrics Survey Link Before Launch: Routing, Required Questions and Evidence | Pirai AI</title>
+    <meta name="description" content="A practical guide to testing Qualtrics survey links before launch: what to check, three ways to test, how to prove every route with a test plan, and how to check required questions. Free Chrome extension included.">
+
+    <meta name="keywords" content="how to test a qualtrics survey, test qualtrics survey link, qualtrics survey testing, qualtrics survey testing checklist, test skip logic qualtrics, test display logic qualtrics, test survey flow branch logic, qualtrics force response, qualtrics request response, hidden required asterisk, qualtrics generate test responses, qualtrics preview survey, test other please specify, survey qa before launch, survey programming qa, automated survey testing, survey routing test plan, survey link testing chrome extension, pirai qa runner">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://piraiai.com/blog/test-qualtrics-survey-link">
+    <meta property="og:title" content="How to Test a Qualtrics Survey Link Before Launch">
+    <meta property="og:description" content="What to check, three ways to test, and how to prove every route and required question before a Qualtrics survey goes live.">
+    <meta property="og:image" content="https://piraiai.com/image/qa-runner-screenshot-3.png">
+    <meta property="og:site_name" content="Pirai AI Blog">
+    <meta property="article:published_time" content="2026-10-05T00:00:00Z">
+    <meta property="article:author" content="Arun Raj">
+    <meta property="article:section" content="Survey Testing">
+    <meta property="article:tag" content="Qualtrics">
+    <meta property="article:tag" content="Survey Testing">
+    <meta property="article:tag" content="Survey QA">
+    <meta property="article:tag" content="Pirai QA Runner">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://piraiai.com/blog/test-qualtrics-survey-link">
+    <meta name="twitter:title" content="How to Test a Qualtrics Survey Link Before Launch">
+    <meta name="twitter:description" content="What to check, three ways to test, and how to prove every route and required question before a Qualtrics survey goes live.">
+    <meta name="twitter:image" content="https://piraiai.com/image/qa-runner-screenshot-3.png">
+
+    <link rel="canonical" href="https://piraiai.com/blog/test-qualtrics-survey-link">
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://piraiai.com/logo.png">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://piraiai.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Blog",
+              "item": "https://piraiai.com/blog"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Test a Qualtrics Survey Link",
+              "item": "https://piraiai.com/blog/test-qualtrics-survey-link"
+            }
+          ]
+        },
+        {
+          "@type": "TechArticle",
+          "headline": "How to Test a Qualtrics Survey Link Before Launch",
+          "description": "A practical guide to testing Qualtrics survey links before launch: what to check, three ways to test, how to prove every route with a test plan, and how to check required questions. Free Chrome extension included.",
+          "author": {
+            "@type": "Person",
+            "name": "Arun Raj",
+            "url": "https://piraiai.com"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Pirai AI",
+            "url": "https://piraiai.com",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://piraiai.com/logo.png"
+            }
+          },
+          "datePublished": "2026-10-05",
+          "dateModified": "2026-10-05",
+          "url": "https://piraiai.com/blog/test-qualtrics-survey-link",
+          "mainEntityOfPage": "https://piraiai.com/blog/test-qualtrics-survey-link",
+          "image": "https://piraiai.com/image/qa-runner-screenshot-3.png",
+          "keywords": "how to test a Qualtrics survey, test Qualtrics survey link, Qualtrics survey testing, test skip logic Qualtrics, test display logic Qualtrics, Qualtrics force response, Qualtrics generate test responses, survey QA checklist, survey routing testing, Pirai QA Runner"
+        },
+        {
+          "@type": "HowTo",
+          "name": "How to prove every route in a Qualtrics survey with a test plan",
+          "description": "Use Pirai QA Runner to run one scenario per route and confirm each pinned question was shown and answered.",
+          "step": [
+            {
+              "@type": "HowToStep",
+              "name": "Load every question",
+              "text": "Open the survey in the Qualtrics survey builder in another tab and click Load from survey builder, or upload a QSF. Every question appears in the panel, grouped by block, with required questions marked.",
+              "position": 1,
+              "url": "https://piraiai.com/blog/test-qualtrics-survey-link#plan-step-1"
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Pick the questions that drive routing",
+              "text": "Click a question and choose Vary across scenarios. Tick the answers to try, for example Very satisfied, Neutral and Very dissatisfied. Questions that should stay the same in every run can be kept fixed instead.",
+              "position": 2,
+              "url": "https://piraiai.com/blog/test-qualtrics-survey-link#plan-step-2"
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Preview the scenarios",
+              "text": "Choose Each value at least once for the fewest runs, or All combinations to test how two drivers interact. Untick any scenario you don't need.",
+              "position": 3,
+              "url": "https://piraiai.com/blog/test-qualtrics-survey-link#plan-step-3"
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Run the plan on the preview link",
+              "text": "Each scenario starts in a fresh session. Pinned questions get exactly the answers you chose; everything else is answered randomly from a seed.",
+              "position": 4,
+              "url": "https://piraiai.com/blog/test-qualtrics-survey-link#plan-step-4"
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Read the result for each scenario",
+              "text": "A pinned question is reported as applied, not shown, or not applied with a reason. A question that never appears in a route where it should is your routing defect.",
+              "position": 5,
+              "url": "https://piraiai.com/blog/test-qualtrics-survey-link#plan-step-5"
+            }
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Pirai QA Runner",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Chrome",
+          "url": "https://piraiai.com/qa-runner",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "description": "Free Chrome extension that tests Qualtrics survey links: answers every page, runs test plans for routing, checks required questions, and exports the results."
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I test a Qualtrics survey before sending it?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Preview the survey yourself, generate test responses to check the dataset and reports, and test the live link for each route through the survey. Check routing, required questions, Other boxes, validation and the end of survey page before launch."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the difference between preview and generating test responses in Qualtrics?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Preview lets you answer the survey yourself without the response counting towards your auditable responses. Generate test responses creates random dummy data in bulk, which is useful for checking your dataset and reports, but the answers are random rather than chosen to follow a particular route."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I test skip logic and display logic in Qualtrics?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "List the questions that drive your routing, decide which answers lead to each route, and run the survey once per route with those answers. Check that the questions you expect appear, and that the ones you don't expect stay hidden. A test plan in Pirai QA Runner does this automatically, one scenario per route."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How can I check that required questions are really required?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Click Next on a page without answering and see which questions block you. A question that is meant to be required but lets you through has Force response turned off. Pirai QA Runner does this check on every page and reports questions that are required but not enforced, or enforced but not marked."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I test a Qualtrics survey when the required asterisk is hidden?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Hiding the asterisk is a display setting; the question can still be required. Pirai QA Runner reads the required setting from the page even when the asterisk is hidden, and confirms it by clicking Next before answering."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do test runs on a live link count as responses?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Answers submitted through a live distribution link are recorded as real responses and count towards quotas. Test on the preview link where you can, and remove any test responses before analysis."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is Pirai QA Runner?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Pirai QA Runner is a free Chrome extension that tests Qualtrics survey links. It answers every question on each page, clicks Next until the end, follows test plans that pin the answers driving your routing, checks required questions, and lets you download the results as CSV files."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does Pirai QA Runner use AI?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Answers come from a seed, so the same seed on the same survey always gives the same answers. Questions you pin in a test plan always get the answers you chose, so every run can be repeated exactly."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is my survey data sent anywhere?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Pirai QA Runner runs entirely in your browser. Nothing is sent to Pirai AI or any other server, and files are saved to your computer only when you download them."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 32px; height: 32px; }
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: #1a1a1a; }
+        .blog-label { color: #9B6BFF; font-weight: 400; margin-left: 8px; }
+        header nav { display: flex; gap: 32px; }
+        header nav a { color: #6b7280; text-decoration: none; font-weight: 500; font-size: 15px; transition: color 0.2s; }
+        header nav a:hover { color: #9B6BFF; }
+
+        .breadcrumb { background: #f9fafb; border-bottom: 1px solid #e5e7eb; padding: 12px 24px; }
+        .breadcrumb-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 8px; font-size: 14px; color: #6b7280; }
+        .breadcrumb a { color: #6b7280; text-decoration: none; transition: color 0.2s; }
+        .breadcrumb a:hover { color: #9B6BFF; }
+        .breadcrumb-separator { color: #d1d5db; }
+        .breadcrumb-current { color: #1a1a1a; font-weight: 500; }
+
+        .hero { background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%); padding: 48px 24px; border-bottom: 1px solid #e5e7eb; }
+        .hero-container { max-width: 1200px; margin: 0 auto; }
+        .article-title { font-family: 'Space Grotesk', sans-serif; font-size: 42px; font-weight: 700; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; max-width: 820px; }
+        .article-meta { display: flex; align-items: center; gap: 16px; font-size: 14px; color: #6b7280; }
+        .author { font-weight: 600; color: #1a1a1a; }
+        .separator { color: #d1d5db; }
+
+        .content-wrapper { max-width: 1200px; margin: 0 auto; padding: 48px 24px; display: grid; grid-template-columns: 1fr 300px; gap: 48px; }
+        .article-content { max-width: 680px; overflow-x: hidden; }
+
+        .article-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: #1a1a1a; margin-top: 48px; margin-bottom: 16px; padding-left: 16px; border-left: 4px solid #9B6BFF; }
+        .article-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 600; color: #1a1a1a; margin-top: 32px; margin-bottom: 12px; }
+        .article-content p { font-size: 17px; color: #374151; margin-bottom: 20px; line-height: 1.75; }
+        .article-content ul, .article-content ol { margin-bottom: 20px; padding-left: 24px; }
+        .article-content li { font-size: 17px; color: #374151; margin-bottom: 10px; line-height: 1.7; }
+        .article-content strong { color: #1a1a1a; font-weight: 600; }
+        .article-content a { color: #9B6BFF; text-decoration: none; }
+        .article-content a:hover { text-decoration: underline; }
+
+        .file-pill { display: inline-block; background: #f3f0ff; color: #6d28d9; border: 1px solid #ddd6fe; border-radius: 4px; padding: 2px 8px; font-size: 13px; font-weight: 600; font-family: 'Space Grotesk', sans-serif; margin: 2px 3px 2px 0; white-space: nowrap; }
+
+        /* Key difference badge - highlights the Apps Script distinction */
+        .method-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #f0fdf4;
+            color: #15803d;
+            border: 1px solid #bbf7d0;
+            border-radius: 4px;
+            padding: 4px 12px;
+            font-size: 13px;
+            font-weight: 600;
+            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 16px;
+        }
+
+        .step-list { list-style: none; padding: 0; margin: 24px 0; }
+        .step-list li { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 20px; padding: 20px; background: #f9fafb; border-radius: 8px; border: 1px solid #e5e7eb; }
+        .step-num { flex-shrink: 0; width: 32px; height: 32px; background: #9B6BFF; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-family: 'Space Grotesk', sans-serif; font-size: 15px; }
+        .step-body { flex: 1; }
+        .step-body strong { display: block; font-size: 16px; color: #1a1a1a; margin-bottom: 4px; }
+        .step-body span { font-size: 15px; color: #4b5563; }
+
+        .warning-box {
+            background: #fef2f2;
+            border-left: 4px solid #ef4444;
+            padding: 20px 24px;
+            margin: 28px 0;
+            border-radius: 4px;
+        }
+        .warning-box p { font-size: 15px; color: #374151; margin-bottom: 8px; }
+        .warning-box p:last-child { margin-bottom: 0; }
+        .info-box {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 20px 24px;
+            margin: 28px 0;
+            border-radius: 4px;
+        }
+        .info-box p { font-size: 15px; color: #374151; margin-bottom: 8px; }
+        .info-box p:last-child { margin-bottom: 0; }
+        .highlight-box { background: #f5f3ff; border-left: 4px solid #9B6BFF; padding: 24px; margin: 28px 0; border-radius: 4px; }
+        .highlight-box h4 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: #1a1a1a; margin-bottom: 10px; }
+        .highlight-box p { font-size: 15px; color: #374151; margin-bottom: 0; }
+
+        .info-box { background: #f0fdf4; border-left: 4px solid #22c55e; padding: 20px 24px; margin: 28px 0; border-radius: 4px; }
+        .info-box p { font-size: 15px; color: #374151; margin-bottom: 8px; }
+        .info-box p:last-child { margin-bottom: 0; }
+
+        .table-scroll { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 24px 0; border: 1px solid #e5e7eb; border-radius: 8px; }
+        .file-table { width: 100%; border-collapse: collapse; margin: 0; border: none; border-radius: 0; overflow: hidden; min-width: 480px; }
+        .file-table th { background: #f9fafb; font-weight: 600; color: #1a1a1a; padding: 14px 16px; text-align: left; border-bottom: 2px solid #e5e7eb; font-size: 14px; }
+        .file-table td { padding: 14px 16px; border-bottom: 1px solid #f3f4f6; font-size: 14px; color: #374151; vertical-align: top; }
+        .file-table tr:last-child td { border-bottom: none; }
+        .file-table tr:hover { background: #fafafa; }
+        .check { color: #22c55e; font-weight: 700; }
+
+        .inline-cta { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); color: #fff; padding: 28px 32px; border-radius: 8px; margin: 40px 0; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+        .inline-cta p { font-size: 17px; font-weight: 600; margin: 0; }
+        .inline-cta a { background: #fff; color: #7c3aed; padding: 12px 22px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 15px; white-space: nowrap; transition: transform 0.2s; }
+        .inline-cta a:hover { transform: translateY(-2px); }
+
+        .sidebar { position: sticky; top: 80px; height: fit-content; }
+        .sidebar-section { background: #f9fafb; padding: 24px; border-radius: 8px; margin-bottom: 24px; }
+        .sidebar-section h3 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 700; color: #1a1a1a; margin-bottom: 16px; }
+        .toc-list { list-style: none; padding: 0; }
+        .toc-list li { margin-bottom: 12px; }
+        .toc-list a { color: #4b5563; text-decoration: none; font-size: 14px; transition: color 0.2s; display: flex; align-items: center; gap: 8px; }
+        .toc-list a:hover { color: #9B6BFF; }
+        .toc-list a::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #d1d5db; flex-shrink: 0; transition: background 0.2s; }
+        .toc-list a:hover::before { background: #9B6BFF; }
+
+        .cta-box { background: linear-gradient(135deg, #9B6BFF, #BFA8FF); padding: 28px; border-radius: 8px; text-align: center; color: #ffffff; }
+        .cta-box h3 { font-family: 'Space Grotesk', sans-serif; font-size: 19px; font-weight: 700; margin-bottom: 10px; }
+        .cta-box p { font-size: 14px; margin-bottom: 18px; opacity: 0.95; }
+        .cta-button { display: inline-block; background: #ffffff; color: #9B6BFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 15px; transition: transform 0.2s; }
+        .cta-button:hover { transform: translateY(-2px); }
+
+        .lllm-seo-section { border: 1px solid #e5e7eb; border-radius: 8px; margin: 48px 0 32px; overflow: hidden; }
+        .lllm-seo-section summary { padding: 18px 24px; background: #f9fafb; cursor: pointer; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 16px; color: #374151; list-style: none; display: flex; align-items: center; gap: 10px; user-select: none; }
+        .lllm-seo-section summary::-webkit-details-marker { display: none; }
+        .lllm-seo-section summary::after { content: '+'; margin-left: auto; font-size: 20px; color: #9B6BFF; font-weight: 400; }
+        details[open] .lllm-seo-section summary::after { content: '-'; }
+        .lllm-seo-inner { padding: 24px; }
+        .lllm-seo-inner dl { display: grid; grid-template-columns: 160px 1fr; gap: 12px 24px; }
+        .lllm-seo-inner dt { font-weight: 600; font-size: 13px; color: #1a1a1a; padding-top: 2px; }
+        .lllm-seo-inner dd { font-size: 13px; color: #4b5563; margin: 0; line-height: 1.6; }
+
+        .also-useful { margin: 40px 0 20px; padding: 20px 24px; background: #f9fafb; border-radius: 6px; border: 1px solid #e5e7eb; }
+        .also-useful p { font-size: 13px; color: #6b7280; margin: 0; line-height: 1.8; }
+        .also-useful strong { font-size: 13px; color: #374151; display: block; margin-bottom: 6px; }
+
+        .related-articles { max-width: 1200px; margin: 0 auto; padding: 64px 24px; border-top: 1px solid #e5e7eb; }
+        .related-articles h2 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; margin-bottom: 32px; text-align: center; }
+        .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .related-card { background: #f9fafb; border-radius: 8px; padding: 24px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; border: 1px solid #e5e7eb; }
+        .related-card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0,0,0,0.08); }
+        .related-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: #1a1a1a; margin-bottom: 8px; }
+        .related-card p { font-size: 14px; color: #6b7280; margin: 0; }
+
+        footer { background: #f9fafb; border-top: 1px solid #e5e7eb; padding: 32px 24px; text-align: center; }
+        footer p { color: #6b7280; font-size: 14px; }
+
+        @media (max-width: 968px) {
+            .content-wrapper { grid-template-columns: 1fr; }
+            .sidebar { position: static; }
+            .article-title { font-size: 32px; }
+            .related-grid { grid-template-columns: 1fr; }
+            .inline-cta { flex-direction: column; }
+        }
+        @media (max-width: 640px) {
+            header nav { display: none; }
+            .article-title { font-size: 26px; }
+            .article-content h2 { font-size: 22px; }
+            .lllm-seo-inner dl { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<!-- Header -->
+<header>
+    <div class="header-container">
+        <a href="/" class="logo">
+            <img src="https://piraiai.com/logo.png" alt="Pirai AI Logo">
+            <span class="logo-text">Pirai AI <span class="blog-label">/ Blog</span></span>
+        </a>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/blog">All Articles</a>
+            <a href="/docs">Documentation</a>
+            <a href="/qualtrics-toolkit">Free Tools</a>
+        </nav>
+    </div>
+</header>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+    <div class="breadcrumb-container">
+        <a href="/">Home</a>
+        <span class="breadcrumb-separator">›</span>
+        <a href="/blog">Blog</a>
+        <span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">Test a Qualtrics Survey Link</span>
+    </div>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+    <div class="hero-container">
+        <h1 class="article-title">How to Test a Qualtrics Survey Link Before Launch</h1>
+        <div class="article-meta">
+            <span class="author">Arun Raj</span>
+            <span class="separator">•</span>
+            <span>October 5, 2026</span>
+            <span class="separator">•</span>
+            <span>9 min read</span>
+        </div>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div class="content-wrapper">
+
+    <article class="article-content">
+
+        <p>The survey has been written, reviewed and built. Every question is in Qualtrics, the logic is in place, and the link is ready to send. The only thing left is to check that it actually works.</p>
+
+        <p>That last check is where most survey problems slip through. A follow up question that never appears. A required question that lets people skip it. An Other box that accepts a blank. None of them show up until real responses arrive, and by then the data is already affected.</p>
+
+        <p>This guide covers what to check before a Qualtrics survey goes live, the three ways to test it, and how to prove every route works without clicking through the link by hand for an afternoon.</p>
+
+        <h2 id="what-to-check">What to Check Before a Survey Goes Live</h2>
+
+        <p>A survey link can look perfect in preview and still fail on the routes nobody tried. These are the areas that cause the most problems after launch.</p>
+
+        <div class="table-scroll">
+        <table class="file-table">
+            <thead><tr><th>Area</th><th>What can go wrong</th><th>How to check it</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Routing</strong></td><td>Skip logic, display logic or a branch in the survey flow sends people past questions they should see, or shows questions they shouldn't.</td><td>Run the survey once per route, with the answers that drive that route.</td></tr>
+                <tr><td><strong>Required questions</strong></td><td>Force response is off on a question the questionnaire says is required, or on when it shouldn't be.</td><td>Click Next on each page before answering and see which questions block you.</td></tr>
+                <tr><td><strong>Other, please specify</strong></td><td>The text box can be left empty, or the choice with the box isn't set up to require text.</td><td>Pick the Other choice, leave the box empty and click Next.</td></tr>
+                <tr><td><strong>Validation</strong></td><td>Content validation rejects real answers, or custom validation lets through answers it shouldn't.</td><td>Enter both valid and invalid values and check the messages.</td></tr>
+                <tr><td><strong>Question types</strong></td><td>A matrix, slider, MaxDiff or drag and drop question behaves differently on the live link than you expect.</td><td>Answer every question type on the page at least once.</td></tr>
+                <tr><td><strong>End of survey</strong></td><td>A route ends early, loops, or never reaches the end of survey message.</td><td>Follow each route all the way to the last page.</td></tr>
+            </tbody>
+        </table>
+        </div>
+
+        <div class="highlight-box">
+            <h4>The routes are the hard part</h4>
+            <p>Checking one path through a survey is quick. Checking every path is not. A survey with three routing questions of three answers each has up to 27 combinations, and each one is a full pass through the survey. That is why routing defects are the ones that most often reach respondents.</p>
+        </div>
+
+        <h2 id="three-ways">Three Ways to Test a Qualtrics Survey</h2>
+
+        <p>Each method answers a different question. Most teams need more than one.</p>
+
+        <h3>1. Preview the survey yourself</h3>
+        <p>Preview opens the survey as a respondent sees it, and your answers don't count towards your auditable responses. It is the best way to read the survey as a respondent would, but every route is a manual pass, and there is no record of which answers you tried.</p>
+
+        <h3>2. Generate test responses</h3>
+        <p>Qualtrics can generate random dummy data in bulk from the Tools menu, including random text for text entry questions. It is ideal for checking your dataset, exports and reports before launch, and these responses don't count towards your license limits. Because the answers are random, it isn't designed to follow a particular route, and Qualtrics notes that custom validation isn't applied to test responses.</p>
+
+        <h3>3. Test the live link automatically</h3>
+        <p><a href="/qa-runner">Pirai QA Runner</a> is a free Chrome extension that tests the survey link itself, in your browser, the way a respondent would. It answers every page, clicks Next to the end, follows test plans that pin the answers driving your routing, and checks required questions as it goes.</p>
+
+        <div class="table-scroll">
+        <table class="file-table">
+            <thead><tr><th></th><th>Preview</th><th>Generate test responses</th><th>Pirai QA Runner</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Best for</strong></td><td>Reading the survey as a respondent</td><td>Checking the dataset and reports</td><td>Proving routes and required settings on the link</td></tr>
+                <tr><td><strong>Answers</strong></td><td>Typed by you</td><td>Random</td><td>Chosen by you for routing questions, repeatable for the rest</td></tr>
+                <tr><td><strong>Routes</strong></td><td>One manual pass each</td><td>Not targeted</td><td>One scenario each, run automatically</td></tr>
+                <tr><td><strong>Required questions</strong></td><td>Checked by hand</td><td>Not checked</td><td>Checked on every page</td></tr>
+                <tr><td><strong>Record of what was tested</strong></td><td>None</td><td>Responses in Data &amp; Analysis</td><td>Results, answers and required checks as CSV files</td></tr>
+            </tbody>
+        </table>
+        </div>
+
+        <div class="inline-cta">
+            <p>Test your next survey link from first page to last, in your browser.</p>
+            <a href="/qa-runner">Get Pirai QA Runner</a>
+        </div>
+
+        <h2 id="test-routing">How to Prove Every Route With a Test Plan</h2>
+
+        <p>A test plan lists the questions that drive your routing and the answers to try for each. Pirai QA Runner turns it into scenarios and runs each one in a fresh session.</p>
+
+        <ul class="step-list">
+            <li>
+                <div class="step-num">1</div>
+                <div class="step-body">
+                    <strong id="plan-step-1">Load every question</strong>
+                    <span>Open the survey in the Qualtrics survey builder in another tab and click Load from survey builder, or upload a QSF. Every question appears in the panel, grouped by block, with required questions marked.</span>
+                </div>
+            </li>
+            <li>
+                <div class="step-num">2</div>
+                <div class="step-body">
+                    <strong id="plan-step-2">Pick the questions that drive routing</strong>
+                    <span>Click a question and choose Vary across scenarios. Tick the answers to try, for example Very satisfied, Neutral and Very dissatisfied. Questions that should stay the same in every run can be kept fixed instead.</span>
+                </div>
+            </li>
+            <li>
+                <div class="step-num">3</div>
+                <div class="step-body">
+                    <strong id="plan-step-3">Preview the scenarios</strong>
+                    <span>Choose Each value at least once for the fewest runs, or All combinations to test how two drivers interact. Untick any scenario you don't need.</span>
+                </div>
+            </li>
+            <li>
+                <div class="step-num">4</div>
+                <div class="step-body">
+                    <strong id="plan-step-4">Run the plan on the preview link</strong>
+                    <span>Each scenario starts in a fresh session. Pinned questions get exactly the answers you chose; everything else is answered randomly from a seed.</span>
+                </div>
+            </li>
+            <li>
+                <div class="step-num">5</div>
+                <div class="step-body">
+                    <strong id="plan-step-5">Read the result for each scenario</strong>
+                    <span>A pinned question is reported as applied, not shown, or not applied with a reason. A question that never appears in a route where it should is your routing defect.</span>
+                </div>
+            </li>
+        </ul>
+
+        <figure style="margin:28px 0;">
+            <img src="https://piraiai.com/image/qa-runner-screenshot-3.png" alt="Pirai QA Runner test plan results: the follow up question appears only for dissatisfied customers" width="1280" height="800" loading="lazy" style="width:100%;height:auto;border-radius:10px;border:1px solid #e5e7eb;">
+            <figcaption style="font-size:13px;color:#6b7280;margin-top:8px;">Three scenarios on a customer experience survey. The follow up question appears only for dissatisfied customers, and the other two scenarios report it as not shown.</figcaption>
+        </figure>
+
+        <div class="info-box">
+            <h4>How many scenarios do you need?</h4>
+            <p>Each value at least once gives the fewest runs: the number of scenarios equals the largest number of answers on any one routing question. Three questions with three answers each need only three scenarios this way, instead of 27 for every combination.</p>
+        </div>
+
+        <h2 id="required-questions">How to Check Required Questions</h2>
+
+        <p>Qualtrics has two kinds of required question. Force response blocks the respondent until they answer. Request response shows a prompt and lets them continue. Either can be set on a question whether or not the required asterisk is shown, because hiding the asterisk is a display setting.</p>
+
+        <p>The reliable check is behaviour, not appearance: click Next before answering and see what stops you. With required checks turned on, Pirai QA Runner does this on every page with required questions and reports one of three results:</p>
+
+        <ul>
+            <li><strong>Pass:</strong> marked required, and Next is blocked until it is answered.</li>
+            <li><strong>Fail:</strong> marked required, but Next goes through on an empty page. Force response is probably off.</li>
+            <li><strong>Flag:</strong> not marked required, but Next is blocked. Usually custom validation, or a setting nobody expected.</li>
+        </ul>
+
+        <p>It also checks Other, please specify boxes: it picks the choice with the box, leaves the box empty and clicks Next. If Next is blocked, the box is required, and the runner fills it in and carries on.</p>
+
+        <div class="warning-box">
+            <h4>Test on the preview link</h4>
+            <p>Answers submitted through a live distribution link are recorded as real responses and count towards quotas. Use the preview link for testing wherever you can, and remove any test responses before analysis.</p>
+        </div>
+
+        <h2 id="evidence">Keep Evidence of What Was Tested</h2>
+
+        <p>When a client or stakeholder asks what was checked before launch, "we clicked through it" is not much of an answer. After a run or a plan, Pirai QA Runner lets you download:</p>
+
+        <ul>
+            <li><strong>Results:</strong> one row per question per page for a run, or one row per pinned answer per scenario for a plan.</li>
+            <li><strong>Answers given:</strong> every answer in readable text, marked as pinned or random.</li>
+            <li><strong>Required checks:</strong> one row per check, with pass, fail, flag, required or optional.</li>
+        </ul>
+
+        <p>Every file opens in Excel. Answers come from a seed, so the same seed reproduces any run exactly after a fix, and you can show that the problem is gone.</p>
+
+        <h2 id="checklist">A Checklist Before You Launch</h2>
+
+        <ul>
+            <li>Every routing question has been tested with each answer that changes the route.</li>
+            <li>Every question that should be required blocks Next when it is left empty.</li>
+            <li>Every Other, please specify box that should need text rejects a blank.</li>
+            <li>Validation messages appear for invalid values and not for valid ones.</li>
+            <li>Every route reaches the end of survey message.</li>
+            <li>The dataset and exports look right, using generated test responses.</li>
+            <li>Test responses have been removed or filtered out before analysis.</li>
+        </ul>
+
+        <h2 id="faq">Frequently Asked Questions</h2>
+
+        <h3>How do I test a Qualtrics survey before sending it?</h3>
+        <p>Preview the survey yourself, generate test responses to check the dataset and reports, and test the live link for each route through the survey. Check routing, required questions, Other boxes, validation and the end of survey page before launch.</p>
+
+        <h3>What is the difference between preview and generating test responses in Qualtrics?</h3>
+        <p>Preview lets you answer the survey yourself without the response counting towards your auditable responses. Generate test responses creates random dummy data in bulk, which is useful for checking your dataset and reports, but the answers are random rather than chosen to follow a particular route.</p>
+
+        <h3>How do I test skip logic and display logic in Qualtrics?</h3>
+        <p>List the questions that drive your routing, decide which answers lead to each route, and run the survey once per route with those answers. Check that the questions you expect appear, and that the ones you don't expect stay hidden. A test plan in Pirai QA Runner does this automatically, one scenario per route.</p>
+
+        <h3>How can I check that required questions are really required?</h3>
+        <p>Click Next on a page without answering and see which questions block you. A question that is meant to be required but lets you through has Force response turned off. Pirai QA Runner does this check on every page and reports questions that are required but not enforced, or enforced but not marked.</p>
+
+        <h3>Can I test a Qualtrics survey when the required asterisk is hidden?</h3>
+        <p>Yes. Hiding the asterisk is a display setting; the question can still be required. Pirai QA Runner reads the required setting from the page even when the asterisk is hidden, and confirms it by clicking Next before answering.</p>
+
+        <h3>Do test runs on a live link count as responses?</h3>
+        <p>Yes. Answers submitted through a live distribution link are recorded as real responses and count towards quotas. Test on the preview link where you can, and remove any test responses before analysis.</p>
+
+        <h3>What is Pirai QA Runner?</h3>
+        <p>Pirai QA Runner is a free Chrome extension that tests Qualtrics survey links. It answers every question on each page, clicks Next until the end, follows test plans that pin the answers driving your routing, checks required questions, and lets you download the results as CSV files.</p>
+
+        <h3>Does Pirai QA Runner use AI?</h3>
+        <p>No. Answers come from a seed, so the same seed on the same survey always gives the same answers. Questions you pin in a test plan always get the answers you chose, so every run can be repeated exactly.</p>
+
+        <h3>Is my survey data sent anywhere?</h3>
+        <p>No. Pirai QA Runner runs entirely in your browser. Nothing is sent to Pirai AI or any other server, and files are saved to your computer only when you download them.</p>
+
+        <div class="also-useful">
+            <strong>Also useful for:</strong>
+            <p>This guide covers: how to test a Qualtrics survey, test Qualtrics survey link, Qualtrics survey testing checklist, test skip logic in Qualtrics, test display logic in Qualtrics, test survey flow branches, check force response, check request response, hidden required asterisk, test Other please specify text entry, Qualtrics preview vs generate test responses, survey QA before launch, survey programming QA, automated survey testing, test survey routing, survey link testing Chrome extension, and evidence for survey sign off.</p>
+        </div>
+
+        <h2 id="get-started">Get Started</h2>
+
+        <p>Install <a href="/qa-runner">Pirai QA Runner</a>, open your survey's preview link, and click Run to end. Then load the survey from the builder, pick the questions that drive your routing, and run your first test plan.</p>
+
+        <p>Building the survey from a Word or PDF questionnaire first? <a href="https://platform.piraiai.com" target="_blank" rel="noopener">Pirai AI</a> converts it into a Qualtrics QSF, ready to import and test.</p>
+
+    </article>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="sidebar-section">
+            <h3>In This Article</h3>
+            <ul class="toc-list">
+                <li><a href="#what-to-check">What to Check</a></li>
+                <li><a href="#three-ways">Three Ways to Test</a></li>
+                <li><a href="#test-routing">Prove Every Route</a></li>
+                <li><a href="#required-questions">Required Questions</a></li>
+                <li><a href="#evidence">Keep Evidence</a></li>
+                <li><a href="#checklist">Launch Checklist</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#get-started">Get Started</a></li>
+            </ul>
+        </div>
+
+        <div class="sidebar-section">
+            <h3>Quick Reference</h3>
+            <p style="font-size:13px;color:#4b5563;margin-bottom:10px;">Required check results:</p>
+            <p style="font-size:13px;color:#4b5563;margin-bottom:6px;"><strong>Pass:</strong> marked and enforced</p>
+            <p style="font-size:13px;color:#4b5563;margin-bottom:6px;"><strong>Fail:</strong> marked, not enforced</p>
+            <p style="font-size:13px;color:#4b5563;margin-bottom:0;"><strong>Flag:</strong> enforced, not marked</p>
+        </div>
+
+        <div class="cta-box">
+            <h3>Test Your Survey Link</h3>
+            <p>Free Chrome extension. Runs in your browser. No account needed.</p>
+            <a href="/qa-runner" class="cta-button">Get Pirai QA Runner</a>
+        </div>
+
+    </aside>
+
+</div>
+
+<!-- Related Articles -->
+<div class="related-articles">
+    <h2>Related Articles</h2>
+    <div class="related-grid">
+        <a href="/qa-runner" class="related-card">
+            <h3>Pirai QA Runner</h3>
+            <p>The free Chrome extension that answers every page, runs test plans and checks required questions.</p>
+        </a>
+        <a href="/blog/qualtrics-survey-flow-guide" class="related-card">
+            <h3>Qualtrics Survey Flow Guide</h3>
+            <p>How blocks, branches and embedded data fit together in the survey flow.</p>
+        </a>
+        <a href="/blog/convert-import-qualtrics" class="related-card">
+            <h3>Convert and Import into Qualtrics</h3>
+            <p>How to convert Word, PDF and Excel into a Qualtrics QSF file and import it step by step.</p>
+        </a>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

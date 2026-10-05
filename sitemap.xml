@@ -1309,6 +1309,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://piraiai.com/blog/test-qualtrics-survey-link</loc>
+    <lastmod>2026-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://piraiai.com/blog/qualtrics-vs-redcap</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
