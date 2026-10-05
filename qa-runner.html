@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-THFRCXB7');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pirai QA Runner: Test Qualtrics Survey Links Automatically</title>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://piraiai.com",
+                "name": "Pirai AI",
+                "url": "https://piraiai.com",
+                "logo": "https://piraiai.com/logo.png",
+                "sameAs": [
+                    "https://linkedin.com/company/piraiai",
+                    "https://www.youtube.com/@PiraiAI"
+                ],
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "contactType": "customer support",
+                    "email": "admin@piraiai.com",
+                    "availableLanguage": [
+                        "en"
+                    ]
+                }
+            },
+            {
+                "@type": "SoftwareApplication",
+                "@id": "https://piraiai.com/qa-runner",
+                "name": "Pirai QA Runner",
+                "description": "Pirai QA Runner is a free Chrome extension that tests Qualtrics survey links. It answers every page, follows test plans that pin the answers driving your routing, checks required questions, and reports what worked. Everything runs in the browser.",
+                "applicationCategory": "BusinessApplication",
+                "operatingSystem": "Chrome",
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                },
+                "featureList": [
+                    "Answers every question on every page and clicks Next to the end of the survey",
+                    "Test plans that vary or fix the answers driving survey routing, run as scenarios in fresh sessions",
+                    "Loads every question from the Qualtrics survey builder or a QSF file",
+                    "Required question checks, including hidden asterisks and Other, please specify boxes",
+                    "Repeatable runs from a seed, with no AI involved",
+                    "Readable answer log and results as CSV files",
+                    "Real mouse input for drag and drop questions",
+                    "Runs entirely in the browser, with no data sent to any server"
+                ]
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "What is Pirai QA Runner?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Pirai QA Runner is a free Chrome extension that tests Qualtrics survey links. It answers every question on each page, clicks Next until the end of the survey, follows test plans you create, and reports what worked, all from a side panel in Chrome."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Does QA Runner use AI to answer surveys?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "No. Answers come from a seed, so the same seed on the same survey always gives the same answers, and any run can be repeated exactly. Questions you pin in a test plan always get the answers you chose."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Will test runs show up in my survey data?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "On preview links, no. On live links, each run is submitted as a real response and counts towards quotas, the same as if you answered the survey yourself. The panel turns amber on live links as a reminder, so use the preview link where you can."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What is a test plan?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "A test plan lists the questions that drive your survey routing and the answers to try for each. QA Runner turns it into scenarios, runs each one in a fresh session, and reports whether every pinned question was shown and answered. Plans can be downloaded as files to reuse or share."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can QA Runner check required questions?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes. With required checks turned on, QA Runner clicks Next before answering and records which questions block it. It reports questions that are required but not enforced, enforced but not marked, and Other, please specify boxes that need text. It reads the required setting even when the asterisk is hidden."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Do I need to share my Qualtrics login?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "No. QA Runner never asks for or reads your password or cookies. When you load questions from the survey builder, the request runs inside your own signed in builder tab."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Which question types are supported?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Multiple choice, dropdowns, text entry, forms, matrix tables (Likert, bipolar, dropdown, constant sum, text entry and MaxDiff), sliders, side by side, and pick, group and rank, in Qualtrics' current survey layout."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Where does my survey data go?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Nowhere. Everything runs in your browser, and nothing is sent to Pirai AI or any other server. Results are saved to your computer only when you download them."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How much does QA Runner cost?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Pirai QA Runner is free."
+                        }
+                    }
+                ]
+            },
+            {
+                "@type": "HowTo",
+                "name": "How to test a Qualtrics survey link with Pirai QA Runner",
+                "description": "Test a survey link from first page to last, then prove each route with a test plan",
+                "step": [
+                    {
+                        "@type": "HowToStep",
+                        "name": "Open your survey link",
+                        "text": "Install QA Runner from the Chrome Web Store, open a Qualtrics preview or live link, and click the extension icon. The side panel recognises the survey and the link type.",
+                        "position": 1
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "name": "Run it to the end",
+                        "text": "Click Run to end. QA Runner answers every question on each page, checks each answer went in, clicks Next, and keeps going until the end of the survey.",
+                        "position": 2
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "name": "Build a test plan",
+                        "text": "Load every question from the survey builder or a QSF, pick the questions that drive your routing, and choose the answers to try. QA Runner turns them into scenarios.",
+                        "position": 3
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "name": "Review and download",
+                        "text": "Each scenario shows whether its pinned questions were shown and answered. Download the results, every answer given and the required checks as CSV files.",
+                        "position": 4
+                    }
+                ],
+                "totalTime": "PT5M"
+            }
+        ]
+    }
+    </script>
+
+    <link rel="icon" href="https://piraiai.com/logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://piraiai.com/logo.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+    <meta name="description" content="Free Chrome extension that tests Qualtrics survey links. Answers every page, runs test plans for your routing, checks required questions, and reports what worked. Runs in your browser.">
+    <meta name="keywords" content="Qualtrics survey testing, survey link QA, test Qualtrics survey, survey QA automation, Qualtrics test responses, survey routing testing, skip logic testing, display logic testing, required question check, Qualtrics preview testing, survey programming QA, market research survey QA, Chrome extension Qualtrics"/>
+
+    <meta property="og:title" content="Pirai QA Runner: Test Qualtrics Survey Links Automatically">
+    <meta property="og:description" content="Answers every page, runs test plans for your routing, checks required questions, and reports what worked. Free, and it runs in your browser.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://piraiai.com/qa-runner.html">
+    <meta property="og:image" content="https://piraiai.com/image/qa-runner-screenshot-1.png">
+    <meta property="og:site_name" content="Pirai QA Runner"/>
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pirai QA Runner: Test Qualtrics Survey Links Automatically">
+    <meta name="twitter:description" content="Answers every page, runs test plans for your routing, checks required questions, and reports what worked. Free, and it runs in your browser.">
+    <meta name="twitter:image" content="https://piraiai.com/image/qa-runner-screenshot-1.png">
+
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Pirai AI">
+    <link rel="canonical" href="https://piraiai.com/qa-runner.html">
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --purple: #9B6BFF;
+            --purple-dark: #7C4FE0;
+            --purple-light: #F3EEFF;
+            --ink: #15131c;
+            --text-secondary: #4b5563;
+            --text-muted: #6b7280;
+            --border: #e5e7eb;
+            --bg-light: #f9fafb;
+            --green: #16a34a;
+            --amber: #b45309;
+            --amber-bg: #fffbeb;
+            --font-head: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            /* Tokens for the product mockup, so it reads as the actual review
+               screen rather than a generic marketing illustration */
+            --app-accent: #6b48ff;
+            --app-accent-2: #4299e1;
+            --app-grad: linear-gradient(135deg, #4299e1 0%, #6b48ff 100%);
+            --app-ink: #1a1d2e;
+            --app-text-2: #4a5070;
+            --app-text-3: #8890b0;
+            --app-bg-2: #f7f8fc;
+            --app-bg-3: #eef0f8;
+            --app-border: #e2e5f0;
+        }
+
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); color: var(--ink); background: #fff; line-height: 1.6; overflow-x: hidden; }
+        a { color: inherit; }
+        .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+        img { max-width: 100%; display: block; }
+
+        /* ===== Header ===== */
+        header.site { background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; }
+        .header-inner { max-width: 1180px; margin: 0 auto; padding: 0 24px; height: 68px; display: flex; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex-shrink: 0; }
+        .logo img { width: 30px; height: 30px; }
+        .logo-text { font-family: var(--font-head); font-weight: 700; font-size: 18px; color: var(--ink); }
+        .logo-divider { width: 1px; height: 18px; background: var(--border); margin: 0 4px; }
+        .logo-product { font-family: var(--font-head); font-weight: 600; font-size: 16px; color: var(--purple-dark); }
+        nav.site-nav { display: flex; gap: 28px; align-items: center; margin-left: 40px; }
+        nav.site-nav a { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color .2s; }
+        nav.site-nav a:hover { color: var(--purple-dark); }
+        .header-right { margin-left: auto; display: flex; align-items: center; gap: 16px; }
+        .nav-cta { background: var(--purple); color: #fff !important; padding: 9px 20px; border-radius: 8px; font-weight: 600; font-size: 14px; text-decoration: none; transition: background .2s; }
+        .nav-cta:hover { background: var(--purple-dark) !important; }
+        .hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; padding: 8px; margin-left: auto; }
+        .hamburger span { width: 22px; height: 2px; background: var(--ink); border-radius: 2px; }
+        .mobile-menu { display: none; position: fixed; inset: 0; background: #fff; z-index: 1001; padding: 24px; }
+        .mobile-menu.active { display: block; }
+        .mobile-menu-top { display: flex; justify-content: flex-end; margin-bottom: 32px; }
+        .mobile-menu-close { font-size: 32px; color: var(--ink); background: none; border: none; cursor: pointer; line-height: 1; }
+        .mobile-menu ul { list-style: none; }
+        .mobile-menu li { margin-bottom: 20px; }
+        .mobile-menu a { color: var(--ink); text-decoration: none; font-size: 22px; font-weight: 600; font-family: var(--font-head); }
+
+        @media (max-width: 880px) {
+            nav.site-nav { display: none; }
+            .header-right .nav-cta { display: none; }
+            .hamburger { display: flex; }
+        }
+
+        /* ===== Hero ===== */
+        .hero { background: linear-gradient(160deg, #faf8ff 0%, #f3eeff 45%, #fff 100%); padding: 72px 0 0; border-bottom: 1px solid var(--border); overflow: hidden; }
+        .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; padding-bottom: 64px; }
+        .hero-tagline { font-family: var(--font-head); font-size: clamp(15px, 1.6vw, 18px); font-weight: 600; color: var(--purple-dark); margin-bottom: 22px; }
+        .hero h1 { font-family: var(--font-head); font-size: clamp(32px, 4.2vw, 52px); font-weight: 700; line-height: 1.12; letter-spacing: -0.01em; margin-bottom: 22px; }
+        .hero h1 span { color: var(--purple); }
+        .hero-sub { font-size: 18px; color: var(--text-secondary); max-width: 50ch; margin-bottom: 32px; line-height: 1.65; }
+        .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 28px; }
+        .btn-primary { padding: 13px 26px; border-radius: 9px; background: var(--purple); color: #fff; font-weight: 700; text-decoration: none; font-size: 15px; transition: background .2s, transform .2s; display: inline-block; }
+        .btn-primary:hover { background: var(--purple-dark); transform: translateY(-1px); }
+        .btn-secondary { padding: 13px 26px; border-radius: 9px; border: 1px solid var(--border); color: var(--ink); font-weight: 600; text-decoration: none; font-size: 15px; background: #fff; transition: border-color .2s, background .2s; display: inline-block; }
+        .btn-secondary:hover { border-color: var(--purple); background: var(--purple-light); }
+        .hero-note { font-size: 13px; color: var(--text-muted); }
+        .hero-note strong { color: var(--ink); }
+
+        /* ---- Product mockup (the signature element) ---- */
+        .mockup-wrap { position: relative; }
+        .mockup-panel {
+            background: #fff; border: 1px solid var(--app-border); border-radius: 16px;
+            box-shadow: 0 30px 60px -20px rgba(107,72,255,0.25), 0 8px 20px -8px rgba(0,0,0,0.08);
+            overflow: hidden; max-width: 420px; margin: 0 auto;
+        }
+        .mockup-titlebar { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-bottom: 1px solid var(--app-border); background: var(--app-bg-2); }
+        .mockup-icon { width: 26px; height: 26px; border-radius: 7px; background: var(--app-grad); flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+        .mockup-icon svg { width: 14px; height: 14px; fill: #fff; }
+        .mockup-titles { line-height: 1.25; }
+        .mockup-titles .t1 { font-family: var(--font-head); font-size: 12.5px; font-weight: 600; color: var(--app-ink); }
+        .mockup-titles .t2 { font-size: 10.5px; color: var(--app-text-3); }
+        .mockup-body { padding: 16px; background: #fff; }
+
+        .m-row { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--app-bg-3); opacity: 0; transform: translateY(6px); animation: mRowIn .5s ease forwards; }
+        .m-row:last-of-type { border-bottom: none; }
+        .m-check { width: 20px; height: 20px; border-radius: 50%; background: var(--green); flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+        .m-check svg { width: 11px; height: 11px; fill: #fff; }
+        .m-check.flag { background: var(--amber-bg); border: 1.5px solid var(--amber); }
+        .m-check.flag svg { display: none; }
+        .m-qtext { flex: 1; }
+        .m-qid { font-family: var(--font-head); font-size: 11px; font-weight: 700; color: var(--app-text-2); }
+        .m-qname { font-size: 12px; color: var(--app-ink); font-weight: 600; margin: 1px 0 2px; }
+        .m-answer { font-size: 11.5px; color: var(--app-text-3); }
+        .m-answer.flagged { color: var(--amber); font-weight: 600; }
+        .mockup-status { margin-top: 14px; font-size: 11.5px; color: var(--app-text-2); font-weight: 600; padding-top: 12px; border-top: 1px dashed var(--app-border); opacity: 0; animation: mRowIn .5s ease forwards; animation-delay: 1.4s; }
+        .mockup-status strong { color: var(--amber); }
+
+        @keyframes mRowIn { to { opacity: 1; transform: translateY(0); } }
+
+        @media (prefers-reduced-motion: reduce) {
+            .m-row, .mockup-status, .float-chip { animation: none !important; opacity: 1 !important; transform: none !important; }
+        }
+
+        .float-chip { position: absolute; z-index: 3; background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 8px 12px; font-size: 12px; font-weight: 600; color: var(--purple-dark); box-shadow: 0 12px 24px -8px rgba(0,0,0,0.12); display: flex; align-items: center; gap: 6px; }
+        .float-chip svg { width: 14px; height: 14px; }
+        .float-chip.fc1 { top: -18px; right: 6%; animation: bob 5s ease-in-out infinite; }
+        .float-chip.fc2 { bottom: 6%; left: -28px; animation: bob 5s ease-in-out infinite; animation-delay: -2.5s; }
+        .mockup-panel { position: relative; z-index: 1; }
+        @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        @media (max-width: 720px) { .float-chip { display: none; } }
+
+        @media (max-width: 980px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+            .hero-ctas, .hero-tagline { justify-content: center; }
+            .hero { text-align: center; padding-top: 48px; }
+            .hero-sub { margin-left: auto; margin-right: auto; }
+            .mockup-panel { max-width: 380px; }
+        }
+
+        /* ===== Stats bar ===== */
+        .stats-bar { background: #fff; border-bottom: 1px solid var(--border); padding: 28px 24px; }
+        .stats-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center; }
+        .stat-num { font-family: var(--font-head); font-size: 30px; font-weight: 700; color: var(--purple); }
+        .stat-label { font-size: 13px; color: var(--ink); font-weight: 600; margin-top: 2px; }
+        .stat-desc { font-size: 12.5px; color: var(--text-muted); margin-top: 4px; }
+        @media (max-width: 700px) { .stats-inner { grid-template-columns: 1fr; gap: 28px; } }
+
+        /* ===== Sections (shared) ===== */
+        .section { padding: 80px 0; }
+        @media (max-width: 600px) {
+            .section { padding: 48px 0; }
+            .container { padding: 0 16px; }
+            body { overflow-x: hidden; }
+            * { max-width: 100%; }
+            p, li, h2, h3 { overflow-wrap: break-word; word-break: break-word; }
+        }
+        .section-alt { background: var(--bg-light); }
+        .section-label { font-size: 12px; font-weight: 700; color: var(--purple); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; }
+        .section-title { font-family: var(--font-head); font-size: clamp(24px, 3.2vw, 36px); font-weight: 700; margin-bottom: 14px; line-height: 1.2; }
+        .section-sub { font-size: 16px; color: var(--text-secondary); max-width: 60ch; line-height: 1.65; }
+        .section-head { margin-bottom: 44px; }
+        .section-head.center { text-align: center; max-width: 640px; margin-left: auto; margin-right: auto; }
+        .section-head.center .section-sub { margin-left: auto; margin-right: auto; }
+
+        /* ---- The shift ---- */
+        .shift-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .shift-col h3 { font-family: var(--font-head); font-size: 15px; font-weight: 700; margin-bottom: 10px; }
+        .shift-col.old h3 { color: var(--text-muted); }
+        .shift-col.new h3 { color: var(--purple-dark); }
+        .shift-col p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; }
+        .shift-col.new { background: #fff; border: 1px solid var(--purple-light); border-left: 3px solid var(--purple); border-radius: 10px; padding: 24px; }
+        .shift-col.old { padding: 24px; }
+        @media (max-width: 760px) { .shift-grid { grid-template-columns: 1fr; } }
+
+        /* ---- How it works ---- */
+        .workflow { max-width: 760px; margin: 0 auto; }
+        .workflow-step { display: grid; grid-template-columns: 56px 1fr; gap: 28px; padding: 32px 0; border-bottom: 1px solid var(--border); }
+        .workflow-step:last-child { border-bottom: none; }
+        .step-number { width: 44px; height: 44px; background: var(--purple); color: #fff; border-radius: 50%; font-family: var(--font-head); font-weight: 700; font-size: 17px; display: flex; align-items: center; justify-content: center; }
+        .step-content h3 { font-family: var(--font-head); font-size: 19px; font-weight: 700; margin-bottom: 6px; }
+        .step-content p { color: var(--text-secondary); font-size: 15px; line-height: 1.65; }
+
+        /* ---- Video ---- */
+        .video-container { max-width: 800px; margin: 0 auto; background: #fff; border-radius: 14px; padding: 16px; border: 1px solid var(--border); box-shadow: 0 20px 40px -16px rgba(0,0,0,0.1); }
+        .video-wrapper { position: relative; width: 100%; height: 0; padding-bottom: 56.25%; border-radius: 9px; overflow: hidden; }
+        .video-wrapper iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+
+        /* ---- Question types ---- */
+        .template-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+        .template-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 22px; transition: border-color .2s, transform .2s; }
+        .template-card:hover { border-color: var(--purple); transform: translateY(-3px); }
+        .template-card .tc-icon { width: 36px; height: 36px; border-radius: 9px; background: var(--purple-light); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+        .template-card .tc-icon svg { width: 18px; height: 18px; color: var(--purple-dark); fill: var(--purple-dark); }
+        .template-card h3 { font-family: var(--font-head); font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+        .template-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.55; }
+        @media (max-width: 980px) { .template-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 560px) { .template-grid { grid-template-columns: 1fr; } }
+
+        /* ---- Features ---- */
+        .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .feature-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 26px; transition: border-color .2s, transform .2s; }
+        .feature-card:hover { border-color: var(--purple); transform: translateY(-3px); }
+        .feature-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--app-grad); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+        .feature-icon svg { width: 19px; height: 19px; fill: #fff; }
+        .feature-card h3 { font-family: var(--font-head); font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+        .feature-card p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.65; }
+        @media (max-width: 880px) { .feature-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 560px) { .feature-grid { grid-template-columns: 1fr; } }
+
+        /* ---- FAQ ---- */
+        .faq-list { max-width: 760px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid var(--border); }
+        .faq-item:first-child { border-top: 1px solid var(--border); }
+        .faq-item summary { font-family: var(--font-head); font-weight: 600; font-size: 16px; padding: 20px 4px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; list-style: none; color: var(--ink); }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after { content: "+"; font-size: 20px; color: var(--purple); flex-shrink: 0; line-height: 1; }
+        .faq-item[open] summary::after { content: "\2212"; }
+        .faq-a { font-size: 15px; color: var(--text-secondary); line-height: 1.7; padding: 0 4px 22px; }
+
+        /* ---- Pricing ---- */
+        .pricing-card { max-width: 420px; margin: 0 auto; text-align: center; background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 40px 32px; box-shadow: 0 20px 40px -20px rgba(0,0,0,0.12); }
+        .pricing-amount { font-family: var(--font-head); font-size: 44px; font-weight: 700; color: var(--ink); }
+        .pricing-unit { font-size: 15px; color: var(--text-secondary); margin-top: 4px; font-weight: 600; }
+        .pricing-note { font-size: 14px; color: var(--text-muted); margin-top: 18px; line-height: 1.6; }
+
+        /* ---- Contact ---- */
+        .demo-section { background: linear-gradient(160deg, #faf8ff 0%, #fff 60%); }
+        @media (max-width: 880px) {
+            .demo-section { padding: 60px 0; }
+        }
+
+        /* ===== Footer ===== */
+        .footer { background: var(--bg-light); border-top: 1px solid var(--border); padding: 56px 0 28px; }
+        .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; }
+        .footer-brand { display: flex; align-items: center; gap: 10px; }
+        .footer-brand span { font-family: var(--font-head); font-size: 20px; font-weight: 700; color: var(--ink); }
+        .footer-desc { color: var(--text-secondary); margin-top: 14px; max-width: 360px; font-size: 14px; line-height: 1.65; }
+        .footer-contact { margin-top: 18px; font-size: 13.5px; color: var(--text-muted); }
+        .footer-contact a { color: var(--purple-dark); text-decoration: none; font-weight: 600; }
+        .footer-section h3 { color: var(--ink); font-weight: 700; margin-bottom: 14px; font-family: var(--font-head); font-size: 14px; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 9px; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; transition: color .2s; }
+        .footer-links a:hover { color: var(--purple-dark); }
+        .footer-bottom { border-top: 1px solid var(--border); margin-top: 36px; padding-top: 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+        .footer-bottom .copyright { color: var(--text-muted); font-size: 13px; }
+        .social-links { display: flex; gap: 14px; align-items: center; }
+        .social-links a { color: var(--text-muted); transition: color .2s; }
+        .social-links a:hover { color: var(--purple-dark); }
+        @media (max-width: 880px) { .footer-content { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 560px) { .footer-content { grid-template-columns: 1fr; } }
+    </style>
+
+    <style>
+        /* QA Runner additions, built on the Lens tokens above */
+        .feature-icon svg.line { fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        .tc-icon svg.line { fill: none; stroke: var(--purple-dark); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        .m-check.warn { background: var(--amber-bg); border: 1.5px solid var(--amber); }
+        .m-check.warn svg { display: none; }
+
+        .shots { max-width: 980px; margin: 0 auto; }
+        .shot-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 18px; }
+        .shot-tab { font: inherit; font-size: 14px; font-weight: 600; color: var(--text-secondary); background: #fff; border: 1px solid var(--border); border-radius: 999px; padding: 8px 16px; cursor: pointer; transition: border-color .2s, background .2s, color .2s; }
+        .shot-tab:hover { border-color: var(--purple); }
+        .shot-tab[aria-selected="true"] { background: var(--purple-light); border-color: var(--purple); color: var(--purple-dark); }
+        .shot-tab:focus-visible { outline: 2px solid var(--purple-dark); outline-offset: 2px; }
+        .shot-frame { background: #fff; border-radius: 14px; padding: 12px; border: 1px solid var(--border); box-shadow: 0 20px 40px -16px rgba(0,0,0,0.1); }
+        .shot-frame img { display: block; width: 100%; height: auto; border-radius: 8px; aspect-ratio: 1280 / 800; }
+        .shot-caption { text-align: center; font-size: 15px; color: var(--text-secondary); margin-top: 16px; min-height: 1.6em; }
+
+        .privacy-strip { max-width: 760px; margin: 28px auto 0; text-align: center; font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+        .privacy-strip a { color: var(--purple-dark); font-weight: 600; }
+    </style>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THFRCXB7"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Header -->
+    <header class="site">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <img src="logo.png" alt="Pirai AI Logo">
+                <span class="logo-text">Pirai AI</span>
+            </a>
+            <span class="logo-divider"></span>
+            <span class="logo-product">QA Runner</span>
+            <nav class="site-nav">
+                <a href="#process">How It Works</a>
+                <a href="#see-it-run">See It Run</a>
+                <a href="#question-types">Question Types</a>
+                <a href="#features">Features</a>
+                <a href="#faq">FAQ</a>
+                <a href="https://platform.piraiai.com" target="_blank" rel="noopener">Convert a Survey</a>
+            </nav>
+            <div class="header-right">
+                <a href="CHROME_WEB_STORE_URL" target="_blank" rel="noopener" class="nav-cta">Add to Chrome</a>
+            </div>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-top"><button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&times;</button></div>
+        <ul>
+            <li><a href="#process">How It Works</a></li>
+            <li><a href="#see-it-run">See It Run</a></li>
+            <li><a href="#question-types">Question Types</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="https://platform.piraiai.com" target="_blank" rel="noopener">Convert a Survey</a></li>
+            <li><a href="CHROME_WEB_STORE_URL" target="_blank" rel="noopener">Add to Chrome</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div>
+                    <h1>Test every Qualtrics survey link <span>before it goes live</span>.</h1>
+                    <p class="hero-tagline">A free Chrome extension for survey programmers, researchers and Qualtrics partners.</p>
+                    <p class="hero-sub">QA Runner answers every question on each page, clicks Next until the end, and follows test plans that pin the answers driving your routing. It checks required questions as it goes and hands you the evidence as CSV files.</p>
+                    <div class="hero-ctas">
+                        <a href="CHROME_WEB_STORE_URL" target="_blank" rel="noopener" class="btn-primary">Add to Chrome</a>
+                        <a href="#process" class="btn-secondary">See How It Works</a>
+                    </div>
+                    <p class="hero-note"><strong>No account. No server. No AI guessing.</strong> Everything runs in your browser, and the same seed always gives the same answers. <a href="https://piraiai.com/privacy#qa-runner" style="color: var(--purple-dark); font-weight: 600;">Privacy details</a></p>
+                </div>
+
+                <div class="mockup-wrap">
+                    <div class="float-chip fc1">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>
+                        Runs in your browser
+                    </div>
+                    <div class="float-chip fc2">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>
+                        3 scenarios, 1 route found
+                    </div>
+                    <div class="mockup-panel">
+                        <div class="mockup-titlebar">
+                            <div class="mockup-icon"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg></div>
+                            <div class="mockup-titles">
+                                <div class="t1">Pirai QA Runner</div>
+                                <div class="t2">Customer experience survey · preview link</div>
+                            </div>
+                        </div>
+                        <div class="mockup-body">
+                            <div class="m-row" style="animation-delay:.1s;">
+                                <span class="m-check"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg></span>
+                                <div class="m-qtext"><div class="m-qid">QID1 · Single Choice · pinned</div><div class="m-qname">Overall satisfaction</div><div class="m-answer">Very dissatisfied</div></div>
+                            </div>
+                            <div class="m-row" style="animation-delay:.3s;">
+                                <span class="m-check"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg></span>
+                                <div class="m-qtext"><div class="m-qid">QID2 · Multiple Choice</div><div class="m-qname">Services used</div><div class="m-answer">Front desk, Other: text filled in</div></div>
+                            </div>
+                            <div class="m-row" style="animation-delay:.5s;">
+                                <span class="m-check"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg></span>
+                                <div class="m-qtext"><div class="m-qid">QID3 · Matrix</div><div class="m-qname">Rate the following</div><div class="m-answer">3 of 3 statements answered</div></div>
+                            </div>
+                            <div class="m-row" style="animation-delay:.7s;">
+                                <span class="m-check warn"></span>
+                                <div class="m-qtext"><div class="m-qid">QID5 · Required check</div><div class="m-qname">Would you visit us again?</div><div class="m-answer flagged">Marked required, but not enforced</div></div>
+                            </div>
+                            <div class="mockup-status">Scenario 3 of 3 reached the follow up page. <strong>1 required issue found.</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem -->
+    <section class="section" id="shift">
+        <div class="container">
+            <div class="section-head center">
+                <div class="section-label">The Problem</div>
+                <h2 class="section-title">Clicking through a survey link by hand takes hours, and still misses things.</h2>
+                <p class="section-sub">Every route needs its own pass. Required settings and Other boxes are easy to miss. And when a client asks what was tested, the only answer is "we clicked through it".</p>
+            </div>
+            <div class="shift-grid">
+                <div class="shift-col old">
+                    <h3>WITHOUT QA RUNNER</h3>
+                    <p>Someone answers every page by hand, once for each route through the survey, and starts again after every change. Required questions that aren't enforced slip through. Questions that never appear go unnoticed. There's no record of which answers were tried.</p>
+                </div>
+                <div class="shift-col new">
+                    <h3>WITH QA RUNNER</h3>
+                    <p>QA Runner answers every page for you and runs each route as its own scenario, in a fresh session. Required settings are checked as it goes. Every answer it gives is logged, and the same seed reproduces any run exactly after a fix.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section section-alt" id="process">
+        <div class="container">
+            <div class="section-head center">
+                <div class="section-label">How It Works</div>
+                <h2 class="section-title">From survey link to signed off routes in four steps.</h2>
+                <p class="section-sub">A quick run checks the whole survey. A test plan proves the routes that matter.</p>
+            </div>
+            <div class="workflow">
+                <div class="workflow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Open your survey link</h3>
+                        <p>Install QA Runner from the Chrome Web Store, open a Qualtrics preview or live link, and click the extension icon. The side panel recognises the survey and the link type.</p>
+                    </div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Run it to the end</h3>
+                        <p>Click Run to end. QA Runner answers every question on each page, checks each answer went in, clicks Next, and keeps going until the end of the survey.</p>
+                    </div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Build a test plan</h3>
+                        <p>Load every question from the survey builder or a QSF, pick the questions that drive your routing, and choose the answers to try. QA Runner turns them into scenarios.</p>
+                    </div>
+                </div>
+                <div class="workflow-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Review and download</h3>
+                        <p>Each scenario shows whether its pinned questions were shown and answered. Download the results, every answer given and the required checks as CSV files.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- See It Run -->
+    <section id="see-it-run" class="section">
+        <div class="container">
+            <div class="section-head center">
+                <div class="section-label">See It Run</div>
+                <h2 class="section-title">Watch QA Runner test a survey from first page to last</h2>
+                <p class="section-sub">A customer experience survey with routing, required questions and an Other box, run, planned and checked.</p>
+            </div>
+            <div class="shots">
+                <div class="shot-tabs" role="tablist" aria-label="QA Runner screenshots">
+                    <button class="shot-tab" role="tab" id="shot-tab-1" aria-controls="shot-panel" aria-selected="true" tabindex="0" data-src="/image/qa-runner-screenshot-1.png" data-caption="Every question answered on the page, with each one confirmed in the panel.">Run a survey</button>
+                    <button class="shot-tab" role="tab" id="shot-tab-2" aria-controls="shot-panel" aria-selected="false" tabindex="-1" data-src="/image/qa-runner-screenshot-2.png" data-caption="The whole survey loaded from the builder, with answers picked for each scenario.">Build a plan</button>
+                    <button class="shot-tab" role="tab" id="shot-tab-3" aria-controls="shot-panel" aria-selected="false" tabindex="-1" data-src="/image/qa-runner-screenshot-3.png" data-caption="The follow up question appears only for dissatisfied customers, scenario by scenario.">Prove routes</button>
+                    <button class="shot-tab" role="tab" id="shot-tab-4" aria-controls="shot-panel" aria-selected="false" tabindex="-1" data-src="/image/qa-runner-screenshot-4.png" data-caption="Questions that are required but not enforced, or enforced but not marked, flagged in the log.">Required checks</button>
+                    <button class="shot-tab" role="tab" id="shot-tab-5" aria-controls="shot-panel" aria-selected="false" tabindex="-1" data-src="/image/qa-runner-screenshot-5.png" data-caption="Every answer given, marked pinned or random, ready for Excel.">Evidence</button>
+                </div>
+                <div class="shot-frame" id="shot-panel" role="tabpanel" aria-labelledby="shot-tab-1">
+                    <img id="shot-img" src="/image/qa-runner-screenshot-1.png" width="1280" height="800" alt="Every question answered on the page, with each one confirmed in the panel.">
+                </div>
+                <p class="shot-caption" id="shot-caption">Every question answered on the page, with each one confirmed in the panel.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Question Types -->
+    <section class="section section-alt" id="question-types">
+        <div class="container">
+            <div class="section-head center">
+                <div class="section-label">What QA Runner Can Answer</div>
+                <h2 class="section-title">Every question type in Qualtrics' current survey layout.</h2>
+                <p class="section-sub">Each type is answered the way a respondent would, then checked to make sure the answer went in.</p>
+            </div>
+            <div class="template-grid">
+                <div class="template-card">
+                    <div class="tc-icon"><svg class="line" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3" fill="currentColor" stroke="none"/></svg></div>
+                    <h3>Single and Multiple Choice</h3>
+                    <p>One or several answers per question, with Other, please specify text filled in.</p>
+                </div>
+                <div class="template-card">
+                    <div class="tc-icon"><svg class="line" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M14 11l2 2 2-2"/></svg></div>
+                    <h3>Dropdowns</h3>
+                    <p>Dropdown lists, on their own or inside a matrix table.</p>
+                </div>
+                <div class="template-card">
+                    <div class="tc-icon"><svg class="line" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h6"/><path d="M7 14h3"/></svg></div>
+                    <h3>Text Entry and Forms</h3>
+                    <p>Single line, multi line, essay, password and form fields.</p>
+                </div>
+                <div class="template-card">
+                    <div class="tc-icon"><svg class="line" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/><path d="M15 3v18"/></svg></div>
+                    <h3>Matrix Tables</h3>
+                    <p>Likert single and multi answer, bipolar, constant sum and text entry grids.</p>
+                </div>
+                <div class="template-card">
+                    <div class="tc-icon"><svg class="line" viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M4 17h16"/><circle cx="8" cy="7" r="2"/><circle cx="16" cy="17" r="2"/></svg></div>
+                    <h3>MaxDiff</h3>
+                    <p>One different statement chosen for each column, as MaxDiff requires.</p>
+                </div>
+                <div class="template-card">
+                    <div class="tc-icon"><svg class="line" viewBox="0 0 24 24"><path d="M3 12h18"/><circle cx="14" cy="12" r="3"/></svg></div>
+                    <h3>Sliders</h3>
+                    <p>Handle, bar and star sliders, set to values within their range.</p>
+                </div>
+                <div class="template-card">
+                    <div class="tc-icon"><svg class="line" viewBox="0 0 24 24"><rect x="3" y="4" width="8" height="16" rx="1.5"/><rect x="13" y="4" width="8" height="16" rx="1.5"/></svg></div>
+                    <h3>Side by Side</h3>
+                    <p>Each column answered with its own widget, from radios to text.</p>
+                </div>
+                <div class="template-card">
+                    <div class="tc-icon"><svg class="line" viewBox="0 0 24 24"><rect x="3" y="4" width="10" height="5" rx="1.5"/><rect x="11" y="15" width="10" height="5" rx="1.5"/><path d="M8 9v3a3 3 0 0 0 3 3h2"/></svg></div>
+                    <h3>Pick, Group and Rank</h3>
+                    <p>Items dragged into groups with real mouse input, the way respondents do it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-head center">
+                <div class="section-label">What QA Runner Can Do</div>
+                <h2 class="section-title">Built for the way survey testing really works.</h2>
+                <p class="section-sub">From a quick run on a new link to proving every route before a client signs off.</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><svg class="line" viewBox="0 0 24 24"><path d="M9 4h6v3H9z"/><path d="M8 5H6a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-2"/><path d="M9 12l2 2 4-4"/></svg></div>
+                    <h3>Test Plans</h3>
+                    <p>Pick the questions that drive your routing and the answers to try. QA Runner builds the scenarios and runs each one in a fresh session.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg class="line" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg></div>
+                    <h3>Load the Whole Survey</h3>
+                    <p>Load every question from your open Qualtrics survey builder tab, or from a QSF, and pick questions from any page, not just the one in front of you.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg class="line" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg></div>
+                    <h3>Required Question Checks</h3>
+                    <p>Finds questions that are required but not enforced, enforced but not marked, and Other boxes that need text. Works even when the asterisk is hidden.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg class="line" viewBox="0 0 24 24"><path d="M17 2l3 3-3 3"/><path d="M4 11V9a4 4 0 0 1 4-4h12"/><path d="M7 22l-3-3 3-3"/><path d="M20 13v2a4 4 0 0 1-4 4H4"/></svg></div>
+                    <h3>Repeatable Runs</h3>
+                    <p>Answers come from a seed, so the same seed gives the same answers every time. Rerun a plan after a fix and compare.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg class="line" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M3 15h18"/><path d="M9 4v16"/></svg></div>
+                    <h3>Evidence You Can Share</h3>
+                    <p>Download the results, a readable log of every answer given, and the required checks as CSV files, ready for Excel and client sign off.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg class="line" viewBox="0 0 24 24"><circle cx="6" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="12" r="2"/><path d="M6 7v10"/><path d="M8 5h2a6 6 0 0 1 6 6"/></svg></div>
+                    <h3>Routing You Can See</h3>
+                    <p>Each scenario reports whether every pinned question was shown and answered, so a question that never appears stands out straight away.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg class="line" viewBox="0 0 24 24"><path d="M5 3l14 7-6 2-2 6-6-15z"/></svg></div>
+                    <h3>Real Drag and Drop</h3>
+                    <p>Pick, group and rank questions only accept real mouse input. QA Runner provides it, so those questions are answered too.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg class="line" viewBox="0 0 24 24"><path d="M12 3v12"/><path d="M8 7l4-4 4 4"/><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg></div>
+                    <h3>Plans as Files</h3>
+                    <p>Download a test plan with the survey it was made for, share it with your team, and upload it again for the next round of testing.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg class="line" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+                    <h3>Private by Design</h3>
+                    <p>Everything runs in your browser. No account, no tracking, and nothing is sent to Pirai AI or any other server.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section section-alt" id="pricing">
+        <div class="container">
+            <div class="section-head center">
+                <div class="section-label">Pricing</div>
+                <h2 class="section-title">Free to use.</h2>
+                <p class="section-sub">No account, no subscription, no usage limits.</p>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-amount">Free</div>
+                <div class="pricing-unit">Chrome extension for Qualtrics</div>
+                <p class="pricing-note">Install it from the Chrome Web Store and test your first survey link in minutes. Use preview links for testing: runs on live links are recorded as responses and count towards quotas.</p>
+                <a href="CHROME_WEB_STORE_URL" target="_blank" rel="noopener" class="btn-primary" style="margin-top:22px;">Add to Chrome</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teams -->
+    <section class="section" id="teams">
+        <div class="container">
+            <div class="section-head center">
+                <div class="section-label">Built For</div>
+                <h2 class="section-title">For teams who launch surveys that have to work first time.</h2>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><svg class="line" viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V8l7-4 7 4v13"/><path d="M9 12h6"/><path d="M9 16h6"/></svg></div>
+                    <h3>Qualtrics Partners and Agencies</h3>
+                    <p>Test every client survey before launch and hand over evidence of what was checked, without hours of clicking through links.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg class="line" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/><path d="M8 11l2 2 4-4"/></svg></div>
+                    <h3>Market Research and Programming Teams</h3>
+                    <p>Prove screeners, routing and follow up questions behave as the questionnaire says, and catch required settings and Other boxes before anyone else does.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><svg class="line" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14.2A5 5 0 0 1 21 19"/></svg></div>
+                    <h3>CX and EX Programme Teams</h3>
+                    <p>Check recurring and translated surveys quickly every time a question, block or piece of logic changes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section-alt" id="faq">
+        <div class="container">
+            <div class="section-head center">
+                <div class="section-label">Common Questions</div>
+                <h2 class="section-title">Frequently asked questions</h2>
+            </div>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>What is Pirai QA Runner?</summary>
+                    <p class="faq-a">Pirai QA Runner is a free Chrome extension that tests Qualtrics survey links. It answers every question on each page, clicks Next until the end of the survey, follows test plans you create, and reports what worked, all from a side panel in Chrome.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Does QA Runner use AI to answer surveys?</summary>
+                    <p class="faq-a">No. Answers come from a seed, so the same seed on the same survey always gives the same answers, and any run can be repeated exactly. Questions you pin in a test plan always get the answers you chose.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Will test runs show up in my survey data?</summary>
+                    <p class="faq-a">On preview links, no. On live links, each run is submitted as a real response and counts towards quotas, the same as if you answered the survey yourself. The panel turns amber on live links as a reminder, so use the preview link where you can.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>What is a test plan?</summary>
+                    <p class="faq-a">A test plan lists the questions that drive your survey routing and the answers to try for each. QA Runner turns it into scenarios, runs each one in a fresh session, and reports whether every pinned question was shown and answered. Plans can be downloaded as files to reuse or share.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Can QA Runner check required questions?</summary>
+                    <p class="faq-a">Yes. With required checks turned on, QA Runner clicks Next before answering and records which questions block it. It reports questions that are required but not enforced, enforced but not marked, and Other, please specify boxes that need text. It reads the required setting even when the asterisk is hidden.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Do I need to share my Qualtrics login?</summary>
+                    <p class="faq-a">No. QA Runner never asks for or reads your password or cookies. When you load questions from the survey builder, the request runs inside your own signed in builder tab.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Which question types are supported?</summary>
+                    <p class="faq-a">Multiple choice, dropdowns, text entry, forms, matrix tables (Likert, bipolar, dropdown, constant sum, text entry and MaxDiff), sliders, side by side, and pick, group and rank, in Qualtrics' current survey layout.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Where does my survey data go?</summary>
+                    <p class="faq-a">Nowhere. Everything runs in your browser, and nothing is sent to Pirai AI or any other server. Results are saved to your computer only when you download them.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>How much does QA Runner cost?</summary>
+                    <p class="faq-a">Pirai QA Runner is free.</p>
+                </details>
+            </div>
+            <p class="privacy-strip">Read exactly what QA Runner handles, and what it never collects, in our <a href="https://piraiai.com/privacy#qa-runner">privacy policy</a>.</p>
+        </div>
+    </section>
+
+    <!-- Get Started -->
+    <section id="contact" class="section demo-section">
+        <div class="container">
+            <div class="section-head center">
+                <div class="section-label">Get Started</div>
+                <h2 class="section-title">Have a survey link to test?</h2>
+                <p class="section-sub">Add QA Runner to Chrome and run your first survey in minutes. Testing on another survey platform, or want a walkthrough for your team? Send us a note.</p>
+            </div>
+            <div class="hero-ctas" style="justify-content:center;">
+                <a href="CHROME_WEB_STORE_URL" target="_blank" rel="noopener" class="btn-primary" style="font-size:16px; padding:16px 34px;">Add to Chrome</a>
+                <a href="mailto:admin@piraiai.com?subject=Pirai%20QA%20Runner" class="btn-secondary" style="font-size:16px; padding:16px 34px;">Email admin@piraiai.com</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-brand">
+                        <img src="logo.png" alt="Pirai AI Logo" width="32" height="32"/>
+                        <span>Pirai AI</span>
+                    </div>
+                    <p class="footer-desc">
+                        Pirai QA Runner tests Qualtrics survey links in your browser. It answers every page, follows your test plans, checks required questions, and reports what worked.
+                    </p>
+                    <div class="footer-contact">
+                        <p style="margin-bottom: 6px;"><strong style="color: var(--ink);">Contact:</strong> <a href="mailto:admin@piraiai.com">admin@piraiai.com</a></p>
+                        <p><strong style="color: var(--green);">Free:</strong> Available on the Chrome Web Store</p>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>QA Runner</h3>
+                    <ul class="footer-links">
+                        <li><a href="#process">How It Works</a></li>
+                        <li><a href="#see-it-run">See It Run</a></li>
+                        <li><a href="#question-types">Question Types</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="CHROME_WEB_STORE_URL" target="_blank" rel="noopener">Add to Chrome</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Free Tools</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://qstar.piraiai.com" target="_blank">QStar (Beta)</a></li>
+                        <li><a href="https://chromewebstore.google.com/detail/qualtrics-api-toolkit-by/lloepmlcmkeohopokcedejdelohoilip" target="_blank">Qualtrics API Toolkit</a></li>
+                        <li><a href="/qsf-to-excel">QSF to Excel Workbook</a></li>
+                        <li><a href="/textiq-to-excel">Text IQ JSON to Excel Book</a></li>
+                        <li><a href="/embedded-data-generator">Embedded Data Generator</a></li>
+                        <li><a href="/pirai-csv-comparator">CSV Comparator</a></li>
+                        <li><a href="/qualtrics-toolkit" style="color: var(--purple-dark); font-weight: 600;">Toolkit Hub</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/#demo">Contact Us</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/terms">Terms of Service</a></li>
+                        <li><a href="/security">Security Overview</a></li>
+                        <li><a href="https://www.linkedin.com/company/pirai-ai/" target="_blank">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; <script>document.write(new Date().getFullYear())</script> Pirai AI. All rights reserved. Built with enterprise-grade security and privacy protection.
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/company/pirai-ai/" target="_blank" aria-label="LinkedIn">
+                        <svg width="19" height="19" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                    <span style="color: var(--text-muted); font-size: 12px;">Follow our journey</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+
+        if (hamburger && mobileMenu && mobileMenuClose) {
+            hamburger.addEventListener('click', () => {
+                mobileMenu.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            mobileMenuClose.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+    </script>
+    <script>
+        // Screenshot viewer: tabs switch the image; arrow keys move between tabs
+        (function () {
+            const tabs = Array.from(document.querySelectorAll('.shot-tab'));
+            const img = document.getElementById('shot-img');
+            const caption = document.getElementById('shot-caption');
+            const panel = document.getElementById('shot-panel');
+            if (!tabs.length || !img) return;
+            function select(tab, focus) {
+                tabs.forEach(t => { const on = t === tab; t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1; });
+                img.src = tab.dataset.src;
+                img.alt = tab.dataset.caption;
+                caption.textContent = tab.dataset.caption;
+                panel.setAttribute('aria-labelledby', tab.id);
+                if (focus) tab.focus();
+            }
+            tabs.forEach((tab, i) => {
+                tab.addEventListener('click', () => select(tab, false));
+                tab.addEventListener('keydown', e => {
+                    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+                        e.preventDefault();
+                        select(tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length], true);
+                    }
+                });
+            });
+            tabs.slice(1).forEach(t => { const pre = new Image(); pre.src = t.dataset.src; });
+        })();
+    </script>
+</body>
+</html>
