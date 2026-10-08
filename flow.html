@@ -45,8 +45,8 @@
                     "@type": "Offer",
                     "price": "0",
                     "priceCurrency": "USD",
-                    "availability": "https://schema.org/InDevelopment",
-                    "description": "Request early access"
+                    "availability": "https://schema.org/InStock",
+                    "description": "Free to install. Add to Chrome and start building Qualtrics dashboards with AI."
                 },
                 "featureList": [
                     "Conversational widget creation and updates",
@@ -167,9 +167,6 @@
     <meta name="robots" content="index, follow">
     <meta name="author" content="Pirai AI">
     <link rel="canonical" href="https://piraiai.com/flow">
-
-    <!-- reCAPTCHA -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -512,7 +509,7 @@
                 </span>
             </nav>
             <div class="header-right">
-                <a href="#demo" class="nav-cta">Request Access</a>
+                <a href="https://chromewebstore.google.com/detail/pdgmfkbimeedcfobepaeledfcampphfp" target="_blank" rel="noopener" class="nav-cta">Add to Chrome — Free</a>
             </div>
             <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
         </div>
@@ -528,7 +525,7 @@
             <li><a href="#video">Demo</a></li>
             <li><a href="#faq">FAQ</a></li>
             <li><a href="https://platform.piraiai.com" target="_blank" rel="noopener">Convert Now</a></li>
-            <li><a href="#demo">Request Access</a></li>
+            <li><a href="https://chromewebstore.google.com/detail/pdgmfkbimeedcfobepaeledfcampphfp" target="_blank" rel="noopener">Add to Chrome — Free</a></li>
         </ul>
     </div>
 
@@ -541,10 +538,10 @@
                     <p class="hero-tagline">A productivity layer for teams working with Qualtrics.</p>
                     <p class="hero-sub">Describe what you need, start from a proven layout, or reuse what you've already built. Flow helps your team build, configure, review and manage Qualtrics dashboards with less manual work.</p>
                     <div class="hero-ctas">
-                        <a href="#demo" class="btn-primary">Request Early Access</a>
+                        <a href="https://chromewebstore.google.com/detail/pdgmfkbimeedcfobepaeledfcampphfp" target="_blank" rel="noopener" class="btn-primary">Add to Chrome — It's Free</a>
                         <a href="#video" class="btn-secondary">Watch Demo</a>
                     </div>
-                    <p class="hero-note"><strong>No new analytics platform. No migration. No response data access.</strong> Flow works with the dashboard you're already building in Qualtrics. <a href="https://piraiai.com/privacy#flow" style="color: var(--purple-dark); font-weight: 600;">Learn more →</a></p>
+                    <p class="hero-note"><strong>Free to start. No new analytics platform. No migration. No response data access.</strong> Flow works inside the Qualtrics dashboard you're already building. <a href="https://piraiai.com/privacy#flow" style="color: var(--purple-dark); font-weight: 600;">Privacy →</a></p>
                 </div>
 
                 <div class="mockup-wrap">
@@ -879,87 +876,39 @@
         </div>
     </section>
 
-    <!-- Demo Request -->
+    <!-- Get Started -->
     <section id="demo" class="section demo-section">
         <div class="container">
             <div class="demo-grid">
                 <div class="demo-content">
-                    <h2>See how Flow fits into your dashboard workflow.</h2>
-                    <p>Pirai AI Flow is built specifically for teams working with Qualtrics dashboards. Request early access and see how it can reduce the time your team spends on manual dashboard configuration.</p>
+                    <h2>Start building faster today.</h2>
+                    <p>Pirai AI Flow is free to install and works immediately on any Qualtrics CX Dashboard or Results Dashboard. No setup, no migration, no data access required.</p>
                     <ul class="benefits-list">
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Early access to the beta programme</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Priority onboarding and setup support</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Direct input into the product roadmap</li>
-                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> First access to new features as they launch</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Free to start — install and use immediately</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Works on CX Dashboards and Results Dashboards</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> No new platform to learn — stays inside Qualtrics</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Your response data is never accessed or stored</li>
                     </ul>
                 </div>
 
                 <div>
-                    <div id="successMessage" class="success-message">
-                        <h3>Request received</h3>
-                        <p>Thank you for your interest in Pirai AI Flow. We'll be in touch with early access details as the beta programme opens.</p>
-                    </div>
-
-                    <div id="errorMessage" class="error-message">
-                        <h3>Submission error</h3>
-                        <p>We hit an issue processing your request. Please try again or email us directly at <a href="mailto:admin@piraiai.com" style="color:#b91c1c;font-weight:600;">admin@piraiai.com</a></p>
-                    </div>
-
-                    <div class="lead-form">
-                        <h3>Request Early Access</h3>
-                        <form id="demoForm" action="https://script.google.com/macros/s/AKfycbzV-TI-s-JN9GCdnVDeGK8uWtkjCZ-bfJ5mqJ-iwp1-KvcZLYfsxVxfeqXUHNjUStwxCg/exec" method="POST">
-                            <div class="form-group">
-                                <label for="name">Full Name *</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="email">Work Email *</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="organization">Organization *</label>
-                                <input type="text" id="organization" name="organization" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="role">Your Role</label>
-                                <select id="role" name="role">
-                                    <option value="">Select your role...</option>
-                                    <option value="Research Manager">Research Manager</option>
-                                    <option value="CX Director">CX Director</option>
-                                    <option value="Data Analyst">Data Analyst</option>
-                                    <option value="Qualtrics Admin">Qualtrics Admin</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="dashboards">How many dashboards do you build monthly?</label>
-                                <input type="text" id="dashboards" name="dashboards" placeholder="e.g., 5-10 dashboards">
-                            </div>
-
-                            <input type="hidden" name="product" value="Pirai AI Flow">
-                            <input type="hidden" name="timestamp" id="timestamp">
-                            <input type="hidden" name="source" value="flow_landing_page">
-
-                            <!-- Honeypot field -->
-                            <input type="text" name="website" style="display: none;" tabindex="-1" autocomplete="off">
-
-                            <!-- reCAPTCHA Widget -->
-                            <div class="recaptcha-container">
-                                <div class="g-recaptcha"
-                                    data-sitekey="6LdyFYsrAAAAAM2Ri3hmTptTNXRNyUdzi3yIa4g0"
-                                    data-callback="enableSubmit"
-                                    data-expired-callback="disableSubmit">
-                                </div>
-                            </div>
-
-                            <button type="submit" id="submitBtn" class="submit-btn" disabled>
-                                Request Early Access
-                            </button>
-                        </form>
+                    <div class="lead-form" style="text-align:center;">
+                        <div style="width:56px;height:56px;background:var(--app-grad);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        </div>
+                        <h3 style="margin-bottom:8px;">Pirai AI Flow</h3>
+                        <p style="font-size:14px;color:var(--text-muted);margin-bottom:24px;">Free Chrome extension for Qualtrics dashboard teams</p>
+                        <a href="https://chromewebstore.google.com/detail/pdgmfkbimeedcfobepaeledfcampphfp" target="_blank" rel="noopener"
+                           style="display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:var(--purple);color:#fff;padding:14px 20px;border-radius:9px;font-size:15.5px;font-weight:700;text-decoration:none;transition:background .2s;margin-bottom:14px;"
+                           onmouseover="this.style.background='var(--purple-dark)'" onmouseout="this.style.background='var(--purple)'">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM11 7h2v2h-2V7zm0 4h2v6h-2v-6z"/></svg>
+                            Add to Chrome — It's Free
+                        </a>
+                        <p style="font-size:12.5px;color:var(--text-muted);margin-bottom:20px;">Free plan available · Upgrade for full access</p>
+                        <div style="border-top:1px solid var(--border);padding-top:18px;">
+                            <p style="font-size:13px;color:var(--text-secondary);margin-bottom:6px;">Questions about enterprise or team plans?</p>
+                            <a href="mailto:admin@piraiai.com" style="color:var(--purple-dark);font-weight:600;font-size:13.5px;text-decoration:none;">admin@piraiai.com</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -980,7 +929,7 @@
                     </p>
                     <div class="footer-contact">
                         <p style="margin-bottom: 6px;"><strong style="color: var(--ink);">Contact:</strong> <a href="mailto:admin@piraiai.com">admin@piraiai.com</a></p>
-                        <p><strong style="color: var(--green);">Early Access:</strong> Join our beta programme</p>
+                        <p><strong style="color: var(--green);">Free to install:</strong> <a href="https://chromewebstore.google.com/detail/pdgmfkbimeedcfobepaeledfcampphfp" target="_blank" rel="noopener" style="color:var(--purple-dark);font-weight:600;">Add to Chrome →</a></p>
                     </div>
                 </div>
 
@@ -992,7 +941,7 @@
                         <li><a href="#features">Features</a></li>
                         <li><a href="#video">Demo</a></li>
                         <li><a href="#faq">FAQ</a></li>
-                        <li><a href="#demo">Request Access</a></li>
+                        <li><a href="https://chromewebstore.google.com/detail/pdgmfkbimeedcfobepaeledfcampphfp" target="_blank" rel="noopener">Add to Chrome — Free</a></li>
                     </ul>
                 </div>
 
@@ -1037,41 +986,6 @@
     </footer>
 
     <script>
-        document.getElementById('timestamp').value = new Date().toISOString();
-
-        function enableSubmit() { document.getElementById('submitBtn').disabled = false; }
-        function disableSubmit() { document.getElementById('submitBtn').disabled = true; }
-
-        document.getElementById('demoForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const submitBtn = document.getElementById('submitBtn');
-            const successMessage = document.getElementById('successMessage');
-            const errorMessage = document.getElementById('errorMessage');
-
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Submitting...';
-            successMessage.classList.remove('show');
-            errorMessage.classList.remove('show');
-
-            const formData = new FormData(this);
-            fetch(this.action, { method: 'POST', body: formData })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.result === 'success') {
-                        successMessage.classList.add('show');
-                        this.reset();
-                        if (window.grecaptcha) grecaptcha.reset();
-                    } else {
-                        errorMessage.classList.add('show');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    errorMessage.classList.add('show');
-                })
-                .finally(() => { submitBtn.textContent = 'Request Early Access'; });
-        });
-
         // Hero mockup — cycles through three real Flow interactions so the hero
         // isn't only showing the layout-template flow. Each scene swaps fresh DOM
         // into #mockupBody, which naturally restarts the bubbleIn/rowIn CSS
